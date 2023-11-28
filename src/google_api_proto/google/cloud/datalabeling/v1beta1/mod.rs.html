@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/datalabeling/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/datalabeling/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -4122,6 +4122,299 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
 }
+<span class="doccomment">/// Configuration for how human labeling task should be done.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>HumanAnnotationConfig {
+    <span class="doccomment">/// Required. Instruction resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instruction: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. A human-readable name for AnnotatedDataset defined by
+    /// users. Maximum of 64 characters
+    /// .
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>annotated_dataset_display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A human-readable description for AnnotatedDataset.
+    /// The description can be up to 10000 characters long.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>annotated_dataset_description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A human-readable label used to logically group labeling tasks.
+    /// This string must match the regular expression `\[a-zA-Z\\d_-\]{0,128}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>label_group: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The Language of this question, as a
+    /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;).
+    /// Default value is en-US.
+    /// Only need to set this when task is language related. For example, French
+    /// text classification.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Replication of questions. Each question will be sent to up to
+    /// this number of contributors to label. Aggregated answers will be returned.
+    /// Default is set to 1.
+    /// For image related labeling, valid values are 1, 3, 5.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>replica_count: i32,
+    <span class="doccomment">/// Optional. Maximum duration for contributors to answer a question. Maximum
+    /// is 3600 seconds. Default is 3600 seconds.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>question_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    <span class="doccomment">/// Optional. If you want your own labeling contributors to manage and work on
+    /// this labeling request, you can set these contributors here. We will give
+    /// them access to the question types in crowdcompute. Note that these
+    /// emails must be registered in crowdcompute worker UI:
+    /// &lt;https://crowd-compute.appspot.com/&gt;
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>contributor_emails: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Email of the user who started the labeling task and should be notified by
+    /// email. If empty no notification will be sent.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>user_email_address: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Config for image classification human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageClassificationConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to choose
+    /// multiple labels for one image.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>allow_multi_label: bool,
+    <span class="doccomment">/// Optional. The type of how to aggregate answers.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;StringAggregationType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>answer_aggregation_type: i32,
+}
+<span class="doccomment">/// Config for image bounding poly (and bounding box) human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BoundingPolyConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Instruction message showed on contributors UI.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Config for image polyline human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PolylineConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Instruction message showed on contributors UI.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Config for image segmentation
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SegmentationConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name. format:
+    /// projects/{project_id}/annotationSpecSets/{annotation_spec_set_id}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Instruction message showed on labelers UI.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Config for video classification human labeling task.
+/// Currently two types of video classification are supported:
+/// 1. Assign labels on the entire video.
+/// 2. Split the video into multiple video clips based on camera shot, and
+/// assign labels on each video clip.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VideoClassificationConfig {
+    <span class="doccomment">/// Required. The list of annotation spec set configs.
+    /// Since watching a video clip takes much longer time than an image, we
+    /// support label with multiple AnnotationSpecSet at the same time. Labels
+    /// in each AnnotationSpecSet will be shown in a group to contributors.
+    /// Contributors can select one or more (depending on whether to allow multi
+    /// label) from each group.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set_configs: ::prost::alloc::vec::Vec&lt;
+        video_classification_config::AnnotationSpecSetConfig,
+    &gt;,
+    <span class="doccomment">/// Optional. Option to apply shot detection on the video.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>apply_shot_detection: bool,
+}
+<span class="doccomment">/// Nested message and enum types in `VideoClassificationConfig`.
+</span><span class="kw">pub mod </span>video_classification_config {
+    <span class="doccomment">/// Annotation spec set with the setting of allowing multi labels or not.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>AnnotationSpecSetConfig {
+        <span class="doccomment">/// Required. Annotation spec set resource name.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+        <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to
+        /// choose multiple labels from one annotation spec set.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>allow_multi_label: bool,
+    }
+}
+<span class="doccomment">/// Config for video object detection human labeling task.
+/// Object detection will be conducted on the images extracted from the video,
+/// and those objects will be labeled with bounding boxes.
+/// User need to specify the number of images to be extracted per second as the
+/// extraction frame rate.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ObjectDetectionConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Number of frames per second to be extracted from the video.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>extraction_frame_rate: f64,
+}
+<span class="doccomment">/// Config for video object tracking human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ObjectTrackingConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Config for video event human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EventConfig {
+    <span class="doccomment">/// Required. The list of annotation spec set resource name. Similar to video
+    /// classification, we support selecting event from multiple AnnotationSpecSet
+    /// at the same time.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_sets: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Config for text classification human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextClassificationConfig {
+    <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to choose
+    /// multiple labels for one text segment.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>allow_multi_label: bool,
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Configs for sentiment selection.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>sentiment_config: ::core::option::Option&lt;SentimentConfig&gt;,
+}
+<span class="doccomment">/// Config for setting up sentiments.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SentimentConfig {
+    <span class="doccomment">/// If set to true, contributors will have the option to select sentiment of
+    /// the label they selected, to mark it as negative or positive label. Default
+    /// is false.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>enable_label_sentiment_selection: bool,
+}
+<span class="doccomment">/// Config for text entity extraction human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextEntityExtractionConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+}
+<span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>StringAggregationType {
+    Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Majority vote to aggregate answers.
+    </span>MajorityVote = <span class="number">1</span>,
+    <span class="doccomment">/// Unanimous answers will be adopted.
+    </span>UnanimousVote = <span class="number">2</span>,
+    <span class="doccomment">/// Preserve all answers by crowd compute.
+    </span>NoAggregation = <span class="number">3</span>,
+}
+<span class="kw">impl </span>StringAggregationType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            StringAggregationType::Unspecified =&gt; <span class="string">&quot;STRING_AGGREGATION_TYPE_UNSPECIFIED&quot;</span>,
+            StringAggregationType::MajorityVote =&gt; <span class="string">&quot;MAJORITY_VOTE&quot;</span>,
+            StringAggregationType::UnanimousVote =&gt; <span class="string">&quot;UNANIMOUS_VOTE&quot;</span>,
+            StringAggregationType::NoAggregation =&gt; <span class="string">&quot;NO_AGGREGATION&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;STRING_AGGREGATION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;MAJORITY_VOTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MajorityVote),
+            <span class="string">&quot;UNANIMOUS_VOTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnanimousVote),
+            <span class="string">&quot;NO_AGGREGATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoAggregation),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Container of information about an image.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImagePayload {
+    <span class="doccomment">/// Image format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// A byte string of a thumbnail image.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>image_thumbnail: ::prost::bytes::Bytes,
+    <span class="doccomment">/// Image uri from the user bucket.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>image_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Signed uri of the image file in the service bucket.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>signed_uri: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Container of information about a piece of text.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextPayload {
+    <span class="doccomment">/// Text content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>text_content: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Container of information of a video thumbnail.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VideoThumbnail {
+    <span class="doccomment">/// A byte string of the video frame.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>thumbnail: ::prost::bytes::Bytes,
+    <span class="doccomment">/// Time offset relative to the beginning of the video, corresponding to the
+    /// video frame where the thumbnail has been extracted from.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
+}
+<span class="doccomment">/// Container of information of a video.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VideoPayload {
+    <span class="doccomment">/// Video format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Video uri from the user bucket.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>video_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// The list of video thumbnails.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>video_thumbnails: ::prost::alloc::vec::Vec&lt;VideoThumbnail&gt;,
+    <span class="doccomment">/// FPS of the video.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>frame_rate: f32,
+    <span class="doccomment">/// Signed uri of the video file in the service bucket.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>signed_uri: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// Annotation for Example. Each example may have one or more annotations. For
 /// example in image classification problem, each image might have one or more
 /// labels. We call labels binded with this image an Annotation.
@@ -4626,299 +4919,6 @@
         }
     }
 }
-<span class="doccomment">/// Container of information about an image.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImagePayload {
-    <span class="doccomment">/// Image format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// A byte string of a thumbnail image.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>image_thumbnail: ::prost::bytes::Bytes,
-    <span class="doccomment">/// Image uri from the user bucket.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>image_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Signed uri of the image file in the service bucket.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>signed_uri: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Container of information about a piece of text.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextPayload {
-    <span class="doccomment">/// Text content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>text_content: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Container of information of a video thumbnail.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoThumbnail {
-    <span class="doccomment">/// A byte string of the video frame.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>thumbnail: ::prost::bytes::Bytes,
-    <span class="doccomment">/// Time offset relative to the beginning of the video, corresponding to the
-    /// video frame where the thumbnail has been extracted from.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
-}
-<span class="doccomment">/// Container of information of a video.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoPayload {
-    <span class="doccomment">/// Video format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Video uri from the user bucket.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>video_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// The list of video thumbnails.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>video_thumbnails: ::prost::alloc::vec::Vec&lt;VideoThumbnail&gt;,
-    <span class="doccomment">/// FPS of the video.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>frame_rate: f32,
-    <span class="doccomment">/// Signed uri of the video file in the service bucket.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>signed_uri: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Configuration for how human labeling task should be done.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>HumanAnnotationConfig {
-    <span class="doccomment">/// Required. Instruction resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>instruction: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. A human-readable name for AnnotatedDataset defined by
-    /// users. Maximum of 64 characters
-    /// .
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>annotated_dataset_display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A human-readable description for AnnotatedDataset.
-    /// The description can be up to 10000 characters long.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>annotated_dataset_description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A human-readable label used to logically group labeling tasks.
-    /// This string must match the regular expression `\[a-zA-Z\\d_-\]{0,128}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>label_group: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The Language of this question, as a
-    /// \[BCP-47\](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;).
-    /// Default value is en-US.
-    /// Only need to set this when task is language related. For example, French
-    /// text classification.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Replication of questions. Each question will be sent to up to
-    /// this number of contributors to label. Aggregated answers will be returned.
-    /// Default is set to 1.
-    /// For image related labeling, valid values are 1, 3, 5.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>replica_count: i32,
-    <span class="doccomment">/// Optional. Maximum duration for contributors to answer a question. Maximum
-    /// is 3600 seconds. Default is 3600 seconds.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>question_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    <span class="doccomment">/// Optional. If you want your own labeling contributors to manage and work on
-    /// this labeling request, you can set these contributors here. We will give
-    /// them access to the question types in crowdcompute. Note that these
-    /// emails must be registered in crowdcompute worker UI:
-    /// &lt;https://crowd-compute.appspot.com/&gt;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>contributor_emails: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Email of the user who started the labeling task and should be notified by
-    /// email. If empty no notification will be sent.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>user_email_address: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Config for image classification human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageClassificationConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to choose
-    /// multiple labels for one image.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>allow_multi_label: bool,
-    <span class="doccomment">/// Optional. The type of how to aggregate answers.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;StringAggregationType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>answer_aggregation_type: i32,
-}
-<span class="doccomment">/// Config for image bounding poly (and bounding box) human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BoundingPolyConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Instruction message showed on contributors UI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Config for image polyline human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PolylineConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Instruction message showed on contributors UI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Config for image segmentation
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SegmentationConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name. format:
-    /// projects/{project_id}/annotationSpecSets/{annotation_spec_set_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Instruction message showed on labelers UI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Config for video classification human labeling task.
-/// Currently two types of video classification are supported:
-/// 1. Assign labels on the entire video.
-/// 2. Split the video into multiple video clips based on camera shot, and
-/// assign labels on each video clip.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoClassificationConfig {
-    <span class="doccomment">/// Required. The list of annotation spec set configs.
-    /// Since watching a video clip takes much longer time than an image, we
-    /// support label with multiple AnnotationSpecSet at the same time. Labels
-    /// in each AnnotationSpecSet will be shown in a group to contributors.
-    /// Contributors can select one or more (depending on whether to allow multi
-    /// label) from each group.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set_configs: ::prost::alloc::vec::Vec&lt;
-        video_classification_config::AnnotationSpecSetConfig,
-    &gt;,
-    <span class="doccomment">/// Optional. Option to apply shot detection on the video.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>apply_shot_detection: bool,
-}
-<span class="doccomment">/// Nested message and enum types in `VideoClassificationConfig`.
-</span><span class="kw">pub mod </span>video_classification_config {
-    <span class="doccomment">/// Annotation spec set with the setting of allowing multi labels or not.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>AnnotationSpecSetConfig {
-        <span class="doccomment">/// Required. Annotation spec set resource name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-        <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to
-        /// choose multiple labels from one annotation spec set.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>allow_multi_label: bool,
-    }
-}
-<span class="doccomment">/// Config for video object detection human labeling task.
-/// Object detection will be conducted on the images extracted from the video,
-/// and those objects will be labeled with bounding boxes.
-/// User need to specify the number of images to be extracted per second as the
-/// extraction frame rate.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ObjectDetectionConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Number of frames per second to be extracted from the video.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>extraction_frame_rate: f64,
-}
-<span class="doccomment">/// Config for video object tracking human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ObjectTrackingConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Config for video event human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EventConfig {
-    <span class="doccomment">/// Required. The list of annotation spec set resource name. Similar to video
-    /// classification, we support selecting event from multiple AnnotationSpecSet
-    /// at the same time.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_sets: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Config for text classification human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextClassificationConfig {
-    <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to choose
-    /// multiple labels for one text segment.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>allow_multi_label: bool,
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Configs for sentiment selection.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>sentiment_config: ::core::option::Option&lt;SentimentConfig&gt;,
-}
-<span class="doccomment">/// Config for setting up sentiments.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SentimentConfig {
-    <span class="doccomment">/// If set to true, contributors will have the option to select sentiment of
-    /// the label they selected, to mark it as negative or positive label. Default
-    /// is false.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>enable_label_sentiment_selection: bool,
-}
-<span class="doccomment">/// Config for text entity extraction human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextEntityExtractionConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-}
-<span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>StringAggregationType {
-    Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Majority vote to aggregate answers.
-    </span>MajorityVote = <span class="number">1</span>,
-    <span class="doccomment">/// Unanimous answers will be adopted.
-    </span>UnanimousVote = <span class="number">2</span>,
-    <span class="doccomment">/// Preserve all answers by crowd compute.
-    </span>NoAggregation = <span class="number">3</span>,
-}
-<span class="kw">impl </span>StringAggregationType {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            StringAggregationType::Unspecified =&gt; <span class="string">&quot;STRING_AGGREGATION_TYPE_UNSPECIFIED&quot;</span>,
-            StringAggregationType::MajorityVote =&gt; <span class="string">&quot;MAJORITY_VOTE&quot;</span>,
-            StringAggregationType::UnanimousVote =&gt; <span class="string">&quot;UNANIMOUS_VOTE&quot;</span>,
-            StringAggregationType::NoAggregation =&gt; <span class="string">&quot;NO_AGGREGATION&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;STRING_AGGREGATION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MAJORITY_VOTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MajorityVote),
-            <span class="string">&quot;UNANIMOUS_VOTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnanimousVote),
-            <span class="string">&quot;NO_AGGREGATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoAggregation),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
 <span class="doccomment">/// Dataset is the resource to hold your data. You can request multiple labeling
 /// tasks for a dataset while each one will generate an AnnotatedDataset.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4960,11 +4960,11 @@
     </span><span class="kw">pub </span>data_type: i32,
     <span class="doccomment">/// Optional. The type of annotation to be performed on this data. You must
     /// specify this field if you are using this InputConfig in an
-    /// \[EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob\].
+    /// [EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AnnotationType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>annotation_type: i32,
     <span class="doccomment">/// Optional. Metadata about annotations for the input. You must specify this
-    /// field if you are using this InputConfig in an \[EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob\] for a
+    /// field if you are using this InputConfig in an [EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob] for a
     /// model version that performs classification.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>classification_metadata: ::core::option::Option&lt;ClassificationMetadata&gt;,
@@ -4993,7 +4993,7 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
         </span>GcsSource(<span class="kw">super</span>::GcsSource),
         <span class="doccomment">/// Source located in BigQuery. You must specify this field if you are using
-        /// this InputConfig in an \[EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob\].
+        /// this InputConfig in an [EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob].
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
         </span>BigquerySource(<span class="kw">super</span>::BigQuerySource),
     }
@@ -5003,7 +5003,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TextMetadata {
     <span class="doccomment">/// The language of this text, as a
-    /// \[BCP-47\](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;).
+    /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;).
     /// Default value is en-US.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
@@ -5028,7 +5028,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The BigQuery location for input data. If used in an \[EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob\], this
+<span class="doccomment">/// The BigQuery location for input data. If used in an [EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob], this
 /// is where the service saves the prediction input and output sampled from the
 /// model version.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5037,7 +5037,7 @@
     <span class="doccomment">/// Required. BigQuery URI to a table, up to 2,000 characters long. If you
     /// specify the URI of a table that does not exist, Data Labeling Service
     /// creates a table at the URI with the correct schema when you create your
-    /// \[EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob\]. If you specify the URI of a table that already exists,
+    /// [EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob]. If you specify the URI of a table that already exists,
     /// it must have the
     /// [correct
     /// schema](/ml-engine/docs/continuous-evaluation/create-job#table-schema).
@@ -5319,7 +5319,7 @@
     }
 }
 <span class="doccomment">/// Describes an evaluation between a machine learning model&#39;s predictions and
-/// ground truth labels. Created when an \[EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob\] runs successfully.
+/// ground truth labels. Created when an [EvaluationJob][google.cloud.datalabeling.v1beta1.EvaluationJob] runs successfully.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Evaluation {
@@ -5346,7 +5346,7 @@
     <span class="doccomment">/// Output only. Type of task that the model version being evaluated performs,
     /// as defined in the
     ///
-    /// \[evaluationJobConfig.inputConfig.annotationType][google.cloud.datalabeling.v1beta1.EvaluationJobConfig.input_config\]
+    /// [evaluationJobConfig.inputConfig.annotationType][google.cloud.datalabeling.v1beta1.EvaluationJobConfig.input_config]
     /// field of the evaluation job that created this evaluation.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AnnotationType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>annotation_type: i32,
@@ -5357,7 +5357,7 @@
     </span><span class="kw">pub </span>evaluated_item_count: i64,
 }
 <span class="doccomment">/// Configuration details used for calculating evaluation metrics and creating an
-/// \[Evaluation][google.cloud.datalabeling.v1beta1.Evaluation\].
+/// [Evaluation][google.cloud.datalabeling.v1beta1.Evaluation].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EvaluationConfig {
@@ -5486,7 +5486,7 @@
         <span class="doccomment">/// Precision value for entries with label that has highest score.
         </span><span class="attr">#[prost(float, tag = <span class="string">&quot;6&quot;</span>)]
         </span><span class="kw">pub </span>precision_at1: f32,
-        <span class="doccomment">/// The harmonic mean of \[recall_at1][google.cloud.datalabeling.v1beta1.PrCurve.ConfidenceMetricsEntry.recall_at1\] and \[precision_at1][google.cloud.datalabeling.v1beta1.PrCurve.ConfidenceMetricsEntry.precision_at1\].
+        <span class="doccomment">/// The harmonic mean of [recall_at1][google.cloud.datalabeling.v1beta1.PrCurve.ConfidenceMetricsEntry.recall_at1] and [precision_at1][google.cloud.datalabeling.v1beta1.PrCurve.ConfidenceMetricsEntry.precision_at1].
         </span><span class="attr">#[prost(float, tag = <span class="string">&quot;7&quot;</span>)]
         </span><span class="kw">pub </span>f1_score_at1: f32,
         <span class="doccomment">/// Recall value for entries with label that has highest 5 scores.
@@ -5495,7 +5495,7 @@
         <span class="doccomment">/// Precision value for entries with label that has highest 5 scores.
         </span><span class="attr">#[prost(float, tag = <span class="string">&quot;9&quot;</span>)]
         </span><span class="kw">pub </span>precision_at5: f32,
-        <span class="doccomment">/// The harmonic mean of \[recall_at5][google.cloud.datalabeling.v1beta1.PrCurve.ConfidenceMetricsEntry.recall_at5\] and \[precision_at5][google.cloud.datalabeling.v1beta1.PrCurve.ConfidenceMetricsEntry.precision_at5\].
+        <span class="doccomment">/// The harmonic mean of [recall_at5][google.cloud.datalabeling.v1beta1.PrCurve.ConfidenceMetricsEntry.recall_at5] and [precision_at5][google.cloud.datalabeling.v1beta1.PrCurve.ConfidenceMetricsEntry.precision_at5].
         </span><span class="attr">#[prost(float, tag = <span class="string">&quot;10&quot;</span>)]
         </span><span class="kw">pub </span>f1_score_at5: f32,
     }
@@ -5537,7 +5537,7 @@
     }
 }
 <span class="doccomment">/// Defines an evaluation job that runs periodically to generate
-/// \[Evaluations][google.cloud.datalabeling.v1beta1.Evaluation\]. [Creating an evaluation
+/// [Evaluations][google.cloud.datalabeling.v1beta1.Evaluation]. [Creating an evaluation
 /// job](/ml-engine/docs/continuous-evaluation/create-job) is the starting point
 /// for using continuous evaluation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5582,7 +5582,7 @@
     <span class="doccomment">/// Required. Configuration details for the evaluation job.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>evaluation_job_config: ::core::option::Option&lt;EvaluationJobConfig&gt;,
-    <span class="doccomment">/// Required. Name of the \[AnnotationSpecSet][google.cloud.datalabeling.v1beta1.AnnotationSpecSet\] describing all the
+    <span class="doccomment">/// Required. Name of the [AnnotationSpecSet][google.cloud.datalabeling.v1beta1.AnnotationSpecSet] describing all the
     /// labels that your machine learning model outputs. You must create this
     /// resource before you create an evaluation job and provide its name in the
     /// following format:
@@ -5622,9 +5622,9 @@
     #[repr(i32)]
     </span><span class="kw">pub enum </span>State {
         Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The job is scheduled to run at the [configured interval]\[google.cloud.datalabeling.v1beta1.EvaluationJob.schedule\]. You
-        /// can \[pause][google.cloud.datalabeling.v1beta1.DataLabelingService.PauseEvaluationJob\] or
-        /// \[delete][google.cloud.datalabeling.v1beta1.DataLabelingService.DeleteEvaluationJob\] the job.
+        <span class="doccomment">/// The job is scheduled to run at the [configured interval][google.cloud.datalabeling.v1beta1.EvaluationJob.schedule]. You
+        /// can [pause][google.cloud.datalabeling.v1beta1.DataLabelingService.PauseEvaluationJob] or
+        /// [delete][google.cloud.datalabeling.v1beta1.DataLabelingService.DeleteEvaluationJob] the job.
         ///
         /// When the job is in this state, it samples prediction input and output
         /// from your model version into your BigQuery table as predictions occur.
@@ -5634,7 +5634,7 @@
         ///
         /// 1. If you have configured your job to use Data Labeling Service for
         ///     ground truth labeling, the service creates a
-        ///     \[Dataset][google.cloud.datalabeling.v1beta1.Dataset\] and a labeling task for all data sampled
+        ///     [Dataset][google.cloud.datalabeling.v1beta1.Dataset] and a labeling task for all data sampled
         ///     since the last time the job ran. Human labelers provide ground truth
         ///     labels for your data. Human labeling may take hours, or even days,
         ///     depending on how much data has been sampled. The job remains in the
@@ -5644,12 +5644,12 @@
         ///     finished labeling the data, the next step occurs.
         ///     &lt;br&gt;&lt;br&gt;
         ///     If you have configured your job to provide your own ground truth
-        ///     labels, Data Labeling Service still creates a \[Dataset][google.cloud.datalabeling.v1beta1.Dataset\] for newly
+        ///     labels, Data Labeling Service still creates a [Dataset][google.cloud.datalabeling.v1beta1.Dataset] for newly
         ///     sampled data, but it expects that you have already added ground truth
         ///     labels to the BigQuery table by this time. The next step occurs
         ///     immediately.
         ///
-        /// 2. Data Labeling Service creates an \[Evaluation][google.cloud.datalabeling.v1beta1.Evaluation\] by comparing your
+        /// 2. Data Labeling Service creates an [Evaluation][google.cloud.datalabeling.v1beta1.Evaluation] by comparing your
         ///     model version&#39;s predictions with the ground truth labels.
         ///
         /// If the job remains in this state for a long time, it continues to sample
@@ -5658,7 +5658,7 @@
         </span>Running = <span class="number">2</span>,
         <span class="doccomment">/// The job is not sampling prediction input and output into your BigQuery
         /// table and it will not run according to its schedule. You can
-        /// \[resume][google.cloud.datalabeling.v1beta1.DataLabelingService.ResumeEvaluationJob\] the job.
+        /// [resume][google.cloud.datalabeling.v1beta1.DataLabelingService.ResumeEvaluationJob] the job.
         </span>Paused = <span class="number">3</span>,
         <span class="doccomment">/// The job has this state right before it is deleted.
         </span>Stopped = <span class="number">4</span>,
@@ -5708,18 +5708,18 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
     <span class="doccomment">/// Required. Details for calculating evaluation metrics and creating
-    /// \[Evaulations][google.cloud.datalabeling.v1beta1.Evaluation\]. If your model version performs image object
+    /// [Evaulations][google.cloud.datalabeling.v1beta1.Evaluation]. If your model version performs image object
     /// detection, you must specify the `boundingBoxEvaluationOptions` field within
     /// this configuration. Otherwise, provide an empty object for this
     /// configuration.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>evaluation_config: ::core::option::Option&lt;EvaluationConfig&gt;,
     <span class="doccomment">/// Optional. Details for human annotation of your data. If you set
-    /// \[labelMissingGroundTruth][google.cloud.datalabeling.v1beta1.EvaluationJob.label_missing_ground_truth\] to
+    /// [labelMissingGroundTruth][google.cloud.datalabeling.v1beta1.EvaluationJob.label_missing_ground_truth] to
     /// `true` for this evaluation job, then you must specify this field. If you
     /// plan to provide your own ground truth labels, then omit this field.
     ///
-    /// Note that you must create an \[Instruction][google.cloud.datalabeling.v1beta1.Instruction\] resource before you can
+    /// Note that you must create an [Instruction][google.cloud.datalabeling.v1beta1.Instruction] resource before you can
     /// specify this field. Provide the name of the instruction resource in the
     /// `instruction` field within this configuration.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
@@ -5749,14 +5749,14 @@
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Required. The maximum number of predictions to sample and save to BigQuery
-    /// during each [evaluation interval]\[google.cloud.datalabeling.v1beta1.EvaluationJob.schedule\]. This limit
+    /// during each [evaluation interval][google.cloud.datalabeling.v1beta1.EvaluationJob.schedule]. This limit
     /// overrides `example_sample_percentage`: even if the service has not sampled
     /// enough predictions to fulfill `example_sample_perecentage` during an
     /// interval, it stops sampling predictions when it meets this limit.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>example_count: i32,
     <span class="doccomment">/// Required. Fraction of predictions to sample and save to BigQuery during
-    /// each [evaluation interval]\[google.cloud.datalabeling.v1beta1.EvaluationJob.schedule\]. For example, 0.1 means
+    /// each [evaluation interval][google.cloud.datalabeling.v1beta1.EvaluationJob.schedule]. For example, 0.1 means
     /// 10% of predictions served by your model version get saved to BigQuery.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>example_sample_percentage: f64,
@@ -5786,24 +5786,24 @@
         /// general classification.
         ///
         /// `annotationSpecSet` in this configuration must match
-        /// \[EvaluationJob.annotationSpecSet][google.cloud.datalabeling.v1beta1.EvaluationJob.annotation_spec_set\].
+        /// [EvaluationJob.annotationSpecSet][google.cloud.datalabeling.v1beta1.EvaluationJob.annotation_spec_set].
         /// `allowMultiLabel` in this configuration must match
-        /// `classificationMetadata.isMultiLabel` in \[input_config][google.cloud.datalabeling.v1beta1.EvaluationJobConfig.input_config\].
+        /// `classificationMetadata.isMultiLabel` in [input_config][google.cloud.datalabeling.v1beta1.EvaluationJobConfig.input_config].
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
         </span>ImageClassificationConfig(<span class="kw">super</span>::ImageClassificationConfig),
         <span class="doccomment">/// Specify this field if your model version performs image object detection
         /// (bounding box detection).
         ///
         /// `annotationSpecSet` in this configuration must match
-        /// \[EvaluationJob.annotationSpecSet][google.cloud.datalabeling.v1beta1.EvaluationJob.annotation_spec_set\].
+        /// [EvaluationJob.annotationSpecSet][google.cloud.datalabeling.v1beta1.EvaluationJob.annotation_spec_set].
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
         </span>BoundingPolyConfig(<span class="kw">super</span>::BoundingPolyConfig),
         <span class="doccomment">/// Specify this field if your model version performs text classification.
         ///
         /// `annotationSpecSet` in this configuration must match
-        /// \[EvaluationJob.annotationSpecSet][google.cloud.datalabeling.v1beta1.EvaluationJob.annotation_spec_set\].
+        /// [EvaluationJob.annotationSpecSet][google.cloud.datalabeling.v1beta1.EvaluationJob.annotation_spec_set].
         /// `allowMultiLabel` in this configuration must match
-        /// `classificationMetadata.isMultiLabel` in \[input_config][google.cloud.datalabeling.v1beta1.EvaluationJobConfig.input_config\].
+        /// `classificationMetadata.isMultiLabel` in [input_config][google.cloud.datalabeling.v1beta1.EvaluationJobConfig.input_config].
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
         </span>TextClassificationConfig(<span class="kw">super</span>::TextClassificationConfig),
     }
@@ -5819,7 +5819,7 @@
     <span class="doccomment">/// Required. A number between 0 and 1 that describes a minimum mean average
     /// precision threshold. When the evaluation job runs, if it calculates that
     /// your model version&#39;s predictions from the recent interval have
-    /// \[meanAveragePrecision][google.cloud.datalabeling.v1beta1.PrCurve.mean_average_precision\] below this
+    /// [meanAveragePrecision][google.cloud.datalabeling.v1beta1.PrCurve.mean_average_precision] below this
     /// threshold, then it sends an alert to your specified email.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>min_acceptable_mean_average_precision: f64,
@@ -5932,7 +5932,7 @@
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results for the server to return.
     /// Typically obtained by
-    /// \[ListDatasetsResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListDatasetsResponse.next_page_token\] of the previous
+    /// [ListDatasetsResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListDatasetsResponse.next_page_token] of the previous
     /// \[DataLabelingService.ListDatasets\] call.
     /// Returns the first page if empty.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
@@ -6026,7 +6026,7 @@
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results for the server to return.
     /// Typically obtained by
-    /// \[ListDataItemsResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListDataItemsResponse.next_page_token\] of the previous
+    /// [ListDataItemsResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListDataItemsResponse.next_page_token] of the previous
     /// \[DataLabelingService.ListDataItems\] call.
     /// Return first page if empty.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
@@ -6070,7 +6070,7 @@
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results for the server to return.
     /// Typically obtained by
-    /// \[ListAnnotatedDatasetsResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListAnnotatedDatasetsResponse.next_page_token\] of the previous
+    /// [ListAnnotatedDatasetsResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListAnnotatedDatasetsResponse.next_page_token] of the previous
     /// \[DataLabelingService.ListAnnotatedDatasets\] call.
     /// Return first page if empty.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
@@ -6419,7 +6419,7 @@
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results for the server to return.
     /// Typically obtained by
-    /// \[ListExamplesResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListExamplesResponse.next_page_token\] of the previous
+    /// [ListExamplesResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListExamplesResponse.next_page_token] of the previous
     /// \[DataLabelingService.ListExamples\] call.
     /// Return first page if empty.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
@@ -6476,7 +6476,7 @@
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results for the server to return.
     /// Typically obtained by
-    /// \[ListAnnotationSpecSetsResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListAnnotationSpecSetsResponse.next_page_token\] of the previous
+    /// [ListAnnotationSpecSetsResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListAnnotationSpecSetsResponse.next_page_token] of the previous
     /// \[DataLabelingService.ListAnnotationSpecSets\] call.
     /// Return first page if empty.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
@@ -6549,7 +6549,7 @@
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results for the server to return.
     /// Typically obtained by
-    /// \[ListInstructionsResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListInstructionsResponse.next_page_token\] of the previous
+    /// [ListInstructionsResponse.next_page_token][google.cloud.datalabeling.v1beta1.ListInstructionsResponse.next_page_token] of the previous
     /// \[DataLabelingService.ListInstructions\] call.
     /// Return first page if empty.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
@@ -6587,21 +6587,21 @@
     <span class="doccomment">/// Optional. To search evaluations, you can filter by the following:
     ///
     /// * evaluation&lt;span&gt;_&lt;/span&gt;job.evaluation_job_id (the last part of
-    ///    \[EvaluationJob.name][google.cloud.datalabeling.v1beta1.EvaluationJob.name\])
+    ///    [EvaluationJob.name][google.cloud.datalabeling.v1beta1.EvaluationJob.name])
     /// * evaluation&lt;span&gt;_&lt;/span&gt;job.model_id (the &lt;var&gt;{model_name}&lt;/var&gt; portion
-    ///    of \[EvaluationJob.modelVersion][google.cloud.datalabeling.v1beta1.EvaluationJob.model_version\])
+    ///    of [EvaluationJob.modelVersion][google.cloud.datalabeling.v1beta1.EvaluationJob.model_version])
     /// * evaluation&lt;span&gt;_&lt;/span&gt;job.evaluation_job_run_time_start (Minimum
     ///    threshold for the
-    ///    \[evaluationJobRunTime][google.cloud.datalabeling.v1beta1.Evaluation.evaluation_job_run_time\] that created
+    ///    [evaluationJobRunTime][google.cloud.datalabeling.v1beta1.Evaluation.evaluation_job_run_time] that created
     ///    the evaluation)
     /// * evaluation&lt;span&gt;_&lt;/span&gt;job.evaluation_job_run_time_end (Maximum
     ///    threshold for the
-    ///    \[evaluationJobRunTime][google.cloud.datalabeling.v1beta1.Evaluation.evaluation_job_run_time\] that created
+    ///    [evaluationJobRunTime][google.cloud.datalabeling.v1beta1.Evaluation.evaluation_job_run_time] that created
     ///    the evaluation)
-    /// * evaluation&lt;span&gt;_&lt;/span&gt;job.job_state (\[EvaluationJob.state][google.cloud.datalabeling.v1beta1.EvaluationJob.state\])
+    /// * evaluation&lt;span&gt;_&lt;/span&gt;job.job_state ([EvaluationJob.state][google.cloud.datalabeling.v1beta1.EvaluationJob.state])
     /// * annotation&lt;span&gt;_&lt;/span&gt;spec.display_name (the Evaluation contains a
     ///    metric for the annotation spec with this
-    ///    \[displayName][google.cloud.datalabeling.v1beta1.AnnotationSpec.display_name\])
+    ///    [displayName][google.cloud.datalabeling.v1beta1.AnnotationSpec.display_name])
     ///
     /// To filter by multiple critiera, use the `AND` operator or the `OR`
     /// operator. The following examples shows a string that filters by several
@@ -6623,7 +6623,7 @@
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results for the server to return.
     /// Typically obtained by the
-    /// \[nextPageToken][google.cloud.datalabeling.v1beta1.SearchEvaluationsResponse.next_page_token\] of the response
+    /// [nextPageToken][google.cloud.datalabeling.v1beta1.SearchEvaluationsResponse.next_page_token] of the response
     /// to a previous search request.
     ///
     /// If you don&#39;t specify this field, the API call requests the first page of
@@ -6646,7 +6646,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchExampleComparisonsRequest {
-    <span class="doccomment">/// Required. Name of the \[Evaluation][google.cloud.datalabeling.v1beta1.Evaluation\] resource to search for example
+    <span class="doccomment">/// Required. Name of the [Evaluation][google.cloud.datalabeling.v1beta1.Evaluation] resource to search for example
     /// comparisons from. Format:
     ///
     /// &quot;projects/&lt;var&gt;{project_id}&lt;/var&gt;/datasets/&lt;var&gt;{dataset_id}&lt;/var&gt;/evaluations/&lt;var&gt;{evaluation_id}&lt;/var&gt;&quot;
@@ -6658,7 +6658,7 @@
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results for the server to return.
     /// Typically obtained by the
-    /// \[nextPageToken][SearchExampleComparisons.next_page_token\] of the response
+    /// [nextPageToken][SearchExampleComparisons.next_page_token] of the response
     /// to a previous search rquest.
     ///
     /// If you don&#39;t specify this field, the API call requests the first page of
@@ -6775,8 +6775,8 @@
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. You can filter the jobs to list by model_id (also known as
     /// model_name, as described in
-    /// \[EvaluationJob.modelVersion][google.cloud.datalabeling.v1beta1.EvaluationJob.model_version\]) or by
-    /// evaluation job state (as described in \[EvaluationJob.state][google.cloud.datalabeling.v1beta1.EvaluationJob.state\]). To filter
+    /// [EvaluationJob.modelVersion][google.cloud.datalabeling.v1beta1.EvaluationJob.model_version]) or by
+    /// evaluation job state (as described in [EvaluationJob.state][google.cloud.datalabeling.v1beta1.EvaluationJob.state]). To filter
     /// by both criteria, use the `AND` operator or the `OR` operator. For example,
     /// you can use the following string for your filter:
     /// &quot;evaluation&lt;span&gt;_&lt;/span&gt;job.model_id = &lt;var&gt;{model_name}&lt;/var&gt; AND
@@ -6789,7 +6789,7 @@
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results for the server to return.
     /// Typically obtained by the
-    /// \[nextPageToken][google.cloud.datalabeling.v1beta1.ListEvaluationJobsResponse.next_page_token\] in the response
+    /// [nextPageToken][google.cloud.datalabeling.v1beta1.ListEvaluationJobsResponse.next_page_token] in the response
     /// to the previous request. The request returns the first page if this is
     /// empty.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
@@ -7983,7 +7983,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LabelOperationMetadata {
-    <span class="doccomment">/// Output only. Progress of label operation. Range: [0, 100].
+    <span class="doccomment">/// Output only. Progress of label operation. Range: \[0, 100\].
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>progress_percent: i32,
     <span class="doccomment">/// Output only. Partial failures encountered.

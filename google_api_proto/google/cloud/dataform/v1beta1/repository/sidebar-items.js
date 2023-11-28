@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["git_remote_settings"],"struct":["GitRemoteSettings"]};
+window.SIDEBAR_ITEMS = {"mod":["git_remote_settings"],"struct":["GitRemoteSettings","WorkspaceCompilationOverrides"]};

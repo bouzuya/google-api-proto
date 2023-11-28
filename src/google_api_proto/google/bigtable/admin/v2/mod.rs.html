@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/bigtable/admin/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/bigtable/admin/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -4114,7 +4114,57 @@
 <a href="#4114" id="4114">4114</a>
 <a href="#4115" id="4115">4115</a>
 <a href="#4116" id="4116">4116</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Information about a table restore.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Encapsulates progress related information for a Cloud Bigtable long
+/// running operation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OperationProgress {
+    <span class="doccomment">/// Percent completion of the operation.
+    /// Values are between 0 and 100 inclusive.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>progress_percent: i32,
+    <span class="doccomment">/// Time the request was received.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// If set, the time at which this operation failed or was completed
+    /// successfully.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Storage media types for persisting Bigtable data.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>StorageType {
+    <span class="doccomment">/// The user did not specify a storage type.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Flash (SSD) storage should be used.
+    </span>Ssd = <span class="number">1</span>,
+    <span class="doccomment">/// Magnetic drive (HDD) storage should be used.
+    </span>Hdd = <span class="number">2</span>,
+}
+<span class="kw">impl </span>StorageType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            StorageType::Unspecified =&gt; <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot;</span>,
+            StorageType::Ssd =&gt; <span class="string">&quot;SSD&quot;</span>,
+            StorageType::Hdd =&gt; <span class="string">&quot;HDD&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ssd),
+            <span class="string">&quot;HDD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hdd),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Information about a table restore.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RestoreInfo {
@@ -4155,7 +4205,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Table {
     <span class="doccomment">/// The unique name of the table. Values are of the form
-    /// `projects/{project}/instances/{instance}/tables/\[_a-zA-Z0-9][-_.a-zA-Z0-9\]*`.
+    /// `projects/{project}/instances/{instance}/tables/[_a-zA-Z0-9][-_.a-zA-Z0-9]*`.
     /// Views: `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
@@ -4612,7 +4662,7 @@
     <span class="doccomment">/// A globally unique identifier for the backup which cannot be
     /// changed. Values are of the form
     /// `projects/{project}/instances/{instance}/clusters/{cluster}/
-    ///     backups/\[_a-zA-Z0-9][-_.a-zA-Z0-9\]*`
+    ///     backups/[_a-zA-Z0-9][-_.a-zA-Z0-9]*`
     /// The final segment of the name must be between 1 and 50 characters
     /// in length.
     ///
@@ -4640,7 +4690,7 @@
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. `start_time` is the time that the backup was started
     /// (i.e. approximately the time the
-    /// \[CreateBackup][google.bigtable.admin.v2.BigtableTableAdmin.CreateBackup\]
+    /// [CreateBackup][google.bigtable.admin.v2.BigtableTableAdmin.CreateBackup]
     /// request is received).  The row data in this backup will be no older than
     /// this timestamp.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
@@ -4759,58 +4809,8 @@
         }
     }
 }
-<span class="doccomment">/// Encapsulates progress related information for a Cloud Bigtable long
-/// running operation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OperationProgress {
-    <span class="doccomment">/// Percent completion of the operation.
-    /// Values are between 0 and 100 inclusive.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>progress_percent: i32,
-    <span class="doccomment">/// Time the request was received.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// If set, the time at which this operation failed or was completed
-    /// successfully.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Storage media types for persisting Bigtable data.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>StorageType {
-    <span class="doccomment">/// The user did not specify a storage type.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Flash (SSD) storage should be used.
-    </span>Ssd = <span class="number">1</span>,
-    <span class="doccomment">/// Magnetic drive (HDD) storage should be used.
-    </span>Hdd = <span class="number">2</span>,
-}
-<span class="kw">impl </span>StorageType {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            StorageType::Unspecified =&gt; <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot;</span>,
-            StorageType::Ssd =&gt; <span class="string">&quot;SSD&quot;</span>,
-            StorageType::Hdd =&gt; <span class="string">&quot;HDD&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ssd),
-            <span class="string">&quot;HDD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hdd),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
 <span class="doccomment">/// The request for
-/// \[RestoreTable][google.bigtable.admin.v2.BigtableTableAdmin.RestoreTable\].
+/// [RestoreTable][google.bigtable.admin.v2.BigtableTableAdmin.RestoreTable].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RestoreTableRequest {
@@ -4841,7 +4841,7 @@
     }
 }
 <span class="doccomment">/// Metadata type for the long-running operation returned by
-/// \[RestoreTable][google.bigtable.admin.v2.BigtableTableAdmin.RestoreTable\].
+/// [RestoreTable][google.bigtable.admin.v2.BigtableTableAdmin.RestoreTable].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RestoreTableMetadata {
@@ -4854,8 +4854,8 @@
     <span class="doccomment">/// If exists, the name of the long-running operation that will be used to
     /// track the post-restore optimization process to optimize the performance of
     /// the restored table. The metadata type of the long-running operation is
-    /// \[OptimizeRestoreTableMetadata][\]. The response type is
-    /// \[Empty][google.protobuf.Empty\]. This long-running operation may be
+    /// [OptimizeRestoreTableMetadata][]. The response type is
+    /// [Empty][google.protobuf.Empty]. This long-running operation may be
     /// automatically created by the system if applicable after the
     /// RestoreTable long-running operation completes successfully. This operation
     /// may not be created if the table is already optimized or the restore was
@@ -4863,13 +4863,13 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>optimize_table_operation_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The progress of the
-    /// \[RestoreTable][google.bigtable.admin.v2.BigtableTableAdmin.RestoreTable\]
+    /// [RestoreTable][google.bigtable.admin.v2.BigtableTableAdmin.RestoreTable]
     /// operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>progress: ::core::option::Option&lt;OperationProgress&gt;,
     <span class="doccomment">/// Information about the source used to restore the table, as specified by
     /// `source` in
-    /// \[RestoreTableRequest][google.bigtable.admin.v2.RestoreTableRequest\].
+    /// [RestoreTableRequest][google.bigtable.admin.v2.RestoreTableRequest].
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;restore_table_metadata::SourceInfo&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>source_info: ::core::option::Option&lt;restore_table_metadata::SourceInfo&gt;,
 }
@@ -4877,7 +4877,7 @@
 </span><span class="kw">pub mod </span>restore_table_metadata {
     <span class="doccomment">/// Information about the source used to restore the table, as specified by
     /// `source` in
-    /// \[RestoreTableRequest][google.bigtable.admin.v2.RestoreTableRequest\].
+    /// [RestoreTableRequest][google.bigtable.admin.v2.RestoreTableRequest].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>SourceInfo {
@@ -4900,7 +4900,7 @@
     </span><span class="kw">pub </span>progress: ::core::option::Option&lt;OperationProgress&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.CreateTable][google.bigtable.admin.v2.BigtableTableAdmin.CreateTable\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.CreateTable][google.bigtable.admin.v2.BigtableTableAdmin.CreateTable]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateTableRequest {
@@ -4925,7 +4925,7 @@
     ///
     /// * Row keys := `[&quot;a&quot;, &quot;apple&quot;, &quot;custom&quot;, &quot;customer_1&quot;, &quot;customer_2&quot;,`
     ///                 `&quot;other&quot;, &quot;zz&quot;]`
-    /// * initial_split_keys := `[&quot;apple&quot;, &quot;customer_1&quot;, &quot;customer_2&quot;, &quot;other&quot;]`
+    /// * initial_split_keys := `\[&quot;apple&quot;, &quot;customer_1&quot;, &quot;customer_2&quot;, &quot;other&quot;\]`
     /// * Key assignment:
     ///      - Tablet 1 `[, apple)                =&gt; {&quot;a&quot;}.`
     ///      - Tablet 2 `[apple, customer_1)      =&gt; {&quot;apple&quot;, &quot;custom&quot;}.`
@@ -4947,7 +4947,7 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.CreateTableFromSnapshot][google.bigtable.admin.v2.BigtableTableAdmin.CreateTableFromSnapshot\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.CreateTableFromSnapshot][google.bigtable.admin.v2.BigtableTableAdmin.CreateTableFromSnapshot]
 ///
 /// Note: This is a private alpha release of Cloud Bigtable snapshots. This
 /// feature is not currently available to most Cloud Bigtable customers. This
@@ -4972,7 +4972,7 @@
     </span><span class="kw">pub </span>source_snapshot: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.DropRowRange][google.bigtable.admin.v2.BigtableTableAdmin.DropRowRange\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.DropRowRange][google.bigtable.admin.v2.BigtableTableAdmin.DropRowRange]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DropRowRangeRequest {
@@ -5001,7 +5001,7 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.ListTables][google.bigtable.admin.v2.BigtableTableAdmin.ListTables\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.ListTables][google.bigtable.admin.v2.BigtableTableAdmin.ListTables]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTablesRequest {
@@ -5029,7 +5029,7 @@
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.ListTables][google.bigtable.admin.v2.BigtableTableAdmin.ListTables\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.ListTables][google.bigtable.admin.v2.BigtableTableAdmin.ListTables]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTablesResponse {
@@ -5043,7 +5043,7 @@
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.GetTable][google.bigtable.admin.v2.BigtableTableAdmin.GetTable\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.GetTable][google.bigtable.admin.v2.BigtableTableAdmin.GetTable]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTableRequest {
@@ -5058,7 +5058,7 @@
     </span><span class="kw">pub </span>view: i32,
 }
 <span class="doccomment">/// The request for
-/// \[UpdateTable][google.bigtable.admin.v2.BigtableTableAdmin.UpdateTable\].
+/// [UpdateTable][google.bigtable.admin.v2.BigtableTableAdmin.UpdateTable].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTableRequest {
@@ -5082,7 +5082,7 @@
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Metadata type for the operation returned by
-/// \[UpdateTable][google.bigtable.admin.v2.BigtableTableAdmin.UpdateTable\].
+/// [UpdateTable][google.bigtable.admin.v2.BigtableTableAdmin.UpdateTable].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTableMetadata {
@@ -5097,7 +5097,7 @@
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.DeleteTable][google.bigtable.admin.v2.BigtableTableAdmin.DeleteTable\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.DeleteTable][google.bigtable.admin.v2.BigtableTableAdmin.DeleteTable]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteTableRequest {
@@ -5108,7 +5108,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable][google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable][google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UndeleteTableRequest {
@@ -5119,7 +5119,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata type for the operation returned by
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable][google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable\].
+/// [google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable][google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UndeleteTableMetadata {
@@ -5134,7 +5134,7 @@
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.ModifyColumnFamilies][google.bigtable.admin.v2.BigtableTableAdmin.ModifyColumnFamilies\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.ModifyColumnFamilies][google.bigtable.admin.v2.BigtableTableAdmin.ModifyColumnFamilies]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ModifyColumnFamiliesRequest {
@@ -5187,7 +5187,7 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.GenerateConsistencyToken][google.bigtable.admin.v2.BigtableTableAdmin.GenerateConsistencyToken\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.GenerateConsistencyToken][google.bigtable.admin.v2.BigtableTableAdmin.GenerateConsistencyToken]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateConsistencyTokenRequest {
@@ -5198,7 +5198,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.GenerateConsistencyToken][google.bigtable.admin.v2.BigtableTableAdmin.GenerateConsistencyToken\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.GenerateConsistencyToken][google.bigtable.admin.v2.BigtableTableAdmin.GenerateConsistencyToken]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateConsistencyTokenResponse {
@@ -5207,7 +5207,7 @@
     </span><span class="kw">pub </span>consistency_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.CheckConsistency][google.bigtable.admin.v2.BigtableTableAdmin.CheckConsistency\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.CheckConsistency][google.bigtable.admin.v2.BigtableTableAdmin.CheckConsistency]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CheckConsistencyRequest {
@@ -5221,7 +5221,7 @@
     </span><span class="kw">pub </span>consistency_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.CheckConsistency][google.bigtable.admin.v2.BigtableTableAdmin.CheckConsistency\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.CheckConsistency][google.bigtable.admin.v2.BigtableTableAdmin.CheckConsistency]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CheckConsistencyResponse {
@@ -5231,7 +5231,7 @@
     </span><span class="kw">pub </span>consistent: bool,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.SnapshotTable][google.bigtable.admin.v2.BigtableTableAdmin.SnapshotTable\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.SnapshotTable][google.bigtable.admin.v2.BigtableTableAdmin.SnapshotTable]
 ///
 /// Note: This is a private alpha release of Cloud Bigtable snapshots. This
 /// feature is not currently available to most Cloud Bigtable customers. This
@@ -5252,7 +5252,7 @@
     </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID by which the new snapshot should be referred to within the
     /// parent cluster, e.g., `mysnapshot` of the form:
-    /// `\[_a-zA-Z0-9][-_.a-zA-Z0-9\]*` rather than
+    /// `[_a-zA-Z0-9][-_.a-zA-Z0-9]*` rather than
     /// `projects/{project}/instances/{instance}/clusters/{cluster}/snapshots/mysnapshot`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>snapshot_id: ::prost::alloc::string::String,
@@ -5267,7 +5267,7 @@
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.GetSnapshot][google.bigtable.admin.v2.BigtableTableAdmin.GetSnapshot\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.GetSnapshot][google.bigtable.admin.v2.BigtableTableAdmin.GetSnapshot]
 ///
 /// Note: This is a private alpha release of Cloud Bigtable snapshots. This
 /// feature is not currently available to most Cloud Bigtable customers. This
@@ -5283,7 +5283,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.ListSnapshots][google.bigtable.admin.v2.BigtableTableAdmin.ListSnapshots\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.ListSnapshots][google.bigtable.admin.v2.BigtableTableAdmin.ListSnapshots]
 ///
 /// Note: This is a private alpha release of Cloud Bigtable snapshots. This
 /// feature is not currently available to most Cloud Bigtable customers. This
@@ -5308,7 +5308,7 @@
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.ListSnapshots][google.bigtable.admin.v2.BigtableTableAdmin.ListSnapshots\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.ListSnapshots][google.bigtable.admin.v2.BigtableTableAdmin.ListSnapshots]
 ///
 /// Note: This is a private alpha release of Cloud Bigtable snapshots. This
 /// feature is not currently available to most Cloud Bigtable customers. This
@@ -5327,7 +5327,7 @@
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[google.bigtable.admin.v2.BigtableTableAdmin.DeleteSnapshot][google.bigtable.admin.v2.BigtableTableAdmin.DeleteSnapshot\]
+/// [google.bigtable.admin.v2.BigtableTableAdmin.DeleteSnapshot][google.bigtable.admin.v2.BigtableTableAdmin.DeleteSnapshot]
 ///
 /// Note: This is a private alpha release of Cloud Bigtable snapshots. This
 /// feature is not currently available to most Cloud Bigtable customers. This
@@ -5382,7 +5382,7 @@
     </span><span class="kw">pub </span>finish_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// The request for
-/// \[CreateBackup][google.bigtable.admin.v2.BigtableTableAdmin.CreateBackup\].
+/// [CreateBackup][google.bigtable.admin.v2.BigtableTableAdmin.CreateBackup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateBackupRequest {
@@ -5396,7 +5396,7 @@
     /// the full backup name, of the form:
     /// `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup_id}`.
     /// This string must be between 1 and 50 characters in length and match the
-    /// regex \[_a-zA-Z0-9][-_.a-zA-Z0-9\]*.
+    /// regex [_a-zA-Z0-9][-_.a-zA-Z0-9]*.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>backup_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The backup to create.
@@ -5404,7 +5404,7 @@
     </span><span class="kw">pub </span>backup: ::core::option::Option&lt;Backup&gt;,
 }
 <span class="doccomment">/// Metadata type for the operation returned by
-/// \[CreateBackup][google.bigtable.admin.v2.BigtableTableAdmin.CreateBackup\].
+/// [CreateBackup][google.bigtable.admin.v2.BigtableTableAdmin.CreateBackup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateBackupMetadata {
@@ -5422,7 +5422,7 @@
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// The request for
-/// \[UpdateBackup][google.bigtable.admin.v2.BigtableTableAdmin.UpdateBackup\].
+/// [UpdateBackup][google.bigtable.admin.v2.BigtableTableAdmin.UpdateBackup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateBackupRequest {
@@ -5442,7 +5442,7 @@
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The request for
-/// \[GetBackup][google.bigtable.admin.v2.BigtableTableAdmin.GetBackup\].
+/// [GetBackup][google.bigtable.admin.v2.BigtableTableAdmin.GetBackup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetBackupRequest {
@@ -5453,7 +5453,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[DeleteBackup][google.bigtable.admin.v2.BigtableTableAdmin.DeleteBackup\].
+/// [DeleteBackup][google.bigtable.admin.v2.BigtableTableAdmin.DeleteBackup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteBackupRequest {
@@ -5464,7 +5464,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[ListBackups][google.bigtable.admin.v2.BigtableTableAdmin.ListBackups\].
+/// [ListBackups][google.bigtable.admin.v2.BigtableTableAdmin.ListBackups].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListBackupsRequest {
@@ -5511,7 +5511,7 @@
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression for specifying the sort order of the results of the request.
     /// The string value should specify one or more fields in
-    /// \[Backup][google.bigtable.admin.v2.Backup\]. The full syntax is described at
+    /// [Backup][google.bigtable.admin.v2.Backup]. The full syntax is described at
     /// &lt;https://aip.dev/132#ordering.&gt;
     ///
     /// Fields supported are:
@@ -5538,15 +5538,15 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// If non-empty, `page_token` should contain a
-    /// \[next_page_token][google.bigtable.admin.v2.ListBackupsResponse.next_page_token\]
+    /// [next_page_token][google.bigtable.admin.v2.ListBackupsResponse.next_page_token]
     /// from a previous
-    /// \[ListBackupsResponse][google.bigtable.admin.v2.ListBackupsResponse\] to the
+    /// [ListBackupsResponse][google.bigtable.admin.v2.ListBackupsResponse] to the
     /// same `parent` and with the same `filter`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
-/// \[ListBackups][google.bigtable.admin.v2.BigtableTableAdmin.ListBackups\].
+/// [ListBackups][google.bigtable.admin.v2.BigtableTableAdmin.ListBackups].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListBackupsResponse {
@@ -5554,13 +5554,13 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>backups: ::prost::alloc::vec::Vec&lt;Backup&gt;,
     <span class="doccomment">/// `next_page_token` can be sent in a subsequent
-    /// \[ListBackups][google.bigtable.admin.v2.BigtableTableAdmin.ListBackups\] call
+    /// [ListBackups][google.bigtable.admin.v2.BigtableTableAdmin.ListBackups] call
     /// to fetch more of the matching backups.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[CopyBackup][google.bigtable.admin.v2.BigtableTableAdmin.CopyBackup\].
+/// [CopyBackup][google.bigtable.admin.v2.BigtableTableAdmin.CopyBackup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CopyBackupRequest {
@@ -5574,7 +5574,7 @@
     /// name, of the form:
     /// `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup_id}`.
     /// This string must be between 1 and 50 characters in length and match the
-    /// regex \[_a-zA-Z0-9][-_.a-zA-Z0-9\]*.
+    /// regex [_a-zA-Z0-9][-_.a-zA-Z0-9]*.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>backup_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The source backup to be copied from.
@@ -5595,7 +5595,7 @@
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Metadata type for the google.longrunning.Operation returned by
-/// \[CopyBackup][google.bigtable.admin.v2.BigtableTableAdmin.CopyBackup\].
+/// [CopyBackup][google.bigtable.admin.v2.BigtableTableAdmin.CopyBackup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CopyBackupMetadata {
@@ -5608,7 +5608,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>source_backup_info: ::core::option::Option&lt;BackupInfo&gt;,
     <span class="doccomment">/// The progress of the
-    /// \[CopyBackup][google.bigtable.admin.v2.BigtableTableAdmin.CopyBackup\]
+    /// [CopyBackup][google.bigtable.admin.v2.BigtableTableAdmin.CopyBackup]
     /// operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>progress: ::core::option::Option&lt;OperationProgress&gt;,
@@ -6510,15 +6510,15 @@
         </span>}
     }
 }
-<span class="doccomment">/// A collection of Bigtable \[Tables][google.bigtable.admin.v2.Table\] and
+<span class="doccomment">/// A collection of Bigtable [Tables][google.bigtable.admin.v2.Table] and
 /// the resources that serve them.
 /// All tables in an instance are served from all
-/// \[Clusters][google.bigtable.admin.v2.Cluster\] in the instance.
+/// [Clusters][google.bigtable.admin.v2.Cluster] in the instance.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Instance {
     <span class="doccomment">/// The unique name of the instance. Values are of the form
-    /// `projects/{project}/instances/\[a-z][a-z0-9\\-]+[a-z0-9\]`.
+    /// `projects/{project}/instances/[a-z][a-z0-9\\-]+\[a-z0-9\]`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The descriptive name for this instance as it appears in UIs.
@@ -6539,7 +6539,7 @@
     /// metrics.
     ///
     /// * Label keys must be between 1 and 63 characters long and must conform to
-    ///    the regular expression: `\[\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-\]{0,62}`.
+    ///    the regular expression: `[\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-]{0,62}`.
     /// * Label values must be between 0 and 63 characters long and must conform to
     ///    the regular expression: `\[\p{Ll}\p{Lo}\p{N}_-\]{0,63}`.
     /// * No more than 64 labels can be associated with a given resource.
@@ -6684,13 +6684,13 @@
     </span><span class="kw">pub </span>max_serve_nodes: i32,
 }
 <span class="doccomment">/// A resizable group of nodes in a particular cloud location, capable
-/// of serving all \[Tables][google.bigtable.admin.v2.Table\] in the parent
-/// \[Instance][google.bigtable.admin.v2.Instance\].
+/// of serving all [Tables][google.bigtable.admin.v2.Table] in the parent
+/// [Instance][google.bigtable.admin.v2.Instance].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Cluster {
     <span class="doccomment">/// The unique name of the cluster. Values are of the form
-    /// `projects/{project}/instances/{instance}/clusters/\[a-z][-a-z0-9\]*`.
+    /// `projects/{project}/instances/{instance}/clusters/[a-z][-a-z0-9]*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Immutable. The location where this cluster&#39;s nodes and storage reside. For
@@ -6827,7 +6827,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AppProfile {
     <span class="doccomment">/// The unique name of the app profile. Values are of the form
-    /// `projects/{project}/instances/{instance}/appProfiles/\[_a-zA-Z0-9][-_.a-zA-Z0-9\]*`.
+    /// `projects/{project}/instances/{instance}/appProfiles/[_a-zA-Z0-9][-_.a-zA-Z0-9]*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Strongly validated etag for optimistic concurrency control. Preserve the
@@ -6835,7 +6835,7 @@
     /// fail the request if there has been a modification in the mean time. The
     /// `update_mask` of the request need not include `etag` for this protection
     /// to apply.
-    /// See \[Wikipedia\](&lt;https://en.wikipedia.org/wiki/HTTP_ETag&gt;) and
+    /// See [Wikipedia](&lt;https://en.wikipedia.org/wiki/HTTP_ETag&gt;) and
     /// [RFC 7232](&lt;https://tools.ietf.org/html/rfc7232#section-2.3&gt;) for more
     /// details.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
@@ -6977,7 +6977,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the table that contains the tablet. Values are of the form
-    /// `projects/{project}/instances/{instance}/tables/\[_a-zA-Z0-9][-_.a-zA-Z0-9\]*`.
+    /// `projects/{project}/instances/{instance}/tables/[_a-zA-Z0-9][-_.a-zA-Z0-9]*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>table_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The start time of the hot tablet.

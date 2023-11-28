@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["ObjectConfig","Source"],"struct":["ConversationConfig","GcsSource","TranscriptObjectConfig"]};
+window.SIDEBAR_ITEMS = {"enum":["ObjectConfig","Source"],"mod":["gcs_source"],"struct":["ConversationConfig","GcsSource","TranscriptObjectConfig"]};

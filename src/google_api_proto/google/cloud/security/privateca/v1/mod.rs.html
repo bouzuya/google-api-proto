@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/security/privateca/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/security/privateca/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3789,23 +3789,23 @@
 <a href="#3789" id="3789">3789</a>
 <a href="#3790" id="3790">3790</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A
-/// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+/// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
 /// represents an individual Certificate Authority. A
-/// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+/// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
 /// can be used to create
-/// \[Certificates][google.cloud.security.privateca.v1.Certificate\].
+/// [Certificates][google.cloud.security.privateca.v1.Certificate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CertificateAuthority {
     <span class="doccomment">/// Output only. The resource name for this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Immutable. The
-    /// \[Type][google.cloud.security.privateca.v1.CertificateAuthority.Type\] of
+    /// [Type][google.cloud.security.privateca.v1.CertificateAuthority.Type] of
     /// this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\].
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;certificate_authority::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Required. Immutable. The config used to create a self-signed X.509
@@ -3818,51 +3818,51 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>lifetime: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Required. Immutable. Used when issuing certificates for this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\].
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority].
     /// If this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// is a self-signed CertificateAuthority, this key is also used to sign the
     /// self-signed CA certificate. Otherwise, it is used to sign a CSR.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>key_spec: ::core::option::Option&lt;certificate_authority::KeyVersionSpec&gt;,
     <span class="doccomment">/// Optional. If this is a subordinate
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\],
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority],
     /// this field will be set with the subordinate configuration, which describes
     /// its issuers. This may be updated, but this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// must continue to validate.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>subordinate_config: ::core::option::Option&lt;SubordinateConfig&gt;,
     <span class="doccomment">/// Output only. The
-    /// \[CaPool.Tier][google.cloud.security.privateca.v1.CaPool.Tier\] of the
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\] that includes this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\].
+    /// [CaPool.Tier][google.cloud.security.privateca.v1.CaPool.Tier] of the
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool] that includes this
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ca_pool::Tier&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>tier: i32,
     <span class="doccomment">/// Output only. The
-    /// \[State][google.cloud.security.privateca.v1.CertificateAuthority.State\] for
+    /// [State][google.cloud.security.privateca.v1.CertificateAuthority.State] for
     /// this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\].
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;certificate_authority::State&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. This
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]&#39;s
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]&#39;s
     /// certificate chain, including the current
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]&#39;s
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]&#39;s
     /// certificate. Ordered such that the root issuer is the final element
     /// (consistent with RFC 5246). For a self-signed CA, this will only list the
     /// current
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]&#39;s
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]&#39;s
     /// certificate.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>pem_ca_certificates: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. A structured description of this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]&#39;s
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]&#39;s
     /// CA certificate and its issuers. Ordered as self-to-root.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>ca_certificate_descriptions: ::prost::alloc::vec::Vec&lt;CertificateDescription&gt;,
     <span class="doccomment">/// Immutable. The name of a Cloud Storage bucket where this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// will publish content, such as the CA certificate and CRLs. This must be a
     /// bucket name, without any prefixes (such as `gs://`) or suffixes (such as
     /// `.googleapis.com`). For example, to use a bucket named `my-bucket`, you
@@ -3875,26 +3875,26 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>access_urls: ::core::option::Option&lt;certificate_authority::AccessUrls&gt;,
     <span class="doccomment">/// Output only. The time at which this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// was created.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// was last updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// was soft deleted, if it is in the
-    /// \[DELETED][google.cloud.security.privateca.v1.CertificateAuthority.State.DELETED\]
+    /// [DELETED][google.cloud.security.privateca.v1.CertificateAuthority.State.DELETED]
     /// state.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
     </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// will be permanently purged, if it is in the
-    /// \[DELETED][google.cloud.security.privateca.v1.CertificateAuthority.State.DELETED\]
+    /// [DELETED][google.cloud.security.privateca.v1.CertificateAuthority.State.DELETED]
     /// state.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
@@ -3908,26 +3908,26 @@
 <span class="doccomment">/// Nested message and enum types in `CertificateAuthority`.
 </span><span class="kw">pub mod </span>certificate_authority {
     <span class="doccomment">/// URLs where a
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// will publish content.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AccessUrls {
         <span class="doccomment">/// The URL where this
-        /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]&#39;s
+        /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]&#39;s
         /// CA certificate is published. This will only be set for CAs that have been
         /// activated.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>ca_certificate_access_url: ::prost::alloc::string::String,
         <span class="doccomment">/// The URLs where this
-        /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]&#39;s
+        /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]&#39;s
         /// CRLs are published. This will only be set for CAs that have been
         /// activated.
         </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>crl_access_urls: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// A Cloud KMS key configuration that a
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// will use.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3949,13 +3949,13 @@
             </span>CloudKmsKeyVersion(::prost::alloc::string::String),
             <span class="doccomment">/// The algorithm to use for creating a managed Cloud KMS key for a for a
             /// simplified experience. All managed keys will be have their
-            /// \[ProtectionLevel][google.cloud.kms.v1.ProtectionLevel\] as `HSM`.
+            /// [ProtectionLevel][google.cloud.kms.v1.ProtectionLevel] as `HSM`.
             </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::SignHashAlgorithm&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
             </span>Algorithm(i32),
         }
     }
     <span class="doccomment">/// The type of a
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\],
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority],
     /// indicating its issuing chain.
     </span><span class="attr">#[derive(
         Clone,
@@ -3975,7 +3975,7 @@
         <span class="doccomment">/// Self-signed CA.
         </span>SelfSigned = <span class="number">1</span>,
         <span class="doccomment">/// Subordinate CA. Could be issued by a Private CA
-        /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+        /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
         /// or an unmanaged CA.
         </span>Subordinate = <span class="number">2</span>,
     }
@@ -4002,7 +4002,7 @@
         }
     }
     <span class="doccomment">/// The state of a
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\],
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority],
     /// indicating if it can be used.
     </span><span class="attr">#[derive(
         Clone,
@@ -4021,37 +4021,37 @@
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Certificates can be issued from this CA. CRLs will be generated for this
         /// CA. The CA will be part of the
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\]&#39;s trust anchor, and
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool]&#39;s trust anchor, and
         /// will be used to issue certificates from the
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool].
         </span>Enabled = <span class="number">1</span>,
         <span class="doccomment">/// Certificates cannot be issued from this CA. CRLs will still be generated.
         /// The CA will be part of the
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\]&#39;s trust anchor, but
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool]&#39;s trust anchor, but
         /// will not be used to issue certificates from the
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool].
         </span>Disabled = <span class="number">2</span>,
         <span class="doccomment">/// Certificates can be issued from this CA. CRLs will be generated for this
         /// CA. The CA will be part of the
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\]&#39;s trust anchor, but
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool]&#39;s trust anchor, but
         /// will not be used to issue certificates from the
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool].
         </span>Staged = <span class="number">3</span>,
         <span class="doccomment">/// Certificates cannot be issued from this CA. CRLs will not be generated.
         /// The CA will not be part of the
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\]&#39;s trust anchor, and
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool]&#39;s trust anchor, and
         /// will not be used to issue certificates from the
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool].
         </span>AwaitingUserActivation = <span class="number">4</span>,
         <span class="doccomment">/// Certificates cannot be issued from this CA. CRLs will not be generated.
         /// The CA may still be recovered by calling
-        /// \[CertificateAuthorityService.UndeleteCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.UndeleteCertificateAuthority\]
+        /// [CertificateAuthorityService.UndeleteCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.UndeleteCertificateAuthority]
         /// before
-        /// \[expire_time][google.cloud.security.privateca.v1.CertificateAuthority.expire_time\].
+        /// [expire_time][google.cloud.security.privateca.v1.CertificateAuthority.expire_time].
         /// The CA will not be part of the
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\]&#39;s trust anchor, and
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool]&#39;s trust anchor, and
         /// will not be used to issue certificates from the
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool].
         </span>Deleted = <span class="number">5</span>,
     }
     <span class="kw">impl </span>State {
@@ -4083,10 +4083,10 @@
         }
     }
     <span class="doccomment">/// The algorithm of a Cloud KMS CryptoKeyVersion of a
-    /// \[CryptoKey][google.cloud.kms.v1.CryptoKey\] with the
-    /// \[CryptoKeyPurpose][google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose\] value
+    /// [CryptoKey][google.cloud.kms.v1.CryptoKey] with the
+    /// [CryptoKeyPurpose][google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose] value
     /// `ASYMMETRIC_SIGN`. These values correspond to the
-    /// \[CryptoKeyVersionAlgorithm][google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm\]
+    /// [CryptoKeyVersionAlgorithm][google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm]
     /// values. For RSA signing algorithms, the PSS algorithms should be preferred,
     /// use PKCS1 algorithms if required for compatibility. For further
     /// recommendations, see
@@ -4158,39 +4158,39 @@
         }
     }
 }
-<span class="doccomment">/// A \[CaPool][google.cloud.security.privateca.v1.CaPool\] represents a group of
-/// \[CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority\]
+<span class="doccomment">/// A [CaPool][google.cloud.security.privateca.v1.CaPool] represents a group of
+/// [CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority]
 /// that form a trust anchor. A
-/// \[CaPool][google.cloud.security.privateca.v1.CaPool\] can be used to manage
+/// [CaPool][google.cloud.security.privateca.v1.CaPool] can be used to manage
 /// issuance policies for one or more
-/// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+/// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
 /// resources and to rotate CA certificates in and out of the trust anchor.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CaPool {
     <span class="doccomment">/// Output only. The resource name for this
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\] in the format
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool] in the format
     /// `projects/*/locations/*/caPools/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Immutable. The
-    /// \[Tier][google.cloud.security.privateca.v1.CaPool.Tier\] of this
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+    /// [Tier][google.cloud.security.privateca.v1.CaPool.Tier] of this
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ca_pool::Tier&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>tier: i32,
     <span class="doccomment">/// Optional. The
-    /// \[IssuancePolicy][google.cloud.security.privateca.v1.CaPool.IssuancePolicy\]
+    /// [IssuancePolicy][google.cloud.security.privateca.v1.CaPool.IssuancePolicy]
     /// to control how
-    /// \[Certificates][google.cloud.security.privateca.v1.Certificate\] will be
-    /// issued from this \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+    /// [Certificates][google.cloud.security.privateca.v1.Certificate] will be
+    /// issued from this [CaPool][google.cloud.security.privateca.v1.CaPool].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>issuance_policy: ::core::option::Option&lt;ca_pool::IssuancePolicy&gt;,
     <span class="doccomment">/// Optional. The
-    /// \[PublishingOptions][google.cloud.security.privateca.v1.CaPool.PublishingOptions\]
+    /// [PublishingOptions][google.cloud.security.privateca.v1.CaPool.PublishingOptions]
     /// to follow when issuing
-    /// \[Certificates][google.cloud.security.privateca.v1.Certificate\] from any
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
-    /// in this \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+    /// [Certificates][google.cloud.security.privateca.v1.Certificate] from any
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
+    /// in this [CaPool][google.cloud.security.privateca.v1.CaPool].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>publishing_options: ::core::option::Option&lt;ca_pool::PublishingOptions&gt;,
     <span class="doccomment">/// Optional. Labels with user-defined metadata.
@@ -4203,29 +4203,29 @@
 <span class="doccomment">/// Nested message and enum types in `CaPool`.
 </span><span class="kw">pub mod </span>ca_pool {
     <span class="doccomment">/// Options relating to the publication of each
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]&#39;s
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]&#39;s
     /// CA certificate and CRLs and their inclusion as extensions in issued
-    /// \[Certificates][google.cloud.security.privateca.v1.Certificate\]. The options
+    /// [Certificates][google.cloud.security.privateca.v1.Certificate]. The options
     /// set here apply to certificates issued by any
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
-    /// in the \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
+    /// in the [CaPool][google.cloud.security.privateca.v1.CaPool].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PublishingOptions {
         <span class="doccomment">/// Optional. When true, publishes each
-        /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]&#39;s
+        /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]&#39;s
         /// CA certificate and includes its URL in the &quot;Authority Information Access&quot;
         /// X.509 extension in all issued
-        /// \[Certificates][google.cloud.security.privateca.v1.Certificate\]. If this
+        /// [Certificates][google.cloud.security.privateca.v1.Certificate]. If this
         /// is false, the CA certificate will not be published and the corresponding
         /// X.509 extension will not be written in issued certificates.
         </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>publish_ca_cert: bool,
         <span class="doccomment">/// Optional. When true, publishes each
-        /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]&#39;s
+        /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]&#39;s
         /// CRL and includes its URL in the &quot;CRL Distribution Points&quot; X.509 extension
         /// in all issued
-        /// \[Certificates][google.cloud.security.privateca.v1.Certificate\]. If this
+        /// [Certificates][google.cloud.security.privateca.v1.Certificate]. If this
         /// is false, CRLs will not be published and the corresponding X.509
         /// extension will not be written in issued certificates. CRLs will expire 7
         /// days from their creation. However, we will rebuild daily. CRLs are also
@@ -4234,70 +4234,70 @@
         </span><span class="kw">pub </span>publish_crl: bool,
     }
     <span class="doccomment">/// Defines controls over all certificate issuance within a
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>IssuancePolicy {
         <span class="doccomment">/// Optional. If any
-        /// \[AllowedKeyType][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.AllowedKeyType\]
+        /// [AllowedKeyType][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.AllowedKeyType]
         /// is specified, then the certificate request&#39;s public key must match one of
         /// the key types listed here. Otherwise, any key may be used.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>allowed_key_types: ::prost::alloc::vec::Vec&lt;issuance_policy::AllowedKeyType&gt;,
         <span class="doccomment">/// Optional. The maximum lifetime allowed for issued
-        /// \[Certificates][google.cloud.security.privateca.v1.Certificate\]. Note that
+        /// [Certificates][google.cloud.security.privateca.v1.Certificate]. Note that
         /// if the issuing
-        /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+        /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
         /// expires before a
-        /// \[Certificate][google.cloud.security.privateca.v1.Certificate\]&#39;s requested
+        /// [Certificate][google.cloud.security.privateca.v1.Certificate]&#39;s requested
         /// maximum_lifetime, the effective lifetime will be explicitly truncated to
         /// match it.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>maximum_lifetime: ::core::option::Option&lt;::prost_types::Duration&gt;,
         <span class="doccomment">/// Optional. If specified, then only methods allowed in the
-        /// \[IssuanceModes][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.IssuanceModes\]
+        /// [IssuanceModes][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.IssuanceModes]
         /// may be used to issue
-        /// \[Certificates][google.cloud.security.privateca.v1.Certificate\].
+        /// [Certificates][google.cloud.security.privateca.v1.Certificate].
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>allowed_issuance_modes: ::core::option::Option&lt;
             issuance_policy::IssuanceModes,
         &gt;,
         <span class="doccomment">/// Optional. A set of X.509 values that will be applied to all certificates
-        /// issued through this \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+        /// issued through this [CaPool][google.cloud.security.privateca.v1.CaPool].
         /// If a certificate request includes conflicting values for the same
         /// properties, they will be overwritten by the values defined here. If a
         /// certificate request uses a
-        /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+        /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
         /// that defines conflicting
-        /// \[predefined_values][google.cloud.security.privateca.v1.CertificateTemplate.predefined_values\]
+        /// [predefined_values][google.cloud.security.privateca.v1.CertificateTemplate.predefined_values]
         /// for the same properties, the certificate issuance request will fail.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>baseline_values: ::core::option::Option&lt;<span class="kw">super</span>::X509Parameters&gt;,
         <span class="doccomment">/// Optional. Describes constraints on identities that may appear in
-        /// \[Certificates][google.cloud.security.privateca.v1.Certificate\] issued
-        /// through this \[CaPool][google.cloud.security.privateca.v1.CaPool\]. If this
-        /// is omitted, then this \[CaPool][google.cloud.security.privateca.v1.CaPool\]
+        /// [Certificates][google.cloud.security.privateca.v1.Certificate] issued
+        /// through this [CaPool][google.cloud.security.privateca.v1.CaPool]. If this
+        /// is omitted, then this [CaPool][google.cloud.security.privateca.v1.CaPool]
         /// will not add restrictions on a certificate&#39;s identity.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
         </span><span class="kw">pub </span>identity_constraints: ::core::option::Option&lt;
             <span class="kw">super</span>::CertificateIdentityConstraints,
         &gt;,
         <span class="doccomment">/// Optional. Describes the set of X.509 extensions that may appear in a
-        /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] issued
-        /// through this \[CaPool][google.cloud.security.privateca.v1.CaPool\]. If a
+        /// [Certificate][google.cloud.security.privateca.v1.Certificate] issued
+        /// through this [CaPool][google.cloud.security.privateca.v1.CaPool]. If a
         /// certificate request sets extensions that don&#39;t appear in the
-        /// \[passthrough_extensions][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.passthrough_extensions\],
+        /// [passthrough_extensions][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.passthrough_extensions],
         /// those extensions will be dropped. If a certificate request uses a
-        /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+        /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
         /// with
-        /// \[predefined_values][google.cloud.security.privateca.v1.CertificateTemplate.predefined_values\]
+        /// [predefined_values][google.cloud.security.privateca.v1.CertificateTemplate.predefined_values]
         /// that don&#39;t appear here, the certificate issuance request will fail. If
         /// this is omitted, then this
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\] will not add
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool] will not add
         /// restrictions on a certificate&#39;s X.509 extensions. These constraints do
         /// not apply to X.509 extensions set in this
-        /// \[CaPool][google.cloud.security.privateca.v1.CaPool\]&#39;s
-        /// \[baseline_values][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.baseline_values\].
+        /// [CaPool][google.cloud.security.privateca.v1.CaPool]&#39;s
+        /// [baseline_values][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.baseline_values].
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
         </span><span class="kw">pub </span>passthrough_extensions: ::core::option::Option&lt;
             <span class="kw">super</span>::CertificateExtensionConstraints,
@@ -4306,9 +4306,9 @@
     <span class="doccomment">/// Nested message and enum types in `IssuancePolicy`.
     </span><span class="kw">pub mod </span>issuance_policy {
         <span class="doccomment">/// Describes a &quot;type&quot; of key that may be used in a
-        /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] issued from
-        /// a \[CaPool][google.cloud.security.privateca.v1.CaPool\]. Note that a single
-        /// \[AllowedKeyType][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.AllowedKeyType\]
+        /// [Certificate][google.cloud.security.privateca.v1.Certificate] issued from
+        /// a [CaPool][google.cloud.security.privateca.v1.CaPool]. Note that a single
+        /// [AllowedKeyType][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.AllowedKeyType]
         /// may refer to either a fully-qualified key algorithm, such as RSA 4096, or
         /// a family of key algorithms, such as any RSA key.
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4320,8 +4320,8 @@
         <span class="doccomment">/// Nested message and enum types in `AllowedKeyType`.
         </span><span class="kw">pub mod </span>allowed_key_type {
             <span class="doccomment">/// Describes an RSA key that may be used in a
-            /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] issued
-            /// from a \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+            /// [Certificate][google.cloud.security.privateca.v1.Certificate] issued
+            /// from a [CaPool][google.cloud.security.privateca.v1.CaPool].
             </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>RsaKeyType {
@@ -4337,8 +4337,8 @@
                 </span><span class="kw">pub </span>max_modulus_size: i64,
             }
             <span class="doccomment">/// Describes an Elliptic Curve key that may be used in a
-            /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] issued
-            /// from a \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+            /// [Certificate][google.cloud.security.privateca.v1.Certificate] issued
+            /// from a [CaPool][google.cloud.security.privateca.v1.CaPool].
             </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>EcKeyType {
@@ -4351,8 +4351,8 @@
             </span><span class="kw">pub mod </span>ec_key_type {
                 <span class="doccomment">/// Describes an elliptic curve-based signature algorithm that may be
                 /// used in a
-                /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] issued
-                /// from a \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+                /// [Certificate][google.cloud.security.privateca.v1.Certificate] issued
+                /// from a [CaPool][google.cloud.security.privateca.v1.CaPool].
                 </span><span class="attr">#[derive(
                     Clone,
                     Copy,
@@ -4418,27 +4418,27 @@
                 </span>EllipticCurve(EcKeyType),
             }
         }
-        <span class="doccomment">/// \[IssuanceModes][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.IssuanceModes\]
+        <span class="doccomment">/// [IssuanceModes][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.IssuanceModes]
         /// specifies the allowed ways in which
-        /// \[Certificates][google.cloud.security.privateca.v1.Certificate\] may be
-        /// requested from this \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+        /// [Certificates][google.cloud.security.privateca.v1.Certificate] may be
+        /// requested from this [CaPool][google.cloud.security.privateca.v1.CaPool].
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>IssuanceModes {
             <span class="doccomment">/// Optional. When true, allows callers to create
-            /// \[Certificates][google.cloud.security.privateca.v1.Certificate\] by
+            /// [Certificates][google.cloud.security.privateca.v1.Certificate] by
             /// specifying a CSR.
             </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>allow_csr_based_issuance: bool,
             <span class="doccomment">/// Optional. When true, allows callers to create
-            /// \[Certificates][google.cloud.security.privateca.v1.Certificate\] by
+            /// [Certificates][google.cloud.security.privateca.v1.Certificate] by
             /// specifying a
-            /// \[CertificateConfig][google.cloud.security.privateca.v1.CertificateConfig\].
+            /// [CertificateConfig][google.cloud.security.privateca.v1.CertificateConfig].
             </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>allow_config_based_issuance: bool,
         }
     }
-    <span class="doccomment">/// The tier of a \[CaPool][google.cloud.security.privateca.v1.CaPool\],
+    <span class="doccomment">/// The tier of a [CaPool][google.cloud.security.privateca.v1.CaPool],
     /// indicating its supported functionality and/or billing SKU.
     </span><span class="attr">#[derive(
         Clone,
@@ -4484,14 +4484,14 @@
     }
 }
 <span class="doccomment">/// A
-/// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\]
+/// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList]
 /// corresponds to a signed X.509 certificate Revocation List (CRL). A CRL
 /// contains the serial numbers of certificates that should no longer be trusted.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CertificateRevocationList {
     <span class="doccomment">/// Output only. The resource name for this
-    /// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\]
+    /// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList]
     /// in the format `projects/*/locations/*/caPools/*certificateAuthorities/*/
     ///     certificateRevocationLists/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
@@ -4511,23 +4511,23 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>access_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The
-    /// \[State][google.cloud.security.privateca.v1.CertificateRevocationList.State\]
+    /// [State][google.cloud.security.privateca.v1.CertificateRevocationList.State]
     /// for this
-    /// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\].
+    /// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;certificate_revocation_list::State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The time at which this
-    /// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\]
+    /// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList]
     /// was created.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which this
-    /// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\]
+    /// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList]
     /// was updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The revision ID of this
-    /// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\].
+    /// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList].
     /// A new revision is committed whenever a new CRL is published. The format is
     /// an 8-character hexadecimal string.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
@@ -4542,27 +4542,27 @@
 <span class="doccomment">/// Nested message and enum types in `CertificateRevocationList`.
 </span><span class="kw">pub mod </span>certificate_revocation_list {
     <span class="doccomment">/// Describes a revoked
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\].
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>RevokedCertificate {
         <span class="doccomment">/// The resource name for the
-        /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] in the
+        /// [Certificate][google.cloud.security.privateca.v1.Certificate] in the
         /// format `projects/*/locations/*/caPools/*/certificates/*`.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>certificate: ::prost::alloc::string::String,
         <span class="doccomment">/// The serial number of the
-        /// \[Certificate][google.cloud.security.privateca.v1.Certificate\].
+        /// [Certificate][google.cloud.security.privateca.v1.Certificate].
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>hex_serial_number: ::prost::alloc::string::String,
         <span class="doccomment">/// The reason the
-        /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] was
+        /// [Certificate][google.cloud.security.privateca.v1.Certificate] was
         /// revoked.
         </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::RevocationReason&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>revocation_reason: i32,
     }
     <span class="doccomment">/// The state of a
-    /// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\],
+    /// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList],
     /// indicating if it is current.
     </span><span class="attr">#[derive(
         Clone,
@@ -4580,11 +4580,11 @@
         <span class="doccomment">/// Not specified.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// The
-        /// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\]
+        /// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList]
         /// is up to date.
         </span>Active = <span class="number">1</span>,
         <span class="doccomment">/// The
-        /// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\]
+        /// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList]
         /// is no longer current.
         </span>Superseded = <span class="number">2</span>,
     }
@@ -4611,19 +4611,19 @@
         }
     }
 }
-<span class="doccomment">/// A \[Certificate][google.cloud.security.privateca.v1.Certificate\] corresponds
+<span class="doccomment">/// A [Certificate][google.cloud.security.privateca.v1.Certificate] corresponds
 /// to a signed X.509 certificate issued by a
-/// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\].
+/// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Certificate {
     <span class="doccomment">/// Output only. The resource name for this
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] in the format
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] in the format
     /// `projects/*/locations/*/caPools/*/certificates/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The resource name of the issuing
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>issuer_certificate_authority: ::prost::alloc::string::String,
@@ -4634,24 +4634,24 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>lifetime: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Immutable. The resource name for a
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
     /// used to issue this certificate, in the format
     /// `projects/*/locations/*/certificateTemplates/*`.
     /// If this is specified, the caller must have the necessary permission to
     /// use this template. If this is omitted, no template will be used.
     /// This template must be in the same location as the
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\].
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>certificate_template: ::prost::alloc::string::String,
     <span class="doccomment">/// Immutable. Specifies how the
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\]&#39;s identity
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate]&#39;s identity
     /// fields are to be decided. If this is omitted, the `DEFAULT` subject mode
     /// will be used.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SubjectRequestMode&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>subject_mode: i32,
     <span class="doccomment">/// Output only. Details regarding the revocation of this
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\]. This
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] is considered
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate]. This
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] is considered
     /// revoked if and only if this field is present.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>revocation_details: ::core::option::Option&lt;certificate::RevocationDetails&gt;,
@@ -4666,11 +4666,11 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>pem_certificate_chain: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. The time at which this
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] was created.
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] was created.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which this
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] was updated.
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] was updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Labels with user-defined metadata.
@@ -4686,17 +4686,17 @@
 <span class="doccomment">/// Nested message and enum types in `Certificate`.
 </span><span class="kw">pub mod </span>certificate {
     <span class="doccomment">/// Describes fields that are relavent to the revocation of a
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\].
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>RevocationDetails {
         <span class="doccomment">/// Indicates why a
-        /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] was
+        /// [Certificate][google.cloud.security.privateca.v1.Certificate] was
         /// revoked.
         </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::RevocationReason&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>revocation_state: i32,
         <span class="doccomment">/// The time at which this
-        /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] was
+        /// [Certificate][google.cloud.security.privateca.v1.Certificate] was
         /// revoked.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>revocation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
@@ -4715,13 +4715,13 @@
     }
 }
 <span class="doccomment">/// A
-/// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+/// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
 /// refers to a managed template for certificate issuance.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CertificateTemplate {
     <span class="doccomment">/// Output only. The resource name for this
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
     /// in the format `projects/*/locations/*/certificateTemplates/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
@@ -4729,36 +4729,36 @@
     /// certificates that use this template. If the certificate request includes
     /// conflicting values for the same properties, they will be overwritten by the
     /// values defined here. If the issuing
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\]&#39;s
-    /// \[IssuancePolicy][google.cloud.security.privateca.v1.CaPool.IssuancePolicy\]
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool]&#39;s
+    /// [IssuancePolicy][google.cloud.security.privateca.v1.CaPool.IssuancePolicy]
     /// defines conflicting
-    /// \[baseline_values][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.baseline_values\]
+    /// [baseline_values][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.baseline_values]
     /// for the same properties, the certificate issuance request will fail.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>predefined_values: ::core::option::Option&lt;X509Parameters&gt;,
     <span class="doccomment">/// Optional. Describes constraints on identities that may be appear in
-    /// \[Certificates][google.cloud.security.privateca.v1.Certificate\] issued using
+    /// [Certificates][google.cloud.security.privateca.v1.Certificate] issued using
     /// this template. If this is omitted, then this template will not add
     /// restrictions on a certificate&#39;s identity.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>identity_constraints: ::core::option::Option&lt;CertificateIdentityConstraints&gt;,
     <span class="doccomment">/// Optional. Describes the set of X.509 extensions that may appear in a
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] issued using
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] issued using
     /// this
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\].
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate].
     /// If a certificate request sets extensions that don&#39;t appear in the
-    /// \[passthrough_extensions][google.cloud.security.privateca.v1.CertificateTemplate.passthrough_extensions\],
+    /// [passthrough_extensions][google.cloud.security.privateca.v1.CertificateTemplate.passthrough_extensions],
     /// those extensions will be dropped. If the issuing
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\]&#39;s
-    /// \[IssuancePolicy][google.cloud.security.privateca.v1.CaPool.IssuancePolicy\]
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool]&#39;s
+    /// [IssuancePolicy][google.cloud.security.privateca.v1.CaPool.IssuancePolicy]
     /// defines
-    /// \[baseline_values][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.baseline_values\]
+    /// [baseline_values][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.baseline_values]
     /// that don&#39;t appear here, the certificate issuance request will fail. If this
     /// is omitted, then this template will not add restrictions on a certificate&#39;s
     /// X.509 extensions. These constraints do not apply to X.509 extensions set in
     /// this
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]&#39;s
-    /// \[predefined_values][google.cloud.security.privateca.v1.CertificateTemplate.predefined_values\].
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]&#39;s
+    /// [predefined_values][google.cloud.security.privateca.v1.CertificateTemplate.predefined_values].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>passthrough_extensions: ::core::option::Option&lt;CertificateExtensionConstraints&gt;,
     <span class="doccomment">/// Optional. A human-readable description of scenarios this template is
@@ -4766,12 +4766,12 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time at which this
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
     /// was created.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which this
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
     /// was updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
@@ -4782,7 +4782,7 @@
         ::prost::alloc::string::String,
     &gt;,
 }
-<span class="doccomment">/// An \[X509Parameters][google.cloud.security.privateca.v1.X509Parameters\] is
+<span class="doccomment">/// An [X509Parameters][google.cloud.security.privateca.v1.X509Parameters] is
 /// used to describe certain fields of an X.509 certificate, such as the key
 /// usage fields, fields specific to CA certificates, certificate policy
 /// extensions and custom extensions.
@@ -4794,7 +4794,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>key_usage: ::core::option::Option&lt;KeyUsage&gt;,
     <span class="doccomment">/// Optional. Describes options in this
-    /// \[X509Parameters][google.cloud.security.privateca.v1.X509Parameters\] that
+    /// [X509Parameters][google.cloud.security.privateca.v1.X509Parameters] that
     /// are relevant in a CA certificate.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>ca_options: ::core::option::Option&lt;x509_parameters::CaOptions&gt;,
@@ -4902,7 +4902,7 @@
 }
 <span class="doccomment">/// Describes a subordinate CA&#39;s issuers. This is either a resource name to a
 /// known issuing
-/// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\],
+/// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority],
 /// or a PEM issuer certificate chain.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4927,22 +4927,22 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>SubordinateConfig {
         <span class="doccomment">/// Required. This can refer to a
-        /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+        /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
         /// that was used to create a subordinate
-        /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\].
+        /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority].
         /// This field is used for information and usability purposes only. The
         /// resource name is in the format
         /// `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span>CertificateAuthority(::prost::alloc::string::String),
         <span class="doccomment">/// Required. Contains the PEM certificate chain for the issuers of this
-        /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\],
+        /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority],
         /// but not pem certificate for this CA itself.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
         </span>PemIssuerChain(SubordinateConfigChain),
     }
 }
-<span class="doccomment">/// A \[PublicKey][google.cloud.security.privateca.v1.PublicKey\] describes a
+<span class="doccomment">/// A [PublicKey][google.cloud.security.privateca.v1.PublicKey] describes a
 /// public key.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4978,14 +4978,14 @@
         /// 7468](&lt;https://tools.ietf.org/html/rfc7468&gt;). It can be any of the
         /// following: a PEM-encoded PKCS#1/RFC 3447 RSAPublicKey
         /// structure, an RFC 5280
-        /// \[SubjectPublicKeyInfo\](&lt;https://tools.ietf.org/html/rfc5280#section-4.1&gt;)
+        /// [SubjectPublicKeyInfo](&lt;https://tools.ietf.org/html/rfc5280#section-4.1&gt;)
         /// or a PEM-encoded X.509 certificate signing request (CSR). If a
-        /// \[SubjectPublicKeyInfo\](&lt;https://tools.ietf.org/html/rfc5280#section-4.1&gt;)
+        /// [SubjectPublicKeyInfo](&lt;https://tools.ietf.org/html/rfc5280#section-4.1&gt;)
         /// is specified, it can contain a A PEM-encoded PKCS#1/RFC 3447 RSAPublicKey
         /// or a NIST P-256/secp256r1/prime256v1 or P-384 key. If a CSR is specified,
         /// it will used solely for the purpose of extracting the public key. When
         /// generated by the service, it will always be an RFC 5280
-        /// \[SubjectPublicKeyInfo\](&lt;https://tools.ietf.org/html/rfc5280#section-4.1&gt;)
+        /// [SubjectPublicKeyInfo](&lt;https://tools.ietf.org/html/rfc5280#section-4.1&gt;)
         /// structure containing an algorithm identifier and a key.
         </span>Pem = <span class="number">1</span>,
     }
@@ -5010,7 +5010,7 @@
         }
     }
 }
-<span class="doccomment">/// A \[CertificateConfig][google.cloud.security.privateca.v1.CertificateConfig\]
+<span class="doccomment">/// A [CertificateConfig][google.cloud.security.privateca.v1.CertificateConfig]
 /// describes an X.509 certificate or CSR that is to be created, as an
 /// alternative to using ASN.1.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5026,11 +5026,11 @@
     </span><span class="kw">pub </span>x509_config: ::core::option::Option&lt;X509Parameters&gt;,
     <span class="doccomment">/// Optional. The public key that corresponds to this config. This is, for
     /// example, used when issuing
-    /// \[Certificates][google.cloud.security.privateca.v1.Certificate\], but not
+    /// [Certificates][google.cloud.security.privateca.v1.Certificate], but not
     /// when creating a self-signed
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// or
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// CSR.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>public_key: ::core::option::Option&lt;PublicKey&gt;,
@@ -5052,7 +5052,7 @@
     }
 }
 <span class="doccomment">/// A
-/// \[CertificateDescription][google.cloud.security.privateca.v1.CertificateDescription\]
+/// [CertificateDescription][google.cloud.security.privateca.v1.CertificateDescription]
 /// describes an X.509 certificate or CSR that has been issued, as an alternative
 /// to using ASN.1 / X.509.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5146,7 +5146,7 @@
         </span><span class="kw">pub </span>sha256_hash: ::prost::alloc::string::String,
     }
 }
-<span class="doccomment">/// An \[ObjectId][google.cloud.security.privateca.v1.ObjectId\] specifies an
+<span class="doccomment">/// An [ObjectId][google.cloud.security.privateca.v1.ObjectId] specifies an
 /// object identifier (OID). These provide context and describe types in ASN.1
 /// messages.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5157,7 +5157,7 @@
     </span><span class="attr">#[prost(int32, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>object_id_path: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
-<span class="doccomment">/// An \[X509Extension][google.cloud.security.privateca.v1.X509Extension\]
+<span class="doccomment">/// An [X509Extension][google.cloud.security.privateca.v1.X509Extension]
 /// specifies an X.509 extension, which may be used in different parts of X.509
 /// objects like certificates, CSRs, and CRLs.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5175,7 +5175,7 @@
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>value: ::prost::bytes::Bytes,
 }
-<span class="doccomment">/// A \[KeyUsage][google.cloud.security.privateca.v1.KeyUsage\] describes key usage
+<span class="doccomment">/// A [KeyUsage][google.cloud.security.privateca.v1.KeyUsage] describes key usage
 /// values that may appear in an X.509 certificate.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5187,14 +5187,14 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>extended_key_usage: ::core::option::Option&lt;key_usage::ExtendedKeyUsageOptions&gt;,
     <span class="doccomment">/// Used to describe extended key usages that are not listed in the
-    /// \[KeyUsage.ExtendedKeyUsageOptions][google.cloud.security.privateca.v1.KeyUsage.ExtendedKeyUsageOptions\]
+    /// [KeyUsage.ExtendedKeyUsageOptions][google.cloud.security.privateca.v1.KeyUsage.ExtendedKeyUsageOptions]
     /// message.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>unknown_extended_key_usages: ::prost::alloc::vec::Vec&lt;ObjectId&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `KeyUsage`.
 </span><span class="kw">pub mod </span>key_usage {
-    <span class="doccomment">/// \[KeyUsage.KeyUsageOptions][google.cloud.security.privateca.v1.KeyUsage.KeyUsageOptions\]
+    <span class="doccomment">/// [KeyUsage.KeyUsageOptions][google.cloud.security.privateca.v1.KeyUsage.KeyUsageOptions]
     /// corresponds to the key usage values described in
     /// &lt;https://tools.ietf.org/html/rfc5280#section-4.2.1.3.&gt;
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5229,7 +5229,7 @@
         </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
         </span><span class="kw">pub </span>decipher_only: bool,
     }
-    <span class="doccomment">/// \[KeyUsage.ExtendedKeyUsageOptions][google.cloud.security.privateca.v1.KeyUsage.ExtendedKeyUsageOptions\]
+    <span class="doccomment">/// [KeyUsage.ExtendedKeyUsageOptions][google.cloud.security.privateca.v1.KeyUsage.ExtendedKeyUsageOptions]
     /// has fields that correspond to certain common OIDs that could be specified
     /// as an extended key usage value.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5261,7 +5261,7 @@
         </span><span class="kw">pub </span>ocsp_signing: bool,
     }
 }
-<span class="doccomment">/// \[Subject][google.cloud.security.privateca.v1.Subject\] describes parts of a
+<span class="doccomment">/// [Subject][google.cloud.security.privateca.v1.Subject] describes parts of a
 /// distinguished name that, in turn, describes the subject of the certificate.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5291,7 +5291,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>postal_code: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// \[SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames\]
+<span class="doccomment">/// [SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames]
 /// corresponds to a more modern way of listing what the asserted identity is in
 /// a certificate (i.e., compared to the &quot;common name&quot; in the distinguished
 /// name).
@@ -5317,9 +5317,9 @@
     </span><span class="kw">pub </span>custom_sans: ::prost::alloc::vec::Vec&lt;X509Extension&gt;,
 }
 <span class="doccomment">/// Describes constraints on a
-/// \[Certificate][google.cloud.security.privateca.v1.Certificate\]&#39;s
-/// \[Subject][google.cloud.security.privateca.v1.Subject\] and
-/// \[SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames\].
+/// [Certificate][google.cloud.security.privateca.v1.Certificate]&#39;s
+/// [Subject][google.cloud.security.privateca.v1.Subject] and
+/// [SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CertificateIdentityConstraints {
@@ -5330,17 +5330,17 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>cel_expression: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Expr&gt;,
     <span class="doccomment">/// Required. If this is true, the
-    /// \[Subject][google.cloud.security.privateca.v1.Subject\] field may be copied
+    /// [Subject][google.cloud.security.privateca.v1.Subject] field may be copied
     /// from a certificate request into the signed certificate. Otherwise, the
-    /// requested \[Subject][google.cloud.security.privateca.v1.Subject\] will be
+    /// requested [Subject][google.cloud.security.privateca.v1.Subject] will be
     /// discarded.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>allow_subject_passthrough: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// Required. If this is true, the
-    /// \[SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames\]
+    /// [SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames]
     /// extension may be copied from a certificate request into the signed
     /// certificate. Otherwise, the requested
-    /// \[SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames\] will
+    /// [SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames] will
     /// be discarded.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>allow_subject_alt_names_passthrough: ::core::option::Option&lt;bool&gt;,
@@ -5351,7 +5351,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CertificateExtensionConstraints {
     <span class="doccomment">/// Optional. A set of named X.509 extensions. Will be combined with
-    /// \[additional_extensions][google.cloud.security.privateca.v1.CertificateExtensionConstraints.additional_extensions\]
+    /// [additional_extensions][google.cloud.security.privateca.v1.CertificateExtensionConstraints.additional_extensions]
     /// to determine the full set of X.509 extensions.
     </span><span class="attr">#[prost(
         enumeration = <span class="string">&quot;certificate_extension_constraints::KnownCertificateExtension&quot;</span>,
@@ -5360,9 +5360,9 @@
         tag = <span class="string">&quot;1&quot;
     </span>)]
     </span><span class="kw">pub </span>known_extensions: ::prost::alloc::vec::Vec&lt;i32&gt;,
-    <span class="doccomment">/// Optional. A set of \[ObjectIds][google.cloud.security.privateca.v1.ObjectId\]
+    <span class="doccomment">/// Optional. A set of [ObjectIds][google.cloud.security.privateca.v1.ObjectId]
     /// identifying custom X.509 extensions. Will be combined with
-    /// \[known_extensions][google.cloud.security.privateca.v1.CertificateExtensionConstraints.known_extensions\]
+    /// [known_extensions][google.cloud.security.privateca.v1.CertificateExtensionConstraints.known_extensions]
     /// to determine the full set of X.509 extensions.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>additional_extensions: ::prost::alloc::vec::Vec&lt;ObjectId&gt;,
@@ -5370,9 +5370,9 @@
 <span class="doccomment">/// Nested message and enum types in `CertificateExtensionConstraints`.
 </span><span class="kw">pub mod </span>certificate_extension_constraints {
     <span class="doccomment">/// Describes well-known X.509 extensions that can appear in a
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\], not
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate], not
     /// including the
-    /// \[SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames\]
+    /// [SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames]
     /// extension.
     </span><span class="attr">#[derive(
         Clone,
@@ -5392,28 +5392,28 @@
         <span class="doccomment">/// Refers to a certificate&#39;s Key Usage extension, as described in [RFC 5280
         /// section 4.2.1.3](&lt;https://tools.ietf.org/html/rfc5280#section-4.2.1.3&gt;).
         /// This corresponds to the
-        /// \[KeyUsage.base_key_usage][google.cloud.security.privateca.v1.KeyUsage.base_key_usage\]
+        /// [KeyUsage.base_key_usage][google.cloud.security.privateca.v1.KeyUsage.base_key_usage]
         /// field.
         </span>BaseKeyUsage = <span class="number">1</span>,
         <span class="doccomment">/// Refers to a certificate&#39;s Extended Key Usage extension, as described in
         /// [RFC 5280
         /// section 4.2.1.12](&lt;https://tools.ietf.org/html/rfc5280#section-4.2.1.12&gt;).
         /// This corresponds to the
-        /// \[KeyUsage.extended_key_usage][google.cloud.security.privateca.v1.KeyUsage.extended_key_usage\]
+        /// [KeyUsage.extended_key_usage][google.cloud.security.privateca.v1.KeyUsage.extended_key_usage]
         /// message.
         </span>ExtendedKeyUsage = <span class="number">2</span>,
         <span class="doccomment">/// Refers to a certificate&#39;s Basic Constraints extension, as described in
         /// [RFC 5280
         /// section 4.2.1.9](&lt;https://tools.ietf.org/html/rfc5280#section-4.2.1.9&gt;).
         /// This corresponds to the
-        /// \[X509Parameters.ca_options][google.cloud.security.privateca.v1.X509Parameters.ca_options\]
+        /// [X509Parameters.ca_options][google.cloud.security.privateca.v1.X509Parameters.ca_options]
         /// field.
         </span>CaOptions = <span class="number">3</span>,
         <span class="doccomment">/// Refers to a certificate&#39;s Policy object identifiers, as described in
         /// [RFC 5280
         /// section 4.2.1.4](&lt;https://tools.ietf.org/html/rfc5280#section-4.2.1.4&gt;).
         /// This corresponds to the
-        /// \[X509Parameters.policy_ids][google.cloud.security.privateca.v1.X509Parameters.policy_ids\]
+        /// [X509Parameters.policy_ids][google.cloud.security.privateca.v1.X509Parameters.policy_ids]
         /// field.
         </span>PolicyIds = <span class="number">4</span>,
         <span class="doccomment">/// Refers to OCSP servers in a certificate&#39;s Authority Information Access
@@ -5421,7 +5421,7 @@
         /// [RFC 5280
         /// section 4.2.2.1](&lt;https://tools.ietf.org/html/rfc5280#section-4.2.2.1&gt;),
         /// This corresponds to the
-        /// \[X509Parameters.aia_ocsp_servers][google.cloud.security.privateca.v1.X509Parameters.aia_ocsp_servers\]
+        /// [X509Parameters.aia_ocsp_servers][google.cloud.security.privateca.v1.X509Parameters.aia_ocsp_servers]
         /// field.
         </span>AiaOcspServers = <span class="number">5</span>,
         <span class="doccomment">/// Refers to Name Constraints extension as described in
@@ -5462,9 +5462,9 @@
         }
     }
 }
-<span class="doccomment">/// A \[RevocationReason][google.cloud.security.privateca.v1.RevocationReason\]
+<span class="doccomment">/// A [RevocationReason][google.cloud.security.privateca.v1.RevocationReason]
 /// indicates whether a
-/// \[Certificate][google.cloud.security.privateca.v1.Certificate\] has been
+/// [Certificate][google.cloud.security.privateca.v1.Certificate] has been
 /// revoked, and the reason for revocation. These correspond to standard
 /// revocation reasons from RFC 5280. Note that the enum labels and values in
 /// this definition are not the same ASN.1 values defined in RFC 5280. These
@@ -5473,34 +5473,34 @@
 #[repr(i32)]
 </span><span class="kw">pub enum </span>RevocationReason {
     <span class="doccomment">/// Default unspecified value. This value does indicate that a
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] has been
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] has been
     /// revoked, but that a reason has not been recorded.
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// Key material for this
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] may have
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] may have
     /// leaked.
     </span>KeyCompromise = <span class="number">1</span>,
     <span class="doccomment">/// The key material for a certificate authority in the issuing path may have
     /// leaked.
     </span>CertificateAuthorityCompromise = <span class="number">2</span>,
     <span class="doccomment">/// The subject or other attributes in this
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] have changed.
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] have changed.
     </span>AffiliationChanged = <span class="number">3</span>,
-    <span class="doccomment">/// This \[Certificate][google.cloud.security.privateca.v1.Certificate\] has been
+    <span class="doccomment">/// This [Certificate][google.cloud.security.privateca.v1.Certificate] has been
     /// superseded.
     </span>Superseded = <span class="number">4</span>,
-    <span class="doccomment">/// This \[Certificate][google.cloud.security.privateca.v1.Certificate\] or
+    <span class="doccomment">/// This [Certificate][google.cloud.security.privateca.v1.Certificate] or
     /// entities in the issuing path have ceased to operate.
     </span>CessationOfOperation = <span class="number">5</span>,
-    <span class="doccomment">/// This \[Certificate][google.cloud.security.privateca.v1.Certificate\] should
+    <span class="doccomment">/// This [Certificate][google.cloud.security.privateca.v1.Certificate] should
     /// not be considered valid, it is expected that it may become valid in the
     /// future.
     </span>CertificateHold = <span class="number">6</span>,
-    <span class="doccomment">/// This \[Certificate][google.cloud.security.privateca.v1.Certificate\] no
+    <span class="doccomment">/// This [Certificate][google.cloud.security.privateca.v1.Certificate] no
     /// longer has permission to assert the listed attributes.
     </span>PrivilegeWithdrawn = <span class="number">7</span>,
     <span class="doccomment">/// The authority which determines appropriate attributes for a
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] may have been
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] may have been
     /// compromised.
     </span>AttributeAuthorityCompromise = <span class="number">8</span>,
 }
@@ -5545,9 +5545,9 @@
     }
 }
 <span class="doccomment">/// Describes the way in which a
-/// \[Certificate][google.cloud.security.privateca.v1.Certificate\]&#39;s
-/// \[Subject][google.cloud.security.privateca.v1.Subject\] and/or
-/// \[SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames\] will be
+/// [Certificate][google.cloud.security.privateca.v1.Certificate]&#39;s
+/// [Subject][google.cloud.security.privateca.v1.Subject] and/or
+/// [SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames] will be
 /// resolved.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -5555,18 +5555,18 @@
     <span class="doccomment">/// Not specified.
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// The default mode used in most cases. Indicates that the certificate&#39;s
-    /// \[Subject][google.cloud.security.privateca.v1.Subject\] and/or
-    /// \[SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames\] are
+    /// [Subject][google.cloud.security.privateca.v1.Subject] and/or
+    /// [SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames] are
     /// specified in the certificate request. This mode requires the caller to have
     /// the `privateca.certificates.create` permission.
     </span>Default = <span class="number">1</span>,
     <span class="doccomment">/// A mode reserved for special cases. Indicates that the certificate should
     /// have one SPIFFE
-    /// \[SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames\] set
+    /// [SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames] set
     /// by the service based on the caller&#39;s identity. This mode will ignore any
-    /// explicitly specified \[Subject][google.cloud.security.privateca.v1.Subject\]
+    /// explicitly specified [Subject][google.cloud.security.privateca.v1.Subject]
     /// and/or
-    /// \[SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames\] in
+    /// [SubjectAltNames][google.cloud.security.privateca.v1.SubjectAltNames] in
     /// the certificate request. This mode requires the caller to have the
     /// `privateca.certificates.createForSelf` permission.
     </span>ReflectedSpiffe = <span class="number">2</span>,
@@ -5594,24 +5594,24 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.CreateCertificate][google.cloud.security.privateca.v1.CertificateAuthorityService.CreateCertificate\].
+/// [CertificateAuthorityService.CreateCertificate][google.cloud.security.privateca.v1.CertificateAuthorityService.CreateCertificate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateCertificateRequest {
     <span class="doccomment">/// Required. The resource name of the
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\] associated with the
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\], in the
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool] associated with the
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate], in the
     /// format `projects/*/locations/*/caPools/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. It must be unique within a location and match the regular
     /// expression `\[a-zA-Z0-9_-\]{1,63}`. This field is required when using a
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
-    /// in the Enterprise \[CertificateAuthority.Tier][\], but is optional and its
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
+    /// in the Enterprise [CertificateAuthority.Tier][], but is optional and its
     /// value is ignored otherwise.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>certificate_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. A \[Certificate][google.cloud.security.privateca.v1.Certificate\]
+    <span class="doccomment">/// Required. A [Certificate][google.cloud.security.privateca.v1.Certificate]
     /// with initial field values.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>certificate: ::core::option::Option&lt;Certificate&gt;,
@@ -5631,70 +5631,70 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If this is true, no
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] resource will
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] resource will
     /// be persisted regardless of the
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\]&#39;s
-    /// \[tier][google.cloud.security.privateca.v1.CaPool.tier\], and the returned
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] will not
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool]&#39;s
+    /// [tier][google.cloud.security.privateca.v1.CaPool.tier], and the returned
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] will not
     /// contain the
-    /// \[pem_certificate][google.cloud.security.privateca.v1.Certificate.pem_certificate\]
+    /// [pem_certificate][google.cloud.security.privateca.v1.Certificate.pem_certificate]
     /// field.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// Optional. The resource ID of the
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// that should issue the certificate.  This optional field will ignore the
     /// load-balancing scheme of the Pool and directly issue the certificate from
     /// the CA with the specified ID, contained in the same
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\] referenced by `parent`.
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool] referenced by `parent`.
     /// Per-CA quota rules apply. If left empty, a
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
-    /// will be chosen from the \[CaPool][google.cloud.security.privateca.v1.CaPool\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
+    /// will be chosen from the [CaPool][google.cloud.security.privateca.v1.CaPool]
     /// by the service. For example, to issue a
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] from a
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] from a
     /// Certificate Authority with resource name
     /// &quot;projects/my-project/locations/us-central1/caPools/my-pool/certificateAuthorities/my-ca&quot;,
     /// you can set the
-    /// \[parent][google.cloud.security.privateca.v1.CreateCertificateRequest.parent\]
+    /// [parent][google.cloud.security.privateca.v1.CreateCertificateRequest.parent]
     /// to &quot;projects/my-project/locations/us-central1/caPools/my-pool&quot; and the
-    /// \[issuing_certificate_authority_id][google.cloud.security.privateca.v1.CreateCertificateRequest.issuing_certificate_authority_id\]
+    /// [issuing_certificate_authority_id][google.cloud.security.privateca.v1.CreateCertificateRequest.issuing_certificate_authority_id]
     /// to &quot;my-ca&quot;.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>issuing_certificate_authority_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.GetCertificate][google.cloud.security.privateca.v1.CertificateAuthorityService.GetCertificate\].
+/// [CertificateAuthorityService.GetCertificate][google.cloud.security.privateca.v1.CertificateAuthorityService.GetCertificate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetCertificateRequest {
-    <span class="doccomment">/// Required. The \[name][google.cloud.security.privateca.v1.Certificate.name\]
-    /// of the \[Certificate][google.cloud.security.privateca.v1.Certificate\] to
+    <span class="doccomment">/// Required. The [name][google.cloud.security.privateca.v1.Certificate.name]
+    /// of the [Certificate][google.cloud.security.privateca.v1.Certificate] to
     /// get.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.ListCertificates][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificates\].
+/// [CertificateAuthorityService.ListCertificates][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificates].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCertificatesRequest {
     <span class="doccomment">/// Required. The resource name of the location associated with the
-    /// \[Certificates][google.cloud.security.privateca.v1.Certificate\], in the
+    /// [Certificates][google.cloud.security.privateca.v1.Certificate], in the
     /// format `projects/*/locations/*/caPools/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Limit on the number of
-    /// \[Certificates][google.cloud.security.privateca.v1.Certificate\] to include
+    /// [Certificates][google.cloud.security.privateca.v1.Certificate] to include
     /// in the response. Further
-    /// \[Certificates][google.cloud.security.privateca.v1.Certificate\] can
+    /// [Certificates][google.cloud.security.privateca.v1.Certificate] can
     /// subsequently be obtained by including the
-    /// \[ListCertificatesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificatesResponse.next_page_token\]
+    /// [ListCertificatesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificatesResponse.next_page_token]
     /// in a subsequent request. If unspecified, the server will pick an
     /// appropriate default.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Pagination token, returned earlier via
-    /// \[ListCertificatesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificatesResponse.next_page_token\].
+    /// [ListCertificatesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificatesResponse.next_page_token].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Only include resources that match the filter in the response. For
@@ -5709,15 +5709,15 @@
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[CertificateAuthorityService.ListCertificates][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificates\].
+/// [CertificateAuthorityService.ListCertificates][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificates].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCertificatesResponse {
-    <span class="doccomment">/// The list of \[Certificates][google.cloud.security.privateca.v1.Certificate\].
+    <span class="doccomment">/// The list of [Certificates][google.cloud.security.privateca.v1.Certificate].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>certificates: ::prost::alloc::vec::Vec&lt;Certificate&gt;,
     <span class="doccomment">/// A token to retrieve next page of results. Pass this value in
-    /// \[ListCertificatesRequest.next_page_token][\] to retrieve the
+    /// [ListCertificatesRequest.next_page_token][] to retrieve the
     /// next page of results.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
@@ -5726,17 +5726,17 @@
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.RevokeCertificate][google.cloud.security.privateca.v1.CertificateAuthorityService.RevokeCertificate\].
+/// [CertificateAuthorityService.RevokeCertificate][google.cloud.security.privateca.v1.CertificateAuthorityService.RevokeCertificate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RevokeCertificateRequest {
     <span class="doccomment">/// Required. The resource name for this
-    /// \[Certificate][google.cloud.security.privateca.v1.Certificate\] in the format
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate] in the format
     /// `projects/*/locations/*/caPools/*/certificates/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The
-    /// \[RevocationReason][google.cloud.security.privateca.v1.RevocationReason\] for
+    /// [RevocationReason][google.cloud.security.privateca.v1.RevocationReason] for
     /// revoking this certificate.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;RevocationReason&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>reason: i32,
@@ -5757,11 +5757,11 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.UpdateCertificate][google.cloud.security.privateca.v1.CertificateAuthorityService.UpdateCertificate\].
+/// [CertificateAuthorityService.UpdateCertificate][google.cloud.security.privateca.v1.CertificateAuthorityService.UpdateCertificate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateCertificateRequest {
-    <span class="doccomment">/// Required. \[Certificate][google.cloud.security.privateca.v1.Certificate\]
+    <span class="doccomment">/// Required. [Certificate][google.cloud.security.privateca.v1.Certificate]
     /// with updated values.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>certificate: ::core::option::Option&lt;Certificate&gt;,
@@ -5785,17 +5785,17 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.ActivateCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.ActivateCertificateAuthority\].
+/// [CertificateAuthorityService.ActivateCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.ActivateCertificateAuthority].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ActivateCertificateAuthorityRequest {
     <span class="doccomment">/// Required. The resource name for this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The signed CA certificate issued from
-    /// \[FetchCertificateAuthorityCsrResponse.pem_csr][google.cloud.security.privateca.v1.FetchCertificateAuthorityCsrResponse.pem_csr\].
+    /// [FetchCertificateAuthorityCsrResponse.pem_csr][google.cloud.security.privateca.v1.FetchCertificateAuthorityCsrResponse.pem_csr].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>pem_ca_certificate: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Must include information about the issuer of
@@ -5819,13 +5819,13 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.CreateCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.CreateCertificateAuthority\].
+/// [CertificateAuthorityService.CreateCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.CreateCertificateAuthority].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateCertificateAuthorityRequest {
     <span class="doccomment">/// Required. The resource name of the
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\] associated with the
-    /// \[CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority\],
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool] associated with the
+    /// [CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority],
     /// in the format `projects/*/locations/*/caPools/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
@@ -5834,7 +5834,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>certificate_authority_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// with initial field values.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>certificate_authority: ::core::option::Option&lt;CertificateAuthority&gt;,
@@ -5855,12 +5855,12 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.DisableCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.DisableCertificateAuthority\].
+/// [CertificateAuthorityService.DisableCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.DisableCertificateAuthority].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DisableCertificateAuthorityRequest {
     <span class="doccomment">/// Required. The resource name for this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
@@ -5887,12 +5887,12 @@
     </span><span class="kw">pub </span>ignore_dependent_resources: bool,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.EnableCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.EnableCertificateAuthority\].
+/// [CertificateAuthorityService.EnableCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.EnableCertificateAuthority].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EnableCertificateAuthorityRequest {
     <span class="doccomment">/// Required. The resource name for this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
@@ -5913,18 +5913,18 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.FetchCertificateAuthorityCsr][google.cloud.security.privateca.v1.CertificateAuthorityService.FetchCertificateAuthorityCsr\].
+/// [CertificateAuthorityService.FetchCertificateAuthorityCsr][google.cloud.security.privateca.v1.CertificateAuthorityService.FetchCertificateAuthorityCsr].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FetchCertificateAuthorityCsrRequest {
     <span class="doccomment">/// Required. The resource name for this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[CertificateAuthorityService.FetchCertificateAuthorityCsr][google.cloud.security.privateca.v1.CertificateAuthorityService.FetchCertificateAuthorityCsr\].
+/// [CertificateAuthorityService.FetchCertificateAuthorityCsr][google.cloud.security.privateca.v1.CertificateAuthorityService.FetchCertificateAuthorityCsr].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FetchCertificateAuthorityCsrResponse {
@@ -5933,40 +5933,40 @@
     </span><span class="kw">pub </span>pem_csr: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.GetCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.GetCertificateAuthority\].
+/// [CertificateAuthorityService.GetCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.GetCertificateAuthority].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetCertificateAuthorityRequest {
     <span class="doccomment">/// Required. The
-    /// \[name][google.cloud.security.privateca.v1.CertificateAuthority.name\] of the
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [name][google.cloud.security.privateca.v1.CertificateAuthority.name] of the
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// to get.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.ListCertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateAuthorities\].
+/// [CertificateAuthorityService.ListCertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateAuthorities].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCertificateAuthoritiesRequest {
     <span class="doccomment">/// Required. The resource name of the
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\] associated with the
-    /// \[CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority\],
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool] associated with the
+    /// [CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority],
     /// in the format `projects/*/locations/*/caPools/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Limit on the number of
-    /// \[CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority]
     /// to include in the response. Further
-    /// \[CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority]
     /// can subsequently be obtained by including the
-    /// \[ListCertificateAuthoritiesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateAuthoritiesResponse.next_page_token\]
+    /// [ListCertificateAuthoritiesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateAuthoritiesResponse.next_page_token]
     /// in a subsequent request. If unspecified, the server will pick an
     /// appropriate default.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Pagination token, returned earlier via
-    /// \[ListCertificateAuthoritiesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateAuthoritiesResponse.next_page_token\].
+    /// [ListCertificateAuthoritiesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateAuthoritiesResponse.next_page_token].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Only include resources that match the filter in the response.
@@ -5977,16 +5977,16 @@
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[CertificateAuthorityService.ListCertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateAuthorities\].
+/// [CertificateAuthorityService.ListCertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateAuthorities].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCertificateAuthoritiesResponse {
     <span class="doccomment">/// The list of
-    /// \[CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority\].
+    /// [CertificateAuthorities][google.cloud.security.privateca.v1.CertificateAuthority].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>certificate_authorities: ::prost::alloc::vec::Vec&lt;CertificateAuthority&gt;,
     <span class="doccomment">/// A token to retrieve next page of results. Pass this value in
-    /// \[ListCertificateAuthoritiesRequest.next_page_token][\] to retrieve the next
+    /// [ListCertificateAuthoritiesRequest.next_page_token][] to retrieve the next
     /// page of results.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
@@ -5995,12 +5995,12 @@
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.UndeleteCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.UndeleteCertificateAuthority\].
+/// [CertificateAuthorityService.UndeleteCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.UndeleteCertificateAuthority].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UndeleteCertificateAuthorityRequest {
     <span class="doccomment">/// Required. The resource name for this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
@@ -6021,12 +6021,12 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.DeleteCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.DeleteCertificateAuthority\].
+/// [CertificateAuthorityService.DeleteCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.DeleteCertificateAuthority].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteCertificateAuthorityRequest {
     <span class="doccomment">/// Required. The resource name for this
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
@@ -6062,12 +6062,12 @@
     </span><span class="kw">pub </span>ignore_dependent_resources: bool,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.UpdateCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.UpdateCertificateAuthority\].
+/// [CertificateAuthorityService.UpdateCertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthorityService.UpdateCertificateAuthority].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateCertificateAuthorityRequest {
     <span class="doccomment">/// Required.
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
     /// with updated values.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>certificate_authority: ::core::option::Option&lt;CertificateAuthority&gt;,
@@ -6091,12 +6091,12 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.CreateCaPool][google.cloud.security.privateca.v1.CertificateAuthorityService.CreateCaPool\].
+/// [CertificateAuthorityService.CreateCaPool][google.cloud.security.privateca.v1.CertificateAuthorityService.CreateCaPool].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateCaPoolRequest {
     <span class="doccomment">/// Required. The resource name of the location associated with the
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\], in the format
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool], in the format
     /// `projects/*/locations/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
@@ -6104,7 +6104,7 @@
     /// expression `\[a-zA-Z0-9_-\]{1,63}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>ca_pool_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. A \[CaPool][google.cloud.security.privateca.v1.CaPool\] with
+    <span class="doccomment">/// Required. A [CaPool][google.cloud.security.privateca.v1.CaPool] with
     /// initial field values.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>ca_pool: ::core::option::Option&lt;CaPool&gt;,
@@ -6125,11 +6125,11 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.UpdateCaPool][google.cloud.security.privateca.v1.CertificateAuthorityService.UpdateCaPool\].
+/// [CertificateAuthorityService.UpdateCaPool][google.cloud.security.privateca.v1.CertificateAuthorityService.UpdateCaPool].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateCaPoolRequest {
-    <span class="doccomment">/// Required. \[CaPool][google.cloud.security.privateca.v1.CaPool\] with updated
+    <span class="doccomment">/// Required. [CaPool][google.cloud.security.privateca.v1.CaPool] with updated
     /// values.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>ca_pool: ::core::option::Option&lt;CaPool&gt;,
@@ -6153,12 +6153,12 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.DeleteCaPool][google.cloud.security.privateca.v1.CertificateAuthorityService.DeleteCaPool\].
+/// [CertificateAuthorityService.DeleteCaPool][google.cloud.security.privateca.v1.CertificateAuthorityService.DeleteCaPool].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteCaPoolRequest {
     <span class="doccomment">/// Required. The resource name for this
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\] in the format
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool] in the format
     /// `projects/*/locations/*/caPools/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
@@ -6185,12 +6185,12 @@
     </span><span class="kw">pub </span>ignore_dependent_resources: bool,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.FetchCaCerts][google.cloud.security.privateca.v1.CertificateAuthorityService.FetchCaCerts\].
+/// [CertificateAuthorityService.FetchCaCerts][google.cloud.security.privateca.v1.CertificateAuthorityService.FetchCaCerts].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FetchCaCertsRequest {
     <span class="doccomment">/// Required. The resource name for the
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\] in the format
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool] in the format
     /// `projects/*/locations/*/caPools/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>ca_pool: ::prost::alloc::string::String,
@@ -6211,14 +6211,14 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[CertificateAuthorityService.FetchCaCerts][google.cloud.security.privateca.v1.CertificateAuthorityService.FetchCaCerts\].
+/// [CertificateAuthorityService.FetchCaCerts][google.cloud.security.privateca.v1.CertificateAuthorityService.FetchCaCerts].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FetchCaCertsResponse {
     <span class="doccomment">/// The PEM encoded CA certificate chains of all
-    /// \[ACTIVE][CertificateAuthority.State.ACTIVE\]
-    /// \[CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority\]
-    /// resources in this \[CaPool][google.cloud.security.privateca.v1.CaPool\].
+    /// [ACTIVE][CertificateAuthority.State.ACTIVE]
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
+    /// resources in this [CaPool][google.cloud.security.privateca.v1.CaPool].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>ca_certs: ::prost::alloc::vec::Vec&lt;fetch_ca_certs_response::CertChain&gt;,
 }
@@ -6233,36 +6233,36 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.GetCaPool][google.cloud.security.privateca.v1.CertificateAuthorityService.GetCaPool\].
+/// [CertificateAuthorityService.GetCaPool][google.cloud.security.privateca.v1.CertificateAuthorityService.GetCaPool].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetCaPoolRequest {
-    <span class="doccomment">/// Required. The \[name][google.cloud.security.privateca.v1.CaPool.name\] of the
-    /// \[CaPool][google.cloud.security.privateca.v1.CaPool\] to get.
+    <span class="doccomment">/// Required. The [name][google.cloud.security.privateca.v1.CaPool.name] of the
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool] to get.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.ListCaPools][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCaPools\].
+/// [CertificateAuthorityService.ListCaPools][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCaPools].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCaPoolsRequest {
     <span class="doccomment">/// Required. The resource name of the location associated with the
-    /// \[CaPools][google.cloud.security.privateca.v1.CaPool\], in the format
+    /// [CaPools][google.cloud.security.privateca.v1.CaPool], in the format
     /// `projects/*/locations/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Limit on the number of
-    /// \[CaPools][google.cloud.security.privateca.v1.CaPool\] to include in the
-    /// response. Further \[CaPools][google.cloud.security.privateca.v1.CaPool\] can
+    /// [CaPools][google.cloud.security.privateca.v1.CaPool] to include in the
+    /// response. Further [CaPools][google.cloud.security.privateca.v1.CaPool] can
     /// subsequently be obtained by including the
-    /// \[ListCaPoolsResponse.next_page_token][google.cloud.security.privateca.v1.ListCaPoolsResponse.next_page_token\]
+    /// [ListCaPoolsResponse.next_page_token][google.cloud.security.privateca.v1.ListCaPoolsResponse.next_page_token]
     /// in a subsequent request. If unspecified, the server will pick an
     /// appropriate default.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Pagination token, returned earlier via
-    /// \[ListCaPoolsResponse.next_page_token][google.cloud.security.privateca.v1.ListCaPoolsResponse.next_page_token\].
+    /// [ListCaPoolsResponse.next_page_token][google.cloud.security.privateca.v1.ListCaPoolsResponse.next_page_token].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Only include resources that match the filter in the response.
@@ -6273,15 +6273,15 @@
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[CertificateAuthorityService.ListCaPools][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCaPools\].
+/// [CertificateAuthorityService.ListCaPools][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCaPools].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCaPoolsResponse {
-    <span class="doccomment">/// The list of \[CaPools][google.cloud.security.privateca.v1.CaPool\].
+    <span class="doccomment">/// The list of [CaPools][google.cloud.security.privateca.v1.CaPool].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>ca_pools: ::prost::alloc::vec::Vec&lt;CaPool&gt;,
     <span class="doccomment">/// A token to retrieve next page of results. Pass this value in
-    /// \[ListCertificateAuthoritiesRequest.next_page_token][\] to retrieve the next
+    /// [ListCertificateAuthoritiesRequest.next_page_token][] to retrieve the next
     /// page of results.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
@@ -6290,40 +6290,40 @@
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.GetCertificateRevocationList][google.cloud.security.privateca.v1.CertificateAuthorityService.GetCertificateRevocationList\].
+/// [CertificateAuthorityService.GetCertificateRevocationList][google.cloud.security.privateca.v1.CertificateAuthorityService.GetCertificateRevocationList].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetCertificateRevocationListRequest {
     <span class="doccomment">/// Required. The
-    /// \[name][google.cloud.security.privateca.v1.CertificateRevocationList.name\]
+    /// [name][google.cloud.security.privateca.v1.CertificateRevocationList.name]
     /// of the
-    /// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\]
+    /// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList]
     /// to get.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.ListCertificateRevocationLists][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateRevocationLists\].
+/// [CertificateAuthorityService.ListCertificateRevocationLists][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateRevocationLists].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCertificateRevocationListsRequest {
     <span class="doccomment">/// Required. The resource name of the location associated with the
-    /// \[CertificateRevocationLists][google.cloud.security.privateca.v1.CertificateRevocationList\],
+    /// [CertificateRevocationLists][google.cloud.security.privateca.v1.CertificateRevocationList],
     /// in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Limit on the number of
-    /// \[CertificateRevocationLists][google.cloud.security.privateca.v1.CertificateRevocationList\]
+    /// [CertificateRevocationLists][google.cloud.security.privateca.v1.CertificateRevocationList]
     /// to include in the response. Further
-    /// \[CertificateRevocationLists][google.cloud.security.privateca.v1.CertificateRevocationList\]
+    /// [CertificateRevocationLists][google.cloud.security.privateca.v1.CertificateRevocationList]
     /// can subsequently be obtained by including the
-    /// \[ListCertificateRevocationListsResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateRevocationListsResponse.next_page_token\]
+    /// [ListCertificateRevocationListsResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateRevocationListsResponse.next_page_token]
     /// in a subsequent request. If unspecified, the server will pick an
     /// appropriate default.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Pagination token, returned earlier via
-    /// \[ListCertificateRevocationListsResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateRevocationListsResponse.next_page_token\].
+    /// [ListCertificateRevocationListsResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateRevocationListsResponse.next_page_token].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Only include resources that match the filter in the response.
@@ -6334,18 +6334,18 @@
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[CertificateAuthorityService.ListCertificateRevocationLists][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateRevocationLists\].
+/// [CertificateAuthorityService.ListCertificateRevocationLists][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateRevocationLists].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCertificateRevocationListsResponse {
     <span class="doccomment">/// The list of
-    /// \[CertificateRevocationLists][google.cloud.security.privateca.v1.CertificateRevocationList\].
+    /// [CertificateRevocationLists][google.cloud.security.privateca.v1.CertificateRevocationList].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>certificate_revocation_lists: ::prost::alloc::vec::Vec&lt;
         CertificateRevocationList,
     &gt;,
     <span class="doccomment">/// A token to retrieve next page of results. Pass this value in
-    /// \[ListCertificateRevocationListsRequest.next_page_token][\] to retrieve the
+    /// [ListCertificateRevocationListsRequest.next_page_token][] to retrieve the
     /// next page of results.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
@@ -6354,12 +6354,12 @@
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.UpdateCertificateRevocationList][google.cloud.security.privateca.v1.CertificateAuthorityService.UpdateCertificateRevocationList\].
+/// [CertificateAuthorityService.UpdateCertificateRevocationList][google.cloud.security.privateca.v1.CertificateAuthorityService.UpdateCertificateRevocationList].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateCertificateRevocationListRequest {
     <span class="doccomment">/// Required.
-    /// \[CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList\]
+    /// [CertificateRevocationList][google.cloud.security.privateca.v1.CertificateRevocationList]
     /// with updated values.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>certificate_revocation_list: ::core::option::Option&lt;CertificateRevocationList&gt;,
@@ -6383,12 +6383,12 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.CreateCertificateTemplate][google.cloud.security.privateca.v1.CertificateAuthorityService.CreateCertificateTemplate\].
+/// [CertificateAuthorityService.CreateCertificateTemplate][google.cloud.security.privateca.v1.CertificateAuthorityService.CreateCertificateTemplate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateCertificateTemplateRequest {
     <span class="doccomment">/// Required. The resource name of the location associated with the
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\],
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate],
     /// in the format `projects/*/locations/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
@@ -6397,7 +6397,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>certificate_template_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
     /// with initial field values.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>certificate_template: ::core::option::Option&lt;CertificateTemplate&gt;,
@@ -6418,12 +6418,12 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.DeleteCertificateTemplate][google.cloud.security.privateca.v1.CertificateAuthorityService.DeleteCertificateTemplate\].
+/// [CertificateAuthorityService.DeleteCertificateTemplate][google.cloud.security.privateca.v1.CertificateAuthorityService.DeleteCertificateTemplate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteCertificateTemplateRequest {
     <span class="doccomment">/// Required. The resource name for this
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
     /// in the format `projects/*/locations/*/certificateTemplates/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
@@ -6444,39 +6444,39 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.GetCertificateTemplate][google.cloud.security.privateca.v1.CertificateAuthorityService.GetCertificateTemplate\].
+/// [CertificateAuthorityService.GetCertificateTemplate][google.cloud.security.privateca.v1.CertificateAuthorityService.GetCertificateTemplate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetCertificateTemplateRequest {
     <span class="doccomment">/// Required. The
-    /// \[name][google.cloud.security.privateca.v1.CertificateTemplate.name\] of the
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+    /// [name][google.cloud.security.privateca.v1.CertificateTemplate.name] of the
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
     /// to get.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.ListCertificateTemplates][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateTemplates\].
+/// [CertificateAuthorityService.ListCertificateTemplates][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateTemplates].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCertificateTemplatesRequest {
     <span class="doccomment">/// Required. The resource name of the location associated with the
-    /// \[CertificateTemplates][google.cloud.security.privateca.v1.CertificateTemplate\],
+    /// [CertificateTemplates][google.cloud.security.privateca.v1.CertificateTemplate],
     /// in the format `projects/*/locations/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Limit on the number of
-    /// \[CertificateTemplates][google.cloud.security.privateca.v1.CertificateTemplate\]
+    /// [CertificateTemplates][google.cloud.security.privateca.v1.CertificateTemplate]
     /// to include in the response. Further
-    /// \[CertificateTemplates][google.cloud.security.privateca.v1.CertificateTemplate\]
+    /// [CertificateTemplates][google.cloud.security.privateca.v1.CertificateTemplate]
     /// can subsequently be obtained by including the
-    /// \[ListCertificateTemplatesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateTemplatesResponse.next_page_token\]
+    /// [ListCertificateTemplatesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateTemplatesResponse.next_page_token]
     /// in a subsequent request. If unspecified, the server will pick an
     /// appropriate default.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Pagination token, returned earlier via
-    /// \[ListCertificateTemplatesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateTemplatesResponse.next_page_token\].
+    /// [ListCertificateTemplatesResponse.next_page_token][google.cloud.security.privateca.v1.ListCertificateTemplatesResponse.next_page_token].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Only include resources that match the filter in the response.
@@ -6487,16 +6487,16 @@
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[CertificateAuthorityService.ListCertificateTemplates][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateTemplates\].
+/// [CertificateAuthorityService.ListCertificateTemplates][google.cloud.security.privateca.v1.CertificateAuthorityService.ListCertificateTemplates].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCertificateTemplatesResponse {
     <span class="doccomment">/// The list of
-    /// \[CertificateTemplates][google.cloud.security.privateca.v1.CertificateTemplate\].
+    /// [CertificateTemplates][google.cloud.security.privateca.v1.CertificateTemplate].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>certificate_templates: ::prost::alloc::vec::Vec&lt;CertificateTemplate&gt;,
     <span class="doccomment">/// A token to retrieve next page of results. Pass this value in
-    /// \[ListCertificateTemplatesRequest.next_page_token][\] to retrieve
+    /// [ListCertificateTemplatesRequest.next_page_token][] to retrieve
     /// the next page of results.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
@@ -6505,12 +6505,12 @@
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[CertificateAuthorityService.UpdateCertificateTemplate][google.cloud.security.privateca.v1.CertificateAuthorityService.UpdateCertificateTemplate\].
+/// [CertificateAuthorityService.UpdateCertificateTemplate][google.cloud.security.privateca.v1.CertificateAuthorityService.UpdateCertificateTemplate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateCertificateTemplateRequest {
     <span class="doccomment">/// Required.
-    /// \[CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate\]
+    /// [CertificateTemplate][google.cloud.security.privateca.v1.CertificateTemplate]
     /// with updated values.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>certificate_template: ::core::option::Option&lt;CertificateTemplate&gt;,
@@ -6554,8 +6554,8 @@
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,

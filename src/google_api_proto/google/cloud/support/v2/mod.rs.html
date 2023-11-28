@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/support/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/support/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1175,6 +1175,402 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>google_support: bool,
 }
+<span class="doccomment">/// A support case.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Case {
+    <span class="doccomment">/// The resource name for the case.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The short summary of the issue reported in this case.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// A broad description of the issue.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// The issue classification applicable to this case.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>classification: ::core::option::Option&lt;CaseClassification&gt;,
+    <span class="doccomment">/// The timezone of the user who created the support case.
+    /// It should be in a format IANA recognizes: &lt;https://www.iana.org/time-zones.&gt;
+    /// There is no additional validation done by the API.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
+    <span class="doccomment">/// The email addresses to receive updates on this case.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>subscriber_email_addresses: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Output only. The current status of the support case.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;case::State&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Output only. The time this case was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time this case was last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The user who created the case.
+    ///
+    /// Note: The name and email will be obfuscated if the case was created by
+    /// Google Support.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>creator: ::core::option::Option&lt;Actor&gt;,
+    <span class="doccomment">/// A user-supplied email address to send case update notifications for. This
+    /// should only be used in BYOID flows, where we cannot infer the user&#39;s email
+    /// address directly from their EUCs.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;35&quot;</span>)]
+    </span><span class="kw">pub </span>contact_email: ::prost::alloc::string::String,
+    <span class="doccomment">/// Whether the case is currently escalated.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>escalated: bool,
+    <span class="doccomment">/// Whether this case was created for internal API testing and should not be
+    /// acted on by the support team.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>test_case: bool,
+    <span class="doccomment">/// The language the user has requested to receive support in. This should be a
+    /// BCP 47 language code (e.g., `&quot;en&quot;`, `&quot;zh-CN&quot;`, `&quot;zh-TW&quot;`, `&quot;ja&quot;`, `&quot;ko&quot;`).
+    /// If no language or an unsupported language is specified, this field defaults
+    /// to English (en).
+    ///
+    /// Language selection during case creation may affect your available support
+    /// options. For a list of supported languages and their support working hours,
+    /// see: &lt;https://cloud.google.com/support/docs/language-working-hours&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// The priority of this case.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;case::Priority&quot;</span>, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="kw">pub </span>priority: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `Case`.
+</span><span class="kw">pub mod </span>case {
+    <span class="doccomment">/// The status of a support case.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Case is in an unknown state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The case has been created but no one is assigned to work on it yet.
+        </span>New = <span class="number">1</span>,
+        <span class="doccomment">/// The case is currently being handled by Google support.
+        </span>InProgressGoogleSupport = <span class="number">2</span>,
+        <span class="doccomment">/// Google is waiting for a response.
+        </span>ActionRequired = <span class="number">3</span>,
+        <span class="doccomment">/// A solution has been offered for the case, but it isn&#39;t yet closed.
+        </span>SolutionProvided = <span class="number">4</span>,
+        <span class="doccomment">/// The case has been resolved.
+        </span>Closed = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::New =&gt; <span class="string">&quot;NEW&quot;</span>,
+                State::InProgressGoogleSupport =&gt; <span class="string">&quot;IN_PROGRESS_GOOGLE_SUPPORT&quot;</span>,
+                State::ActionRequired =&gt; <span class="string">&quot;ACTION_REQUIRED&quot;</span>,
+                State::SolutionProvided =&gt; <span class="string">&quot;SOLUTION_PROVIDED&quot;</span>,
+                State::Closed =&gt; <span class="string">&quot;CLOSED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;NEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::New),
+                <span class="string">&quot;IN_PROGRESS_GOOGLE_SUPPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgressGoogleSupport),
+                <span class="string">&quot;ACTION_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ActionRequired),
+                <span class="string">&quot;SOLUTION_PROVIDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SolutionProvided),
+                <span class="string">&quot;CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The case Priority. P0 is most urgent and P4 the least.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Priority {
+        <span class="doccomment">/// Priority is undefined or has not been set yet.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Extreme impact on a production service. Service is hard down.
+        </span>P0 = <span class="number">1</span>,
+        <span class="doccomment">/// Critical impact on a production service. Service is currently unusable.
+        </span>P1 = <span class="number">2</span>,
+        <span class="doccomment">/// Severe impact on a production service. Service is usable but greatly
+        /// impaired.
+        </span>P2 = <span class="number">3</span>,
+        <span class="doccomment">/// Medium impact on a production service.  Service is available, but
+        /// moderately impaired.
+        </span>P3 = <span class="number">4</span>,
+        <span class="doccomment">/// General questions or minor issues.  Production service is fully
+        /// available.
+        </span>P4 = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>Priority {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Priority::Unspecified =&gt; <span class="string">&quot;PRIORITY_UNSPECIFIED&quot;</span>,
+                Priority::P0 =&gt; <span class="string">&quot;P0&quot;</span>,
+                Priority::P1 =&gt; <span class="string">&quot;P1&quot;</span>,
+                Priority::P2 =&gt; <span class="string">&quot;P2&quot;</span>,
+                Priority::P3 =&gt; <span class="string">&quot;P3&quot;</span>,
+                Priority::P4 =&gt; <span class="string">&quot;P4&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;PRIORITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;P0&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P0),
+                <span class="string">&quot;P1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P1),
+                <span class="string">&quot;P2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P2),
+                <span class="string">&quot;P3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P3),
+                <span class="string">&quot;P4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P4),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// A classification object with a product type and value.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CaseClassification {
+    <span class="doccomment">/// The unique ID for a classification. Must be specified for case creation.
+    ///
+    /// To retrieve valid classification IDs for case creation, use
+    /// `caseClassifications.search`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The display name of the classification.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A comment associated with a support case.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Comment {
+    <span class="doccomment">/// Output only. The resource name for the comment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The time when this comment was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The user or Google Support agent created this comment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>creator: ::core::option::Option&lt;Actor&gt;,
+    <span class="doccomment">/// The full comment body. Maximum of 12800 characters. This can contain rich
+    /// text syntax.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. DEPRECATED. An automatically generated plain text version of
+    /// body with all rich text syntax stripped.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>plain_text_body: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The request message for the ListComments endpoint.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListCommentsRequest {
+    <span class="doccomment">/// Required. The resource name of Case object for which comments should be
+    /// listed.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of comments fetched with each request. Defaults to 10.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A token identifying the page of results to return. If unspecified, the
+    /// first page is retrieved.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The response message for the ListComments endpoint.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListCommentsResponse {
+    <span class="doccomment">/// The list of Comments associated with the given Case.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>comments: ::prost::alloc::vec::Vec&lt;Comment&gt;,
+    <span class="doccomment">/// A token to retrieve the next page of results. This should be set in the
+    /// `page_token` field of subsequent `ListCommentsRequest` message that is
+    /// issued. If unspecified, there are no more results to retrieve.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The request message for CreateComment endpoint.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateCommentRequest {
+    <span class="doccomment">/// Required. The resource name of Case to which this comment should be added.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The Comment object to be added to this Case.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>comment: ::core::option::Option&lt;Comment&gt;,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>comment_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// A service to manage comments on cases.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>CommentServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; CommentServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; CommentServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            CommentServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Retrieve all Comments associated with the Case object.
+        </span><span class="kw">pub async fn </span>list_comments(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListCommentsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListCommentsResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.support.v2.CommentService/ListComments&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.support.v2.CommentService&quot;</span>,
+                        <span class="string">&quot;ListComments&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Add a new comment to the specified Case.
+        /// The comment object must have the following fields set: body.
+        </span><span class="kw">pub async fn </span>create_comment(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateCommentRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Comment&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.support.v2.CommentService/CreateComment&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.support.v2.CommentService&quot;</span>,
+                        <span class="string">&quot;CreateComment&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
 <span class="doccomment">/// Represents a file attached to a support case.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1400,225 +1796,6 @@
             }
         }
     }
-}
-<span class="doccomment">/// A comment associated with a support case.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Comment {
-    <span class="doccomment">/// Output only. The resource name for the comment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The time when this comment was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The user or Google Support agent created this comment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>creator: ::core::option::Option&lt;Actor&gt;,
-    <span class="doccomment">/// The full comment body. Maximum of 12800 characters. This can contain rich
-    /// text syntax.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. DEPRECATED. An automatically generated plain text version of
-    /// body with all rich text syntax stripped.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>plain_text_body: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A support case.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Case {
-    <span class="doccomment">/// The resource name for the case.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The short summary of the issue reported in this case.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// A broad description of the issue.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// The issue classification applicable to this case.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>classification: ::core::option::Option&lt;CaseClassification&gt;,
-    <span class="doccomment">/// The timezone of the user who created the support case.
-    /// It should be in a format IANA recognizes: &lt;https://www.iana.org/time-zones.&gt;
-    /// There is no additional validation done by the API.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
-    <span class="doccomment">/// The email addresses to receive updates on this case.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>subscriber_email_addresses: ::prost::alloc::vec::Vec&lt;
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Output only. The current status of the support case.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;case::State&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Output only. The time this case was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time this case was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The user who created the case.
-    ///
-    /// Note: The name and email will be obfuscated if the case was created by
-    /// Google Support.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>creator: ::core::option::Option&lt;Actor&gt;,
-    <span class="doccomment">/// A user-supplied email address to send case update notifications for. This
-    /// should only be used in BYOID flows, where we cannot infer the user&#39;s email
-    /// address directly from their EUCs.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;35&quot;</span>)]
-    </span><span class="kw">pub </span>contact_email: ::prost::alloc::string::String,
-    <span class="doccomment">/// Whether the case is currently escalated.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;17&quot;</span>)]
-    </span><span class="kw">pub </span>escalated: bool,
-    <span class="doccomment">/// Whether this case was created for internal API testing and should not be
-    /// acted on by the support team.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;19&quot;</span>)]
-    </span><span class="kw">pub </span>test_case: bool,
-    <span class="doccomment">/// The language the user has requested to receive support in. This should be a
-    /// BCP 47 language code (e.g., `&quot;en&quot;`, `&quot;zh-CN&quot;`, `&quot;zh-TW&quot;`, `&quot;ja&quot;`, `&quot;ko&quot;`).
-    /// If no language or an unsupported language is specified, this field defaults
-    /// to English (en).
-    ///
-    /// Language selection during case creation may affect your available support
-    /// options. For a list of supported languages and their support working hours,
-    /// see: &lt;https://cloud.google.com/support/docs/language-working-hours&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// The priority of this case.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;case::Priority&quot;</span>, tag = <span class="string">&quot;32&quot;</span>)]
-    </span><span class="kw">pub </span>priority: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `Case`.
-</span><span class="kw">pub mod </span>case {
-    <span class="doccomment">/// The status of a support case.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Case is in an unknown state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The case has been created but no one is assigned to work on it yet.
-        </span>New = <span class="number">1</span>,
-        <span class="doccomment">/// The case is currently being handled by Google support.
-        </span>InProgressGoogleSupport = <span class="number">2</span>,
-        <span class="doccomment">/// Google is waiting for a response.
-        </span>ActionRequired = <span class="number">3</span>,
-        <span class="doccomment">/// A solution has been offered for the case, but it isn&#39;t yet closed.
-        </span>SolutionProvided = <span class="number">4</span>,
-        <span class="doccomment">/// The case has been resolved.
-        </span>Closed = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::New =&gt; <span class="string">&quot;NEW&quot;</span>,
-                State::InProgressGoogleSupport =&gt; <span class="string">&quot;IN_PROGRESS_GOOGLE_SUPPORT&quot;</span>,
-                State::ActionRequired =&gt; <span class="string">&quot;ACTION_REQUIRED&quot;</span>,
-                State::SolutionProvided =&gt; <span class="string">&quot;SOLUTION_PROVIDED&quot;</span>,
-                State::Closed =&gt; <span class="string">&quot;CLOSED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::New),
-                <span class="string">&quot;IN_PROGRESS_GOOGLE_SUPPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgressGoogleSupport),
-                <span class="string">&quot;ACTION_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ActionRequired),
-                <span class="string">&quot;SOLUTION_PROVIDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SolutionProvided),
-                <span class="string">&quot;CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The case Priority. P0 is most urgent and P4 the least.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Priority {
-        <span class="doccomment">/// Priority is undefined or has not been set yet.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Extreme impact on a production service. Service is hard down.
-        </span>P0 = <span class="number">1</span>,
-        <span class="doccomment">/// Critical impact on a production service. Service is currently unusable.
-        </span>P1 = <span class="number">2</span>,
-        <span class="doccomment">/// Severe impact on a production service. Service is usable but greatly
-        /// impaired.
-        </span>P2 = <span class="number">3</span>,
-        <span class="doccomment">/// Medium impact on a production service.  Service is available, but
-        /// moderately impaired.
-        </span>P3 = <span class="number">4</span>,
-        <span class="doccomment">/// General questions or minor issues.  Production service is fully
-        /// available.
-        </span>P4 = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>Priority {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Priority::Unspecified =&gt; <span class="string">&quot;PRIORITY_UNSPECIFIED&quot;</span>,
-                Priority::P0 =&gt; <span class="string">&quot;P0&quot;</span>,
-                Priority::P1 =&gt; <span class="string">&quot;P1&quot;</span>,
-                Priority::P2 =&gt; <span class="string">&quot;P2&quot;</span>,
-                Priority::P3 =&gt; <span class="string">&quot;P3&quot;</span>,
-                Priority::P4 =&gt; <span class="string">&quot;P4&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;PRIORITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;P0&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P0),
-                <span class="string">&quot;P1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P1),
-                <span class="string">&quot;P2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P2),
-                <span class="string">&quot;P3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P3),
-                <span class="string">&quot;P4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P4),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// A classification object with a product type and value.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CaseClassification {
-    <span class="doccomment">/// The unique ID for a classification. Must be specified for case creation.
-    ///
-    /// To retrieve valid classification IDs for case creation, use
-    /// `caseClassifications.search`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The display name of the classification.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the GetCase endpoint.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2125,183 +2302,6 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.support.v2.CaseService&quot;</span>,
                         <span class="string">&quot;SearchCaseClassifications&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
-<span class="doccomment">/// The request message for the ListComments endpoint.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListCommentsRequest {
-    <span class="doccomment">/// Required. The resource name of Case object for which comments should be
-    /// listed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of comments fetched with each request. Defaults to 10.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A token identifying the page of results to return. If unspecified, the
-    /// first page is retrieved.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The response message for the ListComments endpoint.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListCommentsResponse {
-    <span class="doccomment">/// The list of Comments associated with the given Case.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>comments: ::prost::alloc::vec::Vec&lt;Comment&gt;,
-    <span class="doccomment">/// A token to retrieve the next page of results. This should be set in the
-    /// `page_token` field of subsequent `ListCommentsRequest` message that is
-    /// issued. If unspecified, there are no more results to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The request message for CreateComment endpoint.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateCommentRequest {
-    <span class="doccomment">/// Required. The resource name of Case to which this comment should be added.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The Comment object to be added to this Case.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>comment: ::core::option::Option&lt;Comment&gt;,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>comment_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// A service to manage comments on cases.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>CommentServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; CommentServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; CommentServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            CommentServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Retrieve all Comments associated with the Case object.
-        </span><span class="kw">pub async fn </span>list_comments(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListCommentsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListCommentsResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.support.v2.CommentService/ListComments&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.support.v2.CommentService&quot;</span>,
-                        <span class="string">&quot;ListComments&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Add a new comment to the specified Case.
-        /// The comment object must have the following fields set: body.
-        </span><span class="kw">pub async fn </span>create_comment(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateCommentRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Comment&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.support.v2.CommentService/CreateComment&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.support.v2.CommentService&quot;</span>,
-                        <span class="string">&quot;CreateComment&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

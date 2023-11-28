@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/ai/generativelanguage/v1beta3/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/ai/generativelanguage/v1beta3/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2726,7 +2726,7 @@
     <span class="doccomment">/// Optional. The unique id for the tuned model if specified.
     /// This value should be up to 40 characters, the first character must be a
     /// letter, the last could be a letter or a number. The id must match the
-    /// regular expression: \[a-z]([a-z0-9-]{0,38}[a-z0-9\])?.
+    /// regular expression: [a-z](\[a-z0-9-\]{0,38}\[a-z0-9\])?.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>tuned_model_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Required. The tuned model to create.
@@ -3060,6 +3060,278 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+    }
+}
+<span class="doccomment">/// Content filtering metadata associated with processing a single request.
+///
+/// ContentFilter contains a reason and an optional supporting string. The reason
+/// may be unspecified.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ContentFilter {
+    <span class="doccomment">/// The reason content was blocked during request processing.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;content_filter::BlockedReason&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>reason: i32,
+    <span class="doccomment">/// A string that describes the filtering behavior in more detail.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ContentFilter`.
+</span><span class="kw">pub mod </span>content_filter {
+    <span class="doccomment">/// A list of reasons why content may have been blocked.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>BlockedReason {
+        <span class="doccomment">/// A blocked reason was not specified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Content was blocked by safety settings.
+        </span>Safety = <span class="number">1</span>,
+        <span class="doccomment">/// Content was blocked, but the reason is uncategorized.
+        </span>Other = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>BlockedReason {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                BlockedReason::Unspecified =&gt; <span class="string">&quot;BLOCKED_REASON_UNSPECIFIED&quot;</span>,
+                BlockedReason::Safety =&gt; <span class="string">&quot;SAFETY&quot;</span>,
+                BlockedReason::Other =&gt; <span class="string">&quot;OTHER&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;BLOCKED_REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;SAFETY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Safety),
+                <span class="string">&quot;OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Safety feedback for an entire request.
+///
+/// This field is populated if content in the input and/or response is blocked
+/// due to safety settings. SafetyFeedback may not exist for every HarmCategory.
+/// Each SafetyFeedback will return the safety settings used by the request as
+/// well as the lowest HarmProbability that should be allowed in order to return
+/// a result.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SafetyFeedback {
+    <span class="doccomment">/// Safety rating evaluated from content.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>rating: ::core::option::Option&lt;SafetyRating&gt;,
+    <span class="doccomment">/// Safety settings applied to the request.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>setting: ::core::option::Option&lt;SafetySetting&gt;,
+}
+<span class="doccomment">/// Safety rating for a piece of content.
+///
+/// The safety rating contains the category of harm and the
+/// harm probability level in that category for a piece of content.
+/// Content is classified for safety across a number of
+/// harm categories and the probability of the harm classification is included
+/// here.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SafetyRating {
+    <span class="doccomment">/// Required. The category for this rating.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HarmCategory&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>category: i32,
+    <span class="doccomment">/// Required. The probability of harm for this content.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;safety_rating::HarmProbability&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>probability: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `SafetyRating`.
+</span><span class="kw">pub mod </span>safety_rating {
+    <span class="doccomment">/// The probability that a piece of content is harmful.
+    ///
+    /// The classification system gives the probability of the content being
+    /// unsafe. This does not indicate the severity of harm for a piece of content.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>HarmProbability {
+        <span class="doccomment">/// Probability is unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Content has a negligible chance of being unsafe.
+        </span>Negligible = <span class="number">1</span>,
+        <span class="doccomment">/// Content has a low chance of being unsafe.
+        </span>Low = <span class="number">2</span>,
+        <span class="doccomment">/// Content has a medium chance of being unsafe.
+        </span>Medium = <span class="number">3</span>,
+        <span class="doccomment">/// Content has a high chance of being unsafe.
+        </span>High = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>HarmProbability {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                HarmProbability::Unspecified =&gt; <span class="string">&quot;HARM_PROBABILITY_UNSPECIFIED&quot;</span>,
+                HarmProbability::Negligible =&gt; <span class="string">&quot;NEGLIGIBLE&quot;</span>,
+                HarmProbability::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
+                HarmProbability::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
+                HarmProbability::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;HARM_PROBABILITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;NEGLIGIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Negligible),
+                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Safety setting, affecting the safety-blocking behavior.
+///
+/// Passing a safety setting for a category changes the allowed proability that
+/// content is blocked.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SafetySetting {
+    <span class="doccomment">/// Required. The category for this setting.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HarmCategory&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>category: i32,
+    <span class="doccomment">/// Required. Controls the probability threshold at which harm is blocked.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;safety_setting::HarmBlockThreshold&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>threshold: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `SafetySetting`.
+</span><span class="kw">pub mod </span>safety_setting {
+    <span class="doccomment">/// Block at and beyond a specified harm probability.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>HarmBlockThreshold {
+        <span class="doccomment">/// Threshold is unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Content with NEGLIGIBLE will be allowed.
+        </span>BlockLowAndAbove = <span class="number">1</span>,
+        <span class="doccomment">/// Content with NEGLIGIBLE and LOW will be allowed.
+        </span>BlockMediumAndAbove = <span class="number">2</span>,
+        <span class="doccomment">/// Content with NEGLIGIBLE, LOW, and MEDIUM will be allowed.
+        </span>BlockOnlyHigh = <span class="number">3</span>,
+        <span class="doccomment">/// All content will be allowed.
+        </span>BlockNone = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>HarmBlockThreshold {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                HarmBlockThreshold::Unspecified =&gt; <span class="string">&quot;HARM_BLOCK_THRESHOLD_UNSPECIFIED&quot;</span>,
+                HarmBlockThreshold::BlockLowAndAbove =&gt; <span class="string">&quot;BLOCK_LOW_AND_ABOVE&quot;</span>,
+                HarmBlockThreshold::BlockMediumAndAbove =&gt; <span class="string">&quot;BLOCK_MEDIUM_AND_ABOVE&quot;</span>,
+                HarmBlockThreshold::BlockOnlyHigh =&gt; <span class="string">&quot;BLOCK_ONLY_HIGH&quot;</span>,
+                HarmBlockThreshold::BlockNone =&gt; <span class="string">&quot;BLOCK_NONE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;HARM_BLOCK_THRESHOLD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;BLOCK_LOW_AND_ABOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockLowAndAbove),
+                <span class="string">&quot;BLOCK_MEDIUM_AND_ABOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockMediumAndAbove),
+                <span class="string">&quot;BLOCK_ONLY_HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockOnlyHigh),
+                <span class="string">&quot;BLOCK_NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockNone),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// The category of a rating.
+///
+/// These categories cover various kinds of harms that developers
+/// may wish to adjust.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>HarmCategory {
+    <span class="doccomment">/// Category is unspecified.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Negative or harmful comments targeting identity and/or protected attribute.
+    </span>Derogatory = <span class="number">1</span>,
+    <span class="doccomment">/// Content that is rude, disrepspectful, or profane.
+    </span>Toxicity = <span class="number">2</span>,
+    <span class="doccomment">/// Describes scenarios depictng violence against an individual or group, or
+    /// general descriptions of gore.
+    </span>Violence = <span class="number">3</span>,
+    <span class="doccomment">/// Contains references to sexual acts or other lewd content.
+    </span>Sexual = <span class="number">4</span>,
+    <span class="doccomment">/// Promotes unchecked medical advice.
+    </span>Medical = <span class="number">5</span>,
+    <span class="doccomment">/// Dangerous content that promotes, facilitates, or encourages harmful acts.
+    </span>Dangerous = <span class="number">6</span>,
+}
+<span class="kw">impl </span>HarmCategory {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            HarmCategory::Unspecified =&gt; <span class="string">&quot;HARM_CATEGORY_UNSPECIFIED&quot;</span>,
+            HarmCategory::Derogatory =&gt; <span class="string">&quot;HARM_CATEGORY_DEROGATORY&quot;</span>,
+            HarmCategory::Toxicity =&gt; <span class="string">&quot;HARM_CATEGORY_TOXICITY&quot;</span>,
+            HarmCategory::Violence =&gt; <span class="string">&quot;HARM_CATEGORY_VIOLENCE&quot;</span>,
+            HarmCategory::Sexual =&gt; <span class="string">&quot;HARM_CATEGORY_SEXUAL&quot;</span>,
+            HarmCategory::Medical =&gt; <span class="string">&quot;HARM_CATEGORY_MEDICAL&quot;</span>,
+            HarmCategory::Dangerous =&gt; <span class="string">&quot;HARM_CATEGORY_DANGEROUS&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;HARM_CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;HARM_CATEGORY_DEROGATORY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Derogatory),
+            <span class="string">&quot;HARM_CATEGORY_TOXICITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Toxicity),
+            <span class="string">&quot;HARM_CATEGORY_VIOLENCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Violence),
+            <span class="string">&quot;HARM_CATEGORY_SEXUAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sexual),
+            <span class="string">&quot;HARM_CATEGORY_MEDICAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medical),
+            <span class="string">&quot;HARM_CATEGORY_DANGEROUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dangerous),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
     }
 }
 <span class="doccomment">/// Permission resource grants user, group or the rest of the world access to the
@@ -3580,278 +3852,6 @@
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>license: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// Content filtering metadata associated with processing a single request.
-///
-/// ContentFilter contains a reason and an optional supporting string. The reason
-/// may be unspecified.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ContentFilter {
-    <span class="doccomment">/// The reason content was blocked during request processing.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;content_filter::BlockedReason&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>reason: i32,
-    <span class="doccomment">/// A string that describes the filtering behavior in more detail.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ContentFilter`.
-</span><span class="kw">pub mod </span>content_filter {
-    <span class="doccomment">/// A list of reasons why content may have been blocked.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>BlockedReason {
-        <span class="doccomment">/// A blocked reason was not specified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Content was blocked by safety settings.
-        </span>Safety = <span class="number">1</span>,
-        <span class="doccomment">/// Content was blocked, but the reason is uncategorized.
-        </span>Other = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>BlockedReason {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                BlockedReason::Unspecified =&gt; <span class="string">&quot;BLOCKED_REASON_UNSPECIFIED&quot;</span>,
-                BlockedReason::Safety =&gt; <span class="string">&quot;SAFETY&quot;</span>,
-                BlockedReason::Other =&gt; <span class="string">&quot;OTHER&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;BLOCKED_REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SAFETY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Safety),
-                <span class="string">&quot;OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Safety feedback for an entire request.
-///
-/// This field is populated if content in the input and/or response is blocked
-/// due to safety settings. SafetyFeedback may not exist for every HarmCategory.
-/// Each SafetyFeedback will return the safety settings used by the request as
-/// well as the lowest HarmProbability that should be allowed in order to return
-/// a result.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SafetyFeedback {
-    <span class="doccomment">/// Safety rating evaluated from content.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>rating: ::core::option::Option&lt;SafetyRating&gt;,
-    <span class="doccomment">/// Safety settings applied to the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>setting: ::core::option::Option&lt;SafetySetting&gt;,
-}
-<span class="doccomment">/// Safety rating for a piece of content.
-///
-/// The safety rating contains the category of harm and the
-/// harm probability level in that category for a piece of content.
-/// Content is classified for safety across a number of
-/// harm categories and the probability of the harm classification is included
-/// here.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SafetyRating {
-    <span class="doccomment">/// Required. The category for this rating.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HarmCategory&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>category: i32,
-    <span class="doccomment">/// Required. The probability of harm for this content.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;safety_rating::HarmProbability&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>probability: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `SafetyRating`.
-</span><span class="kw">pub mod </span>safety_rating {
-    <span class="doccomment">/// The probability that a piece of content is harmful.
-    ///
-    /// The classification system gives the probability of the content being
-    /// unsafe. This does not indicate the severity of harm for a piece of content.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>HarmProbability {
-        <span class="doccomment">/// Probability is unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Content has a negligible chance of being unsafe.
-        </span>Negligible = <span class="number">1</span>,
-        <span class="doccomment">/// Content has a low chance of being unsafe.
-        </span>Low = <span class="number">2</span>,
-        <span class="doccomment">/// Content has a medium chance of being unsafe.
-        </span>Medium = <span class="number">3</span>,
-        <span class="doccomment">/// Content has a high chance of being unsafe.
-        </span>High = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>HarmProbability {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                HarmProbability::Unspecified =&gt; <span class="string">&quot;HARM_PROBABILITY_UNSPECIFIED&quot;</span>,
-                HarmProbability::Negligible =&gt; <span class="string">&quot;NEGLIGIBLE&quot;</span>,
-                HarmProbability::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
-                HarmProbability::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-                HarmProbability::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;HARM_PROBABILITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NEGLIGIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Negligible),
-                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
-                <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Safety setting, affecting the safety-blocking behavior.
-///
-/// Passing a safety setting for a category changes the allowed proability that
-/// content is blocked.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SafetySetting {
-    <span class="doccomment">/// Required. The category for this setting.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HarmCategory&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>category: i32,
-    <span class="doccomment">/// Required. Controls the probability threshold at which harm is blocked.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;safety_setting::HarmBlockThreshold&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>threshold: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `SafetySetting`.
-</span><span class="kw">pub mod </span>safety_setting {
-    <span class="doccomment">/// Block at and beyond a specified harm probability.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>HarmBlockThreshold {
-        <span class="doccomment">/// Threshold is unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Content with NEGLIGIBLE will be allowed.
-        </span>BlockLowAndAbove = <span class="number">1</span>,
-        <span class="doccomment">/// Content with NEGLIGIBLE and LOW will be allowed.
-        </span>BlockMediumAndAbove = <span class="number">2</span>,
-        <span class="doccomment">/// Content with NEGLIGIBLE, LOW, and MEDIUM will be allowed.
-        </span>BlockOnlyHigh = <span class="number">3</span>,
-        <span class="doccomment">/// All content will be allowed.
-        </span>BlockNone = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>HarmBlockThreshold {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                HarmBlockThreshold::Unspecified =&gt; <span class="string">&quot;HARM_BLOCK_THRESHOLD_UNSPECIFIED&quot;</span>,
-                HarmBlockThreshold::BlockLowAndAbove =&gt; <span class="string">&quot;BLOCK_LOW_AND_ABOVE&quot;</span>,
-                HarmBlockThreshold::BlockMediumAndAbove =&gt; <span class="string">&quot;BLOCK_MEDIUM_AND_ABOVE&quot;</span>,
-                HarmBlockThreshold::BlockOnlyHigh =&gt; <span class="string">&quot;BLOCK_ONLY_HIGH&quot;</span>,
-                HarmBlockThreshold::BlockNone =&gt; <span class="string">&quot;BLOCK_NONE&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;HARM_BLOCK_THRESHOLD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BLOCK_LOW_AND_ABOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockLowAndAbove),
-                <span class="string">&quot;BLOCK_MEDIUM_AND_ABOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockMediumAndAbove),
-                <span class="string">&quot;BLOCK_ONLY_HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockOnlyHigh),
-                <span class="string">&quot;BLOCK_NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockNone),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// The category of a rating.
-///
-/// These categories cover various kinds of harms that developers
-/// may wish to adjust.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>HarmCategory {
-    <span class="doccomment">/// Category is unspecified.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Negative or harmful comments targeting identity and/or protected attribute.
-    </span>Derogatory = <span class="number">1</span>,
-    <span class="doccomment">/// Content that is rude, disrepspectful, or profane.
-    </span>Toxicity = <span class="number">2</span>,
-    <span class="doccomment">/// Describes scenarios depictng violence against an individual or group, or
-    /// general descriptions of gore.
-    </span>Violence = <span class="number">3</span>,
-    <span class="doccomment">/// Contains references to sexual acts or other lewd content.
-    </span>Sexual = <span class="number">4</span>,
-    <span class="doccomment">/// Promotes unchecked medical advice.
-    </span>Medical = <span class="number">5</span>,
-    <span class="doccomment">/// Dangerous content that promotes, facilitates, or encourages harmful acts.
-    </span>Dangerous = <span class="number">6</span>,
-}
-<span class="kw">impl </span>HarmCategory {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            HarmCategory::Unspecified =&gt; <span class="string">&quot;HARM_CATEGORY_UNSPECIFIED&quot;</span>,
-            HarmCategory::Derogatory =&gt; <span class="string">&quot;HARM_CATEGORY_DEROGATORY&quot;</span>,
-            HarmCategory::Toxicity =&gt; <span class="string">&quot;HARM_CATEGORY_TOXICITY&quot;</span>,
-            HarmCategory::Violence =&gt; <span class="string">&quot;HARM_CATEGORY_VIOLENCE&quot;</span>,
-            HarmCategory::Sexual =&gt; <span class="string">&quot;HARM_CATEGORY_SEXUAL&quot;</span>,
-            HarmCategory::Medical =&gt; <span class="string">&quot;HARM_CATEGORY_MEDICAL&quot;</span>,
-            HarmCategory::Dangerous =&gt; <span class="string">&quot;HARM_CATEGORY_DANGEROUS&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;HARM_CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;HARM_CATEGORY_DEROGATORY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Derogatory),
-            <span class="string">&quot;HARM_CATEGORY_TOXICITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Toxicity),
-            <span class="string">&quot;HARM_CATEGORY_VIOLENCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Violence),
-            <span class="string">&quot;HARM_CATEGORY_SEXUAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sexual),
-            <span class="string">&quot;HARM_CATEGORY_MEDICAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medical),
-            <span class="string">&quot;HARM_CATEGORY_DANGEROUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dangerous),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
 <span class="doccomment">/// Request to generate a text completion response from the model.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3881,7 +3881,7 @@
     </span><span class="kw">pub </span>temperature: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// Optional. Number of generated responses to return.
     ///
-    /// This value must be between [1, 8], inclusive. If unset, this will default
+    /// This value must be between \[1, 8\], inclusive. If unset, this will default
     /// to 1.
     </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>candidate_count: ::core::option::Option&lt;i32&gt;,
@@ -4302,7 +4302,7 @@
     <span class="doccomment">/// Optional. The number of generated response messages to return.
     ///
     /// This value must be between
-    /// `[1, 8]`, inclusive. If unset, this will default to `1`.
+    /// `\[1, 8\]`, inclusive. If unset, this will default to `1`.
     </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>candidate_count: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Optional. The maximum cumulative probability of tokens to consider when

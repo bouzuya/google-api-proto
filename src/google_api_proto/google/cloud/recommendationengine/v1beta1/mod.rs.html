@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/recommendationengine/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/recommendationengine/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2075,7 +2075,285 @@
 <a href="#2075" id="2075">2075</a>
 <a href="#2076" id="2076">2076</a>
 <a href="#2077" id="2077">2077</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Registered Api Key.
+</pre></div><pre class="rust"><code><span class="doccomment">/// FeatureMap represents extra features that customers want to include in the
+/// recommendation model for catalogs/user events as categorical/numerical
+/// features.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FeatureMap {
+    <span class="doccomment">/// Categorical features that can take on one of a limited number of possible
+    /// values. Some examples would be the brand/maker of a product, or country of
+    /// a customer.
+    ///
+    /// Feature names and values must be UTF-8 encoded strings.
+    ///
+    /// For example: `{ &quot;colors&quot;: {&quot;value&quot;: \[&quot;yellow&quot;, &quot;green&quot;\]},
+    ///                  &quot;sizes&quot;: {&quot;value&quot;:\[&quot;S&quot;, &quot;M&quot;\]}`
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>categorical_features: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        feature_map::StringList,
+    &gt;,
+    <span class="doccomment">/// Numerical features. Some examples would be the height/weight of a product,
+    /// or age of a customer.
+    ///
+    /// Feature names must be UTF-8 encoded strings.
+    ///
+    /// For example: `{ &quot;lengths_cm&quot;: {&quot;value&quot;:\[2.3, 15.4\]},
+    ///                  &quot;heights_cm&quot;: {&quot;value&quot;:\[8.1, 6.4\]} }`
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>numerical_features: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        feature_map::FloatList,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `FeatureMap`.
+</span><span class="kw">pub mod </span>feature_map {
+    <span class="doccomment">/// A list of string features.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>StringList {
+        <span class="doccomment">/// String feature value with a length limit of 128 bytes.
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>value: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    }
+    <span class="doccomment">/// A list of float features.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>FloatList {
+        <span class="doccomment">/// Float feature value.
+        </span><span class="attr">#[prost(float, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>value: ::prost::alloc::vec::Vec&lt;f32&gt;,
+    }
+}
+<span class="doccomment">/// CatalogItem captures all metadata information of items to be recommended.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CatalogItem {
+    <span class="doccomment">/// Required. Catalog item identifier. UTF-8 encoded string with a length limit
+    /// of 128 bytes.
+    ///
+    /// This id must be unique among all catalog items within the same catalog. It
+    /// should also be used when logging user events in order for the user events
+    /// to be joined with the Catalog.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Catalog item categories. This field is repeated for supporting
+    /// one catalog item belonging to several parallel category hierarchies.
+    ///
+    /// For example, if a shoes product belongs to both
+    /// \[&quot;Shoes &amp; Accessories&quot; -&gt; &quot;Shoes&quot;\] and
+    /// \[&quot;Sports &amp; Fitness&quot; -&gt; &quot;Athletic Clothing&quot; -&gt; &quot;Shoes&quot;\], it could be
+    /// represented as:
+    ///
+    ///       &quot;categoryHierarchies&quot;: [
+    ///         { &quot;categories&quot;: \[&quot;Shoes &amp; Accessories&quot;, &quot;Shoes&quot;\]},
+    ///         { &quot;categories&quot;: \[&quot;Sports &amp; Fitness&quot;, &quot;Athletic Clothing&quot;, &quot;Shoes&quot;\] }
+    ///       ]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>category_hierarchies: ::prost::alloc::vec::Vec&lt;catalog_item::CategoryHierarchy&gt;,
+    <span class="doccomment">/// Required. Catalog item title. UTF-8 encoded string with a length limit of 1
+    /// KiB.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Catalog item description. UTF-8 encoded string with a length
+    /// limit of 5 KiB.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Highly encouraged. Extra catalog item attributes to be
+    /// included in the recommendation model. For example, for retail products,
+    /// this could include the store name, vendor, style, color, etc. These are
+    /// very strong signals for recommendation model, thus we highly recommend
+    /// providing the item attributes here.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>item_attributes: ::core::option::Option&lt;FeatureMap&gt;,
+    <span class="doccomment">/// Optional. Language of the title/description/item_attributes. Use language
+    /// tags defined by BCP 47. &lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt.&gt; Our
+    /// supported language codes include &#39;en&#39;, &#39;es&#39;, &#39;fr&#39;, &#39;de&#39;, &#39;ar&#39;, &#39;fa&#39;, &#39;zh&#39;,
+    /// &#39;ja&#39;, &#39;ko&#39;, &#39;sv&#39;, &#39;ro&#39;, &#39;nl&#39;. For other languages, contact
+    /// your Google account manager.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Filtering tags associated with the catalog item. Each tag should
+    /// be a UTF-8 encoded string with a length limit of 1 KiB.
+    ///
+    /// This tag can be used for filtering recommendation results by passing the
+    /// tag as part of the predict request filter.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Optional. Variant group identifier for prediction results. UTF-8 encoded
+    /// string with a length limit of 128 bytes.
+    ///
+    /// This field must be enabled before it can be used. [Learn
+    /// more](/recommendations-ai/docs/catalog#item-group-id).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>item_group_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Extra catalog item metadata for different recommendation types.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;catalog_item::RecommendationType&quot;</span>, tags = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>recommendation_type: ::core::option::Option&lt;catalog_item::RecommendationType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `CatalogItem`.
+</span><span class="kw">pub mod </span>catalog_item {
+    <span class="doccomment">/// Category represents catalog item category hierarchy.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>CategoryHierarchy {
+        <span class="doccomment">/// Required. Catalog item categories. Each category should be a UTF-8
+        /// encoded string with a length limit of 2 KiB.
+        ///
+        /// Note that the order in the list denotes the specificity (from least to
+        /// most specific).
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>categories: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    }
+    <span class="doccomment">/// Extra catalog item metadata for different recommendation types.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>RecommendationType {
+        <span class="doccomment">/// Optional. Metadata specific to retail products.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span>ProductMetadata(<span class="kw">super</span>::ProductCatalogItem),
+    }
+}
+<span class="doccomment">/// ProductCatalogItem captures item metadata specific to retail products.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ProductCatalogItem {
+    <span class="doccomment">/// Optional. A map to pass the costs associated with the product.
+    ///
+    /// For example:
+    /// {&quot;manufacturing&quot;: 45.5} The profit of selling this item is computed like
+    /// so:
+    ///
+    /// * If &#39;exactPrice&#39; is provided, profit = displayPrice - sum(costs)
+    /// * If &#39;priceRange&#39; is provided, profit = minPrice - sum(costs)
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, float&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>costs: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        f32,
+    &gt;,
+    <span class="doccomment">/// Optional. Only required if the price is set. Currency code for price/costs. Use
+    /// three-character ISO-4217 code.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Online stock state of the catalog item. Default is `IN_STOCK`.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;product_catalog_item::StockState&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>stock_state: i32,
+    <span class="doccomment">/// Optional. The available quantity of the item.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>available_quantity: i64,
+    <span class="doccomment">/// Optional. Canonical URL directly linking to the item detail page with a
+    /// length limit of 5 KiB..
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>canonical_product_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Product images for the catalog item.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>images: ::prost::alloc::vec::Vec&lt;Image&gt;,
+    <span class="doccomment">/// Product price. Only one of &#39;exactPrice&#39;/&#39;priceRange&#39; can be provided.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;product_catalog_item::Price&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>price: ::core::option::Option&lt;product_catalog_item::Price&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ProductCatalogItem`.
+</span><span class="kw">pub mod </span>product_catalog_item {
+    <span class="doccomment">/// Exact product price.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ExactPrice {
+        <span class="doccomment">/// Optional. Display price of the product.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>display_price: f32,
+        <span class="doccomment">/// Optional. Price of the product without any discount. If zero, by default
+        /// set to be the &#39;displayPrice&#39;.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>original_price: f32,
+    }
+    <span class="doccomment">/// Product price range when there are a range of prices for different
+    /// variations of the same product.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>PriceRange {
+        <span class="doccomment">/// Required. The minimum product price.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>min: f32,
+        <span class="doccomment">/// Required. The maximum product price.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>max: f32,
+    }
+    <span class="doccomment">/// Item stock state. If this field is unspecified, the item is
+    /// assumed to be in stock.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>StockState {
+        <span class="doccomment">/// Default item stock status. Should never be used.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Item out of stock.
+        </span>OutOfStock = <span class="number">1</span>,
+        <span class="doccomment">/// Item that is in pre-order state.
+        </span>Preorder = <span class="number">2</span>,
+        <span class="doccomment">/// Item that is back-ordered (i.e. temporarily out of stock).
+        </span>Backorder = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>StockState {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                StockState::Unspecified =&gt; <span class="string">&quot;STOCK_STATE_UNSPECIFIED&quot;</span>,
+                StockState::OutOfStock =&gt; <span class="string">&quot;OUT_OF_STOCK&quot;</span>,
+                StockState::Preorder =&gt; <span class="string">&quot;PREORDER&quot;</span>,
+                StockState::Backorder =&gt; <span class="string">&quot;BACKORDER&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STOCK_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;OUT_OF_STOCK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OutOfStock),
+                <span class="string">&quot;PREORDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preorder),
+                <span class="string">&quot;BACKORDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Backorder),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Product price. Only one of &#39;exactPrice&#39;/&#39;priceRange&#39; can be provided.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Price {
+        <span class="doccomment">/// Optional. The exact product price.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>ExactPrice(ExactPrice),
+        <span class="doccomment">/// Optional. The product price range.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>PriceRange(PriceRange),
+    }
+}
+<span class="doccomment">/// Catalog item thumbnail/detail image.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Image {
+    <span class="doccomment">/// Required. URL of the image with a length limit of 5 KiB.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Height of the image in number of pixels.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>height: i32,
+    <span class="doccomment">/// Optional. Width of the image in number of pixels.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>width: i32,
+}
+<span class="doccomment">/// Registered Api Key.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PredictionApiKeyRegistration {
@@ -2315,284 +2593,6 @@
         </span>}
     }
 }
-<span class="doccomment">/// FeatureMap represents extra features that customers want to include in the
-/// recommendation model for catalogs/user events as categorical/numerical
-/// features.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FeatureMap {
-    <span class="doccomment">/// Categorical features that can take on one of a limited number of possible
-    /// values. Some examples would be the brand/maker of a product, or country of
-    /// a customer.
-    ///
-    /// Feature names and values must be UTF-8 encoded strings.
-    ///
-    /// For example: `{ &quot;colors&quot;: {&quot;value&quot;: [&quot;yellow&quot;, &quot;green&quot;]},
-    ///                  &quot;sizes&quot;: {&quot;value&quot;:[&quot;S&quot;, &quot;M&quot;]}`
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>categorical_features: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        feature_map::StringList,
-    &gt;,
-    <span class="doccomment">/// Numerical features. Some examples would be the height/weight of a product,
-    /// or age of a customer.
-    ///
-    /// Feature names must be UTF-8 encoded strings.
-    ///
-    /// For example: `{ &quot;lengths_cm&quot;: {&quot;value&quot;:[2.3, 15.4]},
-    ///                  &quot;heights_cm&quot;: {&quot;value&quot;:[8.1, 6.4]} }`
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>numerical_features: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        feature_map::FloatList,
-    &gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `FeatureMap`.
-</span><span class="kw">pub mod </span>feature_map {
-    <span class="doccomment">/// A list of string features.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>StringList {
-        <span class="doccomment">/// String feature value with a length limit of 128 bytes.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>value: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    }
-    <span class="doccomment">/// A list of float features.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>FloatList {
-        <span class="doccomment">/// Float feature value.
-        </span><span class="attr">#[prost(float, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>value: ::prost::alloc::vec::Vec&lt;f32&gt;,
-    }
-}
-<span class="doccomment">/// CatalogItem captures all metadata information of items to be recommended.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CatalogItem {
-    <span class="doccomment">/// Required. Catalog item identifier. UTF-8 encoded string with a length limit
-    /// of 128 bytes.
-    ///
-    /// This id must be unique among all catalog items within the same catalog. It
-    /// should also be used when logging user events in order for the user events
-    /// to be joined with the Catalog.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Catalog item categories. This field is repeated for supporting
-    /// one catalog item belonging to several parallel category hierarchies.
-    ///
-    /// For example, if a shoes product belongs to both
-    /// [&quot;Shoes &amp; Accessories&quot; -&gt; &quot;Shoes&quot;] and
-    /// [&quot;Sports &amp; Fitness&quot; -&gt; &quot;Athletic Clothing&quot; -&gt; &quot;Shoes&quot;], it could be
-    /// represented as:
-    ///
-    ///       &quot;categoryHierarchies&quot;: [
-    ///         { &quot;categories&quot;: [&quot;Shoes &amp; Accessories&quot;, &quot;Shoes&quot;]},
-    ///         { &quot;categories&quot;: [&quot;Sports &amp; Fitness&quot;, &quot;Athletic Clothing&quot;, &quot;Shoes&quot;] }
-    ///       ]
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>category_hierarchies: ::prost::alloc::vec::Vec&lt;catalog_item::CategoryHierarchy&gt;,
-    <span class="doccomment">/// Required. Catalog item title. UTF-8 encoded string with a length limit of 1
-    /// KiB.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Catalog item description. UTF-8 encoded string with a length
-    /// limit of 5 KiB.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Highly encouraged. Extra catalog item attributes to be
-    /// included in the recommendation model. For example, for retail products,
-    /// this could include the store name, vendor, style, color, etc. These are
-    /// very strong signals for recommendation model, thus we highly recommend
-    /// providing the item attributes here.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>item_attributes: ::core::option::Option&lt;FeatureMap&gt;,
-    <span class="doccomment">/// Optional. Language of the title/description/item_attributes. Use language
-    /// tags defined by BCP 47. &lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt.&gt; Our
-    /// supported language codes include &#39;en&#39;, &#39;es&#39;, &#39;fr&#39;, &#39;de&#39;, &#39;ar&#39;, &#39;fa&#39;, &#39;zh&#39;,
-    /// &#39;ja&#39;, &#39;ko&#39;, &#39;sv&#39;, &#39;ro&#39;, &#39;nl&#39;. For other languages, contact
-    /// your Google account manager.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Filtering tags associated with the catalog item. Each tag should
-    /// be a UTF-8 encoded string with a length limit of 1 KiB.
-    ///
-    /// This tag can be used for filtering recommendation results by passing the
-    /// tag as part of the predict request filter.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Optional. Variant group identifier for prediction results. UTF-8 encoded
-    /// string with a length limit of 128 bytes.
-    ///
-    /// This field must be enabled before it can be used. [Learn
-    /// more](/recommendations-ai/docs/catalog#item-group-id).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>item_group_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Extra catalog item metadata for different recommendation types.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;catalog_item::RecommendationType&quot;</span>, tags = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>recommendation_type: ::core::option::Option&lt;catalog_item::RecommendationType&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `CatalogItem`.
-</span><span class="kw">pub mod </span>catalog_item {
-    <span class="doccomment">/// Category represents catalog item category hierarchy.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>CategoryHierarchy {
-        <span class="doccomment">/// Required. Catalog item categories. Each category should be a UTF-8
-        /// encoded string with a length limit of 2 KiB.
-        ///
-        /// Note that the order in the list denotes the specificity (from least to
-        /// most specific).
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>categories: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    }
-    <span class="doccomment">/// Extra catalog item metadata for different recommendation types.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>RecommendationType {
-        <span class="doccomment">/// Optional. Metadata specific to retail products.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
-        </span>ProductMetadata(<span class="kw">super</span>::ProductCatalogItem),
-    }
-}
-<span class="doccomment">/// ProductCatalogItem captures item metadata specific to retail products.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ProductCatalogItem {
-    <span class="doccomment">/// Optional. A map to pass the costs associated with the product.
-    ///
-    /// For example:
-    /// {&quot;manufacturing&quot;: 45.5} The profit of selling this item is computed like
-    /// so:
-    ///
-    /// * If &#39;exactPrice&#39; is provided, profit = displayPrice - sum(costs)
-    /// * If &#39;priceRange&#39; is provided, profit = minPrice - sum(costs)
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, float&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>costs: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        f32,
-    &gt;,
-    <span class="doccomment">/// Optional. Only required if the price is set. Currency code for price/costs. Use
-    /// three-character ISO-4217 code.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Online stock state of the catalog item. Default is `IN_STOCK`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;product_catalog_item::StockState&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>stock_state: i32,
-    <span class="doccomment">/// Optional. The available quantity of the item.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>available_quantity: i64,
-    <span class="doccomment">/// Optional. Canonical URL directly linking to the item detail page with a
-    /// length limit of 5 KiB..
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>canonical_product_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Product images for the catalog item.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>images: ::prost::alloc::vec::Vec&lt;Image&gt;,
-    <span class="doccomment">/// Product price. Only one of &#39;exactPrice&#39;/&#39;priceRange&#39; can be provided.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;product_catalog_item::Price&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-    </span><span class="kw">pub </span>price: ::core::option::Option&lt;product_catalog_item::Price&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ProductCatalogItem`.
-</span><span class="kw">pub mod </span>product_catalog_item {
-    <span class="doccomment">/// Exact product price.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ExactPrice {
-        <span class="doccomment">/// Optional. Display price of the product.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>display_price: f32,
-        <span class="doccomment">/// Optional. Price of the product without any discount. If zero, by default
-        /// set to be the &#39;displayPrice&#39;.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>original_price: f32,
-    }
-    <span class="doccomment">/// Product price range when there are a range of prices for different
-    /// variations of the same product.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>PriceRange {
-        <span class="doccomment">/// Required. The minimum product price.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>min: f32,
-        <span class="doccomment">/// Required. The maximum product price.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>max: f32,
-    }
-    <span class="doccomment">/// Item stock state. If this field is unspecified, the item is
-    /// assumed to be in stock.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>StockState {
-        <span class="doccomment">/// Default item stock status. Should never be used.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Item out of stock.
-        </span>OutOfStock = <span class="number">1</span>,
-        <span class="doccomment">/// Item that is in pre-order state.
-        </span>Preorder = <span class="number">2</span>,
-        <span class="doccomment">/// Item that is back-ordered (i.e. temporarily out of stock).
-        </span>Backorder = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>StockState {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                StockState::Unspecified =&gt; <span class="string">&quot;STOCK_STATE_UNSPECIFIED&quot;</span>,
-                StockState::OutOfStock =&gt; <span class="string">&quot;OUT_OF_STOCK&quot;</span>,
-                StockState::Preorder =&gt; <span class="string">&quot;PREORDER&quot;</span>,
-                StockState::Backorder =&gt; <span class="string">&quot;BACKORDER&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STOCK_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;OUT_OF_STOCK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OutOfStock),
-                <span class="string">&quot;PREORDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preorder),
-                <span class="string">&quot;BACKORDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Backorder),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Product price. Only one of &#39;exactPrice&#39;/&#39;priceRange&#39; can be provided.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Price {
-        <span class="doccomment">/// Optional. The exact product price.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>ExactPrice(ExactPrice),
-        <span class="doccomment">/// Optional. The product price range.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>PriceRange(PriceRange),
-    }
-}
-<span class="doccomment">/// Catalog item thumbnail/detail image.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Image {
-    <span class="doccomment">/// Required. URL of the image with a length limit of 5 KiB.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Height of the image in number of pixels.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>height: i32,
-    <span class="doccomment">/// Optional. Width of the image in number of pixels.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>width: i32,
-}
 <span class="doccomment">/// UserEvent captures all metadata information recommendation engine needs to
 /// know about how end users interact with customers&#39; website.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2820,7 +2820,7 @@
     /// The categories associated with a category page.
     /// Category pages include special pages such as sales or promotions. For
     /// instance, a special sale page may have the category hierarchy:
-    /// categories : [&quot;Sales&quot;, &quot;2017 Black Friday Deals&quot;].
+    /// categories : \[&quot;Sales&quot;, &quot;2017 Black Friday Deals&quot;\].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_categories: ::prost::alloc::vec::Vec&lt;catalog_item::CategoryHierarchy&gt;,
     <span class="doccomment">/// The main product details related to the event.
@@ -2950,6 +2950,281 @@
     <span class="doccomment">/// Optional. Extra features associated with a product in the user event.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>item_attributes: ::core::option::Option&lt;FeatureMap&gt;,
+}
+<span class="doccomment">/// Request message for Predict method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PredictRequest {
+    <span class="doccomment">/// Required. Full resource name of the format:
+    /// `{name=projects/*/locations/global/catalogs/default_catalog/eventStores/default_event_store/placements/*}`
+    /// The id of the recommendation engine placement. This id is used to identify
+    /// the set of models that will be used to make the prediction.
+    ///
+    /// We currently support three placements with the following IDs by default:
+    ///
+    /// * `shopping_cart`: Predicts items frequently bought together with one or
+    ///    more catalog items in the same shopping session. Commonly displayed after
+    ///    `add-to-cart` events, on product detail pages, or on the shopping cart
+    ///    page.
+    ///
+    /// * `home_page`: Predicts the next product that a user will most likely
+    ///    engage with or purchase based on the shopping or viewing history of the
+    ///    specified `userId` or `visitorId`. For example - Recommendations for you.
+    ///
+    /// * `product_detail`: Predicts the next product that a user will most likely
+    ///    engage with or purchase. The prediction is based on the shopping or
+    ///    viewing history of the specified `userId` or `visitorId` and its
+    ///    relevance to a specified `CatalogItem`. Typically used on product detail
+    ///    pages. For example - More items like this.
+    ///
+    /// * `recently_viewed_default`: Returns up to 75 items recently viewed by the
+    ///    specified `userId` or `visitorId`, most recent ones first. Returns
+    ///    nothing if neither of them has viewed any items yet. For example -
+    ///    Recently viewed.
+    ///
+    /// The full list of available placements can be seen at
+    /// &lt;https://console.cloud.google.com/recommendation/datafeeds/default_catalog/dashboard&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Context about the user, what they are looking at and what action
+    /// they took to trigger the predict request. Note that this user event detail
+    /// won&#39;t be ingested to userEvent logs. Thus, a separate userEvent write
+    /// request is required for event logging.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>user_event: ::core::option::Option&lt;UserEvent&gt;,
+    <span class="doccomment">/// Optional. Maximum number of results to return per page. Set this property
+    /// to the number of prediction results required. If zero, the service will
+    /// choose a reasonable default.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// Optional. The previous PredictResponse.next_page_token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Filter for restricting prediction results. Accepts values for
+    /// tags and the `filterOutOfStockItems` flag.
+    ///
+    ///   * Tag expressions. Restricts predictions to items that match all of the
+    ///     specified tags. Boolean operators `OR` and `NOT` are supported if the
+    ///     expression is enclosed in parentheses, and must be separated from the
+    ///     tag values by a space. `-&quot;tagA&quot;` is also supported and is equivalent to
+    ///     `NOT &quot;tagA&quot;`. Tag values must be double quoted UTF-8 encoded strings
+    ///     with a size limit of 1 KiB.
+    ///
+    ///   * filterOutOfStockItems. Restricts predictions to items that do not have a
+    ///     stockState value of OUT_OF_STOCK.
+    ///
+    /// Examples:
+    ///
+    ///   * tag=(&quot;Red&quot; OR &quot;Blue&quot;) tag=&quot;New-Arrival&quot; tag=(NOT &quot;promotional&quot;)
+    ///   * filterOutOfStockItems  tag=(-&quot;promotional&quot;)
+    ///   * filterOutOfStockItems
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Use dryRun mode for this prediction query. If set to true, a
+    /// dummy model will be used that returns arbitrary catalog items.
+    /// Note that the dryRun mode should only be used for testing the API, or if
+    /// the model is not ready.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>dry_run: bool,
+    <span class="doccomment">/// Optional. Additional domain specific parameters for the predictions.
+    ///
+    /// Allowed values:
+    ///
+    /// * `returnCatalogItem`: Boolean. If set to true, the associated catalogItem
+    ///     object will be returned in the
+    ///    `PredictResponse.PredictionResult.itemMetadata` object in the method
+    ///     response.
+    /// * `returnItemScore`: Boolean. If set to true, the prediction &#39;score&#39;
+    ///     corresponding to each returned item will be set in the `metadata`
+    ///     field in the prediction response. The given &#39;score&#39; indicates the
+    ///     probability of an item being clicked/purchased given the user&#39;s context
+    ///     and history.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>params: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost_types::Value,
+    &gt;,
+    <span class="doccomment">/// Optional. The labels for the predict request.
+    ///
+    ///   * Label keys can contain lowercase letters, digits and hyphens, must start
+    ///     with a letter, and must end with a letter or digit.
+    ///   * Non-zero label values can contain lowercase letters, digits and hyphens,
+    ///     must start with a letter, and must end with a letter or digit.
+    ///   * No more than 64 labels can be associated with a given request.
+    ///
+    /// See &lt;https://goo.gl/xmQnxf&gt; for more information on and examples of labels.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+}
+<span class="doccomment">/// Response message for predict method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PredictResponse {
+    <span class="doccomment">/// A list of recommended items. The order represents the ranking (from the
+    /// most relevant item to the least).
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>results: ::prost::alloc::vec::Vec&lt;predict_response::PredictionResult&gt;,
+    <span class="doccomment">/// A unique recommendation token. This should be included in the user event
+    /// logs resulting from this recommendation, which enables accurate attribution
+    /// of recommendation model performance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>recommendation_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// IDs of items in the request that were missing from the catalog.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>items_missing_in_catalog: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// True if the dryRun property was set in the request.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>dry_run: bool,
+    <span class="doccomment">/// Additional domain specific prediction response metadata.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>metadata: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost_types::Value,
+    &gt;,
+    <span class="doccomment">/// If empty, the list is complete. If nonempty, the token to pass to the next
+    /// request&#39;s PredictRequest.page_token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `PredictResponse`.
+</span><span class="kw">pub mod </span>predict_response {
+    <span class="doccomment">/// PredictionResult represents the recommendation prediction results.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>PredictionResult {
+        <span class="doccomment">/// ID of the recommended catalog item
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+        <span class="doccomment">/// Additional item metadata / annotations.
+        ///
+        /// Possible values:
+        ///
+        /// * `catalogItem`: JSON representation of the catalogItem. Will be set if
+        ///    `returnCatalogItem` is set to true in `PredictRequest.params`.
+        /// * `score`: Prediction score in double value. Will be set if
+        ///    `returnItemScore` is set to true in `PredictRequest.params`.
+        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>item_metadata: ::prost::alloc::collections::BTreeMap&lt;
+            ::prost::alloc::string::String,
+            ::prost_types::Value,
+        &gt;,
+    }
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>prediction_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Service for making recommendation prediction.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>PredictionServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; PredictionServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; PredictionServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            PredictionServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Makes a recommendation prediction. If using API Key based authentication,
+        /// the API Key must be registered using the
+        /// [PredictionApiKeyRegistry][google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry]
+        /// service. [Learn more](/recommendations-ai/docs/setting-up#register-key).
+        </span><span class="kw">pub async fn </span>predict(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::PredictRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::PredictResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.PredictionService/Predict&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.PredictionService&quot;</span>,
+                        <span class="string">&quot;Predict&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
 }
 <span class="doccomment">/// Google Cloud Storage location for input content.
 /// format.
@@ -3141,341 +3416,6 @@
     /// in the imported catalog.
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>unjoined_events_count: i64,
-}
-<span class="doccomment">/// Request message for CreateCatalogItem method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateCatalogItemRequest {
-    <span class="doccomment">/// Required. The parent catalog resource name, such as
-    /// `projects/*/locations/global/catalogs/default_catalog`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The catalog item to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>catalog_item: ::core::option::Option&lt;CatalogItem&gt;,
-}
-<span class="doccomment">/// Request message for GetCatalogItem method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetCatalogItemRequest {
-    <span class="doccomment">/// Required. Full resource name of catalog item, such as
-    /// `projects/*/locations/global/catalogs/default_catalog/catalogitems/some_catalog_item_id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for ListCatalogItems method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListCatalogItemsRequest {
-    <span class="doccomment">/// Required. The parent catalog resource name, such as
-    /// `projects/*/locations/global/catalogs/default_catalog`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Maximum number of results to return per page. If zero, the
-    /// service will choose a reasonable default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Optional. The previous ListCatalogItemsResponse.next_page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A filter to apply on the list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Response message for ListCatalogItems method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListCatalogItemsResponse {
-    <span class="doccomment">/// The catalog items.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>catalog_items: ::prost::alloc::vec::Vec&lt;CatalogItem&gt;,
-    <span class="doccomment">/// If empty, the list is complete. If nonempty, the token to pass to the next
-    /// request&#39;s ListCatalogItemRequest.page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for UpdateCatalogItem method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateCatalogItemRequest {
-    <span class="doccomment">/// Required. Full resource name of catalog item, such as
-    /// `projects/*/locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The catalog item to update/create. The &#39;catalog_item_id&#39; field
-    /// has to match that in the &#39;name&#39;.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>catalog_item: ::core::option::Option&lt;CatalogItem&gt;,
-    <span class="doccomment">/// Optional. Indicates which fields in the provided &#39;item&#39; to update. If not
-    /// set, will by default update all fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-}
-<span class="doccomment">/// Request message for DeleteCatalogItem method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteCatalogItemRequest {
-    <span class="doccomment">/// Required. Full resource name of catalog item, such as
-    /// `projects/*/locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>catalog_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Service for ingesting catalog information of the customer&#39;s website.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>CatalogServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; CatalogServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; CatalogServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            CatalogServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Creates a catalog item.
-        </span><span class="kw">pub async fn </span>create_catalog_item(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateCatalogItemRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::CatalogItem&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/CreateCatalogItem&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;CreateCatalogItem&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Gets a specific catalog item.
-        </span><span class="kw">pub async fn </span>get_catalog_item(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetCatalogItemRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::CatalogItem&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/GetCatalogItem&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;GetCatalogItem&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Gets a list of catalog items.
-        </span><span class="kw">pub async fn </span>list_catalog_items(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListCatalogItemsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListCatalogItemsResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/ListCatalogItems&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;ListCatalogItems&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Updates a catalog item. Partial updating is supported. Non-existing
-        /// items will be created.
-        </span><span class="kw">pub async fn </span>update_catalog_item(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateCatalogItemRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::CatalogItem&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/UpdateCatalogItem&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;UpdateCatalogItem&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Deletes a catalog item.
-        </span><span class="kw">pub async fn </span>delete_catalog_item(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteCatalogItemRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/DeleteCatalogItem&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;DeleteCatalogItem&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Bulk import of multiple catalog items. Request processing may be
-        /// synchronous. No partial updating supported. Non-existing items will be
-        /// created.
-        ///
-        /// Operation.response is of type ImportResponse. Note that it is
-        /// possible for a subset of the items to be successfully updated.
-        </span><span class="kw">pub async fn </span>import_catalog_items(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ImportCatalogItemsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/ImportCatalogItems&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;ImportCatalogItems&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
 }
 <span class="doccomment">/// Request message for PurgeUserEvents method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3877,181 +3817,95 @@
         </span>}
     }
 }
-<span class="doccomment">/// Request message for Predict method.
+<span class="doccomment">/// Request message for CreateCatalogItem method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PredictRequest {
-    <span class="doccomment">/// Required. Full resource name of the format:
-    /// `{name=projects/*/locations/global/catalogs/default_catalog/eventStores/default_event_store/placements/*}`
-    /// The id of the recommendation engine placement. This id is used to identify
-    /// the set of models that will be used to make the prediction.
-    ///
-    /// We currently support three placements with the following IDs by default:
-    ///
-    /// * `shopping_cart`: Predicts items frequently bought together with one or
-    ///    more catalog items in the same shopping session. Commonly displayed after
-    ///    `add-to-cart` events, on product detail pages, or on the shopping cart
-    ///    page.
-    ///
-    /// * `home_page`: Predicts the next product that a user will most likely
-    ///    engage with or purchase based on the shopping or viewing history of the
-    ///    specified `userId` or `visitorId`. For example - Recommendations for you.
-    ///
-    /// * `product_detail`: Predicts the next product that a user will most likely
-    ///    engage with or purchase. The prediction is based on the shopping or
-    ///    viewing history of the specified `userId` or `visitorId` and its
-    ///    relevance to a specified `CatalogItem`. Typically used on product detail
-    ///    pages. For example - More items like this.
-    ///
-    /// * `recently_viewed_default`: Returns up to 75 items recently viewed by the
-    ///    specified `userId` or `visitorId`, most recent ones first. Returns
-    ///    nothing if neither of them has viewed any items yet. For example -
-    ///    Recently viewed.
-    ///
-    /// The full list of available placements can be seen at
-    /// &lt;https://console.cloud.google.com/recommendation/datafeeds/default_catalog/dashboard&gt;
+</span><span class="kw">pub struct </span>CreateCatalogItemRequest {
+    <span class="doccomment">/// Required. The parent catalog resource name, such as
+    /// `projects/*/locations/global/catalogs/default_catalog`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The catalog item to create.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>catalog_item: ::core::option::Option&lt;CatalogItem&gt;,
+}
+<span class="doccomment">/// Request message for GetCatalogItem method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetCatalogItemRequest {
+    <span class="doccomment">/// Required. Full resource name of catalog item, such as
+    /// `projects/*/locations/global/catalogs/default_catalog/catalogitems/some_catalog_item_id`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Context about the user, what they are looking at and what action
-    /// they took to trigger the predict request. Note that this user event detail
-    /// won&#39;t be ingested to userEvent logs. Thus, a separate userEvent write
-    /// request is required for event logging.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>user_event: ::core::option::Option&lt;UserEvent&gt;,
-    <span class="doccomment">/// Optional. Maximum number of results to return per page. Set this property
-    /// to the number of prediction results required. If zero, the service will
-    /// choose a reasonable default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Optional. The previous PredictResponse.next_page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Filter for restricting prediction results. Accepts values for
-    /// tags and the `filterOutOfStockItems` flag.
-    ///
-    ///   * Tag expressions. Restricts predictions to items that match all of the
-    ///     specified tags. Boolean operators `OR` and `NOT` are supported if the
-    ///     expression is enclosed in parentheses, and must be separated from the
-    ///     tag values by a space. `-&quot;tagA&quot;` is also supported and is equivalent to
-    ///     `NOT &quot;tagA&quot;`. Tag values must be double quoted UTF-8 encoded strings
-    ///     with a size limit of 1 KiB.
-    ///
-    ///   * filterOutOfStockItems. Restricts predictions to items that do not have a
-    ///     stockState value of OUT_OF_STOCK.
-    ///
-    /// Examples:
-    ///
-    ///   * tag=(&quot;Red&quot; OR &quot;Blue&quot;) tag=&quot;New-Arrival&quot; tag=(NOT &quot;promotional&quot;)
-    ///   * filterOutOfStockItems  tag=(-&quot;promotional&quot;)
-    ///   * filterOutOfStockItems
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Use dryRun mode for this prediction query. If set to true, a
-    /// dummy model will be used that returns arbitrary catalog items.
-    /// Note that the dryRun mode should only be used for testing the API, or if
-    /// the model is not ready.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>dry_run: bool,
-    <span class="doccomment">/// Optional. Additional domain specific parameters for the predictions.
-    ///
-    /// Allowed values:
-    ///
-    /// * `returnCatalogItem`: Boolean. If set to true, the associated catalogItem
-    ///     object will be returned in the
-    ///    `PredictResponse.PredictionResult.itemMetadata` object in the method
-    ///     response.
-    /// * `returnItemScore`: Boolean. If set to true, the prediction &#39;score&#39;
-    ///     corresponding to each returned item will be set in the `metadata`
-    ///     field in the prediction response. The given &#39;score&#39; indicates the
-    ///     probability of an item being clicked/purchased given the user&#39;s context
-    ///     and history.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>params: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost_types::Value,
-    &gt;,
-    <span class="doccomment">/// Optional. The labels for the predict request.
-    ///
-    ///   * Label keys can contain lowercase letters, digits and hyphens, must start
-    ///     with a letter, and must end with a letter or digit.
-    ///   * Non-zero label values can contain lowercase letters, digits and hyphens,
-    ///     must start with a letter, and must end with a letter or digit.
-    ///   * No more than 64 labels can be associated with a given request.
-    ///
-    /// See &lt;https://goo.gl/xmQnxf&gt; for more information on and examples of labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
 }
-<span class="doccomment">/// Response message for predict method.
+<span class="doccomment">/// Request message for ListCatalogItems method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PredictResponse {
-    <span class="doccomment">/// A list of recommended items. The order represents the ranking (from the
-    /// most relevant item to the least).
+</span><span class="kw">pub struct </span>ListCatalogItemsRequest {
+    <span class="doccomment">/// Required. The parent catalog resource name, such as
+    /// `projects/*/locations/global/catalogs/default_catalog`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Maximum number of results to return per page. If zero, the
+    /// service will choose a reasonable default.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// Optional. The previous ListCatalogItemsResponse.next_page_token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A filter to apply on the list results.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Response message for ListCatalogItems method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListCatalogItemsResponse {
+    <span class="doccomment">/// The catalog items.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>results: ::prost::alloc::vec::Vec&lt;predict_response::PredictionResult&gt;,
-    <span class="doccomment">/// A unique recommendation token. This should be included in the user event
-    /// logs resulting from this recommendation, which enables accurate attribution
-    /// of recommendation model performance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>recommendation_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// IDs of items in the request that were missing from the catalog.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>items_missing_in_catalog: ::prost::alloc::vec::Vec&lt;
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// True if the dryRun property was set in the request.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>dry_run: bool,
-    <span class="doccomment">/// Additional domain specific prediction response metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>metadata: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost_types::Value,
-    &gt;,
+    </span><span class="kw">pub </span>catalog_items: ::prost::alloc::vec::Vec&lt;CatalogItem&gt;,
     <span class="doccomment">/// If empty, the list is complete. If nonempty, the token to pass to the next
-    /// request&#39;s PredictRequest.page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    /// request&#39;s ListCatalogItemRequest.page_token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Nested message and enum types in `PredictResponse`.
-</span><span class="kw">pub mod </span>predict_response {
-    <span class="doccomment">/// PredictionResult represents the recommendation prediction results.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>PredictionResult {
-        <span class="doccomment">/// ID of the recommended catalog item
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-        <span class="doccomment">/// Additional item metadata / annotations.
-        ///
-        /// Possible values:
-        ///
-        /// * `catalogItem`: JSON representation of the catalogItem. Will be set if
-        ///    `returnCatalogItem` is set to true in `PredictRequest.params`.
-        /// * `score`: Prediction score in double value. Will be set if
-        ///    `returnItemScore` is set to true in `PredictRequest.params`.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>item_metadata: ::prost::alloc::collections::BTreeMap&lt;
-            ::prost::alloc::string::String,
-            ::prost_types::Value,
-        &gt;,
-    }
+<span class="doccomment">/// Request message for UpdateCatalogItem method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateCatalogItemRequest {
+    <span class="doccomment">/// Required. Full resource name of catalog item, such as
+    /// `projects/*/locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The catalog item to update/create. The &#39;catalog_item_id&#39; field
+    /// has to match that in the &#39;name&#39;.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>catalog_item: ::core::option::Option&lt;CatalogItem&gt;,
+    <span class="doccomment">/// Optional. Indicates which fields in the provided &#39;item&#39; to update. If not
+    /// set, will by default update all fields.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+}
+<span class="doccomment">/// Request message for DeleteCatalogItem method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteCatalogItemRequest {
+    <span class="doccomment">/// Required. Full resource name of catalog item, such as
+    /// `projects/*/locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>prediction_service_client {
+</span><span class="kw">pub mod </span>catalog_service_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Service for making recommendation prediction.
+    <span class="doccomment">/// Service for ingesting catalog information of the customer&#39;s website.
     </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>PredictionServiceClient&lt;T&gt; {
+    </span><span class="kw">pub struct </span>CatalogServiceClient&lt;T&gt; {
         inner: tonic::client::Grpc&lt;T&gt;,
     }
-    <span class="kw">impl</span>&lt;T&gt; PredictionServiceClient&lt;T&gt;
+    <span class="kw">impl</span>&lt;T&gt; CatalogServiceClient&lt;T&gt;
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
@@ -4069,7 +3923,7 @@
         <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
             inner: T,
             interceptor: F,
-        ) -&gt; PredictionServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        ) -&gt; CatalogServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
         <span class="kw">where
             </span>F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -4083,7 +3937,7 @@
                 http::Request&lt;tonic::body::BoxBody&gt;,
             &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
         {
-            PredictionServiceClient::new(InterceptedService::new(inner, interceptor))
+            CatalogServiceClient::new(InterceptedService::new(inner, interceptor))
         }
         <span class="doccomment">/// Compress requests with the given encoding.
         ///
@@ -4116,15 +3970,68 @@
             <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
             <span class="self">self
         </span>}
-        <span class="doccomment">/// Makes a recommendation prediction. If using API Key based authentication,
-        /// the API Key must be registered using the
-        /// [PredictionApiKeyRegistry][google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry]
-        /// service. [Learn more](/recommendations-ai/docs/setting-up#register-key).
-        </span><span class="kw">pub async fn </span>predict(
+        <span class="doccomment">/// Creates a catalog item.
+        </span><span class="kw">pub async fn </span>create_catalog_item(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::PredictRequest&gt;,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateCatalogItemRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::CatalogItem&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/CreateCatalogItem&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
+                        <span class="string">&quot;CreateCatalogItem&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets a specific catalog item.
+        </span><span class="kw">pub async fn </span>get_catalog_item(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetCatalogItemRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::CatalogItem&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/GetCatalogItem&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
+                        <span class="string">&quot;GetCatalogItem&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets a list of catalog items.
+        </span><span class="kw">pub async fn </span>list_catalog_items(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListCatalogItemsRequest&gt;,
         ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::PredictResponse&gt;,
+            tonic::Response&lt;<span class="kw">super</span>::ListCatalogItemsResponse&gt;,
             tonic::Status,
         &gt; {
             <span class="self">self</span>.inner
@@ -4138,14 +4045,107 @@
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.PredictionService/Predict&quot;</span>,
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/ListCatalogItems&quot;</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.PredictionService&quot;</span>,
-                        <span class="string">&quot;Predict&quot;</span>,
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
+                        <span class="string">&quot;ListCatalogItems&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Updates a catalog item. Partial updating is supported. Non-existing
+        /// items will be created.
+        </span><span class="kw">pub async fn </span>update_catalog_item(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateCatalogItemRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::CatalogItem&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/UpdateCatalogItem&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
+                        <span class="string">&quot;UpdateCatalogItem&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Deletes a catalog item.
+        </span><span class="kw">pub async fn </span>delete_catalog_item(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteCatalogItemRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/DeleteCatalogItem&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
+                        <span class="string">&quot;DeleteCatalogItem&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Bulk import of multiple catalog items. Request processing may be
+        /// synchronous. No partial updating supported. Non-existing items will be
+        /// created.
+        ///
+        /// Operation.response is of type ImportResponse. Note that it is
+        /// possible for a subset of the items to be successfully updated.
+        </span><span class="kw">pub async fn </span>import_catalog_items(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ImportCatalogItemsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/ImportCatalogItems&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
+                        <span class="string">&quot;ImportCatalogItems&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

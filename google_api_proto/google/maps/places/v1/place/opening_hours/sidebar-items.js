@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["SecondaryHourType"],"mod":["opening_hours_period"],"struct":["OpeningHoursPeriod","SpecialDay"]};
+window.SIDEBAR_ITEMS = {"enum":["SecondaryHoursType"],"mod":["period"],"struct":["Period","SpecialDay"]};

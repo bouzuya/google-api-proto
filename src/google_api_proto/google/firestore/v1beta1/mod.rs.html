@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/firestore/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/firestore/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2397,96 +2397,7 @@
 <a href="#2397" id="2397">2397</a>
 <a href="#2398" id="2398">2398</a>
 <a href="#2399" id="2399">2399</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A set of field paths on a document.
-/// Used to restrict a get or update operation on a document to a subset of its
-/// fields.
-/// This is different from standard field masks, as this is always scoped to a
-/// \[Document][google.firestore.v1beta1.Document\], and takes in account the dynamic nature of \[Value][google.firestore.v1beta1.Value\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DocumentMask {
-    <span class="doccomment">/// The list of field paths in the mask. See \[Document.fields][google.firestore.v1beta1.Document.fields\] for a field
-    /// path syntax reference.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>field_paths: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// A precondition on a document, used for conditional operations.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Precondition {
-    <span class="doccomment">/// The type of precondition.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;precondition::ConditionType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-    </span><span class="kw">pub </span>condition_type: ::core::option::Option&lt;precondition::ConditionType&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Precondition`.
-</span><span class="kw">pub mod </span>precondition {
-    <span class="doccomment">/// The type of precondition.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>ConditionType {
-        <span class="doccomment">/// When set to `true`, the target document must exist.
-        /// When set to `false`, the target document must not exist.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>Exists(bool),
-        <span class="doccomment">/// When set, the target document must exist and have been last updated at
-        /// that time.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>UpdateTime(::prost_types::Timestamp),
-    }
-}
-<span class="doccomment">/// Options for creating a new transaction.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TransactionOptions {
-    <span class="doccomment">/// The mode of the transaction.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;transaction_options::Mode&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>mode: ::core::option::Option&lt;transaction_options::Mode&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `TransactionOptions`.
-</span><span class="kw">pub mod </span>transaction_options {
-    <span class="doccomment">/// Options for a transaction that can be used to read and write documents.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ReadWrite {
-        <span class="doccomment">/// An optional transaction to retry.
-        </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>retry_transaction: ::prost::bytes::Bytes,
-    }
-    <span class="doccomment">/// Options for a transaction that can only be used to read documents.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ReadOnly {
-        <span class="doccomment">/// The consistency mode for this transaction. If not set, defaults to strong
-        /// consistency.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;read_only::ConsistencySelector&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>consistency_selector: ::core::option::Option&lt;read_only::ConsistencySelector&gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `ReadOnly`.
-    </span><span class="kw">pub mod </span>read_only {
-        <span class="doccomment">/// The consistency mode for this transaction. If not set, defaults to strong
-        /// consistency.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        </span><span class="kw">pub enum </span>ConsistencySelector {
-            <span class="doccomment">/// Reads documents at the given time.
-            /// This may not be older than 60 seconds.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-            </span>ReadTime(::prost_types::Timestamp),
-        }
-    }
-    <span class="doccomment">/// The mode of the transaction.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Mode {
-        <span class="doccomment">/// The transaction can only be used for read operations.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>ReadOnly(ReadOnly),
-        <span class="doccomment">/// The transaction can be used for both read and write operations.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>ReadWrite(ReadWrite),
-    }
-}
-<span class="doccomment">/// A Firestore document.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A Firestore document.
 ///
 /// Must not exceed 1 MiB - 4 bytes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3076,6 +2987,95 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>before: bool,
 }
+<span class="doccomment">/// A set of field paths on a document.
+/// Used to restrict a get or update operation on a document to a subset of its
+/// fields.
+/// This is different from standard field masks, as this is always scoped to a
+/// [Document][google.firestore.v1beta1.Document], and takes in account the dynamic nature of [Value][google.firestore.v1beta1.Value].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DocumentMask {
+    <span class="doccomment">/// The list of field paths in the mask. See [Document.fields][google.firestore.v1beta1.Document.fields] for a field
+    /// path syntax reference.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>field_paths: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// A precondition on a document, used for conditional operations.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Precondition {
+    <span class="doccomment">/// The type of precondition.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;precondition::ConditionType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>condition_type: ::core::option::Option&lt;precondition::ConditionType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Precondition`.
+</span><span class="kw">pub mod </span>precondition {
+    <span class="doccomment">/// The type of precondition.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>ConditionType {
+        <span class="doccomment">/// When set to `true`, the target document must exist.
+        /// When set to `false`, the target document must not exist.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>Exists(bool),
+        <span class="doccomment">/// When set, the target document must exist and have been last updated at
+        /// that time.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>UpdateTime(::prost_types::Timestamp),
+    }
+}
+<span class="doccomment">/// Options for creating a new transaction.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TransactionOptions {
+    <span class="doccomment">/// The mode of the transaction.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;transaction_options::Mode&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>mode: ::core::option::Option&lt;transaction_options::Mode&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `TransactionOptions`.
+</span><span class="kw">pub mod </span>transaction_options {
+    <span class="doccomment">/// Options for a transaction that can be used to read and write documents.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ReadWrite {
+        <span class="doccomment">/// An optional transaction to retry.
+        </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>retry_transaction: ::prost::bytes::Bytes,
+    }
+    <span class="doccomment">/// Options for a transaction that can only be used to read documents.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ReadOnly {
+        <span class="doccomment">/// The consistency mode for this transaction. If not set, defaults to strong
+        /// consistency.
+        </span><span class="attr">#[prost(oneof = <span class="string">&quot;read_only::ConsistencySelector&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>consistency_selector: ::core::option::Option&lt;read_only::ConsistencySelector&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `ReadOnly`.
+    </span><span class="kw">pub mod </span>read_only {
+        <span class="doccomment">/// The consistency mode for this transaction. If not set, defaults to strong
+        /// consistency.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        </span><span class="kw">pub enum </span>ConsistencySelector {
+            <span class="doccomment">/// Reads documents at the given time.
+            /// This may not be older than 60 seconds.
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span>ReadTime(::prost_types::Timestamp),
+        }
+    }
+    <span class="doccomment">/// The mode of the transaction.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Mode {
+        <span class="doccomment">/// The transaction can only be used for read operations.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>ReadOnly(ReadOnly),
+        <span class="doccomment">/// The transaction can be used for both read and write operations.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>ReadWrite(ReadWrite),
+    }
+}
 <span class="doccomment">/// A write on a document.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3145,7 +3145,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>FieldTransform {
-        <span class="doccomment">/// The path of the field. See \[Document.fields][google.firestore.v1beta1.Document.fields\] for the field path syntax
+        <span class="doccomment">/// The path of the field. See [Document.fields][google.firestore.v1beta1.Document.fields] for the field path syntax
         /// reference.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>field_path: ::prost::alloc::string::String,
@@ -3283,22 +3283,22 @@
     /// previous update_time.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The results of applying each \[DocumentTransform.FieldTransform][google.firestore.v1beta1.DocumentTransform.FieldTransform\], in the
+    <span class="doccomment">/// The results of applying each [DocumentTransform.FieldTransform][google.firestore.v1beta1.DocumentTransform.FieldTransform], in the
     /// same order.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>transform_results: ::prost::alloc::vec::Vec&lt;Value&gt;,
 }
-<span class="doccomment">/// A \[Document][google.firestore.v1beta1.Document\] has changed.
+<span class="doccomment">/// A [Document][google.firestore.v1beta1.Document] has changed.
 ///
-/// May be the result of multiple \[writes][google.firestore.v1beta1.Write\], including deletes, that
-/// ultimately resulted in a new value for the \[Document][google.firestore.v1beta1.Document\].
+/// May be the result of multiple [writes][google.firestore.v1beta1.Write], including deletes, that
+/// ultimately resulted in a new value for the [Document][google.firestore.v1beta1.Document].
 ///
-/// Multiple \[DocumentChange][google.firestore.v1beta1.DocumentChange\] messages may be returned for the same logical
+/// Multiple [DocumentChange][google.firestore.v1beta1.DocumentChange] messages may be returned for the same logical
 /// change, if multiple targets are affected.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DocumentChange {
-    <span class="doccomment">/// The new state of the \[Document][google.firestore.v1beta1.Document\].
+    <span class="doccomment">/// The new state of the [Document][google.firestore.v1beta1.Document].
     ///
     /// If `mask` is set, contains only fields that were updated or added.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
@@ -3310,17 +3310,17 @@
     </span><span class="attr">#[prost(int32, repeated, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>removed_target_ids: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
-<span class="doccomment">/// A \[Document][google.firestore.v1beta1.Document\] has been deleted.
+<span class="doccomment">/// A [Document][google.firestore.v1beta1.Document] has been deleted.
 ///
-/// May be the result of multiple \[writes][google.firestore.v1beta1.Write\], including updates, the
-/// last of which deleted the \[Document][google.firestore.v1beta1.Document\].
+/// May be the result of multiple [writes][google.firestore.v1beta1.Write], including updates, the
+/// last of which deleted the [Document][google.firestore.v1beta1.Document].
 ///
-/// Multiple \[DocumentDelete][google.firestore.v1beta1.DocumentDelete\] messages may be returned for the same logical
+/// Multiple [DocumentDelete][google.firestore.v1beta1.DocumentDelete] messages may be returned for the same logical
 /// delete, if multiple targets are affected.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DocumentDelete {
-    <span class="doccomment">/// The resource name of the \[Document][google.firestore.v1beta1.Document\] that was deleted.
+    <span class="doccomment">/// The resource name of the [Document][google.firestore.v1beta1.Document] that was deleted.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>document: ::prost::alloc::string::String,
     <span class="doccomment">/// A set of target IDs for targets that previously matched this entity.
@@ -3332,18 +3332,18 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
-<span class="doccomment">/// A \[Document][google.firestore.v1beta1.Document\] has been removed from the view of the targets.
+<span class="doccomment">/// A [Document][google.firestore.v1beta1.Document] has been removed from the view of the targets.
 ///
 /// Sent if the document is no longer relevant to a target and is out of view.
 /// Can be sent instead of a DocumentDelete or a DocumentChange if the server
 /// can not send the new value of the document.
 ///
-/// Multiple \[DocumentRemove][google.firestore.v1beta1.DocumentRemove\] messages may be returned for the same logical
+/// Multiple [DocumentRemove][google.firestore.v1beta1.DocumentRemove] messages may be returned for the same logical
 /// write or delete, if multiple targets are affected.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DocumentRemove {
-    <span class="doccomment">/// The resource name of the \[Document][google.firestore.v1beta1.Document\] that has gone out of view.
+    <span class="doccomment">/// The resource name of the [Document][google.firestore.v1beta1.Document] that has gone out of view.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>document: ::prost::alloc::string::String,
     <span class="doccomment">/// A set of target IDs for targets that previously matched this document.
@@ -3362,14 +3362,14 @@
     <span class="doccomment">/// The target ID to which this filter applies.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>target_id: i32,
-    <span class="doccomment">/// The total count of documents that match \[target_id][google.firestore.v1beta1.ExistenceFilter.target_id\].
+    <span class="doccomment">/// The total count of documents that match [target_id][google.firestore.v1beta1.ExistenceFilter.target_id].
     ///
     /// If different from the count of documents in the client that match, the
     /// client must manually determine which documents no longer match the target.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>count: i32,
 }
-<span class="doccomment">/// The request for \[Firestore.GetDocument][google.firestore.v1beta1.Firestore.GetDocument\].
+<span class="doccomment">/// The request for [Firestore.GetDocument][google.firestore.v1beta1.Firestore.GetDocument].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetDocumentRequest {
@@ -3406,7 +3406,7 @@
         </span>ReadTime(::prost_types::Timestamp),
     }
 }
-<span class="doccomment">/// The request for \[Firestore.ListDocuments][google.firestore.v1beta1.Firestore.ListDocuments\].
+<span class="doccomment">/// The request for [Firestore.ListDocuments][google.firestore.v1beta1.Firestore.ListDocuments].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDocumentsRequest {
@@ -3439,8 +3439,8 @@
     </span><span class="kw">pub </span>mask: ::core::option::Option&lt;DocumentMask&gt;,
     <span class="doccomment">/// If the list should show missing documents. A missing document is a
     /// document that does not exist but has sub-documents. These documents will
-    /// be returned with a key but will not have fields, \[Document.create_time][google.firestore.v1beta1.Document.create_time\],
-    /// or \[Document.update_time][google.firestore.v1beta1.Document.update_time\] set.
+    /// be returned with a key but will not have fields, [Document.create_time][google.firestore.v1beta1.Document.create_time],
+    /// or [Document.update_time][google.firestore.v1beta1.Document.update_time] set.
     ///
     /// Requests with `show_missing` may not specify `where` or
     /// `order_by`.
@@ -3469,7 +3469,7 @@
         </span>ReadTime(::prost_types::Timestamp),
     }
 }
-<span class="doccomment">/// The response for \[Firestore.ListDocuments][google.firestore.v1beta1.Firestore.ListDocuments\].
+<span class="doccomment">/// The response for [Firestore.ListDocuments][google.firestore.v1beta1.Firestore.ListDocuments].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDocumentsResponse {
@@ -3480,7 +3480,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The request for \[Firestore.CreateDocument][google.firestore.v1beta1.Firestore.CreateDocument\].
+<span class="doccomment">/// The request for [Firestore.CreateDocument][google.firestore.v1beta1.Firestore.CreateDocument].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateDocumentRequest {
@@ -3507,7 +3507,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>mask: ::core::option::Option&lt;DocumentMask&gt;,
 }
-<span class="doccomment">/// The request for \[Firestore.UpdateDocument][google.firestore.v1beta1.Firestore.UpdateDocument\].
+<span class="doccomment">/// The request for [Firestore.UpdateDocument][google.firestore.v1beta1.Firestore.UpdateDocument].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateDocumentRequest {
@@ -3535,7 +3535,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>current_document: ::core::option::Option&lt;Precondition&gt;,
 }
-<span class="doccomment">/// The request for \[Firestore.DeleteDocument][google.firestore.v1beta1.Firestore.DeleteDocument\].
+<span class="doccomment">/// The request for [Firestore.DeleteDocument][google.firestore.v1beta1.Firestore.DeleteDocument].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteDocumentRequest {
@@ -3548,7 +3548,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>current_document: ::core::option::Option&lt;Precondition&gt;,
 }
-<span class="doccomment">/// The request for \[Firestore.BatchGetDocuments][google.firestore.v1beta1.Firestore.BatchGetDocuments\].
+<span class="doccomment">/// The request for [Firestore.BatchGetDocuments][google.firestore.v1beta1.Firestore.BatchGetDocuments].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchGetDocumentsRequest {
@@ -3600,13 +3600,13 @@
         </span>ReadTime(::prost_types::Timestamp),
     }
 }
-<span class="doccomment">/// The streamed response for \[Firestore.BatchGetDocuments][google.firestore.v1beta1.Firestore.BatchGetDocuments\].
+<span class="doccomment">/// The streamed response for [Firestore.BatchGetDocuments][google.firestore.v1beta1.Firestore.BatchGetDocuments].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchGetDocumentsResponse {
     <span class="doccomment">/// The transaction that was started as part of this request.
     /// Will only be set in the first response, and only if
-    /// \[BatchGetDocumentsRequest.new_transaction][google.firestore.v1beta1.BatchGetDocumentsRequest.new_transaction\] was set in the request.
+    /// [BatchGetDocumentsRequest.new_transaction][google.firestore.v1beta1.BatchGetDocumentsRequest.new_transaction] was set in the request.
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>transaction: ::prost::bytes::Bytes,
     <span class="doccomment">/// The time at which the document was read.
@@ -3636,7 +3636,7 @@
         </span>Missing(::prost::alloc::string::String),
     }
 }
-<span class="doccomment">/// The request for \[Firestore.BeginTransaction][google.firestore.v1beta1.Firestore.BeginTransaction\].
+<span class="doccomment">/// The request for [Firestore.BeginTransaction][google.firestore.v1beta1.Firestore.BeginTransaction].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BeginTransactionRequest {
@@ -3649,7 +3649,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>options: ::core::option::Option&lt;TransactionOptions&gt;,
 }
-<span class="doccomment">/// The response for \[Firestore.BeginTransaction][google.firestore.v1beta1.Firestore.BeginTransaction\].
+<span class="doccomment">/// The response for [Firestore.BeginTransaction][google.firestore.v1beta1.Firestore.BeginTransaction].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BeginTransactionResponse {
@@ -3657,7 +3657,7 @@
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>transaction: ::prost::bytes::Bytes,
 }
-<span class="doccomment">/// The request for \[Firestore.Commit][google.firestore.v1beta1.Firestore.Commit\].
+<span class="doccomment">/// The request for [Firestore.Commit][google.firestore.v1beta1.Firestore.Commit].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommitRequest {
@@ -3674,7 +3674,7 @@
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>transaction: ::prost::bytes::Bytes,
 }
-<span class="doccomment">/// The response for \[Firestore.Commit][google.firestore.v1beta1.Firestore.Commit\].
+<span class="doccomment">/// The response for [Firestore.Commit][google.firestore.v1beta1.Firestore.Commit].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommitResponse {
@@ -3689,7 +3689,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>commit_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
-<span class="doccomment">/// The request for \[Firestore.Rollback][google.firestore.v1beta1.Firestore.Rollback\].
+<span class="doccomment">/// The request for [Firestore.Rollback][google.firestore.v1beta1.Firestore.Rollback].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RollbackRequest {
@@ -3701,7 +3701,7 @@
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>transaction: ::prost::bytes::Bytes,
 }
-<span class="doccomment">/// The request for \[Firestore.RunQuery][google.firestore.v1beta1.Firestore.RunQuery\].
+<span class="doccomment">/// The request for [Firestore.RunQuery][google.firestore.v1beta1.Firestore.RunQuery].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RunQueryRequest {
@@ -3753,13 +3753,13 @@
         </span>ReadTime(::prost_types::Timestamp),
     }
 }
-<span class="doccomment">/// The response for \[Firestore.RunQuery][google.firestore.v1beta1.Firestore.RunQuery\].
+<span class="doccomment">/// The response for [Firestore.RunQuery][google.firestore.v1beta1.Firestore.RunQuery].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RunQueryResponse {
     <span class="doccomment">/// The transaction that was started as part of this request.
     /// Can only be set in the first response, and only if
-    /// \[RunQueryRequest.new_transaction][google.firestore.v1beta1.RunQueryRequest.new_transaction\] was set in the request.
+    /// [RunQueryRequest.new_transaction][google.firestore.v1beta1.RunQueryRequest.new_transaction] was set in the request.
     /// If set, no other fields will be set in this response.
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>transaction: ::prost::bytes::Bytes,
@@ -3781,7 +3781,7 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>skipped_results: i32,
 }
-<span class="doccomment">/// The request for \[Firestore.PartitionQuery][google.firestore.v1beta1.Firestore.PartitionQuery\].
+<span class="doccomment">/// The request for [Firestore.PartitionQuery][google.firestore.v1beta1.Firestore.PartitionQuery].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionQueryRequest {
@@ -3843,7 +3843,7 @@
         </span>StructuredQuery(<span class="kw">super</span>::StructuredQuery),
     }
 }
-<span class="doccomment">/// The response for \[Firestore.PartitionQuery][google.firestore.v1beta1.Firestore.PartitionQuery\].
+<span class="doccomment">/// The response for [Firestore.PartitionQuery][google.firestore.v1beta1.Firestore.PartitionQuery].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionQueryResponse {
@@ -3872,7 +3872,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The request for \[Firestore.Write][google.firestore.v1beta1.Firestore.Write\].
+<span class="doccomment">/// The request for [Firestore.Write][google.firestore.v1beta1.Firestore.Write].
 ///
 /// The first request creates a stream, or resumes an existing one from a token.
 ///
@@ -3906,7 +3906,7 @@
     <span class="doccomment">/// A stream token that was previously sent by the server.
     ///
     /// The client should set this field to the token from the most recent
-    /// \[WriteResponse][google.firestore.v1beta1.WriteResponse\] it has received. This acknowledges that the client has
+    /// [WriteResponse][google.firestore.v1beta1.WriteResponse] it has received. This acknowledges that the client has
     /// received responses up to this token. After sending this token, earlier
     /// tokens may not be used anymore.
     ///
@@ -3926,7 +3926,7 @@
         ::prost::alloc::string::String,
     &gt;,
 }
-<span class="doccomment">/// The response for \[Firestore.Write][google.firestore.v1beta1.Firestore.Write\].
+<span class="doccomment">/// The response for [Firestore.Write][google.firestore.v1beta1.Firestore.Write].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WriteResponse {
@@ -3951,7 +3951,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>commit_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
-<span class="doccomment">/// A request for \[Firestore.Listen][google.firestore.v1beta1.Firestore.Listen\]
+<span class="doccomment">/// A request for [Firestore.Listen][google.firestore.v1beta1.Firestore.Listen]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListenRequest {
@@ -3983,7 +3983,7 @@
         </span>RemoveTarget(i32),
     }
 }
-<span class="doccomment">/// The response for \[Firestore.Listen][google.firestore.v1beta1.Firestore.Listen\].
+<span class="doccomment">/// The response for [Firestore.Listen][google.firestore.v1beta1.Firestore.Listen].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListenResponse {
@@ -4000,13 +4000,13 @@
         <span class="doccomment">/// Targets have changed.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
         </span>TargetChange(<span class="kw">super</span>::TargetChange),
-        <span class="doccomment">/// A \[Document][google.firestore.v1beta1.Document\] has changed.
+        <span class="doccomment">/// A [Document][google.firestore.v1beta1.Document] has changed.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
         </span>DocumentChange(<span class="kw">super</span>::DocumentChange),
-        <span class="doccomment">/// A \[Document][google.firestore.v1beta1.Document\] has been deleted.
+        <span class="doccomment">/// A [Document][google.firestore.v1beta1.Document] has been deleted.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
         </span>DocumentDelete(<span class="kw">super</span>::DocumentDelete),
-        <span class="doccomment">/// A \[Document][google.firestore.v1beta1.Document\] has been removed from a target (because it is no longer
+        <span class="doccomment">/// A [Document][google.firestore.v1beta1.Document] has been removed from a target (because it is no longer
         /// relevant to that target).
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
         </span>DocumentRemove(<span class="kw">super</span>::DocumentRemove),
@@ -4098,7 +4098,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ResumeType {
-        <span class="doccomment">/// A resume token from a prior \[TargetChange][google.firestore.v1beta1.TargetChange\] for an identical target.
+        <span class="doccomment">/// A resume token from a prior [TargetChange][google.firestore.v1beta1.TargetChange] for an identical target.
         ///
         /// Using a resume token with a different target is unsupported and may fail.
         </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;4&quot;</span>)]
@@ -4211,7 +4211,7 @@
         }
     }
 }
-<span class="doccomment">/// The request for \[Firestore.ListCollectionIds][google.firestore.v1beta1.Firestore.ListCollectionIds\].
+<span class="doccomment">/// The request for [Firestore.ListCollectionIds][google.firestore.v1beta1.Firestore.ListCollectionIds].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCollectionIdsRequest {
@@ -4225,11 +4225,11 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token. Must be a value from
-    /// \[ListCollectionIdsResponse][google.firestore.v1beta1.ListCollectionIdsResponse\].
+    /// [ListCollectionIdsResponse][google.firestore.v1beta1.ListCollectionIdsResponse].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The response from \[Firestore.ListCollectionIds][google.firestore.v1beta1.Firestore.ListCollectionIds\].
+<span class="doccomment">/// The response from [Firestore.ListCollectionIds][google.firestore.v1beta1.Firestore.ListCollectionIds].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCollectionIdsResponse {
@@ -4240,7 +4240,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The request for \[Firestore.BatchWrite][google.firestore.v1beta1.Firestore.BatchWrite\].
+<span class="doccomment">/// The request for [Firestore.BatchWrite][google.firestore.v1beta1.Firestore.BatchWrite].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchWriteRequest {
@@ -4262,7 +4262,7 @@
         ::prost::alloc::string::String,
     &gt;,
 }
-<span class="doccomment">/// The response from \[Firestore.BatchWrite][google.firestore.v1beta1.Firestore.BatchWrite\].
+<span class="doccomment">/// The response from [Firestore.BatchWrite][google.firestore.v1beta1.Firestore.BatchWrite].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchWriteResponse {

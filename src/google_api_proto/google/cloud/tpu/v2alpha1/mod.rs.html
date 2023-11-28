@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/tpu/v2alpha1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/tpu/v2alpha1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2885,7 +2885,7 @@
         </span>SuspendedData(SuspendedData),
     }
 }
-<span class="doccomment">/// Request for \[ListNodes][google.cloud.tpu.v2alpha1.Tpu.ListNodes\].
+<span class="doccomment">/// Request for [ListNodes][google.cloud.tpu.v2alpha1.Tpu.ListNodes].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListNodesRequest {
@@ -2899,7 +2899,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Response for \[ListNodes][google.cloud.tpu.v2alpha1.Tpu.ListNodes\].
+<span class="doccomment">/// Response for [ListNodes][google.cloud.tpu.v2alpha1.Tpu.ListNodes].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListNodesResponse {
@@ -2913,7 +2913,7 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// Request for \[GetNode][google.cloud.tpu.v2alpha1.Tpu.GetNode\].
+<span class="doccomment">/// Request for [GetNode][google.cloud.tpu.v2alpha1.Tpu.GetNode].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetNodeRequest {
@@ -2921,7 +2921,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request for \[CreateNode][google.cloud.tpu.v2alpha1.Tpu.CreateNode\].
+<span class="doccomment">/// Request for [CreateNode][google.cloud.tpu.v2alpha1.Tpu.CreateNode].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateNodeRequest {
@@ -2938,7 +2938,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request for \[DeleteNode][google.cloud.tpu.v2alpha1.Tpu.DeleteNode\].
+<span class="doccomment">/// Request for [DeleteNode][google.cloud.tpu.v2alpha1.Tpu.DeleteNode].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteNodeRequest {
@@ -2949,7 +2949,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request for \[StopNode][google.cloud.tpu.v2alpha1.Tpu.StopNode\].
+<span class="doccomment">/// Request for [StopNode][google.cloud.tpu.v2alpha1.Tpu.StopNode].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StopNodeRequest {
@@ -2957,7 +2957,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request for \[StartNode][google.cloud.tpu.v2alpha1.Tpu.StartNode\].
+<span class="doccomment">/// Request for [StartNode][google.cloud.tpu.v2alpha1.Tpu.StartNode].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StartNodeRequest {
@@ -2965,11 +2965,11 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request for \[UpdateNode][google.cloud.tpu.v2alpha1.Tpu.UpdateNode\].
+<span class="doccomment">/// Request for [UpdateNode][google.cloud.tpu.v2alpha1.Tpu.UpdateNode].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateNodeRequest {
-    <span class="doccomment">/// Required. Mask of fields from \[Node][Tpu.Node\] to update.
+    <span class="doccomment">/// Required. Mask of fields from [Node][Tpu.Node] to update.
     /// Supported fields: [description, tags, labels, metadata,
     /// network_config.enable_external_ips].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
@@ -2979,7 +2979,7 @@
     </span><span class="kw">pub </span>node: ::core::option::Option&lt;Node&gt;,
 }
 <span class="doccomment">/// Request for
-/// \[ListQueuedResources][google.cloud.tpu.v2alpha1.Tpu.ListQueuedResources\].
+/// [ListQueuedResources][google.cloud.tpu.v2alpha1.Tpu.ListQueuedResources].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListQueuedResourcesRequest {
@@ -2994,7 +2994,7 @@
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
-/// \[ListQueuedResources][google.cloud.tpu.v2alpha1.Tpu.ListQueuedResources\].
+/// [ListQueuedResources][google.cloud.tpu.v2alpha1.Tpu.ListQueuedResources].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListQueuedResourcesResponse {
@@ -3009,7 +3009,7 @@
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request for
-/// \[GetQueuedResource][google.cloud.tpu.v2alpha1.Tpu.GetQueuedResource\]
+/// [GetQueuedResource][google.cloud.tpu.v2alpha1.Tpu.GetQueuedResource]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetQueuedResourceRequest {
@@ -3018,7 +3018,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
-/// \[CreateQueuedResource][google.cloud.tpu.v2alpha1.Tpu.CreateQueuedResource\].
+/// [CreateQueuedResource][google.cloud.tpu.v2alpha1.Tpu.CreateQueuedResource].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateQueuedResourceRequest {
@@ -3037,7 +3037,7 @@
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
-/// \[DeleteQueuedResource][google.cloud.tpu.v2alpha1.Tpu.DeleteQueuedResource\].
+/// [DeleteQueuedResource][google.cloud.tpu.v2alpha1.Tpu.DeleteQueuedResource].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteQueuedResourceRequest {
@@ -3056,7 +3056,7 @@
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// Request for
-/// \[ResetQueuedResource][google.cloud.tpu.v2alpha1.Tpu.ResetQueuedResource\].
+/// [ResetQueuedResource][google.cloud.tpu.v2alpha1.Tpu.ResetQueuedResource].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResetQueuedResourceRequest {
@@ -3073,7 +3073,7 @@
     </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
-/// \[GenerateServiceIdentity][google.cloud.tpu.v2alpha1.Tpu.GenerateServiceIdentity\].
+/// [GenerateServiceIdentity][google.cloud.tpu.v2alpha1.Tpu.GenerateServiceIdentity].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateServiceIdentityRequest {
@@ -3082,7 +3082,7 @@
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
-/// \[GenerateServiceIdentity][google.cloud.tpu.v2alpha1.Tpu.GenerateServiceIdentity\].
+/// [GenerateServiceIdentity][google.cloud.tpu.v2alpha1.Tpu.GenerateServiceIdentity].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateServiceIdentityResponse {
@@ -3105,7 +3105,7 @@
     </span><span class="kw">pub </span>accelerator_configs: ::prost::alloc::vec::Vec&lt;AcceleratorConfig&gt;,
 }
 <span class="doccomment">/// Request for
-/// \[GetAcceleratorType][google.cloud.tpu.v2alpha1.Tpu.GetAcceleratorType\].
+/// [GetAcceleratorType][google.cloud.tpu.v2alpha1.Tpu.GetAcceleratorType].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetAcceleratorTypeRequest {
@@ -3114,7 +3114,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
-/// \[ListAcceleratorTypes][google.cloud.tpu.v2alpha1.Tpu.ListAcceleratorTypes\].
+/// [ListAcceleratorTypes][google.cloud.tpu.v2alpha1.Tpu.ListAcceleratorTypes].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAcceleratorTypesRequest {
@@ -3135,7 +3135,7 @@
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
-/// \[ListAcceleratorTypes][google.cloud.tpu.v2alpha1.Tpu.ListAcceleratorTypes\].
+/// [ListAcceleratorTypes][google.cloud.tpu.v2alpha1.Tpu.ListAcceleratorTypes].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAcceleratorTypesResponse {
@@ -3161,7 +3161,7 @@
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
-/// \[GetRuntimeVersion][google.cloud.tpu.v2alpha1.Tpu.GetRuntimeVersion\].
+/// [GetRuntimeVersion][google.cloud.tpu.v2alpha1.Tpu.GetRuntimeVersion].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRuntimeVersionRequest {
@@ -3170,7 +3170,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
-/// \[ListRuntimeVersions][google.cloud.tpu.v2alpha1.Tpu.ListRuntimeVersions\].
+/// [ListRuntimeVersions][google.cloud.tpu.v2alpha1.Tpu.ListRuntimeVersions].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRuntimeVersionsRequest {
@@ -3191,7 +3191,7 @@
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
-/// \[ListRuntimeVersions][google.cloud.tpu.v2alpha1.Tpu.ListRuntimeVersions\].
+/// [ListRuntimeVersions][google.cloud.tpu.v2alpha1.Tpu.ListRuntimeVersions].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRuntimeVersionsResponse {
@@ -3205,7 +3205,7 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// Metadata describing an \[Operation][google.longrunning.Operation\]
+<span class="doccomment">/// Metadata describing an [Operation][google.longrunning.Operation]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
@@ -3314,7 +3314,7 @@
     }
 }
 <span class="doccomment">/// Request for
-/// \[GetGuestAttributes][google.cloud.tpu.v2alpha1.Tpu.GetGuestAttributes\].
+/// [GetGuestAttributes][google.cloud.tpu.v2alpha1.Tpu.GetGuestAttributes].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetGuestAttributesRequest {
@@ -3330,7 +3330,7 @@
     </span><span class="kw">pub </span>worker_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response for
-/// \[GetGuestAttributes][google.cloud.tpu.v2alpha1.Tpu.GetGuestAttributes\].
+/// [GetGuestAttributes][google.cloud.tpu.v2alpha1.Tpu.GetGuestAttributes].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetGuestAttributesResponse {
@@ -3339,7 +3339,7 @@
     </span><span class="kw">pub </span>guest_attributes: ::prost::alloc::vec::Vec&lt;GuestAttributes&gt;,
 }
 <span class="doccomment">/// Request for
-/// \[SimulateMaintenanceEvent][google.cloud.tpu.v2alpha1.Tpu.SimulateMaintenanceEvent\].
+/// [SimulateMaintenanceEvent][google.cloud.tpu.v2alpha1.Tpu.SimulateMaintenanceEvent].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SimulateMaintenanceEventRequest {

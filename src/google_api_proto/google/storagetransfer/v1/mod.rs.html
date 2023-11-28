@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/storagetransfer/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/storagetransfer/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2882,17 +2882,17 @@
 /// the `updated` property of Cloud Storage objects, the `LastModified` field
 /// of S3 objects, and the `Last-Modified` header of Azure blobs.
 ///
-/// Transfers with a \[PosixFilesystem][google.storagetransfer.v1.PosixFilesystem\]
+/// Transfers with a [PosixFilesystem][google.storagetransfer.v1.PosixFilesystem]
 /// source or destination don&#39;t support `ObjectConditions`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ObjectConditions {
     <span class="doccomment">/// Ensures that objects are not transferred until a specific minimum time
     /// has elapsed after the &quot;last modification time&quot;. When a
-    /// \[TransferOperation][google.storagetransfer.v1.TransferOperation\] begins,
+    /// [TransferOperation][google.storagetransfer.v1.TransferOperation] begins,
     /// objects with a &quot;last modification time&quot; are transferred only if the elapsed
     /// time between the
-    /// \[start_time][google.storagetransfer.v1.TransferOperation.start_time\] of the
+    /// [start_time][google.storagetransfer.v1.TransferOperation.start_time] of the
     /// `TransferOperation` and the &quot;last modification time&quot; of the object is equal
     /// to or greater than the value of min_time_elapsed_since_last_modification`.
     /// Objects that do not have a &quot;last modification time&quot; are also transferred.
@@ -2902,10 +2902,10 @@
     &gt;,
     <span class="doccomment">/// Ensures that objects are not transferred if a specific maximum time
     /// has elapsed since the &quot;last modification time&quot;.
-    /// When a \[TransferOperation][google.storagetransfer.v1.TransferOperation\]
+    /// When a [TransferOperation][google.storagetransfer.v1.TransferOperation]
     /// begins, objects with a &quot;last modification time&quot; are transferred only if the
     /// elapsed time between the
-    /// \[start_time][google.storagetransfer.v1.TransferOperation.start_time\] of the
+    /// [start_time][google.storagetransfer.v1.TransferOperation.start_time] of the
     /// `TransferOperation`and the &quot;last modification time&quot; of the object
     ///   is less than the value of max_time_elapsed_since_last_modification`.
     /// Objects that do not have a &quot;last modification time&quot; are also transferred.
@@ -2917,7 +2917,7 @@
     /// in the `include_prefixes` array to determine which objects to include in a
     /// transfer. Objects must start with one of the matching `include_prefixes`
     /// for inclusion in the transfer. If
-    /// \[exclude_prefixes][google.storagetransfer.v1.ObjectConditions.exclude_prefixes\]
+    /// [exclude_prefixes][google.storagetransfer.v1.ObjectConditions.exclude_prefixes]
     /// is specified, objects must not start with any of the `exclude_prefixes`
     /// specified for inclusion in the transfer.
     ///
@@ -2967,7 +2967,7 @@
     ///      exclude-prefix.
     ///
     ///    * If
-    ///    \[include_prefixes][google.storagetransfer.v1.ObjectConditions.include_prefixes\]
+    ///    [include_prefixes][google.storagetransfer.v1.ObjectConditions.include_prefixes]
     ///    is specified, then each exclude-prefix must start with the value of a
     ///    path explicitly included by `include_prefixes`.
     ///
@@ -3052,7 +3052,7 @@
     /// When a role ARN is provided, Transfer Service fetches temporary
     /// credentials for the session using a `AssumeRoleWithWebIdentity` call for
     /// the provided role using the
-    /// \[GoogleServiceAccount][google.storagetransfer.v1.GoogleServiceAccount\] for
+    /// [GoogleServiceAccount][google.storagetransfer.v1.GoogleServiceAccount] for
     /// this project.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>role_arn: ::prost::alloc::string::String,
@@ -3062,17 +3062,17 @@
     /// &lt;pre&gt;{
     ///   &quot;sas_token&quot; : &quot;&lt;var&gt;SAS_TOKEN&lt;/var&gt;&quot;
     /// }&lt;/pre&gt;
-    /// \[GoogleServiceAccount][google.storagetransfer.v1.GoogleServiceAccount\] must
+    /// [GoogleServiceAccount][google.storagetransfer.v1.GoogleServiceAccount] must
     /// be granted `roles/secretmanager.secretAccessor` for the resource.
     ///
-    /// See [Configure access to a source: Microsoft Azure Blob Storage]
+    /// See \[Configure access to a source: Microsoft Azure Blob Storage\]
     /// (&lt;https://cloud.google.com/storage-transfer/docs/source-microsoft-azure#secret_manager&gt;)
     /// for more information.
     ///
-    /// If `credentials_secret` is specified, do not specify \[azure_credentials][\].
+    /// If `credentials_secret` is specified, do not specify [azure_credentials][].
     ///
     /// This feature is in
-    /// \[preview\](&lt;https://cloud.google.com/terms/service-terms#1&gt;).
+    /// [preview](&lt;https://cloud.google.com/terms/service-terms#1&gt;).
     ///
     /// Format: `projects/{project_number}/secrets/{secret_name}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
@@ -3114,18 +3114,18 @@
     /// &lt;pre&gt;{
     ///   &quot;sas_token&quot; : &quot;&lt;var&gt;SAS_TOKEN&lt;/var&gt;&quot;
     /// }&lt;/pre&gt;
-    /// \[GoogleServiceAccount][google.storagetransfer.v1.GoogleServiceAccount\] must
+    /// [GoogleServiceAccount][google.storagetransfer.v1.GoogleServiceAccount] must
     /// be granted `roles/secretmanager.secretAccessor` for the resource.
     ///
-    /// See [Configure access to a source: Microsoft Azure Blob Storage]
+    /// See \[Configure access to a source: Microsoft Azure Blob Storage\]
     /// (&lt;https://cloud.google.com/storage-transfer/docs/source-microsoft-azure#secret_manager&gt;)
     /// for more information.
     ///
     /// If `credentials_secret` is specified, do not specify
-    /// \[azure_credentials][google.storagetransfer.v1.AzureBlobStorageData.azure_credentials\].
+    /// [azure_credentials][google.storagetransfer.v1.AzureBlobStorageData.azure_credentials].
     ///
     /// This feature is in
-    /// \[preview\](&lt;https://cloud.google.com/terms/service-terms#1&gt;).
+    /// [preview](&lt;https://cloud.google.com/terms/service-terms#1&gt;).
     ///
     /// Format: `projects/{project_number}/secrets/{secret_name}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
@@ -3162,14 +3162,14 @@
 ///
 /// * Ensure that each URL you specify is publicly accessible. For
 /// example, in Cloud Storage you can
-/// [share an object publicly]
+/// \[share an object publicly\]
 /// (/storage/docs/cloud-console#_sharingdata) and get a link to it.
 ///
 /// * Storage Transfer Service obeys `robots.txt` rules and requires the source
 /// HTTP server to support `Range` requests and to return a `Content-Length`
 /// header in each response.
 ///
-/// * \[ObjectConditions][google.storagetransfer.v1.ObjectConditions\] have no
+/// * [ObjectConditions][google.storagetransfer.v1.ObjectConditions] have no
 /// effect when filtering objects to transfer.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3526,7 +3526,7 @@
     <span class="doccomment">/// Whether objects that exist only in the sink should be deleted.
     ///
     /// **Note:** This option and
-    /// \[delete_objects_from_source_after_transfer][google.storagetransfer.v1.TransferOptions.delete_objects_from_source_after_transfer\]
+    /// [delete_objects_from_source_after_transfer][google.storagetransfer.v1.TransferOptions.delete_objects_from_source_after_transfer]
     /// are mutually exclusive.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>delete_objects_unique_in_sink: bool,
@@ -3534,13 +3534,13 @@
     /// transferred to the sink.
     ///
     /// **Note:** This option and
-    /// \[delete_objects_unique_in_sink][google.storagetransfer.v1.TransferOptions.delete_objects_unique_in_sink\]
+    /// [delete_objects_unique_in_sink][google.storagetransfer.v1.TransferOptions.delete_objects_unique_in_sink]
     /// are mutually exclusive.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>delete_objects_from_source_after_transfer: bool,
     <span class="doccomment">/// When to overwrite objects that already exist in the sink. If not set,
     /// overwrite behavior is determined by
-    /// \[overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink\].
+    /// [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transfer_options::OverwriteWhen&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>overwrite_when: i32,
     <span class="doccomment">/// Represents the selected metadata options for a transfer job.
@@ -3611,10 +3611,10 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>object_conditions: ::core::option::Option&lt;ObjectConditions&gt;,
     <span class="doccomment">/// If the option
-    /// \[delete_objects_unique_in_sink][google.storagetransfer.v1.TransferOptions.delete_objects_unique_in_sink\]
+    /// [delete_objects_unique_in_sink][google.storagetransfer.v1.TransferOptions.delete_objects_unique_in_sink]
     /// is `true` and time-based object conditions such as &#39;last modification time&#39;
     /// are specified, the request fails with an
-    /// \[INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\] error.
+    /// [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT] error.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>transfer_options: ::core::option::Option&lt;TransferOptions&gt;,
     <span class="doccomment">/// A manifest file provides a list of objects to be transferred from the data
@@ -3721,25 +3721,25 @@
     </span><span class="kw">pub </span>acl: i32,
     <span class="doccomment">/// Specifies the storage class to set on objects being transferred to Google
     /// Cloud Storage buckets.  If unspecified, the default behavior is the same as
-    /// \[STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT][google.storagetransfer.v1.MetadataOptions.StorageClass.STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT\].
+    /// [STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT][google.storagetransfer.v1.MetadataOptions.StorageClass.STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::StorageClass&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>storage_class: i32,
     <span class="doccomment">/// Specifies how each object&#39;s temporary hold status should be preserved for
     /// transfers between Google Cloud Storage buckets.  If unspecified, the
     /// default behavior is the same as
-    /// \[TEMPORARY_HOLD_PRESERVE][google.storagetransfer.v1.MetadataOptions.TemporaryHold.TEMPORARY_HOLD_PRESERVE\].
+    /// [TEMPORARY_HOLD_PRESERVE][google.storagetransfer.v1.MetadataOptions.TemporaryHold.TEMPORARY_HOLD_PRESERVE].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::TemporaryHold&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>temporary_hold: i32,
     <span class="doccomment">/// Specifies how each object&#39;s Cloud KMS customer-managed encryption key
     /// (CMEK) is preserved for transfers between Google Cloud Storage buckets.  If
     /// unspecified, the default behavior is the same as
-    /// \[KMS_KEY_DESTINATION_BUCKET_DEFAULT][google.storagetransfer.v1.MetadataOptions.KmsKey.KMS_KEY_DESTINATION_BUCKET_DEFAULT\].
+    /// [KMS_KEY_DESTINATION_BUCKET_DEFAULT][google.storagetransfer.v1.MetadataOptions.KmsKey.KMS_KEY_DESTINATION_BUCKET_DEFAULT].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::KmsKey&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>kms_key: i32,
     <span class="doccomment">/// Specifies how each object&#39;s `timeCreated` metadata is preserved for
     /// transfers between Google Cloud Storage buckets.  If unspecified, the
     /// default behavior is the same as
-    /// \[TIME_CREATED_SKIP][google.storagetransfer.v1.MetadataOptions.TimeCreated.TIME_CREATED_SKIP\].
+    /// [TIME_CREATED_SKIP][google.storagetransfer.v1.MetadataOptions.TimeCreated.TIME_CREATED_SKIP].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::TimeCreated&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>time_created: i32,
 }
@@ -4189,7 +4189,7 @@
 </span><span class="kw">pub struct </span>Schedule {
     <span class="doccomment">/// Required. The start date of a transfer. Date boundaries are determined
     /// relative to UTC time. If `schedule_start_date` and
-    /// \[start_time_of_day][google.storagetransfer.v1.Schedule.start_time_of_day\]
+    /// [start_time_of_day][google.storagetransfer.v1.Schedule.start_time_of_day]
     /// are in the past relative to the job&#39;s creation time, the transfer starts
     /// the day after you schedule the transfer request.
     ///
@@ -4199,7 +4199,7 @@
     /// Transfer Service server receives the request on June 2, then it creates
     /// a TransferJob with `schedule_start_date` set to June 2 and a
     /// `start_time_of_day` set to midnight UTC. The first scheduled
-    /// \[TransferOperation][google.storagetransfer.v1.TransferOperation\] takes
+    /// [TransferOperation][google.storagetransfer.v1.TransferOperation] takes
     /// place on June 3 at midnight UTC.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>schedule_start_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
@@ -4207,13 +4207,13 @@
     /// UTC time. A job runs once per 24 hours within the following guidelines:
     ///
     /// *   If `schedule_end_date` and
-    /// \[schedule_start_date][google.storagetransfer.v1.Schedule.schedule_start_date\]
+    /// [schedule_start_date][google.storagetransfer.v1.Schedule.schedule_start_date]
     /// are the same and in
     ///      the future relative to UTC, the transfer is executed only one time.
     /// *   If `schedule_end_date` is later than `schedule_start_date`  and
     ///      `schedule_end_date` is in the future relative to UTC, the job runs each
     ///      day at
-    ///      \[start_time_of_day][google.storagetransfer.v1.Schedule.start_time_of_day\]
+    ///      [start_time_of_day][google.storagetransfer.v1.Schedule.start_time_of_day]
     ///      through `schedule_end_date`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>schedule_end_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
@@ -4225,7 +4225,7 @@
     /// *   One-time transfers run immediately.
     /// *   Recurring transfers run immediately, and each day at midnight UTC,
     ///      through
-    ///      \[schedule_end_date][google.storagetransfer.v1.Schedule.schedule_end_date\].
+    ///      [schedule_end_date][google.storagetransfer.v1.Schedule.schedule_end_date].
     ///
     /// If `start_time_of_day` is specified:
     ///
@@ -4236,20 +4236,20 @@
     </span><span class="kw">pub </span>start_time_of_day: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::TimeOfDay&gt;,
     <span class="doccomment">/// The time in UTC that no further transfer operations are scheduled. Combined
     /// with
-    /// \[schedule_end_date][google.storagetransfer.v1.Schedule.schedule_end_date\],
+    /// [schedule_end_date][google.storagetransfer.v1.Schedule.schedule_end_date],
     /// `end_time_of_day` specifies the end date and time for starting new transfer
     /// operations. This field must be greater than or equal to the timestamp
     /// corresponding to the combintation of
-    /// \[schedule_start_date][google.storagetransfer.v1.Schedule.schedule_start_date\]
+    /// [schedule_start_date][google.storagetransfer.v1.Schedule.schedule_start_date]
     /// and
-    /// \[start_time_of_day][google.storagetransfer.v1.Schedule.start_time_of_day\],
+    /// [start_time_of_day][google.storagetransfer.v1.Schedule.start_time_of_day],
     /// and is subject to the following:
     ///
     /// *   If `end_time_of_day` is not set and `schedule_end_date` is set, then
     ///      a default value of `23:59:59` is used for `end_time_of_day`.
     ///
     /// *   If `end_time_of_day` is set and `schedule_end_date` is not set, then
-    ///      \[INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\] is returned.
+    ///      [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT] is returned.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>end_time_of_day: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::TimeOfDay&gt;,
     <span class="doccomment">/// Interval between the start of each scheduled TransferOperation. If
@@ -4292,7 +4292,7 @@
     /// is used as the unique name for this job.
     ///
     /// If the specified name is in use by a job, the creation request fails with
-    /// an \[ALREADY_EXISTS][google.rpc.Code.ALREADY_EXISTS\] error.
+    /// an [ALREADY_EXISTS][google.rpc.Code.ALREADY_EXISTS] error.
     ///
     /// This name must start with `&quot;transferJobs/&quot;` prefix and end with a letter or
     /// a number, and should be no more than 128 characters. For transfers
@@ -4301,16 +4301,16 @@
     /// `transferJobs/OPI`.
     ///
     /// Non-PosixFilesystem example:
-    /// `&quot;transferJobs/^(?!OPI)\[A-Za-z0-9-._~]*[A-Za-z0-9\]$&quot;`
+    /// `&quot;transferJobs/^(?!OPI)\[A-Za-z0-9-._~\]*[A-Za-z0-9]$&quot;`
     ///
     /// PosixFilesystem example:
-    /// `&quot;transferJobs/OPI^\[A-Za-z0-9-._~]*[A-Za-z0-9\]$&quot;`
+    /// `&quot;transferJobs/OPI^\[A-Za-z0-9-._~\]*[A-Za-z0-9]$&quot;`
     ///
     /// Applications must not rely on the enforcement of naming requirements
     /// involving OPI.
     ///
     /// Invalid job names fail with an
-    /// \[INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\] error.
+    /// [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT] error.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A description provided by the user for the job. Its max length is 1024
@@ -4345,8 +4345,8 @@
     ///
     /// **Note:** The effect of the new job status takes place during a subsequent
     /// job run. For example, if you change the job status from
-    /// \[ENABLED][google.storagetransfer.v1.TransferJob.Status.ENABLED\] to
-    /// \[DISABLED][google.storagetransfer.v1.TransferJob.Status.DISABLED\], and an
+    /// [ENABLED][google.storagetransfer.v1.TransferJob.Status.ENABLED] to
+    /// [DISABLED][google.storagetransfer.v1.TransferJob.Status.DISABLED], and an
     /// operation spawned by the transfer is running, the status change would not
     /// affect the current operation.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transfer_job::Status&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
@@ -4541,22 +4541,22 @@
 /// following `PubsubMessage.attributes`:
 ///
 /// * `&quot;eventType&quot;`: one of the
-/// \[EventType][google.storagetransfer.v1.NotificationConfig.EventType\] values
+/// [EventType][google.storagetransfer.v1.NotificationConfig.EventType] values
 /// * `&quot;payloadFormat&quot;`: one of the
-/// \[PayloadFormat][google.storagetransfer.v1.NotificationConfig.PayloadFormat\]
+/// [PayloadFormat][google.storagetransfer.v1.NotificationConfig.PayloadFormat]
 /// values
 /// * `&quot;projectId&quot;`: the
-/// \[project_id][google.storagetransfer.v1.TransferOperation.project_id\] of the
+/// [project_id][google.storagetransfer.v1.TransferOperation.project_id] of the
 /// `TransferOperation`
 /// * `&quot;transferJobName&quot;`: the
-/// \[transfer_job_name][google.storagetransfer.v1.TransferOperation.transfer_job_name\]
+/// [transfer_job_name][google.storagetransfer.v1.TransferOperation.transfer_job_name]
 /// of the `TransferOperation`
 /// * `&quot;transferOperationName&quot;`: the
-/// \[name][google.storagetransfer.v1.TransferOperation.name\] of the
+/// [name][google.storagetransfer.v1.TransferOperation.name] of the
 /// `TransferOperation`
 ///
 /// The `PubsubMessage.data` contains a
-/// \[TransferOperation][google.storagetransfer.v1.TransferOperation\] resource
+/// [TransferOperation][google.storagetransfer.v1.TransferOperation] resource
 /// formatted according to the specified `PayloadFormat`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4564,7 +4564,7 @@
     <span class="doccomment">/// Required. The `Topic.name` of the Pub/Sub topic to which to publish
     /// notifications. Must be of the format: `projects/{project}/topics/{topic}`.
     /// Not matching this format results in an
-    /// \[INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\] error.
+    /// [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT] error.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>pubsub_topic: ::prost::alloc::string::String,
     <span class="doccomment">/// Event types for which a notification is desired. If empty, send
@@ -4599,13 +4599,13 @@
         <span class="doccomment">/// Illegal value, to avoid allowing a default.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// `TransferOperation` completed with status
-        /// \[SUCCESS][google.storagetransfer.v1.TransferOperation.Status.SUCCESS\].
+        /// [SUCCESS][google.storagetransfer.v1.TransferOperation.Status.SUCCESS].
         </span>TransferOperationSuccess = <span class="number">1</span>,
         <span class="doccomment">/// `TransferOperation` completed with status
-        /// \[FAILED][google.storagetransfer.v1.TransferOperation.Status.FAILED\].
+        /// [FAILED][google.storagetransfer.v1.TransferOperation.Status.FAILED].
         </span>TransferOperationFailed = <span class="number">2</span>,
         <span class="doccomment">/// `TransferOperation` completed with status
-        /// \[ABORTED][google.storagetransfer.v1.TransferOperation.Status.ABORTED\].
+        /// [ABORTED][google.storagetransfer.v1.TransferOperation.Status.ABORTED].
         </span>TransferOperationAborted = <span class="number">3</span>,
     }
     <span class="kw">impl </span>EventType {
@@ -4687,7 +4687,7 @@
 ///
 /// For transfers to or from a POSIX file system, logs are stored in the
 /// Cloud Storage bucket that is the source or sink of the transfer.
-/// See [Managing Transfer for on-premises jobs]
+/// See \[Managing Transfer for on-premises jobs\]
 /// (&lt;https://cloud.google.com/storage-transfer/docs/managing-on-prem-jobs#viewing-logs&gt;)
 /// for details.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4695,13 +4695,13 @@
 </span><span class="kw">pub struct </span>LoggingConfig {
     <span class="doccomment">/// Specifies the actions to be logged. If empty, no logs are generated.
     /// Not supported for transfers with PosixFilesystem data sources; use
-    /// \[enable_onprem_gcs_transfer_logs][google.storagetransfer.v1.LoggingConfig.enable_onprem_gcs_transfer_logs\]
+    /// [enable_onprem_gcs_transfer_logs][google.storagetransfer.v1.LoggingConfig.enable_onprem_gcs_transfer_logs]
     /// instead.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logging_config::LoggableAction&quot;</span>, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>log_actions: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// States in which `log_actions` are logged. If empty, no logs are generated.
     /// Not supported for transfers with PosixFilesystem data sources; use
-    /// \[enable_onprem_gcs_transfer_logs][google.storagetransfer.v1.LoggingConfig.enable_onprem_gcs_transfer_logs\]
+    /// [enable_onprem_gcs_transfer_logs][google.storagetransfer.v1.LoggingConfig.enable_onprem_gcs_transfer_logs]
     /// instead.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logging_config::LoggableActionState&quot;</span>, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>log_action_states: ::prost::alloc::vec::Vec&lt;i32&gt;,
@@ -4776,10 +4776,10 @@
         <span class="doccomment">/// Default value. This value is unused.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// `LoggableAction` completed successfully. `SUCCEEDED` actions are
-        /// logged as \[INFO][google.logging.type.LogSeverity.INFO\].
+        /// logged as [INFO][google.logging.type.LogSeverity.INFO].
         </span>Succeeded = <span class="number">1</span>,
         <span class="doccomment">/// `LoggableAction` terminated in an error state. `FAILED` actions are
-        /// logged as \[ERROR][google.logging.type.LogSeverity.ERROR\].
+        /// logged as [ERROR][google.logging.type.LogSeverity.ERROR].
         </span>Failed = <span class="number">2</span>,
     }
     <span class="kw">impl </span>LoggableActionState {
@@ -4939,29 +4939,29 @@
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The job to update. `transferJob` is expected to specify one or
     /// more of five fields:
-    /// \[description][google.storagetransfer.v1.TransferJob.description\],
-    /// \[transfer_spec][google.storagetransfer.v1.TransferJob.transfer_spec\],
-    /// \[notification_config][google.storagetransfer.v1.TransferJob.notification_config\],
-    /// \[logging_config][google.storagetransfer.v1.TransferJob.logging_config\], and
-    /// \[status][google.storagetransfer.v1.TransferJob.status\].  An
+    /// [description][google.storagetransfer.v1.TransferJob.description],
+    /// [transfer_spec][google.storagetransfer.v1.TransferJob.transfer_spec],
+    /// [notification_config][google.storagetransfer.v1.TransferJob.notification_config],
+    /// [logging_config][google.storagetransfer.v1.TransferJob.logging_config], and
+    /// [status][google.storagetransfer.v1.TransferJob.status].  An
     /// `UpdateTransferJobRequest` that specifies other fields are rejected with
-    /// the error \[INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\]. Updating a
+    /// the error [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]. Updating a
     /// job status to
-    /// \[DELETED][google.storagetransfer.v1.TransferJob.Status.DELETED\] requires
+    /// [DELETED][google.storagetransfer.v1.TransferJob.Status.DELETED] requires
     /// `storagetransfer.jobs.delete` permission.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>transfer_job: ::core::option::Option&lt;TransferJob&gt;,
     <span class="doccomment">/// The field mask of the fields in `transferJob` that are to be updated in
     /// this request.  Fields in `transferJob` that can be updated are:
-    /// \[description][google.storagetransfer.v1.TransferJob.description\],
-    /// \[transfer_spec][google.storagetransfer.v1.TransferJob.transfer_spec\],
-    /// \[notification_config][google.storagetransfer.v1.TransferJob.notification_config\],
-    /// \[logging_config][google.storagetransfer.v1.TransferJob.logging_config\], and
-    /// \[status][google.storagetransfer.v1.TransferJob.status\].  To update the
+    /// [description][google.storagetransfer.v1.TransferJob.description],
+    /// [transfer_spec][google.storagetransfer.v1.TransferJob.transfer_spec],
+    /// [notification_config][google.storagetransfer.v1.TransferJob.notification_config],
+    /// [logging_config][google.storagetransfer.v1.TransferJob.logging_config], and
+    /// [status][google.storagetransfer.v1.TransferJob.status].  To update the
     /// `transfer_spec` of the job, a complete transfer specification must be
     /// provided. An incomplete specification missing any required fields is
     /// rejected with the error
-    /// \[INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\].
+    /// [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>update_transfer_job_field_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
@@ -5003,9 +5003,9 @@
     /// must be specified with array notation. `projectId` is required.
     /// `jobNames` and `jobStatuses` are optional.  The valid values for
     /// `jobStatuses` are case-insensitive:
-    /// \[ENABLED][google.storagetransfer.v1.TransferJob.Status.ENABLED\],
-    /// \[DISABLED][google.storagetransfer.v1.TransferJob.Status.DISABLED\], and
-    /// \[DELETED][google.storagetransfer.v1.TransferJob.Status.DELETED\].
+    /// [ENABLED][google.storagetransfer.v1.TransferJob.Status.ENABLED],
+    /// [DISABLED][google.storagetransfer.v1.TransferJob.Status.DISABLED], and
+    /// [DELETED][google.storagetransfer.v1.TransferJob.Status.DELETED].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The list page size. The max allowed value is 256.
@@ -5077,7 +5077,7 @@
     ///      *   One or more numerals or lowercase ASCII characters.
     ///
     /// As expressed by the regular expression:
-    /// `^(?!goog)\[a-z]([a-z0-9-._~]*[a-z0-9\])?$`.
+    /// `^(?!goog)[a-z](\[a-z0-9-._~\]*[a-z0-9])?$`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>agent_pool_id: ::prost::alloc::string::String,
 }
@@ -5088,23 +5088,23 @@
     <span class="doccomment">/// Required. The agent pool to update. `agent_pool` is expected to specify
     /// following fields:
     ///
-    /// *  \[name][google.storagetransfer.v1.AgentPool.name\]
+    /// *  [name][google.storagetransfer.v1.AgentPool.name]
     ///
-    /// *  \[display_name][google.storagetransfer.v1.AgentPool.display_name\]
+    /// *  [display_name][google.storagetransfer.v1.AgentPool.display_name]
     ///
-    /// *  \[bandwidth_limit][google.storagetransfer.v1.AgentPool.bandwidth_limit\]
+    /// *  [bandwidth_limit][google.storagetransfer.v1.AgentPool.bandwidth_limit]
     /// An `UpdateAgentPoolRequest` with any other fields is rejected
-    /// with the error \[INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\].
+    /// with the error [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>agent_pool: ::core::option::Option&lt;AgentPool&gt;,
-    <span class="doccomment">/// The [field mask]
+    <span class="doccomment">/// The \[field mask\]
     /// (&lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf&gt;)
     /// of the fields in `agentPool` to update in this request.
     /// The following `agentPool` fields can be updated:
     ///
-    /// *  \[display_name][google.storagetransfer.v1.AgentPool.display_name\]
+    /// *  [display_name][google.storagetransfer.v1.AgentPool.display_name]
     ///
-    /// *  \[bandwidth_limit][google.storagetransfer.v1.AgentPool.bandwidth_limit\]
+    /// *  [bandwidth_limit][google.storagetransfer.v1.AgentPool.bandwidth_limit]
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }

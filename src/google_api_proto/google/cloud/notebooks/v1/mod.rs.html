@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/notebooks/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/notebooks/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -5052,7 +5052,491 @@
 <a href="#5052" id="5052">5052</a>
 <a href="#5053" id="5053">5053</a>
 <a href="#5054" id="5054">5054</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Defines flags that are used to run the diagnostic tool
+</pre></div><pre class="rust"><code><span class="doccomment">/// The description a notebook execution workload.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExecutionTemplate {
+    <span class="doccomment">/// Required. Scale tier of the hardware used for notebook execution.
+    /// DEPRECATED Will be discontinued. As right now only CUSTOM is supported.
+    </span><span class="attr">#[deprecated]
+    #[prost(enumeration = <span class="string">&quot;execution_template::ScaleTier&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>scale_tier: i32,
+    <span class="doccomment">/// Specifies the type of virtual machine to use for your training
+    /// job&#39;s master worker. You must specify this field when `scaleTier` is set to
+    /// `CUSTOM`.
+    ///
+    /// You can use certain Compute Engine machine types directly in this field.
+    /// The following types are supported:
+    ///
+    /// - `n1-standard-4`
+    /// - `n1-standard-8`
+    /// - `n1-standard-16`
+    /// - `n1-standard-32`
+    /// - `n1-standard-64`
+    /// - `n1-standard-96`
+    /// - `n1-highmem-2`
+    /// - `n1-highmem-4`
+    /// - `n1-highmem-8`
+    /// - `n1-highmem-16`
+    /// - `n1-highmem-32`
+    /// - `n1-highmem-64`
+    /// - `n1-highmem-96`
+    /// - `n1-highcpu-16`
+    /// - `n1-highcpu-32`
+    /// - `n1-highcpu-64`
+    /// - `n1-highcpu-96`
+    ///
+    ///
+    /// Alternatively, you can use the following legacy machine types:
+    ///
+    /// - `standard`
+    /// - `large_model`
+    /// - `complex_model_s`
+    /// - `complex_model_m`
+    /// - `complex_model_l`
+    /// - `standard_gpu`
+    /// - `complex_model_m_gpu`
+    /// - `complex_model_l_gpu`
+    /// - `standard_p100`
+    /// - `complex_model_m_p100`
+    /// - `standard_v100`
+    /// - `large_model_v100`
+    /// - `complex_model_m_v100`
+    /// - `complex_model_l_v100`
+    ///
+    ///
+    /// Finally, if you want to use a TPU for training, specify `cloud_tpu` in this
+    /// field. Learn more about the [special configuration options for training
+    /// with
+    /// TPU](&lt;https://cloud.google.com/ai-platform/training/docs/using-tpus#configuring_a_custom_tpu_machine&gt;).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>master_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Configuration (count and accelerator type) for hardware running notebook
+    /// execution.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>accelerator_config: ::core::option::Option&lt;
+        execution_template::SchedulerAcceleratorConfig,
+    &gt;,
+    <span class="doccomment">/// Labels for execution.
+    /// If execution is scheduled, a field included will be &#39;nbs-scheduled&#39;.
+    /// Otherwise, it is an immediate execution, and an included field will be
+    /// &#39;nbs-immediate&#39;. Use fields to efficiently index between various types of
+    /// executions.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Path to the notebook file to execute.
+    /// Must be in a Google Cloud Storage bucket.
+    /// Format: `gs://{bucket_name}/{folder}/{notebook_file_name}`
+    /// Ex: `gs://notebook_user/scheduled_notebooks/sentiment_notebook.ipynb`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>input_notebook_file: ::prost::alloc::string::String,
+    <span class="doccomment">/// Container Image URI to a DLVM
+    /// Example: &#39;gcr.io/deeplearning-platform-release/base-cu100&#39;
+    /// More examples can be found at:
+    /// &lt;https://cloud.google.com/ai-platform/deep-learning-containers/docs/choosing-container&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>container_image_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Path to the notebook folder to write to.
+    /// Must be in a Google Cloud Storage bucket path.
+    /// Format: `gs://{bucket_name}/{folder}`
+    /// Ex: `gs://notebook_user/scheduled_notebooks`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>output_notebook_folder: ::prost::alloc::string::String,
+    <span class="doccomment">/// Parameters to be overridden in the notebook during execution.
+    /// Ref &lt;https://papermill.readthedocs.io/en/latest/usage-parameterize.html&gt; on
+    /// how to specifying parameters in the input notebook and pass them here
+    /// in an YAML file.
+    /// Ex: `gs://notebook_user/scheduled_notebooks/sentiment_notebook_params.yaml`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>params_yaml_file: ::prost::alloc::string::String,
+    <span class="doccomment">/// Parameters used within the &#39;input_notebook_file&#39; notebook.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>parameters: ::prost::alloc::string::String,
+    <span class="doccomment">/// The email address of a service account to use when running the execution.
+    /// You must have the `iam.serviceAccounts.actAs` permission for the specified
+    /// service account.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
+    <span class="doccomment">/// The type of Job to be used on this execution.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;execution_template::JobType&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>job_type: i32,
+    <span class="doccomment">/// Name of the kernel spec to use. This must be specified if the
+    /// kernel spec name on the execution target does not match the name in the
+    /// input notebook file.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>kernel_spec: ::prost::alloc::string::String,
+    <span class="doccomment">/// The name of a Vertex AI \[Tensorboard\] resource to which this execution
+    /// will upload Tensorboard logs.
+    /// Format:
+    /// `projects/{project}/locations/{location}/tensorboards/{tensorboard}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>tensorboard: ::prost::alloc::string::String,
+    <span class="doccomment">/// Parameters for an execution type.
+    /// NOTE: There are currently no extra parameters for VertexAI jobs.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;execution_template::JobParameters&quot;</span>, tags = <span class="string">&quot;12, 13&quot;</span>)]
+    </span><span class="kw">pub </span>job_parameters: ::core::option::Option&lt;execution_template::JobParameters&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ExecutionTemplate`.
+</span><span class="kw">pub mod </span>execution_template {
+    <span class="doccomment">/// Definition of a hardware accelerator. Note that not all combinations
+    /// of `type` and `core_count` are valid. Check [GPUs on
+    /// Compute Engine](&lt;https://cloud.google.com/compute/docs/gpus&gt;) to find a valid
+    /// combination. TPUs are not supported.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SchedulerAcceleratorConfig {
+        <span class="doccomment">/// Type of this accelerator.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SchedulerAcceleratorType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: i32,
+        <span class="doccomment">/// Count of cores of this accelerator.
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>core_count: i64,
+    }
+    <span class="doccomment">/// Parameters used in Dataproc JobType executions.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>DataprocParameters {
+        <span class="doccomment">/// URI for cluster used to run Dataproc execution.
+        /// Format: `projects/{PROJECT_ID}/regions/{REGION}/clusters/{CLUSTER_NAME}`
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Parameters used in Vertex AI JobType executions.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>VertexAiParameters {
+        <span class="doccomment">/// The full name of the Compute Engine
+        /// [network](&lt;https://cloud.google.com/compute/docs/networks-and-firewalls#networks&gt;)
+        /// to which the Job should be peered. For example,
+        /// `projects/12345/global/networks/myVPC`.
+        /// [Format](&lt;https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert&gt;)
+        /// is of the form `projects/{project}/global/networks/{network}`.
+        /// Where `{project}` is a project number, as in `12345`, and `{network}` is
+        /// a network name.
+        ///
+        /// Private services access must already be configured for the network. If
+        /// left unspecified, the job is not peered with any network.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
+        <span class="doccomment">/// Environment variables.
+        /// At most 100 environment variables can be specified and unique.
+        /// Example: `GCP_BUCKET=gs://my-bucket/samples/`
+        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>env: ::prost::alloc::collections::BTreeMap&lt;
+            ::prost::alloc::string::String,
+            ::prost::alloc::string::String,
+        &gt;,
+    }
+    <span class="doccomment">/// Required. Specifies the machine types, the number of replicas for workers
+    /// and parameter servers.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ScaleTier {
+        <span class="doccomment">/// Unspecified Scale Tier.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// A single worker instance. This tier is suitable for learning how to use
+        /// Cloud ML, and for experimenting with new models using small datasets.
+        </span>Basic = <span class="number">1</span>,
+        <span class="doccomment">/// Many workers and a few parameter servers.
+        </span>Standard1 = <span class="number">2</span>,
+        <span class="doccomment">/// A large number of workers with many parameter servers.
+        </span>Premium1 = <span class="number">3</span>,
+        <span class="doccomment">/// A single worker instance with a K80 GPU.
+        </span>BasicGpu = <span class="number">4</span>,
+        <span class="doccomment">/// A single worker instance with a Cloud TPU.
+        </span>BasicTpu = <span class="number">5</span>,
+        <span class="doccomment">/// The CUSTOM tier is not a set tier, but rather enables you to use your
+        /// own cluster specification. When you use this tier, set values to
+        /// configure your processing cluster according to these guidelines:
+        ///
+        /// *   You _must_ set `ExecutionTemplate.masterType` to specify the type
+        ///      of machine to use for your master node. This is the only required
+        ///      setting.
+        </span>Custom = <span class="number">6</span>,
+    }
+    <span class="kw">impl </span>ScaleTier {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ScaleTier::Unspecified =&gt; <span class="string">&quot;SCALE_TIER_UNSPECIFIED&quot;</span>,
+                ScaleTier::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
+                ScaleTier::Standard1 =&gt; <span class="string">&quot;STANDARD_1&quot;</span>,
+                ScaleTier::Premium1 =&gt; <span class="string">&quot;PREMIUM_1&quot;</span>,
+                ScaleTier::BasicGpu =&gt; <span class="string">&quot;BASIC_GPU&quot;</span>,
+                ScaleTier::BasicTpu =&gt; <span class="string">&quot;BASIC_TPU&quot;</span>,
+                ScaleTier::Custom =&gt; <span class="string">&quot;CUSTOM&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;SCALE_TIER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+                <span class="string">&quot;STANDARD_1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard1),
+                <span class="string">&quot;PREMIUM_1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Premium1),
+                <span class="string">&quot;BASIC_GPU&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BasicGpu),
+                <span class="string">&quot;BASIC_TPU&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BasicTpu),
+                <span class="string">&quot;CUSTOM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Custom),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Hardware accelerator types for AI Platform Training jobs.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>SchedulerAcceleratorType {
+        <span class="doccomment">/// Unspecified accelerator type. Default to no GPU.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Nvidia Tesla K80 GPU.
+        </span>NvidiaTeslaK80 = <span class="number">1</span>,
+        <span class="doccomment">/// Nvidia Tesla P100 GPU.
+        </span>NvidiaTeslaP100 = <span class="number">2</span>,
+        <span class="doccomment">/// Nvidia Tesla V100 GPU.
+        </span>NvidiaTeslaV100 = <span class="number">3</span>,
+        <span class="doccomment">/// Nvidia Tesla P4 GPU.
+        </span>NvidiaTeslaP4 = <span class="number">4</span>,
+        <span class="doccomment">/// Nvidia Tesla T4 GPU.
+        </span>NvidiaTeslaT4 = <span class="number">5</span>,
+        <span class="doccomment">/// Nvidia Tesla A100 GPU.
+        </span>NvidiaTeslaA100 = <span class="number">10</span>,
+        <span class="doccomment">/// TPU v2.
+        </span>TpuV2 = <span class="number">6</span>,
+        <span class="doccomment">/// TPU v3.
+        </span>TpuV3 = <span class="number">7</span>,
+    }
+    <span class="kw">impl </span>SchedulerAcceleratorType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                SchedulerAcceleratorType::Unspecified =&gt; {
+                    <span class="string">&quot;SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED&quot;
+                </span>}
+                SchedulerAcceleratorType::NvidiaTeslaK80 =&gt; <span class="string">&quot;NVIDIA_TESLA_K80&quot;</span>,
+                SchedulerAcceleratorType::NvidiaTeslaP100 =&gt; <span class="string">&quot;NVIDIA_TESLA_P100&quot;</span>,
+                SchedulerAcceleratorType::NvidiaTeslaV100 =&gt; <span class="string">&quot;NVIDIA_TESLA_V100&quot;</span>,
+                SchedulerAcceleratorType::NvidiaTeslaP4 =&gt; <span class="string">&quot;NVIDIA_TESLA_P4&quot;</span>,
+                SchedulerAcceleratorType::NvidiaTeslaT4 =&gt; <span class="string">&quot;NVIDIA_TESLA_T4&quot;</span>,
+                SchedulerAcceleratorType::NvidiaTeslaA100 =&gt; <span class="string">&quot;NVIDIA_TESLA_A100&quot;</span>,
+                SchedulerAcceleratorType::TpuV2 =&gt; <span class="string">&quot;TPU_V2&quot;</span>,
+                SchedulerAcceleratorType::TpuV3 =&gt; <span class="string">&quot;TPU_V3&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;NVIDIA_TESLA_K80&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaK80),
+                <span class="string">&quot;NVIDIA_TESLA_P100&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP100),
+                <span class="string">&quot;NVIDIA_TESLA_V100&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaV100),
+                <span class="string">&quot;NVIDIA_TESLA_P4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP4),
+                <span class="string">&quot;NVIDIA_TESLA_T4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaT4),
+                <span class="string">&quot;NVIDIA_TESLA_A100&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaA100),
+                <span class="string">&quot;TPU_V2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TpuV2),
+                <span class="string">&quot;TPU_V3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TpuV3),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The backend used for this execution.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>JobType {
+        <span class="doccomment">/// No type specified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Custom Job in `aiplatform.googleapis.com`.
+        /// Default value for an execution.
+        </span>VertexAi = <span class="number">1</span>,
+        <span class="doccomment">/// Run execution on a cluster with Dataproc as a job.
+        /// &lt;https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs&gt;
+        </span>Dataproc = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>JobType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                JobType::Unspecified =&gt; <span class="string">&quot;JOB_TYPE_UNSPECIFIED&quot;</span>,
+                JobType::VertexAi =&gt; <span class="string">&quot;VERTEX_AI&quot;</span>,
+                JobType::Dataproc =&gt; <span class="string">&quot;DATAPROC&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;JOB_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;VERTEX_AI&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VertexAi),
+                <span class="string">&quot;DATAPROC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dataproc),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Parameters for an execution type.
+    /// NOTE: There are currently no extra parameters for VertexAI jobs.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>JobParameters {
+        <span class="doccomment">/// Parameters used in Dataproc JobType executions.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
+        </span>DataprocParameters(DataprocParameters),
+        <span class="doccomment">/// Parameters used in Vertex AI JobType executions.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span>VertexAiParameters(VertexAiParameters),
+    }
+}
+<span class="doccomment">/// The definition of a single executed notebook.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Execution {
+    <span class="doccomment">/// execute metadata including name, hardware spec, region, labels, etc.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>execution_template: ::core::option::Option&lt;ExecutionTemplate&gt;,
+    <span class="doccomment">/// Output only. The resource name of the execute. Format:
+    /// `projects/{project_id}/locations/{location}/executions/{execution_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Name used for UI purposes.
+    /// Name can only contain alphanumeric characters and underscores &#39;_&#39;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// A brief description of this execution.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Time the Execution was instantiated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Time the Execution was last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. State of the underlying AI Platform job.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;execution::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Output notebook file generated by this execution
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>output_notebook_file: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The URI of the external job used to execute the notebook.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>job_uri: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `Execution`.
+</span><span class="kw">pub mod </span>execution {
+    <span class="doccomment">/// Enum description of the state of the underlying AIP job.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// The job state is unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The job has been just created and processing has not yet begun.
+        </span>Queued = <span class="number">1</span>,
+        <span class="doccomment">/// The service is preparing to execution the job.
+        </span>Preparing = <span class="number">2</span>,
+        <span class="doccomment">/// The job is in progress.
+        </span>Running = <span class="number">3</span>,
+        <span class="doccomment">/// The job completed successfully.
+        </span>Succeeded = <span class="number">4</span>,
+        <span class="doccomment">/// The job failed.
+        /// `error_message` should contain the details of the failure.
+        </span>Failed = <span class="number">5</span>,
+        <span class="doccomment">/// The job is being cancelled.
+        /// `error_message` should describe the reason for the cancellation.
+        </span>Cancelling = <span class="number">6</span>,
+        <span class="doccomment">/// The job has been cancelled.
+        /// `error_message` should describe the reason for the cancellation.
+        </span>Cancelled = <span class="number">7</span>,
+        <span class="doccomment">/// The job has become expired (relevant to Vertex AI jobs)
+        /// &lt;https://cloud.google.com/vertex-ai/docs/reference/rest/v1/JobState&gt;
+        </span>Expired = <span class="number">9</span>,
+        <span class="doccomment">/// The Execution is being created.
+        </span>Initializing = <span class="number">10</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Queued =&gt; <span class="string">&quot;QUEUED&quot;</span>,
+                State::Preparing =&gt; <span class="string">&quot;PREPARING&quot;</span>,
+                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
+                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
+                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+                State::Expired =&gt; <span class="string">&quot;EXPIRED&quot;</span>,
+                State::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;QUEUED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Queued),
+                <span class="string">&quot;PREPARING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preparing),
+                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
+                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">&quot;EXPIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expired),
+                <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Defines flags that are used to run the diagnostic tool
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DiagnosticConfig {
@@ -5088,83 +5572,6 @@
     <span class="doccomment">/// Optional. Enables flag to copy all `/home/jupyter` folder contents
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>copy_home_files_flag_enabled: bool,
-}
-<span class="doccomment">/// The definition of an Event for a managed / semi-managed notebook instance.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Event {
-    <span class="doccomment">/// Event report time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>report_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Event type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;event::EventType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-    <span class="doccomment">/// Optional. Event details. This field is used to pass event information.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>details: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Event`.
-</span><span class="kw">pub mod </span>event {
-    <span class="doccomment">/// The definition of the event types.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>EventType {
-        <span class="doccomment">/// Event is not specified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The instance / runtime is idle
-        </span>Idle = <span class="number">1</span>,
-        <span class="doccomment">/// The instance / runtime is available.
-        /// This event indicates that instance / runtime underlying compute is
-        /// operational.
-        </span>Heartbeat = <span class="number">2</span>,
-        <span class="doccomment">/// The instance / runtime health is available.
-        /// This event indicates that instance / runtime health information.
-        </span>Health = <span class="number">3</span>,
-        <span class="doccomment">/// The instance / runtime is available.
-        /// This event allows instance / runtime to send Host maintenance
-        /// information to Control Plane.
-        /// &lt;https://cloud.google.com/compute/docs/gpus/gpu-host-maintenance&gt;
-        </span>Maintenance = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>EventType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                EventType::Unspecified =&gt; <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot;</span>,
-                EventType::Idle =&gt; <span class="string">&quot;IDLE&quot;</span>,
-                EventType::Heartbeat =&gt; <span class="string">&quot;HEARTBEAT&quot;</span>,
-                EventType::Health =&gt; <span class="string">&quot;HEALTH&quot;</span>,
-                EventType::Maintenance =&gt; <span class="string">&quot;MAINTENANCE&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;IDLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Idle),
-                <span class="string">&quot;HEARTBEAT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Heartbeat),
-                <span class="string">&quot;HEALTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Health),
-                <span class="string">&quot;MAINTENANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maintenance),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
 }
 <span class="doccomment">/// Definition of a software environment that is used to start a notebook
 /// instance.
@@ -6133,6 +6540,83 @@
         }
     }
 }
+<span class="doccomment">/// The definition of an Event for a managed / semi-managed notebook instance.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Event {
+    <span class="doccomment">/// Event report time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>report_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Event type.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;event::EventType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// Optional. Event details. This field is used to pass event information.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>details: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Event`.
+</span><span class="kw">pub mod </span>event {
+    <span class="doccomment">/// The definition of the event types.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>EventType {
+        <span class="doccomment">/// Event is not specified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The instance / runtime is idle
+        </span>Idle = <span class="number">1</span>,
+        <span class="doccomment">/// The instance / runtime is available.
+        /// This event indicates that instance / runtime underlying compute is
+        /// operational.
+        </span>Heartbeat = <span class="number">2</span>,
+        <span class="doccomment">/// The instance / runtime health is available.
+        /// This event indicates that instance / runtime health information.
+        </span>Health = <span class="number">3</span>,
+        <span class="doccomment">/// The instance / runtime is available.
+        /// This event allows instance / runtime to send Host maintenance
+        /// information to Control Plane.
+        /// &lt;https://cloud.google.com/compute/docs/gpus/gpu-host-maintenance&gt;
+        </span>Maintenance = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>EventType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                EventType::Unspecified =&gt; <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot;</span>,
+                EventType::Idle =&gt; <span class="string">&quot;IDLE&quot;</span>,
+                EventType::Heartbeat =&gt; <span class="string">&quot;HEARTBEAT&quot;</span>,
+                EventType::Health =&gt; <span class="string">&quot;HEALTH&quot;</span>,
+                EventType::Maintenance =&gt; <span class="string">&quot;MAINTENANCE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;IDLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Idle),
+                <span class="string">&quot;HEARTBEAT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Heartbeat),
+                <span class="string">&quot;HEALTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Health),
+                <span class="string">&quot;MAINTENANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maintenance),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
 <span class="doccomment">/// Request for listing Managed Notebook Runtimes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -6161,7 +6645,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached. For example,
-    /// `[&#39;us-west1&#39;, &#39;us-central1&#39;]`.
+    /// `\[&#39;us-west1&#39;, &#39;us-central1&#39;\]`.
     /// A ListRuntimesResponse will only contain either runtimes or unreachables,
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
@@ -6850,415 +7334,57 @@
         </span>}
     }
 }
-<span class="doccomment">/// The description a notebook execution workload.
+<span class="doccomment">/// The definition of a schedule.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExecutionTemplate {
-    <span class="doccomment">/// Required. Scale tier of the hardware used for notebook execution.
-    /// DEPRECATED Will be discontinued. As right now only CUSTOM is supported.
-    </span><span class="attr">#[deprecated]
-    #[prost(enumeration = <span class="string">&quot;execution_template::ScaleTier&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>scale_tier: i32,
-    <span class="doccomment">/// Specifies the type of virtual machine to use for your training
-    /// job&#39;s master worker. You must specify this field when `scaleTier` is set to
-    /// `CUSTOM`.
-    ///
-    /// You can use certain Compute Engine machine types directly in this field.
-    /// The following types are supported:
-    ///
-    /// - `n1-standard-4`
-    /// - `n1-standard-8`
-    /// - `n1-standard-16`
-    /// - `n1-standard-32`
-    /// - `n1-standard-64`
-    /// - `n1-standard-96`
-    /// - `n1-highmem-2`
-    /// - `n1-highmem-4`
-    /// - `n1-highmem-8`
-    /// - `n1-highmem-16`
-    /// - `n1-highmem-32`
-    /// - `n1-highmem-64`
-    /// - `n1-highmem-96`
-    /// - `n1-highcpu-16`
-    /// - `n1-highcpu-32`
-    /// - `n1-highcpu-64`
-    /// - `n1-highcpu-96`
-    ///
-    ///
-    /// Alternatively, you can use the following legacy machine types:
-    ///
-    /// - `standard`
-    /// - `large_model`
-    /// - `complex_model_s`
-    /// - `complex_model_m`
-    /// - `complex_model_l`
-    /// - `standard_gpu`
-    /// - `complex_model_m_gpu`
-    /// - `complex_model_l_gpu`
-    /// - `standard_p100`
-    /// - `complex_model_m_p100`
-    /// - `standard_v100`
-    /// - `large_model_v100`
-    /// - `complex_model_m_v100`
-    /// - `complex_model_l_v100`
-    ///
-    ///
-    /// Finally, if you want to use a TPU for training, specify `cloud_tpu` in this
-    /// field. Learn more about the [special configuration options for training
-    /// with
-    /// TPU](&lt;https://cloud.google.com/ai-platform/training/docs/using-tpus#configuring_a_custom_tpu_machine&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>master_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Configuration (count and accelerator type) for hardware running notebook
-    /// execution.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>accelerator_config: ::core::option::Option&lt;
-        execution_template::SchedulerAcceleratorConfig,
-    &gt;,
-    <span class="doccomment">/// Labels for execution.
-    /// If execution is scheduled, a field included will be &#39;nbs-scheduled&#39;.
-    /// Otherwise, it is an immediate execution, and an included field will be
-    /// &#39;nbs-immediate&#39;. Use fields to efficiently index between various types of
-    /// executions.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Path to the notebook file to execute.
-    /// Must be in a Google Cloud Storage bucket.
-    /// Format: `gs://{bucket_name}/{folder}/{notebook_file_name}`
-    /// Ex: `gs://notebook_user/scheduled_notebooks/sentiment_notebook.ipynb`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>input_notebook_file: ::prost::alloc::string::String,
-    <span class="doccomment">/// Container Image URI to a DLVM
-    /// Example: &#39;gcr.io/deeplearning-platform-release/base-cu100&#39;
-    /// More examples can be found at:
-    /// &lt;https://cloud.google.com/ai-platform/deep-learning-containers/docs/choosing-container&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>container_image_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Path to the notebook folder to write to.
-    /// Must be in a Google Cloud Storage bucket path.
-    /// Format: `gs://{bucket_name}/{folder}`
-    /// Ex: `gs://notebook_user/scheduled_notebooks`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>output_notebook_folder: ::prost::alloc::string::String,
-    <span class="doccomment">/// Parameters to be overridden in the notebook during execution.
-    /// Ref &lt;https://papermill.readthedocs.io/en/latest/usage-parameterize.html&gt; on
-    /// how to specifying parameters in the input notebook and pass them here
-    /// in an YAML file.
-    /// Ex: `gs://notebook_user/scheduled_notebooks/sentiment_notebook_params.yaml`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>params_yaml_file: ::prost::alloc::string::String,
-    <span class="doccomment">/// Parameters used within the &#39;input_notebook_file&#39; notebook.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>parameters: ::prost::alloc::string::String,
-    <span class="doccomment">/// The email address of a service account to use when running the execution.
-    /// You must have the `iam.serviceAccounts.actAs` permission for the specified
-    /// service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
-    <span class="doccomment">/// The type of Job to be used on this execution.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;execution_template::JobType&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>job_type: i32,
-    <span class="doccomment">/// Name of the kernel spec to use. This must be specified if the
-    /// kernel spec name on the execution target does not match the name in the
-    /// input notebook file.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>kernel_spec: ::prost::alloc::string::String,
-    <span class="doccomment">/// The name of a Vertex AI \[Tensorboard\] resource to which this execution
-    /// will upload Tensorboard logs.
-    /// Format:
-    /// `projects/{project}/locations/{location}/tensorboards/{tensorboard}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>tensorboard: ::prost::alloc::string::String,
-    <span class="doccomment">/// Parameters for an execution type.
-    /// NOTE: There are currently no extra parameters for VertexAI jobs.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;execution_template::JobParameters&quot;</span>, tags = <span class="string">&quot;12, 13&quot;</span>)]
-    </span><span class="kw">pub </span>job_parameters: ::core::option::Option&lt;execution_template::JobParameters&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ExecutionTemplate`.
-</span><span class="kw">pub mod </span>execution_template {
-    <span class="doccomment">/// Definition of a hardware accelerator. Note that not all combinations
-    /// of `type` and `core_count` are valid. Check [GPUs on
-    /// Compute Engine](&lt;https://cloud.google.com/compute/docs/gpus&gt;) to find a valid
-    /// combination. TPUs are not supported.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SchedulerAcceleratorConfig {
-        <span class="doccomment">/// Type of this accelerator.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SchedulerAcceleratorType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>r#type: i32,
-        <span class="doccomment">/// Count of cores of this accelerator.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>core_count: i64,
-    }
-    <span class="doccomment">/// Parameters used in Dataproc JobType executions.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>DataprocParameters {
-        <span class="doccomment">/// URI for cluster used to run Dataproc execution.
-        /// Format: `projects/{PROJECT_ID}/regions/{REGION}/clusters/{CLUSTER_NAME}`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Parameters used in Vertex AI JobType executions.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>VertexAiParameters {
-        <span class="doccomment">/// The full name of the Compute Engine
-        /// \[network\](&lt;https://cloud.google.com/compute/docs/networks-and-firewalls#networks&gt;)
-        /// to which the Job should be peered. For example,
-        /// `projects/12345/global/networks/myVPC`.
-        /// \[Format\](&lt;https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert&gt;)
-        /// is of the form `projects/{project}/global/networks/{network}`.
-        /// Where `{project}` is a project number, as in `12345`, and `{network}` is
-        /// a network name.
-        ///
-        /// Private services access must already be configured for the network. If
-        /// left unspecified, the job is not peered with any network.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
-        <span class="doccomment">/// Environment variables.
-        /// At most 100 environment variables can be specified and unique.
-        /// Example: `GCP_BUCKET=gs://my-bucket/samples/`
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>env: ::prost::alloc::collections::BTreeMap&lt;
-            ::prost::alloc::string::String,
-            ::prost::alloc::string::String,
-        &gt;,
-    }
-    <span class="doccomment">/// Required. Specifies the machine types, the number of replicas for workers
-    /// and parameter servers.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>ScaleTier {
-        <span class="doccomment">/// Unspecified Scale Tier.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// A single worker instance. This tier is suitable for learning how to use
-        /// Cloud ML, and for experimenting with new models using small datasets.
-        </span>Basic = <span class="number">1</span>,
-        <span class="doccomment">/// Many workers and a few parameter servers.
-        </span>Standard1 = <span class="number">2</span>,
-        <span class="doccomment">/// A large number of workers with many parameter servers.
-        </span>Premium1 = <span class="number">3</span>,
-        <span class="doccomment">/// A single worker instance with a K80 GPU.
-        </span>BasicGpu = <span class="number">4</span>,
-        <span class="doccomment">/// A single worker instance with a Cloud TPU.
-        </span>BasicTpu = <span class="number">5</span>,
-        <span class="doccomment">/// The CUSTOM tier is not a set tier, but rather enables you to use your
-        /// own cluster specification. When you use this tier, set values to
-        /// configure your processing cluster according to these guidelines:
-        ///
-        /// *   You _must_ set `ExecutionTemplate.masterType` to specify the type
-        ///      of machine to use for your master node. This is the only required
-        ///      setting.
-        </span>Custom = <span class="number">6</span>,
-    }
-    <span class="kw">impl </span>ScaleTier {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                ScaleTier::Unspecified =&gt; <span class="string">&quot;SCALE_TIER_UNSPECIFIED&quot;</span>,
-                ScaleTier::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
-                ScaleTier::Standard1 =&gt; <span class="string">&quot;STANDARD_1&quot;</span>,
-                ScaleTier::Premium1 =&gt; <span class="string">&quot;PREMIUM_1&quot;</span>,
-                ScaleTier::BasicGpu =&gt; <span class="string">&quot;BASIC_GPU&quot;</span>,
-                ScaleTier::BasicTpu =&gt; <span class="string">&quot;BASIC_TPU&quot;</span>,
-                ScaleTier::Custom =&gt; <span class="string">&quot;CUSTOM&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;SCALE_TIER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-                <span class="string">&quot;STANDARD_1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard1),
-                <span class="string">&quot;PREMIUM_1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Premium1),
-                <span class="string">&quot;BASIC_GPU&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BasicGpu),
-                <span class="string">&quot;BASIC_TPU&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BasicTpu),
-                <span class="string">&quot;CUSTOM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Custom),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Hardware accelerator types for AI Platform Training jobs.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>SchedulerAcceleratorType {
-        <span class="doccomment">/// Unspecified accelerator type. Default to no GPU.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Nvidia Tesla K80 GPU.
-        </span>NvidiaTeslaK80 = <span class="number">1</span>,
-        <span class="doccomment">/// Nvidia Tesla P100 GPU.
-        </span>NvidiaTeslaP100 = <span class="number">2</span>,
-        <span class="doccomment">/// Nvidia Tesla V100 GPU.
-        </span>NvidiaTeslaV100 = <span class="number">3</span>,
-        <span class="doccomment">/// Nvidia Tesla P4 GPU.
-        </span>NvidiaTeslaP4 = <span class="number">4</span>,
-        <span class="doccomment">/// Nvidia Tesla T4 GPU.
-        </span>NvidiaTeslaT4 = <span class="number">5</span>,
-        <span class="doccomment">/// Nvidia Tesla A100 GPU.
-        </span>NvidiaTeslaA100 = <span class="number">10</span>,
-        <span class="doccomment">/// TPU v2.
-        </span>TpuV2 = <span class="number">6</span>,
-        <span class="doccomment">/// TPU v3.
-        </span>TpuV3 = <span class="number">7</span>,
-    }
-    <span class="kw">impl </span>SchedulerAcceleratorType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                SchedulerAcceleratorType::Unspecified =&gt; {
-                    <span class="string">&quot;SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED&quot;
-                </span>}
-                SchedulerAcceleratorType::NvidiaTeslaK80 =&gt; <span class="string">&quot;NVIDIA_TESLA_K80&quot;</span>,
-                SchedulerAcceleratorType::NvidiaTeslaP100 =&gt; <span class="string">&quot;NVIDIA_TESLA_P100&quot;</span>,
-                SchedulerAcceleratorType::NvidiaTeslaV100 =&gt; <span class="string">&quot;NVIDIA_TESLA_V100&quot;</span>,
-                SchedulerAcceleratorType::NvidiaTeslaP4 =&gt; <span class="string">&quot;NVIDIA_TESLA_P4&quot;</span>,
-                SchedulerAcceleratorType::NvidiaTeslaT4 =&gt; <span class="string">&quot;NVIDIA_TESLA_T4&quot;</span>,
-                SchedulerAcceleratorType::NvidiaTeslaA100 =&gt; <span class="string">&quot;NVIDIA_TESLA_A100&quot;</span>,
-                SchedulerAcceleratorType::TpuV2 =&gt; <span class="string">&quot;TPU_V2&quot;</span>,
-                SchedulerAcceleratorType::TpuV3 =&gt; <span class="string">&quot;TPU_V3&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NVIDIA_TESLA_K80&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaK80),
-                <span class="string">&quot;NVIDIA_TESLA_P100&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP100),
-                <span class="string">&quot;NVIDIA_TESLA_V100&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaV100),
-                <span class="string">&quot;NVIDIA_TESLA_P4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP4),
-                <span class="string">&quot;NVIDIA_TESLA_T4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaT4),
-                <span class="string">&quot;NVIDIA_TESLA_A100&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaA100),
-                <span class="string">&quot;TPU_V2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TpuV2),
-                <span class="string">&quot;TPU_V3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TpuV3),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The backend used for this execution.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>JobType {
-        <span class="doccomment">/// No type specified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Custom Job in `aiplatform.googleapis.com`.
-        /// Default value for an execution.
-        </span>VertexAi = <span class="number">1</span>,
-        <span class="doccomment">/// Run execution on a cluster with Dataproc as a job.
-        /// &lt;https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs&gt;
-        </span>Dataproc = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>JobType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                JobType::Unspecified =&gt; <span class="string">&quot;JOB_TYPE_UNSPECIFIED&quot;</span>,
-                JobType::VertexAi =&gt; <span class="string">&quot;VERTEX_AI&quot;</span>,
-                JobType::Dataproc =&gt; <span class="string">&quot;DATAPROC&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;JOB_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;VERTEX_AI&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VertexAi),
-                <span class="string">&quot;DATAPROC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dataproc),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Parameters for an execution type.
-    /// NOTE: There are currently no extra parameters for VertexAI jobs.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>JobParameters {
-        <span class="doccomment">/// Parameters used in Dataproc JobType executions.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
-        </span>DataprocParameters(DataprocParameters),
-        <span class="doccomment">/// Parameters used in Vertex AI JobType executions.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
-        </span>VertexAiParameters(VertexAiParameters),
-    }
-}
-<span class="doccomment">/// The definition of a single executed notebook.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Execution {
-    <span class="doccomment">/// execute metadata including name, hardware spec, region, labels, etc.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>execution_template: ::core::option::Option&lt;ExecutionTemplate&gt;,
-    <span class="doccomment">/// Output only. The resource name of the execute. Format:
-    /// `projects/{project_id}/locations/{location}/executions/{execution_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+</span><span class="kw">pub struct </span>Schedule {
+    <span class="doccomment">/// Output only. The name of this schedule. Format:
+    /// `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Name used for UI purposes.
-    /// Name can only contain alphanumeric characters and underscores &#39;_&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// Output only. Display name used for UI purposes.
+    /// Name can only contain alphanumeric characters, hyphens `-`,
+    /// and underscores `_`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// A brief description of this execution.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// A brief description of this environment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Time the Execution was instantiated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time the Execution was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. State of the underlying AI Platform job.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;execution::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    <span class="attr">#[prost(enumeration = <span class="string">&quot;schedule::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Output notebook file generated by this execution
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>output_notebook_file: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The URI of the external job used to execute the notebook.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>job_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Cron-tab formatted schedule by which the job will execute.
+    /// Format: minute, hour, day of month, month, day of week,
+    /// e.g. `0 0 * * WED` = every Wednesday
+    /// More examples: &lt;https://crontab.guru/examples.html&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>cron_schedule: ::prost::alloc::string::String,
+    <span class="doccomment">/// Timezone on which the cron_schedule.
+    /// The value of this field must be a time zone name from the tz database.
+    /// TZ Database: &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;
+    ///
+    /// Note that some time zones include a provision for daylight savings time.
+    /// The rules for daylight saving time are determined by the chosen tz.
+    /// For UTC use the string &quot;utc&quot;. If a time zone is not specified,
+    /// the default will be in UTC (also known as GMT).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Time the schedule was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Time the schedule was last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Notebook Execution Template corresponding to this schedule.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>execution_template: ::core::option::Option&lt;ExecutionTemplate&gt;,
+    <span class="doccomment">/// Output only. The most recent execution names triggered from this schedule and their
+    /// corresponding states.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>recent_executions: ::prost::alloc::vec::Vec&lt;Execution&gt;,
 }
-<span class="doccomment">/// Nested message and enum types in `Execution`.
-</span><span class="kw">pub mod </span>execution {
-    <span class="doccomment">/// Enum description of the state of the underlying AIP job.
+<span class="doccomment">/// Nested message and enum types in `Schedule`.
+</span><span class="kw">pub mod </span>schedule {
+    <span class="doccomment">/// State of the job.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -7272,30 +7398,25 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// The job state is unspecified.
+        <span class="doccomment">/// Unspecified state.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The job has been just created and processing has not yet begun.
-        </span>Queued = <span class="number">1</span>,
-        <span class="doccomment">/// The service is preparing to execution the job.
-        </span>Preparing = <span class="number">2</span>,
-        <span class="doccomment">/// The job is in progress.
-        </span>Running = <span class="number">3</span>,
-        <span class="doccomment">/// The job completed successfully.
-        </span>Succeeded = <span class="number">4</span>,
-        <span class="doccomment">/// The job failed.
-        /// `error_message` should contain the details of the failure.
-        </span>Failed = <span class="number">5</span>,
-        <span class="doccomment">/// The job is being cancelled.
-        /// `error_message` should describe the reason for the cancellation.
-        </span>Cancelling = <span class="number">6</span>,
-        <span class="doccomment">/// The job has been cancelled.
-        /// `error_message` should describe the reason for the cancellation.
-        </span>Cancelled = <span class="number">7</span>,
-        <span class="doccomment">/// The job has become expired (relevant to Vertex AI jobs)
-        /// &lt;https://cloud.google.com/vertex-ai/docs/reference/rest/v1/JobState&gt;
-        </span>Expired = <span class="number">9</span>,
-        <span class="doccomment">/// The Execution is being created.
-        </span>Initializing = <span class="number">10</span>,
+        <span class="doccomment">/// The job is executing normally.
+        </span>Enabled = <span class="number">1</span>,
+        <span class="doccomment">/// The job is paused by the user. It will not execute. A user can
+        /// intentionally pause the job using
+        /// [PauseJobRequest][].
+        </span>Paused = <span class="number">2</span>,
+        <span class="doccomment">/// The job is disabled by the system due to error. The user
+        /// cannot directly set a job to be disabled.
+        </span>Disabled = <span class="number">3</span>,
+        <span class="doccomment">/// The job state resulting from a failed [CloudScheduler.UpdateJob][]
+        /// operation. To recover a job from this state, retry
+        /// [CloudScheduler.UpdateJob][] until a successful response is received.
+        </span>UpdateFailed = <span class="number">4</span>,
+        <span class="doccomment">/// The schedule resource is being created.
+        </span>Initializing = <span class="number">5</span>,
+        <span class="doccomment">/// The schedule resource is being deleted.
+        </span>Deleting = <span class="number">6</span>,
     }
     <span class="kw">impl </span>State {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -7305,34 +7426,40 @@
         </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
                 State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Queued =&gt; <span class="string">&quot;QUEUED&quot;</span>,
-                State::Preparing =&gt; <span class="string">&quot;PREPARING&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-                State::Expired =&gt; <span class="string">&quot;EXPIRED&quot;</span>,
+                State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
+                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
+                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                State::UpdateFailed =&gt; <span class="string">&quot;UPDATE_FAILED&quot;</span>,
                 State::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
                 <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;QUEUED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Queued),
-                <span class="string">&quot;PREPARING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preparing),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="string">&quot;EXPIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expired),
+                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">&quot;UPDATE_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateFailed),
                 <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
+}
+<span class="doccomment">/// Notebook instance configurations that can be updated.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>InstanceConfig {
+    <span class="doccomment">/// Cron expression in UTC timezone, used to schedule instance auto upgrade.
+    /// Please follow the [cron format](&lt;https://en.wikipedia.org/wiki/Cron&gt;).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>notebook_upgrade_schedule: ::prost::alloc::string::String,
+    <span class="doccomment">/// Verifies core internal services are running.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>enable_health_monitoring: bool,
 }
 <span class="doccomment">/// Reservation Affinity for consuming Zonal reservation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7436,7 +7563,7 @@
     /// Compute Engine instances.
     ///
     /// If not specified, the following
-    /// \[scopes\](&lt;https://cloud.google.com/compute/docs/access/service-accounts#accesscopesiam&gt;)
+    /// [scopes](&lt;https://cloud.google.com/compute/docs/access/service-accounts#accesscopesiam&gt;)
     /// are defined:
     ///   - &lt;https://www.googleapis.com/auth/cloud-platform&gt;
     ///   - &lt;https://www.googleapis.com/auth/userinfo.email&gt;
@@ -8150,133 +8277,6 @@
         </span>ContainerImage(<span class="kw">super</span>::ContainerImage),
     }
 }
-<span class="doccomment">/// Notebook instance configurations that can be updated.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>InstanceConfig {
-    <span class="doccomment">/// Cron expression in UTC timezone, used to schedule instance auto upgrade.
-    /// Please follow the [cron format](&lt;https://en.wikipedia.org/wiki/Cron&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>notebook_upgrade_schedule: ::prost::alloc::string::String,
-    <span class="doccomment">/// Verifies core internal services are running.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>enable_health_monitoring: bool,
-}
-<span class="doccomment">/// The definition of a schedule.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Schedule {
-    <span class="doccomment">/// Output only. The name of this schedule. Format:
-    /// `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Display name used for UI purposes.
-    /// Name can only contain alphanumeric characters, hyphens `-`,
-    /// and underscores `_`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// A brief description of this environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="attr">#[prost(enumeration = <span class="string">&quot;schedule::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Cron-tab formatted schedule by which the job will execute.
-    /// Format: minute, hour, day of month, month, day of week,
-    /// e.g. `0 0 * * WED` = every Wednesday
-    /// More examples: &lt;https://crontab.guru/examples.html&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>cron_schedule: ::prost::alloc::string::String,
-    <span class="doccomment">/// Timezone on which the cron_schedule.
-    /// The value of this field must be a time zone name from the tz database.
-    /// TZ Database: &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;
-    ///
-    /// Note that some time zones include a provision for daylight savings time.
-    /// The rules for daylight saving time are determined by the chosen tz.
-    /// For UTC use the string &quot;utc&quot;. If a time zone is not specified,
-    /// the default will be in UTC (also known as GMT).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Time the schedule was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time the schedule was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Notebook Execution Template corresponding to this schedule.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>execution_template: ::core::option::Option&lt;ExecutionTemplate&gt;,
-    <span class="doccomment">/// Output only. The most recent execution names triggered from this schedule and their
-    /// corresponding states.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>recent_executions: ::prost::alloc::vec::Vec&lt;Execution&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Schedule`.
-</span><span class="kw">pub mod </span>schedule {
-    <span class="doccomment">/// State of the job.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The job is executing normally.
-        </span>Enabled = <span class="number">1</span>,
-        <span class="doccomment">/// The job is paused by the user. It will not execute. A user can
-        /// intentionally pause the job using
-        /// \[PauseJobRequest][\].
-        </span>Paused = <span class="number">2</span>,
-        <span class="doccomment">/// The job is disabled by the system due to error. The user
-        /// cannot directly set a job to be disabled.
-        </span>Disabled = <span class="number">3</span>,
-        <span class="doccomment">/// The job state resulting from a failed \[CloudScheduler.UpdateJob][\]
-        /// operation. To recover a job from this state, retry
-        /// \[CloudScheduler.UpdateJob][\] until a successful response is received.
-        </span>UpdateFailed = <span class="number">4</span>,
-        <span class="doccomment">/// The schedule resource is being created.
-        </span>Initializing = <span class="number">5</span>,
-        <span class="doccomment">/// The schedule resource is being deleted.
-        </span>Deleting = <span class="number">6</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
-                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                State::UpdateFailed =&gt; <span class="string">&quot;UPDATE_FAILED&quot;</span>,
-                State::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
-                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;UPDATE_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateFailed),
-                <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
 <span class="doccomment">/// Represents the metadata of the long-running operation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -8298,8 +8298,8 @@
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to `Code.CANCELLED`.
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to `Code.CANCELLED`.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// API version used to start the operation.
@@ -8337,7 +8337,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached. For example,
-    /// `[&#39;us-west1-a&#39;, &#39;us-central1-b&#39;]`.
+    /// `\[&#39;us-west1-a&#39;, &#39;us-central1-b&#39;\]`.
     /// A ListInstancesResponse will only contain either instances or unreachables,
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,

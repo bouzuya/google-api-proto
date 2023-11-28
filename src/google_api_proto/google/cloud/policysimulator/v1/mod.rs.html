@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/policysimulator/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/policysimulator/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1039,7 +1039,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>permission: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Details about how a specific IAM \[Policy][google.iam.v1.Policy\] contributed
+<span class="doccomment">/// Details about how a specific IAM [Policy][google.iam.v1.Policy] contributed
 /// to the access check.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1051,14 +1051,14 @@
     /// permission for the resource. There might be another policy that overrides
     /// this policy. To determine whether the principal actually has the
     /// permission, use the `access` field in the
-    /// \[TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AccessState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>access: i32,
     <span class="doccomment">/// The full resource name that identifies the resource. For example,
     /// `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`.
     ///
     /// If the user who created the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] does not have
+    /// [Replay][google.cloud.policysimulator.v1.Replay] does not have
     /// access to the policy, this field is omitted.
     ///
     /// For examples of full resource names for Google Cloud services, see
@@ -1068,7 +1068,7 @@
     <span class="doccomment">/// The IAM policy attached to the resource.
     ///
     /// If the user who created the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] does not have
+    /// [Replay][google.cloud.policysimulator.v1.Replay] does not have
     /// access to the policy, this field is empty.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>policy: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
@@ -1076,15 +1076,15 @@
     /// ability, or inability, to use the permission for the resource.
     ///
     /// If the user who created the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] does not have
+    /// [Replay][google.cloud.policysimulator.v1.Replay] does not have
     /// access to the policy, this field is omitted.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>binding_explanations: ::prost::alloc::vec::Vec&lt;BindingExplanation&gt;,
     <span class="doccomment">/// The relevance of this policy to the overall determination in the
-    /// \[TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse].
     ///
     /// If the user who created the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] does not have
+    /// [Replay][google.cloud.policysimulator.v1.Replay] does not have
     /// access to the policy, this field is omitted.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>relevance: i32,
@@ -1101,7 +1101,7 @@
     /// permission for the resource. There might be another binding that overrides
     /// this binding. To determine whether the principal actually has the
     /// permission, use the `access` field in the
-    /// \[TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AccessState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>access: i32,
     <span class="doccomment">/// The role that this binding grants. For example,
@@ -1191,7 +1191,7 @@
         <span class="doccomment">/// The permission is not included in the role.
         </span>NotIncluded = <span class="number">2</span>,
         <span class="doccomment">/// The user who created the
-        /// \[Replay][google.cloud.policysimulator.v1.Replay\] is not
+        /// [Replay][google.cloud.policysimulator.v1.Replay] is not
         /// allowed to access the binding.
         </span>UnknownInfoDenied = <span class="number">3</span>,
     }
@@ -1248,7 +1248,7 @@
         <span class="doccomment">/// The binding does not include the principal.
         </span>NotIncluded = <span class="number">2</span>,
         <span class="doccomment">/// The user who created the
-        /// \[Replay][google.cloud.policysimulator.v1.Replay\] is not
+        /// [Replay][google.cloud.policysimulator.v1.Replay] is not
         /// allowed to access the binding.
         </span>UnknownInfoDenied = <span class="number">3</span>,
         <span class="doccomment">/// The principal is an unsupported type. Only Google Accounts and service
@@ -1296,7 +1296,7 @@
     /// to `true`.
     </span>UnknownConditional = <span class="number">3</span>,
     <span class="doccomment">/// The user who created the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] does not have
+    /// [Replay][google.cloud.policysimulator.v1.Replay] does not have
     /// access to all of the policies that Policy Simulator needs to evaluate.
     </span>UnknownInfoDenied = <span class="number">4</span>,
 }
@@ -1419,7 +1419,7 @@
             <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date,
         &gt;,
     }
-    <span class="doccomment">/// The current state of the \[Replay][google.cloud.policysimulator.v1.Replay\].
+    <span class="doccomment">/// The current state of the [Replay][google.cloud.policysimulator.v1.Replay].
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -1479,13 +1479,13 @@
     ///
     /// `{projects|folders|organizations}/{resource-id}/locations/global/replays/{replay-id}/results/{replay-result-id}`,
     /// where `{resource-id}` is the ID of the project, folder, or organization
-    /// that owns the \[Replay][google.cloud.policysimulator.v1.Replay\].
+    /// that owns the [Replay][google.cloud.policysimulator.v1.Replay].
     ///
     /// Example:
     /// `projects/my-example-project/locations/global/replays/506a5f7f-38ce-4d7d-8e03-479ce1833c36/results/1234`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The \[Replay][google.cloud.policysimulator.v1.Replay\] that the access tuple
+    <span class="doccomment">/// The [Replay][google.cloud.policysimulator.v1.Replay] that the access tuple
     /// was included in.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
@@ -1525,18 +1525,18 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[Simulator.CreateReplay][google.cloud.policysimulator.v1.Simulator.CreateReplay\].
+/// [Simulator.CreateReplay][google.cloud.policysimulator.v1.Simulator.CreateReplay].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateReplayRequest {
     <span class="doccomment">/// Required. The parent resource where this
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] will be created. This
+    /// [Replay][google.cloud.policysimulator.v1.Replay] will be created. This
     /// resource must be a project, folder, or organization with a location.
     ///
     /// Example: `projects/my-example-project/locations/global`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The \[Replay][google.cloud.policysimulator.v1.Replay\] to create.
+    <span class="doccomment">/// Required. The [Replay][google.cloud.policysimulator.v1.Replay] to create.
     /// Set `Replay.ReplayConfig` to configure the replay.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>replay: ::core::option::Option&lt;Replay&gt;,
@@ -1550,11 +1550,11 @@
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[Simulator.GetReplay][google.cloud.policysimulator.v1.Simulator.GetReplay\].
+/// [Simulator.GetReplay][google.cloud.policysimulator.v1.Simulator.GetReplay].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetReplayRequest {
-    <span class="doccomment">/// Required. The name of the \[Replay][google.cloud.policysimulator.v1.Replay\]
+    <span class="doccomment">/// Required. The name of the [Replay][google.cloud.policysimulator.v1.Replay]
     /// to retrieve, in the following format:
     ///
     /// `{projects|folders|organizations}/{resource-id}/locations/global/replays/{replay-id}`,
@@ -1567,11 +1567,11 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults\].
+/// [Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListReplayResultsRequest {
-    <span class="doccomment">/// Required. The \[Replay][google.cloud.policysimulator.v1.Replay\] whose
+    <span class="doccomment">/// Required. The [Replay][google.cloud.policysimulator.v1.Replay] whose
     /// results are listed, in the following format:
     ///
     /// `{projects|folders|organizations}/{resource-id}/locations/global/replays/{replay-id}`
@@ -1581,14 +1581,14 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of
-    /// \[ReplayResult][google.cloud.policysimulator.v1.ReplayResult\] objects to
+    /// [ReplayResult][google.cloud.policysimulator.v1.ReplayResult] objects to
     /// return. Defaults to 5000.
     ///
     /// The maximum value is 5000; values above 5000 are rounded down to 5000.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous
-    /// \[Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults\]
+    /// [Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults]
     /// call. Provide this token to retrieve the next page of results.
     ///
     /// When paginating, all other parameters provided to
@@ -1598,21 +1598,21 @@
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults\].
+/// [Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListReplayResultsResponse {
-    <span class="doccomment">/// The results of running a \[Replay][google.cloud.policysimulator.v1.Replay\].
+    <span class="doccomment">/// The results of running a [Replay][google.cloud.policysimulator.v1.Replay].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>replay_results: ::prost::alloc::vec::Vec&lt;ReplayResult&gt;,
     <span class="doccomment">/// A token that you can use to retrieve the next page of
-    /// \[ReplayResult][google.cloud.policysimulator.v1.ReplayResult\] objects. If
+    /// [ReplayResult][google.cloud.policysimulator.v1.ReplayResult] objects. If
     /// this field is omitted, there are no subsequent pages.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The configuration used for a
-/// \[Replay][google.cloud.policysimulator.v1.Replay\].
+/// [Replay][google.cloud.policysimulator.v1.Replay].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReplayConfig {
@@ -1624,7 +1624,7 @@
     /// For examples of full resource names for Google Cloud services, see
     /// &lt;https://cloud.google.com/iam/help/troubleshooter/full-resource-names.&gt;
     ///
-    /// Values are \[Policy][google.iam.v1.Policy\] objects representing the policies
+    /// Values are [Policy][google.iam.v1.Policy] objects representing the policies
     /// that you want to simulate.
     ///
     /// Replays automatically take into account any IAM policies inherited through
@@ -1636,14 +1636,14 @@
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy,
     &gt;,
     <span class="doccomment">/// The logs to use as input for the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\].
+    /// [Replay][google.cloud.policysimulator.v1.Replay].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;replay_config::LogSource&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>log_source: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ReplayConfig`.
 </span><span class="kw">pub mod </span>replay_config {
     <span class="doccomment">/// The source of the logs to use for a
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\].
+    /// [Replay][google.cloud.policysimulator.v1.Replay].
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -1659,7 +1659,7 @@
     </span><span class="kw">pub enum </span>LogSource {
         <span class="doccomment">/// An unspecified log source.
         /// If the log source is unspecified, the
-        /// \[Replay][google.cloud.policysimulator.v1.Replay\] defaults to using
+        /// [Replay][google.cloud.policysimulator.v1.Replay] defaults to using
         /// `RECENT_ACCESSES`.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// All access logs from the last 90 days. These logs may not include logs
@@ -1699,7 +1699,7 @@
     /// access tuple.
     ///
     /// The evaluation of the principal&#39;s access is reported in the
-    /// \[AccessState][google.cloud.policysimulator.v1.AccessState\] field.
+    /// [AccessState][google.cloud.policysimulator.v1.AccessState] field.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>access_diff: ::core::option::Option&lt;AccessStateDiff&gt;,
 }
@@ -1712,7 +1712,7 @@
     <span class="doccomment">/// The results of evaluating the access tuple under the current (baseline)
     /// policies.
     ///
-    /// If the \[AccessState][google.cloud.policysimulator.v1.AccessState\] couldn&#39;t
+    /// If the [AccessState][google.cloud.policysimulator.v1.AccessState] couldn&#39;t
     /// be fully evaluated, this field explains why.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>baseline: ::core::option::Option&lt;ExplainedAccess&gt;,
@@ -1811,8 +1811,8 @@
     }
 }
 <span class="doccomment">/// Details about how a set of policies, listed in
-/// \[ExplainedPolicy][google.cloud.policysimulator.v1.ExplainedPolicy\], resulted
-/// in a certain \[AccessState][google.cloud.policysimulator.v1.AccessState\] when
+/// [ExplainedPolicy][google.cloud.policysimulator.v1.ExplainedPolicy], resulted
+/// in a certain [AccessState][google.cloud.policysimulator.v1.AccessState] when
 /// replaying an access tuple.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1821,14 +1821,14 @@
     /// resource in the access tuple under the given policies.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AccessState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>access_state: i32,
-    <span class="doccomment">/// If the \[AccessState][google.cloud.policysimulator.v1.AccessState\] is
+    <span class="doccomment">/// If the [AccessState][google.cloud.policysimulator.v1.AccessState] is
     /// `UNKNOWN`, this field contains the policies that led to that result.
     ///
     /// If the `AccessState` is `GRANTED` or `NOT_GRANTED`, this field is
     /// omitted.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>policies: ::prost::alloc::vec::Vec&lt;ExplainedPolicy&gt;,
-    <span class="doccomment">/// If the \[AccessState][google.cloud.policysimulator.v1.AccessState\] is
+    <span class="doccomment">/// If the [AccessState][google.cloud.policysimulator.v1.AccessState] is
     /// `UNKNOWN`, this field contains a list of errors explaining why the result
     /// is `UNKNOWN`.
     ///

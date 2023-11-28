@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/spanner/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/spanner/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2858,7 +2858,615 @@
 <a href="#2858" id="2858">2858</a>
 <a href="#2859" id="2859">2859</a>
 <a href="#2860" id="2860">2860</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Transactions:
+<a href="#2861" id="2861">2861</a>
+<a href="#2862" id="2862">2862</a>
+<a href="#2863" id="2863">2863</a>
+<a href="#2864" id="2864">2864</a>
+<a href="#2865" id="2865">2865</a>
+<a href="#2866" id="2866">2866</a>
+<a href="#2867" id="2867">2867</a>
+<a href="#2868" id="2868">2868</a>
+<a href="#2869" id="2869">2869</a>
+<a href="#2870" id="2870">2870</a>
+<a href="#2871" id="2871">2871</a>
+<a href="#2872" id="2872">2872</a>
+<a href="#2873" id="2873">2873</a>
+<a href="#2874" id="2874">2874</a>
+<a href="#2875" id="2875">2875</a>
+<a href="#2876" id="2876">2876</a>
+<a href="#2877" id="2877">2877</a>
+<a href="#2878" id="2878">2878</a>
+<a href="#2879" id="2879">2879</a>
+<a href="#2880" id="2880">2880</a>
+<a href="#2881" id="2881">2881</a>
+<a href="#2882" id="2882">2882</a>
+<a href="#2883" id="2883">2883</a>
+<a href="#2884" id="2884">2884</a>
+<a href="#2885" id="2885">2885</a>
+<a href="#2886" id="2886">2886</a>
+<a href="#2887" id="2887">2887</a>
+<a href="#2888" id="2888">2888</a>
+<a href="#2889" id="2889">2889</a>
+<a href="#2890" id="2890">2890</a>
+<a href="#2891" id="2891">2891</a>
+<a href="#2892" id="2892">2892</a>
+<a href="#2893" id="2893">2893</a>
+<a href="#2894" id="2894">2894</a>
+<a href="#2895" id="2895">2895</a>
+<a href="#2896" id="2896">2896</a>
+<a href="#2897" id="2897">2897</a>
+<a href="#2898" id="2898">2898</a>
+<a href="#2899" id="2899">2899</a>
+<a href="#2900" id="2900">2900</a>
+<a href="#2901" id="2901">2901</a>
+<a href="#2902" id="2902">2902</a>
+<a href="#2903" id="2903">2903</a>
+<a href="#2904" id="2904">2904</a>
+<a href="#2905" id="2905">2905</a>
+<a href="#2906" id="2906">2906</a>
+<a href="#2907" id="2907">2907</a>
+<a href="#2908" id="2908">2908</a>
+<a href="#2909" id="2909">2909</a>
+<a href="#2910" id="2910">2910</a>
+<a href="#2911" id="2911">2911</a>
+<a href="#2912" id="2912">2912</a>
+<a href="#2913" id="2913">2913</a>
+<a href="#2914" id="2914">2914</a>
+<a href="#2915" id="2915">2915</a>
+<a href="#2916" id="2916">2916</a>
+<a href="#2917" id="2917">2917</a>
+<a href="#2918" id="2918">2918</a>
+<a href="#2919" id="2919">2919</a>
+<a href="#2920" id="2920">2920</a>
+<a href="#2921" id="2921">2921</a>
+<a href="#2922" id="2922">2922</a>
+<a href="#2923" id="2923">2923</a>
+<a href="#2924" id="2924">2924</a>
+<a href="#2925" id="2925">2925</a>
+<a href="#2926" id="2926">2926</a>
+<a href="#2927" id="2927">2927</a>
+<a href="#2928" id="2928">2928</a>
+<a href="#2929" id="2929">2929</a>
+<a href="#2930" id="2930">2930</a>
+<a href="#2931" id="2931">2931</a>
+<a href="#2932" id="2932">2932</a>
+<a href="#2933" id="2933">2933</a>
+<a href="#2934" id="2934">2934</a>
+<a href="#2935" id="2935">2935</a>
+<a href="#2936" id="2936">2936</a>
+<a href="#2937" id="2937">2937</a>
+<a href="#2938" id="2938">2938</a>
+<a href="#2939" id="2939">2939</a>
+<a href="#2940" id="2940">2940</a>
+<a href="#2941" id="2941">2941</a>
+<a href="#2942" id="2942">2942</a>
+<a href="#2943" id="2943">2943</a>
+<a href="#2944" id="2944">2944</a>
+<a href="#2945" id="2945">2945</a>
+<a href="#2946" id="2946">2946</a>
+<a href="#2947" id="2947">2947</a>
+<a href="#2948" id="2948">2948</a>
+<a href="#2949" id="2949">2949</a>
+<a href="#2950" id="2950">2950</a>
+<a href="#2951" id="2951">2951</a>
+<a href="#2952" id="2952">2952</a>
+<a href="#2953" id="2953">2953</a>
+<a href="#2954" id="2954">2954</a>
+<a href="#2955" id="2955">2955</a>
+<a href="#2956" id="2956">2956</a>
+<a href="#2957" id="2957">2957</a>
+<a href="#2958" id="2958">2958</a>
+<a href="#2959" id="2959">2959</a>
+<a href="#2960" id="2960">2960</a>
+<a href="#2961" id="2961">2961</a>
+<a href="#2962" id="2962">2962</a>
+<a href="#2963" id="2963">2963</a>
+<a href="#2964" id="2964">2964</a>
+<a href="#2965" id="2965">2965</a>
+<a href="#2966" id="2966">2966</a>
+<a href="#2967" id="2967">2967</a>
+<a href="#2968" id="2968">2968</a>
+<a href="#2969" id="2969">2969</a>
+<a href="#2970" id="2970">2970</a>
+<a href="#2971" id="2971">2971</a>
+<a href="#2972" id="2972">2972</a>
+<a href="#2973" id="2973">2973</a>
+<a href="#2974" id="2974">2974</a>
+<a href="#2975" id="2975">2975</a>
+<a href="#2976" id="2976">2976</a>
+<a href="#2977" id="2977">2977</a>
+<a href="#2978" id="2978">2978</a>
+<a href="#2979" id="2979">2979</a>
+<a href="#2980" id="2980">2980</a>
+<a href="#2981" id="2981">2981</a>
+<a href="#2982" id="2982">2982</a>
+<a href="#2983" id="2983">2983</a>
+<a href="#2984" id="2984">2984</a>
+<a href="#2985" id="2985">2985</a>
+<a href="#2986" id="2986">2986</a>
+<a href="#2987" id="2987">2987</a>
+<a href="#2988" id="2988">2988</a>
+<a href="#2989" id="2989">2989</a>
+<a href="#2990" id="2990">2990</a>
+<a href="#2991" id="2991">2991</a>
+<a href="#2992" id="2992">2992</a>
+<a href="#2993" id="2993">2993</a>
+<a href="#2994" id="2994">2994</a>
+<a href="#2995" id="2995">2995</a>
+<a href="#2996" id="2996">2996</a>
+<a href="#2997" id="2997">2997</a>
+<a href="#2998" id="2998">2998</a>
+<a href="#2999" id="2999">2999</a>
+<a href="#3000" id="3000">3000</a>
+<a href="#3001" id="3001">3001</a>
+<a href="#3002" id="3002">3002</a>
+<a href="#3003" id="3003">3003</a>
+<a href="#3004" id="3004">3004</a>
+<a href="#3005" id="3005">3005</a>
+<a href="#3006" id="3006">3006</a>
+<a href="#3007" id="3007">3007</a>
+<a href="#3008" id="3008">3008</a>
+<a href="#3009" id="3009">3009</a>
+<a href="#3010" id="3010">3010</a>
+<a href="#3011" id="3011">3011</a>
+<a href="#3012" id="3012">3012</a>
+<a href="#3013" id="3013">3013</a>
+<a href="#3014" id="3014">3014</a>
+<a href="#3015" id="3015">3015</a>
+<a href="#3016" id="3016">3016</a>
+<a href="#3017" id="3017">3017</a>
+<a href="#3018" id="3018">3018</a>
+<a href="#3019" id="3019">3019</a>
+<a href="#3020" id="3020">3020</a>
+<a href="#3021" id="3021">3021</a>
+<a href="#3022" id="3022">3022</a>
+<a href="#3023" id="3023">3023</a>
+<a href="#3024" id="3024">3024</a>
+<a href="#3025" id="3025">3025</a>
+<a href="#3026" id="3026">3026</a>
+<a href="#3027" id="3027">3027</a>
+<a href="#3028" id="3028">3028</a>
+<a href="#3029" id="3029">3029</a>
+<a href="#3030" id="3030">3030</a>
+<a href="#3031" id="3031">3031</a>
+<a href="#3032" id="3032">3032</a>
+<a href="#3033" id="3033">3033</a>
+<a href="#3034" id="3034">3034</a>
+<a href="#3035" id="3035">3035</a>
+<a href="#3036" id="3036">3036</a>
+<a href="#3037" id="3037">3037</a>
+<a href="#3038" id="3038">3038</a>
+<a href="#3039" id="3039">3039</a>
+<a href="#3040" id="3040">3040</a>
+<a href="#3041" id="3041">3041</a>
+<a href="#3042" id="3042">3042</a>
+<a href="#3043" id="3043">3043</a>
+<a href="#3044" id="3044">3044</a>
+<a href="#3045" id="3045">3045</a>
+<a href="#3046" id="3046">3046</a>
+<a href="#3047" id="3047">3047</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// The response for [Commit][google.spanner.v1.Spanner.Commit].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CommitResponse {
+    <span class="doccomment">/// The Cloud Spanner timestamp at which the transaction committed.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>commit_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The statistics about this Commit. Not returned by default.
+    /// For more information, see
+    /// [CommitRequest.return_commit_stats][google.spanner.v1.CommitRequest.return_commit_stats].
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>commit_stats: ::core::option::Option&lt;commit_response::CommitStats&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `CommitResponse`.
+</span><span class="kw">pub mod </span>commit_response {
+    <span class="doccomment">/// Additional statistics about a commit.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>CommitStats {
+        <span class="doccomment">/// The total number of mutations for the transaction. Knowing the
+        /// `mutation_count` value can help you maximize the number of mutations
+        /// in a transaction and minimize the number of API round trips. You can
+        /// also monitor this value to prevent transactions from exceeding the system
+        /// [limit](&lt;https://cloud.google.com/spanner/quotas#limits_for_creating_reading_updating_and_deleting_data&gt;).
+        /// If the number of mutations exceeds the limit, the server returns
+        /// [INVALID_ARGUMENT](&lt;https://cloud.google.com/spanner/docs/reference/rest/v1/Code#ENUM_VALUES.INVALID_ARGUMENT&gt;).
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>mutation_count: i64,
+    }
+}
+<span class="doccomment">/// KeyRange represents a range of rows in a table or index.
+///
+/// A range has a start key and an end key. These keys can be open or
+/// closed, indicating if the range includes rows with that key.
+///
+/// Keys are represented by lists, where the ith value in the list
+/// corresponds to the ith component of the table or index primary key.
+/// Individual values are encoded as described
+/// [here][google.spanner.v1.TypeCode].
+///
+/// For example, consider the following table definition:
+///
+///      CREATE TABLE UserEvents (
+///        UserName STRING(MAX),
+///        EventDate STRING(10)
+///      ) PRIMARY KEY(UserName, EventDate);
+///
+/// The following keys name rows in this table:
+///
+///      \[&quot;Bob&quot;, &quot;2014-09-23&quot;\]
+///      \[&quot;Alfred&quot;, &quot;2015-06-12&quot;\]
+///
+/// Since the `UserEvents` table&#39;s `PRIMARY KEY` clause names two
+/// columns, each `UserEvents` key has two elements; the first is the
+/// `UserName`, and the second is the `EventDate`.
+///
+/// Key ranges with multiple components are interpreted
+/// lexicographically by component using the table or index key&#39;s declared
+/// sort order. For example, the following range returns all events for
+/// user `&quot;Bob&quot;` that occurred in the year 2015:
+///
+///      &quot;start_closed&quot;: \[&quot;Bob&quot;, &quot;2015-01-01&quot;\]
+///      &quot;end_closed&quot;: \[&quot;Bob&quot;, &quot;2015-12-31&quot;\]
+///
+/// Start and end keys can omit trailing key components. This affects the
+/// inclusion and exclusion of rows that exactly match the provided key
+/// components: if the key is closed, then rows that exactly match the
+/// provided components are included; if the key is open, then rows
+/// that exactly match are not included.
+///
+/// For example, the following range includes all events for `&quot;Bob&quot;` that
+/// occurred during and after the year 2000:
+///
+///      &quot;start_closed&quot;: \[&quot;Bob&quot;, &quot;2000-01-01&quot;\]
+///      &quot;end_closed&quot;: \[&quot;Bob&quot;\]
+///
+/// The next example retrieves all events for `&quot;Bob&quot;`:
+///
+///      &quot;start_closed&quot;: \[&quot;Bob&quot;\]
+///      &quot;end_closed&quot;: \[&quot;Bob&quot;\]
+///
+/// To retrieve events before the year 2000:
+///
+///      &quot;start_closed&quot;: \[&quot;Bob&quot;\]
+///      &quot;end_open&quot;: \[&quot;Bob&quot;, &quot;2000-01-01&quot;\]
+///
+/// The following range includes all rows in the table:
+///
+///      &quot;start_closed&quot;: \[\]
+///      &quot;end_closed&quot;: \[\]
+///
+/// This range returns all users whose `UserName` begins with any
+/// character from A to C:
+///
+///      &quot;start_closed&quot;: \[&quot;A&quot;\]
+///      &quot;end_open&quot;: \[&quot;D&quot;\]
+///
+/// This range returns all users whose `UserName` begins with B:
+///
+///      &quot;start_closed&quot;: \[&quot;B&quot;\]
+///      &quot;end_open&quot;: \[&quot;C&quot;\]
+///
+/// Key ranges honor column sort order. For example, suppose a table is
+/// defined as follows:
+///
+///      CREATE TABLE DescendingSortedTable {
+///        Key INT64,
+///        ...
+///      ) PRIMARY KEY(Key DESC);
+///
+/// The following range retrieves all rows with key values between 1
+/// and 100 inclusive:
+///
+///      &quot;start_closed&quot;: \[&quot;100&quot;\]
+///      &quot;end_closed&quot;: \[&quot;1&quot;\]
+///
+/// Note that 100 is passed as the start, and 1 is passed as the end,
+/// because `Key` is a descending column in the schema.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>KeyRange {
+    <span class="doccomment">/// The start key must be provided. It can be either closed or open.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;key_range::StartKeyType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>start_key_type: ::core::option::Option&lt;key_range::StartKeyType&gt;,
+    <span class="doccomment">/// The end key must be provided. It can be either closed or open.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;key_range::EndKeyType&quot;</span>, tags = <span class="string">&quot;3, 4&quot;</span>)]
+    </span><span class="kw">pub </span>end_key_type: ::core::option::Option&lt;key_range::EndKeyType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `KeyRange`.
+</span><span class="kw">pub mod </span>key_range {
+    <span class="doccomment">/// The start key must be provided. It can be either closed or open.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>StartKeyType {
+        <span class="doccomment">/// If the start is closed, then the range includes all rows whose
+        /// first `len(start_closed)` key columns exactly match `start_closed`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>StartClosed(::prost_types::ListValue),
+        <span class="doccomment">/// If the start is open, then the range excludes rows whose first
+        /// `len(start_open)` key columns exactly match `start_open`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>StartOpen(::prost_types::ListValue),
+    }
+    <span class="doccomment">/// The end key must be provided. It can be either closed or open.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>EndKeyType {
+        <span class="doccomment">/// If the end is closed, then the range includes all rows whose
+        /// first `len(end_closed)` key columns exactly match `end_closed`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>EndClosed(::prost_types::ListValue),
+        <span class="doccomment">/// If the end is open, then the range excludes rows whose first
+        /// `len(end_open)` key columns exactly match `end_open`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>EndOpen(::prost_types::ListValue),
+    }
+}
+<span class="doccomment">/// `KeySet` defines a collection of Cloud Spanner keys and/or key ranges. All
+/// the keys are expected to be in the same table or index. The keys need
+/// not be sorted in any particular way.
+///
+/// If the same key is specified multiple times in the set (for example
+/// if two ranges, two keys, or a key and a range overlap), Cloud Spanner
+/// behaves as if the key were only specified once.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>KeySet {
+    <span class="doccomment">/// A list of specific keys. Entries in `keys` should have exactly as
+    /// many elements as there are columns in the primary or index key
+    /// with which this `KeySet` is used.  Individual key values are
+    /// encoded as described [here][google.spanner.v1.TypeCode].
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;::prost_types::ListValue&gt;,
+    <span class="doccomment">/// A list of key ranges. See [KeyRange][google.spanner.v1.KeyRange] for more information about
+    /// key range specifications.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>ranges: ::prost::alloc::vec::Vec&lt;KeyRange&gt;,
+    <span class="doccomment">/// For convenience `all` can be set to `true` to indicate that this
+    /// `KeySet` matches all keys in the table or index. Note that any keys
+    /// specified in `keys` or `ranges` are only yielded once.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>all: bool,
+}
+<span class="doccomment">/// A modification to one or more Cloud Spanner rows.  Mutations can be
+/// applied to a Cloud Spanner database by sending them in a
+/// [Commit][google.spanner.v1.Spanner.Commit] call.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Mutation {
+    <span class="doccomment">/// Required. The operation to perform.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;mutation::Operation&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5&quot;</span>)]
+    </span><span class="kw">pub </span>operation: ::core::option::Option&lt;mutation::Operation&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Mutation`.
+</span><span class="kw">pub mod </span>mutation {
+    <span class="doccomment">/// Arguments to [insert][google.spanner.v1.Mutation.insert], [update][google.spanner.v1.Mutation.update], [insert_or_update][google.spanner.v1.Mutation.insert_or_update], and
+    /// [replace][google.spanner.v1.Mutation.replace] operations.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Write {
+        <span class="doccomment">/// Required. The table whose rows will be written.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
+        <span class="doccomment">/// The names of the columns in [table][google.spanner.v1.Mutation.Write.table] to be written.
+        ///
+        /// The list of columns must contain enough columns to allow
+        /// Cloud Spanner to derive values for all primary key columns in the
+        /// row(s) to be modified.
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+        <span class="doccomment">/// The values to be written. `values` can contain more than one
+        /// list of values. If it does, then multiple rows are written, one
+        /// for each entry in `values`. Each list in `values` must have
+        /// exactly as many entries as there are entries in [columns][google.spanner.v1.Mutation.Write.columns]
+        /// above. Sending multiple lists is equivalent to sending multiple
+        /// `Mutation`s, each containing one `values` entry and repeating
+        /// [table][google.spanner.v1.Mutation.Write.table] and [columns][google.spanner.v1.Mutation.Write.columns]. Individual values in each list are
+        /// encoded as described [here][google.spanner.v1.TypeCode].
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost_types::ListValue&gt;,
+    }
+    <span class="doccomment">/// Arguments to [delete][google.spanner.v1.Mutation.delete] operations.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Delete {
+        <span class="doccomment">/// Required. The table whose rows will be deleted.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
+        <span class="doccomment">/// Required. The primary keys of the rows within [table][google.spanner.v1.Mutation.Delete.table] to delete.  The
+        /// primary keys must be specified in the order in which they appear in the
+        /// `PRIMARY KEY()` clause of the table&#39;s equivalent DDL statement (the DDL
+        /// statement used to create the table).
+        /// Delete is idempotent. The transaction will succeed even if some or all
+        /// rows do not exist.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>key_set: ::core::option::Option&lt;<span class="kw">super</span>::KeySet&gt;,
+    }
+    <span class="doccomment">/// Required. The operation to perform.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Operation {
+        <span class="doccomment">/// Insert new rows in a table. If any of the rows already exist,
+        /// the write or transaction fails with error `ALREADY_EXISTS`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>Insert(Write),
+        <span class="doccomment">/// Update existing rows in a table. If any of the rows does not
+        /// already exist, the transaction fails with error `NOT_FOUND`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>Update(Write),
+        <span class="doccomment">/// Like [insert][google.spanner.v1.Mutation.insert], except that if the row already exists, then
+        /// its column values are overwritten with the ones provided. Any
+        /// column values not explicitly written are preserved.
+        ///
+        /// When using [insert_or_update][google.spanner.v1.Mutation.insert_or_update], just as when using [insert][google.spanner.v1.Mutation.insert], all `NOT
+        /// NULL` columns in the table must be given a value. This holds true
+        /// even when the row already exists and will therefore actually be updated.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>InsertOrUpdate(Write),
+        <span class="doccomment">/// Like [insert][google.spanner.v1.Mutation.insert], except that if the row already exists, it is
+        /// deleted, and the column values provided are inserted
+        /// instead. Unlike [insert_or_update][google.spanner.v1.Mutation.insert_or_update], this means any values not
+        /// explicitly written become `NULL`.
+        ///
+        /// In an interleaved table, if you create the child table with the
+        /// `ON DELETE CASCADE` annotation, then replacing a parent row
+        /// also deletes the child rows. Otherwise, you must delete the
+        /// child rows before you replace the parent row.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>Replace(Write),
+        <span class="doccomment">/// Delete rows from a table. Succeeds whether or not the named
+        /// rows were present.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>Delete(Delete),
+    }
+}
+<span class="doccomment">/// Node information for nodes appearing in a [QueryPlan.plan_nodes][google.spanner.v1.QueryPlan.plan_nodes].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PlanNode {
+    <span class="doccomment">/// The `PlanNode`&#39;s index in [node list][google.spanner.v1.QueryPlan.plan_nodes].
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>index: i32,
+    <span class="doccomment">/// Used to determine the type of node. May be needed for visualizing
+    /// different kinds of nodes differently. For example, If the node is a
+    /// [SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR] node, it will have a condensed representation
+    /// which can be used to directly embed a description of the node in its
+    /// parent.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;plan_node::Kind&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>kind: i32,
+    <span class="doccomment">/// The display name for the node.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// List of child node `index`es and their relationship to this parent.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>child_links: ::prost::alloc::vec::Vec&lt;plan_node::ChildLink&gt;,
+    <span class="doccomment">/// Condensed representation for [SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR] nodes.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>short_representation: ::core::option::Option&lt;plan_node::ShortRepresentation&gt;,
+    <span class="doccomment">/// Attributes relevant to the node contained in a group of key-value pairs.
+    /// For example, a Parameter Reference node could have the following
+    /// information in its metadata:
+    ///
+    ///      {
+    ///        &quot;parameter_reference&quot;: &quot;param1&quot;,
+    ///        &quot;parameter_type&quot;: &quot;array&quot;
+    ///      }
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;::prost_types::Struct&gt;,
+    <span class="doccomment">/// The execution statistics associated with the node, contained in a group of
+    /// key-value pairs. Only present if the plan was returned as a result of a
+    /// profile query. For example, number of executions, number of rows/time per
+    /// execution etc.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>execution_stats: ::core::option::Option&lt;::prost_types::Struct&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `PlanNode`.
+</span><span class="kw">pub mod </span>plan_node {
+    <span class="doccomment">/// Metadata associated with a parent-child relationship appearing in a
+    /// [PlanNode][google.spanner.v1.PlanNode].
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ChildLink {
+        <span class="doccomment">/// The node to which the link points.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>child_index: i32,
+        <span class="doccomment">/// The type of the link. For example, in Hash Joins this could be used to
+        /// distinguish between the build child and the probe child, or in the case
+        /// of the child being an output variable, to represent the tag associated
+        /// with the output variable.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+        <span class="doccomment">/// Only present if the child node is [SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR] and corresponds
+        /// to an output variable of the parent node. The field carries the name of
+        /// the output variable.
+        /// For example, a `TableScan` operator that reads rows from a table will
+        /// have child links to the `SCALAR` nodes representing the output variables
+        /// created for each column that is read by the operator. The corresponding
+        /// `variable` fields will be set to the variable names assigned to the
+        /// columns.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>variable: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Condensed representation of a node and its subtree. Only present for
+    /// `SCALAR` [PlanNode(s)][google.spanner.v1.PlanNode].
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ShortRepresentation {
+        <span class="doccomment">/// A string representation of the expression subtree rooted at this node.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+        <span class="doccomment">/// A mapping of (subquery variable name) -&gt; (subquery node id) for cases
+        /// where the `description` string of this node references a `SCALAR`
+        /// subquery contained in the expression subtree rooted at this node. The
+        /// referenced `SCALAR` subquery may not necessarily be a direct child of
+        /// this node.
+        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, int32&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>subqueries: ::prost::alloc::collections::BTreeMap&lt;
+            ::prost::alloc::string::String,
+            i32,
+        &gt;,
+    }
+    <span class="doccomment">/// The kind of [PlanNode][google.spanner.v1.PlanNode]. Distinguishes between the two different kinds of
+    /// nodes that can appear in a query plan.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Kind {
+        <span class="doccomment">/// Not specified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Denotes a Relational operator node in the expression tree. Relational
+        /// operators represent iterative processing of rows during query execution.
+        /// For example, a `TableScan` operation that reads rows from a table.
+        </span>Relational = <span class="number">1</span>,
+        <span class="doccomment">/// Denotes a Scalar node in the expression tree. Scalar nodes represent
+        /// non-iterable entities in the query plan. For example, constants or
+        /// arithmetic operators appearing inside predicate expressions or references
+        /// to column names.
+        </span>Scalar = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>Kind {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Kind::Unspecified =&gt; <span class="string">&quot;KIND_UNSPECIFIED&quot;</span>,
+                Kind::Relational =&gt; <span class="string">&quot;RELATIONAL&quot;</span>,
+                Kind::Scalar =&gt; <span class="string">&quot;SCALAR&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;KIND_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;RELATIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Relational),
+                <span class="string">&quot;SCALAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scalar),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Contains an ordered list of nodes appearing in the query plan.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>QueryPlan {
+    <span class="doccomment">/// The nodes in the query plan. Plan nodes are returned in pre-order starting
+    /// with the plan root. Each [PlanNode][google.spanner.v1.PlanNode]&#39;s `id` corresponds to its index in
+    /// `plan_nodes`.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>plan_nodes: ::prost::alloc::vec::Vec&lt;PlanNode&gt;,
+}
+<span class="doccomment">/// Transactions:
 ///
 /// Each session can have at most one active transaction at a time (note that
 /// standalone reads and queries use a transaction internally and do count
@@ -2887,7 +3495,7 @@
 ///
 ///       Queries on change streams must be performed with the snapshot read-only
 ///       transaction mode, specifying a strong read. Please see
-///       \[TransactionOptions.ReadOnly.strong][google.spanner.v1.TransactionOptions.ReadOnly.strong\]
+///       [TransactionOptions.ReadOnly.strong][google.spanner.v1.TransactionOptions.ReadOnly.strong]
 ///       for more details.
 ///
 ///    3. Partitioned DML. This type of transaction is used to execute
@@ -2918,16 +3526,16 @@
 /// and cause less contention. Cloud Spanner attempts to keep read locks
 /// active as long as the transaction continues to do reads, and the
 /// transaction has not been terminated by
-/// \[Commit][google.spanner.v1.Spanner.Commit\] or
-/// \[Rollback][google.spanner.v1.Spanner.Rollback\]. Long periods of
+/// [Commit][google.spanner.v1.Spanner.Commit] or
+/// [Rollback][google.spanner.v1.Spanner.Rollback]. Long periods of
 /// inactivity at the client may cause Cloud Spanner to release a
 /// transaction&#39;s locks and abort it.
 ///
 /// Conceptually, a read-write transaction consists of zero or more
 /// reads or SQL statements followed by
-/// \[Commit][google.spanner.v1.Spanner.Commit\]. At any time before
-/// \[Commit][google.spanner.v1.Spanner.Commit\], the client can send a
-/// \[Rollback][google.spanner.v1.Spanner.Rollback\] request to abort the
+/// [Commit][google.spanner.v1.Spanner.Commit]. At any time before
+/// [Commit][google.spanner.v1.Spanner.Commit], the client can send a
+/// [Rollback][google.spanner.v1.Spanner.Rollback] request to abort the
 /// transaction.
 ///
 /// Semantics:
@@ -2989,8 +3597,8 @@
 /// need to worry about this in practice.
 ///
 /// Snapshot read-only transactions do not need to call
-/// \[Commit][google.spanner.v1.Spanner.Commit\] or
-/// \[Rollback][google.spanner.v1.Spanner.Rollback\] (and in fact are not
+/// [Commit][google.spanner.v1.Spanner.Commit] or
+/// [Rollback][google.spanner.v1.Spanner.Rollback] (and in fact are not
 /// permitted to do so).
 ///
 /// To execute a snapshot transaction, the client specifies a timestamp
@@ -3025,7 +3633,7 @@
 /// the strong read timestamp bound.
 ///
 /// See
-/// \[TransactionOptions.ReadOnly.strong][google.spanner.v1.TransactionOptions.ReadOnly.strong\].
+/// [TransactionOptions.ReadOnly.strong][google.spanner.v1.TransactionOptions.ReadOnly.strong].
 ///
 /// Exact staleness:
 ///
@@ -3047,9 +3655,9 @@
 /// boundedly stale reads usually return fresher results.
 ///
 /// See
-/// \[TransactionOptions.ReadOnly.read_timestamp][google.spanner.v1.TransactionOptions.ReadOnly.read_timestamp\]
+/// [TransactionOptions.ReadOnly.read_timestamp][google.spanner.v1.TransactionOptions.ReadOnly.read_timestamp]
 /// and
-/// \[TransactionOptions.ReadOnly.exact_staleness][google.spanner.v1.TransactionOptions.ReadOnly.exact_staleness\].
+/// [TransactionOptions.ReadOnly.exact_staleness][google.spanner.v1.TransactionOptions.ReadOnly.exact_staleness].
 ///
 /// Bounded staleness:
 ///
@@ -3079,9 +3687,9 @@
 /// read-only transactions.
 ///
 /// See
-/// \[TransactionOptions.ReadOnly.max_staleness][google.spanner.v1.TransactionOptions.ReadOnly.max_staleness\]
+/// [TransactionOptions.ReadOnly.max_staleness][google.spanner.v1.TransactionOptions.ReadOnly.max_staleness]
 /// and
-/// \[TransactionOptions.ReadOnly.min_read_timestamp][google.spanner.v1.TransactionOptions.ReadOnly.min_read_timestamp\].
+/// [TransactionOptions.ReadOnly.min_read_timestamp][google.spanner.v1.TransactionOptions.ReadOnly.min_read_timestamp].
 ///
 /// Old read timestamps and garbage collection:
 ///
@@ -3120,7 +3728,7 @@
 ///
 /// In addition, if TransactionOptions.read_only.return_read_timestamp is set
 /// to true, a special value of 2^63 - 2 will be returned in the
-/// \[Transaction][google.spanner.v1.Transaction\] message that describes the
+/// [Transaction][google.spanner.v1.Transaction] message that describes the
 /// transaction, instead of a valid read timestamp. This special value should be
 /// discarded and not used for any subsequent queries.
 ///
@@ -3264,7 +3872,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ReadOnly {
         <span class="doccomment">/// If true, the Cloud Spanner-selected read timestamp is included in
-        /// the \[Transaction][google.spanner.v1.Transaction\] message that describes
+        /// the [Transaction][google.spanner.v1.Transaction] message that describes
         /// the transaction.
         </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
         </span><span class="kw">pub </span>return_read_timestamp: bool,
@@ -3370,10 +3978,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Transaction {
     <span class="doccomment">/// `id` may be used to identify the transaction in subsequent
-    /// \[Read][google.spanner.v1.Spanner.Read\],
-    /// \[ExecuteSql][google.spanner.v1.Spanner.ExecuteSql\],
-    /// \[Commit][google.spanner.v1.Spanner.Commit\], or
-    /// \[Rollback][google.spanner.v1.Spanner.Rollback\] calls.
+    /// [Read][google.spanner.v1.Spanner.Read],
+    /// [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql],
+    /// [Commit][google.spanner.v1.Spanner.Commit], or
+    /// [Rollback][google.spanner.v1.Spanner.Rollback] calls.
     ///
     /// Single-use read-only transactions do not have IDs, because
     /// single-use transactions do not support multiple requests.
@@ -3381,7 +3989,7 @@
     </span><span class="kw">pub </span>id: ::prost::bytes::Bytes,
     <span class="doccomment">/// For snapshot read-only transactions, the read timestamp chosen
     /// for the transaction. Not returned by default: see
-    /// \[TransactionOptions.ReadOnly.return_read_timestamp][google.spanner.v1.TransactionOptions.ReadOnly.return_read_timestamp\].
+    /// [TransactionOptions.ReadOnly.return_read_timestamp][google.spanner.v1.TransactionOptions.ReadOnly.return_read_timestamp].
     ///
     /// A timestamp in RFC3339 UTC \&quot;Zulu\&quot; format, accurate to nanoseconds.
     /// Example: `&quot;2014-10-02T15:01:23.045123456Z&quot;`.
@@ -3389,10 +3997,10 @@
     </span><span class="kw">pub </span>read_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// This message is used to select the transaction in which a
-/// \[Read][google.spanner.v1.Spanner.Read\] or
-/// \[ExecuteSql][google.spanner.v1.Spanner.ExecuteSql\] call runs.
+/// [Read][google.spanner.v1.Spanner.Read] or
+/// [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql] call runs.
 ///
-/// See \[TransactionOptions][google.spanner.v1.TransactionOptions\] for more
+/// See [TransactionOptions][google.spanner.v1.TransactionOptions] for more
 /// information about transactions.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3419,255 +4027,10 @@
         </span>Id(::prost::bytes::Bytes),
         <span class="doccomment">/// Begin a new transaction and execute this read or SQL query in
         /// it. The transaction ID of the new transaction is returned in
-        /// \[ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction\],
-        /// which is a \[Transaction][google.spanner.v1.Transaction\].
+        /// [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+        /// which is a [Transaction][google.spanner.v1.Transaction].
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
         </span>Begin(<span class="kw">super</span>::TransactionOptions),
-    }
-}
-<span class="doccomment">/// KeyRange represents a range of rows in a table or index.
-///
-/// A range has a start key and an end key. These keys can be open or
-/// closed, indicating if the range includes rows with that key.
-///
-/// Keys are represented by lists, where the ith value in the list
-/// corresponds to the ith component of the table or index primary key.
-/// Individual values are encoded as described
-/// \[here][google.spanner.v1.TypeCode\].
-///
-/// For example, consider the following table definition:
-///
-///      CREATE TABLE UserEvents (
-///        UserName STRING(MAX),
-///        EventDate STRING(10)
-///      ) PRIMARY KEY(UserName, EventDate);
-///
-/// The following keys name rows in this table:
-///
-///      [&quot;Bob&quot;, &quot;2014-09-23&quot;]
-///      [&quot;Alfred&quot;, &quot;2015-06-12&quot;]
-///
-/// Since the `UserEvents` table&#39;s `PRIMARY KEY` clause names two
-/// columns, each `UserEvents` key has two elements; the first is the
-/// `UserName`, and the second is the `EventDate`.
-///
-/// Key ranges with multiple components are interpreted
-/// lexicographically by component using the table or index key&#39;s declared
-/// sort order. For example, the following range returns all events for
-/// user `&quot;Bob&quot;` that occurred in the year 2015:
-///
-///      &quot;start_closed&quot;: [&quot;Bob&quot;, &quot;2015-01-01&quot;]
-///      &quot;end_closed&quot;: [&quot;Bob&quot;, &quot;2015-12-31&quot;]
-///
-/// Start and end keys can omit trailing key components. This affects the
-/// inclusion and exclusion of rows that exactly match the provided key
-/// components: if the key is closed, then rows that exactly match the
-/// provided components are included; if the key is open, then rows
-/// that exactly match are not included.
-///
-/// For example, the following range includes all events for `&quot;Bob&quot;` that
-/// occurred during and after the year 2000:
-///
-///      &quot;start_closed&quot;: [&quot;Bob&quot;, &quot;2000-01-01&quot;]
-///      &quot;end_closed&quot;: \[&quot;Bob&quot;\]
-///
-/// The next example retrieves all events for `&quot;Bob&quot;`:
-///
-///      &quot;start_closed&quot;: \[&quot;Bob&quot;\]
-///      &quot;end_closed&quot;: \[&quot;Bob&quot;\]
-///
-/// To retrieve events before the year 2000:
-///
-///      &quot;start_closed&quot;: \[&quot;Bob&quot;\]
-///      &quot;end_open&quot;: [&quot;Bob&quot;, &quot;2000-01-01&quot;]
-///
-/// The following range includes all rows in the table:
-///
-///      &quot;start_closed&quot;: []
-///      &quot;end_closed&quot;: []
-///
-/// This range returns all users whose `UserName` begins with any
-/// character from A to C:
-///
-///      &quot;start_closed&quot;: \[&quot;A&quot;\]
-///      &quot;end_open&quot;: \[&quot;D&quot;\]
-///
-/// This range returns all users whose `UserName` begins with B:
-///
-///      &quot;start_closed&quot;: \[&quot;B&quot;\]
-///      &quot;end_open&quot;: \[&quot;C&quot;\]
-///
-/// Key ranges honor column sort order. For example, suppose a table is
-/// defined as follows:
-///
-///      CREATE TABLE DescendingSortedTable {
-///        Key INT64,
-///        ...
-///      ) PRIMARY KEY(Key DESC);
-///
-/// The following range retrieves all rows with key values between 1
-/// and 100 inclusive:
-///
-///      &quot;start_closed&quot;: \[&quot;100&quot;\]
-///      &quot;end_closed&quot;: \[&quot;1&quot;\]
-///
-/// Note that 100 is passed as the start, and 1 is passed as the end,
-/// because `Key` is a descending column in the schema.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>KeyRange {
-    <span class="doccomment">/// The start key must be provided. It can be either closed or open.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;key_range::StartKeyType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-    </span><span class="kw">pub </span>start_key_type: ::core::option::Option&lt;key_range::StartKeyType&gt;,
-    <span class="doccomment">/// The end key must be provided. It can be either closed or open.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;key_range::EndKeyType&quot;</span>, tags = <span class="string">&quot;3, 4&quot;</span>)]
-    </span><span class="kw">pub </span>end_key_type: ::core::option::Option&lt;key_range::EndKeyType&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `KeyRange`.
-</span><span class="kw">pub mod </span>key_range {
-    <span class="doccomment">/// The start key must be provided. It can be either closed or open.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>StartKeyType {
-        <span class="doccomment">/// If the start is closed, then the range includes all rows whose
-        /// first `len(start_closed)` key columns exactly match `start_closed`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>StartClosed(::prost_types::ListValue),
-        <span class="doccomment">/// If the start is open, then the range excludes rows whose first
-        /// `len(start_open)` key columns exactly match `start_open`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>StartOpen(::prost_types::ListValue),
-    }
-    <span class="doccomment">/// The end key must be provided. It can be either closed or open.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>EndKeyType {
-        <span class="doccomment">/// If the end is closed, then the range includes all rows whose
-        /// first `len(end_closed)` key columns exactly match `end_closed`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>EndClosed(::prost_types::ListValue),
-        <span class="doccomment">/// If the end is open, then the range excludes rows whose first
-        /// `len(end_open)` key columns exactly match `end_open`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>EndOpen(::prost_types::ListValue),
-    }
-}
-<span class="doccomment">/// `KeySet` defines a collection of Cloud Spanner keys and/or key ranges. All
-/// the keys are expected to be in the same table or index. The keys need
-/// not be sorted in any particular way.
-///
-/// If the same key is specified multiple times in the set (for example
-/// if two ranges, two keys, or a key and a range overlap), Cloud Spanner
-/// behaves as if the key were only specified once.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>KeySet {
-    <span class="doccomment">/// A list of specific keys. Entries in `keys` should have exactly as
-    /// many elements as there are columns in the primary or index key
-    /// with which this `KeySet` is used.  Individual key values are
-    /// encoded as described \[here][google.spanner.v1.TypeCode\].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;::prost_types::ListValue&gt;,
-    <span class="doccomment">/// A list of key ranges. See \[KeyRange][google.spanner.v1.KeyRange\] for more information about
-    /// key range specifications.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>ranges: ::prost::alloc::vec::Vec&lt;KeyRange&gt;,
-    <span class="doccomment">/// For convenience `all` can be set to `true` to indicate that this
-    /// `KeySet` matches all keys in the table or index. Note that any keys
-    /// specified in `keys` or `ranges` are only yielded once.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>all: bool,
-}
-<span class="doccomment">/// A modification to one or more Cloud Spanner rows.  Mutations can be
-/// applied to a Cloud Spanner database by sending them in a
-/// \[Commit][google.spanner.v1.Spanner.Commit\] call.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Mutation {
-    <span class="doccomment">/// Required. The operation to perform.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;mutation::Operation&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5&quot;</span>)]
-    </span><span class="kw">pub </span>operation: ::core::option::Option&lt;mutation::Operation&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Mutation`.
-</span><span class="kw">pub mod </span>mutation {
-    <span class="doccomment">/// Arguments to \[insert][google.spanner.v1.Mutation.insert\], \[update][google.spanner.v1.Mutation.update\], \[insert_or_update][google.spanner.v1.Mutation.insert_or_update\], and
-    /// \[replace][google.spanner.v1.Mutation.replace\] operations.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Write {
-        <span class="doccomment">/// Required. The table whose rows will be written.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
-        <span class="doccomment">/// The names of the columns in \[table][google.spanner.v1.Mutation.Write.table\] to be written.
-        ///
-        /// The list of columns must contain enough columns to allow
-        /// Cloud Spanner to derive values for all primary key columns in the
-        /// row(s) to be modified.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// The values to be written. `values` can contain more than one
-        /// list of values. If it does, then multiple rows are written, one
-        /// for each entry in `values`. Each list in `values` must have
-        /// exactly as many entries as there are entries in \[columns][google.spanner.v1.Mutation.Write.columns\]
-        /// above. Sending multiple lists is equivalent to sending multiple
-        /// `Mutation`s, each containing one `values` entry and repeating
-        /// \[table][google.spanner.v1.Mutation.Write.table\] and \[columns][google.spanner.v1.Mutation.Write.columns\]. Individual values in each list are
-        /// encoded as described \[here][google.spanner.v1.TypeCode\].
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost_types::ListValue&gt;,
-    }
-    <span class="doccomment">/// Arguments to \[delete][google.spanner.v1.Mutation.delete\] operations.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Delete {
-        <span class="doccomment">/// Required. The table whose rows will be deleted.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
-        <span class="doccomment">/// Required. The primary keys of the rows within \[table][google.spanner.v1.Mutation.Delete.table\] to delete.  The
-        /// primary keys must be specified in the order in which they appear in the
-        /// `PRIMARY KEY()` clause of the table&#39;s equivalent DDL statement (the DDL
-        /// statement used to create the table).
-        /// Delete is idempotent. The transaction will succeed even if some or all
-        /// rows do not exist.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>key_set: ::core::option::Option&lt;<span class="kw">super</span>::KeySet&gt;,
-    }
-    <span class="doccomment">/// Required. The operation to perform.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Operation {
-        <span class="doccomment">/// Insert new rows in a table. If any of the rows already exist,
-        /// the write or transaction fails with error `ALREADY_EXISTS`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>Insert(Write),
-        <span class="doccomment">/// Update existing rows in a table. If any of the rows does not
-        /// already exist, the transaction fails with error `NOT_FOUND`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>Update(Write),
-        <span class="doccomment">/// Like \[insert][google.spanner.v1.Mutation.insert\], except that if the row already exists, then
-        /// its column values are overwritten with the ones provided. Any
-        /// column values not explicitly written are preserved.
-        ///
-        /// When using \[insert_or_update][google.spanner.v1.Mutation.insert_or_update\], just as when using \[insert][google.spanner.v1.Mutation.insert\], all `NOT
-        /// NULL` columns in the table must be given a value. This holds true
-        /// even when the row already exists and will therefore actually be updated.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>InsertOrUpdate(Write),
-        <span class="doccomment">/// Like \[insert][google.spanner.v1.Mutation.insert\], except that if the row already exists, it is
-        /// deleted, and the column values provided are inserted
-        /// instead. Unlike \[insert_or_update][google.spanner.v1.Mutation.insert_or_update\], this means any values not
-        /// explicitly written become `NULL`.
-        ///
-        /// In an interleaved table, if you create the child table with the
-        /// `ON DELETE CASCADE` annotation, then replacing a parent row
-        /// also deletes the child rows. Otherwise, you must delete the
-        /// child rows before you replace the parent row.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>Replace(Write),
-        <span class="doccomment">/// Delete rows from a table. Succeeds whether or not the named
-        /// rows were present.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
-        </span>Delete(Delete),
     }
 }
 <span class="doccomment">/// `Type` indicates the type of a Cloud Spanner value, as might be stored in a
@@ -3675,34 +4038,34 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Type {
-    <span class="doccomment">/// Required. The \[TypeCode][google.spanner.v1.TypeCode\] for this type.
+    <span class="doccomment">/// Required. The [TypeCode][google.spanner.v1.TypeCode] for this type.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TypeCode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>code: i32,
-    <span class="doccomment">/// If \[code][google.spanner.v1.Type.code\] == \[ARRAY][google.spanner.v1.TypeCode.ARRAY\], then `array_element_type`
+    <span class="doccomment">/// If [code][google.spanner.v1.Type.code] == [ARRAY][google.spanner.v1.TypeCode.ARRAY], then `array_element_type`
     /// is the type of the array elements.
     </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>array_element_type: ::core::option::Option&lt;::prost::alloc::boxed::Box&lt;Type&gt;&gt;,
-    <span class="doccomment">/// If \[code][google.spanner.v1.Type.code\] == \[STRUCT][google.spanner.v1.TypeCode.STRUCT\], then `struct_type`
+    <span class="doccomment">/// If [code][google.spanner.v1.Type.code] == [STRUCT][google.spanner.v1.TypeCode.STRUCT], then `struct_type`
     /// provides type information for the struct&#39;s fields.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>struct_type: ::core::option::Option&lt;StructType&gt;,
-    <span class="doccomment">/// The \[TypeAnnotationCode][google.spanner.v1.TypeAnnotationCode\] that disambiguates SQL type that Spanner will
+    <span class="doccomment">/// The [TypeAnnotationCode][google.spanner.v1.TypeAnnotationCode] that disambiguates SQL type that Spanner will
     /// use to represent values of this type during query processing. This is
-    /// necessary for some type codes because a single \[TypeCode][google.spanner.v1.TypeCode\] can be mapped
-    /// to different SQL types depending on the SQL dialect. \[type_annotation][google.spanner.v1.Type.type_annotation\]
+    /// necessary for some type codes because a single [TypeCode][google.spanner.v1.TypeCode] can be mapped
+    /// to different SQL types depending on the SQL dialect. [type_annotation][google.spanner.v1.Type.type_annotation]
     /// typically is not needed to process the content of a value (it doesn&#39;t
     /// affect serialization) and clients can ignore it on the read path.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TypeAnnotationCode&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>type_annotation: i32,
 }
-<span class="doccomment">/// `StructType` defines the fields of a \[STRUCT][google.spanner.v1.TypeCode.STRUCT\] type.
+<span class="doccomment">/// `StructType` defines the fields of a [STRUCT][google.spanner.v1.TypeCode.STRUCT] type.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StructType {
     <span class="doccomment">/// The list of fields that make up this struct. Order is
     /// significant, because values of this struct type are represented as
     /// lists, where the order of field values matches the order of
-    /// fields in the \[StructType][google.spanner.v1.StructType\]. In turn, the order of fields
+    /// fields in the [StructType][google.spanner.v1.StructType]. In turn, the order of fields
     /// matches the order of columns in a read request, or the order of
     /// fields in the `SELECT` clause of a query.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
@@ -3728,7 +4091,7 @@
         </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;<span class="kw">super</span>::Type&gt;,
     }
 }
-<span class="doccomment">/// `TypeCode` is used as part of \[Type][google.spanner.v1.Type\] to
+<span class="doccomment">/// `TypeCode` is used as part of [Type][google.spanner.v1.Type] to
 /// indicate the type of a Cloud Spanner value.
 ///
 /// Each legal value of a type can be encoded to or decoded from a JSON
@@ -3765,19 +4128,19 @@
     </span>Bytes = <span class="number">7</span>,
     <span class="doccomment">/// Encoded as `list`, where the list elements are represented
     /// according to
-    /// \[array_element_type][google.spanner.v1.Type.array_element_type\].
+    /// [array_element_type][google.spanner.v1.Type.array_element_type].
     </span>Array = <span class="number">8</span>,
     <span class="doccomment">/// Encoded as `list`, where list element `i` is represented according
-    /// to \[struct_type.fields[i]][google.spanner.v1.StructType.fields\].
+    /// to \[struct_type.fields[i\]][google.spanner.v1.StructType.fields].
     </span>Struct = <span class="number">9</span>,
     <span class="doccomment">/// Encoded as `string`, in decimal format or scientific notation format.
     /// &lt;br&gt;Decimal format:
-    /// &lt;br&gt;`\[+-]Digits[.[Digits]\]` or
-    /// &lt;br&gt;`\[+-][Digits\].Digits`
+    /// &lt;br&gt;`\[+-\]Digits\[.[Digits]\]` or
+    /// &lt;br&gt;`[+-][Digits].Digits`
     ///
     /// Scientific notation:
-    /// &lt;br&gt;`\[+-]Digits[.[Digits]][ExponentIndicator[+-]Digits\]` or
-    /// &lt;br&gt;`\[+-][Digits].Digits[ExponentIndicator[+-]Digits\]`
+    /// &lt;br&gt;`\[+-\]Digits\[.[Digits\]][ExponentIndicator\[+-\]Digits]` or
+    /// &lt;br&gt;`[+-][Digits].Digits\[ExponentIndicator[+-\]Digits]`
     /// &lt;br&gt;(ExponentIndicator is `&quot;e&quot;` or `&quot;E&quot;`)
     </span>Numeric = <span class="number">10</span>,
     <span class="doccomment">/// Encoded as a JSON-formatted `string` as described in RFC 7159. The
@@ -3830,7 +4193,7 @@
         }
     }
 }
-<span class="doccomment">/// `TypeAnnotationCode` is used as a part of \[Type][google.spanner.v1.Type\] to
+<span class="doccomment">/// `TypeAnnotationCode` is used as a part of [Type][google.spanner.v1.Type] to
 /// disambiguate SQL types that should be used for a given Cloud Spanner value.
 /// Disambiguation is needed because the same Cloud Spanner type can be mapped to
 /// different SQL types depending on SQL dialect. TypeAnnotationCode doesn&#39;t
@@ -3841,19 +4204,23 @@
     <span class="doccomment">/// Not specified.
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// PostgreSQL compatible NUMERIC type. This annotation needs to be applied to
-    /// \[Type][google.spanner.v1.Type\] instances having \[NUMERIC][google.spanner.v1.TypeCode.NUMERIC\]
+    /// [Type][google.spanner.v1.Type] instances having [NUMERIC][google.spanner.v1.TypeCode.NUMERIC]
     /// type code to specify that values of this type should be treated as
     /// PostgreSQL NUMERIC values. Currently this annotation is always needed for
-    /// \[NUMERIC][google.spanner.v1.TypeCode.NUMERIC\] when a client interacts with PostgreSQL-enabled
+    /// [NUMERIC][google.spanner.v1.TypeCode.NUMERIC] when a client interacts with PostgreSQL-enabled
     /// Spanner databases.
     </span>PgNumeric = <span class="number">2</span>,
     <span class="doccomment">/// PostgreSQL compatible JSONB type. This annotation needs to be applied to
-    /// \[Type][google.spanner.v1.Type\] instances having \[JSON][google.spanner.v1.TypeCode.JSON\]
+    /// [Type][google.spanner.v1.Type] instances having [JSON][google.spanner.v1.TypeCode.JSON]
     /// type code to specify that values of this type should be treated as
     /// PostgreSQL JSONB values. Currently this annotation is always needed for
-    /// \[JSON][google.spanner.v1.TypeCode.JSON\] when a client interacts with PostgreSQL-enabled
+    /// [JSON][google.spanner.v1.TypeCode.JSON] when a client interacts with PostgreSQL-enabled
     /// Spanner databases.
     </span>PgJsonb = <span class="number">3</span>,
+    <span class="doccomment">/// PostgreSQL compatible OID type. This annotation can be used by a client
+    /// interacting with PostgreSQL-enabled Spanner database to specify that a
+    /// value should be treated using the semantics of the OID type.
+    </span>PgOid = <span class="number">4</span>,
 }
 <span class="kw">impl </span>TypeAnnotationCode {
     <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -3865,6 +4232,7 @@
             TypeAnnotationCode::Unspecified =&gt; <span class="string">&quot;TYPE_ANNOTATION_CODE_UNSPECIFIED&quot;</span>,
             TypeAnnotationCode::PgNumeric =&gt; <span class="string">&quot;PG_NUMERIC&quot;</span>,
             TypeAnnotationCode::PgJsonb =&gt; <span class="string">&quot;PG_JSONB&quot;</span>,
+            TypeAnnotationCode::PgOid =&gt; <span class="string">&quot;PG_OID&quot;</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -3873,158 +4241,13 @@
             <span class="string">&quot;TYPE_ANNOTATION_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
             <span class="string">&quot;PG_NUMERIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PgNumeric),
             <span class="string">&quot;PG_JSONB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PgJsonb),
+            <span class="string">&quot;PG_OID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PgOid),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }
-<span class="doccomment">/// Node information for nodes appearing in a \[QueryPlan.plan_nodes][google.spanner.v1.QueryPlan.plan_nodes\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PlanNode {
-    <span class="doccomment">/// The `PlanNode`&#39;s index in [node list]\[google.spanner.v1.QueryPlan.plan_nodes\].
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>index: i32,
-    <span class="doccomment">/// Used to determine the type of node. May be needed for visualizing
-    /// different kinds of nodes differently. For example, If the node is a
-    /// \[SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR\] node, it will have a condensed representation
-    /// which can be used to directly embed a description of the node in its
-    /// parent.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;plan_node::Kind&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>kind: i32,
-    <span class="doccomment">/// The display name for the node.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// List of child node `index`es and their relationship to this parent.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>child_links: ::prost::alloc::vec::Vec&lt;plan_node::ChildLink&gt;,
-    <span class="doccomment">/// Condensed representation for \[SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR\] nodes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>short_representation: ::core::option::Option&lt;plan_node::ShortRepresentation&gt;,
-    <span class="doccomment">/// Attributes relevant to the node contained in a group of key-value pairs.
-    /// For example, a Parameter Reference node could have the following
-    /// information in its metadata:
-    ///
-    ///      {
-    ///        &quot;parameter_reference&quot;: &quot;param1&quot;,
-    ///        &quot;parameter_type&quot;: &quot;array&quot;
-    ///      }
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;::prost_types::Struct&gt;,
-    <span class="doccomment">/// The execution statistics associated with the node, contained in a group of
-    /// key-value pairs. Only present if the plan was returned as a result of a
-    /// profile query. For example, number of executions, number of rows/time per
-    /// execution etc.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>execution_stats: ::core::option::Option&lt;::prost_types::Struct&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `PlanNode`.
-</span><span class="kw">pub mod </span>plan_node {
-    <span class="doccomment">/// Metadata associated with a parent-child relationship appearing in a
-    /// \[PlanNode][google.spanner.v1.PlanNode\].
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ChildLink {
-        <span class="doccomment">/// The node to which the link points.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>child_index: i32,
-        <span class="doccomment">/// The type of the link. For example, in Hash Joins this could be used to
-        /// distinguish between the build child and the probe child, or in the case
-        /// of the child being an output variable, to represent the tag associated
-        /// with the output variable.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-        <span class="doccomment">/// Only present if the child node is \[SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR\] and corresponds
-        /// to an output variable of the parent node. The field carries the name of
-        /// the output variable.
-        /// For example, a `TableScan` operator that reads rows from a table will
-        /// have child links to the `SCALAR` nodes representing the output variables
-        /// created for each column that is read by the operator. The corresponding
-        /// `variable` fields will be set to the variable names assigned to the
-        /// columns.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>variable: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Condensed representation of a node and its subtree. Only present for
-    /// `SCALAR` \[PlanNode(s)][google.spanner.v1.PlanNode\].
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ShortRepresentation {
-        <span class="doccomment">/// A string representation of the expression subtree rooted at this node.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-        <span class="doccomment">/// A mapping of (subquery variable name) -&gt; (subquery node id) for cases
-        /// where the `description` string of this node references a `SCALAR`
-        /// subquery contained in the expression subtree rooted at this node. The
-        /// referenced `SCALAR` subquery may not necessarily be a direct child of
-        /// this node.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, int32&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>subqueries: ::prost::alloc::collections::BTreeMap&lt;
-            ::prost::alloc::string::String,
-            i32,
-        &gt;,
-    }
-    <span class="doccomment">/// The kind of \[PlanNode][google.spanner.v1.PlanNode\]. Distinguishes between the two different kinds of
-    /// nodes that can appear in a query plan.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Kind {
-        <span class="doccomment">/// Not specified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Denotes a Relational operator node in the expression tree. Relational
-        /// operators represent iterative processing of rows during query execution.
-        /// For example, a `TableScan` operation that reads rows from a table.
-        </span>Relational = <span class="number">1</span>,
-        <span class="doccomment">/// Denotes a Scalar node in the expression tree. Scalar nodes represent
-        /// non-iterable entities in the query plan. For example, constants or
-        /// arithmetic operators appearing inside predicate expressions or references
-        /// to column names.
-        </span>Scalar = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>Kind {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Kind::Unspecified =&gt; <span class="string">&quot;KIND_UNSPECIFIED&quot;</span>,
-                Kind::Relational =&gt; <span class="string">&quot;RELATIONAL&quot;</span>,
-                Kind::Scalar =&gt; <span class="string">&quot;SCALAR&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;KIND_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RELATIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Relational),
-                <span class="string">&quot;SCALAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scalar),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Contains an ordered list of nodes appearing in the query plan.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>QueryPlan {
-    <span class="doccomment">/// The nodes in the query plan. Plan nodes are returned in pre-order starting
-    /// with the plan root. Each \[PlanNode][google.spanner.v1.PlanNode\]&#39;s `id` corresponds to its index in
-    /// `plan_nodes`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>plan_nodes: ::prost::alloc::vec::Vec&lt;PlanNode&gt;,
-}
-<span class="doccomment">/// Results from \[Read][google.spanner.v1.Spanner.Read\] or
-/// \[ExecuteSql][google.spanner.v1.Spanner.ExecuteSql\].
+<span class="doccomment">/// Results from [Read][google.spanner.v1.Spanner.Read] or
+/// [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResultSet {
@@ -4032,21 +4255,21 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;ResultSetMetadata&gt;,
     <span class="doccomment">/// Each element in `rows` is a row whose format is defined by
-    /// \[metadata.row_type][google.spanner.v1.ResultSetMetadata.row_type\]. The ith element
+    /// [metadata.row_type][google.spanner.v1.ResultSetMetadata.row_type]. The ith element
     /// in each row matches the ith field in
-    /// \[metadata.row_type][google.spanner.v1.ResultSetMetadata.row_type\]. Elements are
+    /// [metadata.row_type][google.spanner.v1.ResultSetMetadata.row_type]. Elements are
     /// encoded based on type as described
-    /// \[here][google.spanner.v1.TypeCode\].
+    /// [here][google.spanner.v1.TypeCode].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>rows: ::prost::alloc::vec::Vec&lt;::prost_types::ListValue&gt;,
     <span class="doccomment">/// Query plan and execution statistics for the SQL statement that
     /// produced this result set. These can be requested by setting
-    /// \[ExecuteSqlRequest.query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode\].
+    /// [ExecuteSqlRequest.query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode].
     /// DML statements always produce stats containing the number of rows
     /// modified, unless executed using the
-    /// \[ExecuteSqlRequest.QueryMode.PLAN][google.spanner.v1.ExecuteSqlRequest.QueryMode.PLAN\] \[ExecuteSqlRequest.query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode\].
+    /// [ExecuteSqlRequest.QueryMode.PLAN][google.spanner.v1.ExecuteSqlRequest.QueryMode.PLAN] [ExecuteSqlRequest.query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode].
     /// Other fields may or may not be populated, based on the
-    /// \[ExecuteSqlRequest.query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode\].
+    /// [ExecuteSqlRequest.query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>stats: ::core::option::Option&lt;ResultSetStats&gt;,
 }
@@ -4064,14 +4287,14 @@
     /// be split into many `PartialResultSet` messages to accommodate
     /// large rows and/or large values. Every N complete values defines a
     /// row, where N is equal to the number of entries in
-    /// \[metadata.row_type.fields][google.spanner.v1.StructType.fields\].
+    /// [metadata.row_type.fields][google.spanner.v1.StructType.fields].
     ///
     /// Most values are encoded based on type as described
-    /// \[here][google.spanner.v1.TypeCode\].
+    /// [here][google.spanner.v1.TypeCode].
     ///
     /// It is possible that the last value in values is &quot;chunked&quot;,
     /// meaning that the rest of the value is sent in subsequent
-    /// `PartialResultSet`(s). This is denoted by the \[chunked_value][google.spanner.v1.PartialResultSet.chunked_value\]
+    /// `PartialResultSet`(s). This is denoted by the [chunked_value][google.spanner.v1.PartialResultSet.chunked_value]
     /// field. Two or more chunked values can be merged to form a
     /// complete value as follows:
     ///
@@ -4090,16 +4313,16 @@
     ///      &quot;foo&quot;, &quot;bar&quot; =&gt; &quot;foobar&quot;
     ///
     ///      # Lists of non-strings are concatenated.
-    ///      [2, 3], \[4\] =&gt; [2, 3, 4]
+    ///      \[2, 3\], \[4\] =&gt; \[2, 3, 4\]
     ///
     ///      # Lists are concatenated, but the last and first elements are merged
     ///      # because they are strings.
-    ///      [&quot;a&quot;, &quot;b&quot;], [&quot;c&quot;, &quot;d&quot;] =&gt; [&quot;a&quot;, &quot;bc&quot;, &quot;d&quot;]
+    ///      \[&quot;a&quot;, &quot;b&quot;\], \[&quot;c&quot;, &quot;d&quot;\] =&gt; \[&quot;a&quot;, &quot;bc&quot;, &quot;d&quot;\]
     ///
     ///      # Lists are concatenated, but the last and first elements are merged
     ///      # because they are lists. Recursively, the last and first elements
     ///      # of the inner lists are merged because they are strings.
-    ///      [&quot;a&quot;, [&quot;b&quot;, &quot;c&quot;]], \[[&quot;d&quot;\], &quot;e&quot;] =&gt; [&quot;a&quot;, [&quot;b&quot;, &quot;cd&quot;], &quot;e&quot;]
+    ///      \[&quot;a&quot;, [&quot;b&quot;, &quot;c&quot;]\], \[[&quot;d&quot;\], &quot;e&quot;] =&gt; \[&quot;a&quot;, [&quot;b&quot;, &quot;cd&quot;\], &quot;e&quot;]
     ///
     ///      # Non-overlapping object fields are combined.
     ///      {&quot;a&quot;: &quot;1&quot;}, {&quot;b&quot;: &quot;2&quot;} =&gt; {&quot;a&quot;: &quot;1&quot;, &quot;b&quot;: 2&quot;}
@@ -4116,7 +4339,7 @@
     ///
     ///      {
     ///        &quot;metadata&quot;: { ... }
-    ///        &quot;values&quot;: [&quot;Hello&quot;, &quot;W&quot;]
+    ///        &quot;values&quot;: \[&quot;Hello&quot;, &quot;W&quot;\]
     ///        &quot;chunked_value&quot;: true
     ///        &quot;resume_token&quot;: &quot;Af65...&quot;
     ///      }
@@ -4135,7 +4358,7 @@
     /// field value `&quot;World&quot; = &quot;W&quot; + &quot;orl&quot; + &quot;d&quot;`.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost_types::Value&gt;,
-    <span class="doccomment">/// If true, then the final value in \[values][google.spanner.v1.PartialResultSet.values\] is chunked, and must
+    <span class="doccomment">/// If true, then the final value in [values][google.spanner.v1.PartialResultSet.values] is chunked, and must
     /// be combined with more values from subsequent `PartialResultSet`s
     /// to obtain a complete field value.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
@@ -4149,14 +4372,14 @@
     </span><span class="kw">pub </span>resume_token: ::prost::bytes::Bytes,
     <span class="doccomment">/// Query plan and execution statistics for the statement that produced this
     /// streaming result set. These can be requested by setting
-    /// \[ExecuteSqlRequest.query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode\] and are sent
+    /// [ExecuteSqlRequest.query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode] and are sent
     /// only once with the last response in the stream.
     /// This field will also be present in the last response for DML
     /// statements.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>stats: ::core::option::Option&lt;ResultSetStats&gt;,
 }
-<span class="doccomment">/// Metadata about a \[ResultSet][google.spanner.v1.ResultSet\] or \[PartialResultSet][google.spanner.v1.PartialResultSet\].
+<span class="doccomment">/// Metadata about a [ResultSet][google.spanner.v1.ResultSet] or [PartialResultSet][google.spanner.v1.PartialResultSet].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResultSetMetadata {
@@ -4187,11 +4410,11 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>undeclared_parameters: ::core::option::Option&lt;StructType&gt;,
 }
-<span class="doccomment">/// Additional statistics about a \[ResultSet][google.spanner.v1.ResultSet\] or \[PartialResultSet][google.spanner.v1.PartialResultSet\].
+<span class="doccomment">/// Additional statistics about a [ResultSet][google.spanner.v1.ResultSet] or [PartialResultSet][google.spanner.v1.PartialResultSet].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResultSetStats {
-    <span class="doccomment">/// \[QueryPlan][google.spanner.v1.QueryPlan\] for the query associated with this result.
+    <span class="doccomment">/// [QueryPlan][google.spanner.v1.QueryPlan] for the query associated with this result.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>query_plan: ::core::option::Option&lt;QueryPlan&gt;,
     <span class="doccomment">/// Aggregated statistics from the execution of the query. Only present when
@@ -4224,37 +4447,7 @@
         </span>RowCountLowerBound(i64),
     }
 }
-<span class="doccomment">/// The response for \[Commit][google.spanner.v1.Spanner.Commit\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CommitResponse {
-    <span class="doccomment">/// The Cloud Spanner timestamp at which the transaction committed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>commit_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The statistics about this Commit. Not returned by default.
-    /// For more information, see
-    /// \[CommitRequest.return_commit_stats][google.spanner.v1.CommitRequest.return_commit_stats\].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>commit_stats: ::core::option::Option&lt;commit_response::CommitStats&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `CommitResponse`.
-</span><span class="kw">pub mod </span>commit_response {
-    <span class="doccomment">/// Additional statistics about a commit.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>CommitStats {
-        <span class="doccomment">/// The total number of mutations for the transaction. Knowing the
-        /// `mutation_count` value can help you maximize the number of mutations
-        /// in a transaction and minimize the number of API round trips. You can
-        /// also monitor this value to prevent transactions from exceeding the system
-        /// \[limit\](&lt;https://cloud.google.com/spanner/quotas#limits_for_creating_reading_updating_and_deleting_data&gt;).
-        /// If the number of mutations exceeds the limit, the server returns
-        /// \[INVALID_ARGUMENT\](&lt;https://cloud.google.com/spanner/docs/reference/rest/v1/Code#ENUM_VALUES.INVALID_ARGUMENT&gt;).
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>mutation_count: i64,
-    }
-}
-<span class="doccomment">/// The request for \[CreateSession][google.spanner.v1.Spanner.CreateSession\].
+<span class="doccomment">/// The request for [CreateSession][google.spanner.v1.Spanner.CreateSession].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateSessionRequest {
@@ -4265,7 +4458,8 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>session: ::core::option::Option&lt;Session&gt;,
 }
-<span class="doccomment">/// The request for \[BatchCreateSessions][google.spanner.v1.Spanner.BatchCreateSessions\].
+<span class="doccomment">/// The request for
+/// [BatchCreateSessions][google.spanner.v1.Spanner.BatchCreateSessions].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateSessionsRequest {
@@ -4279,11 +4473,13 @@
     /// The API may return fewer than the requested number of sessions. If a
     /// specific number of sessions are desired, the client can make additional
     /// calls to BatchCreateSessions (adjusting
-    /// \[session_count][google.spanner.v1.BatchCreateSessionsRequest.session_count\] as necessary).
+    /// [session_count][google.spanner.v1.BatchCreateSessionsRequest.session_count]
+    /// as necessary).
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>session_count: i32,
 }
-<span class="doccomment">/// The response for \[BatchCreateSessions][google.spanner.v1.Spanner.BatchCreateSessions\].
+<span class="doccomment">/// The response for
+/// [BatchCreateSessions][google.spanner.v1.Spanner.BatchCreateSessions].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateSessionsResponse {
@@ -4301,9 +4497,9 @@
     <span class="doccomment">/// The labels for the session.
     ///
     ///   * Label keys must be between 1 and 63 characters long and must conform to
-    ///     the following regular expression: `\[a-z]([-a-z0-9]*[a-z0-9\])?`.
+    ///     the following regular expression: `[a-z](\[-a-z0-9\]*[a-z0-9])?`.
     ///   * Label values must be between 0 and 63 characters long and must conform
-    ///     to the regular expression `(\[a-z]([-a-z0-9]*[a-z0-9\])?)?`.
+    ///     to the regular expression `([a-z](\[-a-z0-9\]*[a-z0-9])?)?`.
     ///   * No more than 64 labels can be associated with a given session.
     ///
     /// See &lt;https://goo.gl/xmQnxf&gt; for more information on and examples of labels.
@@ -4323,7 +4519,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>creator_role: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The request for \[GetSession][google.spanner.v1.Spanner.GetSession\].
+<span class="doccomment">/// The request for [GetSession][google.spanner.v1.Spanner.GetSession].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetSessionRequest {
@@ -4331,7 +4527,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The request for \[ListSessions][google.spanner.v1.Spanner.ListSessions\].
+<span class="doccomment">/// The request for [ListSessions][google.spanner.v1.Spanner.ListSessions].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSessionsRequest {
@@ -4343,8 +4539,9 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// If non-empty, `page_token` should contain a
-    /// \[next_page_token][google.spanner.v1.ListSessionsResponse.next_page_token\] from a previous
-    /// \[ListSessionsResponse][google.spanner.v1.ListSessionsResponse\].
+    /// [next_page_token][google.spanner.v1.ListSessionsResponse.next_page_token]
+    /// from a previous
+    /// [ListSessionsResponse][google.spanner.v1.ListSessionsResponse].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression for filtering the results of the request. Filter rules are
@@ -4360,7 +4557,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The response for \[ListSessions][google.spanner.v1.Spanner.ListSessions\].
+<span class="doccomment">/// The response for [ListSessions][google.spanner.v1.Spanner.ListSessions].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSessionsResponse {
@@ -4368,12 +4565,12 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>sessions: ::prost::alloc::vec::Vec&lt;Session&gt;,
     <span class="doccomment">/// `next_page_token` can be sent in a subsequent
-    /// \[ListSessions][google.spanner.v1.Spanner.ListSessions\] call to fetch more of the matching
-    /// sessions.
+    /// [ListSessions][google.spanner.v1.Spanner.ListSessions] call to fetch more
+    /// of the matching sessions.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The request for \[DeleteSession][google.spanner.v1.Spanner.DeleteSession\].
+<span class="doccomment">/// The request for [DeleteSession][google.spanner.v1.Spanner.DeleteSession].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteSessionRequest {
@@ -4417,7 +4614,7 @@
 <span class="doccomment">/// Nested message and enum types in `RequestOptions`.
 </span><span class="kw">pub mod </span>request_options {
     <span class="doccomment">/// The relative priority for requests. Note that priority is not applicable
-    /// for \[BeginTransaction][google.spanner.v1.Spanner.BeginTransaction\].
+    /// for [BeginTransaction][google.spanner.v1.Spanner.BeginTransaction].
     ///
     /// The priority acts as a hint to the Cloud Spanner scheduler and does not
     /// guarantee priority or order of execution. For example:
@@ -4479,8 +4676,140 @@
         }
     }
 }
-<span class="doccomment">/// The request for \[ExecuteSql][google.spanner.v1.Spanner.ExecuteSql\] and
-/// \[ExecuteStreamingSql][google.spanner.v1.Spanner.ExecuteStreamingSql\].
+<span class="doccomment">/// The DirectedReadOptions can be used to indicate which replicas or regions
+/// should be used for non-transactional reads or queries.
+///
+/// DirectedReadOptions may only be specified for a read-only transaction,
+/// otherwise the API will return an `INVALID_ARGUMENT` error.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DirectedReadOptions {
+    <span class="doccomment">/// Required. Replicas indicates the order in which replicas should be
+    /// considered. At most one of either include_replicas or exclude_replicas
+    /// should be present in the message.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;directed_read_options::Replicas&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>replicas: ::core::option::Option&lt;directed_read_options::Replicas&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `DirectedReadOptions`.
+</span><span class="kw">pub mod </span>directed_read_options {
+    <span class="doccomment">/// The directed read replica selector.
+    /// Callers must provide one or more of the following fields for replica
+    /// selection:
+    ///
+    ///    * `location` - The location must be one of the regions within the
+    ///       multi-region configuration of your database.
+    ///    * `type` - The type of the replica.
+    ///
+    /// Some examples of using replica_selectors are:
+    ///
+    ///    * `location:us-east1` --&gt; The &quot;us-east1&quot; replica(s) of any available type
+    ///                              will be used to process the request.
+    ///    * `type:READ_ONLY`    --&gt; The &quot;READ_ONLY&quot; type replica(s) in nearest
+    /// .                            available location will be used to process the
+    ///                              request.
+    ///    * `location:us-east1 type:READ_ONLY` --&gt; The &quot;READ_ONLY&quot; type replica(s)
+    ///                           in location &quot;us-east1&quot; will be used to process
+    ///                           the request.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ReplicaSelection {
+        <span class="doccomment">/// The location or region of the serving requests, e.g. &quot;us-east1&quot;.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
+        <span class="doccomment">/// The type of replica.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;replica_selection::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `ReplicaSelection`.
+    </span><span class="kw">pub mod </span>replica_selection {
+        <span class="doccomment">/// Indicates the type of replica.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>Type {
+            <span class="doccomment">/// Not specified.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// Read-write replicas support both reads and writes.
+            </span>ReadWrite = <span class="number">1</span>,
+            <span class="doccomment">/// Read-only replicas only support reads (not writes).
+            </span>ReadOnly = <span class="number">2</span>,
+        }
+        <span class="kw">impl </span>Type {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
+                    Type::ReadWrite =&gt; <span class="string">&quot;READ_WRITE&quot;</span>,
+                    Type::ReadOnly =&gt; <span class="string">&quot;READ_ONLY&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;READ_WRITE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadWrite),
+                    <span class="string">&quot;READ_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadOnly),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+    <span class="doccomment">/// An IncludeReplicas contains a repeated set of ReplicaSelection which
+    /// indicates the order in which replicas should be considered.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>IncludeReplicas {
+        <span class="doccomment">/// The directed read replica selector.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>replica_selections: ::prost::alloc::vec::Vec&lt;ReplicaSelection&gt;,
+        <span class="doccomment">/// If true, Spanner will not route requests to a replica outside the
+        /// include_replicas list when all of the specified replicas are unavailable
+        /// or unhealthy. Default value is `false`.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>auto_failover_disabled: bool,
+    }
+    <span class="doccomment">/// An ExcludeReplicas contains a repeated set of ReplicaSelection that should
+    /// be excluded from serving requests.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ExcludeReplicas {
+        <span class="doccomment">/// The directed read replica selector.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>replica_selections: ::prost::alloc::vec::Vec&lt;ReplicaSelection&gt;,
+    }
+    <span class="doccomment">/// Required. Replicas indicates the order in which replicas should be
+    /// considered. At most one of either include_replicas or exclude_replicas
+    /// should be present in the message.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Replicas {
+        <span class="doccomment">/// Include_replicas indicates the order of replicas (as they appear in
+        /// this list) to process the request. If auto_failover_disabled is set to
+        /// true and all replicas are exhausted without finding a healthy replica,
+        /// Spanner will wait for a replica in the list to become available, requests
+        /// may fail due to `DEADLINE_EXCEEDED` errors.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>IncludeReplicas(IncludeReplicas),
+        <span class="doccomment">/// Exclude_replicas indicates that should be excluded from serving
+        /// requests. Spanner will not route requests to the replicas in this list.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>ExcludeReplicas(ExcludeReplicas),
+    }
+}
+<span class="doccomment">/// The request for [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql] and
+/// [ExecuteStreamingSql][google.spanner.v1.Spanner.ExecuteStreamingSql].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecuteSqlRequest {
@@ -4519,11 +4848,12 @@
     </span><span class="kw">pub </span>params: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// It is not always possible for Cloud Spanner to infer the right SQL type
     /// from a JSON value.  For example, values of type `BYTES` and values
-    /// of type `STRING` both appear in \[params][google.spanner.v1.ExecuteSqlRequest.params\] as JSON strings.
+    /// of type `STRING` both appear in
+    /// [params][google.spanner.v1.ExecuteSqlRequest.params] as JSON strings.
     ///
     /// In these cases, `param_types` can be used to specify the exact
     /// SQL type for some or all of the SQL statement parameters. See the
-    /// definition of \[Type][google.spanner.v1.Type\] for more information
+    /// definition of [Type][google.spanner.v1.Type] for more information
     /// about SQL types.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>param_types: ::prost::alloc::collections::BTreeMap&lt;
@@ -4532,15 +4862,18 @@
     &gt;,
     <span class="doccomment">/// If this request is resuming a previously interrupted SQL statement
     /// execution, `resume_token` should be copied from the last
-    /// \[PartialResultSet][google.spanner.v1.PartialResultSet\] yielded before the interruption. Doing this
-    /// enables the new SQL statement execution to resume where the last one left
-    /// off. The rest of the request parameters must exactly match the
-    /// request that yielded this token.
+    /// [PartialResultSet][google.spanner.v1.PartialResultSet] yielded before the
+    /// interruption. Doing this enables the new SQL statement execution to resume
+    /// where the last one left off. The rest of the request parameters must
+    /// exactly match the request that yielded this token.
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>resume_token: ::prost::bytes::Bytes,
     <span class="doccomment">/// Used to control the amount of debugging information returned in
-    /// \[ResultSetStats][google.spanner.v1.ResultSetStats\]. If \[partition_token][google.spanner.v1.ExecuteSqlRequest.partition_token\] is set, \[query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode\] can only
-    /// be set to \[QueryMode.NORMAL][google.spanner.v1.ExecuteSqlRequest.QueryMode.NORMAL\].
+    /// [ResultSetStats][google.spanner.v1.ResultSetStats]. If
+    /// [partition_token][google.spanner.v1.ExecuteSqlRequest.partition_token] is
+    /// set, [query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode] can only
+    /// be set to
+    /// [QueryMode.NORMAL][google.spanner.v1.ExecuteSqlRequest.QueryMode.NORMAL].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;execute_sql_request::QueryMode&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>query_mode: i32,
     <span class="doccomment">/// If present, results will be restricted to the specified partition
@@ -4567,11 +4900,14 @@
     <span class="doccomment">/// Common options for this request.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>request_options: ::core::option::Option&lt;RequestOptions&gt;,
+    <span class="doccomment">/// Directed read options for this request.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>directed_read_options: ::core::option::Option&lt;DirectedReadOptions&gt;,
     <span class="doccomment">/// If this is for a partitioned query and this field is set to `true`, the
-    /// request will be executed via Spanner independent compute resources.
+    /// request is executed with Spanner Data Boost independent compute resources.
     ///
     /// If the field is set to `true` but the request does not set
-    /// `partition_token`, the API will return an `INVALID_ARGUMENT` error.
+    /// `partition_token`, the API returns an `INVALID_ARGUMENT` error.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;16&quot;</span>)]
     </span><span class="kw">pub </span>data_boost_enabled: bool,
 }
@@ -4678,7 +5014,7 @@
         }
     }
 }
-<span class="doccomment">/// The request for \[ExecuteBatchDml][google.spanner.v1.Spanner.ExecuteBatchDml\].
+<span class="doccomment">/// The request for [ExecuteBatchDml][google.spanner.v1.Spanner.ExecuteBatchDml].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecuteBatchDmlRequest {
@@ -4692,17 +5028,17 @@
     /// transaction.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;TransactionSelector&gt;,
-    <span class="doccomment">/// Required. The list of statements to execute in this batch. Statements are executed
-    /// serially, such that the effects of statement `i` are visible to statement
-    /// `i+1`. Each statement must be a DML statement. Execution stops at the
-    /// first failed statement; the remaining statements are not executed.
+    <span class="doccomment">/// Required. The list of statements to execute in this batch. Statements are
+    /// executed serially, such that the effects of statement `i` are visible to
+    /// statement `i+1`. Each statement must be a DML statement. Execution stops at
+    /// the first failed statement; the remaining statements are not executed.
     ///
     /// Callers must provide at least one statement.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>statements: ::prost::alloc::vec::Vec&lt;execute_batch_dml_request::Statement&gt;,
-    <span class="doccomment">/// Required. A per-transaction sequence number used to identify this request. This field
-    /// makes each request idempotent such that if the request is received multiple
-    /// times, at most one will succeed.
+    <span class="doccomment">/// Required. A per-transaction sequence number used to identify this request.
+    /// This field makes each request idempotent such that if the request is
+    /// received multiple times, at most one will succeed.
     ///
     /// The sequence number must be monotonically increasing within the
     /// transaction. If a request arrives for the first time with an out-of-order
@@ -4739,11 +5075,13 @@
         </span><span class="kw">pub </span>params: ::core::option::Option&lt;::prost_types::Struct&gt;,
         <span class="doccomment">/// It is not always possible for Cloud Spanner to infer the right SQL type
         /// from a JSON value.  For example, values of type `BYTES` and values
-        /// of type `STRING` both appear in \[params][google.spanner.v1.ExecuteBatchDmlRequest.Statement.params\] as JSON strings.
+        /// of type `STRING` both appear in
+        /// [params][google.spanner.v1.ExecuteBatchDmlRequest.Statement.params] as
+        /// JSON strings.
         ///
         /// In these cases, `param_types` can be used to specify the exact
         /// SQL type for some or all of the SQL statement parameters. See the
-        /// definition of \[Type][google.spanner.v1.Type\] for more information
+        /// definition of [Type][google.spanner.v1.Type] for more information
         /// about SQL types.
         </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>param_types: ::prost::alloc::collections::BTreeMap&lt;
@@ -4752,40 +5090,49 @@
         &gt;,
     }
 }
-<span class="doccomment">/// The response for \[ExecuteBatchDml][google.spanner.v1.Spanner.ExecuteBatchDml\]. Contains a list
-/// of \[ResultSet][google.spanner.v1.ResultSet\] messages, one for each DML statement that has successfully
-/// executed, in the same order as the statements in the request. If a statement
-/// fails, the status in the response body identifies the cause of the failure.
+<span class="doccomment">/// The response for
+/// [ExecuteBatchDml][google.spanner.v1.Spanner.ExecuteBatchDml]. Contains a list
+/// of [ResultSet][google.spanner.v1.ResultSet] messages, one for each DML
+/// statement that has successfully executed, in the same order as the statements
+/// in the request. If a statement fails, the status in the response body
+/// identifies the cause of the failure.
 ///
 /// To check for DML statements that failed, use the following approach:
 ///
-/// 1. Check the status in the response message. The \[google.rpc.Code][google.rpc.Code\] enum
+/// 1. Check the status in the response message. The
+/// [google.rpc.Code][google.rpc.Code] enum
 ///     value `OK` indicates that all statements were executed successfully.
 /// 2. If the status was not `OK`, check the number of result sets in the
-///     response. If the response contains `N` \[ResultSet][google.spanner.v1.ResultSet\] messages, then
-///     statement `N+1` in the request failed.
+///     response. If the response contains `N`
+///     [ResultSet][google.spanner.v1.ResultSet] messages, then statement `N+1` in
+///     the request failed.
 ///
 /// Example 1:
 ///
 /// * Request: 5 DML statements, all executed successfully.
-/// * Response: 5 \[ResultSet][google.spanner.v1.ResultSet\] messages, with the status `OK`.
+/// * Response: 5 [ResultSet][google.spanner.v1.ResultSet] messages, with the
+/// status `OK`.
 ///
 /// Example 2:
 ///
 /// * Request: 5 DML statements. The third statement has a syntax error.
-/// * Response: 2 \[ResultSet][google.spanner.v1.ResultSet\] messages, and a syntax error (`INVALID_ARGUMENT`)
-///    status. The number of \[ResultSet][google.spanner.v1.ResultSet\] messages indicates that the third
-///    statement failed, and the fourth and fifth statements were not executed.
+/// * Response: 2 [ResultSet][google.spanner.v1.ResultSet] messages, and a syntax
+/// error (`INVALID_ARGUMENT`)
+///    status. The number of [ResultSet][google.spanner.v1.ResultSet] messages
+///    indicates that the third statement failed, and the fourth and fifth
+///    statements were not executed.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecuteBatchDmlResponse {
-    <span class="doccomment">/// One \[ResultSet][google.spanner.v1.ResultSet\] for each statement in the request that ran successfully,
-    /// in the same order as the statements in the request. Each \[ResultSet][google.spanner.v1.ResultSet\] does
-    /// not contain any rows. The \[ResultSetStats][google.spanner.v1.ResultSetStats\] in each \[ResultSet][google.spanner.v1.ResultSet\] contain
-    /// the number of rows modified by the statement.
+    <span class="doccomment">/// One [ResultSet][google.spanner.v1.ResultSet] for each statement in the
+    /// request that ran successfully, in the same order as the statements in the
+    /// request. Each [ResultSet][google.spanner.v1.ResultSet] does not contain any
+    /// rows. The [ResultSetStats][google.spanner.v1.ResultSetStats] in each
+    /// [ResultSet][google.spanner.v1.ResultSet] contain the number of rows
+    /// modified by the statement.
     ///
-    /// Only the first \[ResultSet][google.spanner.v1.ResultSet\] in the response contains valid
-    /// \[ResultSetMetadata][google.spanner.v1.ResultSetMetadata\].
+    /// Only the first [ResultSet][google.spanner.v1.ResultSet] in the response
+    /// contains valid [ResultSetMetadata][google.spanner.v1.ResultSetMetadata].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>result_sets: ::prost::alloc::vec::Vec&lt;ResultSet&gt;,
     <span class="doccomment">/// If all DML statements are executed successfully, the status is `OK`.
@@ -4817,7 +5164,7 @@
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>max_partitions: i64,
 }
-<span class="doccomment">/// The request for \[PartitionQuery][google.spanner.v1.Spanner.PartitionQuery\]
+<span class="doccomment">/// The request for [PartitionQuery][google.spanner.v1.Spanner.PartitionQuery]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionQueryRequest {
@@ -4828,15 +5175,16 @@
     /// transactions are not.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;TransactionSelector&gt;,
-    <span class="doccomment">/// Required. The query request to generate partitions for. The request will fail if
-    /// the query is not root partitionable. The query plan of a root
-    /// partitionable query has a single distributed union operator. A distributed
-    /// union operator conceptually divides one or more tables into multiple
-    /// splits, remotely evaluates a subquery independently on each split, and
-    /// then unions all results.
+    <span class="doccomment">/// Required. The query request to generate partitions for. The request will
+    /// fail if the query is not root partitionable. For a query to be root
+    /// partitionable, it needs to satisfy a few conditions. For example, the first
+    /// operator in the query execution plan must be a distributed union operator.
+    /// For more information about other conditions, see [Read data in
+    /// parallel](&lt;https://cloud.google.com/spanner/docs/reads#read_data_in_parallel&gt;).
     ///
-    /// This must not contain DML commands, such as INSERT, UPDATE, or
-    /// DELETE. Use \[ExecuteStreamingSql][google.spanner.v1.Spanner.ExecuteStreamingSql\] with a
+    /// The query request must not contain DML commands, such as INSERT, UPDATE, or
+    /// DELETE. Use
+    /// [ExecuteStreamingSql][google.spanner.v1.Spanner.ExecuteStreamingSql] with a
     /// PartitionedDml transaction for large, partition-friendly DML operations.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>sql: ::prost::alloc::string::String,
@@ -4856,11 +5204,12 @@
     </span><span class="kw">pub </span>params: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// It is not always possible for Cloud Spanner to infer the right SQL type
     /// from a JSON value.  For example, values of type `BYTES` and values
-    /// of type `STRING` both appear in \[params][google.spanner.v1.PartitionQueryRequest.params\] as JSON strings.
+    /// of type `STRING` both appear in
+    /// [params][google.spanner.v1.PartitionQueryRequest.params] as JSON strings.
     ///
     /// In these cases, `param_types` can be used to specify the exact
     /// SQL type for some or all of the SQL query parameters. See the
-    /// definition of \[Type][google.spanner.v1.Type\] for more information
+    /// definition of [Type][google.spanner.v1.Type] for more information
     /// about SQL types.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>param_types: ::prost::alloc::collections::BTreeMap&lt;
@@ -4871,7 +5220,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>partition_options: ::core::option::Option&lt;PartitionOptions&gt;,
 }
-<span class="doccomment">/// The request for \[PartitionRead][google.spanner.v1.Spanner.PartitionRead\]
+<span class="doccomment">/// The request for [PartitionRead][google.spanner.v1.Spanner.PartitionRead]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionReadRequest {
@@ -4885,19 +5234,25 @@
     <span class="doccomment">/// Required. The name of the table in the database to be read.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
-    <span class="doccomment">/// If non-empty, the name of an index on \[table][google.spanner.v1.PartitionReadRequest.table\]. This index is
-    /// used instead of the table primary key when interpreting \[key_set][google.spanner.v1.PartitionReadRequest.key_set\]
-    /// and sorting result rows. See \[key_set][google.spanner.v1.PartitionReadRequest.key_set\] for further information.
+    <span class="doccomment">/// If non-empty, the name of an index on
+    /// [table][google.spanner.v1.PartitionReadRequest.table]. This index is used
+    /// instead of the table primary key when interpreting
+    /// [key_set][google.spanner.v1.PartitionReadRequest.key_set] and sorting
+    /// result rows. See [key_set][google.spanner.v1.PartitionReadRequest.key_set]
+    /// for further information.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>index: ::prost::alloc::string::String,
-    <span class="doccomment">/// The columns of \[table][google.spanner.v1.PartitionReadRequest.table\] to be returned for each row matching
-    /// this request.
+    <span class="doccomment">/// The columns of [table][google.spanner.v1.PartitionReadRequest.table] to be
+    /// returned for each row matching this request.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Required. `key_set` identifies the rows to be yielded. `key_set` names the
-    /// primary keys of the rows in \[table][google.spanner.v1.PartitionReadRequest.table\] to be yielded, unless \[index][google.spanner.v1.PartitionReadRequest.index\]
-    /// is present. If \[index][google.spanner.v1.PartitionReadRequest.index\] is present, then \[key_set][google.spanner.v1.PartitionReadRequest.key_set\] instead names
-    /// index keys in \[index][google.spanner.v1.PartitionReadRequest.index\].
+    /// primary keys of the rows in
+    /// [table][google.spanner.v1.PartitionReadRequest.table] to be yielded, unless
+    /// [index][google.spanner.v1.PartitionReadRequest.index] is present. If
+    /// [index][google.spanner.v1.PartitionReadRequest.index] is present, then
+    /// [key_set][google.spanner.v1.PartitionReadRequest.key_set] instead names
+    /// index keys in [index][google.spanner.v1.PartitionReadRequest.index].
     ///
     /// It is not an error for the `key_set` to name rows that do not
     /// exist in the database. Read yields nothing for nonexistent rows.
@@ -4918,8 +5273,8 @@
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>partition_token: ::prost::bytes::Bytes,
 }
-<span class="doccomment">/// The response for \[PartitionQuery][google.spanner.v1.Spanner.PartitionQuery\]
-/// or \[PartitionRead][google.spanner.v1.Spanner.PartitionRead\]
+<span class="doccomment">/// The response for [PartitionQuery][google.spanner.v1.Spanner.PartitionQuery]
+/// or [PartitionRead][google.spanner.v1.Spanner.PartitionRead]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionResponse {
@@ -4930,8 +5285,8 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;Transaction&gt;,
 }
-<span class="doccomment">/// The request for \[Read][google.spanner.v1.Spanner.Read\] and
-/// \[StreamingRead][google.spanner.v1.Spanner.StreamingRead\].
+<span class="doccomment">/// The request for [Read][google.spanner.v1.Spanner.Read] and
+/// [StreamingRead][google.spanner.v1.Spanner.StreamingRead].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReadRequest {
@@ -4945,24 +5300,31 @@
     <span class="doccomment">/// Required. The name of the table in the database to be read.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
-    <span class="doccomment">/// If non-empty, the name of an index on \[table][google.spanner.v1.ReadRequest.table\]. This index is
-    /// used instead of the table primary key when interpreting \[key_set][google.spanner.v1.ReadRequest.key_set\]
-    /// and sorting result rows. See \[key_set][google.spanner.v1.ReadRequest.key_set\] for further information.
+    <span class="doccomment">/// If non-empty, the name of an index on
+    /// [table][google.spanner.v1.ReadRequest.table]. This index is used instead of
+    /// the table primary key when interpreting
+    /// [key_set][google.spanner.v1.ReadRequest.key_set] and sorting result rows.
+    /// See [key_set][google.spanner.v1.ReadRequest.key_set] for further
+    /// information.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>index: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The columns of \[table][google.spanner.v1.ReadRequest.table\] to be returned for each row matching
-    /// this request.
+    <span class="doccomment">/// Required. The columns of [table][google.spanner.v1.ReadRequest.table] to be
+    /// returned for each row matching this request.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Required. `key_set` identifies the rows to be yielded. `key_set` names the
-    /// primary keys of the rows in \[table][google.spanner.v1.ReadRequest.table\] to be yielded, unless \[index][google.spanner.v1.ReadRequest.index\]
-    /// is present. If \[index][google.spanner.v1.ReadRequest.index\] is present, then \[key_set][google.spanner.v1.ReadRequest.key_set\] instead names
-    /// index keys in \[index][google.spanner.v1.ReadRequest.index\].
+    /// primary keys of the rows in [table][google.spanner.v1.ReadRequest.table] to
+    /// be yielded, unless [index][google.spanner.v1.ReadRequest.index] is present.
+    /// If [index][google.spanner.v1.ReadRequest.index] is present, then
+    /// [key_set][google.spanner.v1.ReadRequest.key_set] instead names index keys
+    /// in [index][google.spanner.v1.ReadRequest.index].
     ///
-    /// If the \[partition_token][google.spanner.v1.ReadRequest.partition_token\] field is empty, rows are yielded
-    /// in table primary key order (if \[index][google.spanner.v1.ReadRequest.index\] is empty) or index key order
-    /// (if \[index][google.spanner.v1.ReadRequest.index\] is non-empty).  If the \[partition_token][google.spanner.v1.ReadRequest.partition_token\] field is not
-    /// empty, rows will be yielded in an unspecified order.
+    /// If the [partition_token][google.spanner.v1.ReadRequest.partition_token]
+    /// field is empty, rows are yielded in table primary key order (if
+    /// [index][google.spanner.v1.ReadRequest.index] is empty) or index key order
+    /// (if [index][google.spanner.v1.ReadRequest.index] is non-empty).  If the
+    /// [partition_token][google.spanner.v1.ReadRequest.partition_token] field is
+    /// not empty, rows will be yielded in an unspecified order.
     ///
     /// It is not an error for the `key_set` to name rows that do not
     /// exist in the database. Read yields nothing for nonexistent rows.
@@ -4975,9 +5337,9 @@
     </span><span class="kw">pub </span>limit: i64,
     <span class="doccomment">/// If this request is resuming a previously interrupted read,
     /// `resume_token` should be copied from the last
-    /// \[PartialResultSet][google.spanner.v1.PartialResultSet\] yielded before the interruption. Doing this
-    /// enables the new read to resume where the last read left off. The
-    /// rest of the request parameters must exactly match the request
+    /// [PartialResultSet][google.spanner.v1.PartialResultSet] yielded before the
+    /// interruption. Doing this enables the new read to resume where the last read
+    /// left off. The rest of the request parameters must exactly match the request
     /// that yielded this token.
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>resume_token: ::prost::bytes::Bytes,
@@ -4990,15 +5352,19 @@
     <span class="doccomment">/// Common options for this request.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>request_options: ::core::option::Option&lt;RequestOptions&gt;,
+    <span class="doccomment">/// Directed read options for this request.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>directed_read_options: ::core::option::Option&lt;DirectedReadOptions&gt;,
     <span class="doccomment">/// If this is for a partitioned read and this field is set to `true`, the
-    /// request will be executed via Spanner independent compute resources.
+    /// request is executed with Spanner Data Boost independent compute resources.
     ///
     /// If the field is set to `true` but the request does not set
-    /// `partition_token`, the API will return an `INVALID_ARGUMENT` error.
+    /// `partition_token`, the API returns an `INVALID_ARGUMENT` error.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
     </span><span class="kw">pub </span>data_boost_enabled: bool,
 }
-<span class="doccomment">/// The request for \[BeginTransaction][google.spanner.v1.Spanner.BeginTransaction\].
+<span class="doccomment">/// The request for
+/// [BeginTransaction][google.spanner.v1.Spanner.BeginTransaction].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BeginTransactionRequest {
@@ -5016,7 +5382,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>request_options: ::core::option::Option&lt;RequestOptions&gt;,
 }
-<span class="doccomment">/// The request for \[Commit][google.spanner.v1.Spanner.Commit\].
+<span class="doccomment">/// The request for [Commit][google.spanner.v1.Spanner.Commit].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommitRequest {
@@ -5029,8 +5395,8 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>mutations: ::prost::alloc::vec::Vec&lt;Mutation&gt;,
     <span class="doccomment">/// If `true`, then statistics related to the transaction will be included in
-    /// the \[CommitResponse][google.spanner.v1.CommitResponse.commit_stats\]. Default value is
-    /// `false`.
+    /// the [CommitResponse][google.spanner.v1.CommitResponse.commit_stats].
+    /// Default value is `false`.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>return_commit_stats: bool,
     <span class="doccomment">/// Common options for this request.
@@ -5056,13 +5422,13 @@
         /// instance, due to retries in the application, or in the
         /// transport library), it is possible that the mutations are
         /// executed more than once. If this is undesirable, use
-        /// \[BeginTransaction][google.spanner.v1.Spanner.BeginTransaction\] and
-        /// \[Commit][google.spanner.v1.Spanner.Commit\] instead.
+        /// [BeginTransaction][google.spanner.v1.Spanner.BeginTransaction] and
+        /// [Commit][google.spanner.v1.Spanner.Commit] instead.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
         </span>SingleUseTransaction(<span class="kw">super</span>::TransactionOptions),
     }
 }
-<span class="doccomment">/// The request for \[Rollback][google.spanner.v1.Spanner.Rollback\].
+<span class="doccomment">/// The request for [Rollback][google.spanner.v1.Spanner.Rollback].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RollbackRequest {
@@ -5073,7 +5439,7 @@
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>transaction_id: ::prost::bytes::Bytes,
 }
-<span class="doccomment">/// The request for \[BatchWrite][google.spanner.v1.Spanner.BatchWrite\].
+<span class="doccomment">/// The request for [BatchWrite][google.spanner.v1.Spanner.BatchWrite].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchWriteRequest {
@@ -5349,10 +5715,12 @@
         ///
         /// Operations inside read-write transactions might return `ABORTED`. If
         /// this occurs, the application should restart the transaction from
-        /// the beginning. See [Transaction][google.spanner.v1.Transaction] for more details.
+        /// the beginning. See [Transaction][google.spanner.v1.Transaction] for more
+        /// details.
         ///
         /// Larger result sets can be fetched in streaming fashion by calling
-        /// [ExecuteStreamingSql][google.spanner.v1.Spanner.ExecuteStreamingSql] instead.
+        /// [ExecuteStreamingSql][google.spanner.v1.Spanner.ExecuteStreamingSql]
+        /// instead.
         </span><span class="kw">pub async fn </span>execute_sql(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ExecuteSqlRequest&gt;,
@@ -5375,11 +5743,11 @@
                 .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;ExecuteSql&quot;</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Like [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql], except returns the result
-        /// set as a stream. Unlike [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql], there
-        /// is no limit on the size of the returned result set. However, no
-        /// individual row in the result set can exceed 100 MiB, and no
-        /// column value can exceed 10 MiB.
+        <span class="doccomment">/// Like [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql], except returns the
+        /// result set as a stream. Unlike
+        /// [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql], there is no limit on
+        /// the size of the returned result set. However, no individual row in the
+        /// result set can exceed 100 MiB, and no column value can exceed 10 MiB.
         </span><span class="kw">pub async fn </span>execute_streaming_sql(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ExecuteSqlRequest&gt;,
@@ -5412,9 +5780,10 @@
         /// [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql].
         ///
         /// Statements are executed in sequential order. A request can succeed even if
-        /// a statement fails. The [ExecuteBatchDmlResponse.status][google.spanner.v1.ExecuteBatchDmlResponse.status] field in the
-        /// response provides information about the statement that failed. Clients must
-        /// inspect this field to determine whether an error occurred.
+        /// a statement fails. The
+        /// [ExecuteBatchDmlResponse.status][google.spanner.v1.ExecuteBatchDmlResponse.status]
+        /// field in the response provides information about the statement that failed.
+        /// Clients must inspect this field to determine whether an error occurred.
         ///
         /// Execution stops after the first failed statement; the remaining statements
         /// are not executed.
@@ -5445,14 +5814,15 @@
         </span>}
         <span class="doccomment">/// Reads rows from the database using key lookups and scans, as a
         /// simple key/value style alternative to
-        /// [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql].  This method cannot be used to
-        /// return a result set larger than 10 MiB; if the read matches more
+        /// [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql].  This method cannot be
+        /// used to return a result set larger than 10 MiB; if the read matches more
         /// data than that, the read fails with a `FAILED_PRECONDITION`
         /// error.
         ///
         /// Reads inside read-write transactions might return `ABORTED`. If
         /// this occurs, the application should restart the transaction from
-        /// the beginning. See [Transaction][google.spanner.v1.Transaction] for more details.
+        /// the beginning. See [Transaction][google.spanner.v1.Transaction] for more
+        /// details.
         ///
         /// Larger result sets can be yielded in streaming fashion by calling
         /// [StreamingRead][google.spanner.v1.Spanner.StreamingRead] instead.
@@ -5478,9 +5848,9 @@
                 .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;Read&quot;</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Like [Read][google.spanner.v1.Spanner.Read], except returns the result set as a
-        /// stream. Unlike [Read][google.spanner.v1.Spanner.Read], there is no limit on the
-        /// size of the returned result set. However, no individual row in
+        <span class="doccomment">/// Like [Read][google.spanner.v1.Spanner.Read], except returns the result set
+        /// as a stream. Unlike [Read][google.spanner.v1.Spanner.Read], there is no
+        /// limit on the size of the returned result set. However, no individual row in
         /// the result set can exceed 100 MiB, and no column value can exceed
         /// 10 MiB.
         </span><span class="kw">pub async fn </span>streaming_read(
@@ -5509,7 +5879,8 @@
             <span class="self">self</span>.inner.server_streaming(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Begins a new transaction. This step can often be skipped:
-        /// [Read][google.spanner.v1.Spanner.Read], [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql] and
+        /// [Read][google.spanner.v1.Spanner.Read],
+        /// [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql] and
         /// [Commit][google.spanner.v1.Spanner.Commit] can begin a new transaction as a
         /// side-effect.
         </span><span class="kw">pub async fn </span>begin_transaction(
@@ -5574,8 +5945,9 @@
         </span>}
         <span class="doccomment">/// Rolls back a transaction, releasing any locks it holds. It is a good
         /// idea to call this for any transaction that includes one or more
-        /// [Read][google.spanner.v1.Spanner.Read] or [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql] requests and
-        /// ultimately decides not to commit.
+        /// [Read][google.spanner.v1.Spanner.Read] or
+        /// [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql] requests and ultimately
+        /// decides not to commit.
         ///
         /// `Rollback` returns `OK` if it successfully aborts the transaction, the
         /// transaction was already aborted, or the transaction is not
@@ -5604,10 +5976,11 @@
         </span>}
         <span class="doccomment">/// Creates a set of partition tokens that can be used to execute a query
         /// operation in parallel.  Each of the returned partition tokens can be used
-        /// by [ExecuteStreamingSql][google.spanner.v1.Spanner.ExecuteStreamingSql] to specify a subset
-        /// of the query result to read.  The same session and read-only transaction
-        /// must be used by the PartitionQueryRequest used to create the
-        /// partition tokens and the ExecuteSqlRequests that use the partition tokens.
+        /// by [ExecuteStreamingSql][google.spanner.v1.Spanner.ExecuteStreamingSql] to
+        /// specify a subset of the query result to read.  The same session and
+        /// read-only transaction must be used by the PartitionQueryRequest used to
+        /// create the partition tokens and the ExecuteSqlRequests that use the
+        /// partition tokens.
         ///
         /// Partition tokens become invalid when the session used to create them
         /// is deleted, is idle for too long, begins a new transaction, or becomes too
@@ -5640,12 +6013,13 @@
         </span>}
         <span class="doccomment">/// Creates a set of partition tokens that can be used to execute a read
         /// operation in parallel.  Each of the returned partition tokens can be used
-        /// by [StreamingRead][google.spanner.v1.Spanner.StreamingRead] to specify a subset of the read
-        /// result to read.  The same session and read-only transaction must be used by
-        /// the PartitionReadRequest used to create the partition tokens and the
-        /// ReadRequests that use the partition tokens.  There are no ordering
-        /// guarantees on rows returned among the returned partition tokens, or even
-        /// within each individual StreamingRead call issued with a partition_token.
+        /// by [StreamingRead][google.spanner.v1.Spanner.StreamingRead] to specify a
+        /// subset of the read result to read.  The same session and read-only
+        /// transaction must be used by the PartitionReadRequest used to create the
+        /// partition tokens and the ReadRequests that use the partition tokens.  There
+        /// are no ordering guarantees on rows returned among the returned partition
+        /// tokens, or even within each individual StreamingRead call issued with a
+        /// partition_token.
         ///
         /// Partition tokens become invalid when the session used to create them
         /// is deleted, is idle for too long, begins a new transaction, or becomes too

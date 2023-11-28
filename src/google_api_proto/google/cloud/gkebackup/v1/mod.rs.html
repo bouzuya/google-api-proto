@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/gkebackup/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/gkebackup/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3125,7 +3125,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Server generated global unique identifier of
-    /// \[UUID\](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;) format.
+    /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;) format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The timestamp when this Restore resource was created.
@@ -3139,10 +3139,10 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Immutable. A reference to the
-    /// \[Backup][google.cloud.gkebackup.v1.Backup\] used as the source from which
+    /// [Backup][google.cloud.gkebackup.v1.Backup] used as the source from which
     /// this Restore will restore. Note that this Backup must be a sub-resource of
     /// the RestorePlan&#39;s
-    /// \[backup_plan][google.cloud.gkebackup.v1.RestorePlan.backup_plan\]. Format:
+    /// [backup_plan][google.cloud.gkebackup.v1.RestorePlan.backup_plan]. Format:
     /// `projects/*/locations/*/backupPlans/*/backups/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>backup: ::prost::alloc::string::String,
@@ -3153,12 +3153,12 @@
     ///    - `projects/*/zones/*/clusters/*`
     ///
     /// Inherited from parent RestorePlan&#39;s
-    /// \[cluster][google.cloud.gkebackup.v1.RestorePlan.cluster\] value.
+    /// [cluster][google.cloud.gkebackup.v1.RestorePlan.cluster] value.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Configuration of the Restore.  Inherited from parent
     /// RestorePlan&#39;s
-    /// \[restore_config][google.cloud.gkebackup.v1.RestorePlan.restore_config\].
+    /// [restore_config][google.cloud.gkebackup.v1.RestorePlan.restore_config].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>restore_config: ::core::option::Option&lt;RestoreConfig&gt;,
     <span class="doccomment">/// A set of custom labels supplied by user.
@@ -3275,7 +3275,7 @@
     <span class="doccomment">/// Defines the behavior for handling the situation where cluster-scoped
     /// resources being restored already exist in the target cluster. This MUST be
     /// set to a value other than CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED if
-    /// \[cluster_resource_restore_scope][google.cloud.gkebackup.v1.RestoreConfig.cluster_resource_restore_scope\]
+    /// [cluster_resource_restore_scope][google.cloud.gkebackup.v1.RestoreConfig.cluster_resource_restore_scope]
     /// is not empty.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;restore_config::ClusterResourceConflictPolicy&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>cluster_resource_conflict_policy: i32,
@@ -3313,7 +3313,7 @@
     /// Note: Resources will never be restored into *managed* namespaces such as
     /// `kube-system`, `kube-public`, or `kube-node-lease`. These namespaces
     /// are silently skipped when
-    /// \[all_namespaces][google.cloud.gkebackup.v1.RestoreConfig.all_namespaces\] is
+    /// [all_namespaces][google.cloud.gkebackup.v1.RestoreConfig.all_namespaces] is
     /// selected. Listing them explicitly will result in an error.
     </span><span class="attr">#[prost(
         oneof = <span class="string">&quot;restore_config::NamespacedResourceRestoreScope&quot;</span>,
@@ -3326,7 +3326,7 @@
 <span class="doccomment">/// Nested message and enum types in `RestoreConfig`.
 </span><span class="kw">pub mod </span>restore_config {
     <span class="doccomment">/// This is a direct map to the Kubernetes GroupKind type
-    /// \[GroupKind\](&lt;https://godoc.org/k8s.io/apimachinery/pkg/runtime/schema#GroupKind&gt;)
+    /// [GroupKind](&lt;https://godoc.org/k8s.io/apimachinery/pkg/runtime/schema#GroupKind&gt;)
     /// and is used for identifying specific &quot;types&quot; of resources to restore.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3414,7 +3414,7 @@
         /// fields out of the candidate resources will be modified).
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>target_json_path: ::prost::alloc::string::String,
-        <span class="doccomment">/// (Filtering parameter) This is a [regular expression]
+        <span class="doccomment">/// (Filtering parameter) This is a \[regular expression\]
         /// (&lt;https://en.wikipedia.org/wiki/Regular_expression&gt;)
         /// that is compared against the fields matched by the target_json_path
         /// expression (and must also have passed the previous filters).
@@ -3759,7 +3759,7 @@
     /// Note: Resources will never be restored into *managed* namespaces such as
     /// `kube-system`, `kube-public`, or `kube-node-lease`. These namespaces
     /// are silently skipped when
-    /// \[all_namespaces][google.cloud.gkebackup.v1.RestoreConfig.all_namespaces\] is
+    /// [all_namespaces][google.cloud.gkebackup.v1.RestoreConfig.all_namespaces] is
     /// selected. Listing them explicitly will result in an error.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
@@ -3800,7 +3800,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Server generated global unique identifier of
-    /// \[UUID4\](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;)
+    /// [UUID4](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;)
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The timestamp when this Backup resource was created.
@@ -3827,14 +3827,14 @@
     /// (inclusive).
     ///
     /// Defaults to parent BackupPlan&#39;s
-    /// \[backup_delete_lock_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_delete_lock_days\]
+    /// [backup_delete_lock_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_delete_lock_days]
     /// setting and may only be increased
     /// (either at creation time or in a subsequent update).
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>delete_lock_days: i32,
     <span class="doccomment">/// Output only. The time at which an existing delete lock will expire for this
     /// backup (calculated from create_time +
-    /// \[delete_lock_days][google.cloud.gkebackup.v1.Backup.delete_lock_days\]).
+    /// [delete_lock_days][google.cloud.gkebackup.v1.Backup.delete_lock_days]).
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>delete_lock_expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The age (in days) after which this Backup will be automatically deleted.
@@ -3842,36 +3842,36 @@
     ///
     /// - If 0, no automatic deletion will occur for this Backup.
     /// - If not 0, this must be &gt;=
-    /// \[delete_lock_days][google.cloud.gkebackup.v1.Backup.delete_lock_days\] and
+    /// [delete_lock_days][google.cloud.gkebackup.v1.Backup.delete_lock_days] and
     /// &lt;= 365.
     ///
     /// Once a Backup is created, this value may only be increased.
     ///
     /// Defaults to the parent BackupPlan&#39;s
-    /// \[backup_retain_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_retain_days\]
+    /// [backup_retain_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_retain_days]
     /// value.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>retain_days: i32,
     <span class="doccomment">/// Output only. The time at which this Backup will be automatically deleted
     /// (calculated from create_time +
-    /// \[retain_days][google.cloud.gkebackup.v1.Backup.retain_days\]).
+    /// [retain_days][google.cloud.gkebackup.v1.Backup.retain_days]).
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>retain_expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The customer managed encryption key that was used to encrypt
     /// the Backup&#39;s artifacts.  Inherited from the parent BackupPlan&#39;s
-    /// \[encryption_key][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.encryption_key\]
+    /// [encryption_key][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.encryption_key]
     /// value.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>encryption_key: ::core::option::Option&lt;EncryptionKey&gt;,
     <span class="doccomment">/// Output only. Whether or not the Backup contains volume data.  Controlled by
     /// the parent BackupPlan&#39;s
-    /// \[include_volume_data][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.include_volume_data\]
+    /// [include_volume_data][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.include_volume_data]
     /// value.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
     </span><span class="kw">pub </span>contains_volume_data: bool,
     <span class="doccomment">/// Output only. Whether or not the Backup contains Kubernetes Secrets.
     /// Controlled by the parent BackupPlan&#39;s
-    /// \[include_secrets][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.include_secrets\]
+    /// [include_secrets][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.include_secrets]
     /// value.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;16&quot;</span>)]
     </span><span class="kw">pub </span>contains_secrets: bool,
@@ -3922,7 +3922,7 @@
     <span class="doccomment">/// Defines the &quot;scope&quot; of the Backup - which namespaced resources in the
     /// cluster were included in the Backup.  Inherited from the parent
     /// BackupPlan&#39;s
-    /// \[backup_scope][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.backup_scope\]
+    /// [backup_scope][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.backup_scope]
     /// value.
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;backup::BackupScope&quot;</span>, tags = <span class="string">&quot;12, 13, 14&quot;</span>)]
     </span><span class="kw">pub </span>backup_scope: ::core::option::Option&lt;backup::BackupScope&gt;,
@@ -3940,7 +3940,7 @@
         ///    - `projects/*/zones/*/clusters/*`
         ///
         /// This is inherited from the parent BackupPlan&#39;s
-        /// \[cluster][google.cloud.gkebackup.v1.BackupPlan.cluster\] field.
+        /// [cluster][google.cloud.gkebackup.v1.BackupPlan.cluster] field.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
         <span class="doccomment">/// The Kubernetes server version of the source cluster.
@@ -4031,7 +4031,7 @@
     <span class="doccomment">/// Defines the &quot;scope&quot; of the Backup - which namespaced resources in the
     /// cluster were included in the Backup.  Inherited from the parent
     /// BackupPlan&#39;s
-    /// \[backup_scope][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.backup_scope\]
+    /// [backup_scope][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.backup_scope]
     /// value.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
@@ -4049,382 +4049,6 @@
         </span>SelectedApplications(<span class="kw">super</span>::NamespacedNames),
     }
 }
-<span class="doccomment">/// Defines the configuration and scheduling for a &quot;line&quot; of Backups.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BackupPlan {
-    <span class="doccomment">/// Output only. The full name of the BackupPlan resource.
-    /// Format: `projects/*/locations/*/backupPlans/*`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Server generated global unique identifier of
-    /// \[UUID\](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;) format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The timestamp when this BackupPlan resource was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The timestamp when this BackupPlan resource was last
-    /// updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// User specified descriptive string for this BackupPlan.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Immutable. The source cluster from which Backups will be created
-    /// via this BackupPlan. Valid formats:
-    ///
-    /// - `projects/*/locations/*/clusters/*`
-    /// - `projects/*/zones/*/clusters/*`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
-    <span class="doccomment">/// RetentionPolicy governs lifecycle of Backups created under this plan.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>retention_policy: ::core::option::Option&lt;backup_plan::RetentionPolicy&gt;,
-    <span class="doccomment">/// A set of custom labels supplied by user.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Defines a schedule for automatic Backup creation via this BackupPlan.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>backup_schedule: ::core::option::Option&lt;backup_plan::Schedule&gt;,
-    <span class="doccomment">/// Output only. `etag` is used for optimistic concurrency control as a way to
-    /// help prevent simultaneous updates of a backup plan from overwriting each
-    /// other. It is strongly suggested that systems make use of the &#39;etag&#39; in the
-    /// read-modify-write cycle to perform BackupPlan updates in order to avoid
-    /// race conditions: An `etag` is returned in the response to `GetBackupPlan`,
-    /// and systems are expected to put that etag in the request to
-    /// `UpdateBackupPlan` or `DeleteBackupPlan` to ensure that their change
-    /// will be applied to the same version of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
-    <span class="doccomment">/// This flag indicates whether this BackupPlan has been deactivated.
-    /// Setting this field to True locks the BackupPlan such that no further
-    /// updates will be allowed (except deletes), including the deactivated field
-    /// itself. It also prevents any new Backups from being created via this
-    /// BackupPlan (including scheduled Backups).
-    ///
-    /// Default: False
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>deactivated: bool,
-    <span class="doccomment">/// Defines the configuration of Backups created via this BackupPlan.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>backup_config: ::core::option::Option&lt;backup_plan::BackupConfig&gt;,
-    <span class="doccomment">/// Output only. The number of Kubernetes Pods backed up in the
-    /// last successful Backup created via this BackupPlan.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>protected_pod_count: i32,
-    <span class="doccomment">/// Output only. State of the BackupPlan. This State field reflects the
-    /// various stages a BackupPlan can be in
-    /// during the Create operation. It will be set to &quot;DEACTIVATED&quot;
-    /// if the BackupPlan is deactivated on an Update
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;backup_plan::State&quot;</span>, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Output only. Human-readable description of why BackupPlan is in the current
-    /// `state`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>state_reason: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `BackupPlan`.
-</span><span class="kw">pub mod </span>backup_plan {
-    <span class="doccomment">/// RetentionPolicy defines a Backup retention policy for a BackupPlan.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>RetentionPolicy {
-        <span class="doccomment">/// Minimum age for Backups created via this BackupPlan (in days).
-        /// This field MUST be an integer value between 0-90 (inclusive).
-        /// A Backup created under this BackupPlan will NOT be deletable until it
-        /// reaches Backup&#39;s (create_time + backup_delete_lock_days).
-        /// Updating this field of a BackupPlan does NOT affect existing Backups
-        /// under it. Backups created AFTER a successful update will inherit
-        /// the new value.
-        ///
-        /// Default: 0 (no delete blocking)
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>backup_delete_lock_days: i32,
-        <span class="doccomment">/// The default maximum age of a Backup created via this BackupPlan.
-        /// This field MUST be an integer value &gt;= 0 and &lt;= 365.
-        /// If specified, a Backup created under this BackupPlan will be
-        /// automatically deleted after its age reaches (create_time +
-        /// backup_retain_days).
-        /// If not specified, Backups created under this BackupPlan will NOT be
-        /// subject to automatic deletion.
-        /// Updating this field does NOT affect existing Backups under it. Backups
-        /// created AFTER a successful update will automatically pick up the new
-        /// value.
-        /// NOTE: backup_retain_days must be &gt;=
-        /// \[backup_delete_lock_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_delete_lock_days\].
-        /// If
-        /// \[cron_schedule][google.cloud.gkebackup.v1.BackupPlan.Schedule.cron_schedule\]
-        /// is defined, then this must be
-        /// &lt;= 360 * the creation interval.
-        ///
-        /// Default: 0 (no automatic deletion)
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>backup_retain_days: i32,
-        <span class="doccomment">/// This flag denotes whether the retention policy of this BackupPlan is
-        /// locked.  If set to True, no further update is allowed on this policy,
-        /// including the `locked` field itself.
-        ///
-        /// Default: False
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>locked: bool,
-    }
-    <span class="doccomment">/// Defines scheduling parameters for automatically creating Backups
-    /// via this BackupPlan.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Schedule {
-        <span class="doccomment">/// A standard \[cron\](&lt;https://wikipedia.com/wiki/cron&gt;) string that defines a
-        /// repeating schedule for creating Backups via this BackupPlan. If this is
-        /// defined, then
-        /// \[backup_retain_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_retain_days\]
-        /// must also be defined.
-        ///
-        /// Default (empty): no automatic backup creation will occur.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>cron_schedule: ::prost::alloc::string::String,
-        <span class="doccomment">/// This flag denotes whether automatic Backup creation is paused for this
-        /// BackupPlan.
-        ///
-        /// Default: False
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>paused: bool,
-    }
-    <span class="doccomment">/// BackupConfig defines the configuration of Backups created via this
-    /// BackupPlan.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>BackupConfig {
-        <span class="doccomment">/// This flag specifies whether volume data should be backed up when
-        /// PVCs are included in the scope of a Backup.
-        ///
-        /// Default: False
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>include_volume_data: bool,
-        <span class="doccomment">/// This flag specifies whether Kubernetes Secret resources should be
-        /// included when they fall into the scope of Backups.
-        ///
-        /// Default: False
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>include_secrets: bool,
-        <span class="doccomment">/// This defines a customer managed encryption key that will be used to
-        /// encrypt the &quot;config&quot; portion (the Kubernetes resources) of Backups
-        /// created via this plan.
-        ///
-        /// Default (empty): Config backup artifacts will not be encrypted.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-        </span><span class="kw">pub </span>encryption_key: ::core::option::Option&lt;<span class="kw">super</span>::EncryptionKey&gt;,
-        <span class="doccomment">/// This defines the &quot;scope&quot; of the Backup - which namespaced
-        /// resources in the cluster will be included in a Backup.
-        /// Exactly one of the fields of backup_scope MUST be specified.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;backup_config::BackupScope&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
-        </span><span class="kw">pub </span>backup_scope: ::core::option::Option&lt;backup_config::BackupScope&gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `BackupConfig`.
-    </span><span class="kw">pub mod </span>backup_config {
-        <span class="doccomment">/// This defines the &quot;scope&quot; of the Backup - which namespaced
-        /// resources in the cluster will be included in a Backup.
-        /// Exactly one of the fields of backup_scope MUST be specified.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        </span><span class="kw">pub enum </span>BackupScope {
-            <span class="doccomment">/// If True, include all namespaced resources
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-            </span>AllNamespaces(bool),
-            <span class="doccomment">/// If set, include just the resources in the listed namespaces.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-            </span>SelectedNamespaces(<span class="kw">super</span>::<span class="kw">super</span>::Namespaces),
-            <span class="doccomment">/// If set, include just the resources referenced by the listed
-            /// ProtectedApplications.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-            </span>SelectedApplications(<span class="kw">super</span>::<span class="kw">super</span>::NamespacedNames),
-        }
-    }
-    <span class="doccomment">/// State
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Default first value for Enums.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Waiting for cluster state to be RUNNING.
-        </span>ClusterPending = <span class="number">1</span>,
-        <span class="doccomment">/// The BackupPlan is in the process of being created.
-        </span>Provisioning = <span class="number">2</span>,
-        <span class="doccomment">/// The BackupPlan has successfully been created and is ready for Backups.
-        </span>Ready = <span class="number">3</span>,
-        <span class="doccomment">/// BackupPlan creation has failed.
-        </span>Failed = <span class="number">4</span>,
-        <span class="doccomment">/// The BackupPlan has been deactivated.
-        </span>Deactivated = <span class="number">5</span>,
-        <span class="doccomment">/// The BackupPlan is in the process of being deleted.
-        </span>Deleting = <span class="number">6</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::ClusterPending =&gt; <span class="string">&quot;CLUSTER_PENDING&quot;</span>,
-                State::Provisioning =&gt; <span class="string">&quot;PROVISIONING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Deactivated =&gt; <span class="string">&quot;DEACTIVATED&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CLUSTER_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClusterPending),
-                <span class="string">&quot;PROVISIONING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Provisioning),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;DEACTIVATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deactivated),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// The configuration of a potential series of Restore operations to be performed
-/// against Backups belong to a particular BackupPlan.
-/// Next id: 13
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RestorePlan {
-    <span class="doccomment">/// Output only. The full name of the RestorePlan resource.
-    /// Format: `projects/*/locations/*/restorePlans/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Server generated global unique identifier of
-    /// \[UUID\](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;) format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The timestamp when this RestorePlan resource was
-    /// created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The timestamp when this RestorePlan resource was last
-    /// updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// User specified descriptive string for this RestorePlan.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Immutable. A reference to the
-    /// \[BackupPlan][google.cloud.gkebackup.v1.BackupPlan\] from which Backups may
-    /// be used as the source for Restores created via this RestorePlan. Format:
-    /// `projects/*/locations/*/backupPlans/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>backup_plan: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Immutable. The target cluster into which Restores created via
-    /// this RestorePlan will restore data. NOTE: the cluster&#39;s region must be the
-    /// same as the RestorePlan. Valid formats:
-    ///
-    ///    - `projects/*/locations/*/clusters/*`
-    ///    - `projects/*/zones/*/clusters/*`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Configuration of Restores created via this RestorePlan.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>restore_config: ::core::option::Option&lt;RestoreConfig&gt;,
-    <span class="doccomment">/// A set of custom labels supplied by user.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Output only. `etag` is used for optimistic concurrency control as a way to
-    /// help prevent simultaneous updates of a restore from overwriting each other.
-    /// It is strongly suggested that systems make use of the `etag` in the
-    /// read-modify-write cycle to perform restore updates in order to avoid
-    /// race conditions: An `etag` is returned in the response to `GetRestorePlan`,
-    /// and systems are expected to put that etag in the request to
-    /// `UpdateRestorePlan` or `DeleteRestorePlan` to ensure that their change
-    /// will be applied to the same version of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. State of the RestorePlan. This State field reflects the
-    /// various stages a RestorePlan can be in
-    /// during the Create operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;restore_plan::State&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Output only. Human-readable description of why RestorePlan is in the
-    /// current `state`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>state_reason: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `RestorePlan`.
-</span><span class="kw">pub mod </span>restore_plan {
-    <span class="doccomment">/// State
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Default first value for Enums.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Waiting for cluster state to be RUNNING.
-        </span>ClusterPending = <span class="number">1</span>,
-        <span class="doccomment">/// The RestorePlan has successfully been created and is ready for Restores.
-        </span>Ready = <span class="number">2</span>,
-        <span class="doccomment">/// RestorePlan creation has failed.
-        </span>Failed = <span class="number">3</span>,
-        <span class="doccomment">/// The RestorePlan is in the process of being deleted.
-        </span>Deleting = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::ClusterPending =&gt; <span class="string">&quot;CLUSTER_PENDING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CLUSTER_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClusterPending),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
 <span class="doccomment">/// Represents the backup of a specific persistent volume as a component of a
 /// Backup - both the record of the operation and a pointer to the underlying
 /// storage-specific artifacts.
@@ -4437,7 +4061,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Server generated global unique identifier of
-    /// \[UUID\](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;) format.
+    /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;) format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The timestamp when this VolumeBackup resource was
@@ -4606,7 +4230,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Server generated global unique identifier of
-    /// \[UUID\](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;) format.
+    /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;) format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The timestamp when this VolumeRestore resource was
@@ -4749,6 +4373,382 @@
         }
     }
 }
+<span class="doccomment">/// Defines the configuration and scheduling for a &quot;line&quot; of Backups.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BackupPlan {
+    <span class="doccomment">/// Output only. The full name of the BackupPlan resource.
+    /// Format: `projects/*/locations/*/backupPlans/*`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Server generated global unique identifier of
+    /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;) format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The timestamp when this BackupPlan resource was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The timestamp when this BackupPlan resource was last
+    /// updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// User specified descriptive string for this BackupPlan.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Immutable. The source cluster from which Backups will be created
+    /// via this BackupPlan. Valid formats:
+    ///
+    /// - `projects/*/locations/*/clusters/*`
+    /// - `projects/*/zones/*/clusters/*`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
+    <span class="doccomment">/// RetentionPolicy governs lifecycle of Backups created under this plan.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>retention_policy: ::core::option::Option&lt;backup_plan::RetentionPolicy&gt;,
+    <span class="doccomment">/// A set of custom labels supplied by user.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Defines a schedule for automatic Backup creation via this BackupPlan.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>backup_schedule: ::core::option::Option&lt;backup_plan::Schedule&gt;,
+    <span class="doccomment">/// Output only. `etag` is used for optimistic concurrency control as a way to
+    /// help prevent simultaneous updates of a backup plan from overwriting each
+    /// other. It is strongly suggested that systems make use of the &#39;etag&#39; in the
+    /// read-modify-write cycle to perform BackupPlan updates in order to avoid
+    /// race conditions: An `etag` is returned in the response to `GetBackupPlan`,
+    /// and systems are expected to put that etag in the request to
+    /// `UpdateBackupPlan` or `DeleteBackupPlan` to ensure that their change
+    /// will be applied to the same version of the resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+    <span class="doccomment">/// This flag indicates whether this BackupPlan has been deactivated.
+    /// Setting this field to True locks the BackupPlan such that no further
+    /// updates will be allowed (except deletes), including the deactivated field
+    /// itself. It also prevents any new Backups from being created via this
+    /// BackupPlan (including scheduled Backups).
+    ///
+    /// Default: False
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>deactivated: bool,
+    <span class="doccomment">/// Defines the configuration of Backups created via this BackupPlan.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>backup_config: ::core::option::Option&lt;backup_plan::BackupConfig&gt;,
+    <span class="doccomment">/// Output only. The number of Kubernetes Pods backed up in the
+    /// last successful Backup created via this BackupPlan.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>protected_pod_count: i32,
+    <span class="doccomment">/// Output only. State of the BackupPlan. This State field reflects the
+    /// various stages a BackupPlan can be in
+    /// during the Create operation. It will be set to &quot;DEACTIVATED&quot;
+    /// if the BackupPlan is deactivated on an Update
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;backup_plan::State&quot;</span>, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Output only. Human-readable description of why BackupPlan is in the current
+    /// `state`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>state_reason: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `BackupPlan`.
+</span><span class="kw">pub mod </span>backup_plan {
+    <span class="doccomment">/// RetentionPolicy defines a Backup retention policy for a BackupPlan.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>RetentionPolicy {
+        <span class="doccomment">/// Minimum age for Backups created via this BackupPlan (in days).
+        /// This field MUST be an integer value between 0-90 (inclusive).
+        /// A Backup created under this BackupPlan will NOT be deletable until it
+        /// reaches Backup&#39;s (create_time + backup_delete_lock_days).
+        /// Updating this field of a BackupPlan does NOT affect existing Backups
+        /// under it. Backups created AFTER a successful update will inherit
+        /// the new value.
+        ///
+        /// Default: 0 (no delete blocking)
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>backup_delete_lock_days: i32,
+        <span class="doccomment">/// The default maximum age of a Backup created via this BackupPlan.
+        /// This field MUST be an integer value &gt;= 0 and &lt;= 365.
+        /// If specified, a Backup created under this BackupPlan will be
+        /// automatically deleted after its age reaches (create_time +
+        /// backup_retain_days).
+        /// If not specified, Backups created under this BackupPlan will NOT be
+        /// subject to automatic deletion.
+        /// Updating this field does NOT affect existing Backups under it. Backups
+        /// created AFTER a successful update will automatically pick up the new
+        /// value.
+        /// NOTE: backup_retain_days must be &gt;=
+        /// [backup_delete_lock_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_delete_lock_days].
+        /// If
+        /// [cron_schedule][google.cloud.gkebackup.v1.BackupPlan.Schedule.cron_schedule]
+        /// is defined, then this must be
+        /// &lt;= 360 * the creation interval.
+        ///
+        /// Default: 0 (no automatic deletion)
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>backup_retain_days: i32,
+        <span class="doccomment">/// This flag denotes whether the retention policy of this BackupPlan is
+        /// locked.  If set to True, no further update is allowed on this policy,
+        /// including the `locked` field itself.
+        ///
+        /// Default: False
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>locked: bool,
+    }
+    <span class="doccomment">/// Defines scheduling parameters for automatically creating Backups
+    /// via this BackupPlan.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Schedule {
+        <span class="doccomment">/// A standard [cron](&lt;https://wikipedia.com/wiki/cron&gt;) string that defines a
+        /// repeating schedule for creating Backups via this BackupPlan. If this is
+        /// defined, then
+        /// [backup_retain_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_retain_days]
+        /// must also be defined.
+        ///
+        /// Default (empty): no automatic backup creation will occur.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>cron_schedule: ::prost::alloc::string::String,
+        <span class="doccomment">/// This flag denotes whether automatic Backup creation is paused for this
+        /// BackupPlan.
+        ///
+        /// Default: False
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>paused: bool,
+    }
+    <span class="doccomment">/// BackupConfig defines the configuration of Backups created via this
+    /// BackupPlan.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>BackupConfig {
+        <span class="doccomment">/// This flag specifies whether volume data should be backed up when
+        /// PVCs are included in the scope of a Backup.
+        ///
+        /// Default: False
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>include_volume_data: bool,
+        <span class="doccomment">/// This flag specifies whether Kubernetes Secret resources should be
+        /// included when they fall into the scope of Backups.
+        ///
+        /// Default: False
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>include_secrets: bool,
+        <span class="doccomment">/// This defines a customer managed encryption key that will be used to
+        /// encrypt the &quot;config&quot; portion (the Kubernetes resources) of Backups
+        /// created via this plan.
+        ///
+        /// Default (empty): Config backup artifacts will not be encrypted.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="kw">pub </span>encryption_key: ::core::option::Option&lt;<span class="kw">super</span>::EncryptionKey&gt;,
+        <span class="doccomment">/// This defines the &quot;scope&quot; of the Backup - which namespaced
+        /// resources in the cluster will be included in a Backup.
+        /// Exactly one of the fields of backup_scope MUST be specified.
+        </span><span class="attr">#[prost(oneof = <span class="string">&quot;backup_config::BackupScope&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+        </span><span class="kw">pub </span>backup_scope: ::core::option::Option&lt;backup_config::BackupScope&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `BackupConfig`.
+    </span><span class="kw">pub mod </span>backup_config {
+        <span class="doccomment">/// This defines the &quot;scope&quot; of the Backup - which namespaced
+        /// resources in the cluster will be included in a Backup.
+        /// Exactly one of the fields of backup_scope MUST be specified.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        </span><span class="kw">pub enum </span>BackupScope {
+            <span class="doccomment">/// If True, include all namespaced resources
+            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+            </span>AllNamespaces(bool),
+            <span class="doccomment">/// If set, include just the resources in the listed namespaces.
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span>SelectedNamespaces(<span class="kw">super</span>::<span class="kw">super</span>::Namespaces),
+            <span class="doccomment">/// If set, include just the resources referenced by the listed
+            /// ProtectedApplications.
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+            </span>SelectedApplications(<span class="kw">super</span>::<span class="kw">super</span>::NamespacedNames),
+        }
+    }
+    <span class="doccomment">/// State
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Default first value for Enums.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Waiting for cluster state to be RUNNING.
+        </span>ClusterPending = <span class="number">1</span>,
+        <span class="doccomment">/// The BackupPlan is in the process of being created.
+        </span>Provisioning = <span class="number">2</span>,
+        <span class="doccomment">/// The BackupPlan has successfully been created and is ready for Backups.
+        </span>Ready = <span class="number">3</span>,
+        <span class="doccomment">/// BackupPlan creation has failed.
+        </span>Failed = <span class="number">4</span>,
+        <span class="doccomment">/// The BackupPlan has been deactivated.
+        </span>Deactivated = <span class="number">5</span>,
+        <span class="doccomment">/// The BackupPlan is in the process of being deleted.
+        </span>Deleting = <span class="number">6</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::ClusterPending =&gt; <span class="string">&quot;CLUSTER_PENDING&quot;</span>,
+                State::Provisioning =&gt; <span class="string">&quot;PROVISIONING&quot;</span>,
+                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Deactivated =&gt; <span class="string">&quot;DEACTIVATED&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CLUSTER_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClusterPending),
+                <span class="string">&quot;PROVISIONING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Provisioning),
+                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;DEACTIVATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deactivated),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// The configuration of a potential series of Restore operations to be performed
+/// against Backups belong to a particular BackupPlan.
+/// Next id: 13
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RestorePlan {
+    <span class="doccomment">/// Output only. The full name of the RestorePlan resource.
+    /// Format: `projects/*/locations/*/restorePlans/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Server generated global unique identifier of
+    /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier&gt;) format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The timestamp when this RestorePlan resource was
+    /// created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The timestamp when this RestorePlan resource was last
+    /// updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// User specified descriptive string for this RestorePlan.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Immutable. A reference to the
+    /// [BackupPlan][google.cloud.gkebackup.v1.BackupPlan] from which Backups may
+    /// be used as the source for Restores created via this RestorePlan. Format:
+    /// `projects/*/locations/*/backupPlans/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>backup_plan: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Immutable. The target cluster into which Restores created via
+    /// this RestorePlan will restore data. NOTE: the cluster&#39;s region must be the
+    /// same as the RestorePlan. Valid formats:
+    ///
+    ///    - `projects/*/locations/*/clusters/*`
+    ///    - `projects/*/zones/*/clusters/*`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Configuration of Restores created via this RestorePlan.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>restore_config: ::core::option::Option&lt;RestoreConfig&gt;,
+    <span class="doccomment">/// A set of custom labels supplied by user.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Output only. `etag` is used for optimistic concurrency control as a way to
+    /// help prevent simultaneous updates of a restore from overwriting each other.
+    /// It is strongly suggested that systems make use of the `etag` in the
+    /// read-modify-write cycle to perform restore updates in order to avoid
+    /// race conditions: An `etag` is returned in the response to `GetRestorePlan`,
+    /// and systems are expected to put that etag in the request to
+    /// `UpdateRestorePlan` or `DeleteRestorePlan` to ensure that their change
+    /// will be applied to the same version of the resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. State of the RestorePlan. This State field reflects the
+    /// various stages a RestorePlan can be in
+    /// during the Create operation.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;restore_plan::State&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Output only. Human-readable description of why RestorePlan is in the
+    /// current `state`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>state_reason: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `RestorePlan`.
+</span><span class="kw">pub mod </span>restore_plan {
+    <span class="doccomment">/// State
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Default first value for Enums.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Waiting for cluster state to be RUNNING.
+        </span>ClusterPending = <span class="number">1</span>,
+        <span class="doccomment">/// The RestorePlan has successfully been created and is ready for Restores.
+        </span>Ready = <span class="number">2</span>,
+        <span class="doccomment">/// RestorePlan creation has failed.
+        </span>Failed = <span class="number">3</span>,
+        <span class="doccomment">/// The RestorePlan is in the process of being deleted.
+        </span>Deleting = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::ClusterPending =&gt; <span class="string">&quot;CLUSTER_PENDING&quot;</span>,
+                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CLUSTER_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClusterPending),
+                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
 <span class="doccomment">/// Represents the metadata of the long-running operation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4770,8 +4770,8 @@
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
@@ -4813,12 +4813,12 @@
     /// If not specified, a default value will be chosen by the service.
     /// Note that the response may inclue a partial list and a caller should
     /// only rely on the response&#39;s
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListBackupPlansResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListBackupPlansResponse.next_page_token]
     /// to determine if there are more instances left to be queried.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value of
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListBackupPlansResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListBackupPlansResponse.next_page_token]
     /// received from a previous `ListBackupPlans` call.
     /// Provide this to retrieve the subsequent page in a multi-page list of
     /// results. When paginating, all other parameters provided to
@@ -4840,7 +4840,7 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>backup_plans: ::prost::alloc::vec::Vec&lt;BackupPlan&gt;,
     <span class="doccomment">/// A token which may be sent as
-    /// \[page_token][google.cloud.gkebackup.v1.ListBackupPlansRequest.page_token\]
+    /// [page_token][google.cloud.gkebackup.v1.ListBackupPlansRequest.page_token]
     /// in a subsequent `ListBackupPlans` call to retrieve the next page of
     /// results. If this field is omitted or empty, then there are no more results
     /// to return.
@@ -4888,7 +4888,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If provided, this value must match the current value of the
-    /// target BackupPlan&#39;s \[etag][google.cloud.gkebackup.v1.BackupPlan.etag\] field
+    /// target BackupPlan&#39;s [etag][google.cloud.gkebackup.v1.BackupPlan.etag] field
     /// or the request is rejected.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
@@ -4927,12 +4927,12 @@
     /// If not specified, a default value will be chosen by the service.
     /// Note that the response may inclue a partial list and a caller should
     /// only rely on the response&#39;s
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListBackupsResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListBackupsResponse.next_page_token]
     /// to determine if there are more instances left to be queried.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value of
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListBackupsResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListBackupsResponse.next_page_token]
     /// received from a previous `ListBackups` call.
     /// Provide this to retrieve the subsequent page in a multi-page list of
     /// results. When paginating, all other parameters provided to
@@ -4954,7 +4954,7 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>backups: ::prost::alloc::vec::Vec&lt;Backup&gt;,
     <span class="doccomment">/// A token which may be sent as
-    /// \[page_token][google.cloud.gkebackup.v1.ListBackupsRequest.page_token\] in a
+    /// [page_token][google.cloud.gkebackup.v1.ListBackupsRequest.page_token] in a
     /// subsequent `ListBackups` call to retrieve the next page of results. If this
     /// field is omitted or empty, then there are no more results to return.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
@@ -4997,7 +4997,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If provided, this value must match the current value of the
-    /// target Backup&#39;s \[etag][google.cloud.gkebackup.v1.Backup.etag\] field or the
+    /// target Backup&#39;s [etag][google.cloud.gkebackup.v1.Backup.etag] field or the
     /// request is rejected.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
@@ -5019,12 +5019,12 @@
     /// If not specified, a default value will be chosen by the service.
     /// Note that the response may inclue a partial list and a caller should
     /// only rely on the response&#39;s
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListVolumeBackupsResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListVolumeBackupsResponse.next_page_token]
     /// to determine if there are more instances left to be queried.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value of
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListVolumeBackupsResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListVolumeBackupsResponse.next_page_token]
     /// received from a previous `ListVolumeBackups` call.
     /// Provide this to retrieve the subsequent page in a multi-page list of
     /// results. When paginating, all other parameters provided to
@@ -5046,7 +5046,7 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>volume_backups: ::prost::alloc::vec::Vec&lt;VolumeBackup&gt;,
     <span class="doccomment">/// A token which may be sent as
-    /// \[page_token][google.cloud.gkebackup.v1.ListVolumeBackupsRequest.page_token\]
+    /// [page_token][google.cloud.gkebackup.v1.ListVolumeBackupsRequest.page_token]
     /// in a subsequent `ListVolumeBackups` call to retrieve the next page of
     /// results. If this field is omitted or empty, then there are no more results
     /// to return.
@@ -5096,12 +5096,12 @@
     /// If not specified, a default value will be chosen by the service.
     /// Note that the response may inclue a partial list and a caller should
     /// only rely on the response&#39;s
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListRestorePlansResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListRestorePlansResponse.next_page_token]
     /// to determine if there are more instances left to be queried.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value of
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListRestorePlansResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListRestorePlansResponse.next_page_token]
     /// received from a previous `ListRestorePlans` call.
     /// Provide this to retrieve the subsequent page in a multi-page list of
     /// results. When paginating, all other parameters provided to
@@ -5123,7 +5123,7 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>restore_plans: ::prost::alloc::vec::Vec&lt;RestorePlan&gt;,
     <span class="doccomment">/// A token which may be sent as
-    /// \[page_token][google.cloud.gkebackup.v1.ListRestorePlansRequest.page_token\]
+    /// [page_token][google.cloud.gkebackup.v1.ListRestorePlansRequest.page_token]
     /// in a subsequent `ListRestorePlans` call to retrieve the next page of
     /// results. If this field is omitted or empty, then there are no more results
     /// to return.
@@ -5170,7 +5170,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If provided, this value must match the current value of the
-    /// target RestorePlan&#39;s \[etag][google.cloud.gkebackup.v1.RestorePlan.etag\]
+    /// target RestorePlan&#39;s [etag][google.cloud.gkebackup.v1.RestorePlan.etag]
     /// field or the request is rejected.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
@@ -5214,12 +5214,12 @@
     /// If not specified, a default value will be chosen by the service.
     /// Note that the response may inclue a partial list and a caller should
     /// only rely on the response&#39;s
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListRestoresResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListRestoresResponse.next_page_token]
     /// to determine if there are more instances left to be queried.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value of
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListRestoresResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListRestoresResponse.next_page_token]
     /// received from a previous `ListRestores` call.
     /// Provide this to retrieve the subsequent page in a multi-page list of
     /// results. When paginating, all other parameters provided to `ListRestores`
@@ -5241,7 +5241,7 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>restores: ::prost::alloc::vec::Vec&lt;Restore&gt;,
     <span class="doccomment">/// A token which may be sent as
-    /// \[page_token][google.cloud.gkebackup.v1.ListRestoresRequest.page_token\] in a
+    /// [page_token][google.cloud.gkebackup.v1.ListRestoresRequest.page_token] in a
     /// subsequent `ListRestores` call to retrieve the next page of results. If
     /// this field is omitted or empty, then there are no more results to return.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
@@ -5287,7 +5287,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If provided, this value must match the current value of the
-    /// target Restore&#39;s \[etag][google.cloud.gkebackup.v1.Restore.etag\] field or
+    /// target Restore&#39;s [etag][google.cloud.gkebackup.v1.Restore.etag] field or
     /// the request is rejected.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
@@ -5309,12 +5309,12 @@
     /// If not specified, a default value will be chosen by the service.
     /// Note that the response may inclue a partial list and a caller should
     /// only rely on the response&#39;s
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListVolumeRestoresResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListVolumeRestoresResponse.next_page_token]
     /// to determine if there are more instances left to be queried.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value of
-    /// \[next_page_token][google.cloud.gkebackup.v1.ListVolumeRestoresResponse.next_page_token\]
+    /// [next_page_token][google.cloud.gkebackup.v1.ListVolumeRestoresResponse.next_page_token]
     /// received from a previous `ListVolumeRestores` call.
     /// Provide this to retrieve the subsequent page in a multi-page list of
     /// results. When paginating, all other parameters provided to
@@ -5336,7 +5336,7 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>volume_restores: ::prost::alloc::vec::Vec&lt;VolumeRestore&gt;,
     <span class="doccomment">/// A token which may be sent as
-    /// \[page_token][google.cloud.gkebackup.v1.ListVolumeRestoresRequest.page_token\]
+    /// [page_token][google.cloud.gkebackup.v1.ListVolumeRestoresRequest.page_token]
     /// in a subsequent `ListVolumeRestores` call to retrieve the next page of
     /// results. If this field is omitted or empty, then there are no more results
     /// to return.

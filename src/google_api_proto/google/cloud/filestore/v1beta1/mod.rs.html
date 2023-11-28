@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/filestore/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/filestore/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2205,6 +2205,18 @@
 <a href="#2205" id="2205">2205</a>
 <a href="#2206" id="2206">2206</a>
 <a href="#2207" id="2207">2207</a>
+<a href="#2208" id="2208">2208</a>
+<a href="#2209" id="2209">2209</a>
+<a href="#2210" id="2210">2210</a>
+<a href="#2211" id="2211">2211</a>
+<a href="#2212" id="2212">2212</a>
+<a href="#2213" id="2213">2213</a>
+<a href="#2214" id="2214">2214</a>
+<a href="#2215" id="2215">2215</a>
+<a href="#2216" id="2216">2216</a>
+<a href="#2217" id="2217">2217</a>
+<a href="#2218" id="2218">2218</a>
+<a href="#2219" id="2219">2219</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Network configuration for the instance.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2340,9 +2352,10 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FileShareConfig {
-    <span class="doccomment">/// The name of the file share (must be 32 characters or less for
-    /// Enterprise and High Scale SSD tiers and 16 characters or less for all other
-    /// tiers).
+    <span class="doccomment">/// Required. The name of the file share. Must use 1-16 characters for the
+    /// basic service tier and 1-63 characters for all other service tiers.
+    /// Must use lowercase letters, numbers, or underscores `\[a-z0-9_\]`. Must
+    /// start with a letter. Immutable.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// File share capacity in gigabytes (GB).
@@ -2634,6 +2647,9 @@
     <span class="doccomment">/// Output only. Reserved for future use.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>satisfies_pzs: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Reserved for future use.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;26&quot;</span>)]
+    </span><span class="kw">pub </span>satisfies_pzi: bool,
     <span class="doccomment">/// KMS key name used for data encryption.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
     </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
@@ -2794,6 +2810,9 @@
         <span class="doccomment">/// ZONAL instances offer expanded capacity and performance scaling
         /// capabilities.
         </span>Zonal = <span class="number">8</span>,
+        <span class="doccomment">/// REGIONAL instances offer the features and availability needed for
+        /// mission-critical workloads.
+        </span>Regional = <span class="number">9</span>,
     }
     <span class="kw">impl </span>Tier {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -2810,6 +2829,7 @@
                 Tier::HighScaleSsd =&gt; <span class="string">&quot;HIGH_SCALE_SSD&quot;</span>,
                 Tier::Enterprise =&gt; <span class="string">&quot;ENTERPRISE&quot;</span>,
                 Tier::Zonal =&gt; <span class="string">&quot;ZONAL&quot;</span>,
+                Tier::Regional =&gt; <span class="string">&quot;REGIONAL&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -2823,6 +2843,7 @@
                 <span class="string">&quot;HIGH_SCALE_SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HighScaleSsd),
                 <span class="string">&quot;ENTERPRISE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enterprise),
                 <span class="string">&quot;ZONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Zonal),
+                <span class="string">&quot;REGIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Regional),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2927,7 +2948,7 @@
     /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. An [instance resource]\[google.cloud.filestore.v1beta1.Instance\]
+    <span class="doccomment">/// Required. An [instance resource][google.cloud.filestore.v1beta1.Instance]
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>instance: ::core::option::Option&lt;Instance&gt;,
 }
@@ -2994,13 +3015,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RevertInstanceRequest {
     <span class="doccomment">/// Required.
-    /// projects/{project_id}/locations/{location_id}/instances/{instance_id}. The
-    /// resource name of the instance, in the format
+    /// `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
+    /// The resource name of the instance, in the format
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The snapshot resource ID, in the format &#39;my-snapshot&#39;, where the
     /// specified ID is the {snapshot_id} of the fully qualified name like
-    /// projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}
+    /// `projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>target_snapshot_id: ::prost::alloc::string::String,
 }
@@ -3277,6 +3298,9 @@
     <span class="doccomment">/// Output only. Reserved for future use.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>satisfies_pzs: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Reserved for future use.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>satisfies_pzi: bool,
     <span class="doccomment">/// Immutable. KMS key name used for data encryption.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
@@ -3350,7 +3374,7 @@
     /// backup locations map to Google Cloud regions, for example **us-west1**.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. A [backup resource]\[google.cloud.filestore.v1beta1.Backup\]
+    <span class="doccomment">/// Required. A [backup resource][google.cloud.filestore.v1beta1.Backup]
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>backup: ::core::option::Option&lt;Backup&gt;,
     <span class="doccomment">/// Required. The ID to use for the backup.
@@ -3374,7 +3398,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateBackupRequest {
-    <span class="doccomment">/// Required. A [backup resource]\[google.cloud.filestore.v1beta1.Backup\]
+    <span class="doccomment">/// Required. A [backup resource][google.cloud.filestore.v1beta1.Backup]
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>backup: ::core::option::Option&lt;Backup&gt;,
     <span class="doccomment">/// Required. Mask of fields to update.  At least one path must be supplied in

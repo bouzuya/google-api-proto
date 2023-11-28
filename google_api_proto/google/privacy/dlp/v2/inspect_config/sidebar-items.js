@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["finding_limits"],"struct":["FindingLimits"]};
+window.SIDEBAR_ITEMS = {"mod":["finding_limits"],"struct":["FindingLimits","InfoTypeLikelihood"]};

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/asset/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/asset/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -4951,7 +4951,7 @@
     /// is a project, folder, or organization, the ancestry path starts from the
     /// asset itself.
     ///
-    /// Example: `[&quot;projects/123456789&quot;, &quot;folders/5432&quot;, &quot;organizations/1234&quot;]`
+    /// Example: `\[&quot;projects/123456789&quot;, &quot;folders/5432&quot;, &quot;organizations/1234&quot;\]`
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>ancestors: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A representation of an [access
@@ -5105,7 +5105,7 @@
     /// represented as a list of relative resource names. An ancestry path starts
     /// with the closest ancestor in the hierarchy and ends at root.
     ///
-    /// Example: `[&quot;projects/123456789&quot;, &quot;folders/5432&quot;, &quot;organizations/1234&quot;]`
+    /// Example: `\[&quot;projects/123456789&quot;, &quot;folders/5432&quot;, &quot;organizations/1234&quot;\]`
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>ancestors: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The unique identifier of the relationship type. Example:
@@ -5114,7 +5114,7 @@
     </span><span class="kw">pub </span>relationship_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The key and value for a
-/// \[tag\](&lt;https://cloud.google.com/resource-manager/docs/tags/tags-overview&gt;),
+/// [tag](&lt;https://cloud.google.com/resource-manager/docs/tags/tags-overview&gt;),
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Tag {
@@ -5135,13 +5135,13 @@
 </span><span class="kw">pub struct </span>EffectiveTagDetails {
     <span class="doccomment">/// The [full resource
     /// name](&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;)
-    /// of the ancestor from which an \[effective_tag][\] is inherited, according to
+    /// of the ancestor from which an [effective_tag][] is inherited, according to
     /// [tag
     /// inheritance](&lt;https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance&gt;).
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>attached_resource: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The effective tags inherited from the
-    /// \[attached_resource][google.cloud.asset.v1.EffectiveTagDetails.attached_resource\].
+    /// [attached_resource][google.cloud.asset.v1.EffectiveTagDetails.attached_resource].
     /// Note that tags with the same key but different values may attach to
     /// resources at a different hierarchy levels. The lower hierarchy tag value
     /// will overwrite the higher hierarchy tag value of the same tag key. In this
@@ -5269,9 +5269,9 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>network_tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The Cloud KMS
-    /// \[CryptoKey\](&lt;https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys&gt;)
+    /// [CryptoKey](&lt;https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys&gt;)
     /// name or
-    /// \[CryptoKeyVersion\](&lt;https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions&gt;)
+    /// [CryptoKeyVersion](&lt;https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions&gt;)
     /// name.
     ///
     /// This field only presents for the purpose of backward compatibility. Please
@@ -5289,9 +5289,9 @@
     #[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>kms_key: ::prost::alloc::string::String,
     <span class="doccomment">/// The Cloud KMS
-    /// \[CryptoKey\](&lt;https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys&gt;)
+    /// [CryptoKey](&lt;https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys&gt;)
     /// names or
-    /// \[CryptoKeyVersion\](&lt;https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions&gt;)
+    /// [CryptoKeyVersion](&lt;https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions&gt;)
     /// names. This field is available only when the resource&#39;s Protobuf contains
     /// it.
     ///
@@ -5784,7 +5784,7 @@
     <span class="doccomment">/// The [full resource
     /// name](&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;)
     /// of the resource to which the
-    /// \[iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding\]
+    /// [iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding]
     /// policy attaches.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>attached_resource_full_name: ::prost::alloc::string::String,
@@ -5792,7 +5792,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>iam_binding: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Binding&gt;,
     <span class="doccomment">/// The access control lists derived from the
-    /// \[iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding\]
+    /// [iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding]
     /// that match or potentially match resource and access selectors specified in
     /// the request.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
@@ -5800,12 +5800,12 @@
         iam_policy_analysis_result::AccessControlList,
     &gt;,
     <span class="doccomment">/// The identity list derived from members of the
-    /// \[iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding\]
+    /// [iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding]
     /// that match or potentially match identity selector specified in the request.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>identity_list: ::core::option::Option&lt;iam_policy_analysis_result::IdentityList&gt;,
     <span class="doccomment">/// Represents whether all analyses on the
-    /// \[iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding\]
+    /// [iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding]
     /// have successfully finished.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>fully_explored: bool,
@@ -5894,8 +5894,8 @@
     /// - Permission P3 applies to resource R2 and R3;
     ///
     /// This will result in the following access control lists:
-    /// - AccessControlList 1: [R1, R2], [P1, P2]
-    /// - AccessControlList 2: [R2, R3], \[P3\]
+    /// - AccessControlList 1: \[R1, R2\], \[P1, P2\]
+    /// - AccessControlList 2: \[R2, R3\], \[P3\]
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AccessControlList {
@@ -5911,9 +5911,9 @@
         </span><span class="kw">pub </span>accesses: ::prost::alloc::vec::Vec&lt;Access&gt;,
         <span class="doccomment">/// Resource edges of the graph starting from the policy attached
         /// resource to any descendant resources. The
-        /// \[Edge.source_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.source_node\]
+        /// [Edge.source_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.source_node]
         /// contains the full resource name of a parent resource and
-        /// \[Edge.target_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.target_node\]
+        /// [Edge.target_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.target_node]
         /// contains the full resource name of a child resource. This field is
         /// present only if the output_resource_edges option is enabled in request.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
@@ -5935,11 +5935,11 @@
         </span><span class="kw">pub </span>identities: ::prost::alloc::vec::Vec&lt;Identity&gt;,
         <span class="doccomment">/// Group identity edges of the graph starting from the binding&#39;s
         /// group members to any node of the
-        /// \[identities][google.cloud.asset.v1.IamPolicyAnalysisResult.IdentityList.identities\].
+        /// [identities][google.cloud.asset.v1.IamPolicyAnalysisResult.IdentityList.identities].
         /// The
-        /// \[Edge.source_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.source_node\]
+        /// [Edge.source_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.source_node]
         /// contains a group, such as `group:parent@google.com`. The
-        /// \[Edge.target_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.target_node\]
+        /// [Edge.target_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.target_node]
         /// contains a member of the group, such as `group:child@google.com` or
         /// `user:foo@google.com`. This field is present only if the
         /// output_group_edges option is enabled in request.
@@ -5983,7 +5983,7 @@
     /// * &quot;.*Instance&quot; snapshots resources whose asset type ends with &quot;Instance&quot;.
     /// * &quot;.*Instance.*&quot; snapshots resources whose asset type contains &quot;Instance&quot;.
     ///
-    /// See \[RE2\](&lt;https://github.com/google/re2/wiki/Syntax&gt;) for all supported
+    /// See [RE2](&lt;https://github.com/google/re2/wiki/Syntax&gt;) for all supported
     /// regular expression syntax. If the regular expression does not match any
     /// supported asset type, an INVALID_ARGUMENT error will be returned.
     ///
@@ -6020,9 +6020,9 @@
     </span><span class="kw">pub </span>relationship_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The export asset response. This message is returned by the
-/// \[google.longrunning.Operations.GetOperation][google.longrunning.Operations.GetOperation\]
+/// [google.longrunning.Operations.GetOperation][google.longrunning.Operations.GetOperation]
 /// method in the returned
-/// \[google.longrunning.Operation.response][google.longrunning.Operation.response\]
+/// [google.longrunning.Operation.response][google.longrunning.Operation.response]
 /// field.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -6069,7 +6069,7 @@
     /// * &quot;.*Instance&quot; snapshots resources whose asset type ends with &quot;Instance&quot;.
     /// * &quot;.*Instance.*&quot; snapshots resources whose asset type contains &quot;Instance&quot;.
     ///
-    /// See \[RE2\](&lt;https://github.com/google/re2/wiki/Syntax&gt;) for all supported
+    /// See [RE2](&lt;https://github.com/google/re2/wiki/Syntax&gt;) for all supported
     /// regular expression syntax. If the regular expression does not match any
     /// supported asset type, an INVALID_ARGUMENT error will be returned.
     ///
@@ -6332,7 +6332,7 @@
         /// for more information.
         ///
         /// If the specified Cloud Storage object already exists and there is no
-        /// \[hold\](&lt;https://cloud.google.com/storage/docs/object-holds&gt;), it will be
+        /// [hold](&lt;https://cloud.google.com/storage/docs/object-holds&gt;), it will be
         /// overwritten with the exported result.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span>Uri(::prost::alloc::string::String),
@@ -6358,7 +6358,7 @@
     /// should be exported. If this dataset does not exist, the export call returns
     /// an INVALID_ARGUMENT error. Setting the `contentType` for `exportAssets`
     /// determines the
-    /// \[schema\](/asset-inventory/docs/exporting-to-bigquery#bigquery-schema)
+    /// [schema](/asset-inventory/docs/exporting-to-bigquery#bigquery-schema)
     /// of the BigQuery table. Setting `separateTablesPerAssetType` to `TRUE` also
     /// influences the schema.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
@@ -6562,7 +6562,7 @@
     <span class="doccomment">/// A condition which determines whether an asset update should be published.
     /// If specified, an asset will be returned only when the expression evaluates
     /// to true.
-    /// When set, `expression` field in the `Expr` must be a valid [CEL expression]
+    /// When set, `expression` field in the `Expr` must be a valid \[CEL expression\]
     /// (&lt;https://github.com/google/cel-spec&gt;) on a TemporalAsset with name
     /// `temporal_asset`. Example: a Feed with expression (&quot;temporal_asset.deleted
     /// == true&quot;) will only publish Asset deletions. Other fields of `Expr` are
@@ -6599,7 +6599,7 @@
     <span class="doccomment">/// Required. A scope can be a project, a folder, or an organization. The
     /// search is limited to the resources within the `scope`. The caller must be
     /// granted the
-    /// \[`cloudasset.assets.searchAllResources`\](&lt;https://cloud.google.com/asset-inventory/docs/access-control#required_permissions&gt;)
+    /// [`cloudasset.assets.searchAllResources`](&lt;https://cloud.google.com/asset-inventory/docs/access-control#required_permissions&gt;)
     /// permission on the desired scope.
     ///
     /// The allowed values are:
@@ -6632,27 +6632,27 @@
     /// * `labels.env:*` to find Google Cloud resources that have a label `env`.
     /// * `tagKeys:env` to find Google Cloud resources that have directly
     ///    attached tags where the
-    ///    \[`TagKey`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagKeys#resource:-tagkey&gt;)
+    ///    [`TagKey`](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagKeys#resource:-tagkey&gt;)
     ///    .`namespacedName` contains `env`.
     /// * `tagValues:prod*` to find Google Cloud resources that have directly
     ///    attached tags where the
-    ///    \[`TagValue`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
+    ///    [`TagValue`](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
     ///    .`namespacedName` contains a word prefixed by `prod`.
     /// * `tagValueIds=tagValues/123` to find Google Cloud resources that have
     ///    directly attached tags where the
-    ///    \[`TagValue`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
+    ///    [`TagValue`](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
     ///    .`name` is exactly `tagValues/123`.
     /// * `effectiveTagKeys:env` to find Google Cloud resources that have
     ///    directly attached or inherited tags where the
-    ///    \[`TagKey`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagKeys#resource:-tagkey&gt;)
+    ///    [`TagKey`](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagKeys#resource:-tagkey&gt;)
     ///    .`namespacedName` contains `env`.
     /// * `effectiveTagValues:prod*` to find Google Cloud resources that have
     ///    directly attached or inherited tags where the
-    ///    \[`TagValue`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
+    ///    [`TagValue`](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
     ///    .`namespacedName` contains a word prefixed by `prod`.
     /// * `effectiveTagValueIds=tagValues/123` to find Google Cloud resources that
     ///     have directly attached or inherited tags where the
-    ///    \[`TagValue`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
+    ///    [`TagValue`](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
     ///    .`name` is exactly `tagValues/123`.
     /// * `kmsKey:key` to find Google Cloud resources encrypted with a
     ///    customer-managed encryption key whose name contains `key` as a word. This
@@ -6699,7 +6699,7 @@
     /// * &quot;.*Instance&quot; snapshots resources whose asset type ends with &quot;Instance&quot;.
     /// * &quot;.*Instance.*&quot; snapshots resources whose asset type contains &quot;Instance&quot;.
     ///
-    /// See \[RE2\](&lt;https://github.com/google/re2/wiki/Syntax&gt;) for all supported
+    /// See [RE2](&lt;https://github.com/google/re2/wiki/Syntax&gt;) for all supported
     /// regular expression syntax. If the regular expression does not match any
     /// supported asset type, an INVALID_ARGUMENT error will be returned.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
@@ -6791,7 +6791,7 @@
     <span class="doccomment">/// Required. A scope can be a project, a folder, or an organization. The
     /// search is limited to the IAM policies within the `scope`. The caller must
     /// be granted the
-    /// \[`cloudasset.assets.searchAllIamPolicies`\](&lt;https://cloud.google.com/asset-inventory/docs/access-control#required_permissions&gt;)
+    /// [`cloudasset.assets.searchAllIamPolicies`](&lt;https://cloud.google.com/asset-inventory/docs/access-control#required_permissions&gt;)
     /// permission on the desired scope.
     ///
     /// The allowed values are:
@@ -6873,7 +6873,7 @@
     /// * &quot;.*Instance.*&quot; snapshots IAM policies attached to asset type contains
     /// &quot;Instance&quot;.
     ///
-    /// See \[RE2\](&lt;https://github.com/google/re2/wiki/Syntax&gt;) for all supported
+    /// See [RE2](&lt;https://github.com/google/re2/wiki/Syntax&gt;) for all supported
     /// regular expression syntax. If the regular expression does not match any
     /// supported asset type, an INVALID_ARGUMENT error will be returned.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
@@ -6955,7 +6955,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ResourceSelector {
-        <span class="doccomment">/// Required. The [full resource name]
+        <span class="doccomment">/// Required. The \[full resource name\]
         /// (&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;)
         /// of a resource of [supported resource
         /// types](&lt;https://cloud.google.com/asset-inventory/docs/supported-asset-types#analyzable_asset_types&gt;).
@@ -7006,7 +7006,7 @@
         /// Google groups appearing in an IAM policy binding.
         ///
         /// If
-        /// \[IamPolicyAnalysisQuery.identity_selector][google.cloud.asset.v1.IamPolicyAnalysisQuery.identity_selector\]
+        /// [IamPolicyAnalysisQuery.identity_selector][google.cloud.asset.v1.IamPolicyAnalysisQuery.identity_selector]
         /// is specified, the identity in the result will be determined by the
         /// selector, and this flag is not allowed to set.
         ///
@@ -7020,7 +7020,7 @@
         /// appearing in IAM policy bindings to include their permissions.
         ///
         /// If
-        /// \[IamPolicyAnalysisQuery.access_selector][google.cloud.asset.v1.IamPolicyAnalysisQuery.access_selector\]
+        /// [IamPolicyAnalysisQuery.access_selector][google.cloud.asset.v1.IamPolicyAnalysisQuery.access_selector]
         /// is specified, the access section of the result will be determined by the
         /// selector, and this flag is not allowed to set.
         ///
@@ -7028,7 +7028,7 @@
         </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>expand_roles: bool,
         <span class="doccomment">/// Optional. If true and
-        /// \[IamPolicyAnalysisQuery.resource_selector][google.cloud.asset.v1.IamPolicyAnalysisQuery.resource_selector\]
+        /// [IamPolicyAnalysisQuery.resource_selector][google.cloud.asset.v1.IamPolicyAnalysisQuery.resource_selector]
         /// is not specified, the resource section of the result will expand any
         /// resource attached to an IAM policy to include resources lower in the
         /// resource hierarchy.
@@ -7039,7 +7039,7 @@
         /// permission P.
         ///
         /// If true and
-        /// \[IamPolicyAnalysisQuery.resource_selector][google.cloud.asset.v1.IamPolicyAnalysisQuery.resource_selector\]
+        /// [IamPolicyAnalysisQuery.resource_selector][google.cloud.asset.v1.IamPolicyAnalysisQuery.resource_selector]
         /// is specified, the resource section of the result will expand the
         /// specified resource to include resources lower in the resource hierarchy.
         /// Only project or lower resources are supported. Folder and organization
@@ -7069,7 +7069,7 @@
         /// identities to resources via service account impersonation. This is a very
         /// expensive operation, because many derived queries will be executed. We
         /// highly recommend you use
-        /// \[AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning\]
+        /// [AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning]
         /// RPC instead.
         ///
         /// For example, if the request analyzes for which resources user A has
@@ -7079,7 +7079,7 @@
         /// to a Google Cloud folder F, then user A potentially has access to the
         /// Google Cloud folder F. And those advanced analysis results will be
         /// included in
-        /// \[AnalyzeIamPolicyResponse.service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis\].
+        /// [AnalyzeIamPolicyResponse.service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis].
         ///
         /// Another example, if the request analyzes for who has
         /// permission P to a Google Cloud folder F, and there&#39;s an IAM policy states
@@ -7088,7 +7088,7 @@
         /// to the Google Cloud folder F, then user A potentially has access to the
         /// Google Cloud folder F. And those advanced analysis results will be
         /// included in
-        /// \[AnalyzeIamPolicyResponse.service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis\].
+        /// [AnalyzeIamPolicyResponse.service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis].
         ///
         /// Only the following permissions are considered in this analysis:
         ///
@@ -7126,7 +7126,7 @@
     }
 }
 <span class="doccomment">/// A request message for
-/// \[AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy\].
+/// [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeIamPolicyRequest {
@@ -7143,7 +7143,7 @@
     /// will be merged together with the `saved_analysis_query` as base and
     /// the `analysis_query` as overrides. For more details of the merge behavior,
     /// please refer to the
-    /// \[MergeFrom\](&lt;https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message#Message.MergeFrom.details&gt;)
+    /// [MergeFrom](&lt;https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message#Message.MergeFrom.details&gt;)
     /// page.
     ///
     /// Note that you cannot override primitive fields with default value, such as
@@ -7153,7 +7153,7 @@
     </span><span class="kw">pub </span>saved_analysis_query: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Amount of time executable has to complete.  See JSON
     /// representation of
-    /// \[Duration\](&lt;https://developers.google.com/protocol-buffers/docs/proto3#json&gt;).
+    /// [Duration](&lt;https://developers.google.com/protocol-buffers/docs/proto3#json&gt;).
     ///
     /// If this field is set with a value less than the RPC deadline, and the
     /// execution of your query hasn&#39;t finished in the specified
@@ -7166,7 +7166,7 @@
     </span><span class="kw">pub </span>execution_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// A response message for
-/// \[AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy\].
+/// [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeIamPolicyResponse {
@@ -7176,16 +7176,16 @@
         analyze_iam_policy_response::IamPolicyAnalysis,
     &gt;,
     <span class="doccomment">/// The service account impersonation analysis if
-    /// \[AnalyzeIamPolicyRequest.analyze_service_account_impersonation][\] is
+    /// [AnalyzeIamPolicyRequest.analyze_service_account_impersonation][] is
     /// enabled.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>service_account_impersonation_analysis: ::prost::alloc::vec::Vec&lt;
         analyze_iam_policy_response::IamPolicyAnalysis,
     &gt;,
     <span class="doccomment">/// Represents whether all entries in the
-    /// \[main_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.main_analysis\]
+    /// [main_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.main_analysis]
     /// and
-    /// \[service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis\]
+    /// [service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis]
     /// have been fully explored to answer the query in the request.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>fully_explored: bool,
@@ -7200,12 +7200,12 @@
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>analysis_query: ::core::option::Option&lt;<span class="kw">super</span>::IamPolicyAnalysisQuery&gt;,
         <span class="doccomment">/// A list of
-        /// \[IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult\]
+        /// [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
         /// that matches the analysis query, or empty if no result is found.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>analysis_results: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::IamPolicyAnalysisResult&gt;,
         <span class="doccomment">/// Represents whether all entries in the
-        /// \[analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results\]
+        /// [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results]
         /// have been fully explored to answer the query.
         </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>fully_explored: bool,
@@ -7237,7 +7237,7 @@
         /// for more information.
         ///
         /// If the specified Cloud Storage object already exists and there is no
-        /// \[hold\](&lt;https://cloud.google.com/storage/docs/object-holds&gt;), it will be
+        /// [hold](&lt;https://cloud.google.com/storage/docs/object-holds&gt;), it will be
         /// overwritten with the analysis result.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
@@ -7257,7 +7257,7 @@
         /// exist:
         /// * &lt;table_prefix&gt;_analysis table will contain export operation&#39;s metadata.
         /// * &lt;table_prefix&gt;_analysis_result will contain all the
-        ///    \[IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult\].
+        ///    [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult].
         /// When \[partition_key\] is specified, both tables will be partitioned based
         /// on the \[partition_key\].
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
@@ -7342,7 +7342,7 @@
     }
 }
 <span class="doccomment">/// A request message for
-/// \[AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning\].
+/// [AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeIamPolicyLongrunningRequest {
@@ -7359,7 +7359,7 @@
     /// will be merged together with the `saved_analysis_query` as base and
     /// the `analysis_query` as overrides. For more details of the merge behavior,
     /// please refer to the
-    /// \[MergeFrom\](&lt;https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message#Message.MergeFrom.details&gt;)
+    /// [MergeFrom](&lt;https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message#Message.MergeFrom.details&gt;)
     /// doc.
     ///
     /// Note that you cannot override primitive fields with default value, such as
@@ -7373,7 +7373,7 @@
     </span><span class="kw">pub </span>output_config: ::core::option::Option&lt;IamPolicyAnalysisOutputConfig&gt;,
 }
 <span class="doccomment">/// A response message for
-/// \[AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning\].
+/// [AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeIamPolicyLongrunningResponse {}
@@ -7433,9 +7433,9 @@
         </span><span class="kw">pub enum </span>QueryContent {
             <span class="doccomment">/// An IAM Policy Analysis query, which could be used in
             /// the
-            /// \[AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy\]
+            /// [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy]
             /// RPC or the
-            /// \[AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning\]
+            /// [AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning]
             /// RPC.
             </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
             </span>IamPolicyAnalysisQuery(<span class="kw">super</span>::<span class="kw">super</span>::IamPolicyAnalysisQuery),
@@ -7462,7 +7462,7 @@
     /// resource name.
     ///
     /// This value should be 4-63 characters, and valid characters
-    /// are `\[a-z][0-9\]-`.
+    /// are `[a-z][0-9]-`.
     ///
     /// Notice that this field is required in the saved query creation, and the
     /// `name` field of the `saved_query` will be ignored.
@@ -7921,7 +7921,7 @@
     </span><span class="kw">pub </span>fields: ::prost::alloc::vec::Vec&lt;TableFieldSchema&gt;,
 }
 <span class="doccomment">/// A request message for
-/// \[AssetService.BatchGetEffectiveIamPolicies][google.cloud.asset.v1.AssetService.BatchGetEffectiveIamPolicies\].
+/// [AssetService.BatchGetEffectiveIamPolicies][google.cloud.asset.v1.AssetService.BatchGetEffectiveIamPolicies].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchGetEffectiveIamPoliciesRequest {
@@ -7947,16 +7947,16 @@
     </span><span class="kw">pub </span>names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A response message for
-/// \[AssetService.BatchGetEffectiveIamPolicies][google.cloud.asset.v1.AssetService.BatchGetEffectiveIamPolicies\].
+/// [AssetService.BatchGetEffectiveIamPolicies][google.cloud.asset.v1.AssetService.BatchGetEffectiveIamPolicies].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchGetEffectiveIamPoliciesResponse {
     <span class="doccomment">/// The effective policies for a batch of resources. Note that the results
     /// order is the same as the order of
-    /// \[BatchGetEffectiveIamPoliciesRequest.names][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesRequest.names\].
+    /// [BatchGetEffectiveIamPoliciesRequest.names][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesRequest.names].
     /// When a resource does not have any effective IAM policies, its corresponding
     /// policy_result will contain empty
-    /// \[EffectiveIamPolicy.policies][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.policies\].
+    /// [EffectiveIamPolicy.policies][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.policies].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>policy_results: ::prost::alloc::vec::Vec&lt;
         batch_get_effective_iam_policies_response::EffectiveIamPolicy,
@@ -7971,31 +7971,31 @@
         <span class="doccomment">/// The \[full_resource_name\]
         /// (&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;)
         /// for which the
-        /// \[policies][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.policies\]
+        /// [policies][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.policies]
         /// are computed. This is one of the
-        /// \[BatchGetEffectiveIamPoliciesRequest.names][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesRequest.names\]
+        /// [BatchGetEffectiveIamPoliciesRequest.names][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesRequest.names]
         /// the caller provides in the request.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
         <span class="doccomment">/// The effective policies for the
-        /// \[full_resource_name][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.full_resource_name\].
+        /// [full_resource_name][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.full_resource_name].
         ///
         /// These policies include the policy set on the
-        /// \[full_resource_name][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.full_resource_name\]
+        /// [full_resource_name][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.full_resource_name]
         /// and those set on its parents and ancestors up to the
-        /// \[BatchGetEffectiveIamPoliciesRequest.scope][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesRequest.scope\].
+        /// [BatchGetEffectiveIamPoliciesRequest.scope][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesRequest.scope].
         /// Note that these policies are not filtered according to the resource type
         /// of the
-        /// \[full_resource_name][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.full_resource_name\].
+        /// [full_resource_name][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.full_resource_name].
         ///
         /// These policies are hierarchically ordered by
-        /// \[PolicyInfo.attached_resource][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo.attached_resource\]
+        /// [PolicyInfo.attached_resource][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo.attached_resource]
         /// starting from
-        /// \[full_resource_name][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.full_resource_name\]
+        /// [full_resource_name][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.full_resource_name]
         /// itself to its parents and ancestors, such that policies\[i\]&#39;s
-        /// \[PolicyInfo.attached_resource][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo.attached_resource\]
+        /// [PolicyInfo.attached_resource][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo.attached_resource]
         /// is the child of policies\[i+1\]&#39;s
-        /// \[PolicyInfo.attached_resource][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo.attached_resource\],
+        /// [PolicyInfo.attached_resource][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo.attached_resource],
         /// if policies\[i+1\] exists.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>policies: ::prost::alloc::vec::Vec&lt;effective_iam_policy::PolicyInfo&gt;,
@@ -8007,12 +8007,12 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>PolicyInfo {
             <span class="doccomment">/// The full resource name the
-            /// \[policy][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo.policy\]
+            /// [policy][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo.policy]
             /// is directly attached to.
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>attached_resource: ::prost::alloc::string::String,
             <span class="doccomment">/// The IAM policy that&#39;s directly attached to the
-            /// \[attached_resource][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo.attached_resource\].
+            /// [attached_resource][google.cloud.asset.v1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo.attached_resource].
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>policy: ::core::option::Option&lt;
                 <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy,
@@ -8027,7 +8027,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzerOrgPolicy {
-    <span class="doccomment">/// The [full resource name]
+    <span class="doccomment">/// The \[full resource name\]
     /// (&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;) of
     /// an organization/folder/project resource where this organization policy is
     /// set.
@@ -8036,7 +8036,7 @@
     /// field will be empty for them.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>attached_resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// The [full resource name]
+    <span class="doccomment">/// The \[full resource name\]
     /// (&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;) of
     /// an organization/folder/project resource where this organization policy
     /// applies to.
@@ -8385,7 +8385,7 @@
     }
 }
 <span class="doccomment">/// A request message for
-/// \[AssetService.AnalyzeOrgPolicies][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicies\].
+/// [AssetService.AnalyzeOrgPolicies][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicies].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeOrgPoliciesRequest {
@@ -8401,7 +8401,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>constraint: ::prost::alloc::string::String,
     <span class="doccomment">/// The expression to filter
-    /// \[AnalyzeOrgPoliciesResponse.org_policy_results][google.cloud.asset.v1.AnalyzeOrgPoliciesResponse.org_policy_results\].
+    /// [AnalyzeOrgPoliciesResponse.org_policy_results][google.cloud.asset.v1.AnalyzeOrgPoliciesResponse.org_policy_results].
     /// The only supported field is `consolidated_policy.attached_resource`, and
     /// the only supported operator is `=`.
     ///
@@ -8411,7 +8411,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return per page. If unspecified,
-    /// \[AnalyzeOrgPoliciesResponse.org_policy_results][google.cloud.asset.v1.AnalyzeOrgPoliciesResponse.org_policy_results\]
+    /// [AnalyzeOrgPoliciesResponse.org_policy_results][google.cloud.asset.v1.AnalyzeOrgPoliciesResponse.org_policy_results]
     /// will contain 20 items with a maximum of 200.
     </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>page_size: ::core::option::Option&lt;i32&gt;,
@@ -8420,14 +8420,14 @@
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response message for
-/// \[AssetService.AnalyzeOrgPolicies][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicies\].
+/// [AssetService.AnalyzeOrgPolicies][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicies].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeOrgPoliciesResponse {
     <span class="doccomment">/// The organization policies under the
-    /// \[AnalyzeOrgPoliciesRequest.scope][google.cloud.asset.v1.AnalyzeOrgPoliciesRequest.scope\]
+    /// [AnalyzeOrgPoliciesRequest.scope][google.cloud.asset.v1.AnalyzeOrgPoliciesRequest.scope]
     /// with the
-    /// \[AnalyzeOrgPoliciesRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPoliciesRequest.constraint\].
+    /// [AnalyzeOrgPoliciesRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPoliciesRequest.constraint].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>org_policy_results: ::prost::alloc::vec::Vec&lt;
         analyze_org_policies_response::OrgPolicyResult,
@@ -8436,7 +8436,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>constraint: ::core::option::Option&lt;AnalyzerOrgPolicyConstraint&gt;,
     <span class="doccomment">/// The page token to fetch the next page for
-    /// \[AnalyzeOrgPoliciesResponse.org_policy_results][google.cloud.asset.v1.AnalyzeOrgPoliciesResponse.org_policy_results\].
+    /// [AnalyzeOrgPoliciesResponse.org_policy_results][google.cloud.asset.v1.AnalyzeOrgPoliciesResponse.org_policy_results].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
@@ -8448,13 +8448,13 @@
     </span><span class="kw">pub struct </span>OrgPolicyResult {
         <span class="doccomment">/// The consolidated organization policy for the analyzed resource. The
         /// consolidated organization policy is computed by merging and evaluating
-        /// \[AnalyzeOrgPoliciesResponse.policy_bundle][\].
+        /// [AnalyzeOrgPoliciesResponse.policy_bundle][].
         /// The evaluation will respect the organization policy [hierarchy
         /// rules](&lt;https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy&gt;).
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>consolidated_policy: ::core::option::Option&lt;<span class="kw">super</span>::AnalyzerOrgPolicy&gt;,
         <span class="doccomment">/// The ordered list of all organization policies from the
-        /// \[AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource][\].
+        /// [AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource][].
         /// to the scope specified in the request.
         ///
         /// If the constraint is defined with default policy, it will also appear in
@@ -8464,7 +8464,7 @@
     }
 }
 <span class="doccomment">/// A request message for
-/// \[AssetService.AnalyzeOrgPolicyGovernedContainers][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicyGovernedContainers\].
+/// [AssetService.AnalyzeOrgPolicyGovernedContainers][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicyGovernedContainers].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeOrgPolicyGovernedContainersRequest {
@@ -8491,7 +8491,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return per page. If unspecified,
-    /// \[AnalyzeOrgPolicyGovernedContainersResponse.governed_containers][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.governed_containers\]
+    /// [AnalyzeOrgPolicyGovernedContainersResponse.governed_containers][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.governed_containers]
     /// will contain 100 items with a maximum of 200.
     </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>page_size: ::core::option::Option&lt;i32&gt;,
@@ -8500,7 +8500,7 @@
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response message for
-/// \[AssetService.AnalyzeOrgPolicyGovernedContainers][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicyGovernedContainers\].
+/// [AssetService.AnalyzeOrgPolicyGovernedContainers][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicyGovernedContainers].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeOrgPolicyGovernedContainersResponse {
@@ -8513,7 +8513,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>constraint: ::core::option::Option&lt;AnalyzerOrgPolicyConstraint&gt;,
     <span class="doccomment">/// The page token to fetch the next page for
-    /// \[AnalyzeOrgPolicyGovernedContainersResponse.governed_containers][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.governed_containers\].
+    /// [AnalyzeOrgPolicyGovernedContainersResponse.governed_containers][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.governed_containers].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
@@ -8521,30 +8521,30 @@
 </span><span class="kw">pub mod </span>analyze_org_policy_governed_containers_response {
     <span class="doccomment">/// The organization/folder/project resource governed by organization policies
     /// of
-    /// \[AnalyzeOrgPolicyGovernedContainersRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersRequest.constraint\].
+    /// [AnalyzeOrgPolicyGovernedContainersRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersRequest.constraint].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>GovernedContainer {
-        <span class="doccomment">/// The [full resource name]
+        <span class="doccomment">/// The \[full resource name\]
         /// (&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;) of
         /// an organization/folder/project resource.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
-        <span class="doccomment">/// The [full resource name]
+        <span class="doccomment">/// The \[full resource name\]
         /// (&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;) of
         /// the parent of
-        /// \[AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.full_resource_name][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.full_resource_name\].
+        /// [AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.full_resource_name][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.full_resource_name].
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
         <span class="doccomment">/// The consolidated organization policy for the analyzed resource. The
         /// consolidated organization policy is computed by merging and evaluating
-        /// \[AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.policy_bundle][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.policy_bundle\].
+        /// [AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.policy_bundle][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.policy_bundle].
         /// The evaluation will respect the organization policy [hierarchy
         /// rules](&lt;https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy&gt;).
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>consolidated_policy: ::core::option::Option&lt;<span class="kw">super</span>::AnalyzerOrgPolicy&gt;,
         <span class="doccomment">/// The ordered list of all organization policies from the
-        /// \[AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource][\].
+        /// [AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource][].
         /// to the scope specified in the request.
         ///
         /// If the constraint is defined with default policy, it will also appear in
@@ -8554,7 +8554,7 @@
     }
 }
 <span class="doccomment">/// A request message for
-/// \[AssetService.AnalyzeOrgPolicyGovernedAssets][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicyGovernedAssets\].
+/// [AssetService.AnalyzeOrgPolicyGovernedAssets][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicyGovernedAssets].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeOrgPolicyGovernedAssetsRequest {
@@ -8586,7 +8586,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return per page. If unspecified,
-    /// \[AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets\]
+    /// [AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets]
     /// will contain 100 items with a maximum of 200.
     </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>page_size: ::core::option::Option&lt;i32&gt;,
@@ -8595,7 +8595,7 @@
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response message for
-/// \[AssetService.AnalyzeOrgPolicyGovernedAssets][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicyGovernedAssets\].
+/// [AssetService.AnalyzeOrgPolicyGovernedAssets][google.cloud.asset.v1.AssetService.AnalyzeOrgPolicyGovernedAssets].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeOrgPolicyGovernedAssetsResponse {
@@ -8608,26 +8608,26 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>constraint: ::core::option::Option&lt;AnalyzerOrgPolicyConstraint&gt;,
     <span class="doccomment">/// The page token to fetch the next page for
-    /// \[AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets\].
+    /// [AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `AnalyzeOrgPolicyGovernedAssetsResponse`.
 </span><span class="kw">pub mod </span>analyze_org_policy_governed_assets_response {
     <span class="doccomment">/// The Google Cloud resources governed by the organization policies of the
-    /// \[AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint\].
+    /// [AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>GovernedResource {
-        <span class="doccomment">/// The [full resource name]
+        <span class="doccomment">/// The \[full resource name\]
         /// (&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;) of
         /// the Google Cloud resource.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
-        <span class="doccomment">/// The [full resource name]
+        <span class="doccomment">/// The \[full resource name\]
         /// (&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;) of
         /// the parent of
-        /// \[AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource.full_resource_name][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource.full_resource_name\].
+        /// [AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource.full_resource_name][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource.full_resource_name].
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
         <span class="doccomment">/// The project that this resource belongs to, in the format of
@@ -8647,7 +8647,7 @@
         </span><span class="kw">pub </span>organization: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// The IAM policies governed by the organization policies of the
-    /// \[AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint\].
+    /// [AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>GovernedIamPolicy {
@@ -8680,19 +8680,19 @@
     }
     <span class="doccomment">/// Represents a Google Cloud asset(resource or IAM policy) governed by the
     /// organization policies of the
-    /// \[AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint\].
+    /// [AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>GovernedAsset {
         <span class="doccomment">/// The consolidated policy for the analyzed asset. The consolidated
         /// policy is computed by merging and evaluating
-        /// \[AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.policy_bundle][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.policy_bundle\].
+        /// [AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.policy_bundle][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.policy_bundle].
         /// The evaluation will respect the organization policy [hierarchy
         /// rules](&lt;https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy&gt;).
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>consolidated_policy: ::core::option::Option&lt;<span class="kw">super</span>::AnalyzerOrgPolicy&gt;,
         <span class="doccomment">/// The ordered list of all organization policies from the
-        /// \[AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource][\]
+        /// [AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource][]
         /// to the scope specified in the request.
         ///
         /// If the constraint is defined with default policy, it will also appear in
@@ -8709,12 +8709,12 @@
         </span><span class="kw">pub enum </span>GovernedAsset {
             <span class="doccomment">/// A Google Cloud resource governed by the organization
             /// policies of the
-            /// \[AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint\].
+            /// [AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint].
             </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
             </span>GovernedResource(<span class="kw">super</span>::GovernedResource),
             <span class="doccomment">/// An IAM policy governed by the organization
             /// policies of the
-            /// \[AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint\].
+            /// [AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint].
             </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
             </span>GovernedIamPolicy(<span class="kw">super</span>::GovernedIamPolicy),
         }

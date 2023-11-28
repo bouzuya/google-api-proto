@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/container/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/container/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -7905,6 +7905,147 @@
 <a href="#7905" id="7905">7905</a>
 <a href="#7906" id="7906">7906</a>
 <a href="#7907" id="7907">7907</a>
+<a href="#7908" id="7908">7908</a>
+<a href="#7909" id="7909">7909</a>
+<a href="#7910" id="7910">7910</a>
+<a href="#7911" id="7911">7911</a>
+<a href="#7912" id="7912">7912</a>
+<a href="#7913" id="7913">7913</a>
+<a href="#7914" id="7914">7914</a>
+<a href="#7915" id="7915">7915</a>
+<a href="#7916" id="7916">7916</a>
+<a href="#7917" id="7917">7917</a>
+<a href="#7918" id="7918">7918</a>
+<a href="#7919" id="7919">7919</a>
+<a href="#7920" id="7920">7920</a>
+<a href="#7921" id="7921">7921</a>
+<a href="#7922" id="7922">7922</a>
+<a href="#7923" id="7923">7923</a>
+<a href="#7924" id="7924">7924</a>
+<a href="#7925" id="7925">7925</a>
+<a href="#7926" id="7926">7926</a>
+<a href="#7927" id="7927">7927</a>
+<a href="#7928" id="7928">7928</a>
+<a href="#7929" id="7929">7929</a>
+<a href="#7930" id="7930">7930</a>
+<a href="#7931" id="7931">7931</a>
+<a href="#7932" id="7932">7932</a>
+<a href="#7933" id="7933">7933</a>
+<a href="#7934" id="7934">7934</a>
+<a href="#7935" id="7935">7935</a>
+<a href="#7936" id="7936">7936</a>
+<a href="#7937" id="7937">7937</a>
+<a href="#7938" id="7938">7938</a>
+<a href="#7939" id="7939">7939</a>
+<a href="#7940" id="7940">7940</a>
+<a href="#7941" id="7941">7941</a>
+<a href="#7942" id="7942">7942</a>
+<a href="#7943" id="7943">7943</a>
+<a href="#7944" id="7944">7944</a>
+<a href="#7945" id="7945">7945</a>
+<a href="#7946" id="7946">7946</a>
+<a href="#7947" id="7947">7947</a>
+<a href="#7948" id="7948">7948</a>
+<a href="#7949" id="7949">7949</a>
+<a href="#7950" id="7950">7950</a>
+<a href="#7951" id="7951">7951</a>
+<a href="#7952" id="7952">7952</a>
+<a href="#7953" id="7953">7953</a>
+<a href="#7954" id="7954">7954</a>
+<a href="#7955" id="7955">7955</a>
+<a href="#7956" id="7956">7956</a>
+<a href="#7957" id="7957">7957</a>
+<a href="#7958" id="7958">7958</a>
+<a href="#7959" id="7959">7959</a>
+<a href="#7960" id="7960">7960</a>
+<a href="#7961" id="7961">7961</a>
+<a href="#7962" id="7962">7962</a>
+<a href="#7963" id="7963">7963</a>
+<a href="#7964" id="7964">7964</a>
+<a href="#7965" id="7965">7965</a>
+<a href="#7966" id="7966">7966</a>
+<a href="#7967" id="7967">7967</a>
+<a href="#7968" id="7968">7968</a>
+<a href="#7969" id="7969">7969</a>
+<a href="#7970" id="7970">7970</a>
+<a href="#7971" id="7971">7971</a>
+<a href="#7972" id="7972">7972</a>
+<a href="#7973" id="7973">7973</a>
+<a href="#7974" id="7974">7974</a>
+<a href="#7975" id="7975">7975</a>
+<a href="#7976" id="7976">7976</a>
+<a href="#7977" id="7977">7977</a>
+<a href="#7978" id="7978">7978</a>
+<a href="#7979" id="7979">7979</a>
+<a href="#7980" id="7980">7980</a>
+<a href="#7981" id="7981">7981</a>
+<a href="#7982" id="7982">7982</a>
+<a href="#7983" id="7983">7983</a>
+<a href="#7984" id="7984">7984</a>
+<a href="#7985" id="7985">7985</a>
+<a href="#7986" id="7986">7986</a>
+<a href="#7987" id="7987">7987</a>
+<a href="#7988" id="7988">7988</a>
+<a href="#7989" id="7989">7989</a>
+<a href="#7990" id="7990">7990</a>
+<a href="#7991" id="7991">7991</a>
+<a href="#7992" id="7992">7992</a>
+<a href="#7993" id="7993">7993</a>
+<a href="#7994" id="7994">7994</a>
+<a href="#7995" id="7995">7995</a>
+<a href="#7996" id="7996">7996</a>
+<a href="#7997" id="7997">7997</a>
+<a href="#7998" id="7998">7998</a>
+<a href="#7999" id="7999">7999</a>
+<a href="#8000" id="8000">8000</a>
+<a href="#8001" id="8001">8001</a>
+<a href="#8002" id="8002">8002</a>
+<a href="#8003" id="8003">8003</a>
+<a href="#8004" id="8004">8004</a>
+<a href="#8005" id="8005">8005</a>
+<a href="#8006" id="8006">8006</a>
+<a href="#8007" id="8007">8007</a>
+<a href="#8008" id="8008">8008</a>
+<a href="#8009" id="8009">8009</a>
+<a href="#8010" id="8010">8010</a>
+<a href="#8011" id="8011">8011</a>
+<a href="#8012" id="8012">8012</a>
+<a href="#8013" id="8013">8013</a>
+<a href="#8014" id="8014">8014</a>
+<a href="#8015" id="8015">8015</a>
+<a href="#8016" id="8016">8016</a>
+<a href="#8017" id="8017">8017</a>
+<a href="#8018" id="8018">8018</a>
+<a href="#8019" id="8019">8019</a>
+<a href="#8020" id="8020">8020</a>
+<a href="#8021" id="8021">8021</a>
+<a href="#8022" id="8022">8022</a>
+<a href="#8023" id="8023">8023</a>
+<a href="#8024" id="8024">8024</a>
+<a href="#8025" id="8025">8025</a>
+<a href="#8026" id="8026">8026</a>
+<a href="#8027" id="8027">8027</a>
+<a href="#8028" id="8028">8028</a>
+<a href="#8029" id="8029">8029</a>
+<a href="#8030" id="8030">8030</a>
+<a href="#8031" id="8031">8031</a>
+<a href="#8032" id="8032">8032</a>
+<a href="#8033" id="8033">8033</a>
+<a href="#8034" id="8034">8034</a>
+<a href="#8035" id="8035">8035</a>
+<a href="#8036" id="8036">8036</a>
+<a href="#8037" id="8037">8037</a>
+<a href="#8038" id="8038">8038</a>
+<a href="#8039" id="8039">8039</a>
+<a href="#8040" id="8040">8040</a>
+<a href="#8041" id="8041">8041</a>
+<a href="#8042" id="8042">8042</a>
+<a href="#8043" id="8043">8043</a>
+<a href="#8044" id="8044">8044</a>
+<a href="#8045" id="8045">8045</a>
+<a href="#8046" id="8046">8046</a>
+<a href="#8047" id="8047">8047</a>
+<a href="#8048" id="8048">8048</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Parameters that can be configured on Linux nodes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -8090,7 +8231,7 @@
 ///
 /// GKE Autopilot clusters do not
 /// recognize parameters in `NodeConfig`. Use
-/// \[AutoprovisioningNodePoolDefaults][google.container.v1.AutoprovisioningNodePoolDefaults\]
+/// [AutoprovisioningNodePoolDefaults][google.container.v1.AutoprovisioningNodePoolDefaults]
 /// instead.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -8260,7 +8401,7 @@
     <span class="doccomment">///
     /// The Customer Managed Encryption Key used to encrypt the boot disk attached
     /// to each node in the node pool. This should be of the form
-    /// projects/\[KEY_PROJECT_ID]/locations/[LOCATION]/keyRings/[RING_NAME]/cryptoKeys/[KEY_NAME\].
+    /// projects/\[KEY_PROJECT_ID\]/locations/\[LOCATION\]/keyRings/\[RING_NAME\]/cryptoKeys/\[KEY_NAME\].
     /// For more information about protecting resources with Cloud KMS Keys please
     /// see:
     /// &lt;https://cloud.google.com/compute/docs/disks/customer-managed-encryption&gt;
@@ -8311,6 +8452,9 @@
     <span class="doccomment">/// Parameters for node pools to be backed by shared sole tenant node groups.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;42&quot;</span>)]
     </span><span class="kw">pub </span>sole_tenant_config: ::core::option::Option&lt;SoleTenantConfig&gt;,
+    <span class="doccomment">/// A map of resource manager tag keys and values to be attached to the nodes.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;45&quot;</span>)]
+    </span><span class="kw">pub </span>resource_manager_tags: ::core::option::Option&lt;ResourceManagerTags&gt;,
 }
 <span class="doccomment">/// Specifies options for controlling advanced machine features.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -8359,7 +8503,7 @@
     /// netmask.
     ///
     /// Set to a
-    /// \[CIDR\](&lt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
+    /// [CIDR](&lt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
     /// notation (e.g. `10.96.0.0/14`) to pick a specific range to use.
     ///
     /// Only applicable if `ip_allocation_policy.use_ip_aliases` is true.
@@ -8369,7 +8513,7 @@
     </span><span class="kw">pub </span>pod_ipv4_cidr_block: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether nodes have internal IP addresses only.
     /// If enable_private_nodes is not specified, then the value is derived from
-    /// \[cluster.privateClusterConfig.enablePrivateNodes][google.container.v1beta1.PrivateClusterConfig.enablePrivateNodes\]
+    /// [cluster.privateClusterConfig.enablePrivateNodes][google.container.v1beta1.PrivateClusterConfig.enablePrivateNodes]
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>enable_private_nodes: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// Network bandwidth tier configuration.
@@ -8377,7 +8521,7 @@
     </span><span class="kw">pub </span>network_performance_config: ::core::option::Option&lt;
         node_network_config::NetworkPerformanceConfig,
     &gt;,
-    <span class="doccomment">/// [PRIVATE FIELD]
+    <span class="doccomment">/// \[PRIVATE FIELD\]
     /// Pod CIDR size overprovisioning config for the nodepool.
     ///
     /// Pod CIDR size per node depends on max_pods_per_node. By default, the value
@@ -8405,8 +8549,8 @@
     </span><span class="kw">pub </span>additional_pod_network_configs: ::prost::alloc::vec::Vec&lt;
         AdditionalPodNetworkConfig,
     &gt;,
-    <span class="doccomment">/// Output only. [Output only] The utilization of the IPv4 range for the pod.
-    /// The ratio is Usage/[Total number of IPs in the secondary range],
+    <span class="doccomment">/// Output only. \[Output only\] The utilization of the IPv4 range for the pod.
+    /// The ratio is Usage/\[Total number of IPs in the secondary range\],
     /// Usage=numNodes*numZones*podIPsPerNode.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;16&quot;</span>)]
     </span><span class="kw">pub </span>pod_ipv4_range_utilization: f64,
@@ -8571,7 +8715,7 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>enabled: bool,
 }
-<span class="doccomment">/// \[ReservationAffinity\](&lt;https://cloud.google.com/compute/docs/instances/reserving-zonal-resources&gt;)
+<span class="doccomment">/// [ReservationAffinity](&lt;https://cloud.google.com/compute/docs/instances/reserving-zonal-resources&gt;)
 /// is the configuration of desired reservation which instances could take
 /// capacity from.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -8720,7 +8864,7 @@
 /// can only be one of three types:  NoSchedule, PreferNoSchedule or NoExecute.
 ///
 /// See
-/// \[here\](&lt;https://kubernetes.io/docs/concepts/configuration/taint-and-toleration&gt;)
+/// [here](&lt;https://kubernetes.io/docs/concepts/configuration/taint-and-toleration&gt;)
 /// for more information, including usage and the valid values.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -8861,15 +9005,15 @@
     /// certificate is issued.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>client_certificate_config: ::core::option::Option&lt;ClientCertificateConfig&gt;,
-    <span class="doccomment">/// [Output only] Base64-encoded public certificate that is the root of
+    <span class="doccomment">/// \[Output only\] Base64-encoded public certificate that is the root of
     /// trust for the cluster.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;100&quot;</span>)]
     </span><span class="kw">pub </span>cluster_ca_certificate: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] Base64-encoded public certificate used by clients to
+    <span class="doccomment">/// \[Output only\] Base64-encoded public certificate used by clients to
     /// authenticate to the cluster endpoint.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;101&quot;</span>)]
     </span><span class="kw">pub </span>client_certificate: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] Base64-encoded private key used by clients to authenticate
+    <span class="doccomment">/// \[Output only\] Base64-encoded private key used by clients to authenticate
     /// to the cluster endpoint.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;102&quot;</span>)]
     </span><span class="kw">pub </span>client_key: ::prost::alloc::string::String,
@@ -9308,7 +9452,7 @@
         }
     }
 }
-<span class="doccomment">/// [PRIVATE FIELD]
+<span class="doccomment">/// \[PRIVATE FIELD\]
 /// Config for pod CIDR size overprovisioning.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -9379,7 +9523,7 @@
     /// netmask.
     ///
     /// Set to a
-    /// \[CIDR\](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
+    /// [CIDR](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
     /// notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
     /// `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
     /// to use.
@@ -9395,7 +9539,7 @@
     /// netmask.
     ///
     /// Set to a
-    /// \[CIDR\](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
+    /// [CIDR](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
     /// notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
     /// `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
     /// to use.
@@ -9412,7 +9556,7 @@
     /// netmask.
     ///
     /// Set to a
-    /// \[CIDR\](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
+    /// [CIDR](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
     /// notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
     /// `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
     /// to use.
@@ -9429,7 +9573,7 @@
     /// netmask.
     ///
     /// Set to a
-    /// \[CIDR\](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
+    /// [CIDR](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
     /// notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
     /// `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
     /// to use.
@@ -9447,7 +9591,7 @@
     <span class="doccomment">/// The ipv6 access type (internal or external) when create_subnetwork is true
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;IPv6AccessType&quot;</span>, tag = <span class="string">&quot;17&quot;</span>)]
     </span><span class="kw">pub </span>ipv6_access_type: i32,
-    <span class="doccomment">/// [PRIVATE FIELD]
+    <span class="doccomment">/// \[PRIVATE FIELD\]
     /// Pod CIDR size overprovisioning config for the cluster.
     ///
     /// Pod CIDR size per node depends on max_pods_per_node. By default, the value
@@ -9463,20 +9607,20 @@
     </span><span class="kw">pub </span>pod_cidr_overprovision_config: ::core::option::Option&lt;
         PodCidrOverprovisionConfig,
     &gt;,
-    <span class="doccomment">/// Output only. [Output only] The subnet&#39;s IPv6 CIDR block used by nodes and
+    <span class="doccomment">/// Output only. \[Output only\] The subnet&#39;s IPv6 CIDR block used by nodes and
     /// pods.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;22&quot;</span>)]
     </span><span class="kw">pub </span>subnet_ipv6_cidr_block: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. [Output only] The services IPv6 CIDR block for the cluster.
+    <span class="doccomment">/// Output only. \[Output only\] The services IPv6 CIDR block for the cluster.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
     </span><span class="kw">pub </span>services_ipv6_cidr_block: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. [Output only] The additional pod ranges that are added to the
+    <span class="doccomment">/// Output only. \[Output only\] The additional pod ranges that are added to the
     /// cluster. These pod ranges can be used by new node pools to allocate pod IPs
     /// automatically. Once the range is removed it will not show up in
     /// IPAllocationPolicy.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
     </span><span class="kw">pub </span>additional_pod_ranges_config: ::core::option::Option&lt;AdditionalPodRangesConfig&gt;,
-    <span class="doccomment">/// Output only. [Output only] The utilization of the cluster default IPv4
+    <span class="doccomment">/// Output only. \[Output only\] The utilization of the cluster default IPv4
     /// range for the pod. The ratio is Usage/[Total number of IPs in the secondary
     /// range], Usage=numNodes*numZones*podIPsPerNode.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;25&quot;</span>)]
@@ -9559,13 +9703,13 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>monitoring_service: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the Google Compute Engine
-    /// \[network\](&lt;https://cloud.google.com/compute/docs/networks-and-firewalls#networks&gt;)
+    /// [network](&lt;https://cloud.google.com/compute/docs/networks-and-firewalls#networks&gt;)
     /// to which the cluster is connected. If left unspecified, the `default`
     /// network will be used.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// The IP address range of the container pods in this cluster, in
-    /// \[CIDR\](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
+    /// [CIDR](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
     /// notation (e.g. `10.96.0.0/14`). Leave blank to have
     /// one automatically chosen or specify a `/14` block in `10.0.0.0/8`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
@@ -9574,7 +9718,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>addons_config: ::core::option::Option&lt;AddonsConfig&gt;,
     <span class="doccomment">/// The name of the Google Compute Engine
-    /// \[subnetwork\](&lt;https://cloud.google.com/compute/docs/subnetworks&gt;) to which
+    /// [subnetwork](&lt;https://cloud.google.com/compute/docs/subnetworks&gt;) to which
     /// the cluster is connected.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
@@ -9584,15 +9728,15 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>node_pools: ::prost::alloc::vec::Vec&lt;NodePool&gt;,
     <span class="doccomment">/// The list of Google Compute Engine
-    /// \[zones\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zones](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster&#39;s nodes should be located.
     ///
     /// This field provides a default value if
-    /// \[NodePool.Locations\](&lt;https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations&gt;)
+    /// [NodePool.Locations](&lt;https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations&gt;)
     /// are not specified during node pool creation.
     ///
     /// Warning: changing cluster locations will update the
-    /// \[NodePool.Locations\](&lt;https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations&gt;)
+    /// [NodePool.Locations](&lt;https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations&gt;)
     /// of all node pools and will result in nodes being added and/or removed.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>locations: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
@@ -9693,16 +9837,16 @@
     <span class="doccomment">/// Configuration for Identity Service component.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;54&quot;</span>)]
     </span><span class="kw">pub </span>identity_service_config: ::core::option::Option&lt;IdentityServiceConfig&gt;,
-    <span class="doccomment">/// [Output only] Server-defined URL for the resource.
+    <span class="doccomment">/// \[Output only\] Server-defined URL for the resource.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;100&quot;</span>)]
     </span><span class="kw">pub </span>self_link: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    <span class="doccomment">/// \[Output only\] The name of the Google Compute Engine
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field is deprecated, use location instead.
     </span><span class="attr">#[deprecated]
     #[prost(string, tag = <span class="string">&quot;101&quot;</span>)]
     </span><span class="kw">pub </span>zone: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The IP address of this cluster&#39;s master endpoint.
+    <span class="doccomment">/// \[Output only\] The IP address of this cluster&#39;s master endpoint.
     /// The endpoint can be accessed from the internet at
     /// `&lt;https://username:password@endpoint/`.&gt;
     ///
@@ -9725,39 +9869,39 @@
     /// - &quot;&quot;,&quot;-&quot;: picks the default Kubernetes version
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;103&quot;</span>)]
     </span><span class="kw">pub </span>initial_cluster_version: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The current software version of the master endpoint.
+    <span class="doccomment">/// \[Output only\] The current software version of the master endpoint.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;104&quot;</span>)]
     </span><span class="kw">pub </span>current_master_version: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] Deprecated, use
-    /// \[NodePools.version\](&lt;https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools&gt;)
+    <span class="doccomment">/// \[Output only\] Deprecated, use
+    /// [NodePools.version](&lt;https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools&gt;)
     /// instead. The current version of the node software components. If they are
     /// currently at multiple versions because they&#39;re in the process of being
     /// upgraded, this reflects the minimum version of all nodes.
     </span><span class="attr">#[deprecated]
     #[prost(string, tag = <span class="string">&quot;105&quot;</span>)]
     </span><span class="kw">pub </span>current_node_version: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The time the cluster was created, in
-    /// \[RFC3339\](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
+    <span class="doccomment">/// \[Output only\] The time the cluster was created, in
+    /// [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;106&quot;</span>)]
     </span><span class="kw">pub </span>create_time: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The current status of this cluster.
+    <span class="doccomment">/// \[Output only\] The current status of this cluster.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;cluster::Status&quot;</span>, tag = <span class="string">&quot;107&quot;</span>)]
     </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// [Output only] Deprecated. Use conditions instead.
+    <span class="doccomment">/// \[Output only\] Deprecated. Use conditions instead.
     /// Additional information about the current status of this
     /// cluster, if available.
     </span><span class="attr">#[deprecated]
     #[prost(string, tag = <span class="string">&quot;108&quot;</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The size of the address space on each node for hosting
+    <span class="doccomment">/// \[Output only\] The size of the address space on each node for hosting
     /// containers. This is provisioned from within the `container_ipv4_cidr`
     /// range. This field will only be set when cluster is in route-based network
     /// mode.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;109&quot;</span>)]
     </span><span class="kw">pub </span>node_ipv4_cidr_size: i32,
-    <span class="doccomment">/// [Output only] The IP address range of the Kubernetes services in
+    <span class="doccomment">/// \[Output only\] The IP address range of the Kubernetes services in
     /// this cluster, in
-    /// \[CIDR\](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
+    /// [CIDR](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
     /// notation (e.g. `1.2.3.4/29`). Service addresses are
     /// typically put in the last `/16` from the container CIDR.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;110&quot;</span>)]
@@ -9766,27 +9910,27 @@
     </span><span class="attr">#[deprecated]
     #[prost(string, repeated, tag = <span class="string">&quot;111&quot;</span>)]
     </span><span class="kw">pub </span>instance_group_urls: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output only]  The number of nodes currently in the cluster. Deprecated.
+    <span class="doccomment">/// \[Output only\]  The number of nodes currently in the cluster. Deprecated.
     /// Call Kubernetes API directly to retrieve node information.
     </span><span class="attr">#[deprecated]
     #[prost(int32, tag = <span class="string">&quot;112&quot;</span>)]
     </span><span class="kw">pub </span>current_node_count: i32,
-    <span class="doccomment">/// [Output only] The time the cluster will be automatically
-    /// deleted in \[RFC3339\](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
+    <span class="doccomment">/// \[Output only\] The time the cluster will be automatically
+    /// deleted in [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;113&quot;</span>)]
     </span><span class="kw">pub </span>expire_time: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/regions-zones/regions-zones#available&gt;)
+    <span class="doccomment">/// \[Output only\] The name of the Google Compute Engine
+    /// [zone](&lt;https://cloud.google.com/compute/docs/regions-zones/regions-zones#available&gt;)
     /// or
-    /// \[region\](&lt;https://cloud.google.com/compute/docs/regions-zones/regions-zones#available&gt;)
+    /// [region](&lt;https://cloud.google.com/compute/docs/regions-zones/regions-zones#available&gt;)
     /// in which the cluster resides.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;114&quot;</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
     <span class="doccomment">/// Enable the ability to use Cloud TPUs in this cluster.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;115&quot;</span>)]
     </span><span class="kw">pub </span>enable_tpu: bool,
-    <span class="doccomment">/// [Output only] The IP address range of the Cloud TPUs in this cluster, in
-    /// \[CIDR\](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
+    <span class="doccomment">/// \[Output only\] The IP address range of the Cloud TPUs in this cluster, in
+    /// [CIDR](&lt;http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&gt;)
     /// notation (e.g. `1.2.3.4/29`).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;116&quot;</span>)]
     </span><span class="kw">pub </span>tpu_ipv4_cidr_block: ::prost::alloc::string::String,
@@ -9827,6 +9971,9 @@
     <span class="doccomment">/// Beta APIs Config
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;143&quot;</span>)]
     </span><span class="kw">pub </span>enable_k8s_beta_apis: ::core::option::Option&lt;K8sBetaApiConfig&gt;,
+    <span class="doccomment">/// GKE Enterprise Configuration.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;149&quot;</span>)]
+    </span><span class="kw">pub </span>enterprise_config: ::core::option::Option&lt;EnterpriseConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Cluster`.
 </span><span class="kw">pub mod </span>cluster {
@@ -9984,6 +10131,9 @@
         </span>VulnerabilityDisabled = <span class="number">1</span>,
         <span class="doccomment">/// Applies basic vulnerability scanning on the cluster.
         </span>VulnerabilityBasic = <span class="number">2</span>,
+        <span class="doccomment">/// Applies the Security Posture&#39;s vulnerability on cluster Enterprise level
+        /// features.
+        </span>VulnerabilityEnterprise = <span class="number">3</span>,
     }
     <span class="kw">impl </span>VulnerabilityMode {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -9995,6 +10145,7 @@
                 VulnerabilityMode::Unspecified =&gt; <span class="string">&quot;VULNERABILITY_MODE_UNSPECIFIED&quot;</span>,
                 VulnerabilityMode::VulnerabilityDisabled =&gt; <span class="string">&quot;VULNERABILITY_DISABLED&quot;</span>,
                 VulnerabilityMode::VulnerabilityBasic =&gt; <span class="string">&quot;VULNERABILITY_BASIC&quot;</span>,
+                VulnerabilityMode::VulnerabilityEnterprise =&gt; <span class="string">&quot;VULNERABILITY_ENTERPRISE&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -10003,6 +10154,7 @@
                 <span class="string">&quot;VULNERABILITY_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
                 <span class="string">&quot;VULNERABILITY_DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VulnerabilityDisabled),
                 <span class="string">&quot;VULNERABILITY_BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VulnerabilityBasic),
+                <span class="string">&quot;VULNERABILITY_ENTERPRISE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VulnerabilityEnterprise),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -10019,6 +10171,10 @@
     /// must comply with RFC1035.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>network_tags: ::core::option::Option&lt;NetworkTags&gt;,
+    <span class="doccomment">/// Resource manager tag keys and values to be attached to the nodes
+    /// for managing Compute Engine firewalls using Network Firewall Policies.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>resource_manager_tags: ::core::option::Option&lt;ResourceManagerTags&gt;,
 }
 <span class="doccomment">/// Subset of Nodepool message that has defaults.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -10110,7 +10266,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>desired_node_pool_autoscaling: ::core::option::Option&lt;NodePoolAutoscaling&gt;,
     <span class="doccomment">/// The desired list of Google Compute Engine
-    /// \[zones\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zones](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster&#39;s nodes should be located.
     ///
     /// This list must always include the cluster&#39;s primary zone.
@@ -10271,6 +10427,12 @@
     <span class="doccomment">/// Desired Beta APIs to be enabled for cluster.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;131&quot;</span>)]
     </span><span class="kw">pub </span>desired_k8s_beta_apis: ::core::option::Option&lt;K8sBetaApiConfig&gt;,
+    <span class="doccomment">/// The desired resource manager tags that apply to all auto-provisioned node
+    /// pools in autopilot clusters and node auto-provisioning enabled clusters.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;136&quot;</span>)]
+    </span><span class="kw">pub </span>desired_node_pool_auto_config_resource_manager_tags: ::core::option::Option&lt;
+        ResourceManagerTags,
+    &gt;,
 }
 <span class="doccomment">/// AdditionalPodRangesConfig is the configuration for additional pod secondary
 /// ranges supporting the ClusterUpdate message.
@@ -10280,7 +10442,7 @@
     <span class="doccomment">/// Name for pod secondary ipv4 range which has the actual range defined ahead.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>pod_range_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. [Output only] Information for additional pod range.
+    <span class="doccomment">/// Output only. \[Output only\] Information for additional pod range.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>pod_range_info: ::prost::alloc::vec::Vec&lt;RangeInfo&gt;,
 }
@@ -10288,10 +10450,10 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RangeInfo {
-    <span class="doccomment">/// Output only. [Output only] Name of a range.
+    <span class="doccomment">/// Output only. \[Output only\] Name of a range.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>range_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. [Output only] The utilization of the range.
+    <span class="doccomment">/// Output only. \[Output only\] The utilization of the range.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>utilization: f64,
 }
@@ -10304,7 +10466,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// operation is taking place. This field is deprecated, use location instead.
     </span><span class="attr">#[deprecated]
     #[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
@@ -10344,22 +10506,22 @@
     /// `&lt;https://container.googleapis.com/v1/projects/123/zones/us-central1-c/clusters/my-cluster/nodePools/my-np/node/my-node`&gt;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>target_link: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/regions-zones/regions-zones#available&gt;)
+    <span class="doccomment">/// \[Output only\] The name of the Google Compute Engine
+    /// [zone](&lt;https://cloud.google.com/compute/docs/regions-zones/regions-zones#available&gt;)
     /// or
-    /// \[region\](&lt;https://cloud.google.com/compute/docs/regions-zones/regions-zones#available&gt;)
+    /// [region](&lt;https://cloud.google.com/compute/docs/regions-zones/regions-zones#available&gt;)
     /// in which the cluster resides.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The time the operation started, in
-    /// \[RFC3339\](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
+    <span class="doccomment">/// \[Output only\] The time the operation started, in
+    /// [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>start_time: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The time the operation completed, in
-    /// \[RFC3339\](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
+    <span class="doccomment">/// \[Output only\] The time the operation completed, in
+    /// [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>end_time: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. [Output only] Progress information for an operation.
+    <span class="doccomment">/// Output only. \[Output only\] Progress information for an operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>progress: ::core::option::Option&lt;OperationProgress&gt;,
     <span class="doccomment">/// Which conditions caused the current cluster state.
@@ -10449,30 +10611,30 @@
         /// unusable until the operation finishes.
         ///
         /// In the event of the operation failing, the cluster will enter the [ERROR
-        /// state]\[Cluster.Status.ERROR\] and eventually be deleted.
+        /// state][Cluster.Status.ERROR] and eventually be deleted.
         </span>CreateCluster = <span class="number">1</span>,
         <span class="doccomment">/// The cluster is being deleted. The cluster should be assumed to be
         /// unusable as soon as this operation starts.
         ///
         /// In the event of the operation failing, the cluster will enter the [ERROR
-        /// state]\[Cluster.Status.ERROR\] and the deletion will be automatically
+        /// state][Cluster.Status.ERROR] and the deletion will be automatically
         /// retried until completed.
         </span>DeleteCluster = <span class="number">2</span>,
         <span class="doccomment">/// The [cluster
-        /// version]\[google.container.v1.ClusterUpdate.desired_master_version\] is
+        /// version][google.container.v1.ClusterUpdate.desired_master_version] is
         /// being updated. Note that this includes &quot;upgrades&quot; to the same version,
         /// which are simply a recreation. This also includes
-        /// \[auto-upgrades\](&lt;https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically&gt;).
+        /// [auto-upgrades](&lt;https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically&gt;).
         /// For more details, see [documentation on cluster
         /// upgrades](&lt;https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades&gt;).
         </span>UpgradeMaster = <span class="number">3</span>,
         <span class="doccomment">/// A node pool is being updated. Despite calling this an &quot;upgrade&quot;, this
         /// includes most forms of updates to node pools. This also includes
-        /// \[auto-upgrades\](&lt;https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades&gt;).
+        /// [auto-upgrades](&lt;https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades&gt;).
         ///
         /// This operation sets the
-        /// \[progress][google.container.v1.Operation.progress\] field and may be
-        /// \[canceled][google.container.v1.ClusterManager.CancelOperation\].
+        /// [progress][google.container.v1.Operation.progress] field and may be
+        /// [canceled][google.container.v1.ClusterManager.CancelOperation].
         ///
         /// The upgrade strategy depends on [node pool
         /// configuration](&lt;https://cloud.google.com/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies&gt;).
@@ -10508,7 +10670,7 @@
         <span class="doccomment">/// The node pool is being deleted. The node pool should be assumed to be
         /// unusable as soon as this operation starts.
         </span>DeleteNodePool = <span class="number">8</span>,
-        <span class="doccomment">/// The node pool&#39;s \[manamagent][google.container.v1.NodePool.management\]
+        <span class="doccomment">/// The node pool&#39;s [manamagent][google.container.v1.NodePool.management]
         /// field is being updated. These operations only update metadata and may be
         /// concurrent with most other operations.
         </span>SetNodePoolManagement = <span class="number">9</span>,
@@ -10519,22 +10681,22 @@
         /// multiple repairs occurring on the same node pool.
         </span>AutoRepairNodes = <span class="number">10</span>,
         <span class="doccomment">/// Unused. Automatic node upgrade uses
-        /// \[UPGRADE_NODES][google.container.v1.Operation.Type.UPGRADE_NODES\].
+        /// [UPGRADE_NODES][google.container.v1.Operation.Type.UPGRADE_NODES].
         </span>AutoUpgradeNodes = <span class="number">11</span>,
         <span class="doccomment">/// Unused. Updating labels uses
-        /// \[UPDATE_CLUSTER][google.container.v1.Operation.Type.UPDATE_CLUSTER\].
+        /// [UPDATE_CLUSTER][google.container.v1.Operation.Type.UPDATE_CLUSTER].
         </span>SetLabels = <span class="number">12</span>,
         <span class="doccomment">/// Unused. Updating master auth uses
-        /// \[UPDATE_CLUSTER][google.container.v1.Operation.Type.UPDATE_CLUSTER\].
+        /// [UPDATE_CLUSTER][google.container.v1.Operation.Type.UPDATE_CLUSTER].
         </span>SetMasterAuth = <span class="number">13</span>,
         <span class="doccomment">/// The node pool is being resized. With the exception of resizing to or from
         /// size zero, the node pool is generally usable during this operation.
         </span>SetNodePoolSize = <span class="number">14</span>,
         <span class="doccomment">/// Unused. Updating network policy uses
-        /// \[UPDATE_CLUSTER][google.container.v1.Operation.Type.UPDATE_CLUSTER\].
+        /// [UPDATE_CLUSTER][google.container.v1.Operation.Type.UPDATE_CLUSTER].
         </span>SetNetworkPolicy = <span class="number">15</span>,
         <span class="doccomment">/// Unused. Updating maintenance policy uses
-        /// \[UPDATE_CLUSTER][google.container.v1.Operation.Type.UPDATE_CLUSTER\].
+        /// [UPDATE_CLUSTER][google.container.v1.Operation.Type.UPDATE_CLUSTER].
         </span>SetMaintenancePolicy = <span class="number">16</span>,
         <span class="doccomment">/// The control plane is being resized. This operation type is initiated by
         /// GKE. These operations are often performed preemptively to ensure that the
@@ -10543,6 +10705,9 @@
         /// [documentation on
         /// resizes](&lt;https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs&gt;).
         </span>ResizeCluster = <span class="number">18</span>,
+        <span class="doccomment">/// Fleet features of GKE Enterprise are being upgraded. The cluster should
+        /// be assumed to be blocked for other upgrades until the operation finishes.
+        </span>FleetFeatureUpgrade = <span class="number">19</span>,
     }
     <span class="kw">impl </span>Type {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -10569,6 +10734,7 @@
                 Type::SetNetworkPolicy =&gt; <span class="string">&quot;SET_NETWORK_POLICY&quot;</span>,
                 Type::SetMaintenancePolicy =&gt; <span class="string">&quot;SET_MAINTENANCE_POLICY&quot;</span>,
                 Type::ResizeCluster =&gt; <span class="string">&quot;RESIZE_CLUSTER&quot;</span>,
+                Type::FleetFeatureUpgrade =&gt; <span class="string">&quot;FLEET_FEATURE_UPGRADE&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -10592,6 +10758,7 @@
                 <span class="string">&quot;SET_NETWORK_POLICY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SetNetworkPolicy),
                 <span class="string">&quot;SET_MAINTENANCE_POLICY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SetMaintenancePolicy),
                 <span class="string">&quot;RESIZE_CLUSTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResizeCluster),
+                <span class="string">&quot;FLEET_FEATURE_UPGRADE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FleetFeatureUpgrade),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -10663,7 +10830,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the parent
     /// field.
     </span><span class="attr">#[deprecated]
@@ -10689,7 +10856,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -10716,7 +10883,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -10746,7 +10913,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -10786,7 +10953,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The desired list of Google Compute Engine
-    /// \[zones\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zones](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// node pool&#39;s nodes should be located. Changing the locations for a node pool
     /// will result in nodes being either created or removed from the node pool,
     /// depending on whether locations are being added or removed.
@@ -10868,6 +11035,11 @@
     /// node pool to the specified disk size.
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;38&quot;</span>)]
     </span><span class="kw">pub </span>disk_size_gb: i64,
+    <span class="doccomment">/// Desired resource manager tag keys and values to be attached to the nodes
+    /// for managing Compute Engine firewalls using Network Firewall Policies.
+    /// Existing tags will be replaced with new values.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;39&quot;</span>)]
+    </span><span class="kw">pub </span>resource_manager_tags: ::core::option::Option&lt;ResourceManagerTags&gt;,
 }
 <span class="doccomment">/// SetNodePoolAutoscalingRequest sets the autoscaler settings of a node pool.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -10880,7 +11052,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -10916,7 +11088,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -10956,7 +11128,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -10996,7 +11168,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11027,7 +11199,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11039,7 +11211,7 @@
     #[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>cluster_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The desired list of Google Compute Engine
-    /// \[zones\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zones](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster&#39;s nodes should be located. Changing the locations a cluster is in
     /// will result in nodes being either created or removed from the cluster,
     /// depending on whether locations are being added or removed.
@@ -11063,7 +11235,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11102,7 +11274,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11188,7 +11360,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11215,7 +11387,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides, or &quot;-&quot; for all zones. This field has been deprecated and
     /// replaced by the parent field.
     </span><span class="attr">#[deprecated]
@@ -11251,7 +11423,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11278,7 +11450,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) to return
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) to return
     /// operations for, or `-` for all zones. This field has been deprecated and
     /// replaced by the parent field.
     </span><span class="attr">#[deprecated]
@@ -11301,7 +11473,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// operation resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11340,7 +11512,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) to return
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) to return
     /// operations for. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11402,7 +11574,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the parent
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11433,7 +11605,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11466,7 +11638,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the parent
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11493,7 +11665,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -11588,11 +11760,11 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>initial_node_count: i32,
     <span class="doccomment">/// The list of Google Compute Engine
-    /// \[zones\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zones](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// NodePool&#39;s nodes should be located.
     ///
     /// If this value is unspecified during node pool creation, the
-    /// \[Cluster.Locations\](&lt;https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters#Cluster.FIELDS.locations&gt;)
+    /// [Cluster.Locations](&lt;https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters#Cluster.FIELDS.locations&gt;)
     /// value will be used, instead.
     ///
     /// Warning: changing node pool locations will result in nodes being added
@@ -11603,25 +11775,25 @@
     /// cluster-level defaults.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
     </span><span class="kw">pub </span>network_config: ::core::option::Option&lt;NodeNetworkConfig&gt;,
-    <span class="doccomment">/// [Output only] Server-defined URL for the resource.
+    <span class="doccomment">/// \[Output only\] Server-defined URL for the resource.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;100&quot;</span>)]
     </span><span class="kw">pub </span>self_link: ::prost::alloc::string::String,
     <span class="doccomment">/// The version of Kubernetes running on this NodePool&#39;s nodes. If unspecified,
     /// it defaults as described
-    /// \[here\](&lt;https://cloud.google.com/kubernetes-engine/versioning#specifying_node_version&gt;).
+    /// [here](&lt;https://cloud.google.com/kubernetes-engine/versioning#specifying_node_version&gt;).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;101&quot;</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The resource URLs of the [managed instance
+    <span class="doccomment">/// \[Output only\] The resource URLs of the [managed instance
     /// groups](&lt;https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-managed-instances&gt;)
     /// associated with this node pool.
     /// During the node pool blue-green upgrade operation, the URLs contain both
     /// blue and green resources.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;102&quot;</span>)]
     </span><span class="kw">pub </span>instance_group_urls: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output only] The status of the nodes in this pool instance.
+    <span class="doccomment">/// \[Output only\] The status of the nodes in this pool instance.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;node_pool::Status&quot;</span>, tag = <span class="string">&quot;103&quot;</span>)]
     </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// [Output only] Deprecated. Use conditions instead.
+    <span class="doccomment">/// \[Output only\] Deprecated. Use conditions instead.
     /// Additional information about the current status of this
     /// node pool instance, if available.
     </span><span class="attr">#[deprecated]
@@ -11641,7 +11813,7 @@
     <span class="doccomment">/// Which conditions caused the current node pool state.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;105&quot;</span>)]
     </span><span class="kw">pub </span>conditions: ::prost::alloc::vec::Vec&lt;StatusCondition&gt;,
-    <span class="doccomment">/// [Output only] The pod CIDR block size per node in this node pool.
+    <span class="doccomment">/// \[Output only\] The pod CIDR block size per node in this node pool.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>pod_ipv4_cidr_size: i32,
     <span class="doccomment">/// Upgrade settings control disruption and speed of the upgrade.
@@ -11650,7 +11822,7 @@
     <span class="doccomment">/// Specifies the node placement policy.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;108&quot;</span>)]
     </span><span class="kw">pub </span>placement_policy: ::core::option::Option&lt;node_pool::PlacementPolicy&gt;,
-    <span class="doccomment">/// Output only. [Output only] Update info contains relevant information during
+    <span class="doccomment">/// Output only. \[Output only\] Update info contains relevant information during
     /// a node pool update.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;109&quot;</span>)]
     </span><span class="kw">pub </span>update_info: ::core::option::Option&lt;node_pool::UpdateInfo&gt;,
@@ -11659,6 +11831,9 @@
     /// up-to-date value before proceeding.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;110&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+    <span class="doccomment">/// Specifies the configuration of queued provisioning.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;112&quot;</span>)]
+    </span><span class="kw">pub </span>queued_provisioning: ::core::option::Option&lt;node_pool::QueuedProvisioning&gt;,
     <span class="doccomment">/// Enable best effort provisioning for nodes
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;113&quot;</span>)]
     </span><span class="kw">pub </span>best_effort_provisioning: ::core::option::Option&lt;BestEffortProvisioning&gt;,
@@ -11748,14 +11923,14 @@
             <span class="doccomment">/// Current blue-green upgrade phase.
             </span><span class="attr">#[prost(enumeration = <span class="string">&quot;blue_green_info::Phase&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>phase: i32,
-            <span class="doccomment">/// The resource URLs of the [managed instance groups]
+            <span class="doccomment">/// The resource URLs of the \[managed instance groups\]
             /// (/compute/docs/instance-groups/creating-groups-of-managed-instances)
             /// associated with blue pool.
             </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>blue_instance_group_urls: ::prost::alloc::vec::Vec&lt;
                 ::prost::alloc::string::String,
             &gt;,
-            <span class="doccomment">/// The resource URLs of the [managed instance groups]
+            <span class="doccomment">/// The resource URLs of the \[managed instance groups\]
             /// (/compute/docs/instance-groups/creating-groups-of-managed-instances)
             /// associated with green pool.
             </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
@@ -11763,7 +11938,7 @@
                 ::prost::alloc::string::String,
             &gt;,
             <span class="doccomment">/// Time to start deleting blue pool to complete blue-green upgrade,
-            /// in \[RFC3339\](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
+            /// in [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
             </span><span class="kw">pub </span>blue_pool_deletion_start_time: ::prost::alloc::string::String,
             <span class="doccomment">/// Version of green pool.
@@ -11898,6 +12073,16 @@
             }
         }
     }
+    <span class="doccomment">/// QueuedProvisioning defines the queued provisioning used by the node pool.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>QueuedProvisioning {
+        <span class="doccomment">/// Denotes that this nodepool is QRM specific, meaning nodes can be only
+        /// obtained through queuing via the Cluster Autoscaler ProvisioningRequest
+        /// API.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>enabled: bool,
+    }
     <span class="doccomment">/// The current status of the node pool instance.
     </span><span class="attr">#[derive(
         Clone,
@@ -12005,12 +12190,12 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AutoUpgradeOptions {
-    <span class="doccomment">/// [Output only] This field is set when upgrades are about to commence
+    <span class="doccomment">/// \[Output only\] This field is set when upgrades are about to commence
     /// with the approximate start time for the upgrades, in
-    /// \[RFC3339\](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
+    /// [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>auto_upgrade_start_time: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] This field is set when upgrades are about to commence
+    <span class="doccomment">/// \[Output only\] This field is set when upgrades are about to commence
     /// with the description of the upgrade.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
@@ -12191,13 +12376,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DailyMaintenanceWindow {
     <span class="doccomment">/// Time within the maintenance window to start the maintenance operations.
-    /// Time format should be in \[RFC3339\](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;)
+    /// Time format should be in [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;)
     /// format &quot;HH:MM&quot;, where HH : \[00-23\] and MM : \[00-59\] GMT.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>start_time: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] Duration of the time window, automatically chosen to be
+    <span class="doccomment">/// \[Output only\] Duration of the time window, automatically chosen to be
     /// smallest possible in the given scenario.
-    /// Duration will be in \[RFC3339\](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;)
+    /// Duration will be in [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;)
     /// format &quot;PTnHnMnS&quot;.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>duration: ::prost::alloc::string::String,
@@ -12214,7 +12399,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -12250,7 +12435,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -12299,7 +12484,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -12357,7 +12542,7 @@
         AutoprovisioningNodePoolDefaults,
     &gt;,
     <span class="doccomment">/// The list of Google Compute Engine
-    /// \[zones\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zones](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// NodePool&#39;s nodes can be created by NAP.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>autoprovisioning_locations: ::prost::alloc::vec::Vec&lt;
@@ -12458,7 +12643,7 @@
     </span><span class="kw">pub </span>shielded_instance_config: ::core::option::Option&lt;ShieldedInstanceConfig&gt;,
     <span class="doccomment">/// The Customer Managed Encryption Key used to encrypt the boot disk attached
     /// to each node in the node pool. This should be of the form
-    /// projects/\[KEY_PROJECT_ID]/locations/[LOCATION]/keyRings/[RING_NAME]/cryptoKeys/[KEY_NAME\].
+    /// projects/\[KEY_PROJECT_ID\]/locations/\[LOCATION\]/keyRings/\[RING_NAME\]/cryptoKeys/\[KEY_NAME\].
     /// For more information about protecting resources with Cloud KMS Keys please
     /// see:
     /// &lt;https://cloud.google.com/compute/docs/disks/customer-managed-encryption&gt;
@@ -12584,7 +12769,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -12626,7 +12811,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -12657,7 +12842,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -12687,7 +12872,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -12711,7 +12896,7 @@
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>accelerator_count: i64,
     <span class="doccomment">/// The accelerator type resource name. List of supported accelerators
-    /// \[here\](&lt;https://cloud.google.com/compute/docs/gpus&gt;)
+    /// [here](&lt;https://cloud.google.com/compute/docs/gpus&gt;)
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>accelerator_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Size of partitions to create on the GPU. Valid values are described in the
@@ -12917,7 +13102,7 @@
     #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides. This field has been deprecated and replaced by the name
     /// field.
     </span><span class="attr">#[deprecated]
@@ -12945,7 +13130,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The name of the Google Compute Engine
-    /// \[zone\](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
+    /// [zone](&lt;https://cloud.google.com/compute/docs/zones#available&gt;) in which the
     /// cluster resides.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>zone: ::prost::alloc::string::String,
@@ -13049,13 +13234,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NetworkConfig {
     <span class="doccomment">/// Output only. The relative name of the Google Compute Engine
-    /// \[network][google.container.v1.NetworkConfig.network\](&lt;https://cloud.google.com/compute/docs/networks-and-firewalls#networks&gt;)
+    /// [network][google.container.v1.NetworkConfig.network](&lt;https://cloud.google.com/compute/docs/networks-and-firewalls#networks&gt;)
     /// to which the cluster is connected. Example:
     /// projects/my-project/global/networks/my-network
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The relative name of the Google Compute Engine
-    /// \[subnetwork\](&lt;https://cloud.google.com/compute/docs/vpc&gt;) to which the
+    /// [subnetwork](&lt;https://cloud.google.com/compute/docs/vpc&gt;) to which the
     /// cluster is connected. Example:
     /// projects/my-project/regions/us-central1/subnetworks/my-subnet
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
@@ -13665,7 +13850,7 @@
     /// WorkloadCertificateConfig Custom Resource.
     ///
     /// Requires Workload Identity
-    /// (\[workload_pool][google.container.v1.WorkloadIdentityConfig.workload_pool\]
+    /// ([workload_pool][google.container.v1.WorkloadIdentityConfig.workload_pool]
     /// must be non-empty).
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>enable_certificates: ::core::option::Option&lt;bool&gt;,
@@ -14265,6 +14450,9 @@
         tag = <span class="string">&quot;2&quot;
     </span>)]
     </span><span class="kw">pub </span>relay_mode: i32,
+    <span class="doccomment">/// Enable Relay component
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>enable_relay: ::core::option::Option&lt;bool&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AdvancedDatapathObservabilityConfig`.
 </span><span class="kw">pub mod </span>advanced_datapath_observability_config {
@@ -14483,45 +14671,139 @@
     /// been registered.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] The full resource name of the registered fleet membership of
+    <span class="doccomment">/// \[Output only\] The full resource name of the registered fleet membership of
     /// the cluster, in the format
     /// `//gkehub.googleapis.com/projects/*/locations/*/memberships/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>membership: ::prost::alloc::string::String,
-    <span class="doccomment">/// [Output only] Whether the cluster has been registered through the fleet
+    <span class="doccomment">/// \[Output only\] Whether the cluster has been registered through the fleet
     /// API.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>pre_registered: bool,
 }
 <span class="doccomment">/// LocalNvmeSsdBlockConfig contains configuration for using raw-block local
-/// NVMe SSD.
+/// NVMe SSDs
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LocalNvmeSsdBlockConfig {
-    <span class="doccomment">/// The number of raw-block local NVMe SSD disks to be attached to the node.
-    /// Each local SSD is 375 GB in size. If zero, it means no raw-block local NVMe
-    /// SSD disks to be attached to the node.
-    /// The limit for this value is dependent upon the maximum number of
-    /// disks available on a machine per zone. See:
+    <span class="doccomment">/// Number of local NVMe SSDs to use.  The limit for this value is dependent
+    /// upon the maximum number of disk available on a machine per zone. See:
     /// &lt;https://cloud.google.com/compute/docs/disks/local-ssd&gt;
     /// for more information.
+    ///
+    /// A zero (or unset) value has different meanings depending on machine type
+    /// being used:
+    /// 1. For pre-Gen3 machines, which support flexible numbers of local ssds,
+    /// zero (or unset) means to disable using local SSDs as ephemeral storage.
+    /// 2. For Gen3 machines which dictate a specific number of local ssds, zero
+    /// (or unset) means to use the default number of local ssds that goes with
+    /// that machine type. For example, for a c3-standard-8-lssd machine, 2 local
+    /// ssds would be provisioned. For c3-standard-8 (which doesn&#39;t support local
+    /// ssds), 0 will be provisioned. See
+    /// &lt;https://cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds&gt;
+    /// for more info.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>local_ssd_count: i32,
 }
 <span class="doccomment">/// EphemeralStorageLocalSsdConfig contains configuration for the node ephemeral
-/// storage using Local SSD.
+/// storage using Local SSDs.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EphemeralStorageLocalSsdConfig {
     <span class="doccomment">/// Number of local SSDs to use to back ephemeral storage. Uses NVMe
-    /// interfaces. Each local SSD is 375 GB in size.
-    /// If zero, it means to disable using local SSDs as ephemeral storage.
-    /// The limit for this value is dependent upon the maximum number of
-    /// disks available on a machine per zone. See:
+    /// interfaces.
+    ///
+    /// A zero (or unset) value has different meanings depending on machine type
+    /// being used:
+    /// 1. For pre-Gen3 machines, which support flexible numbers of local ssds,
+    /// zero (or unset) means to disable using local SSDs as ephemeral storage. The
+    /// limit for this value is dependent upon the maximum number of disk
+    /// available on a machine per zone. See:
     /// &lt;https://cloud.google.com/compute/docs/disks/local-ssd&gt;
     /// for more information.
+    /// 2. For Gen3 machines which dictate a specific number of local ssds, zero
+    /// (or unset) means to use the default number of local ssds that goes with
+    /// that machine type. For example, for a c3-standard-8-lssd machine, 2 local
+    /// ssds would be provisioned. For c3-standard-8 (which doesn&#39;t support local
+    /// ssds), 0 will be provisioned. See
+    /// &lt;https://cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds&gt;
+    /// for more info.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>local_ssd_count: i32,
+}
+<span class="doccomment">/// A map of resource manager tag keys and values to be attached to the nodes
+/// for managing Compute Engine firewalls using Network Firewall Policies.
+/// Tags must be according to specifications in
+/// &lt;https://cloud.google.com/vpc/docs/tags-firewalls-overview#specifications.&gt;
+/// A maximum of 5 tag key-value pairs can be specified.
+/// Existing tags will be replaced with new values.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ResourceManagerTags {
+    <span class="doccomment">/// TagKeyValue must be in one of the following formats (\[KEY\]=[VALUE])
+    /// 1. `tagKeys/{tag_key_id}=tagValues/{tag_value_id}`
+    /// 2. `{org_id}/{tag_key_name}={tag_value_name}`
+    /// 3. `{project_id}/{tag_key_name}={tag_value_name}`
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>tags: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+}
+<span class="doccomment">/// EnterpriseConfig is the cluster enterprise configuration.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EnterpriseConfig {
+    <span class="doccomment">/// Output only. \[Output only\] cluster_tier specifies the premium tier of the
+    /// cluster.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;enterprise_config::ClusterTier&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>cluster_tier: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `EnterpriseConfig`.
+</span><span class="kw">pub mod </span>enterprise_config {
+    <span class="doccomment">/// Premium tiers for GKE Cluster.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ClusterTier {
+        <span class="doccomment">/// CLUSTER_TIER_UNSPECIFIED is when cluster_tier is not set.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// STANDARD indicates a standard GKE cluster.
+        </span>Standard = <span class="number">1</span>,
+        <span class="doccomment">/// ENTERPRISE indicates a GKE Enterprise cluster.
+        </span>Enterprise = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>ClusterTier {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ClusterTier::Unspecified =&gt; <span class="string">&quot;CLUSTER_TIER_UNSPECIFIED&quot;</span>,
+                ClusterTier::Standard =&gt; <span class="string">&quot;STANDARD&quot;</span>,
+                ClusterTier::Enterprise =&gt; <span class="string">&quot;ENTERPRISE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;CLUSTER_TIER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;STANDARD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
+                <span class="string">&quot;ENTERPRISE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enterprise),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
 }
 <span class="doccomment">/// PrivateIPv6GoogleAccess controls whether and how the pods can communicate
 /// with Google Services through gRPC over IPv6.

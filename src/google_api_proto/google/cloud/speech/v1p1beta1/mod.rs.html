@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/speech/v1p1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/speech/v1p1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2420,7 +2420,7 @@
     /// `true`.
     ///
     /// The `single_utterance` field can only be used with specified models,
-    /// otherwise an error is thrown. The `model` field in \[`RecognitionConfig`][\]
+    /// otherwise an error is thrown. The `model` field in [`RecognitionConfig`][]
     /// must be set to:
     ///
     /// * `command_and_search`
@@ -2470,7 +2470,7 @@
     <span class="doccomment">/// Encoding of audio data sent in all `RecognitionAudio` messages.
     /// This field is optional for `FLAC` and `WAV` audio files and required
     /// for all other audio formats. For details, see
-    /// \[AudioEncoding][google.cloud.speech.v1p1beta1.RecognitionConfig.AudioEncoding\].
+    /// [AudioEncoding][google.cloud.speech.v1p1beta1.RecognitionConfig.AudioEncoding].
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recognition_config::AudioEncoding&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>encoding: i32,
     <span class="doccomment">/// Sample rate in Hertz of the audio data sent in all
@@ -2480,7 +2480,7 @@
     /// the audio source (instead of re-sampling).
     /// This field is optional for FLAC and WAV audio files, but is
     /// required for all other audio formats. For details, see
-    /// \[AudioEncoding][google.cloud.speech.v1p1beta1.RecognitionConfig.AudioEncoding\].
+    /// [AudioEncoding][google.cloud.speech.v1p1beta1.RecognitionConfig.AudioEncoding].
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>sample_rate_hertz: i32,
     <span class="doccomment">/// The number of channels in the input audio data.
@@ -2502,7 +2502,7 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>enable_separate_recognition_per_channel: bool,
     <span class="doccomment">/// Required. The language of the supplied audio as a
-    /// \[BCP-47\](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;) language tag.
+    /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;) language tag.
     /// Example: &quot;en-US&quot;.
     /// See [Language
     /// Support](&lt;https://cloud.google.com/speech-to-text/docs/languages&gt;) for a list
@@ -2510,7 +2510,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of up to 3 additional
-    /// \[BCP-47\](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;) language tags,
+    /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;) language tags,
     /// listing possible alternative languages of the supplied audio.
     /// See [Language
     /// Support](&lt;https://cloud.google.com/speech-to-text/docs/languages&gt;) for a list
@@ -2552,7 +2552,7 @@
     /// and final transcripts.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
     </span><span class="kw">pub </span>transcript_normalization: ::core::option::Option&lt;TranscriptNormalization&gt;,
-    <span class="doccomment">/// Array of \[SpeechContext][google.cloud.speech.v1p1beta1.SpeechContext\].
+    <span class="doccomment">/// Array of [SpeechContext][google.cloud.speech.v1p1beta1.SpeechContext].
     /// A means to provide context to assist the speech recognition. For more
     /// information, see
     /// [speech
@@ -2706,7 +2706,7 @@
     /// an `AudioEncoding` when you send  send `FLAC` or `WAV` audio, the
     /// encoding configuration must match the encoding described in the audio
     /// header; otherwise the request returns an
-    /// \[google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\] error
+    /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT] error
     /// code.
     </span><span class="attr">#[derive(
         Clone,
@@ -2739,12 +2739,12 @@
         <span class="doccomment">/// Adaptive Multi-Rate Wideband codec. `sample_rate_hertz` must be 16000.
         </span>AmrWb = <span class="number">5</span>,
         <span class="doccomment">/// Opus encoded audio frames in Ogg container
-        /// (\[OggOpus\](&lt;https://wiki.xiph.org/OggOpus&gt;)).
+        /// ([OggOpus](&lt;https://wiki.xiph.org/OggOpus&gt;)).
         /// `sample_rate_hertz` must be one of 8000, 12000, 16000, 24000, or 48000.
         </span>OggOpus = <span class="number">6</span>,
         <span class="doccomment">/// Although the use of lossy encodings is not recommended, if a very low
         /// bitrate encoding is required, `OGG_OPUS` is highly preferred over
-        /// Speex encoding. The \[Speex\](&lt;https://speex.org/&gt;)  encoding supported by
+        /// Speex encoding. The [Speex](&lt;https://speex.org/&gt;)  encoding supported by
         /// Cloud Speech API has a header byte in each block, as in MIME type
         /// `audio/x-speex-with-header-byte`.
         /// It is a variant of the RTP Speex encoding defined in
@@ -2762,7 +2762,7 @@
         /// sample rate of the file being used.
         </span>Mp3 = <span class="number">8</span>,
         <span class="doccomment">/// Opus encoded audio frames in WebM container
-        /// (\[OggOpus\](&lt;https://wiki.xiph.org/OggOpus&gt;)). `sample_rate_hertz` must be
+        /// ([OggOpus](&lt;https://wiki.xiph.org/OggOpus&gt;)). `sample_rate_hertz` must be
         /// one of 8000, 12000, 16000, 24000, or 48000.
         </span>WebmOpus = <span class="number">9</span>,
     }
@@ -3131,7 +3131,7 @@
 }
 <span class="doccomment">/// Contains audio data in the encoding specified in the `RecognitionConfig`.
 /// Either `content` or `uri` must be supplied. Supplying both or neither
-/// returns \[google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\].
+/// returns [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
 /// See [content limits](&lt;https://cloud.google.com/speech-to-text/quotas#content&gt;).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3158,7 +3158,7 @@
         /// Currently, only Google Cloud Storage URIs are
         /// supported, which must be specified in the following format:
         /// `gs://bucket_name/object_name` (other URI formats return
-        /// \[google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\]).
+        /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]).
         /// For more information, see [Request
         /// URIs](&lt;https://cloud.google.com/storage/docs/reference-uris&gt;).
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
@@ -3292,7 +3292,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StreamingRecognizeResponse {
-    <span class="doccomment">/// If set, returns a \[google.rpc.Status][google.rpc.Status\] message that
+    <span class="doccomment">/// If set, returns a [google.rpc.Status][google.rpc.Status] message that
     /// specifies the error for the operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
@@ -3422,7 +3422,7 @@
     /// For audio_channel_count = N, its output values can range from &#39;1&#39; to &#39;N&#39;.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>channel_tag: i32,
-    <span class="doccomment">/// Output only. The \[BCP-47\](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;)
+    <span class="doccomment">/// Output only. The [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;)
     /// language tag of the language in this result. This language code was
     /// detected to have the most likelihood of being spoken in the audio.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
@@ -3447,7 +3447,7 @@
     /// beginning of the audio.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>result_end_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    <span class="doccomment">/// Output only. The \[BCP-47\](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;)
+    <span class="doccomment">/// Output only. The [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;)
     /// language tag of the language in this result. This language code was
     /// detected to have the most likelihood of being spoken in the audio.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]

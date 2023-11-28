@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["CrowdingTag","Restriction"]};
+window.SIDEBAR_ITEMS = {"mod":["numeric_restriction"],"struct":["CrowdingTag","NumericRestriction","Restriction"]};

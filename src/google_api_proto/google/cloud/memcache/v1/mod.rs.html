@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/memcache/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/memcache/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -986,7 +986,7 @@
     /// Note: Memcached instances are managed and addressed at the regional level
     /// so `location_id` here refers to a Google Cloud region; however, users may
     /// choose which zones Memcached nodes should be provisioned in within an
-    /// instance. Refer to \[zones][google.cloud.memcache.v1.Instance.zones\] field for more details.
+    /// instance. Refer to [zones][google.cloud.memcache.v1.Instance.zones] field for more details.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// User provided name for the instance, which is only used for display
@@ -1002,7 +1002,7 @@
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// The full name of the Google Compute Engine
-    /// \[network\](/compute/docs/networks-and-firewalls#networks) to which the
+    /// [network](/compute/docs/networks-and-firewalls#networks) to which the
     /// instance is connected. If left unspecified, the `default` network
     /// will be used.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
@@ -1031,7 +1031,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>parameters: ::core::option::Option&lt;MemcacheParameters&gt;,
     <span class="doccomment">/// Output only. List of Memcached nodes.
-    /// Refer to \[Node][google.cloud.memcache.v1.Instance.Node\] message for more details.
+    /// Refer to [Node][google.cloud.memcache.v1.Instance.Node] message for more details.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>memcache_nodes: ::prost::alloc::vec::Vec&lt;instance::Node&gt;,
     <span class="doccomment">/// Output only. The time the instance was created.
@@ -1314,7 +1314,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>schedule_deadline_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
-<span class="doccomment">/// Request for \[RescheduleMaintenance][google.cloud.memcache.v1.CloudMemcache.RescheduleMaintenance\].
+<span class="doccomment">/// Request for [RescheduleMaintenance][google.cloud.memcache.v1.CloudMemcache.RescheduleMaintenance].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RescheduleMaintenanceRequest {
@@ -1383,7 +1383,7 @@
         }
     }
 }
-<span class="doccomment">/// Request for \[ListInstances][google.cloud.memcache.v1.CloudMemcache.ListInstances\].
+<span class="doccomment">/// Request for [ListInstances][google.cloud.memcache.v1.CloudMemcache.ListInstances].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListInstancesRequest {
@@ -1397,7 +1397,7 @@
     /// If not specified, a default value of 1000 will be used by the service.
     /// Regardless of the `page_size` value, the response may include a partial
     /// list and a caller should only rely on response&#39;s
-    /// \[`next_page_token`][google.cloud.memcache.v1.ListInstancesResponse.next_page_token\]
+    /// [`next_page_token`][google.cloud.memcache.v1.ListInstancesResponse.next_page_token]
     /// to determine if there are more instances left to be queried.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
@@ -1412,7 +1412,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Response for \[ListInstances][google.cloud.memcache.v1.CloudMemcache.ListInstances\].
+<span class="doccomment">/// Response for [ListInstances][google.cloud.memcache.v1.CloudMemcache.ListInstances].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListInstancesResponse {
@@ -1431,7 +1431,7 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// Request for \[GetInstance][google.cloud.memcache.v1.CloudMemcache.GetInstance\].
+<span class="doccomment">/// Request for [GetInstance][google.cloud.memcache.v1.CloudMemcache.GetInstance].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetInstanceRequest {
@@ -1441,7 +1441,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request for \[CreateInstance][google.cloud.memcache.v1.CloudMemcache.CreateInstance\].
+<span class="doccomment">/// Request for [CreateInstance][google.cloud.memcache.v1.CloudMemcache.CreateInstance].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateInstanceRequest {
@@ -1466,7 +1466,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>instance: ::core::option::Option&lt;Instance&gt;,
 }
-<span class="doccomment">/// Request for \[UpdateInstance][google.cloud.memcache.v1.CloudMemcache.UpdateInstance\].
+<span class="doccomment">/// Request for [UpdateInstance][google.cloud.memcache.v1.CloudMemcache.UpdateInstance].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateInstanceRequest {
@@ -1480,7 +1480,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>instance: ::core::option::Option&lt;Instance&gt;,
 }
-<span class="doccomment">/// Request for \[DeleteInstance][google.cloud.memcache.v1.CloudMemcache.DeleteInstance\].
+<span class="doccomment">/// Request for [DeleteInstance][google.cloud.memcache.v1.CloudMemcache.DeleteInstance].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteInstanceRequest {
@@ -1490,7 +1490,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request for \[ApplyParameters][google.cloud.memcache.v1.CloudMemcache.ApplyParameters\].
+<span class="doccomment">/// Request for [ApplyParameters][google.cloud.memcache.v1.CloudMemcache.ApplyParameters].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ApplyParametersRequest {
@@ -1507,7 +1507,7 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>apply_all: bool,
 }
-<span class="doccomment">/// Request for \[UpdateParameters][google.cloud.memcache.v1.CloudMemcache.UpdateParameters\].
+<span class="doccomment">/// Request for [UpdateParameters][google.cloud.memcache.v1.CloudMemcache.UpdateParameters].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateParametersRequest {
@@ -1560,7 +1560,7 @@
     </span><span class="kw">pub </span>status_detail: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a \[google.rpc.Status.code][google.rpc.Status.code\] of 1,
+    /// have [Operation.error][] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
     /// corresponding to `Code.CANCELLED`.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>cancel_requested: bool,
@@ -1568,7 +1568,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Metadata for the given \[google.cloud.location.Location][google.cloud.location.Location\].
+<span class="doccomment">/// Metadata for the given [google.cloud.location.Location][google.cloud.location.Location].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LocationMetadata {

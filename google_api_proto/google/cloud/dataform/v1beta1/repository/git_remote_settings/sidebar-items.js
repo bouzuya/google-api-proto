@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["TokenStatus"]};
+window.SIDEBAR_ITEMS = {"enum":["TokenStatus"],"struct":["SshAuthenticationConfig"]};

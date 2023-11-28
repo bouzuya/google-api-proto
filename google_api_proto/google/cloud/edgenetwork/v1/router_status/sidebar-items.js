@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["bgp_peer_status"],"struct":["BgpPeerStatus","PrefixCounter"]};

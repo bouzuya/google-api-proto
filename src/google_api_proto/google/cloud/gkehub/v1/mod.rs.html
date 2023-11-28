@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/gkehub/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/gkehub/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1492,285 +1492,7 @@
 <a href="#1492" id="1492">1492</a>
 <a href="#1493" id="1493">1493</a>
 <a href="#1494" id="1494">1494</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Feature represents the settings and status of any Hub Feature.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Feature {
-    <span class="doccomment">/// Output only. The full, unique name of this Feature resource in the format
-    /// `projects/*/locations/*/features/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// GCP labels for this Feature.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Output only. State of the Feature resource itself.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>resource_state: ::core::option::Option&lt;FeatureResourceState&gt;,
-    <span class="doccomment">/// Optional. Hub-wide Feature configuration. If this Feature does not support any
-    /// Hub-wide configuration, this field may be unused.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>spec: ::core::option::Option&lt;CommonFeatureSpec&gt;,
-    <span class="doccomment">/// Optional. Membership-specific configuration for this Feature. If this Feature does
-    /// not support any per-Membership configuration, this field may be unused.
-    ///
-    /// The keys indicate which Membership the configuration is for, in the form:
-    ///
-    ///      projects/{p}/locations/{l}/memberships/{m}
-    ///
-    /// Where {p} is the project, {l} is a valid location and {m} is a valid
-    /// Membership in this project at that location. {p} WILL match the Feature&#39;s
-    /// project.
-    ///
-    /// {p} will always be returned as the project number, but the project ID is
-    /// also accepted during input. If the same Membership is specified in the map
-    /// twice (using the project ID form, and the project number form), exactly
-    /// ONE of the entries will be saved, with no guarantees as to which. For this
-    /// reason, it is recommended the same format be used for all entries when
-    /// mutating a Feature.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>membership_specs: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        MembershipFeatureSpec,
-    &gt;,
-    <span class="doccomment">/// Output only. The Hub-wide Feature state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>state: ::core::option::Option&lt;CommonFeatureState&gt;,
-    <span class="doccomment">/// Output only. Membership-specific Feature status. If this Feature does
-    /// report any per-Membership status, this field may be unused.
-    ///
-    /// The keys indicate which Membership the state is for, in the form:
-    ///
-    ///      projects/{p}/locations/{l}/memberships/{m}
-    ///
-    /// Where {p} is the project number, {l} is a valid location and {m} is a valid
-    /// Membership in this project at that location. {p} MUST match the Feature&#39;s
-    /// project number.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>membership_states: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        MembershipFeatureState,
-    &gt;,
-    <span class="doccomment">/// Output only. When the Feature resource was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. When the Feature resource was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. When the Feature resource was deleted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// FeatureResourceState describes the state of a Feature *resource* in the
-/// GkeHub API. See `FeatureState` for the &quot;running state&quot; of the Feature in the
-/// Hub and across Memberships.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FeatureResourceState {
-    <span class="doccomment">/// The current state of the Feature resource in the Hub API.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;feature_resource_state::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `FeatureResourceState`.
-</span><span class="kw">pub mod </span>feature_resource_state {
-    <span class="doccomment">/// State describes the lifecycle status of a Feature.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// State is unknown or not set.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The Feature is being enabled, and the Feature resource is being created.
-        /// Once complete, the corresponding Feature will be enabled in this Hub.
-        </span>Enabling = <span class="number">1</span>,
-        <span class="doccomment">/// The Feature is enabled in this Hub, and the Feature resource is fully
-        /// available.
-        </span>Active = <span class="number">2</span>,
-        <span class="doccomment">/// The Feature is being disabled in this Hub, and the Feature resource
-        /// is being deleted.
-        </span>Disabling = <span class="number">3</span>,
-        <span class="doccomment">/// The Feature resource is being updated.
-        </span>Updating = <span class="number">4</span>,
-        <span class="doccomment">/// The Feature resource is being updated by the Hub Service.
-        </span>ServiceUpdating = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Enabling =&gt; <span class="string">&quot;ENABLING&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Disabling =&gt; <span class="string">&quot;DISABLING&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::ServiceUpdating =&gt; <span class="string">&quot;SERVICE_UPDATING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabling),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;DISABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabling),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;SERVICE_UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceUpdating),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// FeatureState describes the high-level state of a Feature. It may be used to
-/// describe a Feature&#39;s state at the environ-level, or per-membershop, depending
-/// on the context.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FeatureState {
-    <span class="doccomment">/// The high-level, machine-readable status of this Feature.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;feature_state::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>code: i32,
-    <span class="doccomment">/// A human-readable description of the current status.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// The time this status and any related Feature-specific details were updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `FeatureState`.
-</span><span class="kw">pub mod </span>feature_state {
-    <span class="doccomment">/// Code represents a machine-readable, high-level status of the Feature.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Code {
-        <span class="doccomment">/// Unknown or not set.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The Feature is operating normally.
-        </span><span class="prelude-val">Ok </span>= <span class="number">1</span>,
-        <span class="doccomment">/// The Feature has encountered an issue, and is operating in a degraded
-        /// state. The Feature may need intervention to return to normal operation.
-        /// See the description and any associated Feature-specific details for more
-        /// information.
-        </span>Warning = <span class="number">2</span>,
-        <span class="doccomment">/// The Feature is not operating or is in a severely degraded state.
-        /// The Feature may need intervention to return to normal operation.
-        /// See the description and any associated Feature-specific details for more
-        /// information.
-        </span>Error = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>Code {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
-                Code::Ok =&gt; <span class="string">&quot;OK&quot;</span>,
-                Code::Warning =&gt; <span class="string">&quot;WARNING&quot;</span>,
-                Code::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;OK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ok),
-                <span class="string">&quot;WARNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// CommonFeatureSpec contains Hub-wide configuration information
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CommonFeatureSpec {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;common_feature_spec::FeatureSpec&quot;</span>, tags = <span class="string">&quot;102&quot;</span>)]
-    </span><span class="kw">pub </span>feature_spec: ::core::option::Option&lt;common_feature_spec::FeatureSpec&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `CommonFeatureSpec`.
-</span><span class="kw">pub mod </span>common_feature_spec {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>FeatureSpec {
-        <span class="doccomment">/// Multicluster Ingress-specific spec.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;102&quot;</span>)]
-        </span>Multiclusteringress(<span class="kw">super</span>::<span class="kw">super</span>::multiclusteringress::v1::FeatureSpec),
-    }
-}
-<span class="doccomment">/// CommonFeatureState contains Hub-wide Feature status information.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CommonFeatureState {
-    <span class="doccomment">/// Output only. The &quot;running state&quot; of the Feature in this Hub.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: ::core::option::Option&lt;FeatureState&gt;,
-}
-<span class="doccomment">/// MembershipFeatureSpec contains configuration information for a single
-/// Membership.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>MembershipFeatureSpec {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;membership_feature_spec::FeatureSpec&quot;</span>, tags = <span class="string">&quot;106&quot;</span>)]
-    </span><span class="kw">pub </span>feature_spec: ::core::option::Option&lt;membership_feature_spec::FeatureSpec&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `MembershipFeatureSpec`.
-</span><span class="kw">pub mod </span>membership_feature_spec {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>FeatureSpec {
-        <span class="doccomment">/// Config Management-specific spec.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;106&quot;</span>)]
-        </span>Configmanagement(<span class="kw">super</span>::<span class="kw">super</span>::configmanagement::v1::MembershipSpec),
-    }
-}
-<span class="doccomment">/// MembershipFeatureState contains Feature status information for a single
-/// Membership.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>MembershipFeatureState {
-    <span class="doccomment">/// The high-level state of this Feature for a single membership.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: ::core::option::Option&lt;FeatureState&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;membership_feature_state::FeatureState&quot;</span>, tags = <span class="string">&quot;106&quot;</span>)]
-    </span><span class="kw">pub </span>feature_state: ::core::option::Option&lt;membership_feature_state::FeatureState&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `MembershipFeatureState`.
-</span><span class="kw">pub mod </span>membership_feature_state {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>FeatureState {
-        <span class="doccomment">/// Config Management-specific state.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;106&quot;</span>)]
-        </span>Configmanagement(<span class="kw">super</span>::<span class="kw">super</span>::configmanagement::v1::MembershipState),
-    }
-}
-<span class="doccomment">/// Membership contains information about a member cluster.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Membership contains information about a member cluster.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Membership {
@@ -1784,7 +1506,7 @@
     ///    2. It must consist of lower case alphanumeric characters or `-`
     ///    3. It must start and end with an alphanumeric character
     ///
-    /// Which can be expressed as the regex: `\[a-z0-9]([-a-z0-9]*[a-z0-9\])?`,
+    /// Which can be expressed as the regex: `[a-z0-9](\[-a-z0-9\]*[a-z0-9])?`,
     /// with a maximum length of 63 characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
@@ -1795,7 +1517,7 @@
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. Description of this membership, limited to 63 characters.
-    /// Must match the regex: `\[a-zA-Z0-9\][a-zA-Z0-9_\-\.\ ]*`
+    /// Must match the regex: `[a-zA-Z0-9][a-zA-Z0-9_\-\.\ ]*`
     ///
     /// This field is present for legacy purposes.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
@@ -1815,7 +1537,7 @@
     <span class="doccomment">/// Optional. An externally-generated and managed ID for this Membership. This
     /// ID may be modified after creation, but this is not recommended.
     ///
-    /// The ID must match the regex: `\[a-zA-Z0-9][a-zA-Z0-9_\-\.\]*`
+    /// The ID must match the regex: `[a-zA-Z0-9][a-zA-Z0-9_\-\.]*`
     ///
     /// If this Membership represents a Kubernetes cluster, this value should be
     /// set to the UID of the `kube-system` namespace object.
@@ -2141,6 +1863,284 @@
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>oidc_jwks: ::prost::bytes::Bytes,
 }
+<span class="doccomment">/// Feature represents the settings and status of any Hub Feature.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Feature {
+    <span class="doccomment">/// Output only. The full, unique name of this Feature resource in the format
+    /// `projects/*/locations/*/features/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// GCP labels for this Feature.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Output only. State of the Feature resource itself.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>resource_state: ::core::option::Option&lt;FeatureResourceState&gt;,
+    <span class="doccomment">/// Optional. Hub-wide Feature configuration. If this Feature does not support any
+    /// Hub-wide configuration, this field may be unused.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>spec: ::core::option::Option&lt;CommonFeatureSpec&gt;,
+    <span class="doccomment">/// Optional. Membership-specific configuration for this Feature. If this Feature does
+    /// not support any per-Membership configuration, this field may be unused.
+    ///
+    /// The keys indicate which Membership the configuration is for, in the form:
+    ///
+    ///      projects/{p}/locations/{l}/memberships/{m}
+    ///
+    /// Where {p} is the project, {l} is a valid location and {m} is a valid
+    /// Membership in this project at that location. {p} WILL match the Feature&#39;s
+    /// project.
+    ///
+    /// {p} will always be returned as the project number, but the project ID is
+    /// also accepted during input. If the same Membership is specified in the map
+    /// twice (using the project ID form, and the project number form), exactly
+    /// ONE of the entries will be saved, with no guarantees as to which. For this
+    /// reason, it is recommended the same format be used for all entries when
+    /// mutating a Feature.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>membership_specs: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        MembershipFeatureSpec,
+    &gt;,
+    <span class="doccomment">/// Output only. The Hub-wide Feature state.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>state: ::core::option::Option&lt;CommonFeatureState&gt;,
+    <span class="doccomment">/// Output only. Membership-specific Feature status. If this Feature does
+    /// report any per-Membership status, this field may be unused.
+    ///
+    /// The keys indicate which Membership the state is for, in the form:
+    ///
+    ///      projects/{p}/locations/{l}/memberships/{m}
+    ///
+    /// Where {p} is the project number, {l} is a valid location and {m} is a valid
+    /// Membership in this project at that location. {p} MUST match the Feature&#39;s
+    /// project number.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>membership_states: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        MembershipFeatureState,
+    &gt;,
+    <span class="doccomment">/// Output only. When the Feature resource was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. When the Feature resource was last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. When the Feature resource was deleted.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// FeatureResourceState describes the state of a Feature *resource* in the
+/// GkeHub API. See `FeatureState` for the &quot;running state&quot; of the Feature in the
+/// Hub and across Memberships.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FeatureResourceState {
+    <span class="doccomment">/// The current state of the Feature resource in the Hub API.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;feature_resource_state::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `FeatureResourceState`.
+</span><span class="kw">pub mod </span>feature_resource_state {
+    <span class="doccomment">/// State describes the lifecycle status of a Feature.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// State is unknown or not set.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The Feature is being enabled, and the Feature resource is being created.
+        /// Once complete, the corresponding Feature will be enabled in this Hub.
+        </span>Enabling = <span class="number">1</span>,
+        <span class="doccomment">/// The Feature is enabled in this Hub, and the Feature resource is fully
+        /// available.
+        </span>Active = <span class="number">2</span>,
+        <span class="doccomment">/// The Feature is being disabled in this Hub, and the Feature resource
+        /// is being deleted.
+        </span>Disabling = <span class="number">3</span>,
+        <span class="doccomment">/// The Feature resource is being updated.
+        </span>Updating = <span class="number">4</span>,
+        <span class="doccomment">/// The Feature resource is being updated by the Hub Service.
+        </span>ServiceUpdating = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Enabling =&gt; <span class="string">&quot;ENABLING&quot;</span>,
+                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                State::Disabling =&gt; <span class="string">&quot;DISABLING&quot;</span>,
+                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
+                State::ServiceUpdating =&gt; <span class="string">&quot;SERVICE_UPDATING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ENABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabling),
+                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">&quot;DISABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabling),
+                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">&quot;SERVICE_UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceUpdating),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// FeatureState describes the high-level state of a Feature. It may be used to
+/// describe a Feature&#39;s state at the environ-level, or per-membershop, depending
+/// on the context.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FeatureState {
+    <span class="doccomment">/// The high-level, machine-readable status of this Feature.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;feature_state::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>code: i32,
+    <span class="doccomment">/// A human-readable description of the current status.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// The time this status and any related Feature-specific details were updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `FeatureState`.
+</span><span class="kw">pub mod </span>feature_state {
+    <span class="doccomment">/// Code represents a machine-readable, high-level status of the Feature.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Code {
+        <span class="doccomment">/// Unknown or not set.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The Feature is operating normally.
+        </span><span class="prelude-val">Ok </span>= <span class="number">1</span>,
+        <span class="doccomment">/// The Feature has encountered an issue, and is operating in a degraded
+        /// state. The Feature may need intervention to return to normal operation.
+        /// See the description and any associated Feature-specific details for more
+        /// information.
+        </span>Warning = <span class="number">2</span>,
+        <span class="doccomment">/// The Feature is not operating or is in a severely degraded state.
+        /// The Feature may need intervention to return to normal operation.
+        /// See the description and any associated Feature-specific details for more
+        /// information.
+        </span>Error = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>Code {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
+                Code::Ok =&gt; <span class="string">&quot;OK&quot;</span>,
+                Code::Warning =&gt; <span class="string">&quot;WARNING&quot;</span>,
+                Code::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;OK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ok),
+                <span class="string">&quot;WARNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
+                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// CommonFeatureSpec contains Hub-wide configuration information
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CommonFeatureSpec {
+    <span class="attr">#[prost(oneof = <span class="string">&quot;common_feature_spec::FeatureSpec&quot;</span>, tags = <span class="string">&quot;102&quot;</span>)]
+    </span><span class="kw">pub </span>feature_spec: ::core::option::Option&lt;common_feature_spec::FeatureSpec&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `CommonFeatureSpec`.
+</span><span class="kw">pub mod </span>common_feature_spec {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>FeatureSpec {
+        <span class="doccomment">/// Multicluster Ingress-specific spec.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;102&quot;</span>)]
+        </span>Multiclusteringress(<span class="kw">super</span>::<span class="kw">super</span>::multiclusteringress::v1::FeatureSpec),
+    }
+}
+<span class="doccomment">/// CommonFeatureState contains Hub-wide Feature status information.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CommonFeatureState {
+    <span class="doccomment">/// Output only. The &quot;running state&quot; of the Feature in this Hub.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: ::core::option::Option&lt;FeatureState&gt;,
+}
+<span class="doccomment">/// MembershipFeatureSpec contains configuration information for a single
+/// Membership.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>MembershipFeatureSpec {
+    <span class="attr">#[prost(oneof = <span class="string">&quot;membership_feature_spec::FeatureSpec&quot;</span>, tags = <span class="string">&quot;106&quot;</span>)]
+    </span><span class="kw">pub </span>feature_spec: ::core::option::Option&lt;membership_feature_spec::FeatureSpec&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `MembershipFeatureSpec`.
+</span><span class="kw">pub mod </span>membership_feature_spec {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>FeatureSpec {
+        <span class="doccomment">/// Config Management-specific spec.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;106&quot;</span>)]
+        </span>Configmanagement(<span class="kw">super</span>::<span class="kw">super</span>::configmanagement::v1::MembershipSpec),
+    }
+}
+<span class="doccomment">/// MembershipFeatureState contains Feature status information for a single
+/// Membership.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>MembershipFeatureState {
+    <span class="doccomment">/// The high-level state of this Feature for a single membership.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: ::core::option::Option&lt;FeatureState&gt;,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;membership_feature_state::FeatureState&quot;</span>, tags = <span class="string">&quot;106&quot;</span>)]
+    </span><span class="kw">pub </span>feature_state: ::core::option::Option&lt;membership_feature_state::FeatureState&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `MembershipFeatureState`.
+</span><span class="kw">pub mod </span>membership_feature_state {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>FeatureState {
+        <span class="doccomment">/// Config Management-specific state.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;106&quot;</span>)]
+        </span>Configmanagement(<span class="kw">super</span>::<span class="kw">super</span>::configmanagement::v1::MembershipState),
+    }
+}
 <span class="doccomment">/// Request message for `GkeHub.ListMemberships` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2227,7 +2227,7 @@
     ///    2. It must consist of lower case alphanumeric characters or `-`
     ///    3. It must start and end with an alphanumeric character
     ///
-    /// Which can be expressed as the regex: `\[a-z0-9]([-a-z0-9]*[a-z0-9\])?`,
+    /// Which can be expressed as the regex: `[a-z0-9](\[-a-z0-9\]*[a-z0-9])?`,
     /// with a maximum length of 63 characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>membership_id: ::prost::alloc::string::String,
@@ -2571,7 +2571,7 @@
     </span><span class="kw">pub </span>status_detail: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a \[google.rpc.Status.code][google.rpc.Status.code\] of 1,
+    /// have [Operation.error][] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
     /// corresponding to `Code.CANCELLED`.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>cancel_requested: bool,

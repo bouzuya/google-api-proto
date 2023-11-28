@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Upstream"],"mod":["public_repository"],"struct":["PublicRepository"]};

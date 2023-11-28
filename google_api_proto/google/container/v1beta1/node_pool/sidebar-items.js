@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Status"],"mod":["placement_policy","update_info"],"struct":["PlacementPolicy","UpdateInfo","UpgradeSettings"]};
+window.SIDEBAR_ITEMS = {"enum":["Status"],"mod":["placement_policy","update_info"],"struct":["PlacementPolicy","QueuedProvisioning","UpdateInfo","UpgradeSettings"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["RemoteSource"],"mod":["apt_repository","docker_repository","maven_repository","npm_repository","python_repository","upstream_credentials","yum_repository"],"struct":["AptRepository","DockerRepository","MavenRepository","NpmRepository","PythonRepository","UpstreamCredentials","YumRepository"]};

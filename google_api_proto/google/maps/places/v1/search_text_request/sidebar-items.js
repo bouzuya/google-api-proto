@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["RankPreference"],"mod":["location","location_bias","location_restriction"],"struct":["Location","LocationBias","LocationRestriction"]};
+window.SIDEBAR_ITEMS = {"enum":["RankPreference"],"mod":["location_bias","location_restriction"],"struct":["LocationBias","LocationRestriction"]};

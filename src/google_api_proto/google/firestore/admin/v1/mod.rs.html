@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/firestore/admin/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/firestore/admin/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1740,11 +1740,7 @@
 <a href="#1740" id="1740">1740</a>
 <a href="#1741" id="1741">1741</a>
 <a href="#1742" id="1742">1742</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// The metadata message for \[google.cloud.location.Location.metadata][google.cloud.location.Location.metadata\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LocationMetadata {}
-<span class="doccomment">/// Cloud Firestore indexes enable simple and complex queries against
+</pre></div><pre class="rust"><code><span class="doccomment">/// Cloud Firestore indexes enable simple and complex queries against
 /// documents in a database.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2074,7 +2070,7 @@
     /// to be escaped within a quoted field path is the backtick character itself,
     /// escaped using a backslash. Special characters in field paths that
     /// must be quoted include: `*`, `.`,
-    /// ``` (backtick), `[`, `]`, as well as any ascii symbolic characters.
+    /// ``` (backtick), `\[`, `\]`, as well as any ascii symbolic characters.
     ///
     /// Examples:
     /// (Note: Comments here are written in markdown syntax, so there is an
@@ -2197,6 +2193,317 @@
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
+        }
+    }
+}
+<span class="doccomment">/// Metadata for [google.longrunning.Operation][google.longrunning.Operation] results from
+/// [FirestoreAdmin.CreateIndex][google.firestore.admin.v1.FirestoreAdmin.CreateIndex].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>IndexOperationMetadata {
+    <span class="doccomment">/// The time this operation started.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The time this operation completed. Will be unset if operation still in
+    /// progress.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The index resource that this operation is acting on. For example:
+    /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{index_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>index: ::prost::alloc::string::String,
+    <span class="doccomment">/// The state of the operation.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// The progress, in documents, of this operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>progress_documents: ::core::option::Option&lt;Progress&gt;,
+    <span class="doccomment">/// The progress, in bytes, of this operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>progress_bytes: ::core::option::Option&lt;Progress&gt;,
+}
+<span class="doccomment">/// Metadata for [google.longrunning.Operation][google.longrunning.Operation] results from
+/// [FirestoreAdmin.UpdateField][google.firestore.admin.v1.FirestoreAdmin.UpdateField].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FieldOperationMetadata {
+    <span class="doccomment">/// The time this operation started.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The time this operation completed. Will be unset if operation still in
+    /// progress.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The field resource that this operation is acting on. For example:
+    /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>field: ::prost::alloc::string::String,
+    <span class="doccomment">/// A list of [IndexConfigDelta][google.firestore.admin.v1.FieldOperationMetadata.IndexConfigDelta], which describe the intent of this
+    /// operation.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>index_config_deltas: ::prost::alloc::vec::Vec&lt;
+        field_operation_metadata::IndexConfigDelta,
+    &gt;,
+    <span class="doccomment">/// The state of the operation.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationState&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// The progress, in documents, of this operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>progress_documents: ::core::option::Option&lt;Progress&gt;,
+    <span class="doccomment">/// The progress, in bytes, of this operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>progress_bytes: ::core::option::Option&lt;Progress&gt;,
+    <span class="doccomment">/// Describes the deltas of TTL configuration.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>ttl_config_delta: ::core::option::Option&lt;
+        field_operation_metadata::TtlConfigDelta,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `FieldOperationMetadata`.
+</span><span class="kw">pub mod </span>field_operation_metadata {
+    <span class="doccomment">/// Information about an index configuration change.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>IndexConfigDelta {
+        <span class="doccomment">/// Specifies how the index is changing.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;index_config_delta::ChangeType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>change_type: i32,
+        <span class="doccomment">/// The index being changed.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>index: ::core::option::Option&lt;<span class="kw">super</span>::Index&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `IndexConfigDelta`.
+    </span><span class="kw">pub mod </span>index_config_delta {
+        <span class="doccomment">/// Specifies how the index is changing.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>ChangeType {
+            <span class="doccomment">/// The type of change is not specified or known.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// The single field index is being added.
+            </span>Add = <span class="number">1</span>,
+            <span class="doccomment">/// The single field index is being removed.
+            </span>Remove = <span class="number">2</span>,
+        }
+        <span class="kw">impl </span>ChangeType {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    ChangeType::Unspecified =&gt; <span class="string">&quot;CHANGE_TYPE_UNSPECIFIED&quot;</span>,
+                    ChangeType::Add =&gt; <span class="string">&quot;ADD&quot;</span>,
+                    ChangeType::Remove =&gt; <span class="string">&quot;REMOVE&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;CHANGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;ADD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
+                    <span class="string">&quot;REMOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Remove),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+    <span class="doccomment">/// Information about an TTL configuration change.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>TtlConfigDelta {
+        <span class="doccomment">/// Specifies how the TTL configuration is changing.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ttl_config_delta::ChangeType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>change_type: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `TtlConfigDelta`.
+    </span><span class="kw">pub mod </span>ttl_config_delta {
+        <span class="doccomment">/// Specifies how the TTL config is changing.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>ChangeType {
+            <span class="doccomment">/// The type of change is not specified or known.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// The TTL config is being added.
+            </span>Add = <span class="number">1</span>,
+            <span class="doccomment">/// The TTL config is being removed.
+            </span>Remove = <span class="number">2</span>,
+        }
+        <span class="kw">impl </span>ChangeType {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    ChangeType::Unspecified =&gt; <span class="string">&quot;CHANGE_TYPE_UNSPECIFIED&quot;</span>,
+                    ChangeType::Add =&gt; <span class="string">&quot;ADD&quot;</span>,
+                    ChangeType::Remove =&gt; <span class="string">&quot;REMOVE&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;CHANGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;ADD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
+                    <span class="string">&quot;REMOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Remove),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+}
+<span class="doccomment">/// Metadata for [google.longrunning.Operation][google.longrunning.Operation] results from
+/// [FirestoreAdmin.ExportDocuments][google.firestore.admin.v1.FirestoreAdmin.ExportDocuments].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExportDocumentsMetadata {
+    <span class="doccomment">/// The time this operation started.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The time this operation completed. Will be unset if operation still in
+    /// progress.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The state of the export operation.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>operation_state: i32,
+    <span class="doccomment">/// The progress, in documents, of this operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>progress_documents: ::core::option::Option&lt;Progress&gt;,
+    <span class="doccomment">/// The progress, in bytes, of this operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>progress_bytes: ::core::option::Option&lt;Progress&gt;,
+    <span class="doccomment">/// Which collection ids are being exported.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>collection_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Where the entities are being exported to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>output_uri_prefix: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Metadata for [google.longrunning.Operation][google.longrunning.Operation] results from
+/// [FirestoreAdmin.ImportDocuments][google.firestore.admin.v1.FirestoreAdmin.ImportDocuments].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportDocumentsMetadata {
+    <span class="doccomment">/// The time this operation started.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The time this operation completed. Will be unset if operation still in
+    /// progress.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The state of the import operation.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>operation_state: i32,
+    <span class="doccomment">/// The progress, in documents, of this operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>progress_documents: ::core::option::Option&lt;Progress&gt;,
+    <span class="doccomment">/// The progress, in bytes, of this operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>progress_bytes: ::core::option::Option&lt;Progress&gt;,
+    <span class="doccomment">/// Which collection ids are being imported.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>collection_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// The location of the documents being imported.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>input_uri_prefix: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Returned in the [google.longrunning.Operation][google.longrunning.Operation] response field.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExportDocumentsResponse {
+    <span class="doccomment">/// Location of the output files. This can be used to begin an import
+    /// into Cloud Firestore (this project or another project) after the operation
+    /// completes successfully.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>output_uri_prefix: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Describes the progress of the operation.
+/// Unit of work is generic and must be interpreted based on where [Progress][google.firestore.admin.v1.Progress]
+/// is used.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Progress {
+    <span class="doccomment">/// The amount of work estimated.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>estimated_work: i64,
+    <span class="doccomment">/// The amount of work completed.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>completed_work: i64,
+}
+<span class="doccomment">/// Describes the state of the operation.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>OperationState {
+    <span class="doccomment">/// Unspecified.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Request is being prepared for processing.
+    </span>Initializing = <span class="number">1</span>,
+    <span class="doccomment">/// Request is actively being processed.
+    </span>Processing = <span class="number">2</span>,
+    <span class="doccomment">/// Request is in the process of being cancelled after user called
+    /// google.longrunning.Operations.CancelOperation on the operation.
+    </span>Cancelling = <span class="number">3</span>,
+    <span class="doccomment">/// Request has been processed and is in its finalization stage.
+    </span>Finalizing = <span class="number">4</span>,
+    <span class="doccomment">/// Request has completed successfully.
+    </span>Successful = <span class="number">5</span>,
+    <span class="doccomment">/// Request has finished being processed, but encountered an error.
+    </span>Failed = <span class="number">6</span>,
+    <span class="doccomment">/// Request has finished being cancelled after user called
+    /// google.longrunning.Operations.CancelOperation.
+    </span>Cancelled = <span class="number">7</span>,
+}
+<span class="kw">impl </span>OperationState {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            OperationState::Unspecified =&gt; <span class="string">&quot;OPERATION_STATE_UNSPECIFIED&quot;</span>,
+            OperationState::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
+            OperationState::Processing =&gt; <span class="string">&quot;PROCESSING&quot;</span>,
+            OperationState::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
+            OperationState::Finalizing =&gt; <span class="string">&quot;FINALIZING&quot;</span>,
+            OperationState::Successful =&gt; <span class="string">&quot;SUCCESSFUL&quot;</span>,
+            OperationState::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+            OperationState::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;OPERATION_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
+            <span class="string">&quot;PROCESSING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Processing),
+            <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
+            <span class="string">&quot;FINALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finalizing),
+            <span class="string">&quot;SUCCESSFUL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Successful),
+            <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+            <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }
@@ -2407,7 +2714,7 @@
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.CreateDatabase][google.firestore.admin.v1.FirestoreAdmin.CreateDatabase\].
+/// [FirestoreAdmin.CreateDatabase][google.firestore.admin.v1.FirestoreAdmin.CreateDatabase].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateDatabaseRequest {
@@ -2438,7 +2745,7 @@
     </span><span class="kw">pub </span>databases: ::prost::alloc::vec::Vec&lt;Database&gt;,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.GetDatabase][google.firestore.admin.v1.FirestoreAdmin.GetDatabase\].
+/// [FirestoreAdmin.GetDatabase][google.firestore.admin.v1.FirestoreAdmin.GetDatabase].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetDatabaseRequest {
@@ -2448,7 +2755,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.UpdateDatabase][google.firestore.admin.v1.FirestoreAdmin.UpdateDatabase\].
+/// [FirestoreAdmin.UpdateDatabase][google.firestore.admin.v1.FirestoreAdmin.UpdateDatabase].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateDatabaseRequest {
@@ -2464,7 +2771,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateDatabaseMetadata {}
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.CreateIndex][google.firestore.admin.v1.FirestoreAdmin.CreateIndex\].
+/// [FirestoreAdmin.CreateIndex][google.firestore.admin.v1.FirestoreAdmin.CreateIndex].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateIndexRequest {
@@ -2477,7 +2784,7 @@
     </span><span class="kw">pub </span>index: ::core::option::Option&lt;Index&gt;,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.ListIndexes][google.firestore.admin.v1.FirestoreAdmin.ListIndexes\].
+/// [FirestoreAdmin.ListIndexes][google.firestore.admin.v1.FirestoreAdmin.ListIndexes].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListIndexesRequest {
@@ -2492,13 +2799,13 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, returned from a previous call to
-    /// \[FirestoreAdmin.ListIndexes][google.firestore.admin.v1.FirestoreAdmin.ListIndexes\],
+    /// [FirestoreAdmin.ListIndexes][google.firestore.admin.v1.FirestoreAdmin.ListIndexes],
     /// that may be used to get the next page of results.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
-/// \[FirestoreAdmin.ListIndexes][google.firestore.admin.v1.FirestoreAdmin.ListIndexes\].
+/// [FirestoreAdmin.ListIndexes][google.firestore.admin.v1.FirestoreAdmin.ListIndexes].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListIndexesResponse {
@@ -2511,7 +2818,7 @@
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.GetIndex][google.firestore.admin.v1.FirestoreAdmin.GetIndex\].
+/// [FirestoreAdmin.GetIndex][google.firestore.admin.v1.FirestoreAdmin.GetIndex].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetIndexRequest {
@@ -2521,7 +2828,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.DeleteIndex][google.firestore.admin.v1.FirestoreAdmin.DeleteIndex\].
+/// [FirestoreAdmin.DeleteIndex][google.firestore.admin.v1.FirestoreAdmin.DeleteIndex].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteIndexRequest {
@@ -2531,7 +2838,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.UpdateField][google.firestore.admin.v1.FirestoreAdmin.UpdateField\].
+/// [FirestoreAdmin.UpdateField][google.firestore.admin.v1.FirestoreAdmin.UpdateField].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateFieldRequest {
@@ -2544,7 +2851,7 @@
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.GetField][google.firestore.admin.v1.FirestoreAdmin.GetField\].
+/// [FirestoreAdmin.GetField][google.firestore.admin.v1.FirestoreAdmin.GetField].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetFieldRequest {
@@ -2554,7 +2861,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields\].
+/// [FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFieldsRequest {
@@ -2563,10 +2870,10 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The filter to apply to list results. Currently,
-    /// \[FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields\]
+    /// [FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields]
     /// only supports listing fields that have been explicitly overridden. To issue
     /// this query, call
-    /// \[FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields\]
+    /// [FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields]
     /// with a filter that includes `indexConfig.usesAncestorConfig:false` .
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
@@ -2574,13 +2881,13 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, returned from a previous call to
-    /// \[FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields\],
+    /// [FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields],
     /// that may be used to get the next page of results.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
-/// \[FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields\].
+/// [FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFieldsResponse {
@@ -2593,7 +2900,7 @@
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.ExportDocuments][google.firestore.admin.v1.FirestoreAdmin.ExportDocuments\].
+/// [FirestoreAdmin.ExportDocuments][google.firestore.admin.v1.FirestoreAdmin.ExportDocuments].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExportDocumentsRequest {
@@ -2616,7 +2923,7 @@
     </span><span class="kw">pub </span>output_uri_prefix: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
-/// \[FirestoreAdmin.ImportDocuments][google.firestore.admin.v1.FirestoreAdmin.ImportDocuments\].
+/// [FirestoreAdmin.ImportDocuments][google.firestore.admin.v1.FirestoreAdmin.ImportDocuments].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportDocumentsRequest {
@@ -2632,7 +2939,7 @@
     /// This must match the output_uri_prefix of an ExportDocumentsResponse from
     /// an export that has completed successfully.
     /// See:
-    /// \[google.firestore.admin.v1.ExportDocumentsResponse.output_uri_prefix][google.firestore.admin.v1.ExportDocumentsResponse.output_uri_prefix\].
+    /// [google.firestore.admin.v1.ExportDocumentsResponse.output_uri_prefix][google.firestore.admin.v1.ExportDocumentsResponse.output_uri_prefix].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>input_uri_prefix: ::prost::alloc::string::String,
 }
@@ -3171,315 +3478,8 @@
         </span>}
     }
 }
-<span class="doccomment">/// Metadata for \[google.longrunning.Operation][google.longrunning.Operation\] results from
-/// \[FirestoreAdmin.CreateIndex][google.firestore.admin.v1.FirestoreAdmin.CreateIndex\].
+<span class="doccomment">/// The metadata message for [google.cloud.location.Location.metadata][google.cloud.location.Location.metadata].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>IndexOperationMetadata {
-    <span class="doccomment">/// The time this operation started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The time this operation completed. Will be unset if operation still in
-    /// progress.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The index resource that this operation is acting on. For example:
-    /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{index_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>index: ::prost::alloc::string::String,
-    <span class="doccomment">/// The state of the operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// The progress, in documents, of this operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>progress_documents: ::core::option::Option&lt;Progress&gt;,
-    <span class="doccomment">/// The progress, in bytes, of this operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>progress_bytes: ::core::option::Option&lt;Progress&gt;,
-}
-<span class="doccomment">/// Metadata for \[google.longrunning.Operation][google.longrunning.Operation\] results from
-/// \[FirestoreAdmin.UpdateField][google.firestore.admin.v1.FirestoreAdmin.UpdateField\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FieldOperationMetadata {
-    <span class="doccomment">/// The time this operation started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The time this operation completed. Will be unset if operation still in
-    /// progress.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The field resource that this operation is acting on. For example:
-    /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>field: ::prost::alloc::string::String,
-    <span class="doccomment">/// A list of \[IndexConfigDelta][google.firestore.admin.v1.FieldOperationMetadata.IndexConfigDelta\], which describe the intent of this
-    /// operation.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>index_config_deltas: ::prost::alloc::vec::Vec&lt;
-        field_operation_metadata::IndexConfigDelta,
-    &gt;,
-    <span class="doccomment">/// The state of the operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationState&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// The progress, in documents, of this operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>progress_documents: ::core::option::Option&lt;Progress&gt;,
-    <span class="doccomment">/// The progress, in bytes, of this operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>progress_bytes: ::core::option::Option&lt;Progress&gt;,
-    <span class="doccomment">/// Describes the deltas of TTL configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>ttl_config_delta: ::core::option::Option&lt;
-        field_operation_metadata::TtlConfigDelta,
-    &gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `FieldOperationMetadata`.
-</span><span class="kw">pub mod </span>field_operation_metadata {
-    <span class="doccomment">/// Information about an index configuration change.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>IndexConfigDelta {
-        <span class="doccomment">/// Specifies how the index is changing.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;index_config_delta::ChangeType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>change_type: i32,
-        <span class="doccomment">/// The index being changed.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>index: ::core::option::Option&lt;<span class="kw">super</span>::Index&gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `IndexConfigDelta`.
-    </span><span class="kw">pub mod </span>index_config_delta {
-        <span class="doccomment">/// Specifies how the index is changing.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>ChangeType {
-            <span class="doccomment">/// The type of change is not specified or known.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// The single field index is being added.
-            </span>Add = <span class="number">1</span>,
-            <span class="doccomment">/// The single field index is being removed.
-            </span>Remove = <span class="number">2</span>,
-        }
-        <span class="kw">impl </span>ChangeType {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    ChangeType::Unspecified =&gt; <span class="string">&quot;CHANGE_TYPE_UNSPECIFIED&quot;</span>,
-                    ChangeType::Add =&gt; <span class="string">&quot;ADD&quot;</span>,
-                    ChangeType::Remove =&gt; <span class="string">&quot;REMOVE&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;CHANGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;ADD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
-                    <span class="string">&quot;REMOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Remove),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-    <span class="doccomment">/// Information about an TTL configuration change.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>TtlConfigDelta {
-        <span class="doccomment">/// Specifies how the TTL configuration is changing.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ttl_config_delta::ChangeType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>change_type: i32,
-    }
-    <span class="doccomment">/// Nested message and enum types in `TtlConfigDelta`.
-    </span><span class="kw">pub mod </span>ttl_config_delta {
-        <span class="doccomment">/// Specifies how the TTL config is changing.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>ChangeType {
-            <span class="doccomment">/// The type of change is not specified or known.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// The TTL config is being added.
-            </span>Add = <span class="number">1</span>,
-            <span class="doccomment">/// The TTL config is being removed.
-            </span>Remove = <span class="number">2</span>,
-        }
-        <span class="kw">impl </span>ChangeType {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    ChangeType::Unspecified =&gt; <span class="string">&quot;CHANGE_TYPE_UNSPECIFIED&quot;</span>,
-                    ChangeType::Add =&gt; <span class="string">&quot;ADD&quot;</span>,
-                    ChangeType::Remove =&gt; <span class="string">&quot;REMOVE&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;CHANGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;ADD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
-                    <span class="string">&quot;REMOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Remove),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-}
-<span class="doccomment">/// Metadata for \[google.longrunning.Operation][google.longrunning.Operation\] results from
-/// \[FirestoreAdmin.ExportDocuments][google.firestore.admin.v1.FirestoreAdmin.ExportDocuments\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExportDocumentsMetadata {
-    <span class="doccomment">/// The time this operation started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The time this operation completed. Will be unset if operation still in
-    /// progress.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The state of the export operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>operation_state: i32,
-    <span class="doccomment">/// The progress, in documents, of this operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>progress_documents: ::core::option::Option&lt;Progress&gt;,
-    <span class="doccomment">/// The progress, in bytes, of this operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>progress_bytes: ::core::option::Option&lt;Progress&gt;,
-    <span class="doccomment">/// Which collection ids are being exported.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>collection_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Where the entities are being exported to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>output_uri_prefix: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Metadata for \[google.longrunning.Operation][google.longrunning.Operation\] results from
-/// \[FirestoreAdmin.ImportDocuments][google.firestore.admin.v1.FirestoreAdmin.ImportDocuments\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportDocumentsMetadata {
-    <span class="doccomment">/// The time this operation started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The time this operation completed. Will be unset if operation still in
-    /// progress.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The state of the import operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>operation_state: i32,
-    <span class="doccomment">/// The progress, in documents, of this operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>progress_documents: ::core::option::Option&lt;Progress&gt;,
-    <span class="doccomment">/// The progress, in bytes, of this operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>progress_bytes: ::core::option::Option&lt;Progress&gt;,
-    <span class="doccomment">/// Which collection ids are being imported.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>collection_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// The location of the documents being imported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>input_uri_prefix: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Returned in the \[google.longrunning.Operation][google.longrunning.Operation\] response field.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExportDocumentsResponse {
-    <span class="doccomment">/// Location of the output files. This can be used to begin an import
-    /// into Cloud Firestore (this project or another project) after the operation
-    /// completes successfully.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>output_uri_prefix: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Describes the progress of the operation.
-/// Unit of work is generic and must be interpreted based on where \[Progress][google.firestore.admin.v1.Progress\]
-/// is used.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Progress {
-    <span class="doccomment">/// The amount of work estimated.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>estimated_work: i64,
-    <span class="doccomment">/// The amount of work completed.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>completed_work: i64,
-}
-<span class="doccomment">/// Describes the state of the operation.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>OperationState {
-    <span class="doccomment">/// Unspecified.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Request is being prepared for processing.
-    </span>Initializing = <span class="number">1</span>,
-    <span class="doccomment">/// Request is actively being processed.
-    </span>Processing = <span class="number">2</span>,
-    <span class="doccomment">/// Request is in the process of being cancelled after user called
-    /// google.longrunning.Operations.CancelOperation on the operation.
-    </span>Cancelling = <span class="number">3</span>,
-    <span class="doccomment">/// Request has been processed and is in its finalization stage.
-    </span>Finalizing = <span class="number">4</span>,
-    <span class="doccomment">/// Request has completed successfully.
-    </span>Successful = <span class="number">5</span>,
-    <span class="doccomment">/// Request has finished being processed, but encountered an error.
-    </span>Failed = <span class="number">6</span>,
-    <span class="doccomment">/// Request has finished being cancelled after user called
-    /// google.longrunning.Operations.CancelOperation.
-    </span>Cancelled = <span class="number">7</span>,
-}
-<span class="kw">impl </span>OperationState {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            OperationState::Unspecified =&gt; <span class="string">&quot;OPERATION_STATE_UNSPECIFIED&quot;</span>,
-            OperationState::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
-            OperationState::Processing =&gt; <span class="string">&quot;PROCESSING&quot;</span>,
-            OperationState::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
-            OperationState::Finalizing =&gt; <span class="string">&quot;FINALIZING&quot;</span>,
-            OperationState::Successful =&gt; <span class="string">&quot;SUCCESSFUL&quot;</span>,
-            OperationState::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-            OperationState::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;OPERATION_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
-            <span class="string">&quot;PROCESSING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Processing),
-            <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
-            <span class="string">&quot;FINALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finalizing),
-            <span class="string">&quot;SUCCESSFUL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Successful),
-            <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-            <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
+</span><span class="kw">pub struct </span>LocationMetadata {}
 </code></pre></div></section></main></body></html>

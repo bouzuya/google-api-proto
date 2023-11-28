@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/addressvalidation/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/addressvalidation/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -881,7 +881,62 @@
 <a href="#881" id="881">881</a>
 <a href="#882" id="882">882</a>
 <a href="#883" id="883">883</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Details of the post-processed address. Post-processing includes
+</pre></div><pre class="rust"><code><span class="doccomment">/// Contains information about the place the input was geocoded to.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Geocode {
+    <span class="doccomment">/// The geocoded location of the input.
+    ///
+    /// Using place IDs is preferred over using addresses,
+    /// latitude/longitude coordinates, or plus codes. Using coordinates when
+    /// routing or calculating driving directions will always result in the point
+    /// being snapped to the road nearest to those coordinates. This may not be a
+    /// road that will quickly or safely lead to the destination and may not be
+    /// near an access point to the property. Additionally, when a location is
+    /// reverse geocoded, there is no guarantee that the returned address will
+    /// match the original.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>location: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
+    <span class="doccomment">/// The plus code corresponding to the `location`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>plus_code: ::core::option::Option&lt;PlusCode&gt;,
+    <span class="doccomment">/// The bounds of the geocoded place.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>bounds: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::geo::r#type::Viewport&gt;,
+    <span class="doccomment">/// The size of the geocoded place, in meters. This is another measure of the
+    /// coarseness of the geocoded location, but in physical size rather than in
+    /// semantic meaning.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>feature_size_meters: f32,
+    <span class="doccomment">/// The PlaceID of the place this input geocodes to.
+    ///
+    /// For more information about Place IDs see
+    /// [here](&lt;https://developers.google.com/maps/documentation/places/web-service/place-id&gt;).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>place_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The type(s) of place that the input geocoded to. For example,
+    /// `\[&#39;locality&#39;, &#39;political&#39;\]`. The full list of types can be found
+    /// [here](&lt;https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types&gt;).
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>place_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Plus code (&lt;http://plus.codes&gt;) is a location reference with two formats:
+/// global code defining a 14mx14m (1/8000th of a degree) or smaller rectangle,
+/// and compound code, replacing the prefix with a reference location.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PlusCode {
+    <span class="doccomment">/// Place&#39;s global (full) code, such as &quot;9FWM33GV+HQ&quot;, representing an
+    /// 1/8000 by 1/8000 degree area (~14 by 14 meters).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>global_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Place&#39;s compound code, such as &quot;33GV+HQ, Ramberg, Norway&quot;, containing
+    /// the suffix of the global code and replacing the prefix with a formatted
+    /// name of a reference entity.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>compound_code: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Details of the post-processed address. Post-processing includes
 /// correcting misspelled parts of the address, replacing incorrect parts, and
 /// inferring missing parts.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -908,9 +963,9 @@
     /// formatted mailing address but were not found in the input AND could
     /// not be inferred. Components of this type are not present in
     /// `formatted_address`, `postal_address`, or `address_components`. An
-    /// example might be `[&#39;street_number&#39;, &#39;route&#39;]` for an input like
+    /// example might be `\[&#39;street_number&#39;, &#39;route&#39;\]` for an input like
     /// &quot;Boulder, Colorado, 80301, USA&quot;. The list of possible types can be found
-    /// \[here\](&lt;https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types&gt;).
+    /// [here](&lt;https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types&gt;).
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>missing_component_types: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
@@ -919,13 +974,13 @@
     /// but could not be confirmed to be correct. This field is provided for the
     /// sake of convenience: its contents are equivalent to iterating through the
     /// `address_components` to find the types of all the components where the
-    /// \[confirmation_level][google.maps.addressvalidation.v1.AddressComponent.confirmation_level\]
+    /// [confirmation_level][google.maps.addressvalidation.v1.AddressComponent.confirmation_level]
     /// is not
-    /// \[CONFIRMED][google.maps.addressvalidation.v1.AddressComponent.ConfirmationLevel.CONFIRMED\]
+    /// [CONFIRMED][google.maps.addressvalidation.v1.AddressComponent.ConfirmationLevel.CONFIRMED]
     /// or the
-    /// \[inferred][google.maps.addressvalidation.v1.AddressComponent.inferred\]
+    /// [inferred][google.maps.addressvalidation.v1.AddressComponent.inferred]
     /// flag is not set to `true`. The list of possible types can be found
-    /// \[here\](&lt;https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types&gt;).
+    /// [here](&lt;https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types&gt;).
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>unconfirmed_component_types: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
@@ -1045,61 +1100,6 @@
     /// not associated with a language, such as a street number.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Contains information about the place the input was geocoded to.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Geocode {
-    <span class="doccomment">/// The geocoded location of the input.
-    ///
-    /// Using place IDs is preferred over using addresses,
-    /// latitude/longitude coordinates, or plus codes. Using coordinates when
-    /// routing or calculating driving directions will always result in the point
-    /// being snapped to the road nearest to those coordinates. This may not be a
-    /// road that will quickly or safely lead to the destination and may not be
-    /// near an access point to the property. Additionally, when a location is
-    /// reverse geocoded, there is no guarantee that the returned address will
-    /// match the original.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>location: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
-    <span class="doccomment">/// The plus code corresponding to the `location`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>plus_code: ::core::option::Option&lt;PlusCode&gt;,
-    <span class="doccomment">/// The bounds of the geocoded place.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>bounds: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::geo::r#type::Viewport&gt;,
-    <span class="doccomment">/// The size of the geocoded place, in meters. This is another measure of the
-    /// coarseness of the geocoded location, but in physical size rather than in
-    /// semantic meaning.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>feature_size_meters: f32,
-    <span class="doccomment">/// The PlaceID of the place this input geocodes to.
-    ///
-    /// For more information about Place IDs see
-    /// \[here\](&lt;https://developers.google.com/maps/documentation/places/web-service/place-id&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>place_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The type(s) of place that the input geocoded to. For example,
-    /// `[&#39;locality&#39;, &#39;political&#39;]`. The full list of types can be found
-    /// \[here\](&lt;https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types&gt;).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>place_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Plus code (&lt;http://plus.codes&gt;) is a location reference with two formats:
-/// global code defining a 14mx14m (1/8000th of a degree) or smaller rectangle,
-/// and compound code, replacing the prefix with a reference location.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PlusCode {
-    <span class="doccomment">/// Place&#39;s global (full) code, such as &quot;9FWM33GV+HQ&quot;, representing an
-    /// 1/8000 by 1/8000 degree area (~14 by 14 meters).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>global_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Place&#39;s compound code, such as &quot;33GV+HQ, Ramberg, Norway&quot;, containing
-    /// the suffix of the global code and replacing the prefix with a formatted
-    /// name of a reference entity.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>compound_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The metadata for the address. `metadata` is not guaranteed to be fully
 /// populated for every address sent to the Address Validation API.
@@ -1322,22 +1322,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ValidateAddressRequest {
     <span class="doccomment">/// Required. The address being validated. Unformatted addresses should be
-    /// submitted via \[`address_lines`][google.type.PostalAddress.address_lines\].
+    /// submitted via [`address_lines`][google.type.PostalAddress.address_lines].
     ///
     /// The total length of the fields in this input must not exceed 280
     /// characters.
     ///
     /// Supported regions can be found in the
-    /// \[FAQ\](&lt;https://developers.google.com/maps/documentation/address-validation/faq#which_regions_are_currently_supported&gt;).
+    /// [FAQ](&lt;https://developers.google.com/maps/documentation/address-validation/faq#which_regions_are_currently_supported&gt;).
     ///
-    /// The \[language_code][google.type.PostalAddress.language_code\] value in the
+    /// The [language_code][google.type.PostalAddress.language_code] value in the
     /// input address is reserved for future uses and is ignored today. The
     /// validated address result will be populated based on the preferred language
     /// for the given address, as identified by the system.
     ///
     /// The Address Validation API ignores the values in
-    /// \[recipients][google.type.PostalAddress.recipients\] and
-    /// \[organization][google.type.PostalAddress.organization\]. Any values in those
+    /// [recipients][google.type.PostalAddress.recipients] and
+    /// [organization][google.type.PostalAddress.organization]. Any values in those
     /// fields will be discarded and not returned. Please do not set them.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>address: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::PostalAddress&gt;,
@@ -1346,7 +1346,7 @@
     /// example if the changes the user makes after the initial validation need to
     /// be re-validated), then each followup request must populate this field with
     /// the
-    /// \[response_id][google.maps.addressvalidation.v1.ValidateAddressResponse.response_id\]
+    /// [response_id][google.maps.addressvalidation.v1.ValidateAddressResponse.response_id]
     /// from the very first response in the validation sequence.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>previous_response_id: ::prost::alloc::string::String,
@@ -1392,7 +1392,7 @@
     </span><span class="kw">pub </span>conclusion: i32,
     <span class="doccomment">/// Required. The ID of the response that this feedback is for. This should be
     /// the
-    /// \[response_id][google.maps.addressvalidation.v1.ValidateAddressRequest.response_id\]
+    /// [response_id][google.maps.addressvalidation.v1.ValidateAddressRequest.response_id]
     /// from the first response in a series of address validation attempts.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>response_id: ::prost::alloc::string::String,
@@ -1511,7 +1511,7 @@
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;verdict::Granularity&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>validation_granularity: i32,
     <span class="doccomment">/// Information about the granularity of the
-    /// \[`geocode`][google.maps.addressvalidation.v1.ValidationResult.geocode\].
+    /// [`geocode`][google.maps.addressvalidation.v1.ValidationResult.geocode].
     /// This can be understood as the semantic meaning of how coarse or fine the
     /// geocoded location is.
     ///
@@ -1524,10 +1524,10 @@
     </span><span class="kw">pub </span>geocode_granularity: i32,
     <span class="doccomment">/// The address is considered complete if there are no unresolved tokens, no
     /// unexpected or missing address components. See
-    /// \[`missing_component_types`][google.maps.addressvalidation.v1.Address.missing_component_types\],
-    /// \[`unresolved_tokens`][google.maps.addressvalidation.v1.Address.unresolved_tokens\]
+    /// [`missing_component_types`][google.maps.addressvalidation.v1.Address.missing_component_types],
+    /// [`unresolved_tokens`][google.maps.addressvalidation.v1.Address.unresolved_tokens]
     /// or
-    /// \[`unexpected`][google.maps.addressvalidation.v1.AddressComponent.unexpected\]
+    /// [`unexpected`][google.maps.addressvalidation.v1.AddressComponent.unexpected]
     /// fields for more details.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>address_complete: bool,

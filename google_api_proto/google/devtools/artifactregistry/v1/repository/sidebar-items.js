@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Format","FormatConfig"],"mod":["maven_repository_config"],"struct":["MavenRepositoryConfig"]};
+window.SIDEBAR_ITEMS = {"enum":["Format","FormatConfig","Mode","ModeConfig"],"mod":["maven_repository_config"],"struct":["DockerRepositoryConfig","MavenRepositoryConfig"]};

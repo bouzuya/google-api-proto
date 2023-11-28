@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/drive/labels/v2beta/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/drive/labels/v2beta/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3143,7 +3143,112 @@
 <a href="#3143" id="3143">3143</a>
 <a href="#3144" id="3144">3144</a>
 <a href="#3145" id="3145">3145</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// The lifecycle state of an object, such as label, field, or choice. The
+</pre></div><pre class="rust"><code><span class="doccomment">/// The permission that applies to a principal (user, group, audience) on a
+/// label.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LabelPermission {
+    <span class="doccomment">/// Resource name of this permission.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Specifies the email address for a user or group pricinpal. Not populated
+    /// for audience principals. User and Group permissions may only be inserted
+    /// using email address. On update requests, if email address is specified,
+    /// no principal should be specified.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
+    <span class="doccomment">/// The role the principal should have.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;label_permission::LabelRole&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>role: i32,
+    <span class="doccomment">/// The principal this permission applies to. Must be either an email, user,
+    /// group, or audience.
+    /// Example:
+    /// * people/12345
+    /// * groups/45678
+    /// * audiences/default
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;label_permission::Principal&quot;</span>, tags = <span class="string">&quot;3, 4, 5&quot;</span>)]
+    </span><span class="kw">pub </span>principal: ::core::option::Option&lt;label_permission::Principal&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `LabelPermission`.
+</span><span class="kw">pub mod </span>label_permission {
+    <span class="doccomment">/// Roles are concentric with subsequent role.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>LabelRole {
+        <span class="doccomment">/// Unknown role.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// A reader can read the label and associated metadata applied to Drive
+        /// items.
+        </span>Reader = <span class="number">1</span>,
+        <span class="doccomment">/// An applier can write associated metadata on Drive items in which they
+        /// also have write access to. Implies `READER`.
+        </span>Applier = <span class="number">2</span>,
+        <span class="doccomment">/// An organizer can pin this label in shared drives they manage
+        /// and add new appliers to the label.
+        </span>Organizer = <span class="number">3</span>,
+        <span class="doccomment">/// Editors can make any update including deleting the label which
+        /// also deletes the associated Drive item metadata. Implies `APPLIER`.
+        </span>Editor = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>LabelRole {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                LabelRole::Unspecified =&gt; <span class="string">&quot;LABEL_ROLE_UNSPECIFIED&quot;</span>,
+                LabelRole::Reader =&gt; <span class="string">&quot;READER&quot;</span>,
+                LabelRole::Applier =&gt; <span class="string">&quot;APPLIER&quot;</span>,
+                LabelRole::Organizer =&gt; <span class="string">&quot;ORGANIZER&quot;</span>,
+                LabelRole::Editor =&gt; <span class="string">&quot;EDITOR&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;LABEL_ROLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;READER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reader),
+                <span class="string">&quot;APPLIER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applier),
+                <span class="string">&quot;ORGANIZER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organizer),
+                <span class="string">&quot;EDITOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Editor),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The principal this permission applies to. Must be either an email, user,
+    /// group, or audience.
+    /// Example:
+    /// * people/12345
+    /// * groups/45678
+    /// * audiences/default
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Principal {
+        <span class="doccomment">/// Person resource name.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>Person(::prost::alloc::string::String),
+        <span class="doccomment">/// Group resource name.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>Group(::prost::alloc::string::String),
+        <span class="doccomment">/// Audience to grant a role to. The magic value of `audiences/default` may
+        /// be used to apply the role to the default audience in the context of the
+        /// organization that owns the Label.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>Audience(::prost::alloc::string::String),
+    }
+}
+<span class="doccomment">/// The lifecycle state of an object, such as label, field, or choice. The
 /// lifecycle enforces the following transitions:
 ///
 /// * `UNPUBLISHED_DRAFT` (starting state)
@@ -3756,6 +3861,117 @@
         </span>UserOptions(UserOptions),
     }
 }
+<span class="doccomment">/// The capabilities of a user.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UserCapabilities {
+    <span class="doccomment">/// Output only. Resource name for the user capabilities.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Whether the user is allowed access to the label manager.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>can_access_label_manager: bool,
+    <span class="doccomment">/// Output only. Whether the user is an administrator for the shared labels
+    /// feature.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>can_administrate_labels: bool,
+    <span class="doccomment">/// Output only. Whether the user is allowed to create new shared labels.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>can_create_shared_labels: bool,
+    <span class="doccomment">/// Output only. Whether the user is allowed to create new admin labels.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>can_create_admin_labels: bool,
+}
+<span class="doccomment">/// A Lock that can be applied to a Label, Field, or Choice.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LabelLock {
+    <span class="doccomment">/// Output only. Resource name of this LabelLock.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The ID of the Field that should be locked.  Empty if the whole
+    /// Label should be locked.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>field_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The ID of the Selection Field Choice that should be locked.  If present,
+    /// `field_id` must also be present.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>choice_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The time this LabelLock was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The user whose credentials were used to create the LabelLock.
+    /// This will not be present if no user was responsible for creating the
+    /// LabelLock.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>creator: ::core::option::Option&lt;UserInfo&gt;,
+    <span class="doccomment">/// Output only. A timestamp indicating when this LabelLock was scheduled for
+    /// deletion. This will be present only if this LabelLock is in the DELETING
+    /// state.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The user&#39;s capabilities on this LabelLock.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>capabilities: ::core::option::Option&lt;label_lock::Capabilities&gt;,
+    <span class="doccomment">/// Output only. This LabelLock&#39;s state.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;label_lock::State&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `LabelLock`.
+</span><span class="kw">pub mod </span>label_lock {
+    <span class="doccomment">/// A description of a user&#39;s capabilities on a LabelLock.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Capabilities {
+        <span class="doccomment">/// True if the user is authorized to view the policy.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>can_view_policy: bool,
+    }
+    <span class="doccomment">/// A description of a LabelLock&#39;s state.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unknown state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The LabelLock is active and is being enforced by the server.
+        </span>Active = <span class="number">1</span>,
+        <span class="doccomment">/// The LabelLock is being deleted.  The LabelLock will continue to be
+        /// enforced by the server until it has been fully removed.
+        </span>Deleting = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
 <span class="doccomment">/// A label defines a taxonomy that can be applied to Drive items in order to
 /// organize and search across items. Labels can be simple strings, or can
 /// contain fields that describe additional metadata that can be further used to
@@ -4158,201 +4374,6 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>list_limits: ::core::option::Option&lt;ListLimits&gt;,
 }
-<span class="doccomment">/// The permission that applies to a principal (user, group, audience) on a
-/// label.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LabelPermission {
-    <span class="doccomment">/// Resource name of this permission.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Specifies the email address for a user or group pricinpal. Not populated
-    /// for audience principals. User and Group permissions may only be inserted
-    /// using email address. On update requests, if email address is specified,
-    /// no principal should be specified.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
-    <span class="doccomment">/// The role the principal should have.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;label_permission::LabelRole&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>role: i32,
-    <span class="doccomment">/// The principal this permission applies to. Must be either an email, user,
-    /// group, or audience.
-    /// Example:
-    /// * people/12345
-    /// * groups/45678
-    /// * audiences/default
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;label_permission::Principal&quot;</span>, tags = <span class="string">&quot;3, 4, 5&quot;</span>)]
-    </span><span class="kw">pub </span>principal: ::core::option::Option&lt;label_permission::Principal&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `LabelPermission`.
-</span><span class="kw">pub mod </span>label_permission {
-    <span class="doccomment">/// Roles are concentric with subsequent role.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>LabelRole {
-        <span class="doccomment">/// Unknown role.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// A reader can read the label and associated metadata applied to Drive
-        /// items.
-        </span>Reader = <span class="number">1</span>,
-        <span class="doccomment">/// An applier can write associated metadata on Drive items in which they
-        /// also have write access to. Implies `READER`.
-        </span>Applier = <span class="number">2</span>,
-        <span class="doccomment">/// An organizer can pin this label in shared drives they manage
-        /// and add new appliers to the label.
-        </span>Organizer = <span class="number">3</span>,
-        <span class="doccomment">/// Editors can make any update including deleting the label which
-        /// also deletes the associated Drive item metadata. Implies `APPLIER`.
-        </span>Editor = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>LabelRole {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                LabelRole::Unspecified =&gt; <span class="string">&quot;LABEL_ROLE_UNSPECIFIED&quot;</span>,
-                LabelRole::Reader =&gt; <span class="string">&quot;READER&quot;</span>,
-                LabelRole::Applier =&gt; <span class="string">&quot;APPLIER&quot;</span>,
-                LabelRole::Organizer =&gt; <span class="string">&quot;ORGANIZER&quot;</span>,
-                LabelRole::Editor =&gt; <span class="string">&quot;EDITOR&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;LABEL_ROLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;READER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reader),
-                <span class="string">&quot;APPLIER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applier),
-                <span class="string">&quot;ORGANIZER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organizer),
-                <span class="string">&quot;EDITOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Editor),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The principal this permission applies to. Must be either an email, user,
-    /// group, or audience.
-    /// Example:
-    /// * people/12345
-    /// * groups/45678
-    /// * audiences/default
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Principal {
-        <span class="doccomment">/// Person resource name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>Person(::prost::alloc::string::String),
-        <span class="doccomment">/// Group resource name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>Group(::prost::alloc::string::String),
-        <span class="doccomment">/// Audience to grant a role to. The magic value of `audiences/default` may
-        /// be used to apply the role to the default audience in the context of the
-        /// organization that owns the Label.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-        </span>Audience(::prost::alloc::string::String),
-    }
-}
-<span class="doccomment">/// A Lock that can be applied to a Label, Field, or Choice.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LabelLock {
-    <span class="doccomment">/// Output only. Resource name of this LabelLock.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The ID of the Field that should be locked.  Empty if the whole
-    /// Label should be locked.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>field_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The ID of the Selection Field Choice that should be locked.  If present,
-    /// `field_id` must also be present.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>choice_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The time this LabelLock was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The user whose credentials were used to create the LabelLock.
-    /// This will not be present if no user was responsible for creating the
-    /// LabelLock.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>creator: ::core::option::Option&lt;UserInfo&gt;,
-    <span class="doccomment">/// Output only. A timestamp indicating when this LabelLock was scheduled for
-    /// deletion. This will be present only if this LabelLock is in the DELETING
-    /// state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The user&#39;s capabilities on this LabelLock.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>capabilities: ::core::option::Option&lt;label_lock::Capabilities&gt;,
-    <span class="doccomment">/// Output only. This LabelLock&#39;s state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;label_lock::State&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `LabelLock`.
-</span><span class="kw">pub mod </span>label_lock {
-    <span class="doccomment">/// A description of a user&#39;s capabilities on a LabelLock.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Capabilities {
-        <span class="doccomment">/// True if the user is authorized to view the policy.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>can_view_policy: bool,
-    }
-    <span class="doccomment">/// A description of a LabelLock&#39;s state.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unknown state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The LabelLock is active and is being enforced by the server.
-        </span>Active = <span class="number">1</span>,
-        <span class="doccomment">/// The LabelLock is being deleted.  The LabelLock will continue to be
-        /// enforced by the server until it has been fully removed.
-        </span>Deleting = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
 <span class="doccomment">/// Provides control over how write requests are executed. When not specified,
 /// the last write wins.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4372,7 +4393,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Control {
-        <span class="doccomment">/// The \[revision_id][google.apps.drive.labels.v1.Label.revision_id\] of the
+        <span class="doccomment">/// The [revision_id][google.apps.drive.labels.v1.Label.revision_id] of the
         /// label that the write request will be applied to. If this is not the
         /// latest revision of the label, the request will not be processed and will
         /// return a 400 Bad Request error.
@@ -5212,248 +5233,6 @@
         }
     }
 }
-<span class="doccomment">/// Describes violations in a request to create or update a Label or its
-/// Fields.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>InvalidArgument {
-    <span class="doccomment">/// Describes all violations in a client request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>field_violations: ::prost::alloc::vec::Vec&lt;invalid_argument::FieldViolation&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `InvalidArgument`.
-</span><span class="kw">pub mod </span>invalid_argument {
-    <span class="doccomment">/// Describes the Field in which the violation occurred.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>FieldViolation {
-        <span class="doccomment">/// The path to the field where this violation occurred. This path is
-        /// specified using `FieldMask` format:
-        /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>field: ::prost::alloc::string::String,
-        <span class="doccomment">/// The detailed reason for this FieldViolation.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;field_violation::Reason&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>reason: i32,
-        <span class="doccomment">/// A message that describes the violation. This message is intended to
-        /// be shown to end users, and is localized into the requesting user&#39;s
-        /// preferred language.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>display_message: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Nested message and enum types in `FieldViolation`.
-    </span><span class="kw">pub mod </span>field_violation {
-        <span class="doccomment">/// Possible reasons a field is invalid.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>Reason {
-            <span class="doccomment">/// Unknown reason.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// The referenced field is required.
-            </span>FieldRequired = <span class="number">1</span>,
-            <span class="doccomment">/// The referenced value was invalid.
-            </span>InvalidValue = <span class="number">2</span>,
-            <span class="doccomment">/// The specified numeric value is out of the allowed range.
-            </span>ValueOutOfRange = <span class="number">3</span>,
-            <span class="doccomment">/// The specified string value was too long.
-            </span>StringValueTooLong = <span class="number">4</span>,
-            <span class="doccomment">/// The number of entries exceeded the maximum.
-            </span>MaxEntriesExceeded = <span class="number">5</span>,
-            <span class="doccomment">/// The specified field is not found in the Label.
-            </span>FieldNotFound = <span class="number">6</span>,
-            <span class="doccomment">/// The specified choice is not found in the Field.
-            </span>ChoiceNotFound = <span class="number">7</span>,
-        }
-        <span class="kw">impl </span>Reason {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    Reason::Unspecified =&gt; <span class="string">&quot;REASON_UNSPECIFIED&quot;</span>,
-                    Reason::FieldRequired =&gt; <span class="string">&quot;FIELD_REQUIRED&quot;</span>,
-                    Reason::InvalidValue =&gt; <span class="string">&quot;INVALID_VALUE&quot;</span>,
-                    Reason::ValueOutOfRange =&gt; <span class="string">&quot;VALUE_OUT_OF_RANGE&quot;</span>,
-                    Reason::StringValueTooLong =&gt; <span class="string">&quot;STRING_VALUE_TOO_LONG&quot;</span>,
-                    Reason::MaxEntriesExceeded =&gt; <span class="string">&quot;MAX_ENTRIES_EXCEEDED&quot;</span>,
-                    Reason::FieldNotFound =&gt; <span class="string">&quot;FIELD_NOT_FOUND&quot;</span>,
-                    Reason::ChoiceNotFound =&gt; <span class="string">&quot;CHOICE_NOT_FOUND&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;FIELD_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FieldRequired),
-                    <span class="string">&quot;INVALID_VALUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidValue),
-                    <span class="string">&quot;VALUE_OUT_OF_RANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ValueOutOfRange),
-                    <span class="string">&quot;STRING_VALUE_TOO_LONG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StringValueTooLong),
-                    <span class="string">&quot;MAX_ENTRIES_EXCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MaxEntriesExceeded),
-                    <span class="string">&quot;FIELD_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FieldNotFound),
-                    <span class="string">&quot;CHOICE_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChoiceNotFound),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-}
-<span class="doccomment">/// Describes what preconditions have failed.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PreconditionFailure {
-    <span class="doccomment">/// Describes all violations in a client request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>violation: ::prost::alloc::vec::Vec&lt;precondition_failure::Violation&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `PreconditionFailure`.
-</span><span class="kw">pub mod </span>precondition_failure {
-    <span class="doccomment">/// Specific failure reason.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Violation {
-        <span class="doccomment">/// The path to the field where this violation occurred. This path is
-        /// specified using `FieldMask` format:
-        /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>field: ::prost::alloc::string::String,
-        <span class="doccomment">/// The type of this violation.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;violation::Reason&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>reason: i32,
-        <span class="doccomment">/// A message that describes the violation. This message is intended to
-        /// be shown to end users, and is localized into the requesting user&#39;s
-        /// preferred language.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>display_message: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Nested message and enum types in `Violation`.
-    </span><span class="kw">pub mod </span>violation {
-        <span class="doccomment">/// The possible reasons a the violation occurred.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>Reason {
-            <span class="doccomment">/// Unknown violation type.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// This Resource cannot be Disabled. Only Published resources can be
-            /// Disabled.
-            </span>CannotDisable = <span class="number">1</span>,
-            <span class="doccomment">/// This Resource cannot be Enabled. Only Disabled resources can be
-            /// Enabled.
-            </span>CannotEnable = <span class="number">2</span>,
-            <span class="doccomment">/// This Resource cannot be Published. Only Draft or Disabled resources
-            /// can be Published.
-            </span>CannotPublish = <span class="number">3</span>,
-            <span class="doccomment">/// This Resource cannot be Unpublished. Once published, resources may
-            /// not be set in &quot;Draft&quot; state.
-            </span>CannotUnpublish = <span class="number">4</span>,
-            <span class="doccomment">/// This Resource cannot be Deleted. Only Disabled resources
-            /// can be Deleted.
-            </span>CannotDelete = <span class="number">5</span>,
-            <span class="doccomment">/// The request modified a range in a Field, but the new range does
-            /// not include the previous range. When this error happens, `field` points
-            /// at the Field where the violation occurred.
-            </span>CannotRestrictRange = <span class="number">6</span>,
-            <span class="doccomment">/// The specified change cannot be made to published Resources.
-            </span>CannotChangePublishedField = <span class="number">7</span>,
-            <span class="doccomment">/// The customer cannot create new labels because the maximum number
-            /// of labels for the customer has been reached.
-            </span>CannotCreateMoreLabels = <span class="number">8</span>,
-            <span class="doccomment">/// The Field type cannot be changed because the Field has been published.
-            </span>CannotChangePublishedFieldType = <span class="number">9</span>,
-            <span class="doccomment">/// The Label component is locked and cannot be modified
-            </span>CannotModifyLockedComponent = <span class="number">10</span>,
-        }
-        <span class="kw">impl </span>Reason {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    Reason::Unspecified =&gt; <span class="string">&quot;REASON_UNSPECIFIED&quot;</span>,
-                    Reason::CannotDisable =&gt; <span class="string">&quot;CANNOT_DISABLE&quot;</span>,
-                    Reason::CannotEnable =&gt; <span class="string">&quot;CANNOT_ENABLE&quot;</span>,
-                    Reason::CannotPublish =&gt; <span class="string">&quot;CANNOT_PUBLISH&quot;</span>,
-                    Reason::CannotUnpublish =&gt; <span class="string">&quot;CANNOT_UNPUBLISH&quot;</span>,
-                    Reason::CannotDelete =&gt; <span class="string">&quot;CANNOT_DELETE&quot;</span>,
-                    Reason::CannotRestrictRange =&gt; <span class="string">&quot;CANNOT_RESTRICT_RANGE&quot;</span>,
-                    Reason::CannotChangePublishedField =&gt; <span class="string">&quot;CANNOT_CHANGE_PUBLISHED_FIELD&quot;</span>,
-                    Reason::CannotCreateMoreLabels =&gt; <span class="string">&quot;CANNOT_CREATE_MORE_LABELS&quot;</span>,
-                    Reason::CannotChangePublishedFieldType =&gt; {
-                        <span class="string">&quot;CANNOT_CHANGE_PUBLISHED_FIELD_TYPE&quot;
-                    </span>}
-                    Reason::CannotModifyLockedComponent =&gt; {
-                        <span class="string">&quot;CANNOT_MODIFY_LOCKED_COMPONENT&quot;
-                    </span>}
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;CANNOT_DISABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotDisable),
-                    <span class="string">&quot;CANNOT_ENABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotEnable),
-                    <span class="string">&quot;CANNOT_PUBLISH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotPublish),
-                    <span class="string">&quot;CANNOT_UNPUBLISH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotUnpublish),
-                    <span class="string">&quot;CANNOT_DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotDelete),
-                    <span class="string">&quot;CANNOT_RESTRICT_RANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotRestrictRange),
-                    <span class="string">&quot;CANNOT_CHANGE_PUBLISHED_FIELD&quot; </span>=&gt; {
-                        <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotChangePublishedField)
-                    }
-                    <span class="string">&quot;CANNOT_CREATE_MORE_LABELS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotCreateMoreLabels),
-                    <span class="string">&quot;CANNOT_CHANGE_PUBLISHED_FIELD_TYPE&quot; </span>=&gt; {
-                        <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotChangePublishedFieldType)
-                    }
-                    <span class="string">&quot;CANNOT_MODIFY_LOCKED_COMPONENT&quot; </span>=&gt; {
-                        <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotModifyLockedComponent)
-                    }
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-}
-<span class="doccomment">/// The capabilities of a user.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UserCapabilities {
-    <span class="doccomment">/// Output only. Resource name for the user capabilities.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Whether the user is allowed access to the label manager.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>can_access_label_manager: bool,
-    <span class="doccomment">/// Output only. Whether the user is an administrator for the shared labels
-    /// feature.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>can_administrate_labels: bool,
-    <span class="doccomment">/// Output only. Whether the user is allowed to create new shared labels.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>can_create_shared_labels: bool,
-    <span class="doccomment">/// Output only. Whether the user is allowed to create new admin labels.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>can_create_admin_labels: bool,
-}
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>label_service_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -6111,6 +5890,227 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+    }
+}
+<span class="doccomment">/// Describes violations in a request to create or update a Label or its
+/// Fields.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>InvalidArgument {
+    <span class="doccomment">/// Describes all violations in a client request.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>field_violations: ::prost::alloc::vec::Vec&lt;invalid_argument::FieldViolation&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `InvalidArgument`.
+</span><span class="kw">pub mod </span>invalid_argument {
+    <span class="doccomment">/// Describes the Field in which the violation occurred.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>FieldViolation {
+        <span class="doccomment">/// The path to the field where this violation occurred. This path is
+        /// specified using `FieldMask` format:
+        /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>field: ::prost::alloc::string::String,
+        <span class="doccomment">/// The detailed reason for this FieldViolation.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;field_violation::Reason&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>reason: i32,
+        <span class="doccomment">/// A message that describes the violation. This message is intended to
+        /// be shown to end users, and is localized into the requesting user&#39;s
+        /// preferred language.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>display_message: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Nested message and enum types in `FieldViolation`.
+    </span><span class="kw">pub mod </span>field_violation {
+        <span class="doccomment">/// Possible reasons a field is invalid.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>Reason {
+            <span class="doccomment">/// Unknown reason.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// The referenced field is required.
+            </span>FieldRequired = <span class="number">1</span>,
+            <span class="doccomment">/// The referenced value was invalid.
+            </span>InvalidValue = <span class="number">2</span>,
+            <span class="doccomment">/// The specified numeric value is out of the allowed range.
+            </span>ValueOutOfRange = <span class="number">3</span>,
+            <span class="doccomment">/// The specified string value was too long.
+            </span>StringValueTooLong = <span class="number">4</span>,
+            <span class="doccomment">/// The number of entries exceeded the maximum.
+            </span>MaxEntriesExceeded = <span class="number">5</span>,
+            <span class="doccomment">/// The specified field is not found in the Label.
+            </span>FieldNotFound = <span class="number">6</span>,
+            <span class="doccomment">/// The specified choice is not found in the Field.
+            </span>ChoiceNotFound = <span class="number">7</span>,
+        }
+        <span class="kw">impl </span>Reason {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    Reason::Unspecified =&gt; <span class="string">&quot;REASON_UNSPECIFIED&quot;</span>,
+                    Reason::FieldRequired =&gt; <span class="string">&quot;FIELD_REQUIRED&quot;</span>,
+                    Reason::InvalidValue =&gt; <span class="string">&quot;INVALID_VALUE&quot;</span>,
+                    Reason::ValueOutOfRange =&gt; <span class="string">&quot;VALUE_OUT_OF_RANGE&quot;</span>,
+                    Reason::StringValueTooLong =&gt; <span class="string">&quot;STRING_VALUE_TOO_LONG&quot;</span>,
+                    Reason::MaxEntriesExceeded =&gt; <span class="string">&quot;MAX_ENTRIES_EXCEEDED&quot;</span>,
+                    Reason::FieldNotFound =&gt; <span class="string">&quot;FIELD_NOT_FOUND&quot;</span>,
+                    Reason::ChoiceNotFound =&gt; <span class="string">&quot;CHOICE_NOT_FOUND&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;FIELD_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FieldRequired),
+                    <span class="string">&quot;INVALID_VALUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidValue),
+                    <span class="string">&quot;VALUE_OUT_OF_RANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ValueOutOfRange),
+                    <span class="string">&quot;STRING_VALUE_TOO_LONG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StringValueTooLong),
+                    <span class="string">&quot;MAX_ENTRIES_EXCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MaxEntriesExceeded),
+                    <span class="string">&quot;FIELD_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FieldNotFound),
+                    <span class="string">&quot;CHOICE_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChoiceNotFound),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+}
+<span class="doccomment">/// Describes what preconditions have failed.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PreconditionFailure {
+    <span class="doccomment">/// Describes all violations in a client request.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>violation: ::prost::alloc::vec::Vec&lt;precondition_failure::Violation&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `PreconditionFailure`.
+</span><span class="kw">pub mod </span>precondition_failure {
+    <span class="doccomment">/// Specific failure reason.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Violation {
+        <span class="doccomment">/// The path to the field where this violation occurred. This path is
+        /// specified using `FieldMask` format:
+        /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>field: ::prost::alloc::string::String,
+        <span class="doccomment">/// The type of this violation.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;violation::Reason&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>reason: i32,
+        <span class="doccomment">/// A message that describes the violation. This message is intended to
+        /// be shown to end users, and is localized into the requesting user&#39;s
+        /// preferred language.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>display_message: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Nested message and enum types in `Violation`.
+    </span><span class="kw">pub mod </span>violation {
+        <span class="doccomment">/// The possible reasons a the violation occurred.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>Reason {
+            <span class="doccomment">/// Unknown violation type.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// This Resource cannot be Disabled. Only Published resources can be
+            /// Disabled.
+            </span>CannotDisable = <span class="number">1</span>,
+            <span class="doccomment">/// This Resource cannot be Enabled. Only Disabled resources can be
+            /// Enabled.
+            </span>CannotEnable = <span class="number">2</span>,
+            <span class="doccomment">/// This Resource cannot be Published. Only Draft or Disabled resources
+            /// can be Published.
+            </span>CannotPublish = <span class="number">3</span>,
+            <span class="doccomment">/// This Resource cannot be Unpublished. Once published, resources may
+            /// not be set in &quot;Draft&quot; state.
+            </span>CannotUnpublish = <span class="number">4</span>,
+            <span class="doccomment">/// This Resource cannot be Deleted. Only Disabled resources
+            /// can be Deleted.
+            </span>CannotDelete = <span class="number">5</span>,
+            <span class="doccomment">/// The request modified a range in a Field, but the new range does
+            /// not include the previous range. When this error happens, `field` points
+            /// at the Field where the violation occurred.
+            </span>CannotRestrictRange = <span class="number">6</span>,
+            <span class="doccomment">/// The specified change cannot be made to published Resources.
+            </span>CannotChangePublishedField = <span class="number">7</span>,
+            <span class="doccomment">/// The customer cannot create new labels because the maximum number
+            /// of labels for the customer has been reached.
+            </span>CannotCreateMoreLabels = <span class="number">8</span>,
+            <span class="doccomment">/// The Field type cannot be changed because the Field has been published.
+            </span>CannotChangePublishedFieldType = <span class="number">9</span>,
+            <span class="doccomment">/// The Label component is locked and cannot be modified
+            </span>CannotModifyLockedComponent = <span class="number">10</span>,
+        }
+        <span class="kw">impl </span>Reason {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    Reason::Unspecified =&gt; <span class="string">&quot;REASON_UNSPECIFIED&quot;</span>,
+                    Reason::CannotDisable =&gt; <span class="string">&quot;CANNOT_DISABLE&quot;</span>,
+                    Reason::CannotEnable =&gt; <span class="string">&quot;CANNOT_ENABLE&quot;</span>,
+                    Reason::CannotPublish =&gt; <span class="string">&quot;CANNOT_PUBLISH&quot;</span>,
+                    Reason::CannotUnpublish =&gt; <span class="string">&quot;CANNOT_UNPUBLISH&quot;</span>,
+                    Reason::CannotDelete =&gt; <span class="string">&quot;CANNOT_DELETE&quot;</span>,
+                    Reason::CannotRestrictRange =&gt; <span class="string">&quot;CANNOT_RESTRICT_RANGE&quot;</span>,
+                    Reason::CannotChangePublishedField =&gt; <span class="string">&quot;CANNOT_CHANGE_PUBLISHED_FIELD&quot;</span>,
+                    Reason::CannotCreateMoreLabels =&gt; <span class="string">&quot;CANNOT_CREATE_MORE_LABELS&quot;</span>,
+                    Reason::CannotChangePublishedFieldType =&gt; {
+                        <span class="string">&quot;CANNOT_CHANGE_PUBLISHED_FIELD_TYPE&quot;
+                    </span>}
+                    Reason::CannotModifyLockedComponent =&gt; {
+                        <span class="string">&quot;CANNOT_MODIFY_LOCKED_COMPONENT&quot;
+                    </span>}
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;CANNOT_DISABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotDisable),
+                    <span class="string">&quot;CANNOT_ENABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotEnable),
+                    <span class="string">&quot;CANNOT_PUBLISH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotPublish),
+                    <span class="string">&quot;CANNOT_UNPUBLISH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotUnpublish),
+                    <span class="string">&quot;CANNOT_DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotDelete),
+                    <span class="string">&quot;CANNOT_RESTRICT_RANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotRestrictRange),
+                    <span class="string">&quot;CANNOT_CHANGE_PUBLISHED_FIELD&quot; </span>=&gt; {
+                        <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotChangePublishedField)
+                    }
+                    <span class="string">&quot;CANNOT_CREATE_MORE_LABELS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotCreateMoreLabels),
+                    <span class="string">&quot;CANNOT_CHANGE_PUBLISHED_FIELD_TYPE&quot; </span>=&gt; {
+                        <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotChangePublishedFieldType)
+                    }
+                    <span class="string">&quot;CANNOT_MODIFY_LOCKED_COMPONENT&quot; </span>=&gt; {
+                        <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotModifyLockedComponent)
+                    }
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
     }
 }
 <span class="doccomment">/// Normalized internal-only message that identifies the exact exception that

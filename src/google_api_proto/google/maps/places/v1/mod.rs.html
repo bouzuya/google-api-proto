@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/places/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/places/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -869,170 +869,1262 @@
 <a href="#869" id="869">869</a>
 <a href="#870" id="870">870</a>
 <a href="#871" id="871">871</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Circle with a LatLng as center and radius.
+<a href="#872" id="872">872</a>
+<a href="#873" id="873">873</a>
+<a href="#874" id="874">874</a>
+<a href="#875" id="875">875</a>
+<a href="#876" id="876">876</a>
+<a href="#877" id="877">877</a>
+<a href="#878" id="878">878</a>
+<a href="#879" id="879">879</a>
+<a href="#880" id="880">880</a>
+<a href="#881" id="881">881</a>
+<a href="#882" id="882">882</a>
+<a href="#883" id="883">883</a>
+<a href="#884" id="884">884</a>
+<a href="#885" id="885">885</a>
+<a href="#886" id="886">886</a>
+<a href="#887" id="887">887</a>
+<a href="#888" id="888">888</a>
+<a href="#889" id="889">889</a>
+<a href="#890" id="890">890</a>
+<a href="#891" id="891">891</a>
+<a href="#892" id="892">892</a>
+<a href="#893" id="893">893</a>
+<a href="#894" id="894">894</a>
+<a href="#895" id="895">895</a>
+<a href="#896" id="896">896</a>
+<a href="#897" id="897">897</a>
+<a href="#898" id="898">898</a>
+<a href="#899" id="899">899</a>
+<a href="#900" id="900">900</a>
+<a href="#901" id="901">901</a>
+<a href="#902" id="902">902</a>
+<a href="#903" id="903">903</a>
+<a href="#904" id="904">904</a>
+<a href="#905" id="905">905</a>
+<a href="#906" id="906">906</a>
+<a href="#907" id="907">907</a>
+<a href="#908" id="908">908</a>
+<a href="#909" id="909">909</a>
+<a href="#910" id="910">910</a>
+<a href="#911" id="911">911</a>
+<a href="#912" id="912">912</a>
+<a href="#913" id="913">913</a>
+<a href="#914" id="914">914</a>
+<a href="#915" id="915">915</a>
+<a href="#916" id="916">916</a>
+<a href="#917" id="917">917</a>
+<a href="#918" id="918">918</a>
+<a href="#919" id="919">919</a>
+<a href="#920" id="920">920</a>
+<a href="#921" id="921">921</a>
+<a href="#922" id="922">922</a>
+<a href="#923" id="923">923</a>
+<a href="#924" id="924">924</a>
+<a href="#925" id="925">925</a>
+<a href="#926" id="926">926</a>
+<a href="#927" id="927">927</a>
+<a href="#928" id="928">928</a>
+<a href="#929" id="929">929</a>
+<a href="#930" id="930">930</a>
+<a href="#931" id="931">931</a>
+<a href="#932" id="932">932</a>
+<a href="#933" id="933">933</a>
+<a href="#934" id="934">934</a>
+<a href="#935" id="935">935</a>
+<a href="#936" id="936">936</a>
+<a href="#937" id="937">937</a>
+<a href="#938" id="938">938</a>
+<a href="#939" id="939">939</a>
+<a href="#940" id="940">940</a>
+<a href="#941" id="941">941</a>
+<a href="#942" id="942">942</a>
+<a href="#943" id="943">943</a>
+<a href="#944" id="944">944</a>
+<a href="#945" id="945">945</a>
+<a href="#946" id="946">946</a>
+<a href="#947" id="947">947</a>
+<a href="#948" id="948">948</a>
+<a href="#949" id="949">949</a>
+<a href="#950" id="950">950</a>
+<a href="#951" id="951">951</a>
+<a href="#952" id="952">952</a>
+<a href="#953" id="953">953</a>
+<a href="#954" id="954">954</a>
+<a href="#955" id="955">955</a>
+<a href="#956" id="956">956</a>
+<a href="#957" id="957">957</a>
+<a href="#958" id="958">958</a>
+<a href="#959" id="959">959</a>
+<a href="#960" id="960">960</a>
+<a href="#961" id="961">961</a>
+<a href="#962" id="962">962</a>
+<a href="#963" id="963">963</a>
+<a href="#964" id="964">964</a>
+<a href="#965" id="965">965</a>
+<a href="#966" id="966">966</a>
+<a href="#967" id="967">967</a>
+<a href="#968" id="968">968</a>
+<a href="#969" id="969">969</a>
+<a href="#970" id="970">970</a>
+<a href="#971" id="971">971</a>
+<a href="#972" id="972">972</a>
+<a href="#973" id="973">973</a>
+<a href="#974" id="974">974</a>
+<a href="#975" id="975">975</a>
+<a href="#976" id="976">976</a>
+<a href="#977" id="977">977</a>
+<a href="#978" id="978">978</a>
+<a href="#979" id="979">979</a>
+<a href="#980" id="980">980</a>
+<a href="#981" id="981">981</a>
+<a href="#982" id="982">982</a>
+<a href="#983" id="983">983</a>
+<a href="#984" id="984">984</a>
+<a href="#985" id="985">985</a>
+<a href="#986" id="986">986</a>
+<a href="#987" id="987">987</a>
+<a href="#988" id="988">988</a>
+<a href="#989" id="989">989</a>
+<a href="#990" id="990">990</a>
+<a href="#991" id="991">991</a>
+<a href="#992" id="992">992</a>
+<a href="#993" id="993">993</a>
+<a href="#994" id="994">994</a>
+<a href="#995" id="995">995</a>
+<a href="#996" id="996">996</a>
+<a href="#997" id="997">997</a>
+<a href="#998" id="998">998</a>
+<a href="#999" id="999">999</a>
+<a href="#1000" id="1000">1000</a>
+<a href="#1001" id="1001">1001</a>
+<a href="#1002" id="1002">1002</a>
+<a href="#1003" id="1003">1003</a>
+<a href="#1004" id="1004">1004</a>
+<a href="#1005" id="1005">1005</a>
+<a href="#1006" id="1006">1006</a>
+<a href="#1007" id="1007">1007</a>
+<a href="#1008" id="1008">1008</a>
+<a href="#1009" id="1009">1009</a>
+<a href="#1010" id="1010">1010</a>
+<a href="#1011" id="1011">1011</a>
+<a href="#1012" id="1012">1012</a>
+<a href="#1013" id="1013">1013</a>
+<a href="#1014" id="1014">1014</a>
+<a href="#1015" id="1015">1015</a>
+<a href="#1016" id="1016">1016</a>
+<a href="#1017" id="1017">1017</a>
+<a href="#1018" id="1018">1018</a>
+<a href="#1019" id="1019">1019</a>
+<a href="#1020" id="1020">1020</a>
+<a href="#1021" id="1021">1021</a>
+<a href="#1022" id="1022">1022</a>
+<a href="#1023" id="1023">1023</a>
+<a href="#1024" id="1024">1024</a>
+<a href="#1025" id="1025">1025</a>
+<a href="#1026" id="1026">1026</a>
+<a href="#1027" id="1027">1027</a>
+<a href="#1028" id="1028">1028</a>
+<a href="#1029" id="1029">1029</a>
+<a href="#1030" id="1030">1030</a>
+<a href="#1031" id="1031">1031</a>
+<a href="#1032" id="1032">1032</a>
+<a href="#1033" id="1033">1033</a>
+<a href="#1034" id="1034">1034</a>
+<a href="#1035" id="1035">1035</a>
+<a href="#1036" id="1036">1036</a>
+<a href="#1037" id="1037">1037</a>
+<a href="#1038" id="1038">1038</a>
+<a href="#1039" id="1039">1039</a>
+<a href="#1040" id="1040">1040</a>
+<a href="#1041" id="1041">1041</a>
+<a href="#1042" id="1042">1042</a>
+<a href="#1043" id="1043">1043</a>
+<a href="#1044" id="1044">1044</a>
+<a href="#1045" id="1045">1045</a>
+<a href="#1046" id="1046">1046</a>
+<a href="#1047" id="1047">1047</a>
+<a href="#1048" id="1048">1048</a>
+<a href="#1049" id="1049">1049</a>
+<a href="#1050" id="1050">1050</a>
+<a href="#1051" id="1051">1051</a>
+<a href="#1052" id="1052">1052</a>
+<a href="#1053" id="1053">1053</a>
+<a href="#1054" id="1054">1054</a>
+<a href="#1055" id="1055">1055</a>
+<a href="#1056" id="1056">1056</a>
+<a href="#1057" id="1057">1057</a>
+<a href="#1058" id="1058">1058</a>
+<a href="#1059" id="1059">1059</a>
+<a href="#1060" id="1060">1060</a>
+<a href="#1061" id="1061">1061</a>
+<a href="#1062" id="1062">1062</a>
+<a href="#1063" id="1063">1063</a>
+<a href="#1064" id="1064">1064</a>
+<a href="#1065" id="1065">1065</a>
+<a href="#1066" id="1066">1066</a>
+<a href="#1067" id="1067">1067</a>
+<a href="#1068" id="1068">1068</a>
+<a href="#1069" id="1069">1069</a>
+<a href="#1070" id="1070">1070</a>
+<a href="#1071" id="1071">1071</a>
+<a href="#1072" id="1072">1072</a>
+<a href="#1073" id="1073">1073</a>
+<a href="#1074" id="1074">1074</a>
+<a href="#1075" id="1075">1075</a>
+<a href="#1076" id="1076">1076</a>
+<a href="#1077" id="1077">1077</a>
+<a href="#1078" id="1078">1078</a>
+<a href="#1079" id="1079">1079</a>
+<a href="#1080" id="1080">1080</a>
+<a href="#1081" id="1081">1081</a>
+<a href="#1082" id="1082">1082</a>
+<a href="#1083" id="1083">1083</a>
+<a href="#1084" id="1084">1084</a>
+<a href="#1085" id="1085">1085</a>
+<a href="#1086" id="1086">1086</a>
+<a href="#1087" id="1087">1087</a>
+<a href="#1088" id="1088">1088</a>
+<a href="#1089" id="1089">1089</a>
+<a href="#1090" id="1090">1090</a>
+<a href="#1091" id="1091">1091</a>
+<a href="#1092" id="1092">1092</a>
+<a href="#1093" id="1093">1093</a>
+<a href="#1094" id="1094">1094</a>
+<a href="#1095" id="1095">1095</a>
+<a href="#1096" id="1096">1096</a>
+<a href="#1097" id="1097">1097</a>
+<a href="#1098" id="1098">1098</a>
+<a href="#1099" id="1099">1099</a>
+<a href="#1100" id="1100">1100</a>
+<a href="#1101" id="1101">1101</a>
+<a href="#1102" id="1102">1102</a>
+<a href="#1103" id="1103">1103</a>
+<a href="#1104" id="1104">1104</a>
+<a href="#1105" id="1105">1105</a>
+<a href="#1106" id="1106">1106</a>
+<a href="#1107" id="1107">1107</a>
+<a href="#1108" id="1108">1108</a>
+<a href="#1109" id="1109">1109</a>
+<a href="#1110" id="1110">1110</a>
+<a href="#1111" id="1111">1111</a>
+<a href="#1112" id="1112">1112</a>
+<a href="#1113" id="1113">1113</a>
+<a href="#1114" id="1114">1114</a>
+<a href="#1115" id="1115">1115</a>
+<a href="#1116" id="1116">1116</a>
+<a href="#1117" id="1117">1117</a>
+<a href="#1118" id="1118">1118</a>
+<a href="#1119" id="1119">1119</a>
+<a href="#1120" id="1120">1120</a>
+<a href="#1121" id="1121">1121</a>
+<a href="#1122" id="1122">1122</a>
+<a href="#1123" id="1123">1123</a>
+<a href="#1124" id="1124">1124</a>
+<a href="#1125" id="1125">1125</a>
+<a href="#1126" id="1126">1126</a>
+<a href="#1127" id="1127">1127</a>
+<a href="#1128" id="1128">1128</a>
+<a href="#1129" id="1129">1129</a>
+<a href="#1130" id="1130">1130</a>
+<a href="#1131" id="1131">1131</a>
+<a href="#1132" id="1132">1132</a>
+<a href="#1133" id="1133">1133</a>
+<a href="#1134" id="1134">1134</a>
+<a href="#1135" id="1135">1135</a>
+<a href="#1136" id="1136">1136</a>
+<a href="#1137" id="1137">1137</a>
+<a href="#1138" id="1138">1138</a>
+<a href="#1139" id="1139">1139</a>
+<a href="#1140" id="1140">1140</a>
+<a href="#1141" id="1141">1141</a>
+<a href="#1142" id="1142">1142</a>
+<a href="#1143" id="1143">1143</a>
+<a href="#1144" id="1144">1144</a>
+<a href="#1145" id="1145">1145</a>
+<a href="#1146" id="1146">1146</a>
+<a href="#1147" id="1147">1147</a>
+<a href="#1148" id="1148">1148</a>
+<a href="#1149" id="1149">1149</a>
+<a href="#1150" id="1150">1150</a>
+<a href="#1151" id="1151">1151</a>
+<a href="#1152" id="1152">1152</a>
+<a href="#1153" id="1153">1153</a>
+<a href="#1154" id="1154">1154</a>
+<a href="#1155" id="1155">1155</a>
+<a href="#1156" id="1156">1156</a>
+<a href="#1157" id="1157">1157</a>
+<a href="#1158" id="1158">1158</a>
+<a href="#1159" id="1159">1159</a>
+<a href="#1160" id="1160">1160</a>
+<a href="#1161" id="1161">1161</a>
+<a href="#1162" id="1162">1162</a>
+<a href="#1163" id="1163">1163</a>
+<a href="#1164" id="1164">1164</a>
+<a href="#1165" id="1165">1165</a>
+<a href="#1166" id="1166">1166</a>
+<a href="#1167" id="1167">1167</a>
+<a href="#1168" id="1168">1168</a>
+<a href="#1169" id="1169">1169</a>
+<a href="#1170" id="1170">1170</a>
+<a href="#1171" id="1171">1171</a>
+<a href="#1172" id="1172">1172</a>
+<a href="#1173" id="1173">1173</a>
+<a href="#1174" id="1174">1174</a>
+<a href="#1175" id="1175">1175</a>
+<a href="#1176" id="1176">1176</a>
+<a href="#1177" id="1177">1177</a>
+<a href="#1178" id="1178">1178</a>
+<a href="#1179" id="1179">1179</a>
+<a href="#1180" id="1180">1180</a>
+<a href="#1181" id="1181">1181</a>
+<a href="#1182" id="1182">1182</a>
+<a href="#1183" id="1183">1183</a>
+<a href="#1184" id="1184">1184</a>
+<a href="#1185" id="1185">1185</a>
+<a href="#1186" id="1186">1186</a>
+<a href="#1187" id="1187">1187</a>
+<a href="#1188" id="1188">1188</a>
+<a href="#1189" id="1189">1189</a>
+<a href="#1190" id="1190">1190</a>
+<a href="#1191" id="1191">1191</a>
+<a href="#1192" id="1192">1192</a>
+<a href="#1193" id="1193">1193</a>
+<a href="#1194" id="1194">1194</a>
+<a href="#1195" id="1195">1195</a>
+<a href="#1196" id="1196">1196</a>
+<a href="#1197" id="1197">1197</a>
+<a href="#1198" id="1198">1198</a>
+<a href="#1199" id="1199">1199</a>
+<a href="#1200" id="1200">1200</a>
+<a href="#1201" id="1201">1201</a>
+<a href="#1202" id="1202">1202</a>
+<a href="#1203" id="1203">1203</a>
+<a href="#1204" id="1204">1204</a>
+<a href="#1205" id="1205">1205</a>
+<a href="#1206" id="1206">1206</a>
+<a href="#1207" id="1207">1207</a>
+<a href="#1208" id="1208">1208</a>
+<a href="#1209" id="1209">1209</a>
+<a href="#1210" id="1210">1210</a>
+<a href="#1211" id="1211">1211</a>
+<a href="#1212" id="1212">1212</a>
+<a href="#1213" id="1213">1213</a>
+<a href="#1214" id="1214">1214</a>
+<a href="#1215" id="1215">1215</a>
+<a href="#1216" id="1216">1216</a>
+<a href="#1217" id="1217">1217</a>
+<a href="#1218" id="1218">1218</a>
+<a href="#1219" id="1219">1219</a>
+<a href="#1220" id="1220">1220</a>
+<a href="#1221" id="1221">1221</a>
+<a href="#1222" id="1222">1222</a>
+<a href="#1223" id="1223">1223</a>
+<a href="#1224" id="1224">1224</a>
+<a href="#1225" id="1225">1225</a>
+<a href="#1226" id="1226">1226</a>
+<a href="#1227" id="1227">1227</a>
+<a href="#1228" id="1228">1228</a>
+<a href="#1229" id="1229">1229</a>
+<a href="#1230" id="1230">1230</a>
+<a href="#1231" id="1231">1231</a>
+<a href="#1232" id="1232">1232</a>
+<a href="#1233" id="1233">1233</a>
+<a href="#1234" id="1234">1234</a>
+<a href="#1235" id="1235">1235</a>
+<a href="#1236" id="1236">1236</a>
+<a href="#1237" id="1237">1237</a>
+<a href="#1238" id="1238">1238</a>
+<a href="#1239" id="1239">1239</a>
+<a href="#1240" id="1240">1240</a>
+<a href="#1241" id="1241">1241</a>
+<a href="#1242" id="1242">1242</a>
+<a href="#1243" id="1243">1243</a>
+<a href="#1244" id="1244">1244</a>
+<a href="#1245" id="1245">1245</a>
+<a href="#1246" id="1246">1246</a>
+<a href="#1247" id="1247">1247</a>
+<a href="#1248" id="1248">1248</a>
+<a href="#1249" id="1249">1249</a>
+<a href="#1250" id="1250">1250</a>
+<a href="#1251" id="1251">1251</a>
+<a href="#1252" id="1252">1252</a>
+<a href="#1253" id="1253">1253</a>
+<a href="#1254" id="1254">1254</a>
+<a href="#1255" id="1255">1255</a>
+<a href="#1256" id="1256">1256</a>
+<a href="#1257" id="1257">1257</a>
+<a href="#1258" id="1258">1258</a>
+<a href="#1259" id="1259">1259</a>
+<a href="#1260" id="1260">1260</a>
+<a href="#1261" id="1261">1261</a>
+<a href="#1262" id="1262">1262</a>
+<a href="#1263" id="1263">1263</a>
+<a href="#1264" id="1264">1264</a>
+<a href="#1265" id="1265">1265</a>
+<a href="#1266" id="1266">1266</a>
+<a href="#1267" id="1267">1267</a>
+<a href="#1268" id="1268">1268</a>
+<a href="#1269" id="1269">1269</a>
+<a href="#1270" id="1270">1270</a>
+<a href="#1271" id="1271">1271</a>
+<a href="#1272" id="1272">1272</a>
+<a href="#1273" id="1273">1273</a>
+<a href="#1274" id="1274">1274</a>
+<a href="#1275" id="1275">1275</a>
+<a href="#1276" id="1276">1276</a>
+<a href="#1277" id="1277">1277</a>
+<a href="#1278" id="1278">1278</a>
+<a href="#1279" id="1279">1279</a>
+<a href="#1280" id="1280">1280</a>
+<a href="#1281" id="1281">1281</a>
+<a href="#1282" id="1282">1282</a>
+<a href="#1283" id="1283">1283</a>
+<a href="#1284" id="1284">1284</a>
+<a href="#1285" id="1285">1285</a>
+<a href="#1286" id="1286">1286</a>
+<a href="#1287" id="1287">1287</a>
+<a href="#1288" id="1288">1288</a>
+<a href="#1289" id="1289">1289</a>
+<a href="#1290" id="1290">1290</a>
+<a href="#1291" id="1291">1291</a>
+<a href="#1292" id="1292">1292</a>
+<a href="#1293" id="1293">1293</a>
+<a href="#1294" id="1294">1294</a>
+<a href="#1295" id="1295">1295</a>
+<a href="#1296" id="1296">1296</a>
+<a href="#1297" id="1297">1297</a>
+<a href="#1298" id="1298">1298</a>
+<a href="#1299" id="1299">1299</a>
+<a href="#1300" id="1300">1300</a>
+<a href="#1301" id="1301">1301</a>
+<a href="#1302" id="1302">1302</a>
+<a href="#1303" id="1303">1303</a>
+<a href="#1304" id="1304">1304</a>
+<a href="#1305" id="1305">1305</a>
+<a href="#1306" id="1306">1306</a>
+<a href="#1307" id="1307">1307</a>
+<a href="#1308" id="1308">1308</a>
+<a href="#1309" id="1309">1309</a>
+<a href="#1310" id="1310">1310</a>
+<a href="#1311" id="1311">1311</a>
+<a href="#1312" id="1312">1312</a>
+<a href="#1313" id="1313">1313</a>
+<a href="#1314" id="1314">1314</a>
+<a href="#1315" id="1315">1315</a>
+<a href="#1316" id="1316">1316</a>
+<a href="#1317" id="1317">1317</a>
+<a href="#1318" id="1318">1318</a>
+<a href="#1319" id="1319">1319</a>
+<a href="#1320" id="1320">1320</a>
+<a href="#1321" id="1321">1321</a>
+<a href="#1322" id="1322">1322</a>
+<a href="#1323" id="1323">1323</a>
+<a href="#1324" id="1324">1324</a>
+<a href="#1325" id="1325">1325</a>
+<a href="#1326" id="1326">1326</a>
+<a href="#1327" id="1327">1327</a>
+<a href="#1328" id="1328">1328</a>
+<a href="#1329" id="1329">1329</a>
+<a href="#1330" id="1330">1330</a>
+<a href="#1331" id="1331">1331</a>
+<a href="#1332" id="1332">1332</a>
+<a href="#1333" id="1333">1333</a>
+<a href="#1334" id="1334">1334</a>
+<a href="#1335" id="1335">1335</a>
+<a href="#1336" id="1336">1336</a>
+<a href="#1337" id="1337">1337</a>
+<a href="#1338" id="1338">1338</a>
+<a href="#1339" id="1339">1339</a>
+<a href="#1340" id="1340">1340</a>
+<a href="#1341" id="1341">1341</a>
+<a href="#1342" id="1342">1342</a>
+<a href="#1343" id="1343">1343</a>
+<a href="#1344" id="1344">1344</a>
+<a href="#1345" id="1345">1345</a>
+<a href="#1346" id="1346">1346</a>
+<a href="#1347" id="1347">1347</a>
+<a href="#1348" id="1348">1348</a>
+<a href="#1349" id="1349">1349</a>
+<a href="#1350" id="1350">1350</a>
+<a href="#1351" id="1351">1351</a>
+<a href="#1352" id="1352">1352</a>
+<a href="#1353" id="1353">1353</a>
+<a href="#1354" id="1354">1354</a>
+<a href="#1355" id="1355">1355</a>
+<a href="#1356" id="1356">1356</a>
+<a href="#1357" id="1357">1357</a>
+<a href="#1358" id="1358">1358</a>
+<a href="#1359" id="1359">1359</a>
+<a href="#1360" id="1360">1360</a>
+<a href="#1361" id="1361">1361</a>
+<a href="#1362" id="1362">1362</a>
+<a href="#1363" id="1363">1363</a>
+<a href="#1364" id="1364">1364</a>
+<a href="#1365" id="1365">1365</a>
+<a href="#1366" id="1366">1366</a>
+<a href="#1367" id="1367">1367</a>
+<a href="#1368" id="1368">1368</a>
+<a href="#1369" id="1369">1369</a>
+<a href="#1370" id="1370">1370</a>
+<a href="#1371" id="1371">1371</a>
+<a href="#1372" id="1372">1372</a>
+<a href="#1373" id="1373">1373</a>
+<a href="#1374" id="1374">1374</a>
+<a href="#1375" id="1375">1375</a>
+<a href="#1376" id="1376">1376</a>
+<a href="#1377" id="1377">1377</a>
+<a href="#1378" id="1378">1378</a>
+<a href="#1379" id="1379">1379</a>
+<a href="#1380" id="1380">1380</a>
+<a href="#1381" id="1381">1381</a>
+<a href="#1382" id="1382">1382</a>
+<a href="#1383" id="1383">1383</a>
+<a href="#1384" id="1384">1384</a>
+<a href="#1385" id="1385">1385</a>
+<a href="#1386" id="1386">1386</a>
+<a href="#1387" id="1387">1387</a>
+<a href="#1388" id="1388">1388</a>
+<a href="#1389" id="1389">1389</a>
+<a href="#1390" id="1390">1390</a>
+<a href="#1391" id="1391">1391</a>
+<a href="#1392" id="1392">1392</a>
+<a href="#1393" id="1393">1393</a>
+<a href="#1394" id="1394">1394</a>
+<a href="#1395" id="1395">1395</a>
+<a href="#1396" id="1396">1396</a>
+<a href="#1397" id="1397">1397</a>
+<a href="#1398" id="1398">1398</a>
+<a href="#1399" id="1399">1399</a>
+<a href="#1400" id="1400">1400</a>
+<a href="#1401" id="1401">1401</a>
+<a href="#1402" id="1402">1402</a>
+<a href="#1403" id="1403">1403</a>
+<a href="#1404" id="1404">1404</a>
+<a href="#1405" id="1405">1405</a>
+<a href="#1406" id="1406">1406</a>
+<a href="#1407" id="1407">1407</a>
+<a href="#1408" id="1408">1408</a>
+<a href="#1409" id="1409">1409</a>
+<a href="#1410" id="1410">1410</a>
+<a href="#1411" id="1411">1411</a>
+<a href="#1412" id="1412">1412</a>
+<a href="#1413" id="1413">1413</a>
+<a href="#1414" id="1414">1414</a>
+<a href="#1415" id="1415">1415</a>
+<a href="#1416" id="1416">1416</a>
+<a href="#1417" id="1417">1417</a>
+<a href="#1418" id="1418">1418</a>
+<a href="#1419" id="1419">1419</a>
+<a href="#1420" id="1420">1420</a>
+<a href="#1421" id="1421">1421</a>
+<a href="#1422" id="1422">1422</a>
+<a href="#1423" id="1423">1423</a>
+<a href="#1424" id="1424">1424</a>
+<a href="#1425" id="1425">1425</a>
+<a href="#1426" id="1426">1426</a>
+<a href="#1427" id="1427">1427</a>
+<a href="#1428" id="1428">1428</a>
+<a href="#1429" id="1429">1429</a>
+<a href="#1430" id="1430">1430</a>
+<a href="#1431" id="1431">1431</a>
+<a href="#1432" id="1432">1432</a>
+<a href="#1433" id="1433">1433</a>
+<a href="#1434" id="1434">1434</a>
+<a href="#1435" id="1435">1435</a>
+<a href="#1436" id="1436">1436</a>
+<a href="#1437" id="1437">1437</a>
+<a href="#1438" id="1438">1438</a>
+<a href="#1439" id="1439">1439</a>
+<a href="#1440" id="1440">1440</a>
+<a href="#1441" id="1441">1441</a>
+<a href="#1442" id="1442">1442</a>
+<a href="#1443" id="1443">1443</a>
+<a href="#1444" id="1444">1444</a>
+<a href="#1445" id="1445">1445</a>
+<a href="#1446" id="1446">1446</a>
+<a href="#1447" id="1447">1447</a>
+<a href="#1448" id="1448">1448</a>
+<a href="#1449" id="1449">1449</a>
+<a href="#1450" id="1450">1450</a>
+<a href="#1451" id="1451">1451</a>
+<a href="#1452" id="1452">1452</a>
+<a href="#1453" id="1453">1453</a>
+<a href="#1454" id="1454">1454</a>
+<a href="#1455" id="1455">1455</a>
+<a href="#1456" id="1456">1456</a>
+<a href="#1457" id="1457">1457</a>
+<a href="#1458" id="1458">1458</a>
+<a href="#1459" id="1459">1459</a>
+<a href="#1460" id="1460">1460</a>
+<a href="#1461" id="1461">1461</a>
+<a href="#1462" id="1462">1462</a>
+<a href="#1463" id="1463">1463</a>
+<a href="#1464" id="1464">1464</a>
+<a href="#1465" id="1465">1465</a>
+<a href="#1466" id="1466">1466</a>
+<a href="#1467" id="1467">1467</a>
+<a href="#1468" id="1468">1468</a>
+<a href="#1469" id="1469">1469</a>
+<a href="#1470" id="1470">1470</a>
+<a href="#1471" id="1471">1471</a>
+<a href="#1472" id="1472">1472</a>
+<a href="#1473" id="1473">1473</a>
+<a href="#1474" id="1474">1474</a>
+<a href="#1475" id="1475">1475</a>
+<a href="#1476" id="1476">1476</a>
+<a href="#1477" id="1477">1477</a>
+<a href="#1478" id="1478">1478</a>
+<a href="#1479" id="1479">1479</a>
+<a href="#1480" id="1480">1480</a>
+<a href="#1481" id="1481">1481</a>
+<a href="#1482" id="1482">1482</a>
+<a href="#1483" id="1483">1483</a>
+<a href="#1484" id="1484">1484</a>
+<a href="#1485" id="1485">1485</a>
+<a href="#1486" id="1486">1486</a>
+<a href="#1487" id="1487">1487</a>
+<a href="#1488" id="1488">1488</a>
+<a href="#1489" id="1489">1489</a>
+<a href="#1490" id="1490">1490</a>
+<a href="#1491" id="1491">1491</a>
+<a href="#1492" id="1492">1492</a>
+<a href="#1493" id="1493">1493</a>
+<a href="#1494" id="1494">1494</a>
+<a href="#1495" id="1495">1495</a>
+<a href="#1496" id="1496">1496</a>
+<a href="#1497" id="1497">1497</a>
+<a href="#1498" id="1498">1498</a>
+<a href="#1499" id="1499">1499</a>
+<a href="#1500" id="1500">1500</a>
+<a href="#1501" id="1501">1501</a>
+<a href="#1502" id="1502">1502</a>
+<a href="#1503" id="1503">1503</a>
+<a href="#1504" id="1504">1504</a>
+<a href="#1505" id="1505">1505</a>
+<a href="#1506" id="1506">1506</a>
+<a href="#1507" id="1507">1507</a>
+<a href="#1508" id="1508">1508</a>
+<a href="#1509" id="1509">1509</a>
+<a href="#1510" id="1510">1510</a>
+<a href="#1511" id="1511">1511</a>
+<a href="#1512" id="1512">1512</a>
+<a href="#1513" id="1513">1513</a>
+<a href="#1514" id="1514">1514</a>
+<a href="#1515" id="1515">1515</a>
+<a href="#1516" id="1516">1516</a>
+<a href="#1517" id="1517">1517</a>
+<a href="#1518" id="1518">1518</a>
+<a href="#1519" id="1519">1519</a>
+<a href="#1520" id="1520">1520</a>
+<a href="#1521" id="1521">1521</a>
+<a href="#1522" id="1522">1522</a>
+<a href="#1523" id="1523">1523</a>
+<a href="#1524" id="1524">1524</a>
+<a href="#1525" id="1525">1525</a>
+<a href="#1526" id="1526">1526</a>
+<a href="#1527" id="1527">1527</a>
+<a href="#1528" id="1528">1528</a>
+<a href="#1529" id="1529">1529</a>
+<a href="#1530" id="1530">1530</a>
+<a href="#1531" id="1531">1531</a>
+<a href="#1532" id="1532">1532</a>
+<a href="#1533" id="1533">1533</a>
+<a href="#1534" id="1534">1534</a>
+<a href="#1535" id="1535">1535</a>
+<a href="#1536" id="1536">1536</a>
+<a href="#1537" id="1537">1537</a>
+<a href="#1538" id="1538">1538</a>
+<a href="#1539" id="1539">1539</a>
+<a href="#1540" id="1540">1540</a>
+<a href="#1541" id="1541">1541</a>
+<a href="#1542" id="1542">1542</a>
+<a href="#1543" id="1543">1543</a>
+<a href="#1544" id="1544">1544</a>
+<a href="#1545" id="1545">1545</a>
+<a href="#1546" id="1546">1546</a>
+<a href="#1547" id="1547">1547</a>
+<a href="#1548" id="1548">1548</a>
+<a href="#1549" id="1549">1549</a>
+<a href="#1550" id="1550">1550</a>
+<a href="#1551" id="1551">1551</a>
+<a href="#1552" id="1552">1552</a>
+<a href="#1553" id="1553">1553</a>
+<a href="#1554" id="1554">1554</a>
+<a href="#1555" id="1555">1555</a>
+<a href="#1556" id="1556">1556</a>
+<a href="#1557" id="1557">1557</a>
+<a href="#1558" id="1558">1558</a>
+<a href="#1559" id="1559">1559</a>
+<a href="#1560" id="1560">1560</a>
+<a href="#1561" id="1561">1561</a>
+<a href="#1562" id="1562">1562</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// Information about the author of the UGC data. Used in
+/// [Photo][google.maps.places.v1.Photo], and
+/// [Review][google.maps.places.v1.Review].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AuthorAttribution {
+    <span class="doccomment">/// Output only. Name of the author of the [Photo][google.maps.places.v1.Photo]
+    /// or [Review][google.maps.places.v1.Review].
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. URI of the author of the [Photo][google.maps.places.v1.Photo]
+    /// or [Review][google.maps.places.v1.Review].
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Profile photo URI of the author of the
+    /// [Photo][google.maps.places.v1.Photo] or
+    /// [Review][google.maps.places.v1.Review].
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>photo_uri: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Information about a photo of a place.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Photo {
+    <span class="doccomment">/// Output only. A reference representing this place photo which may be used to
+    /// look up this place photo again (a.k.a. the API &quot;resource&quot; name:
+    /// places/{place_id}/photos/{photo}).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The maximum available width, in pixels.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>width_px: i32,
+    <span class="doccomment">/// Output only. The maximum available height, in pixels.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>height_px: i32,
+    <span class="doccomment">/// Output only. This photo&#39;s authors.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>author_attributions: ::prost::alloc::vec::Vec&lt;AuthorAttribution&gt;,
+}
+<span class="doccomment">/// Circle with a LatLng as center and radius.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Circle {
     <span class="doccomment">/// Required. Center latitude and longitude.
     ///
-    /// The range of latitude must be within `[-90.0, 90.0]`. The range of the
-    /// longitude must be within `[-180.0, 180.0]`.
+    /// The range of latitude must be within \[-90.0, 90.0\]. The range of the
+    /// longitude must be within \[-180.0, 180.0\].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>center: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
-    <span class="doccomment">/// Required. Radius measured in meters. The radius must be within `[0.0,
-    /// 50000.0]`.
+    <span class="doccomment">/// Required. Radius measured in meters. The radius must be within [0.0,
+    /// 50000.0].
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>radius: f64,
+}
+<span class="doccomment">/// Information about the EV Charge Station hosted in Place.
+/// Terminology follows
+/// &lt;https://afdc.energy.gov/fuels/electricity_infrastructure.html&gt; One port
+/// could charge one car at a time. One port has one or more connectors. One
+/// station has one or more ports.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EvChargeOptions {
+    <span class="doccomment">/// Number of connectors at this station. However, because some ports can have
+    /// multiple connectors but only be able to charge one car at a time (e.g.) the
+    /// number of connectors may be greater than the total number of cars which can
+    /// charge simultaneously.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>connector_count: i32,
+    <span class="doccomment">/// A list of EV charging connector aggregations that contain connectors of the
+    /// same type and same charge rate.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>connector_aggregation: ::prost::alloc::vec::Vec&lt;
+        ev_charge_options::ConnectorAggregation,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `EVChargeOptions`.
+</span><span class="kw">pub mod </span>ev_charge_options {
+    <span class="doccomment">/// EV charging information grouped by \[type, max_charge_rate_kw\].
+    /// Shows EV charge aggregation of connectors that have the same type and max
+    /// charge rate in kw.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ConnectorAggregation {
+        <span class="doccomment">/// The connector type of this aggregation.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::EvConnectorType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: i32,
+        <span class="doccomment">/// The static max charging rate in kw of each connector in the aggregation.
+        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>max_charge_rate_kw: f64,
+        <span class="doccomment">/// Number of connectors in this aggregation.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>count: i32,
+        <span class="doccomment">/// Number of connectors in this aggregation that are currently available.
+        </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>available_count: ::core::option::Option&lt;i32&gt;,
+        <span class="doccomment">/// Number of connectors in this aggregation that are currently out of
+        /// service.
+        </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>out_of_service_count: ::core::option::Option&lt;i32&gt;,
+        <span class="doccomment">/// The timestamp when the connector availability information in this
+        /// aggregation was last updated.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="kw">pub </span>availability_last_update_time: ::core::option::Option&lt;
+            ::prost_types::Timestamp,
+        &gt;,
+    }
+}
+<span class="doccomment">/// See &lt;http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6872107&gt; for
+/// additional information/context on EV charging connector types.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>EvConnectorType {
+    <span class="doccomment">/// Unspecified connector.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Other connector types.
+    </span>Other = <span class="number">1</span>,
+    <span class="doccomment">/// J1772 type 1 connector.
+    </span>J1772 = <span class="number">2</span>,
+    <span class="doccomment">/// IEC 62196 type 2 connector. Often referred to as MENNEKES.
+    </span>Type2 = <span class="number">3</span>,
+    <span class="doccomment">/// CHAdeMO type connector.
+    </span>Chademo = <span class="number">4</span>,
+    <span class="doccomment">/// Combined Charging System (AC and DC). Based on SAE.
+    ///   Type-1 J-1772 connector
+    </span>CcsCombo1 = <span class="number">5</span>,
+    <span class="doccomment">/// Combined Charging System (AC and DC). Based on Type-2
+    /// Mennekes connector
+    </span>CcsCombo2 = <span class="number">6</span>,
+    <span class="doccomment">/// The generic TESLA connector. This is NACS in the North America but can be
+    /// non-NACS in other parts of the world (e.g. CCS Combo 2 (CCS2) or GB/T).
+    /// This value is less representative of an actual connector type, and more
+    /// represents the ability to charge a Tesla brand vehicle at a Tesla owned
+    /// charging station.
+    </span>Tesla = <span class="number">7</span>,
+    <span class="doccomment">/// GB/T type corresponds to the GB/T standard in China. This type covers all
+    /// GB_T types.
+    </span>UnspecifiedGbT = <span class="number">8</span>,
+    <span class="doccomment">/// Unspecified wall outlet.
+    </span>UnspecifiedWallOutlet = <span class="number">9</span>,
+}
+<span class="kw">impl </span>EvConnectorType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            EvConnectorType::Unspecified =&gt; <span class="string">&quot;EV_CONNECTOR_TYPE_UNSPECIFIED&quot;</span>,
+            EvConnectorType::Other =&gt; <span class="string">&quot;EV_CONNECTOR_TYPE_OTHER&quot;</span>,
+            EvConnectorType::J1772 =&gt; <span class="string">&quot;EV_CONNECTOR_TYPE_J1772&quot;</span>,
+            EvConnectorType::Type2 =&gt; <span class="string">&quot;EV_CONNECTOR_TYPE_TYPE_2&quot;</span>,
+            EvConnectorType::Chademo =&gt; <span class="string">&quot;EV_CONNECTOR_TYPE_CHADEMO&quot;</span>,
+            EvConnectorType::CcsCombo1 =&gt; <span class="string">&quot;EV_CONNECTOR_TYPE_CCS_COMBO_1&quot;</span>,
+            EvConnectorType::CcsCombo2 =&gt; <span class="string">&quot;EV_CONNECTOR_TYPE_CCS_COMBO_2&quot;</span>,
+            EvConnectorType::Tesla =&gt; <span class="string">&quot;EV_CONNECTOR_TYPE_TESLA&quot;</span>,
+            EvConnectorType::UnspecifiedGbT =&gt; <span class="string">&quot;EV_CONNECTOR_TYPE_UNSPECIFIED_GB_T&quot;</span>,
+            EvConnectorType::UnspecifiedWallOutlet =&gt; {
+                <span class="string">&quot;EV_CONNECTOR_TYPE_UNSPECIFIED_WALL_OUTLET&quot;
+            </span>}
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;EV_CONNECTOR_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;EV_CONNECTOR_TYPE_OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
+            <span class="string">&quot;EV_CONNECTOR_TYPE_J1772&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::J1772),
+            <span class="string">&quot;EV_CONNECTOR_TYPE_TYPE_2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Type2),
+            <span class="string">&quot;EV_CONNECTOR_TYPE_CHADEMO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Chademo),
+            <span class="string">&quot;EV_CONNECTOR_TYPE_CCS_COMBO_1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CcsCombo1),
+            <span class="string">&quot;EV_CONNECTOR_TYPE_CCS_COMBO_2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CcsCombo2),
+            <span class="string">&quot;EV_CONNECTOR_TYPE_TESLA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tesla),
+            <span class="string">&quot;EV_CONNECTOR_TYPE_UNSPECIFIED_GB_T&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnspecifiedGbT),
+            <span class="string">&quot;EV_CONNECTOR_TYPE_UNSPECIFIED_WALL_OUTLET&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnspecifiedWallOutlet)
+            }
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// The most recent information about fuel options in a gas station. This
+/// information is updated regularly.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FuelOptions {
+    <span class="doccomment">/// The last known fuel price for each type of fuel this station has. There is
+    /// one entry per fuel type this station has. Order is not important.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>fuel_prices: ::prost::alloc::vec::Vec&lt;fuel_options::FuelPrice&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `FuelOptions`.
+</span><span class="kw">pub mod </span>fuel_options {
+    <span class="doccomment">/// Fuel price information for a given type.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>FuelPrice {
+        <span class="doccomment">/// The type of fuel.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;fuel_price::FuelType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: i32,
+        <span class="doccomment">/// The price of the fuel.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>price: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
+        <span class="doccomment">/// The time the fuel price was last updated.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `FuelPrice`.
+    </span><span class="kw">pub mod </span>fuel_price {
+        <span class="doccomment">/// Types of fuel.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>FuelType {
+            <span class="doccomment">/// Unspecified fuel type.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// Diesel fuel.
+            </span>Diesel = <span class="number">1</span>,
+            <span class="doccomment">/// Regular unleaded.
+            </span>RegularUnleaded = <span class="number">2</span>,
+            <span class="doccomment">/// Midgrade.
+            </span>Midgrade = <span class="number">3</span>,
+            <span class="doccomment">/// Premium.
+            </span>Premium = <span class="number">4</span>,
+            <span class="doccomment">/// SP 91.
+            </span>Sp91 = <span class="number">5</span>,
+            <span class="doccomment">/// SP 91 E10.
+            </span>Sp91E10 = <span class="number">6</span>,
+            <span class="doccomment">/// SP 92.
+            </span>Sp92 = <span class="number">7</span>,
+            <span class="doccomment">/// SP 95.
+            </span>Sp95 = <span class="number">8</span>,
+            <span class="doccomment">/// SP95 E10.
+            </span>Sp95E10 = <span class="number">9</span>,
+            <span class="doccomment">/// SP 98.
+            </span>Sp98 = <span class="number">10</span>,
+            <span class="doccomment">/// SP 99.
+            </span>Sp99 = <span class="number">11</span>,
+            <span class="doccomment">/// SP 100.
+            </span>Sp100 = <span class="number">12</span>,
+            <span class="doccomment">/// LPG.
+            </span>Lpg = <span class="number">13</span>,
+            <span class="doccomment">/// E 80.
+            </span>E80 = <span class="number">14</span>,
+            <span class="doccomment">/// E 85.
+            </span>E85 = <span class="number">15</span>,
+            <span class="doccomment">/// Methane.
+            </span>Methane = <span class="number">16</span>,
+            <span class="doccomment">/// Bio-diesel.
+            </span>BioDiesel = <span class="number">17</span>,
+            <span class="doccomment">/// Truck diesel.
+            </span>TruckDiesel = <span class="number">18</span>,
+        }
+        <span class="kw">impl </span>FuelType {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    FuelType::Unspecified =&gt; <span class="string">&quot;FUEL_TYPE_UNSPECIFIED&quot;</span>,
+                    FuelType::Diesel =&gt; <span class="string">&quot;DIESEL&quot;</span>,
+                    FuelType::RegularUnleaded =&gt; <span class="string">&quot;REGULAR_UNLEADED&quot;</span>,
+                    FuelType::Midgrade =&gt; <span class="string">&quot;MIDGRADE&quot;</span>,
+                    FuelType::Premium =&gt; <span class="string">&quot;PREMIUM&quot;</span>,
+                    FuelType::Sp91 =&gt; <span class="string">&quot;SP91&quot;</span>,
+                    FuelType::Sp91E10 =&gt; <span class="string">&quot;SP91_E10&quot;</span>,
+                    FuelType::Sp92 =&gt; <span class="string">&quot;SP92&quot;</span>,
+                    FuelType::Sp95 =&gt; <span class="string">&quot;SP95&quot;</span>,
+                    FuelType::Sp95E10 =&gt; <span class="string">&quot;SP95_E10&quot;</span>,
+                    FuelType::Sp98 =&gt; <span class="string">&quot;SP98&quot;</span>,
+                    FuelType::Sp99 =&gt; <span class="string">&quot;SP99&quot;</span>,
+                    FuelType::Sp100 =&gt; <span class="string">&quot;SP100&quot;</span>,
+                    FuelType::Lpg =&gt; <span class="string">&quot;LPG&quot;</span>,
+                    FuelType::E80 =&gt; <span class="string">&quot;E80&quot;</span>,
+                    FuelType::E85 =&gt; <span class="string">&quot;E85&quot;</span>,
+                    FuelType::Methane =&gt; <span class="string">&quot;METHANE&quot;</span>,
+                    FuelType::BioDiesel =&gt; <span class="string">&quot;BIO_DIESEL&quot;</span>,
+                    FuelType::TruckDiesel =&gt; <span class="string">&quot;TRUCK_DIESEL&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;FUEL_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;DIESEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Diesel),
+                    <span class="string">&quot;REGULAR_UNLEADED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RegularUnleaded),
+                    <span class="string">&quot;MIDGRADE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Midgrade),
+                    <span class="string">&quot;PREMIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Premium),
+                    <span class="string">&quot;SP91&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sp91),
+                    <span class="string">&quot;SP91_E10&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sp91E10),
+                    <span class="string">&quot;SP92&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sp92),
+                    <span class="string">&quot;SP95&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sp95),
+                    <span class="string">&quot;SP95_E10&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sp95E10),
+                    <span class="string">&quot;SP98&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sp98),
+                    <span class="string">&quot;SP99&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sp99),
+                    <span class="string">&quot;SP100&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sp100),
+                    <span class="string">&quot;LPG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Lpg),
+                    <span class="string">&quot;E80&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::E80),
+                    <span class="string">&quot;E85&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::E85),
+                    <span class="string">&quot;METHANE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Methane),
+                    <span class="string">&quot;BIO_DIESEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BioDiesel),
+                    <span class="string">&quot;TRUCK_DIESEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TruckDiesel),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+}
+<span class="doccomment">/// Information about a review of a place.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Review {
+    <span class="doccomment">/// Output only. A reference representing this place review which may be used
+    /// to look up this place review again (a.k.a. the API &quot;resource&quot; name:
+    /// places/{place_id}/reviews/{review}).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. A string of formatted recent time, expressing the review time
+    /// relative to the current time in a form appropriate for the language and
+    /// country.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>relative_publish_time_description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The localized text of the review.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>text: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LocalizedText&gt;,
+    <span class="doccomment">/// Output only. The review text in its original language.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>original_text: ::core::option::Option&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LocalizedText,
+    &gt;,
+    <span class="doccomment">/// Output only. A number between 1.0 and 5.0, a.k.a. the number of stars.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>rating: f64,
+    <span class="doccomment">/// Output only. This review&#39;s author.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>author_attribution: ::core::option::Option&lt;AuthorAttribution&gt;,
+    <span class="doccomment">/// Output only. Timestamp for the review.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>publish_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// All the information representing a Place.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Place {
-    <span class="doccomment">/// Required. The unique identifier of a place.
+    <span class="doccomment">/// Output only. An ID representing this place which may be used to look up
+    /// this place again (a.k.a. the API &quot;resource&quot; name: places/&lt;place_id&gt;).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The unique identifier of a place.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The localized name of the place, suitable as a short human-readable
-    /// description. For example, &quot;Google Sydney&quot;, &quot;Starbucks&quot;, &quot;Pyrmont&quot;, etc.
+    <span class="doccomment">/// Output only. The localized name of the place, suitable as a short
+    /// human-readable description. For example, &quot;Google Sydney&quot;, &quot;Starbucks&quot;,
+    /// &quot;Pyrmont&quot;, etc.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;31&quot;</span>)]
     </span><span class="kw">pub </span>display_name: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LocalizedText&gt;,
-    <span class="doccomment">/// A set of type tags for this result. For example, &quot;political&quot; and
-    /// &quot;locality&quot;.
+    <span class="doccomment">/// Output only. A set of type tags for this result. For example, &quot;political&quot;
+    /// and &quot;locality&quot;.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// A human-readable phone number for the place, in national format.
+    <span class="doccomment">/// Output only. A human-readable phone number for the place, in national
+    /// format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>national_phone_number: ::prost::alloc::string::String,
-    <span class="doccomment">/// A human-readable phone number for the place, in international format.
+    <span class="doccomment">/// Output only. A human-readable phone number for the place, in international
+    /// format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>international_phone_number: ::prost::alloc::string::String,
-    <span class="doccomment">/// A full, human-readable address for this place.
+    <span class="doccomment">/// Output only. A full, human-readable address for this place.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>formatted_address: ::prost::alloc::string::String,
-    <span class="doccomment">/// Repeated components for each locality level.
+    <span class="doccomment">/// Output only. Repeated components for each locality level.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>address_components: ::prost::alloc::vec::Vec&lt;place::AddressComponent&gt;,
-    <span class="doccomment">/// Plus code of the place location lat/long.
+    <span class="doccomment">/// Output only. Plus code of the place location lat/long.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>plus_code: ::core::option::Option&lt;place::PlusCode&gt;,
-    <span class="doccomment">/// The position of this place.
+    <span class="doccomment">/// Output only. The position of this place.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
-    <span class="doccomment">/// A viewport suitable for displaying the place on an average-sized map.
+    <span class="doccomment">/// Output only. A viewport suitable for displaying the place on an
+    /// average-sized map.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>viewport: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::geo::r#type::Viewport&gt;,
-    <span class="doccomment">/// A rating between 1.0 and 5.0, based on user reviews of this place.
+    <span class="doccomment">/// Output only. A rating between 1.0 and 5.0, based on user reviews of this
+    /// place.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;14&quot;</span>)]
     </span><span class="kw">pub </span>rating: f64,
-    <span class="doccomment">/// A URL providing more information about this place.
+    <span class="doccomment">/// Output only. A URL providing more information about this place.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
     </span><span class="kw">pub </span>google_maps_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// The authoritative website for this place, e.g. a business&#39; homepage.
-    /// Note that for places that are part of a chain (e.g. an IKEA store), this
-    /// will usually be the website for the individual store, not the overall
-    /// chain.
+    <span class="doccomment">/// Output only. The authoritative website for this place, e.g. a business&#39;
+    /// homepage. Note that for places that are part of a chain (e.g. an IKEA
+    /// store), this will usually be the website for the individual store, not the
+    /// overall chain.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
     </span><span class="kw">pub </span>website_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// List of reviews about this place.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;20&quot;</span>)]
-    </span><span class="kw">pub </span>reviews: ::prost::alloc::vec::Vec&lt;place::Review&gt;,
-    <span class="doccomment">/// The regular hours of operation.
+    <span class="doccomment">/// Output only. List of reviews about this place.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;53&quot;</span>)]
+    </span><span class="kw">pub </span>reviews: ::prost::alloc::vec::Vec&lt;Review&gt;,
+    <span class="doccomment">/// Output only. The regular hours of operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>opening_hours: ::core::option::Option&lt;place::OpeningHours&gt;,
-    <span class="doccomment">/// Number of minutes this place&#39;s timezone is currently offset from UTC.
-    /// This is expressed in minutes to support timezones that are offset by
-    /// fractions of an hour, e.g. X hours and 15 minutes.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;22&quot;</span>)]
-    </span><span class="kw">pub </span>utc_offset_minutes: i32,
-    <span class="doccomment">/// The place&#39;s address in adr microformat: &lt;http://microformats.org/wiki/adr.&gt;
+    </span><span class="kw">pub </span>regular_opening_hours: ::core::option::Option&lt;place::OpeningHours&gt;,
+    <span class="doccomment">/// Output only. Number of minutes this place&#39;s timezone is currently offset
+    /// from UTC. This is expressed in minutes to support timezones that are offset
+    /// by fractions of an hour, e.g. X hours and 15 minutes.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>utc_offset_minutes: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// Output only. Information (including references) about photos of this place.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;54&quot;</span>)]
+    </span><span class="kw">pub </span>photos: ::prost::alloc::vec::Vec&lt;Photo&gt;,
+    <span class="doccomment">/// Output only. The place&#39;s address in adr microformat:
+    /// &lt;http://microformats.org/wiki/adr.&gt;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;24&quot;</span>)]
     </span><span class="kw">pub </span>adr_format_address: ::prost::alloc::string::String,
-    <span class="doccomment">/// The business status for the place.
+    <span class="doccomment">/// Output only. The business status for the place.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;place::BusinessStatus&quot;</span>, tag = <span class="string">&quot;25&quot;</span>)]
     </span><span class="kw">pub </span>business_status: i32,
-    <span class="doccomment">/// Price level of the place.
+    <span class="doccomment">/// Output only. Price level of the place.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;PriceLevel&quot;</span>, tag = <span class="string">&quot;26&quot;</span>)]
     </span><span class="kw">pub </span>price_level: i32,
-    <span class="doccomment">/// A set of data provider that must be shown with this result.
+    <span class="doccomment">/// Output only. A set of data provider that must be shown with this result.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;27&quot;</span>)]
     </span><span class="kw">pub </span>attributions: ::prost::alloc::vec::Vec&lt;place::Attribution&gt;,
-    <span class="doccomment">/// The total number of reviews (with or without text) for this place.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;28&quot;</span>)]
-    </span><span class="kw">pub </span>user_rating_count: i32,
-    <span class="doccomment">/// A truncated URL to an v2 icon mask. User can access different icon type by
-    /// appending type suffix to the end (eg, &quot;.svg&quot; or &quot;.png&quot;).
+    <span class="doccomment">/// Output only. The total number of reviews (with or without text) for this
+    /// place.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="kw">pub </span>user_rating_count: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// Output only. A truncated URL to an v2 icon mask. User can access different
+    /// icon type by appending type suffix to the end (eg, &quot;.svg&quot; or &quot;.png&quot;).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;29&quot;</span>)]
     </span><span class="kw">pub </span>icon_mask_base_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Background color for icon_mask in hex format, e.g. #909CE1.
+    <span class="doccomment">/// Output only. Background color for icon_mask in hex format, e.g. #909CE1.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;30&quot;</span>)]
     </span><span class="kw">pub </span>icon_background_color: ::prost::alloc::string::String,
-    <span class="doccomment">/// Specifies if the business supports takeout.
+    <span class="doccomment">/// Output only. Specifies if the business supports takeout.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;33&quot;</span>)]
     </span><span class="kw">pub </span>takeout: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the business supports delivery.
+    <span class="doccomment">/// Output only. Specifies if the business supports delivery.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;34&quot;</span>)]
     </span><span class="kw">pub </span>delivery: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the business supports indoor or outdoor seating options.
+    <span class="doccomment">/// Output only. Specifies if the business supports indoor or outdoor seating
+    /// options.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;35&quot;</span>)]
     </span><span class="kw">pub </span>dine_in: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the business supports curbside pickup.
+    <span class="doccomment">/// Output only. Specifies if the business supports curbside pickup.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;36&quot;</span>)]
     </span><span class="kw">pub </span>curbside_pickup: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the place has an entrance that is wheelchair-accessible.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;37&quot;</span>)]
-    </span><span class="kw">pub </span>wheelchair_accessible_entrance: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the place supports reservations.
+    <span class="doccomment">/// Output only. Specifies if the place supports reservations.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;38&quot;</span>)]
     </span><span class="kw">pub </span>reservable: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the place serves breakfast.
+    <span class="doccomment">/// Output only. Specifies if the place serves breakfast.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;39&quot;</span>)]
     </span><span class="kw">pub </span>serves_breakfast: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the place serves lunch.
+    <span class="doccomment">/// Output only. Specifies if the place serves lunch.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;40&quot;</span>)]
     </span><span class="kw">pub </span>serves_lunch: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the place serves dinner.
+    <span class="doccomment">/// Output only. Specifies if the place serves dinner.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;41&quot;</span>)]
     </span><span class="kw">pub </span>serves_dinner: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the place serves beer.
+    <span class="doccomment">/// Output only. Specifies if the place serves beer.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;42&quot;</span>)]
     </span><span class="kw">pub </span>serves_beer: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the place serves wine.
+    <span class="doccomment">/// Output only. Specifies if the place serves wine.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;43&quot;</span>)]
     </span><span class="kw">pub </span>serves_wine: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the place serves brunch.
+    <span class="doccomment">/// Output only. Specifies if the place serves brunch.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;44&quot;</span>)]
     </span><span class="kw">pub </span>serves_brunch: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Specifies if the place serves vegetarian food.
+    <span class="doccomment">/// Output only. Specifies if the place serves vegetarian food.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;45&quot;</span>)]
     </span><span class="kw">pub </span>serves_vegetarian_food: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// The hours of operation for the next seven days (including today). The time
-    /// period starts at midnight on the date of the request and ends at 11:59 pm
-    /// six days later. This field includes the special_days subfield of all hours,
-    /// set for dates that have exceptional hours.
+    <span class="doccomment">/// Output only. The hours of operation for the next seven days (including
+    /// today). The time period starts at midnight on the date of the request and
+    /// ends at 11:59 pm six days later. This field includes the special_days
+    /// subfield of all hours, set for dates that have exceptional hours.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;46&quot;</span>)]
     </span><span class="kw">pub </span>current_opening_hours: ::core::option::Option&lt;place::OpeningHours&gt;,
-    <span class="doccomment">/// Contains an array of entries for the next seven days including information
-    /// about secondary hours of a business. Secondary hours are different from a
+    <span class="doccomment">/// Output only. Contains an array of entries for the next seven days including
+    /// information about secondary hours of a business. Secondary hours are
+    /// different from a business&#39;s main hours. For example, a restaurant can
+    /// specify drive through hours or delivery hours as its secondary hours. This
+    /// field populates the type subfield, which draws from a predefined list of
+    /// opening hours types (such as DRIVE_THROUGH, PICKUP, or TAKEOUT) based on
+    /// the types of the place. This field includes the special_days subfield of
+    /// all hours, set for dates that have exceptional hours.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;47&quot;</span>)]
+    </span><span class="kw">pub </span>current_secondary_opening_hours: ::prost::alloc::vec::Vec&lt;place::OpeningHours&gt;,
+    <span class="doccomment">/// Output only. Contains an array of entries for information about regular
+    /// secondary hours of a business. Secondary hours are different from a
     /// business&#39;s main hours. For example, a restaurant can specify drive through
     /// hours or delivery hours as its secondary hours. This field populates the
     /// type subfield, which draws from a predefined list of opening hours types
     /// (such as DRIVE_THROUGH, PICKUP, or TAKEOUT) based on the types of the
-    /// place. This field includes the special_days subfield of all hours, set for
-    /// dates that have exceptional hours.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;47&quot;</span>)]
-    </span><span class="kw">pub </span>current_secondary_opening_hours: ::prost::alloc::vec::Vec&lt;place::OpeningHours&gt;,
-    <span class="doccomment">/// Contains an array of entries for information about regular secondary hours
-    /// of a business. Secondary hours are different from a business&#39;s main hours.
-    /// For example, a restaurant can specify drive through hours or delivery hours
-    /// as its secondary hours. This field populates the type subfield, which draws
-    /// from a predefined list of opening hours types (such as DRIVE_THROUGH,
-    /// PICKUP, or TAKEOUT) based on the types of the place.
+    /// place.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;49&quot;</span>)]
-    </span><span class="kw">pub </span>secondary_opening_hours: ::prost::alloc::vec::Vec&lt;place::OpeningHours&gt;,
-    <span class="doccomment">/// Contains a summary of the place. A summary is comprised of a textual
-    /// overview, and also includes the language code for these if applicable.
-    /// Summary text must be presented as-is and can not be modified or altered.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;48&quot;</span>)]
-    </span><span class="kw">pub </span>editorial_summary: ::core::option::Option&lt;place::EditorialSummary&gt;,
+    </span><span class="kw">pub </span>regular_secondary_opening_hours: ::prost::alloc::vec::Vec&lt;place::OpeningHours&gt;,
+    <span class="doccomment">/// Output only. Contains a summary of the place. A summary is comprised of a
+    /// textual overview, and also includes the language code for these if
+    /// applicable. Summary text must be presented as-is and can not be modified or
+    /// altered.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;52&quot;</span>)]
+    </span><span class="kw">pub </span>editorial_summary: ::core::option::Option&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LocalizedText,
+    &gt;,
+    <span class="doccomment">/// Output only. Place provides outdoor seating.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;55&quot;</span>)]
+    </span><span class="kw">pub </span>outdoor_seating: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Place provides live music.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;56&quot;</span>)]
+    </span><span class="kw">pub </span>live_music: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Place has a children&#39;s menu.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;57&quot;</span>)]
+    </span><span class="kw">pub </span>menu_for_children: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Place serves cocktails.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;58&quot;</span>)]
+    </span><span class="kw">pub </span>serves_cocktails: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Place serves dessert.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;59&quot;</span>)]
+    </span><span class="kw">pub </span>serves_dessert: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Place serves coffee.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;60&quot;</span>)]
+    </span><span class="kw">pub </span>serves_coffee: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Place is good for children.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;62&quot;</span>)]
+    </span><span class="kw">pub </span>good_for_children: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Place allows dogs.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;63&quot;</span>)]
+    </span><span class="kw">pub </span>allows_dogs: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Place has restroom.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;64&quot;</span>)]
+    </span><span class="kw">pub </span>restroom: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Place accommodates groups.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;65&quot;</span>)]
+    </span><span class="kw">pub </span>good_for_groups: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Place is suitable for watching sports.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;66&quot;</span>)]
+    </span><span class="kw">pub </span>good_for_watching_sports: ::core::option::Option&lt;bool&gt;,
+    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;67&quot;</span>)]
+    </span><span class="kw">pub </span>payment_options: ::core::option::Option&lt;place::PaymentOptions&gt;,
+    <span class="doccomment">/// Output only. Options of parking provided by the place.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;70&quot;</span>)]
+    </span><span class="kw">pub </span>parking_options: ::core::option::Option&lt;place::ParkingOptions&gt;,
+    <span class="doccomment">/// Output only. A list of sub destinations related to the place.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;71&quot;</span>)]
+    </span><span class="kw">pub </span>sub_destinations: ::prost::alloc::vec::Vec&lt;place::SubDestination&gt;,
+    <span class="doccomment">/// Output only. Information about the accessibility options a place offers.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;72&quot;</span>)]
+    </span><span class="kw">pub </span>accessibility_options: ::core::option::Option&lt;place::AccessibilityOptions&gt;,
+    <span class="doccomment">/// Output only. The most recent information about fuel options in a gas
+    /// station. This information is updated regularly.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;78&quot;</span>)]
+    </span><span class="kw">pub </span>fuel_options: ::core::option::Option&lt;FuelOptions&gt;,
+    <span class="doccomment">/// Output only. Information of ev charging options.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;79&quot;</span>)]
+    </span><span class="kw">pub </span>ev_charge_options: ::core::option::Option&lt;EvChargeOptions&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Place`.
 </span><span class="kw">pub mod </span>place {
@@ -1041,20 +2133,21 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AddressComponent {
-        <span class="doccomment">/// The full text description or name of the address component. For example,
-        /// an address component for the country Australia may have a long_name of
-        /// &quot;Australia&quot;.
+        <span class="doccomment">/// Output only. The full text description or name of the address component.
+        /// For example, an address component for the country Australia may have a
+        /// long_name of &quot;Australia&quot;.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>long_text: ::prost::alloc::string::String,
-        <span class="doccomment">/// An abbreviated textual name for the address component, if available. For
-        /// example, an address component for the country of Australia may have a
-        /// short_name of &quot;AU&quot;.
+        <span class="doccomment">/// Output only. An abbreviated textual name for the address component, if
+        /// available. For example, an address component for the country of Australia
+        /// may have a short_name of &quot;AU&quot;.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>short_text: ::prost::alloc::string::String,
-        <span class="doccomment">/// An array indicating the type(s) of the address component.
+        <span class="doccomment">/// Output only. An array indicating the type(s) of the address component.
         </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// The language used to format this components, in CLDR notation.
+        <span class="doccomment">/// Output only. The language used to format this components, in CLDR
+        /// notation.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     }
@@ -1064,87 +2157,45 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PlusCode {
-        <span class="doccomment">/// Place&#39;s global (full) code, such as `9FWM33GV+HQ`, representing an
-        /// 1/8000 by 1/8000 degree area (~14 by 14 meters).
+        <span class="doccomment">/// Output only. Place&#39;s global (full) code, such as &quot;9FWM33GV+HQ&quot;,
+        /// representing an 1/8000 by 1/8000 degree area (~14 by 14 meters).
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>global_code: ::prost::alloc::string::String,
-        <span class="doccomment">/// Place&#39;s compound code, such as `33GV+HQ, Ramberg, Norway`, containing
-        /// the suffix of the global code and replacing the prefix with a formatted
-        /// name of a reference entity.
+        <span class="doccomment">/// Output only. Place&#39;s compound code, such as &quot;33GV+HQ, Ramberg, Norway&quot;,
+        /// containing the suffix of the global code and replacing the prefix with a
+        /// formatted name of a reference entity.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>compound_code: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Information about a review of the place.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Review {
-        <span class="doccomment">/// Timestamp for the review, expressed in seconds since epoch.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>publish_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-        <span class="doccomment">/// A string of formatted recent time, expressing the review time relative
-        /// to the current time in a form appropriate for the language and country.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>relative_publish_time_description: ::prost::alloc::string::String,
-        <span class="doccomment">/// The localized text of the review.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-        </span><span class="kw">pub </span>text: ::core::option::Option&lt;
-            <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LocalizedText,
-        &gt;,
-        <span class="doccomment">/// The name of the review author.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>author: ::prost::alloc::string::String,
-        <span class="doccomment">/// A link to the review author&#39;s profile.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>author_uri: ::prost::alloc::string::String,
-        <span class="doccomment">/// The author&#39;s profile photo.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-        </span><span class="kw">pub </span>author_photo_uri: ::prost::alloc::string::String,
-        <span class="doccomment">/// A whole number between 1.0 and 5.0, a.k.a. the number of stars.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;7&quot;</span>)]
-        </span><span class="kw">pub </span>rating: f64,
-        <span class="doccomment">/// A BCP-47 language code indicating the original language of the review.
-        /// If the review has been translated, then original_language != language.
-        /// This field contains the main language tag only, and not the secondary tag
-        /// indicating country or region. For example, all the English reviews are
-        /// tagged as &#39;en&#39;, and not &#39;en-AU&#39; or &#39;en-UK&#39; and so on.This field is empty
-        /// if there is only a rating with no review text.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-        </span><span class="kw">pub </span>original_language_code: ::prost::alloc::string::String,
-        <span class="doccomment">/// A boolean value indicating if the review was translated from the original
-        /// language it was written in. If a review has been translated,
-        /// corresponding to a value of true, Google recommends that you indicate
-        /// this to your users. For example, you can add the following string,
-        /// “Translated by Google”, to the review.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
-        </span><span class="kw">pub </span>translated: bool,
     }
     <span class="doccomment">/// Information about business hour of the place.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>OpeningHours {
-        <span class="doccomment">/// Is this place open right now?  Always present unless we lack time-of-day
-        /// or timezone data for these opening hours.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>open_now: bool,
-        <span class="doccomment">/// The periods that this place is open during the week. The periods are in
-        /// chronological order, starting with Sunday in the place-local timezone. An
-        /// empty (but not absent) value indicates a place that is never open, e.g.
-        /// because it is closed temporarily for renovations.
+        <span class="doccomment">/// Output only. Is this place open right now?  Always present unless we lack
+        /// time-of-day or timezone data for these opening hours.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>open_now: ::core::option::Option&lt;bool&gt;,
+        <span class="doccomment">/// Output only. The periods that this place is open during the week. The
+        /// periods are in chronological order, starting with Sunday in the
+        /// place-local timezone. An empty (but not absent) value indicates a place
+        /// that is never open, e.g. because it is closed temporarily for
+        /// renovations.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>periods: ::prost::alloc::vec::Vec&lt;opening_hours::OpeningHoursPeriod&gt;,
-        <span class="doccomment">/// Localized strings describing the opening hours of this place, one string
-        /// for each day of the week.  Will be empty if the hours are unknown or
-        /// could not be converted to localized text. Example: &quot;Sun: 18:00–06:00&quot;
+        </span><span class="kw">pub </span>periods: ::prost::alloc::vec::Vec&lt;opening_hours::Period&gt;,
+        <span class="doccomment">/// Output only. Localized strings describing the opening hours of this
+        /// place, one string for each day of the week.  Will be empty if the hours
+        /// are unknown or could not be converted to localized text. Example: &quot;Sun:
+        /// 18:00–06:00&quot;
         </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>weekday_descriptions: ::prost::alloc::vec::Vec&lt;
             ::prost::alloc::string::String,
         &gt;,
-        <span class="doccomment">/// A type string used to identify the type of secondary hours.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;opening_hours::SecondaryHourType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>secondary_hour_type: i32,
-        <span class="doccomment">/// Structured information for special days that fall within the period that
-        /// the returned opening hours cover. Special days are days that could impact
-        /// the business hours of a place, e.g. Christmas day. Set for
+        <span class="doccomment">/// Output only. A type string used to identify the type of secondary hours.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;opening_hours::SecondaryHoursType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>secondary_hours_type: i32,
+        <span class="doccomment">/// Output only. Structured information for special days that fall within the
+        /// period that the returned opening hours cover. Special days are days that
+        /// could impact the business hours of a place, e.g. Christmas day. Set for
         /// current_opening_hours and current_secondary_opening_hours if there are
         /// exceptional hours.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
@@ -1155,45 +2206,40 @@
         <span class="doccomment">/// A period the place remains in open_now status.
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>OpeningHoursPeriod {
-            <span class="doccomment">/// The time that the place starts to be open.
+        </span><span class="kw">pub struct </span>Period {
+            <span class="doccomment">/// Output only. The time that the place starts to be open.
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-            </span><span class="kw">pub </span>open: ::core::option::Option&lt;opening_hours_period::OpeningHoursPoint&gt;,
-            <span class="doccomment">/// The time that the place starts to be closed.
+            </span><span class="kw">pub </span>open: ::core::option::Option&lt;period::Point&gt;,
+            <span class="doccomment">/// Output only. The time that the place starts to be closed.
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-            </span><span class="kw">pub </span>close: ::core::option::Option&lt;opening_hours_period::OpeningHoursPoint&gt;,
+            </span><span class="kw">pub </span>close: ::core::option::Option&lt;period::Point&gt;,
         }
-        <span class="doccomment">/// Nested message and enum types in `OpeningHoursPeriod`.
-        </span><span class="kw">pub mod </span>opening_hours_period {
+        <span class="doccomment">/// Nested message and enum types in `Period`.
+        </span><span class="kw">pub mod </span>period {
             <span class="doccomment">/// Status changing points.
             </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
             #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>OpeningHoursPoint {
-                <span class="doccomment">/// A day of the week, as an integer in the range 0-6.  0 is Sunday, 1 is
-                /// Monday, etc.
+            </span><span class="kw">pub struct </span>Point {
+                <span class="doccomment">/// Output only. A day of the week, as an integer in the range 0-6.  0 is
+                /// Sunday, 1 is Monday, etc.
                 </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;1&quot;</span>)]
                 </span><span class="kw">pub </span>day: ::core::option::Option&lt;i32&gt;,
-                <span class="doccomment">/// The hour in 2 digits. Ranges from 00 to 23.
+                <span class="doccomment">/// Output only. The hour in 2 digits. Ranges from 00 to 23.
                 </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
                 </span><span class="kw">pub </span>hour: ::core::option::Option&lt;i32&gt;,
-                <span class="doccomment">/// The minute in 2 digits. Ranges from 00 to 59.
+                <span class="doccomment">/// Output only. The minute in 2 digits. Ranges from 00 to 59.
                 </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;3&quot;</span>)]
                 </span><span class="kw">pub </span>minute: ::core::option::Option&lt;i32&gt;,
-                <span class="doccomment">/// Date of the endpoint expressed in `RFC3339` format in the local
-                /// timezone for the place. For example 2010-12-31.
-                </span><span class="attr">#[deprecated]
-                #[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-                </span><span class="kw">pub </span>date_deprecated: ::prost::alloc::string::String,
-                <span class="doccomment">/// Date in the local timezone for the place.
+                <span class="doccomment">/// Output only. Date in the local timezone for the place.
                 </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
                 </span><span class="kw">pub </span>date: ::core::option::Option&lt;
                     <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date,
                 &gt;,
-                <span class="doccomment">/// Whether or not this endpoint was truncated. Truncation occurs when
-                /// the real hours are outside the times we are willing to return hours
-                /// between, so we truncate the hours back to these boundaries. This
-                /// ensures that at most `24 * 7` hours from midnight of the day of the
-                /// request are returned.
+                <span class="doccomment">/// Output only. Whether or not this endpoint was truncated. Truncation
+                /// occurs when the real hours are outside the times we are willing to
+                /// return hours between, so we truncate the hours back to these
+                /// boundaries. This ensures that at most 24 * 7 hours from midnight of
+                /// the day of the request are returned.
                 </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
                 </span><span class="kw">pub </span>truncated: bool,
             }
@@ -1204,7 +2250,7 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>SpecialDay {
-            <span class="doccomment">/// The date of this special day.
+            <span class="doccomment">/// Output only. The date of this special day.
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>date: ::core::option::Option&lt;
                 <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date,
@@ -1223,7 +2269,7 @@
             ::prost::Enumeration
         )]
         #[repr(i32)]
-        </span><span class="kw">pub enum </span>SecondaryHourType {
+        </span><span class="kw">pub enum </span>SecondaryHoursType {
             <span class="doccomment">/// Default value when secondary hour type is not specified.
             </span>Unspecified = <span class="number">0</span>,
             <span class="doccomment">/// The drive-through hour for banks, restaurants, or pharmacies.
@@ -1253,33 +2299,33 @@
             <span class="doccomment">/// The online service hours.
             </span>OnlineServiceHours = <span class="number">13</span>,
         }
-        <span class="kw">impl </span>SecondaryHourType {
+        <span class="kw">impl </span>SecondaryHoursType {
             <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
             </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    SecondaryHourType::Unspecified =&gt; <span class="string">&quot;SECONDARY_HOUR_TYPE_UNSPECIFIED&quot;</span>,
-                    SecondaryHourType::DriveThrough =&gt; <span class="string">&quot;DRIVE_THROUGH&quot;</span>,
-                    SecondaryHourType::HappyHour =&gt; <span class="string">&quot;HAPPY_HOUR&quot;</span>,
-                    SecondaryHourType::Delivery =&gt; <span class="string">&quot;DELIVERY&quot;</span>,
-                    SecondaryHourType::Takeout =&gt; <span class="string">&quot;TAKEOUT&quot;</span>,
-                    SecondaryHourType::Kitchen =&gt; <span class="string">&quot;KITCHEN&quot;</span>,
-                    SecondaryHourType::Breakfast =&gt; <span class="string">&quot;BREAKFAST&quot;</span>,
-                    SecondaryHourType::Lunch =&gt; <span class="string">&quot;LUNCH&quot;</span>,
-                    SecondaryHourType::Dinner =&gt; <span class="string">&quot;DINNER&quot;</span>,
-                    SecondaryHourType::Brunch =&gt; <span class="string">&quot;BRUNCH&quot;</span>,
-                    SecondaryHourType::Pickup =&gt; <span class="string">&quot;PICKUP&quot;</span>,
-                    SecondaryHourType::Access =&gt; <span class="string">&quot;ACCESS&quot;</span>,
-                    SecondaryHourType::SeniorHours =&gt; <span class="string">&quot;SENIOR_HOURS&quot;</span>,
-                    SecondaryHourType::OnlineServiceHours =&gt; <span class="string">&quot;ONLINE_SERVICE_HOURS&quot;</span>,
+                    SecondaryHoursType::Unspecified =&gt; <span class="string">&quot;SECONDARY_HOURS_TYPE_UNSPECIFIED&quot;</span>,
+                    SecondaryHoursType::DriveThrough =&gt; <span class="string">&quot;DRIVE_THROUGH&quot;</span>,
+                    SecondaryHoursType::HappyHour =&gt; <span class="string">&quot;HAPPY_HOUR&quot;</span>,
+                    SecondaryHoursType::Delivery =&gt; <span class="string">&quot;DELIVERY&quot;</span>,
+                    SecondaryHoursType::Takeout =&gt; <span class="string">&quot;TAKEOUT&quot;</span>,
+                    SecondaryHoursType::Kitchen =&gt; <span class="string">&quot;KITCHEN&quot;</span>,
+                    SecondaryHoursType::Breakfast =&gt; <span class="string">&quot;BREAKFAST&quot;</span>,
+                    SecondaryHoursType::Lunch =&gt; <span class="string">&quot;LUNCH&quot;</span>,
+                    SecondaryHoursType::Dinner =&gt; <span class="string">&quot;DINNER&quot;</span>,
+                    SecondaryHoursType::Brunch =&gt; <span class="string">&quot;BRUNCH&quot;</span>,
+                    SecondaryHoursType::Pickup =&gt; <span class="string">&quot;PICKUP&quot;</span>,
+                    SecondaryHoursType::Access =&gt; <span class="string">&quot;ACCESS&quot;</span>,
+                    SecondaryHoursType::SeniorHours =&gt; <span class="string">&quot;SENIOR_HOURS&quot;</span>,
+                    SecondaryHoursType::OnlineServiceHours =&gt; <span class="string">&quot;ONLINE_SERVICE_HOURS&quot;</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;SECONDARY_HOUR_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;SECONDARY_HOURS_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
                     <span class="string">&quot;DRIVE_THROUGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DriveThrough),
                     <span class="string">&quot;HAPPY_HOUR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HappyHour),
                     <span class="string">&quot;DELIVERY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delivery),
@@ -1302,24 +2348,77 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Attribution {
-        <span class="doccomment">/// Name of the Place&#39;s data provider.
+        <span class="doccomment">/// Output only. Name of the Place&#39;s data provider.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>provider: ::prost::alloc::string::String,
-        <span class="doccomment">/// URI to the Place&#39;s data provider.
+        <span class="doccomment">/// Output only. URI to the Place&#39;s data provider.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>provider_uri: ::prost::alloc::string::String,
     }
-    <span class="doccomment">/// Contains a summary of the place.
+    <span class="doccomment">/// Payment options the place accepts.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>EditorialSummary {
-        <span class="doccomment">/// A summary is comprised of a textual overview, and also includes the
-        /// language code for these if applicable. Summary text must be presented
-        /// as-is and can not be modified or altered.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>overview: ::core::option::Option&lt;
-            <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LocalizedText,
-        &gt;,
+    </span><span class="kw">pub struct </span>PaymentOptions {
+        <span class="doccomment">/// Place accepts credit cards as payment.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>accepts_credit_cards: ::core::option::Option&lt;bool&gt;,
+        <span class="doccomment">/// Place accepts debit cards as payment.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>accepts_debit_cards: ::core::option::Option&lt;bool&gt;,
+        <span class="doccomment">/// Place accepts cash only as payment. Places with this attribute may still
+        /// accept other payment methods.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>accepts_cash_only: ::core::option::Option&lt;bool&gt;,
+        <span class="doccomment">/// Place accepts NFC payments.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>accepts_nfc: ::core::option::Option&lt;bool&gt;,
+    }
+    <span class="doccomment">/// Information about parking options for the place. A parking lot could
+    /// support more than one option at the same time.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ParkingOptions {
+        <span class="doccomment">/// Place offers free parking lots.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>free_parking_lot: ::core::option::Option&lt;bool&gt;,
+        <span class="doccomment">/// Place offers paid parking lots.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>paid_parking_lot: ::core::option::Option&lt;bool&gt;,
+        <span class="doccomment">/// Place offers free street parking.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>free_street_parking: ::core::option::Option&lt;bool&gt;,
+        <span class="doccomment">/// Place offers paid street parking.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>paid_street_parking: ::core::option::Option&lt;bool&gt;,
+        <span class="doccomment">/// Place offers valet parking.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>valet_parking: ::core::option::Option&lt;bool&gt;,
+        <span class="doccomment">/// Place offers free garage parking.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="kw">pub </span>free_garage_parking: ::core::option::Option&lt;bool&gt;,
+        <span class="doccomment">/// Place offers paid garage parking.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="kw">pub </span>paid_garage_parking: ::core::option::Option&lt;bool&gt;,
+    }
+    <span class="doccomment">/// Place resource name and id of sub destinations that relate to the place.
+    /// For example, different terminals are different destinations of an airport.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SubDestination {
+        <span class="doccomment">/// The resource name of the sub destination.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+        <span class="doccomment">/// The place id of the sub destination.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Information about the accessibility options a place offers.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>AccessibilityOptions {
+        <span class="doccomment">/// Places has wheelchair accessible entrance.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>wheelchair_accessible_entrance: ::core::option::Option&lt;bool&gt;,
     }
     <span class="doccomment">/// Business status for the place.
     </span><span class="attr">#[derive(
@@ -1375,14 +2474,15 @@
 </span><span class="kw">pub enum </span>PriceLevel {
     <span class="doccomment">/// Place price level is unspecified or unknown.
     </span>Unspecified = <span class="number">0</span>,
-    Free = <span class="number">1</span>,
+    <span class="doccomment">/// Place provides free services.
+    </span>Free = <span class="number">1</span>,
     <span class="doccomment">/// Place provides inexpensive services.
     </span>Inexpensive = <span class="number">2</span>,
     <span class="doccomment">/// Place provides moderately priced services.
     </span>Moderate = <span class="number">3</span>,
     <span class="doccomment">/// Place provides expensive services.
     </span>Expensive = <span class="number">4</span>,
-    <span class="doccomment">/// Place provides very expensive services.
+    <span class="doccomment">/// Place provides very expensive service s.
     </span>VeryExpensive = <span class="number">5</span>,
 }
 <span class="kw">impl </span>PriceLevel {
@@ -1393,40 +2493,203 @@
     </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             PriceLevel::Unspecified =&gt; <span class="string">&quot;PRICE_LEVEL_UNSPECIFIED&quot;</span>,
-            PriceLevel::Free =&gt; <span class="string">&quot;FREE&quot;</span>,
-            PriceLevel::Inexpensive =&gt; <span class="string">&quot;INEXPENSIVE&quot;</span>,
-            PriceLevel::Moderate =&gt; <span class="string">&quot;MODERATE&quot;</span>,
-            PriceLevel::Expensive =&gt; <span class="string">&quot;EXPENSIVE&quot;</span>,
-            PriceLevel::VeryExpensive =&gt; <span class="string">&quot;VERY_EXPENSIVE&quot;</span>,
+            PriceLevel::Free =&gt; <span class="string">&quot;PRICE_LEVEL_FREE&quot;</span>,
+            PriceLevel::Inexpensive =&gt; <span class="string">&quot;PRICE_LEVEL_INEXPENSIVE&quot;</span>,
+            PriceLevel::Moderate =&gt; <span class="string">&quot;PRICE_LEVEL_MODERATE&quot;</span>,
+            PriceLevel::Expensive =&gt; <span class="string">&quot;PRICE_LEVEL_EXPENSIVE&quot;</span>,
+            PriceLevel::VeryExpensive =&gt; <span class="string">&quot;PRICE_LEVEL_VERY_EXPENSIVE&quot;</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
             <span class="string">&quot;PRICE_LEVEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;FREE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Free),
-            <span class="string">&quot;INEXPENSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inexpensive),
-            <span class="string">&quot;MODERATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Moderate),
-            <span class="string">&quot;EXPENSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expensive),
-            <span class="string">&quot;VERY_EXPENSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VeryExpensive),
+            <span class="string">&quot;PRICE_LEVEL_FREE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Free),
+            <span class="string">&quot;PRICE_LEVEL_INEXPENSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inexpensive),
+            <span class="string">&quot;PRICE_LEVEL_MODERATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Moderate),
+            <span class="string">&quot;PRICE_LEVEL_EXPENSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expensive),
+            <span class="string">&quot;PRICE_LEVEL_VERY_EXPENSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VeryExpensive),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }
-<span class="doccomment">/// int 32 range. Both min and max are optional. If only min is set, then the
-/// range only has a lower bound. If only max is set, then range only has an
-/// upper bound. At least one of min and max must be set. Values are inclusive.
+<span class="doccomment">/// Request proto for Search Nearby.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Int32Range {
-    <span class="doccomment">/// Lower bound. If unset, behavior is documented on the range field.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>min: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// Upper bound. If unset, behavior is documented on the range field.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>max: ::core::option::Option&lt;i32&gt;,
+</span><span class="kw">pub struct </span>SearchNearbyRequest {
+    <span class="doccomment">/// Place details will be displayed with the preferred language if available.
+    /// If the language code is unspecified or unrecognized, place details of any
+    /// language may be returned, with a preference for English if such details
+    /// exist.
+    ///
+    /// Current list of supported languages:
+    /// &lt;https://developers.google.com/maps/faq#languagesupport.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// The Unicode country/region code (CLDR) of the location where the
+    /// request is coming from. This parameter is used to display the place
+    /// details, like region-specific place name, if available. The parameter can
+    /// affect results based on applicable law.
+    ///
+    /// For more information, see
+    /// &lt;http://www.unicode.org/reports/tr35/#unicode_region_subtag.&gt;
+    ///
+    ///
+    /// Note that 3-digit region codes are not currently supported.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Included Place type (eg, &quot;restaurant&quot; or &quot;gas_station&quot;) from
+    /// &lt;https://developers.google.com/places/supported_types.&gt;
+    ///
+    /// If there are any conflicting types, i.e. a type appears in both
+    /// included_types and excluded_types, an INVALID_ARGUMENT error is
+    /// returned.
+    ///
+    /// If a Place type is specified with multiple type restrictions, only places
+    /// that satisfy all of the restrictions are returned. For example, if we
+    /// have {included_types = \[&quot;restaurant&quot;\], excluded_primary_types =
+    /// \[&quot;restaurant&quot;\]}, the returned places are POIs that provide &quot;restaurant&quot;
+    /// related services but do not operate primarily as &quot;restaurants&quot;.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>included_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Excluded Place type (eg, &quot;restaurant&quot; or &quot;gas_station&quot;) from
+    /// &lt;https://developers.google.com/places/supported_types.&gt;
+    ///
+    /// If the client provides both included_types (e.g. restaurant) and
+    /// excluded_types (e.g. cafe), then the response should include places that
+    /// are restaurant but not cafe. The response includes places that match at
+    /// least one of the included_types and none of the excluded_types.
+    ///
+    /// If there are any conflicting types, i.e. a type appears in both
+    /// included_types and excluded_types, an INVALID_ARGUMENT error is returned.
+    ///
+    /// If a Place type is specified with multiple type restrictions, only places
+    /// that satisfy all of the restrictions are returned. For example, if we
+    /// have {included_types = \[&quot;restaurant&quot;\], excluded_primary_types =
+    /// \[&quot;restaurant&quot;\]}, the returned places are POIs that provide &quot;restaurant&quot;
+    /// related services but do not operate primarily as &quot;restaurants&quot;.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>excluded_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Included primary Place type (e.g. &quot;restaurant&quot; or &quot;gas_station&quot;) from
+    /// &lt;https://developers.google.com/places/supported_types.&gt;
+    ///
+    /// If there are any conflicting primary types, i.e. a type appears in both
+    /// included_primary_types and excluded_primary_types, an INVALID_ARGUMENT
+    /// error is returned.
+    ///
+    /// If a Place type is specified with multiple type restrictions, only places
+    /// that satisfy all of the restrictions are returned. For example, if we
+    /// have {included_types = \[&quot;restaurant&quot;\], excluded_primary_types =
+    /// \[&quot;restaurant&quot;\]}, the returned places are POIs that provide &quot;restaurant&quot;
+    /// related services but do not operate primarily as &quot;restaurants&quot;.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>included_primary_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Excluded primary Place type (e.g. &quot;restaurant&quot; or &quot;gas_station&quot;) from
+    /// &lt;https://developers.google.com/places/supported_types.&gt;
+    ///
+    /// If there are any conflicting primary types, i.e. a type appears in both
+    /// included_primary_types and excluded_primary_types, an INVALID_ARGUMENT
+    /// error is returned.
+    ///
+    /// If a Place type is specified with multiple type restrictions, only places
+    /// that satisfy all of the restrictions are returned. For example, if we
+    /// have {included_types = \[&quot;restaurant&quot;\], excluded_primary_types =
+    /// \[&quot;restaurant&quot;\]}, the returned places are POIs that provide &quot;restaurant&quot;
+    /// related services but do not operate primarily as &quot;restaurants&quot;.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>excluded_primary_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Maximum number of results to return. It must be between 1 and 20,
+    /// inclusively. If the number is unset, it falls back to the upper limit. If
+    /// the number is set to negative or exceeds the upper limit, an
+    /// INVALID_ARGUMENT error is returned.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>max_result_count: i32,
+    <span class="doccomment">/// Required. The region to search.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>location_restriction: ::core::option::Option&lt;
+        search_nearby_request::LocationRestriction,
+    &gt;,
+    <span class="doccomment">/// How results will be ranked in the response.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;search_nearby_request::RankPreference&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>rank_preference: i32,
 }
-<span class="doccomment">/// Request data structure for SearchText.
+<span class="doccomment">/// Nested message and enum types in `SearchNearbyRequest`.
+</span><span class="kw">pub mod </span>search_nearby_request {
+    <span class="doccomment">/// The region to search.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>LocationRestriction {
+        <span class="attr">#[prost(oneof = <span class="string">&quot;location_restriction::Type&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;location_restriction::Type&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `LocationRestriction`.
+    </span><span class="kw">pub mod </span>location_restriction {
+        <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        </span><span class="kw">pub enum </span>Type {
+            <span class="doccomment">/// A circle defined by center point and radius.
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span>Circle(<span class="kw">super</span>::<span class="kw">super</span>::Circle),
+        }
+    }
+    <span class="doccomment">/// How results will be ranked in the response.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>RankPreference {
+        <span class="doccomment">/// RankPreference value not set. Will use rank by POPULARITY by default.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Ranks results by distance.
+        </span>Distance = <span class="number">1</span>,
+        <span class="doccomment">/// Ranks results by popularity.
+        </span>Popularity = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>RankPreference {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                RankPreference::Unspecified =&gt; <span class="string">&quot;RANK_PREFERENCE_UNSPECIFIED&quot;</span>,
+                RankPreference::Distance =&gt; <span class="string">&quot;DISTANCE&quot;</span>,
+                RankPreference::Popularity =&gt; <span class="string">&quot;POPULARITY&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;RANK_PREFERENCE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;DISTANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Distance),
+                <span class="string">&quot;POPULARITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Popularity),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Response proto for Search Nearby.
+///
+///
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchNearbyResponse {
+    <span class="doccomment">/// A list of interesting places that meets user&#39;s requirements like places
+    /// types, number of places and specific location restriction.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>places: ::prost::alloc::vec::Vec&lt;Place&gt;,
+}
+<span class="doccomment">/// Request proto for SearchText.
+///
+///
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchTextRequest {
@@ -1443,8 +2706,9 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// The Unicode country/region code (CLDR) of the location where the
-    /// request is coming from. It is used to display the place details, like
-    /// region-specific place name, if available.
+    /// request is coming from. This parameter is used to display the place
+    /// details, like region-specific place name, if available. The parameter can
+    /// affect results based on applicable law.
     ///
     /// For more information, see
     /// &lt;http://www.unicode.org/reports/tr35/#unicode_region_subtag.&gt;
@@ -1456,15 +2720,6 @@
     <span class="doccomment">/// How results will be ranked in the response.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;search_text_request::RankPreference&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>rank_preference: i32,
-    <span class="doccomment">/// The region to search. Setting location would usually yields
-    /// better results. Recommended to set. This location serves as a bias unless
-    /// strict_restriction is set to true, which turns the location to a strict
-    /// restriction.
-    ///
-    /// Deprecated.  Use LocationRestriction or LocationBias instead.
-    </span><span class="attr">#[deprecated]
-    #[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>location: ::core::option::Option&lt;search_text_request::Location&gt;,
     <span class="doccomment">/// The requested place type. Full list of types supported:
     /// &lt;https://developers.google.com/places/supported_types.&gt; Only support one
     /// included type.
@@ -1474,17 +2729,9 @@
     /// open_now marks if a business is currently open.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>open_now: bool,
-    <span class="doccomment">/// \[Deprecated!\]Used to restrict the search to places that are within a
-    /// certain price range. This is on a scale of 0 to 4. Set a minimum of 0 or
-    /// set a maximum of 4 has no effect on the search results. Min price is
-    /// default to 0 and max price is default to 4. Default value will be used if
-    /// either min or max is unset.
-    </span><span class="attr">#[deprecated]
-    #[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>price_range: ::core::option::Option&lt;Int32Range&gt;,
     <span class="doccomment">/// Filter out results whose average user rating is strictly less than this
     /// limit. A valid value must be an float between 0 and 5 (inclusively) at a
-    /// 0.5 cadence i.e. `[0, 0.5, 1.0, ... , 5.0]` inclusively. This is to keep
+    /// 0.5 cadence i.e. \[0, 0.5, 1.0, ... , 5.0\] inclusively. This is to keep
     /// parity with LocalRefinement_UserRating. The input rating will round up to
     /// the nearest 0.5(ceiling). For instance, a rating of 0.6 will eliminate all
     /// results with a less than 1.0 rating.
@@ -1520,30 +2767,6 @@
 }
 <span class="doccomment">/// Nested message and enum types in `SearchTextRequest`.
 </span><span class="kw">pub mod </span>search_text_request {
-    <span class="doccomment">/// The region to search.
-    ///
-    /// Deprecated. Use LocationRestriction or LocationBias instead.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Location {
-        <span class="doccomment">/// Make location field a strict restriction and filter out POIs outside of
-        /// the given location. If location type field is unset this field will have
-        /// no effect.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>strict_restriction: bool,
-        <span class="attr">#[prost(oneof = <span class="string">&quot;location::Type&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;location::Type&gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `Location`.
-    </span><span class="kw">pub mod </span>location {
-        <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        </span><span class="kw">pub enum </span>Type {
-            <span class="doccomment">/// A rectangle box defined by northeast and southwest corner.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-            </span>Rectangle(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::geo::r#type::Viewport),
-        }
-    }
     <span class="doccomment">/// The region to search. This location serves as a bias which means results
     /// around given location might be returned.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1637,12 +2860,97 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>places: ::prost::alloc::vec::Vec&lt;Place&gt;,
 }
+<span class="doccomment">/// Request for fetching a photo of a place using a photo resource name.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetPhotoMediaRequest {
+    <span class="doccomment">/// Required. The resource name of a photo. It is returned in Place&#39;s
+    /// photos.name field. Format:
+    /// places/&lt;place_id&gt;/photos/&lt;photo_reference&gt;/media.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Specifies the maximum desired width, in pixels, of the image. If
+    /// the image is smaller than the values specified, the original image will be
+    /// returned. If the image is larger in either dimension, it will be scaled to
+    /// match the smaller of the two dimensions, restricted to its original aspect
+    /// ratio. Both the max_height_px and max_width_px properties accept an integer
+    /// between 1 and 4800, inclusively. If the value is not within the allowed
+    /// range, an INVALID_ARGUMENT error will be returned.
+    ///
+    /// At least one of max_height_px or max_width_px needs to be specified. If
+    /// neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT
+    /// error will be returned.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>max_width_px: i32,
+    <span class="doccomment">/// Optional. Specifies the maximum desired height, in pixels, of the image. If
+    /// the image is smaller than the values specified, the original image will be
+    /// returned. If the image is larger in either dimension, it will be scaled to
+    /// match the smaller of the two dimensions, restricted to its original aspect
+    /// ratio. Both the max_height_px and max_width_px properties accept an integer
+    /// between 1 and 4800, inclusively. If the value is not within the allowed
+    /// range, an INVALID_ARGUMENT error will be returned.
+    ///
+    /// At least one of max_height_px or max_width_px needs to be specified. If
+    /// neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT
+    /// error will be returned.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>max_height_px: i32,
+    <span class="doccomment">/// Optional. If set, skip the default HTTP redirect behavior and render a text
+    /// format (for example, in JSON format for HTTP use case) response. If not
+    /// set, an HTTP redirect will be issued to redirect the call to the image
+    /// midea. This option is ignored for non-HTTP requests.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>skip_http_redirect: bool,
+}
+<span class="doccomment">/// A photo media from Places API.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PhotoMedia {
+    <span class="doccomment">/// The resource name of a photo. It is returned in Place&#39;s photos.name field.
+    /// Format: places/&lt;place_id&gt;/photos/&lt;photo_reference&gt;/media.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// A short-lived uri that can be used to render the photo.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>photo_uri: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request for fetching a Place with a place id (in a name) string.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetPlaceRequest {
+    <span class="doccomment">/// Required. A place_id returned in a Place (with &quot;places/&quot; prefix), or
+    /// equivalently the name in the same Place. Format: places/&lt;place_id&gt;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Place details will be displayed with the preferred language if
+    /// available.
+    ///
+    /// Current list of supported languages:
+    /// &lt;https://developers.google.com/maps/faq#languagesupport.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The Unicode country/region code (CLDR) of the location where the
+    /// request is coming from. This parameter is used to display the place
+    /// details, like region-specific place name, if available. The parameter can
+    /// affect results based on applicable law.
+    /// For more information, see
+    /// &lt;http://www.unicode.org/reports/tr35/#unicode_region_subtag.&gt;
+    ///
+    ///
+    /// Note that 3-digit region codes are not currently supported.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>places_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
     <span class="doccomment">/// Service definition for the Places API.
+    /// Note: every request actually requires a field mask set outside of the request
+    /// proto (all/&#39;*&#39; is not assumed).  That can be set via either a side channel
+    /// (SystemParameterContext) over RPC, or a header (X-Goog-FieldMask) over HTTP.
+    /// See: https://cloud.google.com/apis/docs/system-parameters
     </span><span class="attr">#[derive(Debug, Clone)]
     </span><span class="kw">pub struct </span>PlacesClient&lt;T&gt; {
         inner: tonic::client::Grpc&lt;T&gt;,
@@ -1712,6 +3020,32 @@
             <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
             <span class="self">self
         </span>}
+        <span class="doccomment">/// Search for places near locations.
+        </span><span class="kw">pub async fn </span>search_nearby(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::SearchNearbyRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::SearchNearbyResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.maps.places.v1.Places/SearchNearby&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new(<span class="string">&quot;google.maps.places.v1.Places&quot;</span>, <span class="string">&quot;SearchNearby&quot;</span>));
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
         <span class="doccomment">/// Text query based place search.
         </span><span class="kw">pub async fn </span>search_text(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -1736,6 +3070,54 @@
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(GrpcMethod::new(<span class="string">&quot;google.maps.places.v1.Places&quot;</span>, <span class="string">&quot;SearchText&quot;</span>));
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Get a photo media with a photo reference string.
+        </span><span class="kw">pub async fn </span>get_photo_media(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetPhotoMediaRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::PhotoMedia&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.maps.places.v1.Places/GetPhotoMedia&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(<span class="string">&quot;google.maps.places.v1.Places&quot;</span>, <span class="string">&quot;GetPhotoMedia&quot;</span>),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Get a Place with a place id (in a name) string.
+        </span><span class="kw">pub async fn </span>get_place(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetPlaceRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Place&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.maps.places.v1.Places/GetPlace&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new(<span class="string">&quot;google.maps.places.v1.Places&quot;</span>, <span class="string">&quot;GetPlace&quot;</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }

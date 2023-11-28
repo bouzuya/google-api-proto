@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["AuditResult"],"mod":["check_result"],"struct":["CheckResult"]};
+window.SIDEBAR_ITEMS = {"enum":["AuditResult","ContainerType"],"mod":["check_result"],"struct":["CheckResult"]};

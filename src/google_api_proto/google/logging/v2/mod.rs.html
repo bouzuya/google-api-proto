@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/logging/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/logging/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -4028,7 +4028,7 @@
     /// name pieces, and it cannot be the first character of the name.
     ///
     /// This field is the `\[METRIC_ID\]` part of a metric resource name in the
-    /// format &quot;projects/\[PROJECT_ID]/metrics/[METRIC_ID\]&quot;. Example: If the
+    /// format &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;. Example: If the
     /// resource name of a metric is
     /// `&quot;projects/my-project/metrics/nginx%2Frequests&quot;`, this field&#39;s value is
     /// `&quot;nginx/requests&quot;`.
@@ -4231,7 +4231,7 @@
 </span><span class="kw">pub struct </span>GetLogMetricRequest {
     <span class="doccomment">/// Required. The resource name of the desired metric:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/metrics/[METRIC_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
 }
@@ -4257,7 +4257,7 @@
 </span><span class="kw">pub struct </span>UpdateLogMetricRequest {
     <span class="doccomment">/// Required. The resource name of the metric to update:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/metrics/[METRIC_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;
     ///
     /// The updated metric must be provided in the request and it&#39;s
     /// `name` field must be the same as `\[METRIC_ID\]` If the metric
@@ -4274,7 +4274,7 @@
 </span><span class="kw">pub struct </span>DeleteLogMetricRequest {
     <span class="doccomment">/// Required. The resource name of the metric to delete:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/metrics/[METRIC_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
 }
@@ -4644,8 +4644,8 @@
     <span class="doccomment">/// Required. The export destination:
     ///
     ///      &quot;storage.googleapis.com/\[GCS_BUCKET\]&quot;
-    ///      &quot;bigquery.googleapis.com/projects/\[PROJECT_ID]/datasets/[DATASET\]&quot;
-    ///      &quot;pubsub.googleapis.com/projects/\[PROJECT_ID]/topics/[TOPIC_ID\]&quot;
+    ///      &quot;bigquery.googleapis.com/projects/\[PROJECT_ID\]/datasets/\[DATASET\]&quot;
+    ///      &quot;pubsub.googleapis.com/projects/\[PROJECT_ID\]/topics/\[TOPIC_ID\]&quot;
     ///
     /// The sink&#39;s `writer_identity`, set when the sink is created, must have
     /// permission to write to the destination or else the log entries are not
@@ -4661,7 +4661,7 @@
     ///
     /// For example:
     ///
-    ///    `logName=&quot;projects/\[PROJECT_ID]/logs/[LOG_ID\]&quot; AND severity&gt;=ERROR`
+    ///    `logName=&quot;projects/\[PROJECT_ID\]/logs/\[LOG_ID\]&quot; AND severity&gt;=ERROR`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A description of this sink.
@@ -4688,8 +4688,8 @@
     /// which Cloud Logging writes the exported log entries to the sink&#39;s
     /// destination. This field is either set by specifying
     /// `custom_writer_identity` or set automatically by
-    /// \[sinks.create][google.logging.v2.ConfigServiceV2.CreateSink\] and
-    /// \[sinks.update][google.logging.v2.ConfigServiceV2.UpdateSink\] based on the
+    /// [sinks.create][google.logging.v2.ConfigServiceV2.CreateSink] and
+    /// [sinks.update][google.logging.v2.ConfigServiceV2.UpdateSink] based on the
     /// value of `unique_writer_identity` in those methods.
     ///
     /// Until you grant this identity write-access to the destination, log entry
@@ -4801,7 +4801,7 @@
     /// only).
     ///
     /// The dataset will have a resource path of
-    ///    &quot;bigquery.googleapis.com/projects/\[PROJECT_ID]/datasets/[DATASET_ID\]&quot;
+    ///    &quot;bigquery.googleapis.com/projects/\[PROJECT_ID\]/datasets/\[DATASET_ID\]&quot;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>dataset_id: ::prost::alloc::string::String,
 }
@@ -4813,10 +4813,10 @@
     /// A valid link id (at the end of the link name) must only have alphanumeric
     /// characters and underscores within it.
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
     ///
     /// For example:
     ///
@@ -4871,10 +4871,10 @@
 </span><span class="kw">pub struct </span>ListBucketsRequest {
     <span class="doccomment">/// Required. The parent resource whose buckets are to be listed:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/locations/[LOCATION_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]&quot;
     ///
     /// Note: The locations portion of the resource must be specified, but
     /// supplying the character `-` in place of \[LOCATION_ID\] will return all
@@ -4912,7 +4912,7 @@
 </span><span class="kw">pub struct </span>CreateBucketRequest {
     <span class="doccomment">/// Required. The resource in which to create the log bucket:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]&quot;
     ///
     /// For example:
     ///
@@ -4936,10 +4936,10 @@
 </span><span class="kw">pub struct </span>UpdateBucketRequest {
     <span class="doccomment">/// Required. The full resource name of the bucket to update.
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
     ///
     /// For example:
     ///
@@ -4966,10 +4966,10 @@
 </span><span class="kw">pub struct </span>GetBucketRequest {
     <span class="doccomment">/// Required. The resource name of the bucket:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
     ///
     /// For example:
     ///
@@ -4983,10 +4983,10 @@
 </span><span class="kw">pub struct </span>DeleteBucketRequest {
     <span class="doccomment">/// Required. The full resource name of the bucket to delete.
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5000,10 +5000,10 @@
 </span><span class="kw">pub struct </span>UndeleteBucketRequest {
     <span class="doccomment">/// Required. The full resource name of the bucket to undelete.
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5017,7 +5017,7 @@
 </span><span class="kw">pub struct </span>ListViewsRequest {
     <span class="doccomment">/// Required. The bucket whose views are to be listed:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If present, then retrieve the next batch of results from the
@@ -5052,7 +5052,7 @@
 </span><span class="kw">pub struct </span>CreateViewRequest {
     <span class="doccomment">/// Required. The bucket in which to create the view
     ///
-    ///      `&quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;`
+    ///      `&quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;`
     ///
     /// For example:
     ///
@@ -5074,7 +5074,7 @@
 </span><span class="kw">pub struct </span>UpdateViewRequest {
     <span class="doccomment">/// Required. The full resource name of the view to update
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5101,7 +5101,7 @@
 </span><span class="kw">pub struct </span>GetViewRequest {
     <span class="doccomment">/// Required. The resource name of the policy:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5115,7 +5115,7 @@
 </span><span class="kw">pub struct </span>DeleteViewRequest {
     <span class="doccomment">/// Required. The full resource name of the view to delete:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5166,10 +5166,10 @@
 </span><span class="kw">pub struct </span>GetSinkRequest {
     <span class="doccomment">/// Required. The resource name of the sink:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/sinks/[SINK_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/sinks/[SINK_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/sinks/[SINK_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/sinks/[SINK_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/sinks/\[SINK_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/sinks/\[SINK_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/sinks/\[SINK_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/sinks/\[SINK_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5209,7 +5209,7 @@
     /// resource such as an organization, then the value of `writer_identity` will
     /// be a unique service account used only for exports from the new sink. For
     /// more information, see `writer_identity` in
-    /// \[LogSink][google.logging.v2.LogSink\].
+    /// [LogSink][google.logging.v2.LogSink].
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>unique_writer_identity: bool,
 }
@@ -5220,10 +5220,10 @@
     <span class="doccomment">/// Required. The full resource name of the sink to update, including the
     /// parent resource and the sink identifier:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/sinks/[SINK_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/sinks/[SINK_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/sinks/[SINK_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/sinks/[SINK_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/sinks/\[SINK_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/sinks/\[SINK_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/sinks/\[SINK_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/sinks/\[SINK_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5234,7 +5234,7 @@
     /// as part of `sink_name`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>sink: ::core::option::Option&lt;LogSink&gt;,
-    <span class="doccomment">/// Optional. See \[sinks.create][google.logging.v2.ConfigServiceV2.CreateSink\]
+    <span class="doccomment">/// Optional. See [sinks.create][google.logging.v2.ConfigServiceV2.CreateSink]
     /// for a description of this field. When updating a sink, the effect of this
     /// field on the value of `writer_identity` in the updated sink depends on both
     /// the old and new values of this field:
@@ -5273,10 +5273,10 @@
     <span class="doccomment">/// Required. The full resource name of the sink to delete, including the
     /// parent resource and the sink identifier:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/sinks/[SINK_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/sinks/[SINK_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/sinks/[SINK_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/sinks/[SINK_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/sinks/\[SINK_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/sinks/\[SINK_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/sinks/\[SINK_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/sinks/\[SINK_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5290,10 +5290,10 @@
 </span><span class="kw">pub struct </span>CreateLinkRequest {
     <span class="doccomment">/// Required. The full resource name of the bucket to create a link for.
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]&quot;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The new link.
@@ -5311,10 +5311,10 @@
 </span><span class="kw">pub struct </span>DeleteLinkRequest {
     <span class="doccomment">/// Required. The full resource name of the link to delete.
     ///
-    ///   &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
-    ///    &quot;organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
-    ///    &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
-    ///    &quot;folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
+    ///   &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
+    ///    &quot;organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
+    ///    &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
+    ///    &quot;folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
@@ -5324,10 +5324,10 @@
 </span><span class="kw">pub struct </span>ListLinksRequest {
     <span class="doccomment">/// Required. The parent resource whose links are to be listed:
     ///
-    ///    &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]/links/&quot;
-    ///    &quot;organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]/&quot;
-    ///    &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]/&quot;
-    ///    &quot;folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID\]/
+    ///    &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/&quot;
+    ///    &quot;organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/&quot;
+    ///    &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/&quot;
+    ///    &quot;folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If present, then retrieve the next batch of results from the
@@ -5358,10 +5358,10 @@
 </span><span class="kw">pub struct </span>GetLinkRequest {
     <span class="doccomment">/// Required. The resource name of the link:
     ///
-    ///    &quot;projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
-    ///    &quot;organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
-    ///    &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]&quot;
-    ///    &quot;folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID\]
+    ///    &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
+    ///    &quot;organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
+    ///    &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]&quot;
+    ///    &quot;folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/links/\[LINK_ID\]
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
@@ -5396,7 +5396,7 @@
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set to True, then this exclusion is disabled and it does not
     /// exclude any log entries. You can [update an
-    /// exclusion]\[google.logging.v2.ConfigServiceV2.UpdateExclusion\] to change the
+    /// exclusion][google.logging.v2.ConfigServiceV2.UpdateExclusion] to change the
     /// value of this field.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>disabled: bool,
@@ -5454,10 +5454,10 @@
 </span><span class="kw">pub struct </span>GetExclusionRequest {
     <span class="doccomment">/// Required. The resource name of an existing exclusion:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/exclusions/[EXCLUSION_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/exclusions/[EXCLUSION_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5493,10 +5493,10 @@
 </span><span class="kw">pub struct </span>UpdateExclusionRequest {
     <span class="doccomment">/// Required. The resource name of the exclusion to update:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/exclusions/[EXCLUSION_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/exclusions/[EXCLUSION_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5509,7 +5509,7 @@
     </span><span class="kw">pub </span>exclusion: ::core::option::Option&lt;LogExclusion&gt;,
     <span class="doccomment">/// Required. A non-empty list of fields to change in the existing exclusion.
     /// New values for the fields are taken from the corresponding fields in the
-    /// \[LogExclusion][google.logging.v2.LogExclusion\] included in this request.
+    /// [LogExclusion][google.logging.v2.LogExclusion] included in this request.
     /// Fields not mentioned in `update_mask` are not changed and are ignored in
     /// the request.
     ///
@@ -5524,10 +5524,10 @@
 </span><span class="kw">pub struct </span>DeleteExclusionRequest {
     <span class="doccomment">/// Required. The resource name of an existing exclusion to delete:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/exclusions/[EXCLUSION_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/exclusions/[EXCLUSION_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/exclusions/\[EXCLUSION_ID\]&quot;
     ///
     /// For example:
     ///
@@ -5536,7 +5536,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The parameters to
-/// \[GetCmekSettings][google.logging.v2.ConfigServiceV2.GetCmekSettings\].
+/// [GetCmekSettings][google.logging.v2.ConfigServiceV2.GetCmekSettings].
 ///
 /// See [Enabling CMEK for Log
 /// Router](&lt;https://cloud.google.com/logging/docs/routing/managed-encryption&gt;) for
@@ -5563,7 +5563,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The parameters to
-/// \[UpdateCmekSettings][google.logging.v2.ConfigServiceV2.UpdateCmekSettings\].
+/// [UpdateCmekSettings][google.logging.v2.ConfigServiceV2.UpdateCmekSettings].
 ///
 /// See [Enabling CMEK for Log
 /// Router](&lt;https://cloud.google.com/logging/docs/routing/managed-encryption&gt;) for
@@ -5598,7 +5598,7 @@
     /// be updated. A field will be overwritten if and only if it is in the update
     /// mask. Output only fields cannot be updated.
     ///
-    /// See \[FieldMask][google.protobuf.FieldMask\] for more information.
+    /// See [FieldMask][google.protobuf.FieldMask] for more information.
     ///
     /// For example: `&quot;updateMask=kmsKeyName&quot;`
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
@@ -5624,7 +5624,7 @@
     ///
     /// KMS key name format:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION\]/keyRings/\[KEYRING\]/cryptoKeys/\[KEY\]&quot;
     ///
     /// For example:
     ///
@@ -5654,7 +5654,7 @@
     ///
     /// KMS key name format:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]/cryptoKeyVersions/[VERSION\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION\]/keyRings/\[KEYRING\]/cryptoKeys/\[KEY\]/cryptoKeyVersions/\[VERSION\]&quot;
     ///
     /// For example:
     ///
@@ -5675,7 +5675,7 @@
     /// Before enabling CMEK for Log Router, you must first assign the
     /// cloudkms.cryptoKeyEncrypterDecrypter role to the service account that
     /// the Log Router will use to access your Cloud KMS key. Use
-    /// \[GetCmekSettings][google.logging.v2.ConfigServiceV2.GetCmekSettings\] to
+    /// [GetCmekSettings][google.logging.v2.ConfigServiceV2.GetCmekSettings] to
     /// obtain the service account ID.
     ///
     /// See [Enabling CMEK for Log
@@ -5685,7 +5685,7 @@
     </span><span class="kw">pub </span>service_account_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The parameters to
-/// \[GetSettings][google.logging.v2.ConfigServiceV2.GetSettings\].
+/// [GetSettings][google.logging.v2.ConfigServiceV2.GetSettings].
 ///
 /// See [Enabling CMEK for Log
 /// Router](&lt;https://cloud.google.com/logging/docs/routing/managed-encryption&gt;) for
@@ -5712,7 +5712,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The parameters to
-/// \[UpdateSettings][google.logging.v2.ConfigServiceV2.UpdateSettings\].
+/// [UpdateSettings][google.logging.v2.ConfigServiceV2.UpdateSettings].
 ///
 /// See [Enabling CMEK for Log
 /// Router](&lt;https://cloud.google.com/logging/docs/routing/managed-encryption&gt;) for
@@ -5744,7 +5744,7 @@
     /// be updated. A field will be overwritten if and only if it is in the update
     /// mask. Output only fields cannot be updated.
     ///
-    /// See \[FieldMask][google.protobuf.FieldMask\] for more information.
+    /// See [FieldMask][google.protobuf.FieldMask] for more information.
     ///
     /// For example: `&quot;updateMask=kmsKeyName&quot;`
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
@@ -5762,7 +5762,7 @@
     ///
     /// KMS key name format:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/locations/\[LOCATION\]/keyRings/\[KEYRING\]/cryptoKeys/\[KEY\]&quot;
     ///
     /// For example:
     ///
@@ -5793,7 +5793,7 @@
     /// Before enabling CMEK for Log Router, you must first assign the role
     /// `roles/cloudkms.cryptoKeyEncrypterDecrypter` to the service account that
     /// the Log Router will use to access your Cloud KMS key. Use
-    /// \[GetSettings][google.logging.v2.ConfigServiceV2.GetSettings\] to
+    /// [GetSettings][google.logging.v2.ConfigServiceV2.GetSettings] to
     /// obtain the service account ID.
     ///
     /// See [Enabling CMEK for Log
@@ -7106,10 +7106,10 @@
 </span><span class="kw">pub struct </span>LogEntry {
     <span class="doccomment">/// Required. The resource name of the log to which this log entry belongs:
     ///
-    ///      &quot;projects/\[PROJECT_ID]/logs/[LOG_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID]/logs/[LOG_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID]/logs/[LOG_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID]/logs/[LOG_ID\]&quot;
+    ///      &quot;projects/\[PROJECT_ID\]/logs/\[LOG_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/logs/\[LOG_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/logs/\[LOG_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/logs/\[LOG_ID\]&quot;
     ///
     /// A project number may be used in place of PROJECT_ID. The project number is
     /// translated to its corresponding PROJECT_ID internally and the `log_name`
@@ -7215,7 +7215,7 @@
     /// `span_id` field is &quot;some-span-id&quot;.
     ///
     /// A
-    /// \[Span\](&lt;https://cloud.google.com/trace/docs/reference/v2/rest/v2/projects.traces/batchWrite#Span&gt;)
+    /// [Span](&lt;https://cloud.google.com/trace/docs/reference/v2/rest/v2/projects.traces/batchWrite#Span&gt;)
     /// represents a single operation within a trace. Whereas a trace may involve
     /// multiple different microservices running on multiple different machines,
     /// a span generally corresponds to a single logical operation being performed
@@ -7355,17 +7355,17 @@
 </span><span class="kw">pub struct </span>DeleteLogRequest {
     <span class="doccomment">/// Required. The resource name of the log to delete:
     ///
-    /// * `projects/\[PROJECT_ID]/logs/[LOG_ID\]`
-    /// * `organizations/\[ORGANIZATION_ID]/logs/[LOG_ID\]`
-    /// * `billingAccounts/\[BILLING_ACCOUNT_ID]/logs/[LOG_ID\]`
-    /// * `folders/\[FOLDER_ID]/logs/[LOG_ID\]`
+    /// * `projects/\[PROJECT_ID\]/logs/\[LOG_ID\]`
+    /// * `organizations/\[ORGANIZATION_ID\]/logs/\[LOG_ID\]`
+    /// * `billingAccounts/\[BILLING_ACCOUNT_ID\]/logs/\[LOG_ID\]`
+    /// * `folders/\[FOLDER_ID\]/logs/\[LOG_ID\]`
     ///
     /// `\[LOG_ID\]` must be URL-encoded. For example,
     /// `&quot;projects/my-project-id/logs/syslog&quot;`,
     /// `&quot;organizations/123/logs/cloudaudit.googleapis.com%2Factivity&quot;`.
     ///
     /// For more information about log names, see
-    /// \[LogEntry][google.logging.v2.LogEntry\].
+    /// [LogEntry][google.logging.v2.LogEntry].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>log_name: ::prost::alloc::string::String,
 }
@@ -7376,10 +7376,10 @@
     <span class="doccomment">/// Optional. A default log resource name that is assigned to all log entries
     /// in `entries` that do not specify a value for `log_name`:
     ///
-    /// * `projects/\[PROJECT_ID]/logs/[LOG_ID\]`
-    /// * `organizations/\[ORGANIZATION_ID]/logs/[LOG_ID\]`
-    /// * `billingAccounts/\[BILLING_ACCOUNT_ID]/logs/[LOG_ID\]`
-    /// * `folders/\[FOLDER_ID]/logs/[LOG_ID\]`
+    /// * `projects/\[PROJECT_ID\]/logs/\[LOG_ID\]`
+    /// * `organizations/\[ORGANIZATION_ID\]/logs/\[LOG_ID\]`
+    /// * `billingAccounts/\[BILLING_ACCOUNT_ID\]/logs/\[LOG_ID\]`
+    /// * `folders/\[FOLDER_ID\]/logs/\[LOG_ID\]`
     ///
     /// `\[LOG_ID\]` must be URL-encoded. For example:
     ///
@@ -7399,13 +7399,13 @@
     ///        &quot;labels&quot;: {
     ///          &quot;zone&quot;: &quot;us-central1-a&quot;, &quot;instance_id&quot;: &quot;00000000000000000000&quot; }}
     ///
-    /// See \[LogEntry][google.logging.v2.LogEntry\].
+    /// See [LogEntry][google.logging.v2.LogEntry].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::api::MonitoredResource&gt;,
     <span class="doccomment">/// Optional. Default labels that are added to the `labels` field of all log
     /// entries in `entries`. If a log entry already has a label with the same key
     /// as a label in this parameter, then the log entry&#39;s label is not changed.
-    /// See \[LogEntry][google.logging.v2.LogEntry\].
+    /// See [LogEntry][google.logging.v2.LogEntry].
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
@@ -7416,7 +7416,7 @@
     /// `log_name`, `resource`, and `labels` fields are copied into those log
     /// entries in this list that do not include values for their corresponding
     /// fields. For more information, see the
-    /// \[LogEntry][google.logging.v2.LogEntry\] type.
+    /// [LogEntry][google.logging.v2.LogEntry] type.
     ///
     /// If the `timestamp` or `insert_id` fields are missing in log entries, then
     /// this method supplies the current time or a unique identifier, respectively.
@@ -7486,10 +7486,10 @@
     ///
     /// May alternatively be one or more views:
     ///
-    ///   * `projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
-    ///   * `organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
-    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
-    ///   * `folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
+    ///   * `projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
     ///
     /// Projects listed in the `project_ids` field are added to this list.
     /// A maximum of 100 resources may be specified in a single request.
@@ -7590,10 +7590,10 @@
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. List of resource names to list logs for:
     ///
-    ///   * `projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
-    ///   * `organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
-    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
-    ///   * `folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
+    ///   * `projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
     ///
     /// To support legacy queries, it could also be:
     ///
@@ -7645,10 +7645,10 @@
     ///
     /// May alternatively be one or more views:
     ///
-    ///   * `projects/\[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
-    ///   * `organizations/\[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
-    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
-    ///   * `folders/\[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID\]`
+    ///   * `projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>resource_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. Only log entries that match the filter are returned.  An empty

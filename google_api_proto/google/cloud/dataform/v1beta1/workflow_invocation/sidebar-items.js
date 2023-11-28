@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["State"],"struct":["InvocationConfig"]};
+window.SIDEBAR_ITEMS = {"enum":["CompilationSource","State"]};

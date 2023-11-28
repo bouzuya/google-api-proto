@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/shopping/merchant/reports/v1beta/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/shopping/merchant/reports/v1beta/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1639,72 +1639,6 @@
 <a href="#1639" id="1639">1639</a>
 <a href="#1640" id="1640">1640</a>
 <a href="#1641" id="1641">1641</a>
-<a href="#1642" id="1642">1642</a>
-<a href="#1643" id="1643">1643</a>
-<a href="#1644" id="1644">1644</a>
-<a href="#1645" id="1645">1645</a>
-<a href="#1646" id="1646">1646</a>
-<a href="#1647" id="1647">1647</a>
-<a href="#1648" id="1648">1648</a>
-<a href="#1649" id="1649">1649</a>
-<a href="#1650" id="1650">1650</a>
-<a href="#1651" id="1651">1651</a>
-<a href="#1652" id="1652">1652</a>
-<a href="#1653" id="1653">1653</a>
-<a href="#1654" id="1654">1654</a>
-<a href="#1655" id="1655">1655</a>
-<a href="#1656" id="1656">1656</a>
-<a href="#1657" id="1657">1657</a>
-<a href="#1658" id="1658">1658</a>
-<a href="#1659" id="1659">1659</a>
-<a href="#1660" id="1660">1660</a>
-<a href="#1661" id="1661">1661</a>
-<a href="#1662" id="1662">1662</a>
-<a href="#1663" id="1663">1663</a>
-<a href="#1664" id="1664">1664</a>
-<a href="#1665" id="1665">1665</a>
-<a href="#1666" id="1666">1666</a>
-<a href="#1667" id="1667">1667</a>
-<a href="#1668" id="1668">1668</a>
-<a href="#1669" id="1669">1669</a>
-<a href="#1670" id="1670">1670</a>
-<a href="#1671" id="1671">1671</a>
-<a href="#1672" id="1672">1672</a>
-<a href="#1673" id="1673">1673</a>
-<a href="#1674" id="1674">1674</a>
-<a href="#1675" id="1675">1675</a>
-<a href="#1676" id="1676">1676</a>
-<a href="#1677" id="1677">1677</a>
-<a href="#1678" id="1678">1678</a>
-<a href="#1679" id="1679">1679</a>
-<a href="#1680" id="1680">1680</a>
-<a href="#1681" id="1681">1681</a>
-<a href="#1682" id="1682">1682</a>
-<a href="#1683" id="1683">1683</a>
-<a href="#1684" id="1684">1684</a>
-<a href="#1685" id="1685">1685</a>
-<a href="#1686" id="1686">1686</a>
-<a href="#1687" id="1687">1687</a>
-<a href="#1688" id="1688">1688</a>
-<a href="#1689" id="1689">1689</a>
-<a href="#1690" id="1690">1690</a>
-<a href="#1691" id="1691">1691</a>
-<a href="#1692" id="1692">1692</a>
-<a href="#1693" id="1693">1693</a>
-<a href="#1694" id="1694">1694</a>
-<a href="#1695" id="1695">1695</a>
-<a href="#1696" id="1696">1696</a>
-<a href="#1697" id="1697">1697</a>
-<a href="#1698" id="1698">1698</a>
-<a href="#1699" id="1699">1699</a>
-<a href="#1700" id="1700">1700</a>
-<a href="#1701" id="1701">1701</a>
-<a href="#1702" id="1702">1702</a>
-<a href="#1703" id="1703">1703</a>
-<a href="#1704" id="1704">1704</a>
-<a href="#1705" id="1705">1705</a>
-<a href="#1706" id="1706">1706</a>
-<a href="#1707" id="1707">1707</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Request message for the `ReportService.Search` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1754,9 +1688,6 @@
     <span class="doccomment">/// Fields available for query in `product_performance_view` table.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>product_performance_view: ::core::option::Option&lt;ProductPerformanceView&gt;,
-    <span class="doccomment">/// Fields available for query in `non_product_performance_view` table.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>non_product_performance_view: ::core::option::Option&lt;NonProductPerformanceView&gt;,
     <span class="doccomment">/// Fields available for query in `product_view` table.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>product_view: ::core::option::Option&lt;ProductView&gt;,
@@ -1829,25 +1760,6 @@
     /// returned.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>customer_country_code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Merchant Center account id of the seller of the offer. Segment.
-    ///
-    /// Available only for multi-client accounts.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;29&quot;</span>)]
-    </span><span class="kw">pub </span>account_id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Merchant Center account name of the seller of the offer. Segment.
-    ///
-    /// Available only for multi-client accounts.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;30&quot;</span>)]
-    </span><span class="kw">pub </span>account_display_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [External account
-    /// id](&lt;https://support.google.com/merchants/answer/11537846?hl=en&gt;) submitted
-    /// in an offer feed by a multi-seller account to identify the seller of the
-    /// offer. Segment.
-    ///
-    /// Available only for multi-client accounts. This field is non-empty only for
-    /// auto-seller accounts.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;31&quot;</span>)]
-    </span><span class="kw">pub </span>external_account_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Merchant-provided id of the product. Segment.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>offer_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
@@ -2042,11 +1954,11 @@
     /// not available.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
     </span><span class="kw">pub </span>price: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Price&gt;,
-    <span class="doccomment">/// \[Condition\](&lt;https://support.google.com/merchants/answer/6324469&gt;) of the
+    <span class="doccomment">/// [Condition](&lt;https://support.google.com/merchants/answer/6324469&gt;) of the
     /// product.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;18&quot;</span>)]
     </span><span class="kw">pub </span>condition: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// \[Availability\](&lt;https://support.google.com/merchants/answer/6324448&gt;) of the
+    <span class="doccomment">/// [Availability](&lt;https://support.google.com/merchants/answer/6324448&gt;) of the
     /// product.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;19&quot;</span>)]
     </span><span class="kw">pub </span>availability: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
@@ -2553,9 +2465,6 @@
     /// top-level categories are returned.
     </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>report_category_id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Google-assigned id of the product cluster.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Title of the product cluster.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>title: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
@@ -2735,9 +2644,6 @@
     /// top-level categories are returned.
     </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>report_category_id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Google-assigned id of the brand.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Name of the brand.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>brand: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
@@ -2763,44 +2669,6 @@
         tag = <span class="string">&quot;11&quot;
     </span>)]
     </span><span class="kw">pub </span>relative_demand_change: ::core::option::Option&lt;i32&gt;,
-}
-<span class="doccomment">/// Fields available for query in `non_product_performance_view` table.
-///
-/// Performance data on images and website links leading to your non-product
-/// website pages. This includes performance metrics (for example, `clicks`)
-/// and dimensions according to which performance metrics are segmented (for
-/// example, `date`).
-///
-/// Segment fields cannot be selected in queries without also selecting at least
-/// one metric field.
-///
-/// Values are only set for fields requested explicitly in the request&#39;s search
-/// query.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>NonProductPerformanceView {
-    <span class="doccomment">/// Date in the merchant timezone to which metrics apply. Segment.
-    ///
-    /// Condition on `date` is required in the `WHERE` clause.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
-    <span class="doccomment">/// First day of the week (Monday) of the metrics date in the merchant
-    /// timezone. Segment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>week: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
-    <span class="doccomment">/// Number of clicks on images and website links leading to your non-product
-    /// website pages. Metric.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>clicks: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Number of times images and website links leading to your non-product
-    /// website pages were shown. Metric.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>impressions: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Click-through rate - the number of clicks (`clicks`) divided by the number
-    /// of impressions (`impressions`) of images and website links leading to your
-    /// non-product website pages. Metric.
-    </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>click_through_rate: ::core::option::Option&lt;f64&gt;,
 }
 <span class="doccomment">/// Fields available for query in `competitive_visibility_competitor_view` table.
 ///
@@ -2855,7 +2723,7 @@
     /// Cannot be filtered on in the &#39;WHERE&#39; clause.
     </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>rank: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// [Ads / organic ratio]
+    <span class="doccomment">/// \[Ads / organic ratio\]
     /// (&lt;https://support.google.com/merchants/answer/11366442#zippy=%2Cads-free-ratio&gt;)
     /// shows how often the domain receives impressions from Shopping ads compared
     /// to organic traffic. The number is rounded and bucketed.
@@ -2863,7 +2731,7 @@
     /// Cannot be filtered on in the &#39;WHERE&#39; clause.
     </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>ads_organic_ratio: ::core::option::Option&lt;f64&gt;,
-    <span class="doccomment">/// [Page overlap rate]
+    <span class="doccomment">/// \[Page overlap rate\]
     /// (&lt;https://support.google.com/merchants/answer/11366442#zippy=%2Cpage-overlap-rate&gt;)
     /// shows how frequently competing retailers’ offers are shown together with
     /// your offers on the same page.
@@ -2871,7 +2739,7 @@
     /// Cannot be filtered on in the &#39;WHERE&#39; clause.
     </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>page_overlap_rate: ::core::option::Option&lt;f64&gt;,
-    <span class="doccomment">/// [Higher position rate]
+    <span class="doccomment">/// \[Higher position rate\]
     /// (&lt;https://support.google.com/merchants/answer/11366442#zippy=%2Chigher-position-rate&gt;)
     /// shows how often a competitor’s offer got placed in a higher position on the
     /// page than your offer.
@@ -2879,7 +2747,7 @@
     /// Cannot be filtered on in the &#39;WHERE&#39; clause.
     </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>higher_position_rate: ::core::option::Option&lt;f64&gt;,
-    <span class="doccomment">/// [Relative visibility]
+    <span class="doccomment">/// \[Relative visibility\]
     /// (&lt;https://support.google.com/merchants/answer/11366442#zippy=%2Crelative-visibility&gt;)
     /// shows how often your competitors’ offers are shown compared to your offers.
     /// In other words, this is the number of displayed impressions of a competitor
@@ -2945,7 +2813,7 @@
     /// Cannot be filtered on in the &#39;WHERE&#39; clause.
     </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>rank: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// [Ads / organic ratio]
+    <span class="doccomment">/// \[Ads / organic ratio\]
     /// (&lt;https://support.google.com/merchants/answer/11366442#zippy=%2Cads-free-ratio&gt;)
     /// shows how often the domain receives impressions from Shopping ads compared
     /// to organic traffic. The number is rounded and bucketed.
@@ -2953,7 +2821,7 @@
     /// Cannot be filtered on in the &#39;WHERE&#39; clause.
     </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>ads_organic_ratio: ::core::option::Option&lt;f64&gt;,
-    <span class="doccomment">/// [Page overlap rate]
+    <span class="doccomment">/// \[Page overlap rate\]
     /// (&lt;https://support.google.com/merchants/answer/11366442#zippy=%2Cpage-overlap-rate&gt;)
     /// shows how frequently competing retailers’ offers are shown together with
     /// your offers on the same page.
@@ -2961,7 +2829,7 @@
     /// Cannot be filtered on in the &#39;WHERE&#39; clause.
     </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>page_overlap_rate: ::core::option::Option&lt;f64&gt;,
-    <span class="doccomment">/// [Higher position rate]
+    <span class="doccomment">/// \[Higher position rate\]
     /// (&lt;https://support.google.com/merchants/answer/11366442#zippy=%2Chigher-position-rate&gt;)
     /// shows how often a competitor’s offer got placed in a higher position on the
     /// page than your offer.

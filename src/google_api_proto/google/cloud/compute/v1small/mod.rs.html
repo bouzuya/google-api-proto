@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/compute/v1small/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/compute/v1small/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1295,23 +1295,23 @@
     /// Check the AddressType enum for the list of possible values.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;264307877&quot;</span>)]
     </span><span class="kw">pub </span>address_type: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Creation timestamp in RFC3339 text format.
+    <span class="doccomment">/// \[Output Only\] Creation timestamp in RFC3339 text format.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;30525366&quot;</span>)]
     </span><span class="kw">pub </span>creation_timestamp: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// An optional description of this resource. Provide this field when you create the resource.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;422937596&quot;</span>)]
     </span><span class="kw">pub </span>description: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] The unique identifier for the resource. This identifier is defined by the server.
+    <span class="doccomment">/// \[Output Only\] The unique identifier for the resource. This identifier is defined by the server.
     </span><span class="attr">#[prost(uint64, optional, tag = <span class="string">&quot;3355&quot;</span>)]
     </span><span class="kw">pub </span>id: ::core::option::Option&lt;u64&gt;,
     <span class="doccomment">/// The IP version that will be used by this address. Valid options are IPV4 or IPV6. This can only be specified for a global address.
     /// Check the IpVersion enum for the list of possible values.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;294959552&quot;</span>)]
     </span><span class="kw">pub </span>ip_version: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Type of the resource. Always compute#address for addresses.
+    <span class="doccomment">/// \[Output Only\] Type of the resource. Always compute#address for addresses.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3292052&quot;</span>)]
     </span><span class="kw">pub </span>kind: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `\[a-z]([-a-z0-9]*[a-z0-9\])?`. The first character must be a lowercase letter, and all following characters (except for the last character) must be a dash, lowercase letter, or digit. The last character must be a lowercase letter or digit.
+    <span class="doccomment">/// Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z](\[-a-z0-9\]*[a-z0-9])?`. The first character must be a lowercase letter, and all following characters (except for the last character) must be a dash, lowercase letter, or digit. The last character must be a lowercase letter or digit.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3373707&quot;</span>)]
     </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The URL of the network in which to reserve the address. This field can only be used with INTERNAL type with the VPC_PEERING purpose.
@@ -1334,20 +1334,20 @@
     /// Check the Purpose enum for the list of possible values.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;316407070&quot;</span>)]
     </span><span class="kw">pub </span>purpose: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] The URL of the region where the regional address resides. This field is not applicable to global addresses. You must specify this field as part of the HTTP request URL.
+    <span class="doccomment">/// \[Output Only\] The URL of the region where the regional address resides. This field is not applicable to global addresses. You must specify this field as part of the HTTP request URL.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;138946292&quot;</span>)]
     </span><span class="kw">pub </span>region: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Server-defined URL for the resource.
+    <span class="doccomment">/// \[Output Only\] Server-defined URL for the resource.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;456214797&quot;</span>)]
     </span><span class="kw">pub </span>self_link: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] The status of the address, which can be one of RESERVING, RESERVED, or IN_USE. An address that is RESERVING is currently in the process of being reserved. A RESERVED address is currently reserved and available to use. An IN_USE address is currently being used by another resource and is not available.
+    <span class="doccomment">/// \[Output Only\] The status of the address, which can be one of RESERVING, RESERVED, or IN_USE. An address that is RESERVING is currently in the process of being reserved. A RESERVED address is currently reserved and available to use. An IN_USE address is currently being used by another resource and is not available.
     /// Check the Status enum for the list of possible values.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;181260274&quot;</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The URL of the subnetwork in which to reserve the address. If an IP address is specified, it must be within the subnetwork&#39;s IP range. This field can only be used with INTERNAL type with a GCE_ENDPOINT or DNS_RESOLVER purpose.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;307827694&quot;</span>)]
     </span><span class="kw">pub </span>subnetwork: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] The URLs of the resources that are using this address.
+    <span class="doccomment">/// \[Output Only\] The URLs of the resources that are using this address.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;111578632&quot;</span>)]
     </span><span class="kw">pub </span>users: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
@@ -1535,7 +1535,7 @@
             }
         }
     }
-    <span class="doccomment">/// [Output Only] The status of the address, which can be one of RESERVING, RESERVED, or IN_USE. An address that is RESERVING is currently in the process of being reserved. A RESERVED address is currently reserved and available to use. An IN_USE address is currently being used by another resource and is not available.
+    <span class="doccomment">/// \[Output Only\] The status of the address, which can be one of RESERVING, RESERVED, or IN_USE. An address that is RESERVING is currently in the process of being reserved. A RESERVED address is currently reserved and available to use. An IN_USE address is currently being used by another resource and is not available.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -1584,7 +1584,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AddressAggregatedList {
-    <span class="doccomment">/// [Output Only] Unique identifier for the resource; defined by the server.
+    <span class="doccomment">/// \[Output Only\] Unique identifier for the resource; defined by the server.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3355&quot;</span>)]
     </span><span class="kw">pub </span>id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A list of AddressesScopedList resources.
@@ -1593,16 +1593,16 @@
         ::prost::alloc::string::String,
         AddressesScopedList,
     &gt;,
-    <span class="doccomment">/// [Output Only] Type of resource. Always compute#addressAggregatedList for aggregated lists of addresses.
+    <span class="doccomment">/// \[Output Only\] Type of resource. Always compute#addressAggregatedList for aggregated lists of addresses.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3292052&quot;</span>)]
     </span><span class="kw">pub </span>kind: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
+    <span class="doccomment">/// \[Output Only\] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;79797525&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Server-defined URL for this resource.
+    <span class="doccomment">/// \[Output Only\] Server-defined URL for this resource.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;456214797&quot;</span>)]
     </span><span class="kw">pub </span>self_link: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Informational warning message.
+    <span class="doccomment">/// \[Output Only\] Informational warning message.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;50704284&quot;</span>)]
     </span><span class="kw">pub </span>warning: ::core::option::Option&lt;Warning&gt;,
 }
@@ -1610,22 +1610,22 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AddressList {
-    <span class="doccomment">/// [Output Only] Unique identifier for the resource; defined by the server.
+    <span class="doccomment">/// \[Output Only\] Unique identifier for the resource; defined by the server.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3355&quot;</span>)]
     </span><span class="kw">pub </span>id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A list of Address resources.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;100526016&quot;</span>)]
     </span><span class="kw">pub </span>items: ::prost::alloc::vec::Vec&lt;Address&gt;,
-    <span class="doccomment">/// [Output Only] Type of resource. Always compute#addressList for lists of addresses.
+    <span class="doccomment">/// \[Output Only\] Type of resource. Always compute#addressList for lists of addresses.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3292052&quot;</span>)]
     </span><span class="kw">pub </span>kind: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
+    <span class="doccomment">/// \[Output Only\] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;79797525&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Server-defined URL for this resource.
+    <span class="doccomment">/// \[Output Only\] Server-defined URL for this resource.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;456214797&quot;</span>)]
     </span><span class="kw">pub </span>self_link: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Informational warning message.
+    <span class="doccomment">/// \[Output Only\] Informational warning message.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;50704284&quot;</span>)]
     </span><span class="kw">pub </span>warning: ::core::option::Option&lt;Warning&gt;,
 }
@@ -1633,10 +1633,10 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AddressesScopedList {
-    <span class="doccomment">/// [Output Only] A list of addresses contained in this scope.
+    <span class="doccomment">/// \[Output Only\] A list of addresses contained in this scope.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;337673122&quot;</span>)]
     </span><span class="kw">pub </span>addresses: ::prost::alloc::vec::Vec&lt;Address&gt;,
-    <span class="doccomment">/// [Output Only] Informational warning which replaces the list of addresses when the list is empty.
+    <span class="doccomment">/// \[Output Only\] Informational warning which replaces the list of addresses when the list is empty.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;50704284&quot;</span>)]
     </span><span class="kw">pub </span>warning: ::core::option::Option&lt;Warning&gt;,
 }
@@ -1677,10 +1677,10 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Data {
-    <span class="doccomment">/// [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
+    <span class="doccomment">/// \[Output Only\] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;106079&quot;</span>)]
     </span><span class="kw">pub </span>key: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] A warning data value corresponding to the key.
+    <span class="doccomment">/// \[Output Only\] A warning data value corresponding to the key.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;111972721&quot;</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
@@ -1705,11 +1705,11 @@
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;37109963&quot;</span>)]
     </span><span class="kw">pub </span>request_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// [Output Only] If errors are generated during processing of the operation, this field will be populated.
+<span class="doccomment">/// \[Output Only\] If errors are generated during processing of the operation, this field will be populated.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Error {
-    <span class="doccomment">/// [Output Only] The array of errors encountered while processing this operation.
+    <span class="doccomment">/// \[Output Only\] The array of errors encountered while processing this operation.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;315977579&quot;</span>)]
     </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;Errors&gt;,
 }
@@ -1717,13 +1717,13 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Errors {
-    <span class="doccomment">/// [Output Only] The error type identifier for this error.
+    <span class="doccomment">/// \[Output Only\] The error type identifier for this error.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3059181&quot;</span>)]
     </span><span class="kw">pub </span>code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Indicates the field in the request that caused the error. This property is optional.
+    <span class="doccomment">/// \[Output Only\] Indicates the field in the request that caused the error. This property is optional.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;290430901&quot;</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] An optional, human-readable error message.
+    <span class="doccomment">/// \[Output Only\] An optional, human-readable error message.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;418054151&quot;</span>)]
     </span><span class="kw">pub </span>message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
@@ -1799,7 +1799,7 @@
 ///
 /// Google Compute Engine has three Operation resources:
 ///
-/// * \[Global\](/compute/docs/reference/rest/{$api_version}/globalOperations) * \[Regional\](/compute/docs/reference/rest/{$api_version}/regionOperations) * \[Zonal\](/compute/docs/reference/rest/{$api_version}/zoneOperations)
+/// * [Global](/compute/docs/reference/rest/{$api_version}/globalOperations) * [Regional](/compute/docs/reference/rest/{$api_version}/regionOperations) * [Zonal](/compute/docs/reference/rest/{$api_version}/zoneOperations)
 ///
 /// You can use an operation resource to manage asynchronous API requests. For more information, read Handling API responses.
 ///
@@ -1812,79 +1812,79 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Operation {
-    <span class="doccomment">/// [Output Only] The value of `requestId` if you provided it in the request. Not present otherwise.
+    <span class="doccomment">/// \[Output Only\] The value of `requestId` if you provided it in the request. Not present otherwise.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;297240295&quot;</span>)]
     </span><span class="kw">pub </span>client_operation_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Deprecated\] This field is deprecated.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;30525366&quot;</span>)]
     </span><span class="kw">pub </span>creation_timestamp: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] A textual description of the operation, which is set when the operation is created.
+    <span class="doccomment">/// \[Output Only\] A textual description of the operation, which is set when the operation is created.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;422937596&quot;</span>)]
     </span><span class="kw">pub </span>description: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] The time that this operation was completed. This value is in RFC3339 text format.
+    <span class="doccomment">/// \[Output Only\] The time that this operation was completed. This value is in RFC3339 text format.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;114938801&quot;</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] If errors are generated during processing of the operation, this field will be populated.
+    <span class="doccomment">/// \[Output Only\] If errors are generated during processing of the operation, this field will be populated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;96784904&quot;</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;Error&gt;,
-    <span class="doccomment">/// [Output Only] If the operation fails, this field contains the HTTP error message that was returned, such as NOT FOUND.
+    <span class="doccomment">/// \[Output Only\] If the operation fails, this field contains the HTTP error message that was returned, such as NOT FOUND.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;202521945&quot;</span>)]
     </span><span class="kw">pub </span>http_error_message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] If the operation fails, this field contains the HTTP error status code that was returned. For example, a 404 means the resource was not found.
+    <span class="doccomment">/// \[Output Only\] If the operation fails, this field contains the HTTP error status code that was returned. For example, a 404 means the resource was not found.
     </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;312345196&quot;</span>)]
     </span><span class="kw">pub </span>http_error_status_code: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// [Output Only] The unique identifier for the operation. This identifier is defined by the server.
+    <span class="doccomment">/// \[Output Only\] The unique identifier for the operation. This identifier is defined by the server.
     </span><span class="attr">#[prost(uint64, optional, tag = <span class="string">&quot;3355&quot;</span>)]
     </span><span class="kw">pub </span>id: ::core::option::Option&lt;u64&gt;,
-    <span class="doccomment">/// [Output Only] The time that this operation was requested. This value is in RFC3339 text format.
+    <span class="doccomment">/// \[Output Only\] The time that this operation was requested. This value is in RFC3339 text format.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;433722515&quot;</span>)]
     </span><span class="kw">pub </span>insert_time: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Type of the resource. Always compute#operation for Operation resources.
+    <span class="doccomment">/// \[Output Only\] Type of the resource. Always compute#operation for Operation resources.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3292052&quot;</span>)]
     </span><span class="kw">pub </span>kind: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Name of the operation.
+    <span class="doccomment">/// \[Output Only\] Name of the operation.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3373707&quot;</span>)]
     </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] The type of operation, such as insert, update, or delete, and so on.
+    <span class="doccomment">/// \[Output Only\] The type of operation, such as insert, update, or delete, and so on.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;177650450&quot;</span>)]
     </span><span class="kw">pub </span>operation_type: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of operations. This should not be used to guess when the operation will be complete. This number should monotonically increase as the operation progresses.
+    <span class="doccomment">/// \[Output Only\] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of operations. This should not be used to guess when the operation will be complete. This number should monotonically increase as the operation progresses.
     </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;72663597&quot;</span>)]
     </span><span class="kw">pub </span>progress: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// [Output Only] The URL of the region where the operation resides. Only applicable when performing regional operations.
+    <span class="doccomment">/// \[Output Only\] The URL of the region where the operation resides. Only applicable when performing regional operations.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;138946292&quot;</span>)]
     </span><span class="kw">pub </span>region: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Server-defined URL for the resource.
+    <span class="doccomment">/// \[Output Only\] Server-defined URL for the resource.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;456214797&quot;</span>)]
     </span><span class="kw">pub </span>self_link: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] The time that this operation was started by the server. This value is in RFC3339 text format.
+    <span class="doccomment">/// \[Output Only\] The time that this operation was started by the server. This value is in RFC3339 text format.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;37467274&quot;</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] The status of the operation, which can be one of the following: PENDING, RUNNING, or DONE.
+    <span class="doccomment">/// \[Output Only\] The status of the operation, which can be one of the following: PENDING, RUNNING, or DONE.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation::Status&quot;</span>, optional, tag = <span class="string">&quot;181260274&quot;</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// [Output Only] An optional textual description of the current status of the operation.
+    <span class="doccomment">/// \[Output Only\] An optional textual description of the current status of the operation.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;297428154&quot;</span>)]
     </span><span class="kw">pub </span>status_message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] The unique target ID, which identifies a specific incarnation of the target resource.
+    <span class="doccomment">/// \[Output Only\] The unique target ID, which identifies a specific incarnation of the target resource.
     </span><span class="attr">#[prost(uint64, optional, tag = <span class="string">&quot;258165385&quot;</span>)]
     </span><span class="kw">pub </span>target_id: ::core::option::Option&lt;u64&gt;,
-    <span class="doccomment">/// [Output Only] The URL of the resource that the operation modifies. For operations related to creating a snapshot, this points to the persistent disk that the snapshot was created from.
+    <span class="doccomment">/// \[Output Only\] The URL of the resource that the operation modifies. For operations related to creating a snapshot, this points to the persistent disk that the snapshot was created from.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;62671336&quot;</span>)]
     </span><span class="kw">pub </span>target_link: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] User who requested the operation, for example: user@example.com.
+    <span class="doccomment">/// \[Output Only\] User who requested the operation, for example: user@example.com.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3599307&quot;</span>)]
     </span><span class="kw">pub </span>user: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] If warning messages are generated during processing of the operation, this field will be populated.
+    <span class="doccomment">/// \[Output Only\] If warning messages are generated during processing of the operation, this field will be populated.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;498091095&quot;</span>)]
     </span><span class="kw">pub </span>warnings: ::prost::alloc::vec::Vec&lt;Warnings&gt;,
-    <span class="doccomment">/// [Output Only] The URL of the zone where the operation resides. Only applicable when performing per-zone operations.
+    <span class="doccomment">/// \[Output Only\] The URL of the zone where the operation resides. Only applicable when performing per-zone operations.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3744684&quot;</span>)]
     </span><span class="kw">pub </span>zone: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Operation`.
 </span><span class="kw">pub mod </span>operation {
-    <span class="doccomment">/// [Output Only] The status of the operation, which can be one of the following: PENDING, RUNNING, or DONE.
+    <span class="doccomment">/// \[Output Only\] The status of the operation, which can be one of the following: PENDING, RUNNING, or DONE.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -1943,25 +1943,25 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;138946292&quot;</span>)]
     </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// [Output Only] Informational warning message.
+<span class="doccomment">/// \[Output Only\] Informational warning message.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Warning {
-    <span class="doccomment">/// [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
+    <span class="doccomment">/// \[Output Only\] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
     /// Check the Code enum for the list of possible values.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3059181&quot;</span>)]
     </span><span class="kw">pub </span>code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Metadata about this warning in key: value format. For example:
+    <span class="doccomment">/// \[Output Only\] Metadata about this warning in key: value format. For example:
     /// &quot;data&quot;: [ { &quot;key&quot;: &quot;scope&quot;, &quot;value&quot;: &quot;zones/us-east1-d&quot; }
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3076010&quot;</span>)]
     </span><span class="kw">pub </span>data: ::prost::alloc::vec::Vec&lt;Data&gt;,
-    <span class="doccomment">/// [Output Only] A human-readable description of the warning code.
+    <span class="doccomment">/// \[Output Only\] A human-readable description of the warning code.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;418054151&quot;</span>)]
     </span><span class="kw">pub </span>message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Warning`.
 </span><span class="kw">pub mod </span>warning {
-    <span class="doccomment">/// [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
+    <span class="doccomment">/// \[Output Only\] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -2082,21 +2082,21 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Warnings {
-    <span class="doccomment">/// [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
+    <span class="doccomment">/// \[Output Only\] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
     /// Check the Code enum for the list of possible values.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3059181&quot;</span>)]
     </span><span class="kw">pub </span>code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// [Output Only] Metadata about this warning in key: value format. For example:
+    <span class="doccomment">/// \[Output Only\] Metadata about this warning in key: value format. For example:
     /// &quot;data&quot;: [ { &quot;key&quot;: &quot;scope&quot;, &quot;value&quot;: &quot;zones/us-east1-d&quot; }
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3076010&quot;</span>)]
     </span><span class="kw">pub </span>data: ::prost::alloc::vec::Vec&lt;Data&gt;,
-    <span class="doccomment">/// [Output Only] A human-readable description of the warning code.
+    <span class="doccomment">/// \[Output Only\] A human-readable description of the warning code.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;418054151&quot;</span>)]
     </span><span class="kw">pub </span>message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Warnings`.
 </span><span class="kw">pub mod </span>warnings {
-    <span class="doccomment">/// [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
+    <span class="doccomment">/// \[Output Only\] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
     </span><span class="attr">#[derive(
         Clone,
         Copy,

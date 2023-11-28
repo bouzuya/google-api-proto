@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/binaryauthorization/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/binaryauthorization/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1182,7 +1182,7 @@
 <a href="#1182" id="1182">1182</a>
 <a href="#1183" id="1183">1183</a>
 <a href="#1184" id="1184">1184</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A \[policy][google.cloud.binaryauthorization.v1.Policy\] for container image binary authorization.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A [policy][google.cloud.binaryauthorization.v1.Policy] for container image binary authorization.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Policy {
@@ -1297,8 +1297,8 @@
         }
     }
 }
-<span class="doccomment">/// An [admission allowlist pattern]\[google.cloud.binaryauthorization.v1.AdmissionWhitelistPattern\] exempts images
-/// from checks by [admission rules]\[google.cloud.binaryauthorization.v1.AdmissionRule\].
+<span class="doccomment">/// An [admission allowlist pattern][google.cloud.binaryauthorization.v1.AdmissionWhitelistPattern] exempts images
+/// from checks by [admission rules][google.cloud.binaryauthorization.v1.AdmissionRule].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AdmissionWhitelistPattern {
@@ -1309,12 +1309,12 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name_pattern: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// An [admission rule]\[google.cloud.binaryauthorization.v1.AdmissionRule\] specifies either that all container images
+<span class="doccomment">/// An [admission rule][google.cloud.binaryauthorization.v1.AdmissionRule] specifies either that all container images
 /// used in a pod creation request must be attested to by one or more
-/// \[attestors][google.cloud.binaryauthorization.v1.Attestor\], that all pod creations will be allowed, or that all
+/// [attestors][google.cloud.binaryauthorization.v1.Attestor], that all pod creations will be allowed, or that all
 /// pod creations will be denied.
 ///
-/// Images matching an [admission allowlist pattern]\[google.cloud.binaryauthorization.v1.AdmissionWhitelistPattern\]
+/// Images matching an [admission allowlist pattern][google.cloud.binaryauthorization.v1.AdmissionWhitelistPattern]
 /// are exempted from admission rules and will never block a pod creation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1436,7 +1436,7 @@
         }
     }
 }
-<span class="doccomment">/// An \[attestor][google.cloud.binaryauthorization.v1.Attestor\] that attests to container image
+<span class="doccomment">/// An [attestor][google.cloud.binaryauthorization.v1.Attestor] that attests to container image
 /// artifacts. An existing attestor cannot be modified except where
 /// indicated.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1467,7 +1467,7 @@
         </span>UserOwnedGrafeasNote(<span class="kw">super</span>::UserOwnedGrafeasNote),
     }
 }
-<span class="doccomment">/// An [user owned Grafeas note]\[google.cloud.binaryauthorization.v1.UserOwnedGrafeasNote\] references a Grafeas
+<span class="doccomment">/// An [user owned Grafeas note][google.cloud.binaryauthorization.v1.UserOwnedGrafeasNote] references a Grafeas
 /// Attestation.Authority Note created by the user.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1495,7 +1495,7 @@
     <span class="doccomment">/// Output only. This field will contain the service account email address
     /// that this Attestor will use as the principal when querying Container
     /// Analysis. Attestor administrators must grant this service account the
-    /// IAM role needed to read attestations from the \[note_reference][Note\] in
+    /// IAM role needed to read attestations from the [note_reference][Note] in
     /// Container Analysis (`containeranalysis.notes.occurrences.viewer`).
     ///
     /// This email address is fixed for the lifetime of the Attestor, but callers
@@ -1618,7 +1618,7 @@
         }
     }
 }
-<span class="doccomment">/// An [attestor public key]\[google.cloud.binaryauthorization.v1.AttestorPublicKey\] that will be used to verify
+<span class="doccomment">/// An [attestor public key][google.cloud.binaryauthorization.v1.AttestorPublicKey] that will be used to verify
 /// attestations signed by this attestor.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1663,66 +1663,66 @@
         </span>PkixPublicKey(<span class="kw">super</span>::PkixPublicKey),
     }
 }
-<span class="doccomment">/// Request message for \[BinauthzManagementService.GetPolicy][\].
+<span class="doccomment">/// Request message for [BinauthzManagementService.GetPolicy][].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetPolicyRequest {
-    <span class="doccomment">/// Required. The resource name of the \[policy][google.cloud.binaryauthorization.v1.Policy\] to retrieve,
+    <span class="doccomment">/// Required. The resource name of the [policy][google.cloud.binaryauthorization.v1.Policy] to retrieve,
     /// in the format `projects/*/policy`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request message for \[BinauthzManagementService.UpdatePolicy][\].
+<span class="doccomment">/// Request message for [BinauthzManagementService.UpdatePolicy][].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdatePolicyRequest {
-    <span class="doccomment">/// Required. A new or updated \[policy][google.cloud.binaryauthorization.v1.Policy\] value. The service will
-    /// overwrite the [policy name]\[google.cloud.binaryauthorization.v1.Policy.name\] field with the resource name in
+    <span class="doccomment">/// Required. A new or updated [policy][google.cloud.binaryauthorization.v1.Policy] value. The service will
+    /// overwrite the [policy name][google.cloud.binaryauthorization.v1.Policy.name] field with the resource name in
     /// the request URL, in the format `projects/*/policy`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>policy: ::core::option::Option&lt;Policy&gt;,
 }
-<span class="doccomment">/// Request message for \[BinauthzManagementService.CreateAttestor][\].
+<span class="doccomment">/// Request message for [BinauthzManagementService.CreateAttestor][].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateAttestorRequest {
-    <span class="doccomment">/// Required. The parent of this \[attestor][google.cloud.binaryauthorization.v1.Attestor\].
+    <span class="doccomment">/// Required. The parent of this [attestor][google.cloud.binaryauthorization.v1.Attestor].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The \[attestors][google.cloud.binaryauthorization.v1.Attestor\] ID.
+    <span class="doccomment">/// Required. The [attestors][google.cloud.binaryauthorization.v1.Attestor] ID.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>attestor_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The initial \[attestor][google.cloud.binaryauthorization.v1.Attestor\] value. The service will
-    /// overwrite the [attestor name]\[google.cloud.binaryauthorization.v1.Attestor.name\] field with the resource name,
+    <span class="doccomment">/// Required. The initial [attestor][google.cloud.binaryauthorization.v1.Attestor] value. The service will
+    /// overwrite the [attestor name][google.cloud.binaryauthorization.v1.Attestor.name] field with the resource name,
     /// in the format `projects/*/attestors/*`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>attestor: ::core::option::Option&lt;Attestor&gt;,
 }
-<span class="doccomment">/// Request message for \[BinauthzManagementService.GetAttestor][\].
+<span class="doccomment">/// Request message for [BinauthzManagementService.GetAttestor][].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetAttestorRequest {
-    <span class="doccomment">/// Required. The name of the \[attestor][google.cloud.binaryauthorization.v1.Attestor\] to retrieve, in the format
+    <span class="doccomment">/// Required. The name of the [attestor][google.cloud.binaryauthorization.v1.Attestor] to retrieve, in the format
     /// `projects/*/attestors/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request message for \[BinauthzManagementService.UpdateAttestor][\].
+<span class="doccomment">/// Request message for [BinauthzManagementService.UpdateAttestor][].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateAttestorRequest {
-    <span class="doccomment">/// Required. The updated \[attestor][google.cloud.binaryauthorization.v1.Attestor\] value. The service will
-    /// overwrite the [attestor name]\[google.cloud.binaryauthorization.v1.Attestor.name\] field with the resource name
+    <span class="doccomment">/// Required. The updated [attestor][google.cloud.binaryauthorization.v1.Attestor] value. The service will
+    /// overwrite the [attestor name][google.cloud.binaryauthorization.v1.Attestor.name] field with the resource name
     /// in the request URL, in the format `projects/*/attestors/*`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>attestor: ::core::option::Option&lt;Attestor&gt;,
 }
-<span class="doccomment">/// Request message for \[BinauthzManagementService.ListAttestors][\].
+<span class="doccomment">/// Request message for [BinauthzManagementService.ListAttestors][].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAttestorsRequest {
     <span class="doccomment">/// Required. The resource name of the project associated with the
-    /// \[attestors][google.cloud.binaryauthorization.v1.Attestor\], in the format `projects/*`.
+    /// [attestors][google.cloud.binaryauthorization.v1.Attestor], in the format `projects/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Requested page size. The server may return fewer results than requested. If
@@ -1730,29 +1730,29 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A token identifying a page of results the server should return. Typically,
-    /// this is the value of \[ListAttestorsResponse.next_page_token][google.cloud.binaryauthorization.v1.ListAttestorsResponse.next_page_token\] returned
+    /// this is the value of [ListAttestorsResponse.next_page_token][google.cloud.binaryauthorization.v1.ListAttestorsResponse.next_page_token] returned
     /// from the previous call to the `ListAttestors` method.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Response message for \[BinauthzManagementService.ListAttestors][\].
+<span class="doccomment">/// Response message for [BinauthzManagementService.ListAttestors][].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAttestorsResponse {
-    <span class="doccomment">/// The list of \[attestors][google.cloud.binaryauthorization.v1.Attestor\].
+    <span class="doccomment">/// The list of [attestors][google.cloud.binaryauthorization.v1.Attestor].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>attestors: ::prost::alloc::vec::Vec&lt;Attestor&gt;,
     <span class="doccomment">/// A token to retrieve the next page of results. Pass this value in the
-    /// \[ListAttestorsRequest.page_token][google.cloud.binaryauthorization.v1.ListAttestorsRequest.page_token\] field in the subsequent call to the
+    /// [ListAttestorsRequest.page_token][google.cloud.binaryauthorization.v1.ListAttestorsRequest.page_token] field in the subsequent call to the
     /// `ListAttestors` method to retrieve the next page of results.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request message for \[BinauthzManagementService.DeleteAttestor][\].
+<span class="doccomment">/// Request message for [BinauthzManagementService.DeleteAttestor][].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteAttestorRequest {
-    <span class="doccomment">/// Required. The name of the \[attestors][google.cloud.binaryauthorization.v1.Attestor\] to delete, in the format
+    <span class="doccomment">/// Required. The name of the [attestors][google.cloud.binaryauthorization.v1.Attestor] to delete, in the format
     /// `projects/*/attestors/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
@@ -1767,16 +1767,16 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[ValidationHelperV1.ValidateAttestationOccurrence][google.cloud.binaryauthorization.v1.ValidationHelperV1.ValidateAttestationOccurrence\].
+/// [ValidationHelperV1.ValidateAttestationOccurrence][google.cloud.binaryauthorization.v1.ValidationHelperV1.ValidateAttestationOccurrence].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ValidateAttestationOccurrenceRequest {
-    <span class="doccomment">/// Required. The resource name of the \[Attestor][google.cloud.binaryauthorization.v1.Attestor\] of the
-    /// \[occurrence][grafeas.v1.Occurrence\], in the format
+    <span class="doccomment">/// Required. The resource name of the [Attestor][google.cloud.binaryauthorization.v1.Attestor] of the
+    /// [occurrence][grafeas.v1.Occurrence], in the format
     /// `projects/*/attestors/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>attestor: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. An \[AttestationOccurrence][grafeas.v1.AttestationOccurrence\] to
+    <span class="doccomment">/// Required. An [AttestationOccurrence][grafeas.v1.AttestationOccurrence] to
     /// be checked that it can be verified by the Attestor. It does not have to be
     /// an existing entity in Container Analysis. It must otherwise be a valid
     /// AttestationOccurrence.
@@ -1784,17 +1784,17 @@
     </span><span class="kw">pub </span>attestation: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::grafeas::v1::AttestationOccurrence,
     &gt;,
-    <span class="doccomment">/// Required. The resource name of the \[Note][grafeas.v1.Note\] to which the
-    /// containing \[Occurrence][grafeas.v1.Occurrence\] is associated.
+    <span class="doccomment">/// Required. The resource name of the [Note][grafeas.v1.Note] to which the
+    /// containing [Occurrence][grafeas.v1.Occurrence] is associated.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>occurrence_note: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The URI of the artifact (e.g. container image) that is the
-    /// subject of the containing \[Occurrence][grafeas.v1.Occurrence\].
+    /// subject of the containing [Occurrence][grafeas.v1.Occurrence].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>occurrence_resource_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[ValidationHelperV1.ValidateAttestationOccurrence][google.cloud.binaryauthorization.v1.ValidationHelperV1.ValidateAttestationOccurrence\].
+/// [ValidationHelperV1.ValidateAttestationOccurrence][google.cloud.binaryauthorization.v1.ValidationHelperV1.ValidateAttestationOccurrence].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ValidateAttestationOccurrenceResponse {

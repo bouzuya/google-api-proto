@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/identity/accesscontextmanager/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/identity/accesscontextmanager/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3194,7 +3194,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Immutable. Google Group id whose members are subject to this binding&#39;s restrictions.
-    /// See &quot;id&quot; in the [G Suite Directory API&#39;s Groups resource]
+    /// See &quot;id&quot; in the \[G Suite Directory API&#39;s Groups resource\]
     /// (&lt;https://developers.google.com/admin-sdk/directory/v1/reference/groups#resource&gt;).
     /// If a group&#39;s email address/alias is changed, this resource will continue
     /// to point at the changed group. This field does not accept group email
@@ -3275,19 +3275,19 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAccessLevelsRequest {
-    <span class="doccomment">/// Required. Resource name for the access policy to list [Access Levels]
+    <span class="doccomment">/// Required. Resource name for the access policy to list \[Access Levels\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] from.
     ///
     /// Format:
     /// `accessPolicies/{policy_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Number of [Access Levels]
+    <span class="doccomment">/// Number of \[Access Levels\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] to include in
     /// the list. Default 100.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Next page token for the next batch of [Access Level]
+    <span class="doccomment">/// Next page token for the next batch of \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] instances.
     /// Defaults to the first page of results.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
@@ -3302,7 +3302,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAccessLevelsResponse {
-    <span class="doccomment">/// List of the [Access Level]
+    <span class="doccomment">/// List of the \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] instances.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>access_levels: ::prost::alloc::vec::Vec&lt;AccessLevel&gt;,
@@ -3315,7 +3315,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetAccessLevelRequest {
-    <span class="doccomment">/// Required. Resource name for the [Access Level]
+    <span class="doccomment">/// Required. Resource name for the \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\].
     ///
     /// Format:
@@ -3324,9 +3324,9 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether to return `BasicLevels` in the Cloud Common Expression
     /// Language rather than as `BasicLevels`. Defaults to AS_DEFINED, where
-    /// [Access Levels] \[google.identity.accesscontextmanager.v1.AccessLevel\]
+    /// \[Access Levels\] [google.identity.accesscontextmanager.v1.AccessLevel]
     /// are returned as `BasicLevels` or `CustomLevels` based on how they were
-    /// created. If set to CEL, all [Access Levels]
+    /// created. If set to CEL, all \[Access Levels\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] are returned as
     /// `CustomLevels`. In the CEL case, `BasicLevels` are translated to equivalent
     /// `CustomLevels`.
@@ -3343,9 +3343,9 @@
     /// Format: `accessPolicies/{policy_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The [Access Level]
+    <span class="doccomment">/// Required. The \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] to create.
-    /// Syntactic correctness of the [Access Level]
+    /// Syntactic correctness of the \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] is a
     /// precondition for creation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
@@ -3355,9 +3355,9 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateAccessLevelRequest {
-    <span class="doccomment">/// Required. The updated [Access Level]
+    <span class="doccomment">/// Required. The updated \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\]. Syntactic
-    /// correctness of the [Access Level]
+    /// correctness of the \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] is a
     /// precondition for creation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
@@ -3370,7 +3370,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteAccessLevelRequest {
-    <span class="doccomment">/// Required. Resource name for the [Access Level]
+    <span class="doccomment">/// Required. Resource name for the \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\].
     ///
     /// Format:
@@ -3384,21 +3384,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReplaceAccessLevelsRequest {
     <span class="doccomment">/// Required. Resource name for the access policy which owns these
-    /// [Access Levels]
+    /// \[Access Levels\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\].
     ///
     /// Format: `accessPolicies/{policy_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The desired [Access Levels]
+    <span class="doccomment">/// Required. The desired \[Access Levels\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] that should
-    /// replace all existing [Access Levels]
+    /// replace all existing \[Access Levels\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] in the
-    /// [Access Policy]
+    /// \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>access_levels: ::prost::alloc::vec::Vec&lt;AccessLevel&gt;,
-    <span class="doccomment">/// Optional. The etag for the version of the [Access Policy]
+    <span class="doccomment">/// Optional. The etag for the version of the \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\] that this
     /// replace operation is to be performed on. If, at the time of replace, the
     /// etag for the Access Policy stored in Access Context Manager is different
@@ -3413,7 +3413,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReplaceAccessLevelsResponse {
-    <span class="doccomment">/// List of the [Access Level]
+    <span class="doccomment">/// List of the \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] instances.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>access_levels: ::prost::alloc::vec::Vec&lt;AccessLevel&gt;,
@@ -3422,19 +3422,19 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListServicePerimetersRequest {
-    <span class="doccomment">/// Required. Resource name for the access policy to list [Service Perimeters]
+    <span class="doccomment">/// Required. Resource name for the access policy to list \[Service Perimeters\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] from.
     ///
     /// Format:
     /// `accessPolicies/{policy_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Number of [Service Perimeters]
+    <span class="doccomment">/// Number of \[Service Perimeters\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] to include
     /// in the list. Default 100.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Next page token for the next batch of [Service Perimeter]
+    <span class="doccomment">/// Next page token for the next batch of \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] instances.
     /// Defaults to the first page of results.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
@@ -3444,7 +3444,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListServicePerimetersResponse {
-    <span class="doccomment">/// List of the [Service Perimeter]
+    <span class="doccomment">/// List of the \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] instances.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>service_perimeters: ::prost::alloc::vec::Vec&lt;ServicePerimeter&gt;,
@@ -3457,7 +3457,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetServicePerimeterRequest {
-    <span class="doccomment">/// Required. Resource name for the [Service Perimeter]
+    <span class="doccomment">/// Required. Resource name for the \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\].
     ///
     /// Format:
@@ -3475,9 +3475,9 @@
     /// Format: `accessPolicies/{policy_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The [Service Perimeter]
+    <span class="doccomment">/// Required. The \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] to create.
-    /// Syntactic correctness of the [Service Perimeter]
+    /// Syntactic correctness of the \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] is a
     /// precondition for creation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
@@ -3499,7 +3499,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteServicePerimeterRequest {
-    <span class="doccomment">/// Required. Resource name for the [Service Perimeter]
+    <span class="doccomment">/// Required. Resource name for the \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\].
     ///
     /// Format:
@@ -3513,21 +3513,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReplaceServicePerimetersRequest {
     <span class="doccomment">/// Required. Resource name for the access policy which owns these
-    /// [Service Perimeters]
+    /// \[Service Perimeters\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\].
     ///
     /// Format: `accessPolicies/{policy_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The desired [Service Perimeters]
+    <span class="doccomment">/// Required. The desired \[Service Perimeters\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] that should
-    /// replace all existing [Service Perimeters]
+    /// replace all existing \[Service Perimeters\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] in the
-    /// [Access Policy]
+    /// \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>service_perimeters: ::prost::alloc::vec::Vec&lt;ServicePerimeter&gt;,
-    <span class="doccomment">/// Optional. The etag for the version of the [Access Policy]
+    <span class="doccomment">/// Optional. The etag for the version of the \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\] that this
     /// replace operation is to be performed on. If, at the time of replace, the
     /// etag for the Access Policy stored in Access Context Manager is different
@@ -3542,27 +3542,27 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReplaceServicePerimetersResponse {
-    <span class="doccomment">/// List of the [Service Perimeter]
+    <span class="doccomment">/// List of the \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] instances.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>service_perimeters: ::prost::alloc::vec::Vec&lt;ServicePerimeter&gt;,
 }
-<span class="doccomment">/// A request to commit dry-run specs in all [Service Perimeters]
+<span class="doccomment">/// A request to commit dry-run specs in all \[Service Perimeters\]
 /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] belonging to
-/// an [Access Policy]\[google.identity.accesscontextmanager.v1.AccessPolicy\].
+/// an [Access Policy][google.identity.accesscontextmanager.v1.AccessPolicy].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommitServicePerimetersRequest {
-    <span class="doccomment">/// Required. Resource name for the parent [Access Policy]
+    <span class="doccomment">/// Required. Resource name for the parent \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\] which owns all
-    /// [Service Perimeters]
+    /// \[Service Perimeters\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] in scope for
     /// the commit operation.
     ///
     /// Format: `accessPolicies/{policy_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The etag for the version of the [Access Policy]
+    <span class="doccomment">/// Optional. The etag for the version of the \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\] that this
     /// commit operation is to be performed on. If, at the time of commit, the
     /// etag for the Access Policy stored in Access Context Manager is different
@@ -3577,9 +3577,9 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommitServicePerimetersResponse {
-    <span class="doccomment">/// List of all the [Service Perimeter]
+    <span class="doccomment">/// List of all the \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] instances in
-    /// the [Access Policy]
+    /// the \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>service_perimeters: ::prost::alloc::vec::Vec&lt;ServicePerimeter&gt;,

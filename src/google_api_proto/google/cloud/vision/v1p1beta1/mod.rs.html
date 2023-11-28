@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/vision/v1p1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/vision/v1p1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1303,7 +1303,99 @@
 <a href="#1303" id="1303">1303</a>
 <a href="#1304" id="1304">1304</a>
 <a href="#1305" id="1305">1305</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A vertex represents a 2D point in the image.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Relevant information for the image from the Internet.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WebDetection {
+    <span class="doccomment">/// Deduced entities from similar images on the Internet.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>web_entities: ::prost::alloc::vec::Vec&lt;web_detection::WebEntity&gt;,
+    <span class="doccomment">/// Fully matching images from the Internet.
+    /// Can include resized copies of the query image.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>full_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
+    <span class="doccomment">/// Partial matching images from the Internet.
+    /// Those images are similar enough to share some key-point features. For
+    /// example an original image will likely have partial matching for its crops.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>partial_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
+    <span class="doccomment">/// Web pages containing the matching images from the Internet.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>pages_with_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebPage&gt;,
+    <span class="doccomment">/// The visually similar image results.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>visually_similar_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
+    <span class="doccomment">/// Best guess text labels for the request image.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>best_guess_labels: ::prost::alloc::vec::Vec&lt;web_detection::WebLabel&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `WebDetection`.
+</span><span class="kw">pub mod </span>web_detection {
+    <span class="doccomment">/// Entity deduced from similar images on the Internet.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>WebEntity {
+        <span class="doccomment">/// Opaque entity ID.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>entity_id: ::prost::alloc::string::String,
+        <span class="doccomment">/// Overall relevancy score for the entity.
+        /// Not normalized and not comparable across different image queries.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>score: f32,
+        <span class="doccomment">/// Canonical description of the entity, in English.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Metadata for online images.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>WebImage {
+        <span class="doccomment">/// The result image URL.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
+        <span class="doccomment">/// (Deprecated) Overall relevancy score for the image.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>score: f32,
+    }
+    <span class="doccomment">/// Metadata for web pages.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>WebPage {
+        <span class="doccomment">/// The result web page URL.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
+        <span class="doccomment">/// (Deprecated) Overall relevancy score for the web page.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>score: f32,
+        <span class="doccomment">/// Title for the web page, may contain HTML markups.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>page_title: ::prost::alloc::string::String,
+        <span class="doccomment">/// Fully matching images on the page.
+        /// Can include resized copies of the query image.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>full_matching_images: ::prost::alloc::vec::Vec&lt;WebImage&gt;,
+        <span class="doccomment">/// Partial matching images on the page.
+        /// Those images are similar enough to share some key-point features. For
+        /// example an original image will likely have partial matching for its
+        /// crops.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>partial_matching_images: ::prost::alloc::vec::Vec&lt;WebImage&gt;,
+    }
+    <span class="doccomment">/// Label to provide extra metadata for the web detection.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>WebLabel {
+        <span class="doccomment">/// Label for extra metadata.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
+        <span class="doccomment">/// The BCP-47 language code for `label`, such as &quot;en-US&quot; or &quot;sr-Latn&quot;.
+        /// For more information, see
+        /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    }
+}
+<span class="doccomment">/// A vertex represents a 2D point in the image.
 /// NOTE: the vertex coordinates are in the same scale as the original image.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1345,7 +1437,7 @@
 /// Each structural component, starting from Page, may further have their own
 /// properties. Properties describe detected languages, breaks etc.. Please refer
 /// to the
-/// \[TextAnnotation.TextProperty][google.cloud.vision.v1p1beta1.TextAnnotation.TextProperty\]
+/// [TextAnnotation.TextProperty][google.cloud.vision.v1p1beta1.TextAnnotation.TextProperty]
 /// message definition below for more detail.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1368,7 +1460,7 @@
         /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-        <span class="doccomment">/// Confidence of detected language. Range [0, 1].
+        <span class="doccomment">/// Confidence of detected language. Range \[0, 1\].
         </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>confidence: f32,
     }
@@ -1470,7 +1562,7 @@
     <span class="doccomment">/// List of blocks of text, images etc on this page.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>blocks: ::prost::alloc::vec::Vec&lt;Block&gt;,
-    <span class="doccomment">/// Confidence of the OCR results on the page. Range [0, 1].
+    <span class="doccomment">/// Confidence of the OCR results on the page. Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>confidence: f32,
 }
@@ -1504,7 +1596,7 @@
     <span class="doccomment">/// Detected block type (text, image etc) for this block.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;block::BlockType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>block_type: i32,
-    <span class="doccomment">/// Confidence of the OCR results on the block. Range [0, 1].
+    <span class="doccomment">/// Confidence of the OCR results on the block. Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>confidence: f32,
 }
@@ -1593,7 +1685,7 @@
     <span class="doccomment">/// List of words in this paragraph.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>words: ::prost::alloc::vec::Vec&lt;Word&gt;,
-    <span class="doccomment">/// Confidence of the OCR results for the paragraph. Range [0, 1].
+    <span class="doccomment">/// Confidence of the OCR results for the paragraph. Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>confidence: f32,
 }
@@ -1625,7 +1717,7 @@
     /// The order of the symbols follows the natural reading order.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>symbols: ::prost::alloc::vec::Vec&lt;Symbol&gt;,
-    <span class="doccomment">/// Confidence of the OCR results for the word. Range [0, 1].
+    <span class="doccomment">/// Confidence of the OCR results for the word. Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>confidence: f32,
 }
@@ -1656,101 +1748,9 @@
     <span class="doccomment">/// The actual UTF-8 representation of the symbol.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
-    <span class="doccomment">/// Confidence of the OCR results for the symbol. Range [0, 1].
+    <span class="doccomment">/// Confidence of the OCR results for the symbol. Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>confidence: f32,
-}
-<span class="doccomment">/// Relevant information for the image from the Internet.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WebDetection {
-    <span class="doccomment">/// Deduced entities from similar images on the Internet.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>web_entities: ::prost::alloc::vec::Vec&lt;web_detection::WebEntity&gt;,
-    <span class="doccomment">/// Fully matching images from the Internet.
-    /// Can include resized copies of the query image.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>full_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
-    <span class="doccomment">/// Partial matching images from the Internet.
-    /// Those images are similar enough to share some key-point features. For
-    /// example an original image will likely have partial matching for its crops.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>partial_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
-    <span class="doccomment">/// Web pages containing the matching images from the Internet.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>pages_with_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebPage&gt;,
-    <span class="doccomment">/// The visually similar image results.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>visually_similar_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
-    <span class="doccomment">/// Best guess text labels for the request image.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>best_guess_labels: ::prost::alloc::vec::Vec&lt;web_detection::WebLabel&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `WebDetection`.
-</span><span class="kw">pub mod </span>web_detection {
-    <span class="doccomment">/// Entity deduced from similar images on the Internet.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>WebEntity {
-        <span class="doccomment">/// Opaque entity ID.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>entity_id: ::prost::alloc::string::String,
-        <span class="doccomment">/// Overall relevancy score for the entity.
-        /// Not normalized and not comparable across different image queries.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>score: f32,
-        <span class="doccomment">/// Canonical description of the entity, in English.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Metadata for online images.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>WebImage {
-        <span class="doccomment">/// The result image URL.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
-        <span class="doccomment">/// (Deprecated) Overall relevancy score for the image.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>score: f32,
-    }
-    <span class="doccomment">/// Metadata for web pages.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>WebPage {
-        <span class="doccomment">/// The result web page URL.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
-        <span class="doccomment">/// (Deprecated) Overall relevancy score for the web page.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>score: f32,
-        <span class="doccomment">/// Title for the web page, may contain HTML markups.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>page_title: ::prost::alloc::string::String,
-        <span class="doccomment">/// Fully matching images on the page.
-        /// Can include resized copies of the query image.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>full_matching_images: ::prost::alloc::vec::Vec&lt;WebImage&gt;,
-        <span class="doccomment">/// Partial matching images on the page.
-        /// Those images are similar enough to share some key-point features. For
-        /// example an original image will likely have partial matching for its
-        /// crops.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>partial_matching_images: ::prost::alloc::vec::Vec&lt;WebImage&gt;,
-    }
-    <span class="doccomment">/// Label to provide extra metadata for the web detection.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>WebLabel {
-        <span class="doccomment">/// Label for extra metadata.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
-        <span class="doccomment">/// The BCP-47 language code for `label`, such as &quot;en-US&quot; or &quot;sr-Latn&quot;.
-        /// For more information, see
-        /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    }
 }
 <span class="doccomment">/// Users describe the type of Google Cloud Vision API tasks to perform over
 /// images by using *Feature*s. Each Feature indicates a type of image
@@ -1929,10 +1929,10 @@
     /// pointing relative to the image&#39;s horizontal plane. Range \[-180,180\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>tilt_angle: f32,
-    <span class="doccomment">/// Detection confidence. Range [0, 1].
+    <span class="doccomment">/// Detection confidence. Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>detection_confidence: f32,
-    <span class="doccomment">/// Face landmarking confidence. Range [0, 1].
+    <span class="doccomment">/// Face landmarking confidence. Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>landmarking_confidence: f32,
     <span class="doccomment">/// Joy likelihood.
@@ -2188,20 +2188,20 @@
     <span class="doccomment">/// Entity textual description, expressed in its `locale` language.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Overall score of the result. Range [0, 1].
+    <span class="doccomment">/// Overall score of the result. Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>score: f32,
     <span class="doccomment">/// The accuracy of the entity detection in an image.
     /// For example, for an image in which the &quot;Eiffel Tower&quot; entity is detected,
     /// this field represents the confidence that there is a tower in the query
-    /// image. Range [0, 1].
+    /// image. Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>confidence: f32,
     <span class="doccomment">/// The relevancy of the ICA (Image Content Annotation) label to the
     /// image. For example, the relevancy of &quot;tower&quot; is likely higher to an image
     /// containing the detected &quot;Eiffel Tower&quot; than to an image containing a
     /// detected distant towering building, even though the confidence that
-    /// there is a tower in each image may be the same. Range [0, 1].
+    /// there is a tower in each image may be the same. Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>topicality: f32,
     <span class="doccomment">/// Image region to which this entity belongs. Not produced
@@ -2268,11 +2268,11 @@
     <span class="doccomment">/// RGB components of the color.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>color: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Color&gt;,
-    <span class="doccomment">/// Image-specific score for this color. Value in range [0, 1].
+    <span class="doccomment">/// Image-specific score for this color. Value in range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>score: f32,
     <span class="doccomment">/// The fraction of pixels the color occupies in the image.
-    /// Value in range [0, 1].
+    /// Value in range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>pixel_fraction: f32,
 }
@@ -2300,7 +2300,7 @@
     /// box are in the original image&#39;s scale, as returned in `ImageParams`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>bounding_poly: ::core::option::Option&lt;BoundingPoly&gt;,
-    <span class="doccomment">/// Confidence of this being a salient region.  Range [0, 1].
+    <span class="doccomment">/// Confidence of this being a salient region.  Range \[0, 1\].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>confidence: f32,
     <span class="doccomment">/// Fraction of importance of this salient region with respect to the original

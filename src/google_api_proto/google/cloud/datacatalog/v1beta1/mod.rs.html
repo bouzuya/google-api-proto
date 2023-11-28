@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/datacatalog/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/datacatalog/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3558,75 +3558,73 @@
 <a href="#3558" id="3558">3558</a>
 <a href="#3559" id="3559">3559</a>
 <a href="#3560" id="3560">3560</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A result that appears in the response of a search request. Each result
-/// captures details of one entry that matches the search.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Timestamps about this resource according to a particular system.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchCatalogResult {
-    <span class="doccomment">/// Type of the search result. This field can be used to determine which Get
-    /// method to call to fetch the full resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SearchResultType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>search_result_type: i32,
-    <span class="doccomment">/// Sub-type of the search result. This is a dot-delimited description of the
-    /// resource&#39;s full type, and is the same as the value callers would provide in
-    /// the &quot;type&quot; search facet.  Examples: `entry.table`, `entry.dataStream`,
-    /// `tagTemplate`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>search_result_subtype: ::prost::alloc::string::String,
-    <span class="doccomment">/// The relative resource name of the resource in URL format.
-    /// Examples:
-    ///
-    ///   * `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}`
-    ///   * `projects/{project_id}/tagTemplates/{tag_template_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>relative_resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The full name of the cloud resource the entry belongs to. See:
-    /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name.&gt;
-    /// Example:
-    ///
-    ///   * `//bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>linked_resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// Last-modified timestamp of the entry from the managing system.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>modify_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+</span><span class="kw">pub struct </span>SystemTimestamps {
+    <span class="doccomment">/// The creation time of the resource within the given system.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The last-modified time of the resource within the given system.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The expiration time of the resource within the given system.
+    /// Currently only apllicable to BigQuery resources.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
-<span class="doccomment">/// The different types of resources that can be returned in search.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>SearchResultType {
-    <span class="doccomment">/// Default unknown type.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// An \[Entry][google.cloud.datacatalog.v1beta1.Entry\].
-    </span>Entry = <span class="number">1</span>,
-    <span class="doccomment">/// A \[TagTemplate][google.cloud.datacatalog.v1beta1.TagTemplate\].
-    </span>TagTemplate = <span class="number">2</span>,
-    <span class="doccomment">/// An \[EntryGroup][google.cloud.datacatalog.v1beta1.EntryGroup\].
-    </span>EntryGroup = <span class="number">3</span>,
-}
-<span class="kw">impl </span>SearchResultType {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+<span class="doccomment">/// Describes a Cloud Storage fileset entry.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsFilesetSpec {
+    <span class="doccomment">/// Required. Patterns to identify a set of files in Google Cloud Storage.
+    /// See [Cloud Storage
+    /// documentation](&lt;https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames&gt;)
+    /// for more information. Note that bucket wildcards are currently not
+    /// supported.
     ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            SearchResultType::Unspecified =&gt; <span class="string">&quot;SEARCH_RESULT_TYPE_UNSPECIFIED&quot;</span>,
-            SearchResultType::Entry =&gt; <span class="string">&quot;ENTRY&quot;</span>,
-            SearchResultType::TagTemplate =&gt; <span class="string">&quot;TAG_TEMPLATE&quot;</span>,
-            SearchResultType::EntryGroup =&gt; <span class="string">&quot;ENTRY_GROUP&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;SEARCH_RESULT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;ENTRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Entry),
-            <span class="string">&quot;TAG_TEMPLATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TagTemplate),
-            <span class="string">&quot;ENTRY_GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EntryGroup),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
+    /// Examples of valid file_patterns:
+    ///
+    ///   * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
+    ///                               directory.
+    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
+    ///                                spanning all subdirectories.
+    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
+    ///                               `bucket_name`
+    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
+    ///                                `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
+    ///                                     vowel character followed by `.txt` in
+    ///                                     `bucket_name`
+    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
+    ///                                   or `m` followed by `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
+    ///                               `a/*/b` pattern, such as `a/c/b`, `a/d/b`
+    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+    ///
+    /// You can combine wildcards to provide more powerful matches, for example:
+    ///
+    ///   * `gs://bucket_name/\[a-m\]??.j*g`
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>file_patterns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Sample files contained in this fileset, not all files
+    /// contained in this fileset are represented here.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>sample_gcs_file_specs: ::prost::alloc::vec::Vec&lt;GcsFileSpec&gt;,
+}
+<span class="doccomment">/// Specifications of a single file in Cloud Storage.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsFileSpec {
+    <span class="doccomment">/// Required. The full file path. Example: `gs://bucket_name/a/b.txt`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>file_path: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Timestamps about the Cloud Storage file.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>gcs_timestamps: ::core::option::Option&lt;SystemTimestamps&gt;,
+    <span class="doccomment">/// Output only. The size of the file, in bytes.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>size_bytes: i64,
 }
 <span class="doccomment">/// Describes a BigQuery table.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3733,6 +3731,144 @@
         }
     }
 }
+<span class="doccomment">/// A result that appears in the response of a search request. Each result
+/// captures details of one entry that matches the search.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchCatalogResult {
+    <span class="doccomment">/// Type of the search result. This field can be used to determine which Get
+    /// method to call to fetch the full resource.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SearchResultType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>search_result_type: i32,
+    <span class="doccomment">/// Sub-type of the search result. This is a dot-delimited description of the
+    /// resource&#39;s full type, and is the same as the value callers would provide in
+    /// the &quot;type&quot; search facet.  Examples: `entry.table`, `entry.dataStream`,
+    /// `tagTemplate`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>search_result_subtype: ::prost::alloc::string::String,
+    <span class="doccomment">/// The relative resource name of the resource in URL format.
+    /// Examples:
+    ///
+    ///   * `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}`
+    ///   * `projects/{project_id}/tagTemplates/{tag_template_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>relative_resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The full name of the cloud resource the entry belongs to. See:
+    /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name.&gt;
+    /// Example:
+    ///
+    ///   * `//bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>linked_resource: ::prost::alloc::string::String,
+    <span class="doccomment">/// Last-modified timestamp of the entry from the managing system.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>modify_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// The different types of resources that can be returned in search.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>SearchResultType {
+    <span class="doccomment">/// Default unknown type.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// An [Entry][google.cloud.datacatalog.v1beta1.Entry].
+    </span>Entry = <span class="number">1</span>,
+    <span class="doccomment">/// A [TagTemplate][google.cloud.datacatalog.v1beta1.TagTemplate].
+    </span>TagTemplate = <span class="number">2</span>,
+    <span class="doccomment">/// An [EntryGroup][google.cloud.datacatalog.v1beta1.EntryGroup].
+    </span>EntryGroup = <span class="number">3</span>,
+}
+<span class="kw">impl </span>SearchResultType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            SearchResultType::Unspecified =&gt; <span class="string">&quot;SEARCH_RESULT_TYPE_UNSPECIFIED&quot;</span>,
+            SearchResultType::Entry =&gt; <span class="string">&quot;ENTRY&quot;</span>,
+            SearchResultType::TagTemplate =&gt; <span class="string">&quot;TAG_TEMPLATE&quot;</span>,
+            SearchResultType::EntryGroup =&gt; <span class="string">&quot;ENTRY_GROUP&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;SEARCH_RESULT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;ENTRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Entry),
+            <span class="string">&quot;TAG_TEMPLATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TagTemplate),
+            <span class="string">&quot;ENTRY_GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EntryGroup),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// This enum describes all the possible systems that Data Catalog integrates
+/// with.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>IntegratedSystem {
+    <span class="doccomment">/// Default unknown system.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// BigQuery.
+    </span>Bigquery = <span class="number">1</span>,
+    <span class="doccomment">/// Cloud Pub/Sub.
+    </span>CloudPubsub = <span class="number">2</span>,
+}
+<span class="kw">impl </span>IntegratedSystem {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            IntegratedSystem::Unspecified =&gt; <span class="string">&quot;INTEGRATED_SYSTEM_UNSPECIFIED&quot;</span>,
+            IntegratedSystem::Bigquery =&gt; <span class="string">&quot;BIGQUERY&quot;</span>,
+            IntegratedSystem::CloudPubsub =&gt; <span class="string">&quot;CLOUD_PUBSUB&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;INTEGRATED_SYSTEM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;BIGQUERY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bigquery),
+            <span class="string">&quot;CLOUD_PUBSUB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudPubsub),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// This enum describes all the systems that manage
+/// Taxonomy and PolicyTag resources in DataCatalog.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>ManagingSystem {
+    <span class="doccomment">/// Default value
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Dataplex.
+    </span>Dataplex = <span class="number">1</span>,
+    <span class="doccomment">/// Other
+    </span>Other = <span class="number">2</span>,
+}
+<span class="kw">impl </span>ManagingSystem {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            ManagingSystem::Unspecified =&gt; <span class="string">&quot;MANAGING_SYSTEM_UNSPECIFIED&quot;</span>,
+            ManagingSystem::Dataplex =&gt; <span class="string">&quot;MANAGING_SYSTEM_DATAPLEX&quot;</span>,
+            ManagingSystem::Other =&gt; <span class="string">&quot;MANAGING_SYSTEM_OTHER&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;MANAGING_SYSTEM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;MANAGING_SYSTEM_DATAPLEX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dataplex),
+            <span class="string">&quot;MANAGING_SYSTEM_OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
 <span class="doccomment">/// Tags are used to attach custom metadata to Data Catalog resources. Tags
 /// conform to the specifications within their tag template.
 ///
@@ -3797,7 +3933,7 @@
     }
 }
 <span class="doccomment">/// Contains the value and supporting information for a field within
-/// a \[Tag][google.cloud.datacatalog.v1beta1.Tag\].
+/// a [Tag][google.cloud.datacatalog.v1beta1.Tag].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TagField {
@@ -3806,7 +3942,7 @@
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The order of this field with respect to other fields in this
     /// tag. It can be set in
-    /// \[Tag][google.cloud.datacatalog.v1beta1.TagTemplateField.order\]. For
+    /// [Tag][google.cloud.datacatalog.v1beta1.TagTemplateField.order]. For
     /// example, a higher value can indicate a more important field. The value can
     /// be negative. Multiple fields can have the same order, and field orders
     /// within a tag do not have to be sequential.
@@ -4004,74 +4140,6 @@
         </span>EnumType(EnumType),
     }
 }
-<span class="doccomment">/// Timestamps about this resource according to a particular system.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SystemTimestamps {
-    <span class="doccomment">/// The creation time of the resource within the given system.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The last-modified time of the resource within the given system.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The expiration time of the resource within the given system.
-    /// Currently only apllicable to BigQuery resources.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Describes a Cloud Storage fileset entry.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsFilesetSpec {
-    <span class="doccomment">/// Required. Patterns to identify a set of files in Google Cloud Storage.
-    /// See [Cloud Storage
-    /// documentation](&lt;https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames&gt;)
-    /// for more information. Note that bucket wildcards are currently not
-    /// supported.
-    ///
-    /// Examples of valid file_patterns:
-    ///
-    ///   * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
-    ///                               directory.
-    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
-    ///                                spanning all subdirectories.
-    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
-    ///                               `bucket_name`
-    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
-    ///                                `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
-    ///                                     vowel character followed by `.txt` in
-    ///                                     `bucket_name`
-    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
-    ///                                   or `m` followed by `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
-    ///                               `a/*/b` pattern, such as `a/c/b`, `a/d/b`
-    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
-    ///
-    /// You can combine wildcards to provide more powerful matches, for example:
-    ///
-    ///   * `gs://bucket_name/\[a-m\]??.j*g`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>file_patterns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Sample files contained in this fileset, not all files
-    /// contained in this fileset are represented here.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>sample_gcs_file_specs: ::prost::alloc::vec::Vec&lt;GcsFileSpec&gt;,
-}
-<span class="doccomment">/// Specifications of a single file in Cloud Storage.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsFileSpec {
-    <span class="doccomment">/// Required. The full file path. Example: `gs://bucket_name/a/b.txt`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>file_path: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Timestamps about the Cloud Storage file.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>gcs_timestamps: ::core::option::Option&lt;SystemTimestamps&gt;,
-    <span class="doccomment">/// Output only. The size of the file, in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>size_bytes: i64,
-}
 <span class="doccomment">/// Represents a schema (e.g. BigQuery, GoogleSQL, Avro schema).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4104,74 +4172,6 @@
     /// sub-columns.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>subcolumns: ::prost::alloc::vec::Vec&lt;ColumnSchema&gt;,
-}
-<span class="doccomment">/// This enum describes all the possible systems that Data Catalog integrates
-/// with.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>IntegratedSystem {
-    <span class="doccomment">/// Default unknown system.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// BigQuery.
-    </span>Bigquery = <span class="number">1</span>,
-    <span class="doccomment">/// Cloud Pub/Sub.
-    </span>CloudPubsub = <span class="number">2</span>,
-}
-<span class="kw">impl </span>IntegratedSystem {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            IntegratedSystem::Unspecified =&gt; <span class="string">&quot;INTEGRATED_SYSTEM_UNSPECIFIED&quot;</span>,
-            IntegratedSystem::Bigquery =&gt; <span class="string">&quot;BIGQUERY&quot;</span>,
-            IntegratedSystem::CloudPubsub =&gt; <span class="string">&quot;CLOUD_PUBSUB&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;INTEGRATED_SYSTEM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;BIGQUERY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bigquery),
-            <span class="string">&quot;CLOUD_PUBSUB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudPubsub),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// This enum describes all the systems that manage
-/// Taxonomy and PolicyTag resources in DataCatalog.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>ManagingSystem {
-    <span class="doccomment">/// Default value
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Dataplex.
-    </span>Dataplex = <span class="number">1</span>,
-    <span class="doccomment">/// Other
-    </span>Other = <span class="number">2</span>,
-}
-<span class="kw">impl </span>ManagingSystem {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            ManagingSystem::Unspecified =&gt; <span class="string">&quot;MANAGING_SYSTEM_UNSPECIFIED&quot;</span>,
-            ManagingSystem::Dataplex =&gt; <span class="string">&quot;MANAGING_SYSTEM_DATAPLEX&quot;</span>,
-            ManagingSystem::Other =&gt; <span class="string">&quot;MANAGING_SYSTEM_OTHER&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;MANAGING_SYSTEM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MANAGING_SYSTEM_DATAPLEX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dataplex),
-            <span class="string">&quot;MANAGING_SYSTEM_OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
 }
 <span class="doccomment">/// Detailed counts on the entry&#39;s usage.
 /// Caveats:
@@ -4213,8 +4213,1037 @@
         UsageStats,
     &gt;,
 }
+<span class="doccomment">/// A taxonomy is a collection of policy tags that classify data along a common
+/// axis. For instance a data *sensitivity* taxonomy could contain policy tags
+/// denoting PII such as age, zipcode, and SSN. A data *origin* taxonomy could
+/// contain policy tags to distinguish user data, employee data, partner data,
+/// public data.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Taxonomy {
+    <span class="doccomment">/// Output only. Resource name of this taxonomy, whose format is:
+    /// &quot;projects/{project_number}/locations/{location_id}/taxonomies/{id}&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. User defined name of this taxonomy. It must: contain only unicode
+    /// letters, numbers, underscores, dashes and spaces; not start or end with
+    /// spaces; and be at most 200 bytes long when encoded in UTF-8.
+    ///
+    /// The taxonomy display name must be unique within an organization.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Description of this taxonomy. It must: contain only unicode
+    /// characters, tabs, newlines, carriage returns and page breaks; and be at
+    /// most 2000 bytes long when encoded in UTF-8. If not set, defaults to an
+    /// empty description.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Number of policy tags contained in this taxonomy.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>policy_tag_count: i32,
+    <span class="doccomment">/// Output only. Timestamps about this taxonomy. Only create_time and
+    /// update_time are used.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomy_timestamps: ::core::option::Option&lt;SystemTimestamps&gt;,
+    <span class="doccomment">/// Optional. A list of policy types that are activated for this taxonomy. If
+    /// not set, defaults to an empty list.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;taxonomy::PolicyType&quot;</span>, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>activated_policy_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
+    <span class="doccomment">/// Output only. Identity of the service which owns the Taxonomy. This field is
+    /// only populated when the taxonomy is created by a Google Cloud service.
+    /// Currently only &#39;DATAPLEX&#39; is supported.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>service: ::core::option::Option&lt;taxonomy::Service&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Taxonomy`.
+</span><span class="kw">pub mod </span>taxonomy {
+    <span class="doccomment">/// The source system of the Taxonomy.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Service {
+        <span class="doccomment">/// The Google Cloud service name.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::ManagingSystem&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>name: i32,
+        <span class="doccomment">/// The service agent for the service.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>identity: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Defines policy types where policy tag can be used for.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>PolicyType {
+        <span class="doccomment">/// Unspecified policy type.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Fine grained access control policy, which enables access control on
+        /// tagged resources.
+        </span>FineGrainedAccessControl = <span class="number">1</span>,
+    }
+    <span class="kw">impl </span>PolicyType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                PolicyType::Unspecified =&gt; <span class="string">&quot;POLICY_TYPE_UNSPECIFIED&quot;</span>,
+                PolicyType::FineGrainedAccessControl =&gt; <span class="string">&quot;FINE_GRAINED_ACCESS_CONTROL&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;POLICY_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;FINE_GRAINED_ACCESS_CONTROL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FineGrainedAccessControl),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Denotes one policy tag in a taxonomy (e.g. ssn). Policy Tags can be defined
+/// in a hierarchy. For example, consider the following hierarchy:
+/// Geolocation -&amp;gt; (LatLong, City, ZipCode). PolicyTag &quot;Geolocation&quot;
+/// contains three child policy tags: &quot;LatLong&quot;, &quot;City&quot;, and &quot;ZipCode&quot;.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PolicyTag {
+    <span class="doccomment">/// Output only. Resource name of this policy tag, whose format is:
+    /// &quot;projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. User defined name of this policy tag. It must: be unique within
+    /// the parent taxonomy; contain only unicode letters, numbers, underscores,
+    /// dashes and spaces; not start or end with spaces; and be at most 200 bytes
+    /// long when encoded in UTF-8.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Description of this policy tag. It must: contain only unicode characters,
+    /// tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes
+    /// long when encoded in UTF-8. If not set, defaults to an empty description.
+    /// If not set, defaults to an empty description.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Resource name of this policy tag&#39;s parent policy tag (e.g. for the
+    /// &quot;LatLong&quot; policy tag in the example above, this field contains the
+    /// resource name of the &quot;Geolocation&quot; policy tag). If empty, it means this
+    /// policy tag is a top level policy tag (e.g. this field is empty for the
+    /// &quot;Geolocation&quot; policy tag in the example above). If not set, defaults to an
+    /// empty string.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>parent_policy_tag: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Resource names of child policy tags of this policy tag.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>child_policy_tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
 <span class="doccomment">/// Request message for
-/// \[SearchCatalog][google.cloud.datacatalog.v1beta1.DataCatalog.SearchCatalog\].
+/// [CreateTaxonomy][google.cloud.datacatalog.v1beta1.PolicyTagManager.CreateTaxonomy].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateTaxonomyRequest {
+    <span class="doccomment">/// Required. Resource name of the project that the taxonomy will belong to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The taxonomy to be created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomy: ::core::option::Option&lt;Taxonomy&gt;,
+}
+<span class="doccomment">/// Request message for
+/// [DeleteTaxonomy][google.cloud.datacatalog.v1beta1.PolicyTagManager.DeleteTaxonomy].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteTaxonomyRequest {
+    <span class="doccomment">/// Required. Resource name of the taxonomy to be deleted. All policy tags in
+    /// this taxonomy will also be deleted.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for
+/// [UpdateTaxonomy][google.cloud.datacatalog.v1beta1.PolicyTagManager.UpdateTaxonomy].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateTaxonomyRequest {
+    <span class="doccomment">/// The taxonomy to update. Only description, display_name, and activated
+    /// policy types can be updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomy: ::core::option::Option&lt;Taxonomy&gt;,
+    <span class="doccomment">/// The update mask applies to the resource. For the `FieldMask` definition,
+    /// see
+    /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
+    /// If not set, defaults to all of the fields that are allowed to update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+}
+<span class="doccomment">/// Request message for
+/// [ListTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManager.ListTaxonomies].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListTaxonomiesRequest {
+    <span class="doccomment">/// Required. Resource name of the project to list the taxonomies of.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of items to return. Must be a value between 1 and 1000.
+    /// If not set, defaults to 50.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// The next_page_token value returned from a previous list request, if any. If
+    /// not set, defaults to an empty string.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Supported field for filter is &#39;service&#39; and value is &#39;dataplex&#39;.
+    /// Eg: service=dataplex.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Response message for
+/// [ListTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManager.ListTaxonomies].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListTaxonomiesResponse {
+    <span class="doccomment">/// Taxonomies that the project contains.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;Taxonomy&gt;,
+    <span class="doccomment">/// Token used to retrieve the next page of results, or empty if there are no
+    /// more results in the list.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for
+/// [GetTaxonomy][google.cloud.datacatalog.v1beta1.PolicyTagManager.GetTaxonomy].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetTaxonomyRequest {
+    <span class="doccomment">/// Required. Resource name of the requested taxonomy.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for
+/// [CreatePolicyTag][google.cloud.datacatalog.v1beta1.PolicyTagManager.CreatePolicyTag].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreatePolicyTagRequest {
+    <span class="doccomment">/// Required. Resource name of the taxonomy that the policy tag will belong to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The policy tag to be created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>policy_tag: ::core::option::Option&lt;PolicyTag&gt;,
+}
+<span class="doccomment">/// Request message for
+/// [DeletePolicyTag][google.cloud.datacatalog.v1beta1.PolicyTagManager.DeletePolicyTag].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeletePolicyTagRequest {
+    <span class="doccomment">/// Required. Resource name of the policy tag to be deleted. All of its
+    /// descendant policy tags will also be deleted.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for
+/// [UpdatePolicyTag][google.cloud.datacatalog.v1beta1.PolicyTagManager.UpdatePolicyTag].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdatePolicyTagRequest {
+    <span class="doccomment">/// The policy tag to update. Only the description, display_name, and
+    /// parent_policy_tag fields can be updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>policy_tag: ::core::option::Option&lt;PolicyTag&gt;,
+    <span class="doccomment">/// The update mask applies to the resource. Only display_name, description and
+    /// parent_policy_tag can be updated and thus can be listed in the mask. If
+    /// update_mask is not provided, all allowed fields (i.e. display_name,
+    /// description and parent) will be updated. For more information including the
+    /// `FieldMask` definition, see
+    /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
+    /// If not set, defaults to all of the fields that are allowed to update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+}
+<span class="doccomment">/// Request message for
+/// [ListPolicyTags][google.cloud.datacatalog.v1beta1.PolicyTagManager.ListPolicyTags].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListPolicyTagsRequest {
+    <span class="doccomment">/// Required. Resource name of the taxonomy to list the policy tags of.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of items to return. Must be a value between 1 and 1000.
+    /// If not set, defaults to 50.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// The next_page_token value returned from a previous List request, if any. If
+    /// not set, defaults to an empty string.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Response message for
+/// [ListPolicyTags][google.cloud.datacatalog.v1beta1.PolicyTagManager.ListPolicyTags].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListPolicyTagsResponse {
+    <span class="doccomment">/// The policy tags that are in the requested taxonomy.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>policy_tags: ::prost::alloc::vec::Vec&lt;PolicyTag&gt;,
+    <span class="doccomment">/// Token used to retrieve the next page of results, or empty if there are no
+    /// more results in the list.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for
+/// [GetPolicyTag][google.cloud.datacatalog.v1beta1.PolicyTagManager.GetPolicyTag].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetPolicyTagRequest {
+    <span class="doccomment">/// Required. Resource name of the requested policy tag.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>policy_tag_manager_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// The policy tag manager API service allows clients to manage their taxonomies
+    /// and policy tags.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>PolicyTagManagerClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; PolicyTagManagerClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; PolicyTagManagerClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            PolicyTagManagerClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Creates a taxonomy in the specified project.
+        </span><span class="kw">pub async fn </span>create_taxonomy(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateTaxonomyRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Taxonomy&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/CreateTaxonomy&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;CreateTaxonomy&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Deletes a taxonomy. This operation will also delete all
+        /// policy tags in this taxonomy along with their associated policies.
+        </span><span class="kw">pub async fn </span>delete_taxonomy(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteTaxonomyRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/DeleteTaxonomy&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;DeleteTaxonomy&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Updates a taxonomy.
+        </span><span class="kw">pub async fn </span>update_taxonomy(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateTaxonomyRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Taxonomy&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/UpdateTaxonomy&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;UpdateTaxonomy&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Lists all taxonomies in a project in a particular location that the caller
+        /// has permission to view.
+        </span><span class="kw">pub async fn </span>list_taxonomies(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListTaxonomiesRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListTaxonomiesResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/ListTaxonomies&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;ListTaxonomies&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets a taxonomy.
+        </span><span class="kw">pub async fn </span>get_taxonomy(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetTaxonomyRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Taxonomy&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/GetTaxonomy&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;GetTaxonomy&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Creates a policy tag in the specified taxonomy.
+        </span><span class="kw">pub async fn </span>create_policy_tag(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreatePolicyTagRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::PolicyTag&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/CreatePolicyTag&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;CreatePolicyTag&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Deletes a policy tag. Also deletes all of its descendant policy tags.
+        </span><span class="kw">pub async fn </span>delete_policy_tag(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeletePolicyTagRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/DeletePolicyTag&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;DeletePolicyTag&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Updates a policy tag.
+        </span><span class="kw">pub async fn </span>update_policy_tag(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdatePolicyTagRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::PolicyTag&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/UpdatePolicyTag&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;UpdatePolicyTag&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Lists all policy tags in a taxonomy.
+        </span><span class="kw">pub async fn </span>list_policy_tags(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListPolicyTagsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListPolicyTagsResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/ListPolicyTags&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;ListPolicyTags&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets a policy tag.
+        </span><span class="kw">pub async fn </span>get_policy_tag(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetPolicyTagRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::PolicyTag&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/GetPolicyTag&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;GetPolicyTag&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets the IAM policy for a taxonomy or a policy tag.
+        </span><span class="kw">pub async fn </span>get_iam_policy(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;
+                <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::GetIamPolicyRequest,
+            &gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/GetIamPolicy&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;GetIamPolicy&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Sets the IAM policy for a taxonomy or a policy tag.
+        </span><span class="kw">pub async fn </span>set_iam_policy(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;
+                <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::SetIamPolicyRequest,
+            &gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/SetIamPolicy&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;SetIamPolicy&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Returns the permissions that a caller has on the specified taxonomy or
+        /// policy tag.
+        </span><span class="kw">pub async fn </span>test_iam_permissions(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;
+                <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::TestIamPermissionsRequest,
+            &gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;
+                <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::TestIamPermissionsResponse,
+            &gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/TestIamPermissions&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
+                        <span class="string">&quot;TestIamPermissions&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// Message capturing a taxonomy and its policy tag hierarchy as a nested proto.
+/// Used for taxonomy import/export and mutation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SerializedTaxonomy {
+    <span class="doccomment">/// Required. Display name of the taxonomy. Max 200 bytes when encoded in
+    /// UTF-8.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Description of the serialized taxonomy. The length of the
+    /// description is limited to 2000 bytes when encoded in UTF-8. If not set,
+    /// defaults to an empty description.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Top level policy tags associated with the taxonomy if any.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>policy_tags: ::prost::alloc::vec::Vec&lt;SerializedPolicyTag&gt;,
+    <span class="doccomment">/// A list of policy types that are activated for a taxonomy.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;taxonomy::PolicyType&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>activated_policy_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
+}
+<span class="doccomment">/// Message representing one policy tag when exported as a nested proto.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SerializedPolicyTag {
+    <span class="doccomment">/// Resource name of the policy tag.
+    ///
+    /// This field will be ignored when calling ImportTaxonomies.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>policy_tag: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Display name of the policy tag. Max 200 bytes when encoded in
+    /// UTF-8.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Description of the serialized policy tag. The length of the
+    /// description is limited to 2000 bytes when encoded in UTF-8. If not set,
+    /// defaults to an empty description.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Children of the policy tag if any.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>child_policy_tags: ::prost::alloc::vec::Vec&lt;SerializedPolicyTag&gt;,
+}
+<span class="doccomment">/// Request message for
+/// [ImportTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization.ImportTaxonomies].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportTaxonomiesRequest {
+    <span class="doccomment">/// Required. Resource name of project that the imported taxonomies will belong
+    /// to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Source taxonomies to be imported.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_taxonomies_request::Source&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_taxonomies_request::Source&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ImportTaxonomiesRequest`.
+</span><span class="kw">pub mod </span>import_taxonomies_request {
+    <span class="doccomment">/// Source taxonomies to be imported.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Source {
+        <span class="doccomment">/// Inline source used for taxonomies to be imported.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>InlineSource(<span class="kw">super</span>::InlineSource),
+    }
+}
+<span class="doccomment">/// Inline source used for taxonomies import.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>InlineSource {
+    <span class="doccomment">/// Required. Taxonomies to be imported.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;SerializedTaxonomy&gt;,
+}
+<span class="doccomment">/// Response message for
+/// [ImportTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization.ImportTaxonomies].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportTaxonomiesResponse {
+    <span class="doccomment">/// Taxonomies that were imported.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;Taxonomy&gt;,
+}
+<span class="doccomment">/// Request message for
+/// [ExportTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization.ExportTaxonomies].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExportTaxonomiesRequest {
+    <span class="doccomment">/// Required. Resource name of the project that taxonomies to be exported
+    /// will share.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Resource names of the taxonomies to be exported.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Required. Taxonomies export destination.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;export_taxonomies_request::Destination&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;export_taxonomies_request::Destination&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ExportTaxonomiesRequest`.
+</span><span class="kw">pub mod </span>export_taxonomies_request {
+    <span class="doccomment">/// Required. Taxonomies export destination.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Destination {
+        <span class="doccomment">/// Export taxonomies as serialized taxonomies.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>SerializedTaxonomies(bool),
+    }
+}
+<span class="doccomment">/// Response message for
+/// [ExportTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization.ExportTaxonomies].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExportTaxonomiesResponse {
+    <span class="doccomment">/// List of taxonomies and policy tags in a tree structure.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;SerializedTaxonomy&gt;,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>policy_tag_manager_serialization_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Policy tag manager serialization API service allows clients to manipulate
+    /// their taxonomies and policy tags data with serialized format.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>PolicyTagManagerSerializationClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; PolicyTagManagerSerializationClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; PolicyTagManagerSerializationClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            PolicyTagManagerSerializationClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Imports all taxonomies and their policy tags to a project as new
+        /// taxonomies.
+        ///
+        /// This method provides a bulk taxonomy / policy tag creation using nested
+        /// proto structure.
+        </span><span class="kw">pub async fn </span>import_taxonomies(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ImportTaxonomiesRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ImportTaxonomiesResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization/ImportTaxonomies&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization&quot;</span>,
+                        <span class="string">&quot;ImportTaxonomies&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Exports all taxonomies and their policy tags in a project.
+        ///
+        /// This method generates SerializedTaxonomy protos with nested policy tags
+        /// that can be used as an input for future ImportTaxonomies calls.
+        </span><span class="kw">pub async fn </span>export_taxonomies(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ExportTaxonomiesRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ExportTaxonomiesResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization/ExportTaxonomies&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization&quot;</span>,
+                        <span class="string">&quot;ExportTaxonomies&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// Request message for
+/// [SearchCatalog][google.cloud.datacatalog.v1beta1.DataCatalog.SearchCatalog].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchCatalogRequest {
@@ -4243,9 +5272,9 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Pagination token returned in an earlier
-    /// \[SearchCatalogResponse.next_page_token][google.cloud.datacatalog.v1beta1.SearchCatalogResponse.next_page_token\],
+    /// [SearchCatalogResponse.next_page_token][google.cloud.datacatalog.v1beta1.SearchCatalogResponse.next_page_token],
     /// which indicates that this is a continuation of a prior
-    /// \[SearchCatalogRequest][google.cloud.datacatalog.v1beta1.DataCatalog.SearchCatalog\]
+    /// [SearchCatalogRequest][google.cloud.datacatalog.v1beta1.DataCatalog.SearchCatalog]
     /// call, and that the system should return the next page of data. If empty,
     /// the first page is returned.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
@@ -4328,7 +5357,7 @@
     }
 }
 <span class="doccomment">/// Response message for
-/// \[SearchCatalog][google.cloud.datacatalog.v1beta1.DataCatalog.SearchCatalog\].
+/// [SearchCatalog][google.cloud.datacatalog.v1beta1.DataCatalog.SearchCatalog].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchCatalogResponse {
@@ -4349,7 +5378,7 @@
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[CreateEntryGroup][google.cloud.datacatalog.v1beta1.DataCatalog.CreateEntryGroup\].
+/// [CreateEntryGroup][google.cloud.datacatalog.v1beta1.DataCatalog.CreateEntryGroup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateEntryGroupRequest {
@@ -4371,7 +5400,7 @@
     </span><span class="kw">pub </span>entry_group: ::core::option::Option&lt;EntryGroup&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[UpdateEntryGroup][google.cloud.datacatalog.v1beta1.DataCatalog.UpdateEntryGroup\].
+/// [UpdateEntryGroup][google.cloud.datacatalog.v1beta1.DataCatalog.UpdateEntryGroup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateEntryGroupRequest {
@@ -4387,7 +5416,7 @@
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[GetEntryGroup][google.cloud.datacatalog.v1beta1.DataCatalog.GetEntryGroup\].
+/// [GetEntryGroup][google.cloud.datacatalog.v1beta1.DataCatalog.GetEntryGroup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetEntryGroupRequest {
@@ -4400,7 +5429,7 @@
     </span><span class="kw">pub </span>read_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[DeleteEntryGroup][google.cloud.datacatalog.v1beta1.DataCatalog.DeleteEntryGroup\].
+/// [DeleteEntryGroup][google.cloud.datacatalog.v1beta1.DataCatalog.DeleteEntryGroup].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteEntryGroupRequest {
@@ -4413,7 +5442,7 @@
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// Request message for
-/// \[ListEntryGroups][google.cloud.datacatalog.v1beta1.DataCatalog.ListEntryGroups\].
+/// [ListEntryGroups][google.cloud.datacatalog.v1beta1.DataCatalog.ListEntryGroups].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListEntryGroupsRequest {
@@ -4433,7 +5462,7 @@
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[ListEntryGroups][google.cloud.datacatalog.v1beta1.DataCatalog.ListEntryGroups\].
+/// [ListEntryGroups][google.cloud.datacatalog.v1beta1.DataCatalog.ListEntryGroups].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListEntryGroupsResponse {
@@ -4446,7 +5475,7 @@
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CreateEntry][google.cloud.datacatalog.v1beta1.DataCatalog.CreateEntry\].
+/// [CreateEntry][google.cloud.datacatalog.v1beta1.DataCatalog.CreateEntry].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateEntryRequest {
@@ -4466,7 +5495,7 @@
     </span><span class="kw">pub </span>entry: ::core::option::Option&lt;Entry&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[UpdateEntry][google.cloud.datacatalog.v1beta1.DataCatalog.UpdateEntry\].
+/// [UpdateEntry][google.cloud.datacatalog.v1beta1.DataCatalog.UpdateEntry].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateEntryRequest {
@@ -4501,7 +5530,7 @@
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[DeleteEntry][google.cloud.datacatalog.v1beta1.DataCatalog.DeleteEntry\].
+/// [DeleteEntry][google.cloud.datacatalog.v1beta1.DataCatalog.DeleteEntry].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteEntryRequest {
@@ -4512,7 +5541,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[GetEntry][google.cloud.datacatalog.v1beta1.DataCatalog.GetEntry\].
+/// [GetEntry][google.cloud.datacatalog.v1beta1.DataCatalog.GetEntry].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetEntryRequest {
@@ -4523,7 +5552,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[LookupEntry][google.cloud.datacatalog.v1beta1.DataCatalog.LookupEntry\].
+/// [LookupEntry][google.cloud.datacatalog.v1beta1.DataCatalog.LookupEntry].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LookupEntryRequest {
@@ -4575,7 +5604,7 @@
 ///
 /// An Entry resource contains resource details, such as its schema. An Entry can
 /// also be used to attach flexible metadata, such as a
-/// \[Tag][google.cloud.datacatalog.v1beta1.Tag\].
+/// [Tag][google.cloud.datacatalog.v1beta1.Tag].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Entry {
@@ -4693,7 +5722,7 @@
 }
 <span class="doccomment">/// EntryGroup Metadata.
 /// An EntryGroup resource represents a logical grouping of zero or more
-/// Data Catalog \[Entry][google.cloud.datacatalog.v1beta1.Entry\] resources.
+/// Data Catalog [Entry][google.cloud.datacatalog.v1beta1.Entry] resources.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EntryGroup {
@@ -4720,12 +5749,12 @@
     </span><span class="kw">pub </span>data_catalog_timestamps: ::core::option::Option&lt;SystemTimestamps&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[CreateTagTemplate][google.cloud.datacatalog.v1beta1.DataCatalog.CreateTagTemplate\].
+/// [CreateTagTemplate][google.cloud.datacatalog.v1beta1.DataCatalog.CreateTagTemplate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateTagTemplateRequest {
     <span class="doccomment">/// Required. The name of the project and the template location
-    /// \[region\](&lt;https://cloud.google.com/data-catalog/docs/concepts/regions.&gt;
+    /// [region](&lt;https://cloud.google.com/data-catalog/docs/concepts/regions.&gt;
     ///
     /// Example:
     ///
@@ -4740,7 +5769,7 @@
     </span><span class="kw">pub </span>tag_template: ::core::option::Option&lt;TagTemplate&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[GetTagTemplate][google.cloud.datacatalog.v1beta1.DataCatalog.GetTagTemplate\].
+/// [GetTagTemplate][google.cloud.datacatalog.v1beta1.DataCatalog.GetTagTemplate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTagTemplateRequest {
@@ -4751,7 +5780,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[UpdateTagTemplate][google.cloud.datacatalog.v1beta1.DataCatalog.UpdateTagTemplate\].
+/// [UpdateTagTemplate][google.cloud.datacatalog.v1beta1.DataCatalog.UpdateTagTemplate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTagTemplateRequest {
@@ -4768,7 +5797,7 @@
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[DeleteTagTemplate][google.cloud.datacatalog.v1beta1.DataCatalog.DeleteTagTemplate\].
+/// [DeleteTagTemplate][google.cloud.datacatalog.v1beta1.DataCatalog.DeleteTagTemplate].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteTagTemplateRequest {
@@ -4784,7 +5813,7 @@
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// Request message for
-/// \[CreateTag][google.cloud.datacatalog.v1beta1.DataCatalog.CreateTag\].
+/// [CreateTag][google.cloud.datacatalog.v1beta1.DataCatalog.CreateTag].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateTagRequest {
@@ -4802,7 +5831,7 @@
     </span><span class="kw">pub </span>tag: ::core::option::Option&lt;Tag&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[UpdateTag][google.cloud.datacatalog.v1beta1.DataCatalog.UpdateTag\].
+/// [UpdateTag][google.cloud.datacatalog.v1beta1.DataCatalog.UpdateTag].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTagRequest {
@@ -4821,7 +5850,7 @@
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[DeleteTag][google.cloud.datacatalog.v1beta1.DataCatalog.DeleteTag\].
+/// [DeleteTag][google.cloud.datacatalog.v1beta1.DataCatalog.DeleteTag].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteTagRequest {
@@ -4832,12 +5861,12 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CreateTagTemplateField][google.cloud.datacatalog.v1beta1.DataCatalog.CreateTagTemplateField\].
+/// [CreateTagTemplateField][google.cloud.datacatalog.v1beta1.DataCatalog.CreateTagTemplateField].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateTagTemplateFieldRequest {
     <span class="doccomment">/// Required. The name of the project and the template location
-    /// \[region\](&lt;https://cloud.google.com/data-catalog/docs/concepts/regions&gt;).
+    /// [region](&lt;https://cloud.google.com/data-catalog/docs/concepts/regions&gt;).
     ///
     /// Example:
     ///
@@ -4856,7 +5885,7 @@
     </span><span class="kw">pub </span>tag_template_field: ::core::option::Option&lt;TagTemplateField&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[UpdateTagTemplateField][google.cloud.datacatalog.v1beta1.DataCatalog.UpdateTagTemplateField\].
+/// [UpdateTagTemplateField][google.cloud.datacatalog.v1beta1.DataCatalog.UpdateTagTemplateField].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTagTemplateFieldRequest {
@@ -4888,7 +5917,7 @@
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[RenameTagTemplateField][google.cloud.datacatalog.v1beta1.DataCatalog.RenameTagTemplateField\].
+/// [RenameTagTemplateField][google.cloud.datacatalog.v1beta1.DataCatalog.RenameTagTemplateField].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RenameTagTemplateFieldRequest {
@@ -4903,7 +5932,7 @@
     </span><span class="kw">pub </span>new_tag_template_field_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[RenameTagTemplateFieldEnumValue][google.cloud.datacatalog.v1.DataCatalog.RenameTagTemplateFieldEnumValue\].
+/// [RenameTagTemplateFieldEnumValue][google.cloud.datacatalog.v1.DataCatalog.RenameTagTemplateFieldEnumValue].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RenameTagTemplateFieldEnumValueRequest {
@@ -4918,7 +5947,7 @@
     </span><span class="kw">pub </span>new_enum_value_display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[DeleteTagTemplateField][google.cloud.datacatalog.v1beta1.DataCatalog.DeleteTagTemplateField\].
+/// [DeleteTagTemplateField][google.cloud.datacatalog.v1beta1.DataCatalog.DeleteTagTemplateField].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteTagTemplateFieldRequest {
@@ -4934,13 +5963,13 @@
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// Request message for
-/// \[ListTags][google.cloud.datacatalog.v1beta1.DataCatalog.ListTags\].
+/// [ListTags][google.cloud.datacatalog.v1beta1.DataCatalog.ListTags].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTagsRequest {
     <span class="doccomment">/// Required. The name of the Data Catalog resource to list the tags of. The
-    /// resource could be an \[Entry][google.cloud.datacatalog.v1beta1.Entry\] or an
-    /// \[EntryGroup][google.cloud.datacatalog.v1beta1.EntryGroup\].
+    /// resource could be an [Entry][google.cloud.datacatalog.v1beta1.Entry] or an
+    /// [EntryGroup][google.cloud.datacatalog.v1beta1.EntryGroup].
     ///
     /// Examples:
     ///
@@ -4957,11 +5986,11 @@
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
-/// \[ListTags][google.cloud.datacatalog.v1beta1.DataCatalog.ListTags\].
+/// [ListTags][google.cloud.datacatalog.v1beta1.DataCatalog.ListTags].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTagsResponse {
-    <span class="doccomment">/// \[Tag][google.cloud.datacatalog.v1beta1.Tag\] details.
+    <span class="doccomment">/// [Tag][google.cloud.datacatalog.v1beta1.Tag] details.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;Tag&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results. It is set to empty if no items
@@ -4970,7 +5999,7 @@
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[ListEntries][google.cloud.datacatalog.v1beta1.DataCatalog.ListEntries\].
+/// [ListEntries][google.cloud.datacatalog.v1beta1.DataCatalog.ListEntries].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListEntriesRequest {
@@ -4996,7 +6025,7 @@
     </span><span class="kw">pub </span>read_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Response message for
-/// \[ListEntries][google.cloud.datacatalog.v1beta1.DataCatalog.ListEntries\].
+/// [ListEntries][google.cloud.datacatalog.v1beta1.DataCatalog.ListEntries].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListEntriesResponse {
@@ -6083,1035 +7112,6 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.datacatalog.v1beta1.DataCatalog&quot;</span>,
                         <span class="string">&quot;TestIamPermissions&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
-<span class="doccomment">/// A taxonomy is a collection of policy tags that classify data along a common
-/// axis. For instance a data *sensitivity* taxonomy could contain policy tags
-/// denoting PII such as age, zipcode, and SSN. A data *origin* taxonomy could
-/// contain policy tags to distinguish user data, employee data, partner data,
-/// public data.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Taxonomy {
-    <span class="doccomment">/// Output only. Resource name of this taxonomy, whose format is:
-    /// &quot;projects/{project_number}/locations/{location_id}/taxonomies/{id}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. User defined name of this taxonomy. It must: contain only unicode
-    /// letters, numbers, underscores, dashes and spaces; not start or end with
-    /// spaces; and be at most 200 bytes long when encoded in UTF-8.
-    ///
-    /// The taxonomy display name must be unique within an organization.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Description of this taxonomy. It must: contain only unicode
-    /// characters, tabs, newlines, carriage returns and page breaks; and be at
-    /// most 2000 bytes long when encoded in UTF-8. If not set, defaults to an
-    /// empty description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Number of policy tags contained in this taxonomy.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>policy_tag_count: i32,
-    <span class="doccomment">/// Output only. Timestamps about this taxonomy. Only create_time and
-    /// update_time are used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomy_timestamps: ::core::option::Option&lt;SystemTimestamps&gt;,
-    <span class="doccomment">/// Optional. A list of policy types that are activated for this taxonomy. If
-    /// not set, defaults to an empty list.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;taxonomy::PolicyType&quot;</span>, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>activated_policy_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
-    <span class="doccomment">/// Output only. Identity of the service which owns the Taxonomy. This field is
-    /// only populated when the taxonomy is created by a Google Cloud service.
-    /// Currently only &#39;DATAPLEX&#39; is supported.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>service: ::core::option::Option&lt;taxonomy::Service&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Taxonomy`.
-</span><span class="kw">pub mod </span>taxonomy {
-    <span class="doccomment">/// The source system of the Taxonomy.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Service {
-        <span class="doccomment">/// The Google Cloud service name.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::ManagingSystem&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>name: i32,
-        <span class="doccomment">/// The service agent for the service.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>identity: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Defines policy types where policy tag can be used for.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>PolicyType {
-        <span class="doccomment">/// Unspecified policy type.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Fine grained access control policy, which enables access control on
-        /// tagged resources.
-        </span>FineGrainedAccessControl = <span class="number">1</span>,
-    }
-    <span class="kw">impl </span>PolicyType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                PolicyType::Unspecified =&gt; <span class="string">&quot;POLICY_TYPE_UNSPECIFIED&quot;</span>,
-                PolicyType::FineGrainedAccessControl =&gt; <span class="string">&quot;FINE_GRAINED_ACCESS_CONTROL&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;POLICY_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;FINE_GRAINED_ACCESS_CONTROL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FineGrainedAccessControl),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Denotes one policy tag in a taxonomy (e.g. ssn). Policy Tags can be defined
-/// in a hierarchy. For example, consider the following hierarchy:
-/// Geolocation -&amp;gt; (LatLong, City, ZipCode). PolicyTag &quot;Geolocation&quot;
-/// contains three child policy tags: &quot;LatLong&quot;, &quot;City&quot;, and &quot;ZipCode&quot;.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PolicyTag {
-    <span class="doccomment">/// Output only. Resource name of this policy tag, whose format is:
-    /// &quot;projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. User defined name of this policy tag. It must: be unique within
-    /// the parent taxonomy; contain only unicode letters, numbers, underscores,
-    /// dashes and spaces; not start or end with spaces; and be at most 200 bytes
-    /// long when encoded in UTF-8.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Description of this policy tag. It must: contain only unicode characters,
-    /// tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes
-    /// long when encoded in UTF-8. If not set, defaults to an empty description.
-    /// If not set, defaults to an empty description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Resource name of this policy tag&#39;s parent policy tag (e.g. for the
-    /// &quot;LatLong&quot; policy tag in the example above, this field contains the
-    /// resource name of the &quot;Geolocation&quot; policy tag). If empty, it means this
-    /// policy tag is a top level policy tag (e.g. this field is empty for the
-    /// &quot;Geolocation&quot; policy tag in the example above). If not set, defaults to an
-    /// empty string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>parent_policy_tag: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Resource names of child policy tags of this policy tag.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>child_policy_tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Request message for
-/// \[CreateTaxonomy][google.cloud.datacatalog.v1beta1.PolicyTagManager.CreateTaxonomy\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateTaxonomyRequest {
-    <span class="doccomment">/// Required. Resource name of the project that the taxonomy will belong to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The taxonomy to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomy: ::core::option::Option&lt;Taxonomy&gt;,
-}
-<span class="doccomment">/// Request message for
-/// \[DeleteTaxonomy][google.cloud.datacatalog.v1beta1.PolicyTagManager.DeleteTaxonomy\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteTaxonomyRequest {
-    <span class="doccomment">/// Required. Resource name of the taxonomy to be deleted. All policy tags in
-    /// this taxonomy will also be deleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for
-/// \[UpdateTaxonomy][google.cloud.datacatalog.v1beta1.PolicyTagManager.UpdateTaxonomy\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateTaxonomyRequest {
-    <span class="doccomment">/// The taxonomy to update. Only description, display_name, and activated
-    /// policy types can be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomy: ::core::option::Option&lt;Taxonomy&gt;,
-    <span class="doccomment">/// The update mask applies to the resource. For the `FieldMask` definition,
-    /// see
-    /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
-    /// If not set, defaults to all of the fields that are allowed to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-}
-<span class="doccomment">/// Request message for
-/// \[ListTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManager.ListTaxonomies\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListTaxonomiesRequest {
-    <span class="doccomment">/// Required. Resource name of the project to list the taxonomies of.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of items to return. Must be a value between 1 and 1000.
-    /// If not set, defaults to 50.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// The next_page_token value returned from a previous list request, if any. If
-    /// not set, defaults to an empty string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Supported field for filter is &#39;service&#39; and value is &#39;dataplex&#39;.
-    /// Eg: service=dataplex.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Response message for
-/// \[ListTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManager.ListTaxonomies\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListTaxonomiesResponse {
-    <span class="doccomment">/// Taxonomies that the project contains.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;Taxonomy&gt;,
-    <span class="doccomment">/// Token used to retrieve the next page of results, or empty if there are no
-    /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for
-/// \[GetTaxonomy][google.cloud.datacatalog.v1beta1.PolicyTagManager.GetTaxonomy\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetTaxonomyRequest {
-    <span class="doccomment">/// Required. Resource name of the requested taxonomy.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for
-/// \[CreatePolicyTag][google.cloud.datacatalog.v1beta1.PolicyTagManager.CreatePolicyTag\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreatePolicyTagRequest {
-    <span class="doccomment">/// Required. Resource name of the taxonomy that the policy tag will belong to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The policy tag to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>policy_tag: ::core::option::Option&lt;PolicyTag&gt;,
-}
-<span class="doccomment">/// Request message for
-/// \[DeletePolicyTag][google.cloud.datacatalog.v1beta1.PolicyTagManager.DeletePolicyTag\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeletePolicyTagRequest {
-    <span class="doccomment">/// Required. Resource name of the policy tag to be deleted. All of its
-    /// descendant policy tags will also be deleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for
-/// \[UpdatePolicyTag][google.cloud.datacatalog.v1beta1.PolicyTagManager.UpdatePolicyTag\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdatePolicyTagRequest {
-    <span class="doccomment">/// The policy tag to update. Only the description, display_name, and
-    /// parent_policy_tag fields can be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>policy_tag: ::core::option::Option&lt;PolicyTag&gt;,
-    <span class="doccomment">/// The update mask applies to the resource. Only display_name, description and
-    /// parent_policy_tag can be updated and thus can be listed in the mask. If
-    /// update_mask is not provided, all allowed fields (i.e. display_name,
-    /// description and parent) will be updated. For more information including the
-    /// `FieldMask` definition, see
-    /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
-    /// If not set, defaults to all of the fields that are allowed to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-}
-<span class="doccomment">/// Request message for
-/// \[ListPolicyTags][google.cloud.datacatalog.v1beta1.PolicyTagManager.ListPolicyTags\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListPolicyTagsRequest {
-    <span class="doccomment">/// Required. Resource name of the taxonomy to list the policy tags of.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of items to return. Must be a value between 1 and 1000.
-    /// If not set, defaults to 50.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// The next_page_token value returned from a previous List request, if any. If
-    /// not set, defaults to an empty string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Response message for
-/// \[ListPolicyTags][google.cloud.datacatalog.v1beta1.PolicyTagManager.ListPolicyTags\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListPolicyTagsResponse {
-    <span class="doccomment">/// The policy tags that are in the requested taxonomy.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>policy_tags: ::prost::alloc::vec::Vec&lt;PolicyTag&gt;,
-    <span class="doccomment">/// Token used to retrieve the next page of results, or empty if there are no
-    /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for
-/// \[GetPolicyTag][google.cloud.datacatalog.v1beta1.PolicyTagManager.GetPolicyTag\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetPolicyTagRequest {
-    <span class="doccomment">/// Required. Resource name of the requested policy tag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>policy_tag_manager_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// The policy tag manager API service allows clients to manage their taxonomies
-    /// and policy tags.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>PolicyTagManagerClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; PolicyTagManagerClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; PolicyTagManagerClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            PolicyTagManagerClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Creates a taxonomy in the specified project.
-        </span><span class="kw">pub async fn </span>create_taxonomy(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateTaxonomyRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Taxonomy&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/CreateTaxonomy&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;CreateTaxonomy&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Deletes a taxonomy. This operation will also delete all
-        /// policy tags in this taxonomy along with their associated policies.
-        </span><span class="kw">pub async fn </span>delete_taxonomy(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteTaxonomyRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/DeleteTaxonomy&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;DeleteTaxonomy&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Updates a taxonomy.
-        </span><span class="kw">pub async fn </span>update_taxonomy(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateTaxonomyRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Taxonomy&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/UpdateTaxonomy&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;UpdateTaxonomy&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Lists all taxonomies in a project in a particular location that the caller
-        /// has permission to view.
-        </span><span class="kw">pub async fn </span>list_taxonomies(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListTaxonomiesRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListTaxonomiesResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/ListTaxonomies&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;ListTaxonomies&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Gets a taxonomy.
-        </span><span class="kw">pub async fn </span>get_taxonomy(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetTaxonomyRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Taxonomy&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/GetTaxonomy&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;GetTaxonomy&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Creates a policy tag in the specified taxonomy.
-        </span><span class="kw">pub async fn </span>create_policy_tag(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreatePolicyTagRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::PolicyTag&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/CreatePolicyTag&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;CreatePolicyTag&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Deletes a policy tag. Also deletes all of its descendant policy tags.
-        </span><span class="kw">pub async fn </span>delete_policy_tag(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeletePolicyTagRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/DeletePolicyTag&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;DeletePolicyTag&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Updates a policy tag.
-        </span><span class="kw">pub async fn </span>update_policy_tag(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdatePolicyTagRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::PolicyTag&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/UpdatePolicyTag&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;UpdatePolicyTag&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Lists all policy tags in a taxonomy.
-        </span><span class="kw">pub async fn </span>list_policy_tags(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListPolicyTagsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListPolicyTagsResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/ListPolicyTags&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;ListPolicyTags&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Gets a policy tag.
-        </span><span class="kw">pub async fn </span>get_policy_tag(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetPolicyTagRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::PolicyTag&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/GetPolicyTag&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;GetPolicyTag&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Gets the IAM policy for a taxonomy or a policy tag.
-        </span><span class="kw">pub async fn </span>get_iam_policy(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;
-                <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::GetIamPolicyRequest,
-            &gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/GetIamPolicy&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;GetIamPolicy&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Sets the IAM policy for a taxonomy or a policy tag.
-        </span><span class="kw">pub async fn </span>set_iam_policy(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;
-                <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::SetIamPolicyRequest,
-            &gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/SetIamPolicy&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;SetIamPolicy&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Returns the permissions that a caller has on the specified taxonomy or
-        /// policy tag.
-        </span><span class="kw">pub async fn </span>test_iam_permissions(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;
-                <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::TestIamPermissionsRequest,
-            &gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;
-                <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::TestIamPermissionsResponse,
-            &gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManager/TestIamPermissions&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManager&quot;</span>,
-                        <span class="string">&quot;TestIamPermissions&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
-<span class="doccomment">/// Message capturing a taxonomy and its policy tag hierarchy as a nested proto.
-/// Used for taxonomy import/export and mutation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SerializedTaxonomy {
-    <span class="doccomment">/// Required. Display name of the taxonomy. Max 200 bytes when encoded in
-    /// UTF-8.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Description of the serialized taxonomy. The length of the
-    /// description is limited to 2000 bytes when encoded in UTF-8. If not set,
-    /// defaults to an empty description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Top level policy tags associated with the taxonomy if any.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>policy_tags: ::prost::alloc::vec::Vec&lt;SerializedPolicyTag&gt;,
-    <span class="doccomment">/// A list of policy types that are activated for a taxonomy.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;taxonomy::PolicyType&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>activated_policy_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
-}
-<span class="doccomment">/// Message representing one policy tag when exported as a nested proto.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SerializedPolicyTag {
-    <span class="doccomment">/// Resource name of the policy tag.
-    ///
-    /// This field will be ignored when calling ImportTaxonomies.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>policy_tag: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Display name of the policy tag. Max 200 bytes when encoded in
-    /// UTF-8.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Description of the serialized policy tag. The length of the
-    /// description is limited to 2000 bytes when encoded in UTF-8. If not set,
-    /// defaults to an empty description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Children of the policy tag if any.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>child_policy_tags: ::prost::alloc::vec::Vec&lt;SerializedPolicyTag&gt;,
-}
-<span class="doccomment">/// Request message for
-/// \[ImportTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization.ImportTaxonomies\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportTaxonomiesRequest {
-    <span class="doccomment">/// Required. Resource name of project that the imported taxonomies will belong
-    /// to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Source taxonomies to be imported.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_taxonomies_request::Source&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_taxonomies_request::Source&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ImportTaxonomiesRequest`.
-</span><span class="kw">pub mod </span>import_taxonomies_request {
-    <span class="doccomment">/// Source taxonomies to be imported.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Source {
-        <span class="doccomment">/// Inline source used for taxonomies to be imported.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>InlineSource(<span class="kw">super</span>::InlineSource),
-    }
-}
-<span class="doccomment">/// Inline source used for taxonomies import.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>InlineSource {
-    <span class="doccomment">/// Required. Taxonomies to be imported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;SerializedTaxonomy&gt;,
-}
-<span class="doccomment">/// Response message for
-/// \[ImportTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization.ImportTaxonomies\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportTaxonomiesResponse {
-    <span class="doccomment">/// Taxonomies that were imported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;Taxonomy&gt;,
-}
-<span class="doccomment">/// Request message for
-/// \[ExportTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization.ExportTaxonomies\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExportTaxonomiesRequest {
-    <span class="doccomment">/// Required. Resource name of the project that taxonomies to be exported
-    /// will share.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Resource names of the taxonomies to be exported.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Required. Taxonomies export destination.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;export_taxonomies_request::Destination&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;export_taxonomies_request::Destination&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ExportTaxonomiesRequest`.
-</span><span class="kw">pub mod </span>export_taxonomies_request {
-    <span class="doccomment">/// Required. Taxonomies export destination.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Destination {
-        <span class="doccomment">/// Export taxonomies as serialized taxonomies.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>SerializedTaxonomies(bool),
-    }
-}
-<span class="doccomment">/// Response message for
-/// \[ExportTaxonomies][google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization.ExportTaxonomies\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExportTaxonomiesResponse {
-    <span class="doccomment">/// List of taxonomies and policy tags in a tree structure.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;SerializedTaxonomy&gt;,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>policy_tag_manager_serialization_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Policy tag manager serialization API service allows clients to manipulate
-    /// their taxonomies and policy tags data with serialized format.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>PolicyTagManagerSerializationClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; PolicyTagManagerSerializationClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; PolicyTagManagerSerializationClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            PolicyTagManagerSerializationClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Imports all taxonomies and their policy tags to a project as new
-        /// taxonomies.
-        ///
-        /// This method provides a bulk taxonomy / policy tag creation using nested
-        /// proto structure.
-        </span><span class="kw">pub async fn </span>import_taxonomies(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ImportTaxonomiesRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ImportTaxonomiesResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization/ImportTaxonomies&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization&quot;</span>,
-                        <span class="string">&quot;ImportTaxonomies&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Exports all taxonomies and their policy tags in a project.
-        ///
-        /// This method generates SerializedTaxonomy protos with nested policy tags
-        /// that can be used as an input for future ImportTaxonomies calls.
-        </span><span class="kw">pub async fn </span>export_taxonomies(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ExportTaxonomiesRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ExportTaxonomiesResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization/ExportTaxonomies&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1beta1.PolicyTagManagerSerialization&quot;</span>,
-                        <span class="string">&quot;ExportTaxonomies&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

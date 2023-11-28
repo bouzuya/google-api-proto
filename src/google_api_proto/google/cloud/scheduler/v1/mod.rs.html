@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/scheduler/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/scheduler/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1132,9 +1132,9 @@
 <a href="#1132" id="1132">1132</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Http target. The job will be pushed to the job handler by means of
 /// an HTTP request via an
-/// \[http_method][google.cloud.scheduler.v1.HttpTarget.http_method\] such as HTTP
+/// [http_method][google.cloud.scheduler.v1.HttpTarget.http_method] such as HTTP
 /// POST, HTTP GET, etc. The job is acknowledged by means of an HTTP
-/// response code in the range [200 - 299]. A failure to receive a response
+/// response code in the range \[200 - 299\]. A failure to receive a response
 /// constitutes a failed execution. For a redirected request, the response
 /// returned by the redirected request is considered.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1142,7 +1142,7 @@
 </span><span class="kw">pub struct </span>HttpTarget {
     <span class="doccomment">/// Required. The full URI path that the request will be sent to. This string
     /// must begin with either &quot;&lt;http://&quot;&gt; or &quot;&lt;https://&quot;.&gt; Some examples of
-    /// valid values for \[uri][google.cloud.scheduler.v1.HttpTarget.uri\] are:
+    /// valid values for [uri][google.cloud.scheduler.v1.HttpTarget.uri] are:
     /// `&lt;http://acme.com`&gt; and `&lt;https://acme.com/sales:8080`.&gt; Cloud Scheduler will
     /// encode some characters for safety and compatibility. The maximum allowed
     /// URL length is 2083 characters after encoding.
@@ -1159,7 +1159,7 @@
     /// headers will be ignored or replaced. A partial list of headers that
     /// will be ignored or replaced is below:
     /// - Host: This will be computed by Cloud Scheduler and derived from
-    /// \[uri][google.cloud.scheduler.v1.HttpTarget.uri\].
+    /// [uri][google.cloud.scheduler.v1.HttpTarget.uri].
     /// * `Content-Length`: This will be computed by Cloud Scheduler.
     /// * `User-Agent`: This will be set to `&quot;Google-Cloud-Scheduler&quot;`.
     /// * `X-Google-*`: Google internal use only.
@@ -1167,8 +1167,8 @@
     /// * `X-CloudScheduler`: This header will be set to true.
     /// * `X-CloudScheduler-JobName`: This header will contain the job name.
     /// * `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs specified in
-    /// the unix-cron format, this header will contain the job schedule time in
-    /// RFC3339 UTC &quot;Zulu&quot; format.
+    /// the unix-cron format, this header will contain the job schedule as an
+    /// offset of UTC parsed according to RFC3339.
     ///
     /// The total size of headers must be less than 80KB.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
@@ -1178,13 +1178,13 @@
     &gt;,
     <span class="doccomment">/// HTTP request body. A request body is allowed only if the HTTP
     /// method is POST, PUT, or PATCH. It is an error to set body on a job with an
-    /// incompatible \[HttpMethod][google.cloud.scheduler.v1.HttpMethod\].
+    /// incompatible [HttpMethod][google.cloud.scheduler.v1.HttpMethod].
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>body: ::prost::bytes::Bytes,
     <span class="doccomment">/// The mode for generating an `Authorization` header for HTTP requests.
     ///
     /// If specified, all `Authorization` headers in the
-    /// \[HttpTarget.headers][google.cloud.scheduler.v1.HttpTarget.headers\] field
+    /// [HttpTarget.headers][google.cloud.scheduler.v1.HttpTarget.headers] field
     /// will be overridden.
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;http_target::AuthorizationHeader&quot;</span>, tags = <span class="string">&quot;5, 6&quot;</span>)]
     </span><span class="kw">pub </span>authorization_header: ::core::option::Option&lt;http_target::AuthorizationHeader&gt;,
@@ -1194,7 +1194,7 @@
     <span class="doccomment">/// The mode for generating an `Authorization` header for HTTP requests.
     ///
     /// If specified, all `Authorization` headers in the
-    /// \[HttpTarget.headers][google.cloud.scheduler.v1.HttpTarget.headers\] field
+    /// [HttpTarget.headers][google.cloud.scheduler.v1.HttpTarget.headers] field
     /// will be overridden.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
@@ -1209,7 +1209,7 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
         </span>OauthToken(<span class="kw">super</span>::OAuthToken),
         <span class="doccomment">/// If specified, an
-        /// \[OIDC\](&lt;https://developers.google.com/identity/protocols/OpenIDConnect&gt;)
+        /// [OIDC](&lt;https://developers.google.com/identity/protocols/OpenIDConnect&gt;)
         /// token will be generated and attached as an `Authorization` header in the
         /// HTTP request.
         ///
@@ -1222,9 +1222,9 @@
 }
 <span class="doccomment">/// App Engine target. The job will be pushed to a job handler by means
 /// of an HTTP request via an
-/// \[http_method][google.cloud.scheduler.v1.AppEngineHttpTarget.http_method\] such
+/// [http_method][google.cloud.scheduler.v1.AppEngineHttpTarget.http_method] such
 /// as HTTP POST, HTTP GET, etc. The job is acknowledged by means of an
-/// HTTP response code in the range [200 - 299]. Error 503 is
+/// HTTP response code in the range \[200 - 299\]. Error 503 is
 /// considered an App Engine system error instead of an application
 /// error. Requests returning error 503 will be retried regardless of
 /// retry configuration and not counted against retry counts. Any other
@@ -1263,11 +1263,11 @@
     /// * `X-CloudScheduler`: This header will be set to true.
     /// * `X-CloudScheduler-JobName`: This header will contain the job name.
     /// * `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs specified in
-    /// the unix-cron format, this header will contain the job schedule time in
-    /// RFC3339 UTC &quot;Zulu&quot; format.
+    /// the unix-cron format, this header will contain the job schedule as an
+    /// offset of UTC parsed according to RFC3339.
     ///
     /// If the job has an
-    /// \[body][google.cloud.scheduler.v1.AppEngineHttpTarget.body\], Cloud Scheduler
+    /// [body][google.cloud.scheduler.v1.AppEngineHttpTarget.body], Cloud Scheduler
     /// sets the following headers:
     ///
     /// * `Content-Type`: By default, the `Content-Type` header is set to
@@ -1295,7 +1295,7 @@
     /// HTTP request body. A request body is allowed only if the HTTP method is
     /// POST or PUT. It will result in invalid argument error to set a body on a
     /// job with an incompatible
-    /// \[HttpMethod][google.cloud.scheduler.v1.HttpMethod\].
+    /// [HttpMethod][google.cloud.scheduler.v1.HttpMethod].
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>body: ::prost::bytes::Bytes,
 }
@@ -1307,7 +1307,7 @@
     <span class="doccomment">/// Required. The name of the Cloud Pub/Sub topic to which messages will
     /// be published when a job is delivered. The topic name must be in the
     /// same format as required by Pub/Sub&#39;s
-    /// \[PublishRequest.name\](&lt;https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest&gt;),
+    /// [PublishRequest.name](&lt;https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest&gt;),
     /// for example `projects/PROJECT_ID/topics/TOPIC_ID`.
     ///
     /// The topic must be in the same project as the Cloud Scheduler job.
@@ -1373,7 +1373,7 @@
     <span class="doccomment">/// Output only. The host that the job is sent to.
     ///
     /// For more information about how App Engine requests are routed, see
-    /// \[here\](&lt;https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed&gt;).
+    /// [here](&lt;https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed&gt;).
     ///
     /// The host is constructed as:
     ///
@@ -1391,46 +1391,46 @@
     ///    example &lt;app-id&gt;.appspot.com, which is associated with the
     ///    job&#39;s project ID.
     ///
-    /// * `service =` \[service][google.cloud.scheduler.v1.AppEngineRouting.service\]
+    /// * `service =` [service][google.cloud.scheduler.v1.AppEngineRouting.service]
     ///
-    /// * `version =` \[version][google.cloud.scheduler.v1.AppEngineRouting.version\]
+    /// * `version =` [version][google.cloud.scheduler.v1.AppEngineRouting.version]
     ///
     /// * `version_dot_service =`
-    ///    \[version][google.cloud.scheduler.v1.AppEngineRouting.version\] `+ &#39;.&#39; +`
-    ///    \[service][google.cloud.scheduler.v1.AppEngineRouting.service\]
+    ///    [version][google.cloud.scheduler.v1.AppEngineRouting.version] `+ &#39;.&#39; +`
+    ///    [service][google.cloud.scheduler.v1.AppEngineRouting.service]
     ///
     /// * `instance =`
-    /// \[instance][google.cloud.scheduler.v1.AppEngineRouting.instance\]
+    /// [instance][google.cloud.scheduler.v1.AppEngineRouting.instance]
     ///
     /// * `instance_dot_service =`
-    ///    \[instance][google.cloud.scheduler.v1.AppEngineRouting.instance\] `+ &#39;.&#39; +`
-    ///    \[service][google.cloud.scheduler.v1.AppEngineRouting.service\]
+    ///    [instance][google.cloud.scheduler.v1.AppEngineRouting.instance] `+ &#39;.&#39; +`
+    ///    [service][google.cloud.scheduler.v1.AppEngineRouting.service]
     ///
     /// * `instance_dot_version =`
-    ///    \[instance][google.cloud.scheduler.v1.AppEngineRouting.instance\] `+ &#39;.&#39; +`
-    ///    \[version][google.cloud.scheduler.v1.AppEngineRouting.version\]
+    ///    [instance][google.cloud.scheduler.v1.AppEngineRouting.instance] `+ &#39;.&#39; +`
+    ///    [version][google.cloud.scheduler.v1.AppEngineRouting.version]
     ///
     /// * `instance_dot_version_dot_service =`
-    ///    \[instance][google.cloud.scheduler.v1.AppEngineRouting.instance\] `+ &#39;.&#39; +`
-    ///    \[version][google.cloud.scheduler.v1.AppEngineRouting.version\] `+ &#39;.&#39; +`
-    ///    \[service][google.cloud.scheduler.v1.AppEngineRouting.service\]
+    ///    [instance][google.cloud.scheduler.v1.AppEngineRouting.instance] `+ &#39;.&#39; +`
+    ///    [version][google.cloud.scheduler.v1.AppEngineRouting.version] `+ &#39;.&#39; +`
+    ///    [service][google.cloud.scheduler.v1.AppEngineRouting.service]
     ///
     ///
-    /// If \[service][google.cloud.scheduler.v1.AppEngineRouting.service\] is empty,
+    /// If [service][google.cloud.scheduler.v1.AppEngineRouting.service] is empty,
     /// then the job will be sent to the service which is the default service when
     /// the job is attempted.
     ///
-    /// If \[version][google.cloud.scheduler.v1.AppEngineRouting.version\] is empty,
+    /// If [version][google.cloud.scheduler.v1.AppEngineRouting.version] is empty,
     /// then the job will be sent to the version which is the default version when
     /// the job is attempted.
     ///
-    /// If \[instance][google.cloud.scheduler.v1.AppEngineRouting.instance\] is
+    /// If [instance][google.cloud.scheduler.v1.AppEngineRouting.instance] is
     /// empty, then the job will be sent to an instance which is available when the
     /// job is attempted.
     ///
-    /// If \[service][google.cloud.scheduler.v1.AppEngineRouting.service\],
-    /// \[version][google.cloud.scheduler.v1.AppEngineRouting.version\], or
-    /// \[instance][google.cloud.scheduler.v1.AppEngineRouting.instance\] is invalid,
+    /// If [service][google.cloud.scheduler.v1.AppEngineRouting.service],
+    /// [version][google.cloud.scheduler.v1.AppEngineRouting.version], or
+    /// [instance][google.cloud.scheduler.v1.AppEngineRouting.instance] is invalid,
     /// then the job will be sent to the default version of the default service
     /// when the job is attempted.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
@@ -1534,7 +1534,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Job {
     <span class="doccomment">/// Optionally caller-specified in
-    /// \[CreateJob][google.cloud.scheduler.v1.CloudScheduler.CreateJob\], after
+    /// [CreateJob][google.cloud.scheduler.v1.CloudScheduler.CreateJob], after
     /// which it becomes output only.
     ///
     /// The job name. For example:
@@ -1547,30 +1547,30 @@
     ///     projects](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects&gt;)
     /// * `LOCATION_ID` is the canonical ID for the job&#39;s location.
     ///     The list of available locations can be obtained by calling
-    ///     \[ListLocations][google.cloud.location.Locations.ListLocations\].
+    ///     [ListLocations][google.cloud.location.Locations.ListLocations].
     ///     For more information, see &lt;https://cloud.google.com/about/locations/.&gt;
     /// * `JOB_ID` can contain only letters (\[A-Za-z\]), numbers (\[0-9\]),
     ///     hyphens (-), or underscores (_). The maximum length is 500 characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optionally caller-specified in
-    /// \[CreateJob][google.cloud.scheduler.v1.CloudScheduler.CreateJob\] or
-    /// \[UpdateJob][google.cloud.scheduler.v1.CloudScheduler.UpdateJob\].
+    /// [CreateJob][google.cloud.scheduler.v1.CloudScheduler.CreateJob] or
+    /// [UpdateJob][google.cloud.scheduler.v1.CloudScheduler.UpdateJob].
     ///
     /// A human-readable description for the job. This string must not contain
     /// more than 500 characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Required, except when used with
-    /// \[UpdateJob][google.cloud.scheduler.v1.CloudScheduler.UpdateJob\].
+    /// [UpdateJob][google.cloud.scheduler.v1.CloudScheduler.UpdateJob].
     ///
     /// Describes the schedule on which the job will be executed.
     ///
     /// The schedule can be either of the following types:
     ///
-    /// * \[Crontab\](&lt;https://en.wikipedia.org/wiki/Cron#Overview&gt;)
+    /// * [Crontab](&lt;https://en.wikipedia.org/wiki/Cron#Overview&gt;)
     /// * English-like
-    /// \[schedule\](&lt;https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules&gt;)
+    /// [schedule](&lt;https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules&gt;)
     ///
     /// As a general rule, execution `n + 1` of a job will not begin
     /// until execution `n` has finished. Cloud Scheduler will never
@@ -1581,14 +1581,14 @@
     /// A scheduled start time will be delayed if the previous
     /// execution has not ended when its scheduled time occurs.
     ///
-    /// If \[retry_count][google.cloud.scheduler.v1.RetryConfig.retry_count\] &gt; 0 and
+    /// If [retry_count][google.cloud.scheduler.v1.RetryConfig.retry_count] &gt; 0 and
     /// a job attempt fails, the job will be tried a total of
-    /// \[retry_count][google.cloud.scheduler.v1.RetryConfig.retry_count\] times,
+    /// [retry_count][google.cloud.scheduler.v1.RetryConfig.retry_count] times,
     /// with exponential backoff, until the next scheduled start time.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;20&quot;</span>)]
     </span><span class="kw">pub </span>schedule: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the time zone to be used in interpreting
-    /// \[schedule][google.cloud.scheduler.v1.Job.schedule\]. The value of this field
+    /// [schedule][google.cloud.scheduler.v1.Job.schedule]. The value of this field
     /// must be a time zone name from the [tz
     /// database](&lt;http://en.wikipedia.org/wiki/Tz_database&gt;).
     ///
@@ -1623,23 +1623,23 @@
     /// this deadline then the request is cancelled and the attempt is marked as a
     /// `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
     /// execution logs. Cloud Scheduler will retry the job according
-    /// to the \[RetryConfig][google.cloud.scheduler.v1.RetryConfig\].
+    /// to the [RetryConfig][google.cloud.scheduler.v1.RetryConfig].
     ///
     /// The default and the allowed values depend on the type of target:
     ///
-    /// * For [HTTP targets]\[google.cloud.scheduler.v1.Job.http_target\], the
+    /// * For [HTTP targets][google.cloud.scheduler.v1.Job.http_target], the
     /// default is 3 minutes. The deadline must be in the interval [15 seconds, 30
     /// minutes].
     ///
     /// * For [App Engine HTTP
-    /// targets]\[google.cloud.scheduler.v1.Job.app_engine_http_target\], 0 indicates
+    /// targets][google.cloud.scheduler.v1.Job.app_engine_http_target], 0 indicates
     /// that the request has the default deadline. The default deadline depends on
     /// the scaling type of the service: 10 minutes for standard apps with
     /// automatic scaling, 24 hours for standard apps with manual and basic
     /// scaling, and 60 minutes for flex apps. If the request deadline is set, it
-    /// must be in the interval [15 seconds, 24 hours 15 seconds].
+    /// must be in the interval \[15 seconds, 24 hours 15 seconds\].
     ///
-    /// * For [Pub/Sub targets]\[google.cloud.scheduler.v1.Job.pubsub_target\], this
+    /// * For [Pub/Sub targets][google.cloud.scheduler.v1.Job.pubsub_target], this
     /// field is ignored.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;22&quot;</span>)]
     </span><span class="kw">pub </span>attempt_deadline: ::core::option::Option&lt;::prost_types::Duration&gt;,
@@ -1671,15 +1671,15 @@
         </span>Enabled = <span class="number">1</span>,
         <span class="doccomment">/// The job is paused by the user. It will not execute. A user can
         /// intentionally pause the job using
-        /// \[PauseJobRequest][google.cloud.scheduler.v1.PauseJobRequest\].
+        /// [PauseJobRequest][google.cloud.scheduler.v1.PauseJobRequest].
         </span>Paused = <span class="number">2</span>,
         <span class="doccomment">/// The job is disabled by the system due to error. The user
         /// cannot directly set a job to be disabled.
         </span>Disabled = <span class="number">3</span>,
         <span class="doccomment">/// The job state resulting from a failed
-        /// \[CloudScheduler.UpdateJob][google.cloud.scheduler.v1.CloudScheduler.UpdateJob\]
+        /// [CloudScheduler.UpdateJob][google.cloud.scheduler.v1.CloudScheduler.UpdateJob]
         /// operation. To recover a job from this state, retry
-        /// \[CloudScheduler.UpdateJob][google.cloud.scheduler.v1.CloudScheduler.UpdateJob\]
+        /// [CloudScheduler.UpdateJob][google.cloud.scheduler.v1.CloudScheduler.UpdateJob]
         /// until a successful response is received.
         </span>UpdateFailed = <span class="number">4</span>,
     }
@@ -1731,13 +1731,13 @@
 /// By default, if a job does not complete successfully (meaning that
 /// an acknowledgement is not received from the handler, then it will be retried
 /// with exponential backoff according to the settings in
-/// \[RetryConfig][google.cloud.scheduler.v1.RetryConfig\].
+/// [RetryConfig][google.cloud.scheduler.v1.RetryConfig].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RetryConfig {
     <span class="doccomment">/// The number of attempts that the system will make to run a job using the
     /// exponential backoff procedure described by
-    /// \[max_doublings][google.cloud.scheduler.v1.RetryConfig.max_doublings\].
+    /// [max_doublings][google.cloud.scheduler.v1.RetryConfig.max_doublings].
     ///
     /// The default value of retry_count is zero.
     ///
@@ -1755,7 +1755,7 @@
     </span><span class="kw">pub </span>retry_count: i32,
     <span class="doccomment">/// The time limit for retrying a failed job, measured from time when an
     /// execution was first attempted. If specified with
-    /// \[retry_count][google.cloud.scheduler.v1.RetryConfig.retry_count\], the job
+    /// [retry_count][google.cloud.scheduler.v1.RetryConfig.retry_count], the job
     /// will be retried until both limits are reached.
     ///
     /// The default value for max_retry_duration is zero, which means retry
@@ -1777,23 +1777,23 @@
     <span class="doccomment">/// The time between retries will double `max_doublings` times.
     ///
     /// A job&#39;s retry interval starts at
-    /// \[min_backoff_duration][google.cloud.scheduler.v1.RetryConfig.min_backoff_duration\],
+    /// [min_backoff_duration][google.cloud.scheduler.v1.RetryConfig.min_backoff_duration],
     /// then doubles `max_doublings` times, then increases linearly, and finally
     /// retries at intervals of
-    /// \[max_backoff_duration][google.cloud.scheduler.v1.RetryConfig.max_backoff_duration\]
-    /// up to \[retry_count][google.cloud.scheduler.v1.RetryConfig.retry_count\]
+    /// [max_backoff_duration][google.cloud.scheduler.v1.RetryConfig.max_backoff_duration]
+    /// up to [retry_count][google.cloud.scheduler.v1.RetryConfig.retry_count]
     /// times.
     ///
     /// For example, if
-    /// \[min_backoff_duration][google.cloud.scheduler.v1.RetryConfig.min_backoff_duration\]
+    /// [min_backoff_duration][google.cloud.scheduler.v1.RetryConfig.min_backoff_duration]
     /// is 10s,
-    /// \[max_backoff_duration][google.cloud.scheduler.v1.RetryConfig.max_backoff_duration\]
+    /// [max_backoff_duration][google.cloud.scheduler.v1.RetryConfig.max_backoff_duration]
     /// is 300s, and `max_doublings` is 3, then the a job will first be retried in
     /// 10s. The retry interval will double three times, and then increase linearly
     /// by 2^3 * 10s.  Finally, the job will retry at intervals of
-    /// \[max_backoff_duration][google.cloud.scheduler.v1.RetryConfig.max_backoff_duration\]
+    /// [max_backoff_duration][google.cloud.scheduler.v1.RetryConfig.max_backoff_duration]
     /// until the job has been attempted
-    /// \[retry_count][google.cloud.scheduler.v1.RetryConfig.retry_count\] times.
+    /// [retry_count][google.cloud.scheduler.v1.RetryConfig.retry_count] times.
     /// Thus, the requests will retry at 10s, 20s, 40s, 80s, 160s, 240s, 300s,
     /// 300s, ....
     ///
@@ -1802,7 +1802,7 @@
     </span><span class="kw">pub </span>max_doublings: i32,
 }
 <span class="doccomment">/// Request message for listing jobs using
-/// \[ListJobs][google.cloud.scheduler.v1.CloudScheduler.ListJobs\].
+/// [ListJobs][google.cloud.scheduler.v1.CloudScheduler.ListJobs].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListJobsRequest {
@@ -1821,18 +1821,18 @@
     <span class="doccomment">/// A token identifying a page of results the server will return. To
     /// request the first page results, page_token must be empty. To
     /// request the next page of results, page_token must be the value of
-    /// \[next_page_token][google.cloud.scheduler.v1.ListJobsResponse.next_page_token\]
+    /// [next_page_token][google.cloud.scheduler.v1.ListJobsResponse.next_page_token]
     /// returned from the previous call to
-    /// \[ListJobs][google.cloud.scheduler.v1.CloudScheduler.ListJobs\]. It is an
+    /// [ListJobs][google.cloud.scheduler.v1.CloudScheduler.ListJobs]. It is an
     /// error to switch the value of
-    /// \[filter][google.cloud.scheduler.v1.ListJobsRequest.filter\] or
-    /// \[order_by][google.cloud.scheduler.v1.ListJobsRequest.order_by\] while
+    /// [filter][google.cloud.scheduler.v1.ListJobsRequest.filter] or
+    /// [order_by][google.cloud.scheduler.v1.ListJobsRequest.order_by] while
     /// iterating through pages.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for listing jobs using
-/// \[ListJobs][google.cloud.scheduler.v1.CloudScheduler.ListJobs\].
+/// [ListJobs][google.cloud.scheduler.v1.CloudScheduler.ListJobs].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListJobsResponse {
@@ -1840,9 +1840,9 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>jobs: ::prost::alloc::vec::Vec&lt;Job&gt;,
     <span class="doccomment">/// A token to retrieve next page of results. Pass this value in the
-    /// \[page_token][google.cloud.scheduler.v1.ListJobsRequest.page_token\] field in
+    /// [page_token][google.cloud.scheduler.v1.ListJobsRequest.page_token] field in
     /// the subsequent call to
-    /// \[ListJobs][google.cloud.scheduler.v1.CloudScheduler.ListJobs\] to retrieve
+    /// [ListJobs][google.cloud.scheduler.v1.CloudScheduler.ListJobs] to retrieve
     /// the next page of results. If this is empty it indicates that there are no
     /// more results through which to paginate.
     ///
@@ -1851,7 +1851,7 @@
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[GetJob][google.cloud.scheduler.v1.CloudScheduler.GetJob\].
+/// [GetJob][google.cloud.scheduler.v1.CloudScheduler.GetJob].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetJobRequest {
@@ -1861,7 +1861,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[CreateJob][google.cloud.scheduler.v1.CloudScheduler.CreateJob\].
+/// [CreateJob][google.cloud.scheduler.v1.CloudScheduler.CreateJob].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateJobRequest {
@@ -1870,21 +1870,21 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The job to add. The user can optionally specify a name for the
-    /// job in \[name][google.cloud.scheduler.v1.Job.name\].
-    /// \[name][google.cloud.scheduler.v1.Job.name\] cannot be the same as an
+    /// job in [name][google.cloud.scheduler.v1.Job.name].
+    /// [name][google.cloud.scheduler.v1.Job.name] cannot be the same as an
     /// existing job. If a name is not specified then the system will
     /// generate a random unique name that will be returned
-    /// (\[name][google.cloud.scheduler.v1.Job.name\]) in the response.
+    /// ([name][google.cloud.scheduler.v1.Job.name]) in the response.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>job: ::core::option::Option&lt;Job&gt;,
 }
 <span class="doccomment">/// Request message for
-/// \[UpdateJob][google.cloud.scheduler.v1.CloudScheduler.UpdateJob\].
+/// [UpdateJob][google.cloud.scheduler.v1.CloudScheduler.UpdateJob].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateJobRequest {
     <span class="doccomment">/// Required. The new job properties.
-    /// \[name][google.cloud.scheduler.v1.Job.name\] must be specified.
+    /// [name][google.cloud.scheduler.v1.Job.name] must be specified.
     ///
     /// Output only fields cannot be modified using UpdateJob.
     /// Any value specified for an output only field will be ignored.
@@ -1895,7 +1895,7 @@
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for deleting a job using
-/// \[DeleteJob][google.cloud.scheduler.v1.CloudScheduler.DeleteJob\].
+/// [DeleteJob][google.cloud.scheduler.v1.CloudScheduler.DeleteJob].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteJobRequest {
@@ -1905,7 +1905,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[PauseJob][google.cloud.scheduler.v1.CloudScheduler.PauseJob\].
+/// [PauseJob][google.cloud.scheduler.v1.CloudScheduler.PauseJob].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PauseJobRequest {
@@ -1915,7 +1915,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
-/// \[ResumeJob][google.cloud.scheduler.v1.CloudScheduler.ResumeJob\].
+/// [ResumeJob][google.cloud.scheduler.v1.CloudScheduler.ResumeJob].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResumeJobRequest {
@@ -1925,7 +1925,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for forcing a job to run now using
-/// \[RunJob][google.cloud.scheduler.v1.CloudScheduler.RunJob\].
+/// [RunJob][google.cloud.scheduler.v1.CloudScheduler.RunJob].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RunJobRequest {

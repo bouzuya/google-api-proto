@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Destination"]};
+window.SIDEBAR_ITEMS = {"enum":["Destination"],"struct":["CloudLoggingOption"]};

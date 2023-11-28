@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["MaintenanceInterval"]};
+window.SIDEBAR_ITEMS = {"enum":["MaintenanceInterval","MaintenanceStrategy"],"struct":["OpportunisticMaintenanceStrategy"]};

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/batch/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/batch/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1761,6 +1761,26 @@
 <a href="#1761" id="1761">1761</a>
 <a href="#1762" id="1762">1762</a>
 <a href="#1763" id="1763">1763</a>
+<a href="#1764" id="1764">1764</a>
+<a href="#1765" id="1765">1765</a>
+<a href="#1766" id="1766">1766</a>
+<a href="#1767" id="1767">1767</a>
+<a href="#1768" id="1768">1768</a>
+<a href="#1769" id="1769">1769</a>
+<a href="#1770" id="1770">1770</a>
+<a href="#1771" id="1771">1771</a>
+<a href="#1772" id="1772">1772</a>
+<a href="#1773" id="1773">1773</a>
+<a href="#1774" id="1774">1774</a>
+<a href="#1775" id="1775">1775</a>
+<a href="#1776" id="1776">1776</a>
+<a href="#1777" id="1777">1777</a>
+<a href="#1778" id="1778">1778</a>
+<a href="#1779" id="1779">1779</a>
+<a href="#1780" id="1780">1780</a>
+<a href="#1781" id="1781">1781</a>
+<a href="#1782" id="1782">1782</a>
+<a href="#1783" id="1783">1783</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Volume describes a volume and parameters for it to be mounted to a VM.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1798,7 +1818,7 @@
         </span>Gcs(<span class="kw">super</span>::Gcs),
         <span class="doccomment">/// Device name of an attached disk volume, which should align with a
         /// device_name specified by
-        /// job.allocation_policy.instances\[0].policy.disks[i\].device_name or
+        /// job.allocation_policy.instances\[0\].policy.disks\[i\].device_name or
         /// defined by the given instance template in
         /// job.allocation_policy.instances\[0\].instance_template.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
@@ -1830,7 +1850,7 @@
 /// ComputeResource defines the amount of resources required for each task.
 /// Make sure your tasks have enough resources to successfully run.
 /// If you also define the types of resources for a job to use with the
-/// \[InstancePolicyOrTemplate\](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
+/// [InstancePolicyOrTemplate](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
 /// field, make sure both fields are compatible with each other.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1842,9 +1862,9 @@
     /// default value is `2000`.
     ///
     /// If you also define the VM&#39;s machine type using the `machineType` in
-    /// \[InstancePolicy\](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy&gt;)
+    /// [InstancePolicy](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy&gt;)
     /// field or inside the `instanceTemplate` in the
-    /// \[InstancePolicyOrTemplate\](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
+    /// [InstancePolicyOrTemplate](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
     /// field, make sure the CPU resources for both fields are compatible with each
     /// other and with how many tasks you want to allow to run on the same VM at
     /// the same time.
@@ -1860,9 +1880,9 @@
     /// `memoryMib` defines the amount of memory per task in MiB units.
     /// If undefined, the default value is `2000`.
     /// If you also define the VM&#39;s machine type using the `machineType` in
-    /// \[InstancePolicy\](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy&gt;)
+    /// [InstancePolicy](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy&gt;)
     /// field or inside the `instanceTemplate` in the
-    /// \[InstancePolicyOrTemplate\](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
+    /// [InstancePolicyOrTemplate](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
     /// field, make sure the memory resources for both fields are compatible with
     /// each other and with how many tasks you want to allow to run on the same VM
     /// at the same time.
@@ -1985,6 +2005,12 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Runnable {
+    <span class="doccomment">/// Optional. DisplayName is an optional field that can be provided by the
+    /// caller. If provided, it will be used in logs and other outputs to identify
+    /// the script, making it easier for users to understand the logs. If not
+    /// provided the index of the runnable will be used for outputs.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Normally, a non-zero exit status causes the Task to fail. This flag allows
     /// execution of other Runnables to continue instead.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
@@ -2155,7 +2181,7 @@
     </span><span class="kw">pub </span>max_run_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Maximum number of retries on failures.
     /// The default, 0, which means never retry.
-    /// The valid value range is [0, 10].
+    /// The valid value range is \[0, 10\].
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>max_retry_count: i32,
     <span class="doccomment">/// Lifecycle management schema when any task in a task group is failed.
@@ -2373,9 +2399,18 @@
     /// Filestore, or a Cloud Storage path.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>logs_path: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Additional settings for Cloud Logging. It will only take effect
+    /// when the destination of LogsPolicy is set to CLOUD_LOGGING.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>cloud_logging_option: ::core::option::Option&lt;logs_policy::CloudLoggingOption&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `LogsPolicy`.
 </span><span class="kw">pub mod </span>logs_policy {
+    <span class="doccomment">/// CloudLoggingOption contains additional settings for cloud logging generated
+    /// by Batch job.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>CloudLoggingOption {}
     <span class="doccomment">/// The destination (if any) for logs.
     </span><span class="attr">#[derive(
         Clone,
@@ -2649,6 +2684,10 @@
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// The network policy.
+    ///
+    /// If you define an instance template in the InstancePolicyOrTemplate field,
+    /// Batch will use the network settings in the instance template instead of
+    /// this field.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>network: ::core::option::Option&lt;allocation_policy::NetworkPolicy&gt;,
     <span class="doccomment">/// The placement policy.
@@ -2666,7 +2705,7 @@
         /// Only one region or multiple zones in one region is supported now.
         /// For example,
         /// \[&quot;regions/us-central1&quot;\] allow VMs in any zones in region us-central1.
-        /// [&quot;zones/us-central1-a&quot;, &quot;zones/us-central1-c&quot;] only allow VMs
+        /// \[&quot;zones/us-central1-a&quot;, &quot;zones/us-central1-c&quot;\] only allow VMs
         /// in zones us-central1-a and us-central1-c.
         ///
         /// All locations end up in different regions would cause errors.
@@ -3010,7 +3049,8 @@
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>task_count: i64,
     <span class="doccomment">/// Max number of tasks that can run in parallel.
-    /// Default to min(task_count, 1000).
+    /// Default to min(task_count, parallel tasks per job limit).
+    /// See: [Job Limits](&lt;https://cloud.google.com/batch/quotas#job_limits&gt;).
     /// Field parallelism must be 1 if the scheduling_policy is IN_ORDER.
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>parallelism: i64,
@@ -3279,8 +3319,8 @@
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,

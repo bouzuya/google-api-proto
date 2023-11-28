@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/documentai/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/documentai/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1197,12 +1197,12 @@
     /// For example, if a document has a field called &quot;Date&quot; that holds a date
     /// value and a field called &quot;Amount&quot; that may hold either a currency value
     /// (e.g., &quot;$500.00&quot;) or a simple number value (e.g., &quot;20&quot;), you could use the
-    /// following hints: [ {&quot;key&quot;: &quot;Date&quot;, value_types: [ &quot;DATE&quot;]}, {&quot;key&quot;:
-    /// &quot;Amount&quot;, &quot;value_types&quot;: [ &quot;PRICE&quot;, &quot;NUMBER&quot; ]} ]
+    /// following hints: \[ {&quot;key&quot;: &quot;Date&quot;, value_types: [ &quot;DATE&quot;\]}, {&quot;key&quot;:
+    /// &quot;Amount&quot;, &quot;value_types&quot;: \[ &quot;PRICE&quot;, &quot;NUMBER&quot; \]} ]
     ///
     /// If the value type is unknown, but you want to provide hints for the keys,
     /// you can leave the value_types field blank. e.g. {&quot;key&quot;: &quot;Date&quot;,
-    /// &quot;value_types&quot;: []}
+    /// &quot;value_types&quot;: \[\]}
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>key_value_pair_hints: ::prost::alloc::vec::Vec&lt;KeyValuePairHint&gt;,
     <span class="doccomment">/// Model version of the form extraction system. Default is
@@ -1267,12 +1267,12 @@
     <span class="doccomment">/// The max number of pages to include into each output Document shard JSON on
     /// Google Cloud Storage.
     ///
-    /// The valid range is [1, 100]. If not specified, the default value is 20.
+    /// The valid range is \[1, 100\]. If not specified, the default value is 20.
     ///
     /// For example, for one pdf file with 100 pages, 100 parsed pages will be
     /// produced. If `pages_per_shard` = 20, then 5 Document shard JSON files each
     /// containing 20 parsed pages will be written under the prefix
-    /// \[OutputConfig.gcs_destination.uri][\] and suffix pages-x-to-y.json where
+    /// [OutputConfig.gcs_destination.uri][] and suffix pages-x-to-y.json where
     /// x and y are 1-indexed page numbers.
     ///
     /// Example GCS outputs with 157 pages and pages_per_shard = 50:
@@ -1519,20 +1519,20 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
     <span class="doccomment">/// Styles for the
-    /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\].
+    /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>text_styles: ::prost::alloc::vec::Vec&lt;document::Style&gt;,
     <span class="doccomment">/// Visual page layout for the
-    /// \[Document][google.cloud.documentai.v1beta1.Document\].
+    /// [Document][google.cloud.documentai.v1beta1.Document].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>pages: ::prost::alloc::vec::Vec&lt;document::Page&gt;,
     <span class="doccomment">/// A list of entities detected on
-    /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\]. For
+    /// [Document.text][google.cloud.documentai.v1beta1.Document.text]. For
     /// document shards, entities in this list may cross shard boundaries.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>entities: ::prost::alloc::vec::Vec&lt;document::Entity&gt;,
     <span class="doccomment">/// Relationship among
-    /// \[Document.entities][google.cloud.documentai.v1beta1.Document.entities\].
+    /// [Document.entities][google.cloud.documentai.v1beta1.Document.entities].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>entity_relations: ::prost::alloc::vec::Vec&lt;document::EntityRelation&gt;,
     <span class="doccomment">/// Information about the sharding if this document is sharded part of a larger
@@ -1561,7 +1561,7 @@
         </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>shard_count: i64,
         <span class="doccomment">/// The index of the first character in
-        /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\] in the
+        /// [Document.text][google.cloud.documentai.v1beta1.Document.text] in the
         /// overall document global text.
         </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>text_offset: i64,
@@ -1572,7 +1572,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Style {
         <span class="doccomment">/// Text anchor indexing into the
-        /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\].
+        /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>text_anchor: ::core::option::Option&lt;TextAnchor&gt;,
         <span class="doccomment">/// Text color.
@@ -1614,21 +1614,21 @@
             </span><span class="kw">pub </span>unit: ::prost::alloc::string::String,
         }
     }
-    <span class="doccomment">/// A page in a \[Document][google.cloud.documentai.v1beta1.Document\].
+    <span class="doccomment">/// A page in a [Document][google.cloud.documentai.v1beta1.Document].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Page {
         <span class="doccomment">/// 1-based index for current
-        /// \[Page][google.cloud.documentai.v1beta1.Document.Page\] in a parent
-        /// \[Document][google.cloud.documentai.v1beta1.Document\]. Useful when a page
-        /// is taken out of a \[Document][google.cloud.documentai.v1beta1.Document\]
+        /// [Page][google.cloud.documentai.v1beta1.Document.Page] in a parent
+        /// [Document][google.cloud.documentai.v1beta1.Document]. Useful when a page
+        /// is taken out of a [Document][google.cloud.documentai.v1beta1.Document]
         /// for individual processing.
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>page_number: i32,
         <span class="doccomment">/// Physical dimension of the page.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>dimension: ::core::option::Option&lt;page::Dimension&gt;,
-        <span class="doccomment">/// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] for the
+        <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for the
         /// page.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>layout: ::core::option::Option&lt;page::Layout&gt;,
@@ -1683,22 +1683,22 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Layout {
             <span class="doccomment">/// Text anchor indexing into the
-            /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\].
+            /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>text_anchor: ::core::option::Option&lt;<span class="kw">super</span>::TextAnchor&gt;,
             <span class="doccomment">/// Confidence of the current
-            /// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] within
+            /// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] within
             /// context of the object this layout is for. e.g. confidence can be for a
             /// single token, a table, a visual element, etc. depending on context.
-            /// Range [0, 1].
+            /// Range \[0, 1\].
             </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>confidence: f32,
             <span class="doccomment">/// The bounding polygon for the
-            /// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\].
+            /// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout].
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
             </span><span class="kw">pub </span>bounding_poly: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::BoundingPoly&gt;,
             <span class="doccomment">/// Detected orientation for the
-            /// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\].
+            /// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout].
             </span><span class="attr">#[prost(enumeration = <span class="string">&quot;layout::Orientation&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
             </span><span class="kw">pub </span>orientation: i32,
         }
@@ -1764,8 +1764,8 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Block {
-            <span class="doccomment">/// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] for
-            /// \[Block][google.cloud.documentai.v1beta1.Document.Page.Block\].
+            <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
+            /// [Block][google.cloud.documentai.v1beta1.Document.Page.Block].
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// A list of detected languages together with confidence.
@@ -1776,8 +1776,8 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Paragraph {
-            <span class="doccomment">/// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] for
-            /// \[Paragraph][google.cloud.documentai.v1beta1.Document.Page.Paragraph\].
+            <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
+            /// [Paragraph][google.cloud.documentai.v1beta1.Document.Page.Paragraph].
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// A list of detected languages together with confidence.
@@ -1789,8 +1789,8 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Line {
-            <span class="doccomment">/// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] for
-            /// \[Line][google.cloud.documentai.v1beta1.Document.Page.Line\].
+            <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
+            /// [Line][google.cloud.documentai.v1beta1.Document.Page.Line].
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// A list of detected languages together with confidence.
@@ -1801,12 +1801,12 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Token {
-            <span class="doccomment">/// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] for
-            /// \[Token][google.cloud.documentai.v1beta1.Document.Page.Token\].
+            <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
+            /// [Token][google.cloud.documentai.v1beta1.Document.Page.Token].
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// Detected break at the end of a
-            /// \[Token][google.cloud.documentai.v1beta1.Document.Page.Token\].
+            /// [Token][google.cloud.documentai.v1beta1.Document.Page.Token].
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>detected_break: ::core::option::Option&lt;token::DetectedBreak&gt;,
             <span class="doccomment">/// A list of detected languages together with confidence.
@@ -1816,7 +1816,7 @@
         <span class="doccomment">/// Nested message and enum types in `Token`.
         </span><span class="kw">pub mod </span>token {
             <span class="doccomment">/// Detected break at the end of a
-            /// \[Token][google.cloud.documentai.v1beta1.Document.Page.Token\].
+            /// [Token][google.cloud.documentai.v1beta1.Document.Page.Token].
             </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>DetectedBreak {
@@ -1880,12 +1880,12 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>VisualElement {
-            <span class="doccomment">/// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] for
-            /// \[Token][google.cloud.documentai.v1beta1.Document.Page.Token\].
+            <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
+            /// [Token][google.cloud.documentai.v1beta1.Document.Page.Token].
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// Type of the
-            /// \[VisualElement][google.cloud.documentai.v1beta1.Document.Page.VisualElement\].
+            /// [VisualElement][google.cloud.documentai.v1beta1.Document.Page.VisualElement].
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
             <span class="doccomment">/// A list of detected languages together with confidence.
@@ -1896,8 +1896,8 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Table {
-            <span class="doccomment">/// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] for
-            /// \[Table][google.cloud.documentai.v1beta1.Document.Page.Table\].
+            <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
+            /// [Table][google.cloud.documentai.v1beta1.Document.Page.Table].
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// Header rows of the table.
@@ -1924,8 +1924,8 @@
             </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>TableCell {
-                <span class="doccomment">/// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] for
-                /// \[TableCell][google.cloud.documentai.v1beta1.Document.Page.Table.TableCell\].
+                <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
+                /// [TableCell][google.cloud.documentai.v1beta1.Document.Page.Table.TableCell].
                 </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
                 </span><span class="kw">pub </span>layout: ::core::option::Option&lt;<span class="kw">super</span>::Layout&gt;,
                 <span class="doccomment">/// How many rows this cell spans.
@@ -1945,13 +1945,13 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>FormField {
-            <span class="doccomment">/// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] for the
-            /// \[FormField][google.cloud.documentai.v1beta1.Document.Page.FormField\]
+            <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for the
+            /// [FormField][google.cloud.documentai.v1beta1.Document.Page.FormField]
             /// name. e.g. `Address`, `Email`, `Grand total`, `Phone number`, etc.
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>field_name: ::core::option::Option&lt;Layout&gt;,
-            <span class="doccomment">/// \[Layout][google.cloud.documentai.v1beta1.Document.Page.Layout\] for the
-            /// \[FormField][google.cloud.documentai.v1beta1.Document.Page.FormField\]
+            <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for the
+            /// [FormField][google.cloud.documentai.v1beta1.Document.Page.FormField]
             /// value.
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>field_value: ::core::option::Option&lt;Layout&gt;,
@@ -1971,7 +1971,7 @@
             /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-            <span class="doccomment">/// Confidence of detected language. Range [0, 1].
+            <span class="doccomment">/// Confidence of detected language. Range \[0, 1\].
             </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>confidence: f32,
         }
@@ -1983,7 +1983,7 @@
     </span><span class="kw">pub struct </span>Entity {
         <span class="doccomment">/// Provenance of the entity.
         /// Text anchor indexing into the
-        /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\].
+        /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>text_anchor: ::core::option::Option&lt;TextAnchor&gt;,
         <span class="doccomment">/// Required. Entity type from a schema e.g. `Address`.
@@ -1998,7 +1998,7 @@
         </span><span class="kw">pub </span>mention_id: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Relationship between
-    /// \[Entities][google.cloud.documentai.v1beta1.Document.Entity\].
+    /// [Entities][google.cloud.documentai.v1beta1.Document.Entity].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>EntityRelation {
@@ -2013,33 +2013,33 @@
         </span><span class="kw">pub </span>relation: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Text reference indexing into the
-    /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\].
+    /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>TextAnchor {
         <span class="doccomment">/// The text segments from the
-        /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\].
+        /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>text_segments: ::prost::alloc::vec::Vec&lt;text_anchor::TextSegment&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `TextAnchor`.
     </span><span class="kw">pub mod </span>text_anchor {
         <span class="doccomment">/// A text segment in the
-        /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\]. The
+        /// [Document.text][google.cloud.documentai.v1beta1.Document.text]. The
         /// indices may be out of bounds which indicate that the text extends into
         /// another document shard for large sharded documents. See
-        /// \[ShardInfo.text_offset][google.cloud.documentai.v1beta1.Document.ShardInfo.text_offset\]
+        /// [ShardInfo.text_offset][google.cloud.documentai.v1beta1.Document.ShardInfo.text_offset]
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>TextSegment {
-            <span class="doccomment">/// \[TextSegment][google.cloud.documentai.v1beta1.Document.TextAnchor.TextSegment\]
+            <span class="doccomment">/// [TextSegment][google.cloud.documentai.v1beta1.Document.TextAnchor.TextSegment]
             /// start UTF-8 char index in the
-            /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\].
+            /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
             </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>start_index: i64,
-            <span class="doccomment">/// \[TextSegment][google.cloud.documentai.v1beta1.Document.TextAnchor.TextSegment\]
+            <span class="doccomment">/// [TextSegment][google.cloud.documentai.v1beta1.Document.TextAnchor.TextSegment]
             /// half open end UTF-8 char index in the
-            /// \[Document.text][google.cloud.documentai.v1beta1.Document.text\].
+            /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
             </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>end_index: i64,
         }

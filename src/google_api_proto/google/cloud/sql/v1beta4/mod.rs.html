@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/sql/v1beta4/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/sql/v1beta4/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -7198,6 +7198,190 @@
 <a href="#7198" id="7198">7198</a>
 <a href="#7199" id="7199">7199</a>
 <a href="#7200" id="7200">7200</a>
+<a href="#7201" id="7201">7201</a>
+<a href="#7202" id="7202">7202</a>
+<a href="#7203" id="7203">7203</a>
+<a href="#7204" id="7204">7204</a>
+<a href="#7205" id="7205">7205</a>
+<a href="#7206" id="7206">7206</a>
+<a href="#7207" id="7207">7207</a>
+<a href="#7208" id="7208">7208</a>
+<a href="#7209" id="7209">7209</a>
+<a href="#7210" id="7210">7210</a>
+<a href="#7211" id="7211">7211</a>
+<a href="#7212" id="7212">7212</a>
+<a href="#7213" id="7213">7213</a>
+<a href="#7214" id="7214">7214</a>
+<a href="#7215" id="7215">7215</a>
+<a href="#7216" id="7216">7216</a>
+<a href="#7217" id="7217">7217</a>
+<a href="#7218" id="7218">7218</a>
+<a href="#7219" id="7219">7219</a>
+<a href="#7220" id="7220">7220</a>
+<a href="#7221" id="7221">7221</a>
+<a href="#7222" id="7222">7222</a>
+<a href="#7223" id="7223">7223</a>
+<a href="#7224" id="7224">7224</a>
+<a href="#7225" id="7225">7225</a>
+<a href="#7226" id="7226">7226</a>
+<a href="#7227" id="7227">7227</a>
+<a href="#7228" id="7228">7228</a>
+<a href="#7229" id="7229">7229</a>
+<a href="#7230" id="7230">7230</a>
+<a href="#7231" id="7231">7231</a>
+<a href="#7232" id="7232">7232</a>
+<a href="#7233" id="7233">7233</a>
+<a href="#7234" id="7234">7234</a>
+<a href="#7235" id="7235">7235</a>
+<a href="#7236" id="7236">7236</a>
+<a href="#7237" id="7237">7237</a>
+<a href="#7238" id="7238">7238</a>
+<a href="#7239" id="7239">7239</a>
+<a href="#7240" id="7240">7240</a>
+<a href="#7241" id="7241">7241</a>
+<a href="#7242" id="7242">7242</a>
+<a href="#7243" id="7243">7243</a>
+<a href="#7244" id="7244">7244</a>
+<a href="#7245" id="7245">7245</a>
+<a href="#7246" id="7246">7246</a>
+<a href="#7247" id="7247">7247</a>
+<a href="#7248" id="7248">7248</a>
+<a href="#7249" id="7249">7249</a>
+<a href="#7250" id="7250">7250</a>
+<a href="#7251" id="7251">7251</a>
+<a href="#7252" id="7252">7252</a>
+<a href="#7253" id="7253">7253</a>
+<a href="#7254" id="7254">7254</a>
+<a href="#7255" id="7255">7255</a>
+<a href="#7256" id="7256">7256</a>
+<a href="#7257" id="7257">7257</a>
+<a href="#7258" id="7258">7258</a>
+<a href="#7259" id="7259">7259</a>
+<a href="#7260" id="7260">7260</a>
+<a href="#7261" id="7261">7261</a>
+<a href="#7262" id="7262">7262</a>
+<a href="#7263" id="7263">7263</a>
+<a href="#7264" id="7264">7264</a>
+<a href="#7265" id="7265">7265</a>
+<a href="#7266" id="7266">7266</a>
+<a href="#7267" id="7267">7267</a>
+<a href="#7268" id="7268">7268</a>
+<a href="#7269" id="7269">7269</a>
+<a href="#7270" id="7270">7270</a>
+<a href="#7271" id="7271">7271</a>
+<a href="#7272" id="7272">7272</a>
+<a href="#7273" id="7273">7273</a>
+<a href="#7274" id="7274">7274</a>
+<a href="#7275" id="7275">7275</a>
+<a href="#7276" id="7276">7276</a>
+<a href="#7277" id="7277">7277</a>
+<a href="#7278" id="7278">7278</a>
+<a href="#7279" id="7279">7279</a>
+<a href="#7280" id="7280">7280</a>
+<a href="#7281" id="7281">7281</a>
+<a href="#7282" id="7282">7282</a>
+<a href="#7283" id="7283">7283</a>
+<a href="#7284" id="7284">7284</a>
+<a href="#7285" id="7285">7285</a>
+<a href="#7286" id="7286">7286</a>
+<a href="#7287" id="7287">7287</a>
+<a href="#7288" id="7288">7288</a>
+<a href="#7289" id="7289">7289</a>
+<a href="#7290" id="7290">7290</a>
+<a href="#7291" id="7291">7291</a>
+<a href="#7292" id="7292">7292</a>
+<a href="#7293" id="7293">7293</a>
+<a href="#7294" id="7294">7294</a>
+<a href="#7295" id="7295">7295</a>
+<a href="#7296" id="7296">7296</a>
+<a href="#7297" id="7297">7297</a>
+<a href="#7298" id="7298">7298</a>
+<a href="#7299" id="7299">7299</a>
+<a href="#7300" id="7300">7300</a>
+<a href="#7301" id="7301">7301</a>
+<a href="#7302" id="7302">7302</a>
+<a href="#7303" id="7303">7303</a>
+<a href="#7304" id="7304">7304</a>
+<a href="#7305" id="7305">7305</a>
+<a href="#7306" id="7306">7306</a>
+<a href="#7307" id="7307">7307</a>
+<a href="#7308" id="7308">7308</a>
+<a href="#7309" id="7309">7309</a>
+<a href="#7310" id="7310">7310</a>
+<a href="#7311" id="7311">7311</a>
+<a href="#7312" id="7312">7312</a>
+<a href="#7313" id="7313">7313</a>
+<a href="#7314" id="7314">7314</a>
+<a href="#7315" id="7315">7315</a>
+<a href="#7316" id="7316">7316</a>
+<a href="#7317" id="7317">7317</a>
+<a href="#7318" id="7318">7318</a>
+<a href="#7319" id="7319">7319</a>
+<a href="#7320" id="7320">7320</a>
+<a href="#7321" id="7321">7321</a>
+<a href="#7322" id="7322">7322</a>
+<a href="#7323" id="7323">7323</a>
+<a href="#7324" id="7324">7324</a>
+<a href="#7325" id="7325">7325</a>
+<a href="#7326" id="7326">7326</a>
+<a href="#7327" id="7327">7327</a>
+<a href="#7328" id="7328">7328</a>
+<a href="#7329" id="7329">7329</a>
+<a href="#7330" id="7330">7330</a>
+<a href="#7331" id="7331">7331</a>
+<a href="#7332" id="7332">7332</a>
+<a href="#7333" id="7333">7333</a>
+<a href="#7334" id="7334">7334</a>
+<a href="#7335" id="7335">7335</a>
+<a href="#7336" id="7336">7336</a>
+<a href="#7337" id="7337">7337</a>
+<a href="#7338" id="7338">7338</a>
+<a href="#7339" id="7339">7339</a>
+<a href="#7340" id="7340">7340</a>
+<a href="#7341" id="7341">7341</a>
+<a href="#7342" id="7342">7342</a>
+<a href="#7343" id="7343">7343</a>
+<a href="#7344" id="7344">7344</a>
+<a href="#7345" id="7345">7345</a>
+<a href="#7346" id="7346">7346</a>
+<a href="#7347" id="7347">7347</a>
+<a href="#7348" id="7348">7348</a>
+<a href="#7349" id="7349">7349</a>
+<a href="#7350" id="7350">7350</a>
+<a href="#7351" id="7351">7351</a>
+<a href="#7352" id="7352">7352</a>
+<a href="#7353" id="7353">7353</a>
+<a href="#7354" id="7354">7354</a>
+<a href="#7355" id="7355">7355</a>
+<a href="#7356" id="7356">7356</a>
+<a href="#7357" id="7357">7357</a>
+<a href="#7358" id="7358">7358</a>
+<a href="#7359" id="7359">7359</a>
+<a href="#7360" id="7360">7360</a>
+<a href="#7361" id="7361">7361</a>
+<a href="#7362" id="7362">7362</a>
+<a href="#7363" id="7363">7363</a>
+<a href="#7364" id="7364">7364</a>
+<a href="#7365" id="7365">7365</a>
+<a href="#7366" id="7366">7366</a>
+<a href="#7367" id="7367">7367</a>
+<a href="#7368" id="7368">7368</a>
+<a href="#7369" id="7369">7369</a>
+<a href="#7370" id="7370">7370</a>
+<a href="#7371" id="7371">7371</a>
+<a href="#7372" id="7372">7372</a>
+<a href="#7373" id="7373">7373</a>
+<a href="#7374" id="7374">7374</a>
+<a href="#7375" id="7375">7375</a>
+<a href="#7376" id="7376">7376</a>
+<a href="#7377" id="7377">7377</a>
+<a href="#7378" id="7378">7378</a>
+<a href="#7379" id="7379">7379</a>
+<a href="#7380" id="7380">7380</a>
+<a href="#7381" id="7381">7381</a>
+<a href="#7382" id="7382">7382</a>
+<a href="#7383" id="7383">7383</a>
+<a href="#7384" id="7384">7384</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An entry for an Access Control list.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -7507,7 +7691,7 @@
     /// ip will be created in the allocated range. The range name must comply with
     /// [RFC 1035](&lt;https://tools.ietf.org/html/rfc1035&gt;). Specifically, the name
     /// must be 1-63 characters long and match the regular expression
-    /// \[a-z]([-a-z0-9]*[a-z0-9\])?.
+    /// [a-z](\[-a-z0-9\]*[a-z0-9])?.
     /// Reserved for future use.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>allocated_ip_range: ::prost::alloc::string::String,
@@ -7791,6 +7975,13 @@
     <span class="doccomment">/// Output only. The dns name of the instance.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;49&quot;</span>)]
     </span><span class="kw">pub </span>dns_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. DEPRECATED: please use write_endpoint instead.
+    </span><span class="attr">#[deprecated]
+    #[prost(string, optional, tag = <span class="string">&quot;51&quot;</span>)]
+    </span><span class="kw">pub </span>primary_dns_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. The dns name of the primary instance in a replication group.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;52&quot;</span>)]
+    </span><span class="kw">pub </span>write_endpoint: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DatabaseInstance`.
 </span><span class="kw">pub mod </span>database_instance {
@@ -8330,12 +8521,15 @@
         <span class="doccomment">/// Type of the bak content, FULL or DIFF.
         </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::BakType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
         </span><span class="kw">pub </span>bak_type: i32,
-        <span class="doccomment">/// Optional. StopAt keyword for transaction log import, Applies to Cloud SQL
-        /// for SQL Server only
+        <span class="doccomment">/// Optional. The timestamp when the import should stop. This timestamp is in
+        /// the [RFC 3339](&lt;https://tools.ietf.org/html/rfc3339&gt;) format (for example,
+        /// `2023-10-01T16:19:00.094`). This field is equivalent to the STOPAT
+        /// keyword and applies to Cloud SQL for SQL Server only.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
         </span><span class="kw">pub </span>stop_at: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-        <span class="doccomment">/// Optional. StopAtMark keyword for transaction log import, Applies to Cloud
-        /// SQL for SQL Server only
+        <span class="doccomment">/// Optional. The marked transaction where the import should stop. This field
+        /// is equivalent to the STOPATMARK keyword and applies to Cloud SQL for SQL
+        /// Server only.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
         </span><span class="kw">pub </span>stop_at_mark: ::prost::alloc::string::String,
     }
@@ -8604,6 +8798,11 @@
         <span class="doccomment">/// The replication user is missing parallel import specific privileges.
         /// (e.g. LOCK TABLES) for MySQL.
         </span>MysqlParallelImportInsufficientPrivilege = <span class="number">34</span>,
+        <span class="doccomment">/// The global variable local_infile is off on external server replica.
+        </span>LocalInfileOff = <span class="number">35</span>,
+        <span class="doccomment">/// This code instructs customers to turn on point-in-time recovery manually
+        /// for the instance after promoting the Cloud SQL for PostgreSQL instance.
+        </span>TurnOnPitrAfterPromote = <span class="number">36</span>,
     }
     <span class="kw">impl </span>SqlExternalSyncSettingErrorType {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -8709,6 +8908,10 @@
                 SqlExternalSyncSettingErrorType::MysqlParallelImportInsufficientPrivilege =&gt; {
                     <span class="string">&quot;MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE&quot;
                 </span>}
+                SqlExternalSyncSettingErrorType::LocalInfileOff =&gt; <span class="string">&quot;LOCAL_INFILE_OFF&quot;</span>,
+                SqlExternalSyncSettingErrorType::TurnOnPitrAfterPromote =&gt; {
+                    <span class="string">&quot;TURN_ON_PITR_AFTER_PROMOTE&quot;
+                </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -8767,6 +8970,8 @@
                 <span class="string">&quot;MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE&quot; </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::MysqlParallelImportInsufficientPrivilege)
                 }
+                <span class="string">&quot;LOCAL_INFILE_OFF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocalInfileOff),
+                <span class="string">&quot;TURN_ON_PITR_AFTER_PROMOTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TurnOnPitrAfterPromote),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -8785,7 +8990,13 @@
     /// be updated, but it cannot be removed after it is set.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>private_network: ::prost::alloc::string::String,
-    <span class="doccomment">/// Whether SSL connections over IP are enforced or not.
+    <span class="doccomment">/// Whether SSL/TLS connections over IP are enforced.
+    /// If set to false, then allow both non-SSL/non-TLS and SSL/TLS connections.
+    /// For SSL/TLS connections, the client certificate won&#39;t be verified. If
+    /// set to true, then only allow connections encrypted with SSL/TLS and with
+    /// valid client certificates. If you want to enforce SSL/TLS without enforcing
+    /// the requirement for valid client certificates, then use the `ssl_mode` flag
+    /// instead of the legacy `require_ssl` flag.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>require_ssl: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// The list of external networks that are allowed to connect to the instance
@@ -8798,16 +9009,101 @@
     /// will be created in the allocated range. The range name must comply with
     /// [RFC 1035](&lt;https://tools.ietf.org/html/rfc1035&gt;). Specifically, the name
     /// must be 1-63 characters long and match the regular expression
-    /// `\[a-z]([-a-z0-9]*[a-z0-9\])?.`
+    /// `[a-z](\[-a-z0-9\]*[a-z0-9])?.`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>allocated_ip_range: ::prost::alloc::string::String,
     <span class="doccomment">/// Controls connectivity to private IP instances from Google services,
     /// such as BigQuery.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>enable_private_path_for_google_cloud_services: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Specify how SSL/TLS is enforced in database connections. This flag is
+    /// supported only for PostgreSQL. Use the legacy `require_ssl` flag for
+    /// enforcing SSL/TLS in MySQL and SQL Server. But, for PostgreSQL, use the
+    /// `ssl_mode` flag instead of the legacy `require_ssl` flag. To avoid the
+    /// conflict between those flags in PostgreSQL, only the following value pairs
+    /// are valid:
+    ///
+    /// * `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and `require_ssl=false`
+    /// * `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false`
+    /// * `ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED` and `require_ssl=true`
+    ///
+    /// Note that the value of `ssl_mode` gets priority over the value of the
+    /// legacy `require_ssl`. For example, for the pair `ssl_mode=ENCRYPTED_ONLY,
+    /// require_ssl=false`, the `ssl_mode=ENCRYPTED_ONLY` means &quot;only accepts SSL
+    /// connection&quot;, while the `require_ssl=false` means &quot;both non-SSL and SSL
+    /// connections are allowed&quot;. The database respects `ssl_mode` in this case
+    /// and only accepts SSL connections.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ip_configuration::SslMode&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>ssl_mode: i32,
     <span class="doccomment">/// PSC settings for this instance.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>psc_config: ::core::option::Option&lt;PscConfig&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `IpConfiguration`.
+</span><span class="kw">pub mod </span>ip_configuration {
+    <span class="doccomment">/// The SSL options for database connections.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>SslMode {
+        <span class="doccomment">/// The SSL mode is unknown.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Allow non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS connections,
+        /// the client certificate won&#39;t be verified.
+        /// When this value is used, the legacy `require_ssl` flag must be false or
+        /// cleared to avoid the conflict between values of two flags.
+        </span>AllowUnencryptedAndEncrypted = <span class="number">1</span>,
+        <span class="doccomment">/// Only allow connections encrypted with SSL/TLS.
+        /// When this value is used, the legacy `require_ssl` flag must be false or
+        /// cleared to avoid the conflict between values of two flags.
+        </span>EncryptedOnly = <span class="number">2</span>,
+        <span class="doccomment">/// Only allow connections encrypted with SSL/TLS and with valid
+        /// client certificates.
+        /// When this value is used, the legacy `require_ssl` flag must be true or
+        /// cleared to avoid the conflict between values of two flags.
+        </span>TrustedClientCertificateRequired = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>SslMode {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                SslMode::Unspecified =&gt; <span class="string">&quot;SSL_MODE_UNSPECIFIED&quot;</span>,
+                SslMode::AllowUnencryptedAndEncrypted =&gt; {
+                    <span class="string">&quot;ALLOW_UNENCRYPTED_AND_ENCRYPTED&quot;
+                </span>}
+                SslMode::EncryptedOnly =&gt; <span class="string">&quot;ENCRYPTED_ONLY&quot;</span>,
+                SslMode::TrustedClientCertificateRequired =&gt; {
+                    <span class="string">&quot;TRUSTED_CLIENT_CERTIFICATE_REQUIRED&quot;
+                </span>}
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;SSL_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ALLOW_UNENCRYPTED_AND_ENCRYPTED&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::AllowUnencryptedAndEncrypted)
+                }
+                <span class="string">&quot;ENCRYPTED_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EncryptedOnly),
+                <span class="string">&quot;TRUSTED_CLIENT_CERTIFICATE_REQUIRED&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::TrustedClientCertificateRequired)
+                }
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
 }
 <span class="doccomment">/// PSC settings for a Cloud SQL instance.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -8816,9 +9112,9 @@
     <span class="doccomment">/// Whether PSC connectivity is enabled for this instance.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>psc_enabled: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// List of consumer projects that are allow-listed for PSC connections to this
-    /// instance. This instance can be connected to with PSC from any network in
-    /// these projects.
+    <span class="doccomment">/// Optional. The list of consumer projects that are allow-listed for PSC
+    /// connections to this instance. This instance can be connected to with PSC
+    /// from any network in these projects.
     ///
     /// Each consumer project in this list may be represented by a project number
     /// (numeric) or by a project id (alphanumeric).
@@ -8827,7 +9123,7 @@
         ::prost::alloc::string::String,
     &gt;,
 }
-<span class="doccomment">/// Database instance IP Mapping.
+<span class="doccomment">/// Database instance IP mapping
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>IpMapping {
@@ -8865,6 +9161,7 @@
     </span><span class="kw">pub </span>zone: ::prost::alloc::string::String,
     <span class="doccomment">/// The preferred Compute Engine zone for the secondary/failover
     /// (for example: us-central1-a, us-central1-b, etc.).
+    /// To disable this field, set it to &#39;no_secondary_zone&#39;.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>secondary_zone: ::prost::alloc::string::String,
     <span class="doccomment">/// This is always `sql#locationPreference`.
@@ -9482,6 +9779,11 @@
     /// the replica has to be in different zone with the primary instance.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>failover_target: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Optional. Specifies if a SQL Server replica is a cascadable replica. A
+    /// cascadable replica is a SQL Server cross region replica that supports
+    /// replica(s) under it.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>cascadable_replica: ::core::option::Option&lt;bool&gt;,
 }
 <span class="doccomment">/// Database instance restore from backup context.
 /// Backup context contains source instance id and project id.
@@ -9838,7 +10140,7 @@
     /// `2012-11-15T16:19:00.094Z`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// User supplied name.  Constrained to [a-zA-Z.-_ ]+.
+    <span class="doccomment">/// User supplied name.  Constrained to \[a-zA-Z.-_ \]+.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>common_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The time when the certificate expires in
@@ -10351,6 +10653,7 @@
     }
 }
 <span class="doccomment">/// The database engine type and version.
+/// The next tag is 325.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>SqlDatabaseVersion {
@@ -10753,7 +11056,7 @@
     <span class="doccomment">/// Flag type used for a server startup option.
     </span><span class="prelude-val">None </span>= <span class="number">4</span>,
     <span class="doccomment">/// Type introduced specially for MySQL TimeZone offset. Accept a string value
-    /// with the format [-12:59, 13:00].
+    /// with the format \[-12:59, 13:00\].
     </span>MysqlTimezoneOffset = <span class="number">5</span>,
     <span class="doccomment">/// Float type flag.
     </span>Float = <span class="number">6</span>,
@@ -10790,315 +11093,6 @@
             <span class="string">&quot;REPEATED_STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RepeatedString),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
-    }
-}
-<span class="doccomment">/// Connect settings retrieval request.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetConnectSettingsRequest {
-    <span class="doccomment">/// Cloud SQL instance ID. This does not include the project ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
-    <span class="doccomment">/// Project ID of the project that contains the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Optional snapshot read timestamp to trade freshness for
-    /// performance.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Connect settings retrieval response.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ConnectSettings {
-    <span class="doccomment">/// This is always `sql#connectSettings`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
-    <span class="doccomment">/// SSL configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>server_ca_cert: ::core::option::Option&lt;SslCert&gt;,
-    <span class="doccomment">/// The assigned IP addresses for the instance.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>ip_addresses: ::prost::alloc::vec::Vec&lt;IpMapping&gt;,
-    <span class="doccomment">/// The cloud region for the instance. e.g. `us-central1`, `europe-west1`.
-    /// The region cannot be changed after instance creation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
-    <span class="doccomment">/// The database engine type and version. The `databaseVersion`
-    /// field cannot be changed after instance creation.
-    ///    MySQL instances: `MYSQL_8_0`, `MYSQL_5_7` (default),
-    /// or `MYSQL_5_6`.
-    ///    PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`,
-    /// `POSTGRES_11` or `POSTGRES_12` (default), `POSTGRES_13`, or `POSTGRES_14`.
-    ///    SQL Server instances: `SQLSERVER_2017_STANDARD` (default),
-    /// `SQLSERVER_2017_ENTERPRISE`, `SQLSERVER_2017_EXPRESS`,
-    /// `SQLSERVER_2017_WEB`, `SQLSERVER_2019_STANDARD`,
-    /// `SQLSERVER_2019_ENTERPRISE`, `SQLSERVER_2019_EXPRESS`, or
-    /// `SQLSERVER_2019_WEB`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SqlDatabaseVersion&quot;</span>, tag = <span class="string">&quot;31&quot;</span>)]
-    </span><span class="kw">pub </span>database_version: i32,
-    <span class="doccomment">/// `SECOND_GEN`: Cloud SQL database instance.
-    /// `EXTERNAL`: A database server that is not managed by Google.
-    /// This property is read-only; use the `tier` property in the `settings`
-    /// object to determine the database type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SqlBackendType&quot;</span>, tag = <span class="string">&quot;32&quot;</span>)]
-    </span><span class="kw">pub </span>backend_type: i32,
-    <span class="doccomment">/// Whether PSC connectivity is enabled for this instance.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;33&quot;</span>)]
-    </span><span class="kw">pub </span>psc_enabled: bool,
-    <span class="doccomment">/// The dns name of the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;34&quot;</span>)]
-    </span><span class="kw">pub </span>dns_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Ephemeral certificate creation request.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GenerateEphemeralCertRequest {
-    <span class="doccomment">/// Cloud SQL instance ID. This does not include the project ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
-    <span class="doccomment">/// Project ID of the project that contains the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
-    <span class="doccomment">/// PEM encoded public key to include in the signed certificate.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>public_key: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Access token to include in the signed certificate.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>access_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Optional snapshot read timestamp to trade freshness for
-    /// performance.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Optional. If set, it will contain the cert valid duration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>valid_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
-}
-<span class="doccomment">/// Ephemeral certificate creation request.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GenerateEphemeralCertResponse {
-    <span class="doccomment">/// Generated cert
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>ephemeral_cert: ::core::option::Option&lt;SslCert&gt;,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>sql_connect_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Cloud SQL connect service.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>SqlConnectServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; SqlConnectServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; SqlConnectServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            SqlConnectServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Retrieves connect settings about a Cloud SQL instance.
-        </span><span class="kw">pub async fn </span>get_connect_settings(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetConnectSettingsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ConnectSettings&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.sql.v1beta4.SqlConnectService/GetConnectSettings&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.sql.v1beta4.SqlConnectService&quot;</span>,
-                        <span class="string">&quot;GetConnectSettings&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Generates a short-lived X509 certificate containing the provided public key
-        /// and signed by a private key specific to the target instance. Users may use
-        /// the certificate to authenticate as themselves when connecting to the
-        /// database.
-        </span><span class="kw">pub async fn </span>generate_ephemeral_cert(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GenerateEphemeralCertRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::GenerateEphemeralCertResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.sql.v1beta4.SqlConnectService/GenerateEphemeralCert&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.sql.v1beta4.SqlConnectService&quot;</span>,
-                        <span class="string">&quot;GenerateEphemeralCert&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>sql_iam_policies_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Service for providing IAM Meta APIs for Cloud SQL.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>SqlIamPoliciesServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; SqlIamPoliciesServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; SqlIamPoliciesServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            SqlIamPoliciesServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
     }
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -11277,6 +11271,12 @@
         </span>CloudIamUser = <span class="number">1</span>,
         <span class="doccomment">/// Cloud IAM service account.
         </span>CloudIamServiceAccount = <span class="number">2</span>,
+        <span class="doccomment">/// Cloud IAM Group non-login user.
+        </span>CloudIamGroup = <span class="number">3</span>,
+        <span class="doccomment">/// Cloud IAM Group login user.
+        </span>CloudIamGroupUser = <span class="number">4</span>,
+        <span class="doccomment">/// Cloud IAM Group service account.
+        </span>CloudIamGroupServiceAccount = <span class="number">5</span>,
     }
     <span class="kw">impl </span>SqlUserType {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -11288,6 +11288,11 @@
                 SqlUserType::BuiltIn =&gt; <span class="string">&quot;BUILT_IN&quot;</span>,
                 SqlUserType::CloudIamUser =&gt; <span class="string">&quot;CLOUD_IAM_USER&quot;</span>,
                 SqlUserType::CloudIamServiceAccount =&gt; <span class="string">&quot;CLOUD_IAM_SERVICE_ACCOUNT&quot;</span>,
+                SqlUserType::CloudIamGroup =&gt; <span class="string">&quot;CLOUD_IAM_GROUP&quot;</span>,
+                SqlUserType::CloudIamGroupUser =&gt; <span class="string">&quot;CLOUD_IAM_GROUP_USER&quot;</span>,
+                SqlUserType::CloudIamGroupServiceAccount =&gt; {
+                    <span class="string">&quot;CLOUD_IAM_GROUP_SERVICE_ACCOUNT&quot;
+                </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -11296,6 +11301,11 @@
                 <span class="string">&quot;BUILT_IN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BuiltIn),
                 <span class="string">&quot;CLOUD_IAM_USER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudIamUser),
                 <span class="string">&quot;CLOUD_IAM_SERVICE_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudIamServiceAccount),
+                <span class="string">&quot;CLOUD_IAM_GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudIamGroup),
+                <span class="string">&quot;CLOUD_IAM_GROUP_USER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudIamGroupUser),
+                <span class="string">&quot;CLOUD_IAM_GROUP_SERVICE_ACCOUNT&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudIamGroupServiceAccount)
+                }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -11589,7 +11599,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SqlBackupRunsDeleteRequest {
     <span class="doccomment">/// The ID of the backup run to delete. To find a backup run ID, use the
-    /// \[list\](&lt;https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/backupRuns/list&gt;)
+    /// [list](&lt;https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/backupRuns/list&gt;)
     /// method.
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>id: i64,
@@ -11763,7 +11773,7 @@
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SqlInstancesExportRequest {
-    <span class="doccomment">/// Cloud SQL instance ID. This does not include the project ID.
+    <span class="doccomment">/// The Cloud SQL instance ID. This doesn&#39;t include the project ID.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
     <span class="doccomment">/// Project ID of the project that contains the instance to be exported.
@@ -11875,6 +11885,27 @@
     <span class="doccomment">/// ID of the project that contains the read replica.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
+    <span class="doccomment">/// Set to true if the promote operation should attempt to re-add the original
+    /// primary as a replica when it comes back online. Otherwise, if this value is
+    /// false or not set, the original primary will be a standalone instance.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>failover: bool,
+}
+<span class="doccomment">/// Instance switchover request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SqlInstancesSwitchoverRequest {
+    <span class="doccomment">/// Cloud SQL read replica instance name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
+    <span class="doccomment">/// ID of the project that contains the replica.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. (MySQL only) Cloud SQL instance operations timeout, which is a
+    /// sum of all database operations. Default value is 10 minutes and can be
+    /// modified to a maximum value of 24 hours.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>db_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -13416,6 +13447,34 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+        <span class="doccomment">/// Switches over from the primary instance to a replica instance.
+        </span><span class="kw">pub async fn </span>switchover(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::SqlInstancesSwitchoverRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Operation&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.sql.v1beta4.SqlInstancesService/Switchover&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.sql.v1beta4.SqlInstancesService&quot;</span>,
+                        <span class="string">&quot;Switchover&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
         <span class="doccomment">/// Deletes all client certificates and generates a new server SSL certificate
         /// for the instance.
         </span><span class="kw">pub async fn </span>reset_ssl_config(
@@ -14253,6 +14312,238 @@
         </span>}
     }
 }
+<span class="doccomment">/// Connect settings retrieval request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetConnectSettingsRequest {
+    <span class="doccomment">/// Cloud SQL instance ID. This does not include the project ID.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
+    <span class="doccomment">/// Project ID of the project that contains the instance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Optional snapshot read timestamp to trade freshness for
+    /// performance.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Connect settings retrieval response.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ConnectSettings {
+    <span class="doccomment">/// This is always `sql#connectSettings`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
+    <span class="doccomment">/// SSL configuration.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>server_ca_cert: ::core::option::Option&lt;SslCert&gt;,
+    <span class="doccomment">/// The assigned IP addresses for the instance.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>ip_addresses: ::prost::alloc::vec::Vec&lt;IpMapping&gt;,
+    <span class="doccomment">/// The cloud region for the instance. e.g. `us-central1`, `europe-west1`.
+    /// The region cannot be changed after instance creation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
+    <span class="doccomment">/// The database engine type and version. The `databaseVersion`
+    /// field cannot be changed after instance creation.
+    ///    MySQL instances: `MYSQL_8_0`, `MYSQL_5_7` (default),
+    /// or `MYSQL_5_6`.
+    ///    PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`,
+    /// `POSTGRES_11` or `POSTGRES_12` (default), `POSTGRES_13`, or `POSTGRES_14`.
+    ///    SQL Server instances: `SQLSERVER_2017_STANDARD` (default),
+    /// `SQLSERVER_2017_ENTERPRISE`, `SQLSERVER_2017_EXPRESS`,
+    /// `SQLSERVER_2017_WEB`, `SQLSERVER_2019_STANDARD`,
+    /// `SQLSERVER_2019_ENTERPRISE`, `SQLSERVER_2019_EXPRESS`, or
+    /// `SQLSERVER_2019_WEB`.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SqlDatabaseVersion&quot;</span>, tag = <span class="string">&quot;31&quot;</span>)]
+    </span><span class="kw">pub </span>database_version: i32,
+    <span class="doccomment">/// `SECOND_GEN`: Cloud SQL database instance.
+    /// `EXTERNAL`: A database server that is not managed by Google.
+    /// This property is read-only; use the `tier` property in the `settings`
+    /// object to determine the database type.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SqlBackendType&quot;</span>, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="kw">pub </span>backend_type: i32,
+    <span class="doccomment">/// Whether PSC connectivity is enabled for this instance.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;33&quot;</span>)]
+    </span><span class="kw">pub </span>psc_enabled: bool,
+    <span class="doccomment">/// The dns name of the instance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;34&quot;</span>)]
+    </span><span class="kw">pub </span>dns_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Ephemeral certificate creation request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerateEphemeralCertRequest {
+    <span class="doccomment">/// Cloud SQL instance ID. This does not include the project ID.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
+    <span class="doccomment">/// Project ID of the project that contains the instance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
+    <span class="doccomment">/// PEM encoded public key to include in the signed certificate.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>public_key: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Access token to include in the signed certificate.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>access_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Optional snapshot read timestamp to trade freshness for
+    /// performance.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Optional. If set, it will contain the cert valid duration.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>valid_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
+}
+<span class="doccomment">/// Ephemeral certificate creation request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerateEphemeralCertResponse {
+    <span class="doccomment">/// Generated cert
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>ephemeral_cert: ::core::option::Option&lt;SslCert&gt;,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>sql_connect_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Cloud SQL connect service.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>SqlConnectServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; SqlConnectServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; SqlConnectServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            SqlConnectServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Retrieves connect settings about a Cloud SQL instance.
+        </span><span class="kw">pub async fn </span>get_connect_settings(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetConnectSettingsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ConnectSettings&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.sql.v1beta4.SqlConnectService/GetConnectSettings&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.sql.v1beta4.SqlConnectService&quot;</span>,
+                        <span class="string">&quot;GetConnectSettings&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Generates a short-lived X509 certificate containing the provided public key
+        /// and signed by a private key specific to the target instance. Users may use
+        /// the certificate to authenticate as themselves when connecting to the
+        /// database.
+        </span><span class="kw">pub async fn </span>generate_ephemeral_cert(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GenerateEphemeralCertRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::GenerateEphemeralCertResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.sql.v1beta4.SqlConnectService/GenerateEphemeralCert&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.sql.v1beta4.SqlConnectService&quot;</span>,
+                        <span class="string">&quot;GenerateEphemeralCert&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SqlTiersListRequest {
@@ -14276,7 +14567,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Tier {
     <span class="doccomment">/// An identifier for the machine type, for example, `db-custom-1-3840`. For
-    /// related information, see \[Pricing\](/sql/pricing).
+    /// related information, see [Pricing](/sql/pricing).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>tier: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum RAM usage of this tier in bytes.
@@ -14395,6 +14686,83 @@
                     GrpcMethod::new(<span class="string">&quot;google.cloud.sql.v1beta4.SqlTiersService&quot;</span>, <span class="string">&quot;List&quot;</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>sql_iam_policies_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Service for providing IAM Meta APIs for Cloud SQL.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>SqlIamPoliciesServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; SqlIamPoliciesServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; SqlIamPoliciesServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            SqlIamPoliciesServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
         </span>}
     }
 }

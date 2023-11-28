@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/optimization/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../../../../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/optimization/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3798,9 +3798,9 @@
     ///      &lt;= vehicle_end_time`).
     ///    * a shipment may only be performed on a vehicle that is allowed. A
     ///      vehicle is allowed if
-    ///      \[Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices\]
+    ///      [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
     ///      is empty or its `vehicle_index` is included in
-    ///      \[Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices\].
+    ///      [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
     ///
     /// If the injected solution is not feasible, a validation error is not
     /// necessarily returned and an error indicating infeasibility may be returned
@@ -3838,25 +3838,25 @@
     <span class="doccomment">/// If true:
     ///
     ///    * uses
-    ///    \[ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label\]
+    ///    [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label]
     ///    instead of `vehicle_index` to
     ///      match routes in an injected solution with vehicles in the request;
     ///      reuses the mapping of original
-    ///      \[ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index\]
+    ///      [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index]
     ///      to new
-    ///      \[ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index\]
+    ///      [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index]
     ///      to update
-    ///      \[ConstraintRelaxation.vehicle_indices][google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.vehicle_indices\]
+    ///      [ConstraintRelaxation.vehicle_indices][google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.vehicle_indices]
     ///      if non-empty, but the mapping must be unambiguous (i.e., multiple
     ///      `ShipmentRoute`s must not share the same original `vehicle_index`).
     ///    * uses
-    ///    \[ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label\]
+    ///    [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label]
     ///    instead of `shipment_index`
     ///      to match visits in an injected solution with shipments in the request;
     ///    * uses
-    ///    \[SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label\]
+    ///    [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label]
     ///    instead of
-    ///    \[SkippedShipment.index][google.cloud.optimization.v1.SkippedShipment.index\]
+    ///    [SkippedShipment.index][google.cloud.optimization.v1.SkippedShipment.index]
     ///    to
     ///      match skipped shipments in the injected solution with request
     ///      shipments.
@@ -3870,12 +3870,12 @@
     /// If true, labels in the following categories must appear at most once in
     /// their category:
     ///
-    ///    * \[Vehicle.label][google.cloud.optimization.v1.Vehicle.label\] in the
+    ///    * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] in the
     ///    request;
-    ///    * \[Shipment.label][google.cloud.optimization.v1.Shipment.label\] in the
+    ///    * [Shipment.label][google.cloud.optimization.v1.Shipment.label] in the
     ///    request;
-    ///    * \[ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label\] in the injected solution;
-    ///    * \[SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label\] and \[ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label\] in
+    ///    * [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label] in the injected solution;
+    ///    * [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] and [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label] in
     ///      the injected solution (except pickup/delivery visit pairs, whose
     ///      `shipment_label` must appear twice).
     ///
@@ -3884,7 +3884,7 @@
     /// along with its visits. If a `shipment_label` in the injected solution does
     /// not correspond to a request shipment, the corresponding visit is removed
     /// from the solution. If a
-    /// \[SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label\]
+    /// [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label]
     /// in the injected solution does not correspond to a request shipment, the
     /// `SkippedShipment` is removed from the solution.
     ///
@@ -3893,8 +3893,8 @@
     /// solution, validation errors, or infeasibility.
     ///
     /// NOTE: The caller must ensure that each
-    /// \[Vehicle.label][google.cloud.optimization.v1.Vehicle.label\] (resp.
-    /// \[Shipment.label][google.cloud.optimization.v1.Shipment.label\]) uniquely
+    /// [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] (resp.
+    /// [Shipment.label][google.cloud.optimization.v1.Shipment.label]) uniquely
     /// identifies a vehicle (resp. shipment) entity used across the two relevant
     /// requests: the past request that produced the `OptimizeToursResponse` used
     /// in the injected solution and the current request that includes the injected
@@ -3903,12 +3903,12 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>interpret_injected_solutions_using_labels: bool,
     <span class="doccomment">/// Consider traffic estimation in calculating `ShipmentRoute` fields
-    /// \[Transition.travel_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.travel_duration\],
-    /// \[Visit.start_time][google.cloud.optimization.v1.ShipmentRoute.Visit.start_time\],
+    /// [Transition.travel_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.travel_duration],
+    /// [Visit.start_time][google.cloud.optimization.v1.ShipmentRoute.Visit.start_time],
     /// and `vehicle_end_time`; in setting the
-    /// \[ShipmentRoute.has_traffic_infeasibilities][google.cloud.optimization.v1.ShipmentRoute.has_traffic_infeasibilities\]
+    /// [ShipmentRoute.has_traffic_infeasibilities][google.cloud.optimization.v1.ShipmentRoute.has_traffic_infeasibilities]
     /// field, and in calculating the
-    /// \[OptimizeToursResponse.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.total_cost\]
+    /// [OptimizeToursResponse.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.total_cost]
     /// field.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>consider_road_traffic: bool,
@@ -3916,7 +3916,7 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>populate_polylines: bool,
     <span class="doccomment">/// If true, polylines will be populated in response
-    /// \[ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions\].
+    /// [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions].
     /// Note that in this case, the polylines will also be populated in the
     /// deprecated `travel_steps`.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
@@ -3942,19 +3942,19 @@
     /// typically attached to an INVALID_ARGUMENT error payload as a BadRequest
     /// error detail (&lt;https://cloud.google.com/apis/design/errors#error_details&gt;),
     /// unless solving_mode=VALIDATE_ONLY: see the
-    /// \[OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors\]
+    /// [OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors]
     /// field.
     /// This defaults to 100 and is capped at 10,000.
     </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>max_validation_errors: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Label that may be used to identify this request, reported back in the
-    /// \[OptimizeToursResponse.request_label][google.cloud.optimization.v1.OptimizeToursResponse.request_label\].
+    /// [OptimizeToursResponse.request_label][google.cloud.optimization.v1.OptimizeToursResponse.request_label].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated: Use
-    /// \[OptimizeToursRequest.populate_transition_polylines][google.cloud.optimization.v1.OptimizeToursRequest.populate_transition_polylines\]
+    /// [OptimizeToursRequest.populate_transition_polylines][google.cloud.optimization.v1.OptimizeToursRequest.populate_transition_polylines]
     /// instead. If true, polylines will be populated in response
-    /// \[ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions\].
+    /// [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions].
     /// Note that in this case, the polylines will also be populated in the
     /// deprecated `travel_steps`.
     </span><span class="attr">#[deprecated]
@@ -3966,7 +3966,7 @@
     <span class="doccomment">/// Defines how the solver should handle the request. In all modes but
     /// `VALIDATE_ONLY`, if the request is invalid, you will receive an
     /// `INVALID_REQUEST` error. See
-    /// \[max_validation_errors][google.cloud.optimization.v1.OptimizeToursRequest.max_validation_errors\]
+    /// [max_validation_errors][google.cloud.optimization.v1.OptimizeToursRequest.max_validation_errors]
     /// to cap the number of errors returned.
     </span><span class="attr">#[derive(
         Clone,
@@ -3984,20 +3984,20 @@
         <span class="doccomment">/// Solve the model.
         </span>DefaultSolve = <span class="number">0</span>,
         <span class="doccomment">/// Only validates the model without solving it: populates as many
-        /// \[OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors\]
+        /// [OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors]
         /// as possible.
         </span>ValidateOnly = <span class="number">1</span>,
         <span class="doccomment">/// Only populates
-        /// \[OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors\]
+        /// [OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors]
         /// or
-        /// \[OptimizeToursResponse.skipped_shipments][google.cloud.optimization.v1.OptimizeToursResponse.skipped_shipments\],
+        /// [OptimizeToursResponse.skipped_shipments][google.cloud.optimization.v1.OptimizeToursResponse.skipped_shipments],
         /// and doesn&#39;t actually solve the rest of the request (`status` and `routes`
         /// are unset in the response).
         /// If infeasibilities in `injected_solution_constraint` routes are detected
         /// they are populated in the
-        /// \[OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors\]
+        /// [OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors]
         /// field and
-        /// \[OptimizeToursResponse.skipped_shipments][google.cloud.optimization.v1.OptimizeToursResponse.skipped_shipments\]
+        /// [OptimizeToursResponse.skipped_shipments][google.cloud.optimization.v1.OptimizeToursResponse.skipped_shipments]
         /// is left empty.
         ///
         /// *IMPORTANT*: not all infeasible shipments are returned here, but only the
@@ -4086,7 +4086,7 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>routes: ::prost::alloc::vec::Vec&lt;ShipmentRoute&gt;,
     <span class="doccomment">/// Copy of the
-    /// \[OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label\],
+    /// [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label],
     /// if a label was specified in the request.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>request_label: ::prost::alloc::string::String,
@@ -4095,7 +4095,7 @@
     </span><span class="kw">pub </span>skipped_shipments: ::prost::alloc::vec::Vec&lt;SkippedShipment&gt;,
     <span class="doccomment">/// List of all the validation errors that we were able to detect
     /// independently. See the &quot;MULTIPLE ERRORS&quot; explanation for the
-    /// \[OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError\]
+    /// [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
     /// message.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>validation_errors: ::prost::alloc::vec::Vec&lt;OptimizeToursValidationError&gt;,
@@ -4103,7 +4103,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>metrics: ::core::option::Option&lt;optimize_tours_response::Metrics&gt;,
     <span class="doccomment">/// Deprecated: Use
-    /// \[Metrics.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.Metrics.total_cost\]
+    /// [Metrics.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.Metrics.total_cost]
     /// instead. Total cost of the solution. This takes into account all costs:
     /// costs per per hour and travel hour, fixed vehicle costs, unperformed
     /// shipment penalty costs, global duration cost, etc.
@@ -4119,7 +4119,7 @@
     </span><span class="kw">pub struct </span>Metrics {
         <span class="doccomment">/// Aggregated over the routes. Each metric is the sum (or max, for loads)
         /// over all
-        /// \[ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics\]
+        /// [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
         /// fields of the same name.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>aggregated_route_metrics: ::core::option::Option&lt;<span class="kw">super</span>::AggregatedMetrics&gt;,
@@ -4127,20 +4127,20 @@
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>skipped_mandatory_shipment_count: i32,
         <span class="doccomment">/// Number of vehicles used. Note: if a vehicle route is empty and
-        /// \[Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty\]
+        /// [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty]
         /// is true, the vehicle is considered used.
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>used_vehicle_count: i32,
         <span class="doccomment">/// The earliest start time for a used vehicle, computed as the minimum over
         /// all used vehicles of
-        /// \[ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time\].
+        /// [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>earliest_vehicle_start_time: ::core::option::Option&lt;
             ::prost_types::Timestamp,
         &gt;,
         <span class="doccomment">/// The latest end time for a used vehicle, computed as the maximum over all
         /// used vehicles of
-        /// \[ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time\].
+        /// [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
         </span><span class="kw">pub </span>latest_vehicle_end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// Cost of the solution, broken down by cost-related request fields.
@@ -4263,7 +4263,7 @@
     /// all vehicles. Users can assign a cost per hour to that quantity to try
     /// and optimize for earliest job completion, for example. This cost must be in
     /// the same unit as
-    /// \[Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost\].
+    /// [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>global_duration_cost_per_hour: f64,
     <span class="doccomment">/// Specifies duration and distance matrices used in the model. If this field
@@ -4363,8 +4363,8 @@
     /// in matrix i.
     ///
     /// Tags correspond to
-    /// \[VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags\]
-    /// or \[Vehicle.start_tags][google.cloud.optimization.v1.Vehicle.start_tags\].
+    /// [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
+    /// or [Vehicle.start_tags][google.cloud.optimization.v1.Vehicle.start_tags].
     /// A given `VisitRequest` or `Vehicle` must match exactly one tag in this
     /// field. Note that a `Vehicle`&#39;s source, destination and matrix tags may be
     /// the same; similarly a `VisitRequest`&#39;s source and destination tags may be
@@ -4382,8 +4382,8 @@
     /// `duration_distance_matrix_dst_tags(k)` in matrix i.
     ///
     /// Tags correspond to
-    /// \[VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags\]
-    /// or \[Vehicle.start_tags][google.cloud.optimization.v1.Vehicle.start_tags\].
+    /// [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
+    /// or [Vehicle.start_tags][google.cloud.optimization.v1.Vehicle.start_tags].
     /// A given `VisitRequest` or `Vehicle` must match exactly one tag in this
     /// field. Note that a `Vehicle`&#39;s source, destination and matrix tags may be
     /// the same; similarly a `VisitRequest`&#39;s source and destination tags may be
@@ -4410,7 +4410,7 @@
     <span class="doccomment">/// Deprecated: No longer used.
     /// Set of break rules used in the model.
     /// Each vehicle specifies the `BreakRule` that applies to it via the
-    /// \[Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices\]
+    /// [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
     /// field (which must be a singleton).
     </span><span class="attr">#[deprecated]
     #[prost(message, repeated, tag = <span class="string">&quot;15&quot;</span>)]
@@ -4425,7 +4425,7 @@
     </span><span class="kw">pub struct </span>DurationDistanceMatrix {
         <span class="doccomment">/// Specifies the rows of the duration and distance matrix. It must have as
         /// many elements as
-        /// \[ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags\].
+        /// [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>rows: ::prost::alloc::vec::Vec&lt;duration_distance_matrix::Row&gt;,
         <span class="doccomment">/// Tag defining to which vehicles this duration and distance matrix applies.
@@ -4447,7 +4447,7 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Row {
             <span class="doccomment">/// Duration values for a given row. It must have as many elements as
-            /// \[ShipmentModel.duration_distance_matrix_dst_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_dst_tags\].
+            /// [ShipmentModel.duration_distance_matrix_dst_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_dst_tags].
             </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>durations: ::prost::alloc::vec::Vec&lt;::prost_types::Duration&gt;,
             <span class="doccomment">/// Distance values for a given row. If no costs or constraints refer to
@@ -4487,7 +4487,7 @@
         </span><span class="kw">pub </span>offset_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
     <span class="doccomment">/// Deprecated: Use top level
-    /// \[BreakRule][google.cloud.optimization.v1.ShipmentModel.BreakRule\] instead.
+    /// [BreakRule][google.cloud.optimization.v1.ShipmentModel.BreakRule] instead.
     /// Rules to generate time breaks for a vehicle (e.g. lunch
     /// breaks). A break is a contiguous period of time during which the vehicle
     /// remains idle at its current position and cannot perform any visit. A break
@@ -4703,7 +4703,7 @@
     </span><span class="kw">pub </span>shipment_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies a label for this shipment. This label is reported in the response
     /// in the `shipment_label` of the corresponding
-    /// \[ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit\].
+    /// [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
     <span class="doccomment">/// If true, skip this shipment, but don&#39;t apply a `penalty_cost`.
@@ -4718,7 +4718,7 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>ignore: bool,
     <span class="doccomment">/// Deprecated: Use
-    /// \[Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands\]
+    /// [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
     /// instead.
     </span><span class="attr">#[deprecated]
     #[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
@@ -4767,7 +4767,7 @@
         /// Note that a vehicle may depart outside of the arrival time window, i.e.
         /// arrival time + duration do not need to be inside a time window. This can
         /// result in waiting time if the vehicle arrives before
-        /// \[TimeWindow.start_time][google.cloud.optimization.v1.TimeWindow.start_time\].
+        /// [TimeWindow.start_time][google.cloud.optimization.v1.TimeWindow.start_time].
         ///
         /// The absence of `TimeWindow` means that the vehicle can perform this visit
         /// at any time.
@@ -4791,12 +4791,12 @@
         </span><span class="attr">#[prost(double, tag = <span class="string">&quot;8&quot;</span>)]
         </span><span class="kw">pub </span>cost: f64,
         <span class="doccomment">/// Load demands of this visit request. This is just like
-        /// \[Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands\]
+        /// [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
         /// field, except that it only applies to this
-        /// \[VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest\]
-        /// instead of the whole \[Shipment][google.cloud.optimization.v1.Shipment\].
+        /// [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+        /// instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
         /// The demands listed here are added to the demands listed in
-        /// \[Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands\].
+        /// [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
         </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
         </span><span class="kw">pub </span>load_demands: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
@@ -4804,18 +4804,18 @@
         &gt;,
         <span class="doccomment">/// Specifies the types of the visit. This may be used to allocate additional
         /// time required for a vehicle to complete this visit (see
-        /// \[Vehicle.extra_visit_duration_for_visit_type][google.cloud.optimization.v1.Vehicle.extra_visit_duration_for_visit_type\]).
+        /// [Vehicle.extra_visit_duration_for_visit_type][google.cloud.optimization.v1.Vehicle.extra_visit_duration_for_visit_type]).
         ///
         /// A type can only appear once.
         </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;10&quot;</span>)]
         </span><span class="kw">pub </span>visit_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// Specifies a label for this `VisitRequest`. This label is reported in the
         /// response as `visit_label` in the corresponding
-        /// \[ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit\].
+        /// [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
         </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
         <span class="doccomment">/// Deprecated: Use
-        /// \[VisitRequest.load_demands][google.cloud.optimization.v1.Shipment.VisitRequest.load_demands\]
+        /// [VisitRequest.load_demands][google.cloud.optimization.v1.Shipment.VisitRequest.load_demands]
         /// instead.
         </span><span class="attr">#[deprecated]
         #[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
@@ -4824,7 +4824,7 @@
     <span class="doccomment">/// When performing a visit, a predefined amount may be added to the vehicle
     /// load if it&#39;s a pickup, or subtracted if it&#39;s a delivery. This message
     /// defines such amount. See
-    /// \[load_demands][google.cloud.optimization.v1.Shipment.load_demands\].
+    /// [load_demands][google.cloud.optimization.v1.Shipment.load_demands].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Load {
@@ -5087,7 +5087,7 @@
     </span><span class="kw">pub </span>end_tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Time windows during which the vehicle may depart its start location.
     /// They must be within the global time limits (see
-    /// \[ShipmentModel.global_*][google.cloud.optimization.v1.ShipmentModel.global_start_time\]
+    /// [ShipmentModel.global_*][google.cloud.optimization.v1.ShipmentModel.global_start_time]
     /// fields). If unspecified, there is no limitation besides those global time
     /// limits.
     ///
@@ -5101,7 +5101,7 @@
     </span><span class="kw">pub </span>start_time_windows: ::prost::alloc::vec::Vec&lt;TimeWindow&gt;,
     <span class="doccomment">/// Time windows during which the vehicle may arrive at its end location.
     /// They must be within the global time limits (see
-    /// \[ShipmentModel.global_*][google.cloud.optimization.v1.ShipmentModel.global_start_time\]
+    /// [ShipmentModel.global_*][google.cloud.optimization.v1.ShipmentModel.global_start_time]
     /// fields). If unspecified, there is no limitation besides those global time
     /// limits.
     ///
@@ -5118,7 +5118,7 @@
     /// that this vehicle is slower and has travel times that are twice what they
     /// are for standard vehicles. This multiple does not affect visit durations.
     /// It does affect cost if `cost_per_hour` or `cost_per_traveled_hour` are
-    /// specified. This must be in the range [0.001, 1000.0]. If unset, the vehicle
+    /// specified. This must be in the range \[0.001, 1000.0\]. If unset, the vehicle
     /// is standard, and this multiple is considered 1.0.
     ///
     /// WARNING: Travel times will be rounded to the nearest second after this
@@ -5134,7 +5134,7 @@
     <span class="doccomment">/// Capacities of the vehicle (weight, volume, # of pallets for example).
     /// The keys in the map are the identifiers of the type of load, consistent
     /// with the keys of the
-    /// \[Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands\]
+    /// [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
     /// field. If a given key is absent from this map, the corresponding capacity
     /// is considered to be limitless.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;30&quot;</span>)]
@@ -5143,7 +5143,7 @@
         vehicle::LoadLimit,
     &gt;,
     <span class="doccomment">/// Vehicle costs: all costs add up and must be in the same unit as
-    /// \[Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost\].
+    /// [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
     ///
     /// Cost per hour of the vehicle route. This cost is applied to the total time
     /// taken by the route, and includes travel time, waiting time, and visit time.
@@ -5153,13 +5153,13 @@
     </span><span class="kw">pub </span>cost_per_hour: f64,
     <span class="doccomment">/// Cost per traveled hour of the vehicle route. This cost is applied only to
     /// travel time taken by the route (i.e., that reported in
-    /// \[ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions\]),
+    /// [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]),
     /// and excludes waiting time and visit time.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;17&quot;</span>)]
     </span><span class="kw">pub </span>cost_per_traveled_hour: f64,
     <span class="doccomment">/// Cost per kilometer of the vehicle route. This cost is applied to the
     /// distance reported in the
-    /// \[ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions\]
+    /// [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
     /// and does not apply to any distance implicitly traveled from the
     /// `arrival_location` to the `departure_location` of a single `VisitRequest`.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;18&quot;</span>)]
@@ -5188,17 +5188,17 @@
     </span><span class="kw">pub </span>route_duration_limit: ::core::option::Option&lt;vehicle::DurationLimit&gt;,
     <span class="doccomment">/// Limit applied to the travel duration of the vehicle&#39;s route. In a given
     /// `OptimizeToursResponse`, the route travel duration is the sum of all its
-    /// \[transitions.travel_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.travel_duration\].
+    /// [transitions.travel_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.travel_duration].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;22&quot;</span>)]
     </span><span class="kw">pub </span>travel_duration_limit: ::core::option::Option&lt;vehicle::DurationLimit&gt;,
     <span class="doccomment">/// Limit applied to the total distance of the vehicle&#39;s route. In a given
     /// `OptimizeToursResponse`, the route distance is the sum of all its
-    /// \[transitions.travel_distance_meters][google.cloud.optimization.v1.ShipmentRoute.Transition.travel_distance_meters\].
+    /// [transitions.travel_distance_meters][google.cloud.optimization.v1.ShipmentRoute.Transition.travel_distance_meters].
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;23&quot;</span>)]
     </span><span class="kw">pub </span>route_distance_limit: ::core::option::Option&lt;DistanceLimit&gt;,
     <span class="doccomment">/// Specifies a map from visit_types strings to durations. The duration is time
     /// in addition to
-    /// \[VisitRequest.duration][google.cloud.optimization.v1.Shipment.VisitRequest.duration\]
+    /// [VisitRequest.duration][google.cloud.optimization.v1.Shipment.VisitRequest.duration]
     /// to be taken at visits with the specified `visit_types`. This extra visit
     /// duration adds cost if `cost_per_hour` is specified. Keys (i.e.
     /// `visit_types`) cannot be empty strings.
@@ -5216,7 +5216,7 @@
     </span><span class="kw">pub </span>break_rule: ::core::option::Option&lt;BreakRule&gt;,
     <span class="doccomment">/// Specifies a label for this vehicle. This label is reported in the response
     /// as the `vehicle_label` of the corresponding
-    /// \[ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute\].
+    /// [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;27&quot;</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
     <span class="doccomment">/// If true, `used_if_route_is_empty` must be false, and this vehicle will
@@ -5236,7 +5236,7 @@
     </span><span class="kw">pub </span>ignore: bool,
     <span class="doccomment">/// Deprecated: No longer used.
     /// Indices in the `break_rule` field in the source
-    /// \[ShipmentModel][google.cloud.optimization.v1.ShipmentModel\]. They
+    /// [ShipmentModel][google.cloud.optimization.v1.ShipmentModel]. They
     /// correspond to break rules enforced on the vehicle.
     ///
     /// As of 2018/03, at most one rule index per vehicle can be specified.
@@ -5244,19 +5244,19 @@
     #[prost(int32, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;29&quot;</span>)]
     </span><span class="kw">pub </span>break_rule_indices: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Deprecated: Use
-    /// \[Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits\]
+    /// [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits]
     /// instead.
     </span><span class="attr">#[deprecated]
     #[prost(message, repeated, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>capacities: ::prost::alloc::vec::Vec&lt;CapacityQuantity&gt;,
     <span class="doccomment">/// Deprecated: Use
-    /// \[Vehicle.LoadLimit.start_load_interval][google.cloud.optimization.v1.Vehicle.LoadLimit.start_load_interval\]
+    /// [Vehicle.LoadLimit.start_load_interval][google.cloud.optimization.v1.Vehicle.LoadLimit.start_load_interval]
     /// instead.
     </span><span class="attr">#[deprecated]
     #[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
     </span><span class="kw">pub </span>start_load_intervals: ::prost::alloc::vec::Vec&lt;CapacityQuantityInterval&gt;,
     <span class="doccomment">/// Deprecated: Use
-    /// \[Vehicle.LoadLimit.end_load_interval][google.cloud.optimization.v1.Vehicle.LoadLimit.end_load_interval\]
+    /// [Vehicle.LoadLimit.end_load_interval][google.cloud.optimization.v1.Vehicle.LoadLimit.end_load_interval]
     /// instead.
     </span><span class="attr">#[deprecated]
     #[prost(message, repeated, tag = <span class="string">&quot;15&quot;</span>)]
@@ -5266,7 +5266,7 @@
 </span><span class="kw">pub mod </span>vehicle {
     <span class="doccomment">/// Defines a load limit applying to a vehicle, e.g. &quot;this truck may only
     /// carry up to 3500 kg&quot;. See
-    /// \[load_limits][google.cloud.optimization.v1.Vehicle.load_limits\].
+    /// [load_limits][google.cloud.optimization.v1.Vehicle.load_limits].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>LoadLimit {
@@ -5274,17 +5274,17 @@
         </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>max_load: ::core::option::Option&lt;i64&gt;,
         <span class="doccomment">/// A soft limit of the load. See
-        /// \[cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max\].
+        /// [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
         </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>soft_max_load: i64,
         <span class="doccomment">/// If the load ever exceeds
-        /// \[soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load\]
+        /// [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]
         /// along this vehicle&#39;s route, the following cost penalty applies (only once
         /// per vehicle): (load -
-        /// \[soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load\])
-        /// * \[cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max\]. All costs
+        /// [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load])
+        /// * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
         /// add up and must be in the same unit as
-        /// \[Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost\].
+        /// [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
         </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>cost_per_unit_above_soft_max: f64,
         <span class="doccomment">/// The acceptable load interval of the vehicle at the start of the route.
@@ -5302,17 +5302,17 @@
         </span><span class="kw">pub struct </span>Interval {
             <span class="doccomment">/// A minimum acceptable load. Must be ≥ 0.
             /// If they&#39;re both specified,
-            /// \[min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min\] must
+            /// [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
             /// be ≤
-            /// \[max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max\].
+            /// [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
             </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>min: i64,
             <span class="doccomment">/// A maximum acceptable load. Must be ≥ 0. If unspecified, the maximum
             /// load is unrestricted by this message.
             /// If they&#39;re both specified,
-            /// \[min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min\] must
+            /// [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
             /// be ≤
-            /// \[max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max\].
+            /// [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
             </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>max: ::core::option::Option&lt;i64&gt;,
         }
@@ -5481,9 +5481,9 @@
 /// to how long after `soft_end_time` the event occurs. `start_time`, `end_time`,
 /// `soft_start_time` and `soft_end_time` should be within the global time limits
 /// (see
-/// \[ShipmentModel.global_start_time][google.cloud.optimization.v1.ShipmentModel.global_start_time\]
+/// [ShipmentModel.global_start_time][google.cloud.optimization.v1.ShipmentModel.global_start_time]
 /// and
-/// \[ShipmentModel.global_end_time][google.cloud.optimization.v1.ShipmentModel.global_end_time\])
+/// [ShipmentModel.global_end_time][google.cloud.optimization.v1.ShipmentModel.global_end_time])
 /// and should respect:
 /// ```
 ///    0 &lt;= `start_time` &lt;= `soft_start_time` &lt;= `end_time` and
@@ -5534,7 +5534,7 @@
     </span><span class="kw">pub </span>cost_per_hour_after_soft_end_time: ::core::option::Option&lt;f64&gt;,
 }
 <span class="doccomment">/// Deprecated: Use
-/// \[Vehicle.LoadLimit.Interval][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval\]
+/// [Vehicle.LoadLimit.Interval][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval]
 /// instead.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5545,7 +5545,7 @@
     </span><span class="kw">pub </span>value: i64,
 }
 <span class="doccomment">/// Deprecated: Use
-/// \[Vehicle.LoadLimit.Interval][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval\]
+/// [Vehicle.LoadLimit.Interval][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval]
 /// instead.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5607,8 +5607,8 @@
     <span class="doccomment">/// Tags defining the set of (src-&gt;dst) transitions these attributes apply to.
     ///
     /// A source visit or vehicle start matches iff its
-    /// \[VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags\]
-    /// or \[Vehicle.start_tags][google.cloud.optimization.v1.Vehicle.start_tags\]
+    /// [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
+    /// or [Vehicle.start_tags][google.cloud.optimization.v1.Vehicle.start_tags]
     /// either contains `src_tag` or does not contain `excluded_src_tag` (depending
     /// on which of these two fields is non-empty).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
@@ -5618,8 +5618,8 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>excluded_src_tag: ::prost::alloc::string::String,
     <span class="doccomment">/// A destination visit or vehicle end matches iff its
-    /// \[VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags\]
-    /// or \[Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags\] either
+    /// [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
+    /// or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either
     /// contains `dst_tag` or does not contain `excluded_dst_tag` (depending on
     /// which of these two fields is non-empty).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
@@ -5635,7 +5635,7 @@
     </span><span class="kw">pub </span>cost: f64,
     <span class="doccomment">/// Specifies a cost per kilometer applied to the distance traveled while
     /// performing this transition. It adds up to any
-    /// \[Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer\]
+    /// [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer]
     /// specified on vehicles.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>cost_per_kilometer: f64,
@@ -5896,7 +5896,7 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>transitions: ::prost::alloc::vec::Vec&lt;shipment_route::Transition&gt;,
     <span class="doccomment">/// When
-    /// \[OptimizeToursRequest.consider_road_traffic][google.cloud.optimization.v1.OptimizeToursRequest.consider_road_traffic\],
+    /// [OptimizeToursRequest.consider_road_traffic][google.cloud.optimization.v1.OptimizeToursRequest.consider_road_traffic],
     /// is set to true, this field indicates that inconsistencies in route timings
     /// are predicted using traffic-based travel duration estimates. There may be
     /// insufficient time to complete traffic-adjusted travel, delays, and breaks
@@ -5917,7 +5917,7 @@
     </span><span class="kw">pub </span>has_traffic_infeasibilities: bool,
     <span class="doccomment">/// The encoded polyline representation of the route.
     /// This field is only populated if
-    /// \[OptimizeToursRequest.populate_polylines][google.cloud.optimization.v1.OptimizeToursRequest.populate_polylines\]
+    /// [OptimizeToursRequest.populate_polylines][google.cloud.optimization.v1.OptimizeToursRequest.populate_polylines]
     /// is set to true.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>route_polyline: ::core::option::Option&lt;shipment_route::EncodedPolyline&gt;,
@@ -5927,11 +5927,11 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>breaks: ::prost::alloc::vec::Vec&lt;shipment_route::Break&gt;,
     <span class="doccomment">/// Duration, distance and load metrics for this route. The fields of
-    /// \[AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics\] are
+    /// [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
     /// summed over all
-    /// \[ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions\]
+    /// [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
     /// or
-    /// \[ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits\],
+    /// [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
     /// depending on the context.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>metrics: ::core::option::Option&lt;AggregatedMetrics&gt;,
@@ -5952,10 +5952,10 @@
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;18&quot;</span>)]
     </span><span class="kw">pub </span>route_total_cost: f64,
     <span class="doccomment">/// Deprecated: Use
-    /// \[Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads\]
+    /// [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads]
     /// instead. Vehicle loads upon arrival at its end location, for each type
     /// specified in
-    /// \[Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities\],
+    /// [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
     /// `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
     /// loads for quantity types unconstrained by intervals and that don&#39;t have any
     /// non-zero demand on the route.
@@ -5963,14 +5963,14 @@
     #[prost(message, repeated, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>end_loads: ::prost::alloc::vec::Vec&lt;CapacityQuantity&gt;,
     <span class="doccomment">/// Deprecated: Use
-    /// \[ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions\]
+    /// [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
     /// instead. Ordered list of travel steps for the route.
     </span><span class="attr">#[deprecated]
     #[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
     </span><span class="kw">pub </span>travel_steps: ::prost::alloc::vec::Vec&lt;shipment_route::TravelStep&gt;,
     <span class="doccomment">/// Deprecated: No longer used.
     /// This field will only be populated at the
-    /// \[ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit\]
+    /// [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
     /// level.
     ///
     /// This field is the extra detour time due to the shipments visited on the
@@ -5982,7 +5982,7 @@
     #[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
     </span><span class="kw">pub </span>vehicle_detour: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Deprecated: Delay occurring before the vehicle end. See
-    /// \[TransitionAttributes.delay][google.cloud.optimization.v1.TransitionAttributes.delay\].
+    /// [TransitionAttributes.delay][google.cloud.optimization.v1.TransitionAttributes.delay].
     </span><span class="attr">#[deprecated]
     #[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
     </span><span class="kw">pub </span>delay_before_vehicle_end: ::core::option::Option&lt;shipment_route::Delay&gt;,
@@ -5990,9 +5990,9 @@
 <span class="doccomment">/// Nested message and enum types in `ShipmentRoute`.
 </span><span class="kw">pub mod </span>shipment_route {
     <span class="doccomment">/// Deprecated: Use
-    /// \[ShipmentRoute.Transition.delay_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.delay_duration\]
+    /// [ShipmentRoute.Transition.delay_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.delay_duration]
     /// instead. Time interval spent on the route resulting from a
-    /// \[TransitionAttributes.delay][google.cloud.optimization.v1.TransitionAttributes.delay\].
+    /// [TransitionAttributes.delay][google.cloud.optimization.v1.TransitionAttributes.delay].
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Delay {
@@ -6009,7 +6009,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Visit {
         <span class="doccomment">/// Index of the `shipments` field in the source
-        /// \[ShipmentModel][google.cloud.optimization.v1.ShipmentModel\].
+        /// [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>shipment_index: i32,
         <span class="doccomment">/// If true the visit corresponds to a pickup of a `Shipment`. Otherwise, it
@@ -6028,7 +6028,7 @@
         <span class="doccomment">/// Total visit load demand as the sum of the shipment and the visit request
         /// `load_demands`. The values are negative if the visit is a delivery.
         /// Demands are reported for the same types as the
-        /// \[Transition.loads][google.cloud.optimization.v1.ShipmentRoute.Transition\]
+        /// [Transition.loads][google.cloud.optimization.v1.ShipmentRoute.Transition]
         /// (see this field).
         </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
         </span><span class="kw">pub </span>load_demands: ::prost::alloc::collections::BTreeMap&lt;
@@ -6057,15 +6057,15 @@
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
         </span><span class="kw">pub </span>shipment_label: ::prost::alloc::string::String,
         <span class="doccomment">/// Copy of the corresponding
-        /// \[VisitRequest.label][google.cloud.optimization.v1.Shipment.VisitRequest.label\],
+        /// [VisitRequest.label][google.cloud.optimization.v1.Shipment.VisitRequest.label],
         /// if specified in the `VisitRequest`.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
         </span><span class="kw">pub </span>visit_label: ::prost::alloc::string::String,
         <span class="doccomment">/// Deprecated: Use
-        /// \[Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads\]
+        /// [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads]
         /// instead. Vehicle loads upon arrival at the visit location, for each type
         /// specified in
-        /// \[Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities\],
+        /// [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
         /// `start_load_intervals`, `end_load_intervals` or `demands`.
         ///
         /// Exception: we omit loads for quantity types unconstrained by intervals
@@ -6074,20 +6074,20 @@
         #[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
         </span><span class="kw">pub </span>arrival_loads: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::CapacityQuantity&gt;,
         <span class="doccomment">/// Deprecated: Use
-        /// \[ShipmentRoute.Transition.delay_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.delay_duration\]
+        /// [ShipmentRoute.Transition.delay_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.delay_duration]
         /// instead. Delay occurring before the visit starts.
         </span><span class="attr">#[deprecated]
         #[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
         </span><span class="kw">pub </span>delay_before_start: ::core::option::Option&lt;Delay&gt;,
         <span class="doccomment">/// Deprecated: Use
-        /// \[Visit.load_demands][google.cloud.optimization.v1.ShipmentRoute.Visit.load_demands\]
+        /// [Visit.load_demands][google.cloud.optimization.v1.ShipmentRoute.Visit.load_demands]
         /// instead.
         </span><span class="attr">#[deprecated]
         #[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
         </span><span class="kw">pub </span>demands: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::CapacityQuantity&gt;,
     }
     <span class="doccomment">/// Transition between two events on the route. See the description of
-    /// \[ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute\].
+    /// [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
     ///
     /// If the vehicle does not have a `start_location` and/or `end_location`, the
     /// corresponding travel metrics are 0.
@@ -6111,12 +6111,12 @@
         <span class="doccomment">/// Sum of the delay durations applied to this transition. If any, the delay
         /// starts exactly `delay_duration` seconds before the next event (visit or
         /// vehicle end). See
-        /// \[TransitionAttributes.delay][google.cloud.optimization.v1.TransitionAttributes.delay\].
+        /// [TransitionAttributes.delay][google.cloud.optimization.v1.TransitionAttributes.delay].
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>delay_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
         <span class="doccomment">/// Sum of the duration of the breaks occurring during this transition, if
         /// any. Details about each break&#39;s start time and duration are stored in
-        /// \[ShipmentRoute.breaks][google.cloud.optimization.v1.ShipmentRoute.breaks\].
+        /// [ShipmentRoute.breaks][google.cloud.optimization.v1.ShipmentRoute.breaks].
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
         </span><span class="kw">pub </span>break_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
         <span class="doccomment">/// Time spent waiting during this transition. Wait duration corresponds to
@@ -6146,9 +6146,9 @@
         </span><span class="kw">pub </span>route_polyline: ::core::option::Option&lt;EncodedPolyline&gt;,
         <span class="doccomment">/// Vehicle loads during this transition, for each type that either appears
         /// in this vehicle&#39;s
-        /// \[Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits\],
+        /// [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
         /// or that have non-zero
-        /// \[Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands\]
+        /// [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
         /// on some shipment performed on this route.
         ///
         /// The loads during the first transition are the starting loads of the
@@ -6161,7 +6161,7 @@
             VehicleLoad,
         &gt;,
         <span class="doccomment">/// Deprecated: Use
-        /// \[Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads\]
+        /// [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads]
         /// instead.
         </span><span class="attr">#[deprecated]
         #[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
@@ -6169,13 +6169,13 @@
     }
     <span class="doccomment">/// Reports the actual load of the vehicle at some point along the route,
     /// for a given type (see
-    /// \[Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads\]).
+    /// [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads]).
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>VehicleLoad {
         <span class="doccomment">/// The amount of load on the vehicle, for the given type. The unit of load
         /// is usually indicated by the type. See
-        /// \[Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads\].
+        /// [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
         </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>amount: i64,
     }
@@ -6202,7 +6202,7 @@
         </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
     <span class="doccomment">/// Deprecated: Use
-    /// \[ShipmentRoute.Transition][google.cloud.optimization.v1.ShipmentRoute.Transition\]
+    /// [ShipmentRoute.Transition][google.cloud.optimization.v1.ShipmentRoute.Transition]
     /// instead. Travel between each visit along the route: from the vehicle&#39;s
     /// `start_location` to the first visit&#39;s `arrival_location`, then from the
     /// first visit&#39;s `departure_location` to the second visit&#39;s
@@ -6225,7 +6225,7 @@
         </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>distance_meters: f64,
         <span class="doccomment">/// When traffic is requested via
-        /// \[OptimizeToursRequest.consider_road_traffic][google.cloud.optimization.v1.OptimizeToursRequest.consider_road_traffic\],
+        /// [OptimizeToursRequest.consider_road_traffic][google.cloud.optimization.v1.OptimizeToursRequest.consider_road_traffic],
         /// and the traffic info couldn&#39;t be retrieved for a TravelStep, this boolean
         /// is set to true. This may be temporary (rare hiccup in the realtime
         /// traffic servers) or permanent (no data for this location).
@@ -6235,7 +6235,7 @@
         /// step.
         ///
         /// This field is only populated if
-        /// \[OptimizeToursRequest.populate_travel_step_polylines][google.cloud.optimization.v1.OptimizeToursRequest.populate_travel_step_polylines\]
+        /// [OptimizeToursRequest.populate_travel_step_polylines][google.cloud.optimization.v1.OptimizeToursRequest.populate_travel_step_polylines]
         /// is set to true.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>route_polyline: ::core::option::Option&lt;EncodedPolyline&gt;,
@@ -6252,7 +6252,7 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>index: i32,
     <span class="doccomment">/// Copy of the corresponding
-    /// \[Shipment.label][google.cloud.optimization.v1.Shipment.label\], if specified
+    /// [Shipment.label][google.cloud.optimization.v1.Shipment.label], if specified
     /// in the `Shipment`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
@@ -6411,11 +6411,11 @@
     }
 }
 <span class="doccomment">/// Aggregated metrics for
-/// \[ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute\] (resp. for
-/// \[OptimizeToursResponse][google.cloud.optimization.v1.OptimizeToursResponse\]
-/// over all \[Transition][google.cloud.optimization.v1.ShipmentRoute.Transition\]
-/// and/or \[Visit][google.cloud.optimization.v1.ShipmentRoute.Visit\] (resp. over
-/// all \[ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute\]) elements.
+/// [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute] (resp. for
+/// [OptimizeToursResponse][google.cloud.optimization.v1.OptimizeToursResponse]
+/// over all [Transition][google.cloud.optimization.v1.ShipmentRoute.Transition]
+/// and/or [Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] (resp. over
+/// all [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute]) elements.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AggregatedMetrics {
@@ -6440,9 +6440,9 @@
     </span><span class="kw">pub </span>visit_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The total duration should be equal to the sum of all durations above.
     /// For routes, it also corresponds to:
-    /// \[ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time\]
+    /// [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
     /// `-`
-    /// \[ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time\]
+    /// [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time]
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>total_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Total travel distance for a route or a solution.
@@ -6451,18 +6451,18 @@
     <span class="doccomment">/// Maximum load achieved over the entire route (resp. solution), for each of
     /// the quantities on this route (resp. solution), computed as the maximum over
     /// all
-    /// \[Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads\]
+    /// [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads]
     /// (resp.
-    /// \[ShipmentRoute.metrics.max_loads][google.cloud.optimization.v1.AggregatedMetrics.max_loads\].
+    /// [ShipmentRoute.metrics.max_loads][google.cloud.optimization.v1.AggregatedMetrics.max_loads].
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>max_loads: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         shipment_route::VehicleLoad,
     &gt;,
     <span class="doccomment">/// Deprecated: Use
-    /// \[ShipmentRoute.route_costs][google.cloud.optimization.v1.ShipmentRoute.route_costs\]
+    /// [ShipmentRoute.route_costs][google.cloud.optimization.v1.ShipmentRoute.route_costs]
     /// and
-    /// \[OptimizeToursResponse.Metrics.costs][google.cloud.optimization.v1.OptimizeToursResponse.Metrics.costs\]
+    /// [OptimizeToursResponse.Metrics.costs][google.cloud.optimization.v1.OptimizeToursResponse.Metrics.costs]
     /// instead.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, double&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>costs: ::prost::alloc::collections::BTreeMap&lt;
@@ -6470,9 +6470,9 @@
         f64,
     &gt;,
     <span class="doccomment">/// Deprecated: Use
-    /// \[ShipmentRoute.route_total_cost][google.cloud.optimization.v1.ShipmentRoute.route_total_cost\]
+    /// [ShipmentRoute.route_total_cost][google.cloud.optimization.v1.ShipmentRoute.route_total_cost]
     /// and
-    /// \[OptimizeToursResponse.Metrics.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.Metrics.total_cost\]
+    /// [OptimizeToursResponse.Metrics.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.Metrics.total_cost]
     /// instead.
     </span><span class="attr">#[deprecated]
     #[prost(double, tag = <span class="string">&quot;11&quot;</span>)]
@@ -6522,7 +6522,7 @@
         /// several `constraint_relaxations`.
         ///
         /// A vehicle index is mapped the same as
-        /// \[ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index\],
+        /// [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
         /// if `interpret_injected_solutions_using_labels` is true (see `fields`
         /// comment).
         </span><span class="attr">#[prost(int32, repeated, tag = <span class="string">&quot;2&quot;</span>)]
