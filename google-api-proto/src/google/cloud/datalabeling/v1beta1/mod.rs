@@ -1,3 +1,46 @@
+/// An AnnotationSpecSet is a collection of label definitions. For example, in
+/// image classification tasks, you define a set of possible labels for images as
+/// an AnnotationSpecSet. An AnnotationSpecSet is immutable upon creation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AnnotationSpecSet {
+    /// Output only. The AnnotationSpecSet resource name in the following format:
+    ///
+    /// "projects/<var>{project_id}</var>/annotationSpecSets/<var>{annotation_spec_set_id}</var>"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The display name for AnnotationSpecSet that you define when you
+    /// create it. Maximum of 64 characters.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. User-provided description of the annotation specification set.
+    /// The description can be up to 10,000 characters long.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Required. The array of AnnotationSpecs that you define when you create the
+    /// AnnotationSpecSet. These are the possible labels for the labeling task.
+    #[prost(message, repeated, tag = "4")]
+    pub annotation_specs: ::prost::alloc::vec::Vec<AnnotationSpec>,
+    /// Output only. The names of any related resources that are blocking changes
+    /// to the annotation spec set.
+    #[prost(string, repeated, tag = "5")]
+    pub blocking_resources: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Container of information related to one possible annotation that can be used
+/// in a labeling task. For example, an image classification task where images
+/// are labeled as `dog` or `cat` must reference an AnnotationSpec for `dog` and
+/// an AnnotationSpec for `cat`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AnnotationSpec {
+    /// Required. The display name of the AnnotationSpec. Maximum of 64 characters.
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. User-provided description of the annotation specification.
+    /// The description can be up to 10,000 characters long.
+    #[prost(string, tag = "2")]
+    pub description: ::prost::alloc::string::String,
+}
 /// Configuration for how human labeling task should be done.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -234,48 +277,62 @@ impl StringAggregationType {
         }
     }
 }
-/// An AnnotationSpecSet is a collection of label definitions. For example, in
-/// image classification tasks, you define a set of possible labels for images as
-/// an AnnotationSpecSet. An AnnotationSpecSet is immutable upon creation.
+/// Container of information about an image.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AnnotationSpecSet {
-    /// Output only. The AnnotationSpecSet resource name in the following format:
-    ///
-    /// "projects/<var>{project_id}</var>/annotationSpecSets/<var>{annotation_spec_set_id}</var>"
+pub struct ImagePayload {
+    /// Image format.
     #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The display name for AnnotationSpecSet that you define when you
-    /// create it. Maximum of 64 characters.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Optional. User-provided description of the annotation specification set.
-    /// The description can be up to 10,000 characters long.
+    pub mime_type: ::prost::alloc::string::String,
+    /// A byte string of a thumbnail image.
+    #[prost(bytes = "bytes", tag = "2")]
+    pub image_thumbnail: ::prost::bytes::Bytes,
+    /// Image uri from the user bucket.
     #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// Required. The array of AnnotationSpecs that you define when you create the
-    /// AnnotationSpecSet. These are the possible labels for the labeling task.
-    #[prost(message, repeated, tag = "4")]
-    pub annotation_specs: ::prost::alloc::vec::Vec<AnnotationSpec>,
-    /// Output only. The names of any related resources that are blocking changes
-    /// to the annotation spec set.
-    #[prost(string, repeated, tag = "5")]
-    pub blocking_resources: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    pub image_uri: ::prost::alloc::string::String,
+    /// Signed uri of the image file in the service bucket.
+    #[prost(string, tag = "4")]
+    pub signed_uri: ::prost::alloc::string::String,
 }
-/// Container of information related to one possible annotation that can be used
-/// in a labeling task. For example, an image classification task where images
-/// are labeled as `dog` or `cat` must reference an AnnotationSpec for `dog` and
-/// an AnnotationSpec for `cat`.
+/// Container of information about a piece of text.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AnnotationSpec {
-    /// Required. The display name of the AnnotationSpec. Maximum of 64 characters.
+pub struct TextPayload {
+    /// Text content.
     #[prost(string, tag = "1")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Optional. User-provided description of the annotation specification.
-    /// The description can be up to 10,000 characters long.
+    pub text_content: ::prost::alloc::string::String,
+}
+/// Container of information of a video thumbnail.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VideoThumbnail {
+    /// A byte string of the video frame.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub thumbnail: ::prost::bytes::Bytes,
+    /// Time offset relative to the beginning of the video, corresponding to the
+    /// video frame where the thumbnail has been extracted from.
+    #[prost(message, optional, tag = "2")]
+    pub time_offset: ::core::option::Option<::prost_types::Duration>,
+}
+/// Container of information of a video.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VideoPayload {
+    /// Video format.
+    #[prost(string, tag = "1")]
+    pub mime_type: ::prost::alloc::string::String,
+    /// Video uri from the user bucket.
     #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
+    pub video_uri: ::prost::alloc::string::String,
+    /// The list of video thumbnails.
+    #[prost(message, repeated, tag = "3")]
+    pub video_thumbnails: ::prost::alloc::vec::Vec<VideoThumbnail>,
+    /// FPS of the video.
+    #[prost(float, tag = "4")]
+    pub frame_rate: f32,
+    /// Signed uri of the video file in the service bucket.
+    #[prost(string, tag = "5")]
+    pub signed_uri: ::prost::alloc::string::String,
 }
 /// Annotation for Example. Each example may have one or more annotations. For
 /// example in image classification problem, each image might have one or more
@@ -780,63 +837,6 @@ impl AnnotationType {
             _ => None,
         }
     }
-}
-/// Container of information about an image.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImagePayload {
-    /// Image format.
-    #[prost(string, tag = "1")]
-    pub mime_type: ::prost::alloc::string::String,
-    /// A byte string of a thumbnail image.
-    #[prost(bytes = "bytes", tag = "2")]
-    pub image_thumbnail: ::prost::bytes::Bytes,
-    /// Image uri from the user bucket.
-    #[prost(string, tag = "3")]
-    pub image_uri: ::prost::alloc::string::String,
-    /// Signed uri of the image file in the service bucket.
-    #[prost(string, tag = "4")]
-    pub signed_uri: ::prost::alloc::string::String,
-}
-/// Container of information about a piece of text.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextPayload {
-    /// Text content.
-    #[prost(string, tag = "1")]
-    pub text_content: ::prost::alloc::string::String,
-}
-/// Container of information of a video thumbnail.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VideoThumbnail {
-    /// A byte string of the video frame.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub thumbnail: ::prost::bytes::Bytes,
-    /// Time offset relative to the beginning of the video, corresponding to the
-    /// video frame where the thumbnail has been extracted from.
-    #[prost(message, optional, tag = "2")]
-    pub time_offset: ::core::option::Option<::prost_types::Duration>,
-}
-/// Container of information of a video.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VideoPayload {
-    /// Video format.
-    #[prost(string, tag = "1")]
-    pub mime_type: ::prost::alloc::string::String,
-    /// Video uri from the user bucket.
-    #[prost(string, tag = "2")]
-    pub video_uri: ::prost::alloc::string::String,
-    /// The list of video thumbnails.
-    #[prost(message, repeated, tag = "3")]
-    pub video_thumbnails: ::prost::alloc::vec::Vec<VideoThumbnail>,
-    /// FPS of the video.
-    #[prost(float, tag = "4")]
-    pub frame_rate: f32,
-    /// Signed uri of the video file in the service bucket.
-    #[prost(string, tag = "5")]
-    pub signed_uri: ::prost::alloc::string::String,
 }
 /// Dataset is the resource to hold your data. You can request multiple labeling
 /// tasks for a dataset while each one will generate an AnnotatedDataset.

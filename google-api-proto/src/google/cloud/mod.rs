@@ -238,6 +238,8 @@ pub mod documentai;
 pub mod domains;
 #[cfg(any(feature = "google-cloud-edgecontainer-v1"))]
 pub mod edgecontainer;
+#[cfg(any(feature = "google-cloud-edgenetwork-v1"))]
+pub mod edgenetwork;
 #[cfg(any(feature = "google-cloud-enterpriseknowledgegraph-v1"))]
 pub mod enterpriseknowledgegraph;
 #[cfg(any(feature = "google-cloud-essentialcontacts-v1"))]
@@ -598,7 +600,12 @@ pub mod talent;
     )
 )]
 pub mod tasks;
-#[cfg(any(feature = "google-cloud-telcoautomation-v1alpha1"))]
+#[cfg(
+    any(
+        feature = "google-cloud-telcoautomation-v1",
+        feature = "google-cloud-telcoautomation-v1alpha1",
+    )
+)]
 pub mod telcoautomation;
 #[cfg(
     any(

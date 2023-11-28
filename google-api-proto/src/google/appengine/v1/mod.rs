@@ -1,340 +1,19 @@
-/// Code and application artifacts used to deploy a version to App Engine.
+/// A domain that a user has been authorized to administer. To authorize use
+/// of a domain, verify ownership via
+/// [Search Console](<https://search.google.com/search-console/welcome>).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Deployment {
-    /// Manifest of the files stored in Google Cloud Storage that are included
-    /// as part of this version. All files must be readable using the
-    /// credentials supplied with this call.
-    #[prost(btree_map = "string, message", tag = "1")]
-    pub files: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        FileInfo,
-    >,
-    /// The Docker image for the container that runs the version.
-    /// Only applicable for instances running in the App Engine flexible environment.
-    #[prost(message, optional, tag = "2")]
-    pub container: ::core::option::Option<ContainerInfo>,
-    /// The zip file for this deployment, if this is a zip deployment.
-    #[prost(message, optional, tag = "3")]
-    pub zip: ::core::option::Option<ZipInfo>,
-    /// Options for any Google Cloud Build builds created as a part of this
-    /// deployment.
-    ///
-    /// These options will only be used if a new build is created, such as when
-    /// deploying to the App Engine flexible environment using files or zip.
-    #[prost(message, optional, tag = "6")]
-    pub cloud_build_options: ::core::option::Option<CloudBuildOptions>,
-}
-/// Single source file that is part of the version to be deployed. Each source
-/// file that is deployed must be specified separately.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FileInfo {
-    /// URL source to use to fetch this file. Must be a URL to a resource in
-    /// Google Cloud Storage in the form
-    /// 'http(s)://storage.googleapis.com/\<bucket\>/\<object\>'.
-    #[prost(string, tag = "1")]
-    pub source_url: ::prost::alloc::string::String,
-    /// The SHA1 hash of the file, in hex.
-    #[prost(string, tag = "2")]
-    pub sha1_sum: ::prost::alloc::string::String,
-    /// The MIME type of the file.
-    ///
-    /// Defaults to the value from Google Cloud Storage.
-    #[prost(string, tag = "3")]
-    pub mime_type: ::prost::alloc::string::String,
-}
-/// Docker image that is used to create a container and start a VM instance for
-/// the version that you deploy. Only applicable for instances running in the App
-/// Engine flexible environment.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ContainerInfo {
-    /// URI to the hosted container image in Google Container Registry. The URI
-    /// must be fully qualified and include a tag or digest.
-    /// Examples: "gcr.io/my-project/image:tag" or "gcr.io/my-project/image@digest"
-    #[prost(string, tag = "1")]
-    pub image: ::prost::alloc::string::String,
-}
-/// Options for the build operations performed as a part of the version
-/// deployment. Only applicable for App Engine flexible environment when creating
-/// a version using source code directly.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CloudBuildOptions {
-    /// Path to the yaml file used in deployment, used to determine runtime
-    /// configuration details.
-    ///
-    /// Required for flexible environment builds.
-    ///
-    /// See <https://cloud.google.com/appengine/docs/standard/python/config/appref>
-    /// for more details.
-    #[prost(string, tag = "1")]
-    pub app_yaml_path: ::prost::alloc::string::String,
-    /// The Cloud Build timeout used as part of any dependent builds performed by
-    /// version creation. Defaults to 10 minutes.
-    #[prost(message, optional, tag = "2")]
-    pub cloud_build_timeout: ::core::option::Option<::prost_types::Duration>,
-}
-/// The zip file information for a zip deployment.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ZipInfo {
-    /// URL of the zip file to deploy from. Must be a URL to a resource in
-    /// Google Cloud Storage in the form
-    /// 'http(s)://storage.googleapis.com/\<bucket\>/\<object\>'.
-    #[prost(string, tag = "3")]
-    pub source_url: ::prost::alloc::string::String,
-    /// An estimate of the number of files in a zip for a zip deployment.
-    /// If set, must be greater than or equal to the actual number of files.
-    /// Used for optimizing performance; if not provided, deployment may be slow.
-    #[prost(int32, tag = "4")]
-    pub files_count: i32,
-}
-/// A NetworkSettings resource is a container for ingress settings for a version
-/// or service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NetworkSettings {
-    /// The ingress settings for version or service.
-    #[prost(enumeration = "network_settings::IngressTrafficAllowed", tag = "1")]
-    pub ingress_traffic_allowed: i32,
-}
-/// Nested message and enum types in `NetworkSettings`.
-pub mod network_settings {
-    /// If unspecified, INGRESS_TRAFFIC_ALLOWED_ALL will be used.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum IngressTrafficAllowed {
-        /// Unspecified
-        Unspecified = 0,
-        /// Allow HTTP traffic from public and private sources.
-        All = 1,
-        /// Allow HTTP traffic from only private VPC sources.
-        InternalOnly = 2,
-        /// Allow HTTP traffic from private VPC sources and through load balancers.
-        InternalAndLb = 3,
-    }
-    impl IngressTrafficAllowed {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                IngressTrafficAllowed::Unspecified => {
-                    "INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED"
-                }
-                IngressTrafficAllowed::All => "INGRESS_TRAFFIC_ALLOWED_ALL",
-                IngressTrafficAllowed::InternalOnly => {
-                    "INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY"
-                }
-                IngressTrafficAllowed::InternalAndLb => {
-                    "INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED" => Some(Self::Unspecified),
-                "INGRESS_TRAFFIC_ALLOWED_ALL" => Some(Self::All),
-                "INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY" => Some(Self::InternalOnly),
-                "INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB" => Some(Self::InternalAndLb),
-                _ => None,
-            }
-        }
-    }
-}
-/// An SSL certificate that a user has been authorized to administer. A user
-/// is authorized to administer any certificate that applies to one of their
-/// authorized domains.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AuthorizedCertificate {
-    /// Full path to the `AuthorizedCertificate` resource in the API. Example:
-    /// `apps/myapp/authorizedCertificates/12345`.
+pub struct AuthorizedDomain {
+    /// Full path to the `AuthorizedDomain` resource in the API. Example:
+    /// `apps/myapp/authorizedDomains/example.com`.
     ///
     /// @OutputOnly
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Relative name of the certificate. This is a unique value autogenerated
-    /// on `AuthorizedCertificate` resource creation. Example: `12345`.
-    ///
-    /// @OutputOnly
+    /// Fully qualified domain name of the domain authorized for use. Example:
+    /// `example.com`.
     #[prost(string, tag = "2")]
     pub id: ::prost::alloc::string::String,
-    /// The user-specified display name of the certificate. This is not
-    /// guaranteed to be unique. Example: `My Certificate`.
-    #[prost(string, tag = "3")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Topmost applicable domains of this certificate. This certificate
-    /// applies to these domains and their subdomains. Example: `example.com`.
-    ///
-    /// @OutputOnly
-    #[prost(string, repeated, tag = "4")]
-    pub domain_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The time when this certificate expires. To update the renewal time on this
-    /// certificate, upload an SSL certificate with a different expiration time
-    /// using [`AuthorizedCertificates.UpdateAuthorizedCertificate`]().
-    ///
-    /// @OutputOnly
-    #[prost(message, optional, tag = "5")]
-    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The SSL certificate serving the `AuthorizedCertificate` resource. This
-    /// must be obtained independently from a certificate authority.
-    #[prost(message, optional, tag = "6")]
-    pub certificate_raw_data: ::core::option::Option<CertificateRawData>,
-    /// Only applicable if this certificate is managed by App Engine. Managed
-    /// certificates are tied to the lifecycle of a `DomainMapping` and cannot be
-    /// updated or deleted via the `AuthorizedCertificates` API. If this
-    /// certificate is manually administered by the user, this field will be empty.
-    ///
-    /// @OutputOnly
-    #[prost(message, optional, tag = "7")]
-    pub managed_certificate: ::core::option::Option<ManagedCertificate>,
-    /// The full paths to user visible Domain Mapping resources that have this
-    /// certificate mapped. Example: `apps/myapp/domainMappings/example.com`.
-    ///
-    /// This may not represent the full list of mapped domain mappings if the user
-    /// does not have `VIEWER` permissions on all of the applications that have
-    /// this certificate mapped. See `domain_mappings_count` for a complete count.
-    ///
-    /// Only returned by `GET` or `LIST` requests when specifically requested by
-    /// the `view=FULL_CERTIFICATE` option.
-    ///
-    /// @OutputOnly
-    #[prost(string, repeated, tag = "8")]
-    pub visible_domain_mappings: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// Aggregate count of the domain mappings with this certificate mapped. This
-    /// count includes domain mappings on applications for which the user does not
-    /// have `VIEWER` permissions.
-    ///
-    /// Only returned by `GET` or `LIST` requests when specifically requested by
-    /// the `view=FULL_CERTIFICATE` option.
-    ///
-    /// @OutputOnly
-    #[prost(int32, tag = "9")]
-    pub domain_mappings_count: i32,
-}
-/// An SSL certificate obtained from a certificate authority.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CertificateRawData {
-    /// PEM encoded x.509 public key certificate. This field is set once on
-    /// certificate creation. Must include the header and footer. Example:
-    /// <pre>
-    /// -----BEGIN CERTIFICATE-----
-    /// <certificate_value>
-    /// -----END CERTIFICATE-----
-    /// </pre>
-    #[prost(string, tag = "1")]
-    pub public_certificate: ::prost::alloc::string::String,
-    /// Unencrypted PEM encoded RSA private key. This field is set once on
-    /// certificate creation and then encrypted. The key size must be 2048
-    /// bits or fewer. Must include the header and footer. Example:
-    /// <pre>
-    /// -----BEGIN RSA PRIVATE KEY-----
-    /// <unencrypted_key_value>
-    /// -----END RSA PRIVATE KEY-----
-    /// </pre>
-    /// @InputOnly
-    #[prost(string, tag = "2")]
-    pub private_key: ::prost::alloc::string::String,
-}
-/// A certificate managed by App Engine.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ManagedCertificate {
-    /// Time at which the certificate was last renewed. The renewal process is
-    /// fully managed. Certificate renewal will automatically occur before the
-    /// certificate expires. Renewal errors can be tracked via `ManagementStatus`.
-    ///
-    /// @OutputOnly
-    #[prost(message, optional, tag = "1")]
-    pub last_renewal_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Status of certificate management. Refers to the most recent certificate
-    /// acquisition or renewal attempt.
-    ///
-    /// @OutputOnly
-    #[prost(enumeration = "ManagementStatus", tag = "2")]
-    pub status: i32,
-}
-/// State of certificate management. Refers to the most recent certificate
-/// acquisition or renewal attempt.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ManagementStatus {
-    Unspecified = 0,
-    /// Certificate was successfully obtained and inserted into the serving
-    /// system.
-    Ok = 1,
-    /// Certificate is under active attempts to acquire or renew.
-    Pending = 2,
-    /// Most recent renewal failed due to an invalid DNS setup and will be
-    /// retried. Renewal attempts will continue to fail until the certificate
-    /// domain's DNS configuration is fixed. The last successfully provisioned
-    /// certificate may still be serving.
-    FailedRetryingNotVisible = 4,
-    /// All renewal attempts have been exhausted, likely due to an invalid DNS
-    /// setup.
-    FailedPermanent = 6,
-    /// Most recent renewal failed due to an explicit CAA record that does not
-    /// include one of the in-use CAs (Google CA and Let's Encrypt). Renewals will
-    /// continue to fail until the CAA is reconfigured. The last successfully
-    /// provisioned certificate may still be serving.
-    FailedRetryingCaaForbidden = 7,
-    /// Most recent renewal failed due to a CAA retrieval failure. This means that
-    /// the domain's DNS provider does not properly handle CAA records, failing
-    /// requests for CAA records when no CAA records are defined. Renewals will
-    /// continue to fail until the DNS provider is changed or a CAA record is
-    /// added for the given domain. The last successfully provisioned certificate
-    /// may still be serving.
-    FailedRetryingCaaChecking = 8,
-}
-impl ManagementStatus {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ManagementStatus::Unspecified => "MANAGEMENT_STATUS_UNSPECIFIED",
-            ManagementStatus::Ok => "OK",
-            ManagementStatus::Pending => "PENDING",
-            ManagementStatus::FailedRetryingNotVisible => "FAILED_RETRYING_NOT_VISIBLE",
-            ManagementStatus::FailedPermanent => "FAILED_PERMANENT",
-            ManagementStatus::FailedRetryingCaaForbidden => {
-                "FAILED_RETRYING_CAA_FORBIDDEN"
-            }
-            ManagementStatus::FailedRetryingCaaChecking => "FAILED_RETRYING_CAA_CHECKING",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "MANAGEMENT_STATUS_UNSPECIFIED" => Some(Self::Unspecified),
-            "OK" => Some(Self::Ok),
-            "PENDING" => Some(Self::Pending),
-            "FAILED_RETRYING_NOT_VISIBLE" => Some(Self::FailedRetryingNotVisible),
-            "FAILED_PERMANENT" => Some(Self::FailedPermanent),
-            "FAILED_RETRYING_CAA_FORBIDDEN" => Some(Self::FailedRetryingCaaForbidden),
-            "FAILED_RETRYING_CAA_CHECKING" => Some(Self::FailedRetryingCaaChecking),
-            _ => None,
-        }
-    }
 }
 /// An Application resource contains the top-level configuration of an App
 /// Engine application.
@@ -586,22 +265,185 @@ pub struct UrlDispatchRule {
     #[prost(string, tag = "3")]
     pub service: ::prost::alloc::string::String,
 }
-/// A domain that a user has been authorized to administer. To authorize use
-/// of a domain, verify ownership via
-/// [Search Console](<https://search.google.com/search-console/welcome>).
+/// An SSL certificate that a user has been authorized to administer. A user
+/// is authorized to administer any certificate that applies to one of their
+/// authorized domains.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AuthorizedDomain {
-    /// Full path to the `AuthorizedDomain` resource in the API. Example:
-    /// `apps/myapp/authorizedDomains/example.com`.
+pub struct AuthorizedCertificate {
+    /// Full path to the `AuthorizedCertificate` resource in the API. Example:
+    /// `apps/myapp/authorizedCertificates/12345`.
     ///
     /// @OutputOnly
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Fully qualified domain name of the domain authorized for use. Example:
-    /// `example.com`.
+    /// Relative name of the certificate. This is a unique value autogenerated
+    /// on `AuthorizedCertificate` resource creation. Example: `12345`.
+    ///
+    /// @OutputOnly
     #[prost(string, tag = "2")]
     pub id: ::prost::alloc::string::String,
+    /// The user-specified display name of the certificate. This is not
+    /// guaranteed to be unique. Example: `My Certificate`.
+    #[prost(string, tag = "3")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Topmost applicable domains of this certificate. This certificate
+    /// applies to these domains and their subdomains. Example: `example.com`.
+    ///
+    /// @OutputOnly
+    #[prost(string, repeated, tag = "4")]
+    pub domain_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The time when this certificate expires. To update the renewal time on this
+    /// certificate, upload an SSL certificate with a different expiration time
+    /// using [`AuthorizedCertificates.UpdateAuthorizedCertificate`]().
+    ///
+    /// @OutputOnly
+    #[prost(message, optional, tag = "5")]
+    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The SSL certificate serving the `AuthorizedCertificate` resource. This
+    /// must be obtained independently from a certificate authority.
+    #[prost(message, optional, tag = "6")]
+    pub certificate_raw_data: ::core::option::Option<CertificateRawData>,
+    /// Only applicable if this certificate is managed by App Engine. Managed
+    /// certificates are tied to the lifecycle of a `DomainMapping` and cannot be
+    /// updated or deleted via the `AuthorizedCertificates` API. If this
+    /// certificate is manually administered by the user, this field will be empty.
+    ///
+    /// @OutputOnly
+    #[prost(message, optional, tag = "7")]
+    pub managed_certificate: ::core::option::Option<ManagedCertificate>,
+    /// The full paths to user visible Domain Mapping resources that have this
+    /// certificate mapped. Example: `apps/myapp/domainMappings/example.com`.
+    ///
+    /// This may not represent the full list of mapped domain mappings if the user
+    /// does not have `VIEWER` permissions on all of the applications that have
+    /// this certificate mapped. See `domain_mappings_count` for a complete count.
+    ///
+    /// Only returned by `GET` or `LIST` requests when specifically requested by
+    /// the `view=FULL_CERTIFICATE` option.
+    ///
+    /// @OutputOnly
+    #[prost(string, repeated, tag = "8")]
+    pub visible_domain_mappings: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// Aggregate count of the domain mappings with this certificate mapped. This
+    /// count includes domain mappings on applications for which the user does not
+    /// have `VIEWER` permissions.
+    ///
+    /// Only returned by `GET` or `LIST` requests when specifically requested by
+    /// the `view=FULL_CERTIFICATE` option.
+    ///
+    /// @OutputOnly
+    #[prost(int32, tag = "9")]
+    pub domain_mappings_count: i32,
+}
+/// An SSL certificate obtained from a certificate authority.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CertificateRawData {
+    /// PEM encoded x.509 public key certificate. This field is set once on
+    /// certificate creation. Must include the header and footer. Example:
+    /// <pre>
+    /// -----BEGIN CERTIFICATE-----
+    /// <certificate_value>
+    /// -----END CERTIFICATE-----
+    /// </pre>
+    #[prost(string, tag = "1")]
+    pub public_certificate: ::prost::alloc::string::String,
+    /// Unencrypted PEM encoded RSA private key. This field is set once on
+    /// certificate creation and then encrypted. The key size must be 2048
+    /// bits or fewer. Must include the header and footer. Example:
+    /// <pre>
+    /// -----BEGIN RSA PRIVATE KEY-----
+    /// <unencrypted_key_value>
+    /// -----END RSA PRIVATE KEY-----
+    /// </pre>
+    /// @InputOnly
+    #[prost(string, tag = "2")]
+    pub private_key: ::prost::alloc::string::String,
+}
+/// A certificate managed by App Engine.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ManagedCertificate {
+    /// Time at which the certificate was last renewed. The renewal process is
+    /// fully managed. Certificate renewal will automatically occur before the
+    /// certificate expires. Renewal errors can be tracked via `ManagementStatus`.
+    ///
+    /// @OutputOnly
+    #[prost(message, optional, tag = "1")]
+    pub last_renewal_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Status of certificate management. Refers to the most recent certificate
+    /// acquisition or renewal attempt.
+    ///
+    /// @OutputOnly
+    #[prost(enumeration = "ManagementStatus", tag = "2")]
+    pub status: i32,
+}
+/// State of certificate management. Refers to the most recent certificate
+/// acquisition or renewal attempt.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ManagementStatus {
+    Unspecified = 0,
+    /// Certificate was successfully obtained and inserted into the serving
+    /// system.
+    Ok = 1,
+    /// Certificate is under active attempts to acquire or renew.
+    Pending = 2,
+    /// Most recent renewal failed due to an invalid DNS setup and will be
+    /// retried. Renewal attempts will continue to fail until the certificate
+    /// domain's DNS configuration is fixed. The last successfully provisioned
+    /// certificate may still be serving.
+    FailedRetryingNotVisible = 4,
+    /// All renewal attempts have been exhausted, likely due to an invalid DNS
+    /// setup.
+    FailedPermanent = 6,
+    /// Most recent renewal failed due to an explicit CAA record that does not
+    /// include one of the in-use CAs (Google CA and Let's Encrypt). Renewals will
+    /// continue to fail until the CAA is reconfigured. The last successfully
+    /// provisioned certificate may still be serving.
+    FailedRetryingCaaForbidden = 7,
+    /// Most recent renewal failed due to a CAA retrieval failure. This means that
+    /// the domain's DNS provider does not properly handle CAA records, failing
+    /// requests for CAA records when no CAA records are defined. Renewals will
+    /// continue to fail until the DNS provider is changed or a CAA record is
+    /// added for the given domain. The last successfully provisioned certificate
+    /// may still be serving.
+    FailedRetryingCaaChecking = 8,
+}
+impl ManagementStatus {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ManagementStatus::Unspecified => "MANAGEMENT_STATUS_UNSPECIFIED",
+            ManagementStatus::Ok => "OK",
+            ManagementStatus::Pending => "PENDING",
+            ManagementStatus::FailedRetryingNotVisible => "FAILED_RETRYING_NOT_VISIBLE",
+            ManagementStatus::FailedPermanent => "FAILED_PERMANENT",
+            ManagementStatus::FailedRetryingCaaForbidden => {
+                "FAILED_RETRYING_CAA_FORBIDDEN"
+            }
+            ManagementStatus::FailedRetryingCaaChecking => "FAILED_RETRYING_CAA_CHECKING",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "MANAGEMENT_STATUS_UNSPECIFIED" => Some(Self::Unspecified),
+            "OK" => Some(Self::Ok),
+            "PENDING" => Some(Self::Pending),
+            "FAILED_RETRYING_NOT_VISIBLE" => Some(Self::FailedRetryingNotVisible),
+            "FAILED_PERMANENT" => Some(Self::FailedPermanent),
+            "FAILED_RETRYING_CAA_FORBIDDEN" => Some(Self::FailedRetryingCaaForbidden),
+            "FAILED_RETRYING_CAA_CHECKING" => Some(Self::FailedRetryingCaaChecking),
+            _ => None,
+        }
+    }
 }
 /// A domain serving an App Engine application.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1031,6 +873,71 @@ pub mod instance {
                 "UNSPECIFIED" => Some(Self::Unspecified),
                 "RESIDENT" => Some(Self::Resident),
                 "DYNAMIC" => Some(Self::Dynamic),
+                _ => None,
+            }
+        }
+    }
+}
+/// A NetworkSettings resource is a container for ingress settings for a version
+/// or service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NetworkSettings {
+    /// The ingress settings for version or service.
+    #[prost(enumeration = "network_settings::IngressTrafficAllowed", tag = "1")]
+    pub ingress_traffic_allowed: i32,
+}
+/// Nested message and enum types in `NetworkSettings`.
+pub mod network_settings {
+    /// If unspecified, INGRESS_TRAFFIC_ALLOWED_ALL will be used.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum IngressTrafficAllowed {
+        /// Unspecified
+        Unspecified = 0,
+        /// Allow HTTP traffic from public and private sources.
+        All = 1,
+        /// Allow HTTP traffic from only private VPC sources.
+        InternalOnly = 2,
+        /// Allow HTTP traffic from private VPC sources and through load balancers.
+        InternalAndLb = 3,
+    }
+    impl IngressTrafficAllowed {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                IngressTrafficAllowed::Unspecified => {
+                    "INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED"
+                }
+                IngressTrafficAllowed::All => "INGRESS_TRAFFIC_ALLOWED_ALL",
+                IngressTrafficAllowed::InternalOnly => {
+                    "INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY"
+                }
+                IngressTrafficAllowed::InternalAndLb => {
+                    "INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED" => Some(Self::Unspecified),
+                "INGRESS_TRAFFIC_ALLOWED_ALL" => Some(Self::All),
+                "INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY" => Some(Self::InternalOnly),
+                "INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB" => Some(Self::InternalAndLb),
                 _ => None,
             }
         }
@@ -1650,6 +1557,99 @@ impl SecurityLevel {
             _ => None,
         }
     }
+}
+/// Code and application artifacts used to deploy a version to App Engine.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Deployment {
+    /// Manifest of the files stored in Google Cloud Storage that are included
+    /// as part of this version. All files must be readable using the
+    /// credentials supplied with this call.
+    #[prost(btree_map = "string, message", tag = "1")]
+    pub files: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        FileInfo,
+    >,
+    /// The Docker image for the container that runs the version.
+    /// Only applicable for instances running in the App Engine flexible environment.
+    #[prost(message, optional, tag = "2")]
+    pub container: ::core::option::Option<ContainerInfo>,
+    /// The zip file for this deployment, if this is a zip deployment.
+    #[prost(message, optional, tag = "3")]
+    pub zip: ::core::option::Option<ZipInfo>,
+    /// Options for any Google Cloud Build builds created as a part of this
+    /// deployment.
+    ///
+    /// These options will only be used if a new build is created, such as when
+    /// deploying to the App Engine flexible environment using files or zip.
+    #[prost(message, optional, tag = "6")]
+    pub cloud_build_options: ::core::option::Option<CloudBuildOptions>,
+}
+/// Single source file that is part of the version to be deployed. Each source
+/// file that is deployed must be specified separately.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FileInfo {
+    /// URL source to use to fetch this file. Must be a URL to a resource in
+    /// Google Cloud Storage in the form
+    /// 'http(s)://storage.googleapis.com/\<bucket\>/\<object\>'.
+    #[prost(string, tag = "1")]
+    pub source_url: ::prost::alloc::string::String,
+    /// The SHA1 hash of the file, in hex.
+    #[prost(string, tag = "2")]
+    pub sha1_sum: ::prost::alloc::string::String,
+    /// The MIME type of the file.
+    ///
+    /// Defaults to the value from Google Cloud Storage.
+    #[prost(string, tag = "3")]
+    pub mime_type: ::prost::alloc::string::String,
+}
+/// Docker image that is used to create a container and start a VM instance for
+/// the version that you deploy. Only applicable for instances running in the App
+/// Engine flexible environment.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ContainerInfo {
+    /// URI to the hosted container image in Google Container Registry. The URI
+    /// must be fully qualified and include a tag or digest.
+    /// Examples: "gcr.io/my-project/image:tag" or "gcr.io/my-project/image@digest"
+    #[prost(string, tag = "1")]
+    pub image: ::prost::alloc::string::String,
+}
+/// Options for the build operations performed as a part of the version
+/// deployment. Only applicable for App Engine flexible environment when creating
+/// a version using source code directly.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CloudBuildOptions {
+    /// Path to the yaml file used in deployment, used to determine runtime
+    /// configuration details.
+    ///
+    /// Required for flexible environment builds.
+    ///
+    /// See <https://cloud.google.com/appengine/docs/standard/python/config/appref>
+    /// for more details.
+    #[prost(string, tag = "1")]
+    pub app_yaml_path: ::prost::alloc::string::String,
+    /// The Cloud Build timeout used as part of any dependent builds performed by
+    /// version creation. Defaults to 10 minutes.
+    #[prost(message, optional, tag = "2")]
+    pub cloud_build_timeout: ::core::option::Option<::prost_types::Duration>,
+}
+/// The zip file information for a zip deployment.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ZipInfo {
+    /// URL of the zip file to deploy from. Must be a URL to a resource in
+    /// Google Cloud Storage in the form
+    /// 'http(s)://storage.googleapis.com/\<bucket\>/\<object\>'.
+    #[prost(string, tag = "3")]
+    pub source_url: ::prost::alloc::string::String,
+    /// An estimate of the number of files in a zip for a zip deployment.
+    /// If set, must be greater than or equal to the actual number of files.
+    /// Used for optimizing performance; if not provided, deployment may be slow.
+    #[prost(int32, tag = "4")]
+    pub files_count: i32,
 }
 /// A Version resource is a specific set of source code and configuration files
 /// that are deployed into a service.
