@@ -7656,6 +7656,68 @@
 <a href="#7656" id="7656">7656</a>
 <a href="#7657" id="7657">7657</a>
 <a href="#7658" id="7658">7658</a>
+<a href="#7659" id="7659">7659</a>
+<a href="#7660" id="7660">7660</a>
+<a href="#7661" id="7661">7661</a>
+<a href="#7662" id="7662">7662</a>
+<a href="#7663" id="7663">7663</a>
+<a href="#7664" id="7664">7664</a>
+<a href="#7665" id="7665">7665</a>
+<a href="#7666" id="7666">7666</a>
+<a href="#7667" id="7667">7667</a>
+<a href="#7668" id="7668">7668</a>
+<a href="#7669" id="7669">7669</a>
+<a href="#7670" id="7670">7670</a>
+<a href="#7671" id="7671">7671</a>
+<a href="#7672" id="7672">7672</a>
+<a href="#7673" id="7673">7673</a>
+<a href="#7674" id="7674">7674</a>
+<a href="#7675" id="7675">7675</a>
+<a href="#7676" id="7676">7676</a>
+<a href="#7677" id="7677">7677</a>
+<a href="#7678" id="7678">7678</a>
+<a href="#7679" id="7679">7679</a>
+<a href="#7680" id="7680">7680</a>
+<a href="#7681" id="7681">7681</a>
+<a href="#7682" id="7682">7682</a>
+<a href="#7683" id="7683">7683</a>
+<a href="#7684" id="7684">7684</a>
+<a href="#7685" id="7685">7685</a>
+<a href="#7686" id="7686">7686</a>
+<a href="#7687" id="7687">7687</a>
+<a href="#7688" id="7688">7688</a>
+<a href="#7689" id="7689">7689</a>
+<a href="#7690" id="7690">7690</a>
+<a href="#7691" id="7691">7691</a>
+<a href="#7692" id="7692">7692</a>
+<a href="#7693" id="7693">7693</a>
+<a href="#7694" id="7694">7694</a>
+<a href="#7695" id="7695">7695</a>
+<a href="#7696" id="7696">7696</a>
+<a href="#7697" id="7697">7697</a>
+<a href="#7698" id="7698">7698</a>
+<a href="#7699" id="7699">7699</a>
+<a href="#7700" id="7700">7700</a>
+<a href="#7701" id="7701">7701</a>
+<a href="#7702" id="7702">7702</a>
+<a href="#7703" id="7703">7703</a>
+<a href="#7704" id="7704">7704</a>
+<a href="#7705" id="7705">7705</a>
+<a href="#7706" id="7706">7706</a>
+<a href="#7707" id="7707">7707</a>
+<a href="#7708" id="7708">7708</a>
+<a href="#7709" id="7709">7709</a>
+<a href="#7710" id="7710">7710</a>
+<a href="#7711" id="7711">7711</a>
+<a href="#7712" id="7712">7712</a>
+<a href="#7713" id="7713">7713</a>
+<a href="#7714" id="7714">7714</a>
+<a href="#7715" id="7715">7715</a>
+<a href="#7716" id="7716">7716</a>
+<a href="#7717" id="7717">7717</a>
+<a href="#7718" id="7718">7718</a>
+<a href="#7719" id="7719">7719</a>
+<a href="#7720" id="7720">7720</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An entry for an Access Control list.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -12132,6 +12194,20 @@
     <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;100&quot;</span>)]
     </span><span class="kw">pub </span>body: ::core::option::Option&lt;InstancesDemoteMasterRequest&gt;,
 }
+<span class="doccomment">/// Instance demote request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SqlInstancesDemoteRequest {
+    <span class="doccomment">/// Required. Cloud SQL instance name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. ID of the project that contains the instance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The request body.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;100&quot;</span>)]
+    </span><span class="kw">pub </span>body: ::core::option::Option&lt;InstancesDemoteRequest&gt;,
+}
 <span class="doccomment">/// Instance export request.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -12652,6 +12728,15 @@
     <span class="doccomment">/// Contains details about the demoteMaster operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>demote_master_context: ::core::option::Option&lt;DemoteMasterContext&gt;,
+}
+<span class="doccomment">/// This request is used to demote an existing standalone instance to be a
+/// Cloud SQL read replica for an external database server.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>InstancesDemoteRequest {
+    <span class="doccomment">/// Required. Contains details about the demote operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>demote_context: ::core::option::Option&lt;DemoteContext&gt;,
 }
 <span class="doccomment">/// Database instance export request.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -13294,6 +13379,19 @@
     <span class="doccomment">/// Flag to skip replication setup on the instance.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>skip_replication_setup: bool,
+}
+<span class="doccomment">/// This context is used to demote an existing standalone instance to be
+/// a Cloud SQL read replica for an external database server.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DemoteContext {
+    <span class="doccomment">/// This is always `sql#demoteContext`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The name of the instance which acts as the on-premises primary
+    /// instance in the replication setup.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>source_representative_instance_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Database instance failover context.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -13999,6 +14097,32 @@
                         <span class="string">&quot;google.cloud.sql.v1.SqlInstancesService&quot;</span>,
                         <span class="string">&quot;DemoteMaster&quot;</span>,
                     ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Demotes an existing standalone instance to be a Cloud SQL read replica
+        /// for an external database server.
+        </span><span class="kw">pub async fn </span>demote(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::SqlInstancesDemoteRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Operation&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.sql.v1.SqlInstancesService/Demote&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(<span class="string">&quot;google.cloud.sql.v1.SqlInstancesService&quot;</span>, <span class="string">&quot;Demote&quot;</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
