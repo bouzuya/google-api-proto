@@ -851,6 +851,19 @@ pub struct DemoteMasterMySqlReplicaConfiguration {
     #[prost(string, tag = "6")]
     pub ca_certificate: ::prost::alloc::string::String,
 }
+/// This context is used to demote an existing standalone instance to be
+/// a Cloud SQL read replica for an external database server.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DemoteContext {
+    /// This is always `sql#demoteContext`.
+    #[prost(string, tag = "1")]
+    pub kind: ::prost::alloc::string::String,
+    /// Required. The name of the instance which acts as an on-premises primary
+    /// instance in the replication setup.
+    #[prost(string, tag = "2")]
+    pub source_representative_instance_name: ::prost::alloc::string::String,
+}
 /// Database instance export context.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1185,6 +1198,16 @@ pub struct InstancesDemoteMasterRequest {
     /// Contains details about the demoteMaster operation.
     #[prost(message, optional, tag = "1")]
     pub demote_master_context: ::core::option::Option<DemoteMasterContext>,
+}
+/// This request is used to demote an existing standalone instance to be a
+/// Cloud SQL read replica for an external database server.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct InstancesDemoteRequest {
+    /// Required. This context is used to demote an existing standalone instance to
+    /// be a Cloud SQL read replica for an external database server.
+    #[prost(message, optional, tag = "1")]
+    pub demote_context: ::core::option::Option<DemoteContext>,
 }
 /// Database instance export request.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -4386,6 +4409,20 @@ pub struct SqlInstancesDemoteMasterRequest {
     #[prost(message, optional, tag = "100")]
     pub body: ::core::option::Option<InstancesDemoteMasterRequest>,
 }
+/// Instance demote request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlInstancesDemoteRequest {
+    /// Required. The name of the Cloud SQL instance.
+    #[prost(string, tag = "1")]
+    pub instance: ::prost::alloc::string::String,
+    /// Required. The project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+    /// The request body.
+    #[prost(message, optional, tag = "100")]
+    pub body: ::core::option::Option<InstancesDemoteRequest>,
+}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SqlInstancesExportRequest {
@@ -5755,6 +5792,35 @@ pub mod sql_instances_service_client {
                     GrpcMethod::new(
                         "google.cloud.sql.v1beta4.SqlInstancesService",
                         "DemoteMaster",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Demotes an existing standalone instance to be a Cloud SQL read replica
+        /// for an external database server.
+        pub async fn demote(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlInstancesDemoteRequest>,
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1beta4.SqlInstancesService/Demote",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.sql.v1beta4.SqlInstancesService",
+                        "Demote",
                     ),
                 );
             self.inner.unary(req, path, codec).await
