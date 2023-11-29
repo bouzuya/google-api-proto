@@ -4877,6 +4877,19 @@
 <a href="#4877" id="4877">4877</a>
 <a href="#4878" id="4878">4878</a>
 <a href="#4879" id="4879">4879</a>
+<a href="#4880" id="4880">4880</a>
+<a href="#4881" id="4881">4881</a>
+<a href="#4882" id="4882">4882</a>
+<a href="#4883" id="4883">4883</a>
+<a href="#4884" id="4884">4884</a>
+<a href="#4885" id="4885">4885</a>
+<a href="#4886" id="4886">4886</a>
+<a href="#4887" id="4887">4887</a>
+<a href="#4888" id="4888">4888</a>
+<a href="#4889" id="4889">4889</a>
+<a href="#4890" id="4890">4890</a>
+<a href="#4891" id="4891">4891</a>
+<a href="#4892" id="4892">4892</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-api-apikeys-v2&quot;</span>))]
 </span><span class="kw">pub mod </span>apikeys;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-api-cloudquotas-v1&quot;</span>))]
@@ -5613,6 +5626,19 @@
     ///              seconds: 54000 # 90 minutes
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>long_running: ::core::option::Option&lt;method_settings::LongRunning&gt;,
+    <span class="doccomment">/// List of top-level fields of the request message, that should be
+    /// automatically populated by the client libraries based on their
+    /// (google.api.field_info).format. Currently supported format: UUID4.
+    ///
+    /// Example of a YAML configuration:
+    ///
+    ///   publishing:
+    ///     method_settings:
+    ///       - selector: google.example.v1.ExampleService.CreateExample
+    ///         auto_populated_fields:
+    ///         - request_id
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>auto_populated_fields: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MethodSettings`.
 </span><span class="kw">pub mod </span>method_settings {
