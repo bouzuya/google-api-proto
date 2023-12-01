@@ -583,6 +583,7 @@ pub mod shopping;
     any(
         feature = "google-spanner-admin-database-v1",
         feature = "google-spanner-admin-instance-v1",
+        feature = "google-spanner-executor-v1",
         feature = "google-spanner-v1",
     )
 )]
