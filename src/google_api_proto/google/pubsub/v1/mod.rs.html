@@ -2947,6 +2947,12 @@
 <a href="#2947" id="2947">2947</a>
 <a href="#2948" id="2948">2948</a>
 <a href="#2949" id="2949">2949</a>
+<a href="#2950" id="2950">2950</a>
+<a href="#2951" id="2951">2951</a>
+<a href="#2952" id="2952">2952</a>
+<a href="#2953" id="2953">2953</a>
+<a href="#2954" id="2954">2954</a>
+<a href="#2955" id="2955">2955</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A schema resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4319,8 +4325,9 @@
     /// {projectId}.{datasetId}.{tableId}
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
-    <span class="doccomment">/// When true, use the topic&#39;s schema as the columns to write to in BigQuery,
-    /// if it exists.
+    <span class="doccomment">/// Optional. When true, use the topic&#39;s schema as the columns to write to in
+    /// BigQuery, if it exists. `use_topic_schema` and `use_table_schema` cannot be
+    /// enabled at the same time.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>use_topic_schema: bool,
     <span class="doccomment">/// When true, write the subscription name, message_id, publish_time,
@@ -4341,6 +4348,11 @@
     /// subscription can receive messages.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;big_query_config::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Optional. When true, use the BigQuery table&#39;s schema as the columns to
+    /// write to in BigQuery. `use_table_schema` and `use_topic_schema` cannot be
+    /// enabled at the same time.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>use_table_schema: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `BigQueryConfig`.
 </span><span class="kw">pub mod </span>big_query_config {

@@ -10122,6 +10122,40 @@
 <a href="#10122" id="10122">10122</a>
 <a href="#10123" id="10123">10123</a>
 <a href="#10124" id="10124">10124</a>
+<a href="#10125" id="10125">10125</a>
+<a href="#10126" id="10126">10126</a>
+<a href="#10127" id="10127">10127</a>
+<a href="#10128" id="10128">10128</a>
+<a href="#10129" id="10129">10129</a>
+<a href="#10130" id="10130">10130</a>
+<a href="#10131" id="10131">10131</a>
+<a href="#10132" id="10132">10132</a>
+<a href="#10133" id="10133">10133</a>
+<a href="#10134" id="10134">10134</a>
+<a href="#10135" id="10135">10135</a>
+<a href="#10136" id="10136">10136</a>
+<a href="#10137" id="10137">10137</a>
+<a href="#10138" id="10138">10138</a>
+<a href="#10139" id="10139">10139</a>
+<a href="#10140" id="10140">10140</a>
+<a href="#10141" id="10141">10141</a>
+<a href="#10142" id="10142">10142</a>
+<a href="#10143" id="10143">10143</a>
+<a href="#10144" id="10144">10144</a>
+<a href="#10145" id="10145">10145</a>
+<a href="#10146" id="10146">10146</a>
+<a href="#10147" id="10147">10147</a>
+<a href="#10148" id="10148">10148</a>
+<a href="#10149" id="10149">10149</a>
+<a href="#10150" id="10150">10150</a>
+<a href="#10151" id="10151">10151</a>
+<a href="#10152" id="10152">10152</a>
+<a href="#10153" id="10153">10153</a>
+<a href="#10154" id="10154">10154</a>
+<a href="#10155" id="10155">10155</a>
+<a href="#10156" id="10156">10156</a>
+<a href="#10157" id="10157">10157</a>
+<a href="#10158" id="10158">10158</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A lake is a centralized repository for managing enterprise data across the
 /// organization distributed across many cloud projects, and stored in a variety
 /// of storage services such as Google Cloud Storage and BigQuery. The resources
@@ -12191,12 +12225,23 @@
     <span class="doccomment">/// Overall data quality result -- `true` if all rules passed.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>passed: bool,
+    <span class="doccomment">/// Output only. The overall data quality score.
+    ///
+    /// The score ranges between \[0, 100\] (up to two decimal points).
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>score: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// A list of results at the dimension level.
     ///
     /// A dimension will have a corresponding `DataQualityDimensionResult` if and
     /// only if there is at least one rule with the &#39;dimension&#39; field set to it.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>dimensions: ::prost::alloc::vec::Vec&lt;DataQualityDimensionResult&gt;,
+    <span class="doccomment">/// Output only. A list of results at the column level.
+    ///
+    /// A column will have a corresponding `DataQualityColumnResult` if and only if
+    /// there is at least one rule with the &#39;column&#39; field set to it.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;DataQualityColumnResult&gt;,
     <span class="doccomment">/// A list of all the rules in a job, and their results.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>rules: ::prost::alloc::vec::Vec&lt;DataQualityRuleResult&gt;,
@@ -12342,6 +12387,13 @@
     <span class="doccomment">/// Whether the dimension passed or failed.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>passed: bool,
+    <span class="doccomment">/// Output only. The dimension-level data quality score for this data scan job
+    /// if and only if the &#39;dimension&#39; field is set.
+    ///
+    /// The score ranges between \[0, 100\] (up to two decimal
+    /// points).
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>score: ::core::option::Option&lt;f32&gt;,
 }
 <span class="doccomment">/// A dimension captures data quality intent about a defined subset of the rules
 /// specified.
@@ -12599,6 +12651,22 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;201&quot;</span>)]
         </span>TableConditionExpectation(TableConditionExpectation),
     }
+}
+<span class="doccomment">/// DataQualityColumnResult provides a more detailed, per-column view of
+/// the results.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DataQualityColumnResult {
+    <span class="doccomment">/// Output only. The column specified in the DataQualityRule.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>column: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The column-level data quality score for this data scan job if
+    /// and only if the &#39;column&#39; field is set.
+    ///
+    /// The score ranges between between \[0, 100\] (up to two decimal
+    /// points).
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>score: ::core::option::Option&lt;f32&gt;,
 }
 <span class="doccomment">/// A task represents a user-visible job.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
