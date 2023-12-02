@@ -2067,12 +2067,23 @@ pub struct DataQualityResult {
     /// Overall data quality result -- `true` if all rules passed.
     #[prost(bool, tag = "5")]
     pub passed: bool,
+    /// Output only. The overall data quality score.
+    ///
+    /// The score ranges between \[0, 100\] (up to two decimal points).
+    #[prost(float, optional, tag = "9")]
+    pub score: ::core::option::Option<f32>,
     /// A list of results at the dimension level.
     ///
     /// A dimension will have a corresponding `DataQualityDimensionResult` if and
     /// only if there is at least one rule with the 'dimension' field set to it.
     #[prost(message, repeated, tag = "2")]
     pub dimensions: ::prost::alloc::vec::Vec<DataQualityDimensionResult>,
+    /// Output only. A list of results at the column level.
+    ///
+    /// A column will have a corresponding `DataQualityColumnResult` if and only if
+    /// there is at least one rule with the 'column' field set to it.
+    #[prost(message, repeated, tag = "10")]
+    pub columns: ::prost::alloc::vec::Vec<DataQualityColumnResult>,
     /// A list of all the rules in a job, and their results.
     #[prost(message, repeated, tag = "3")]
     pub rules: ::prost::alloc::vec::Vec<DataQualityRuleResult>,
@@ -2218,6 +2229,13 @@ pub struct DataQualityDimensionResult {
     /// Whether the dimension passed or failed.
     #[prost(bool, tag = "3")]
     pub passed: bool,
+    /// Output only. The dimension-level data quality score for this data scan job
+    /// if and only if the 'dimension' field is set.
+    ///
+    /// The score ranges between \[0, 100\] (up to two decimal
+    /// points).
+    #[prost(float, optional, tag = "4")]
+    pub score: ::core::option::Option<f32>,
 }
 /// A dimension captures data quality intent about a defined subset of the rules
 /// specified.
@@ -2475,6 +2493,22 @@ pub mod data_quality_rule {
         #[prost(message, tag = "201")]
         TableConditionExpectation(TableConditionExpectation),
     }
+}
+/// DataQualityColumnResult provides a more detailed, per-column view of
+/// the results.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataQualityColumnResult {
+    /// Output only. The column specified in the DataQualityRule.
+    #[prost(string, tag = "1")]
+    pub column: ::prost::alloc::string::String,
+    /// Output only. The column-level data quality score for this data scan job if
+    /// and only if the 'column' field is set.
+    ///
+    /// The score ranges between between \[0, 100\] (up to two decimal
+    /// points).
+    #[prost(float, optional, tag = "2")]
+    pub score: ::core::option::Option<f32>,
 }
 /// A task represents a user-visible job.
 #[allow(clippy::derive_partial_eq_without_eq)]
