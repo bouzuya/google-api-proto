@@ -454,7 +454,8 @@ pub mod field {
         }
     }
 }
-/// Metadata for [google.longrunning.Operation][google.longrunning.Operation] results from
+/// Metadata for [google.longrunning.Operation][google.longrunning.Operation]
+/// results from
 /// [FirestoreAdmin.CreateIndex][google.firestore.admin.v1.FirestoreAdmin.CreateIndex].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -480,7 +481,8 @@ pub struct IndexOperationMetadata {
     #[prost(message, optional, tag = "6")]
     pub progress_bytes: ::core::option::Option<Progress>,
 }
-/// Metadata for [google.longrunning.Operation][google.longrunning.Operation] results from
+/// Metadata for [google.longrunning.Operation][google.longrunning.Operation]
+/// results from
 /// [FirestoreAdmin.UpdateField][google.firestore.admin.v1.FirestoreAdmin.UpdateField].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -496,8 +498,9 @@ pub struct FieldOperationMetadata {
     /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
     #[prost(string, tag = "3")]
     pub field: ::prost::alloc::string::String,
-    /// A list of [IndexConfigDelta][google.firestore.admin.v1.FieldOperationMetadata.IndexConfigDelta], which describe the intent of this
-    /// operation.
+    /// A list of
+    /// [IndexConfigDelta][google.firestore.admin.v1.FieldOperationMetadata.IndexConfigDelta],
+    /// which describe the intent of this operation.
     #[prost(message, repeated, tag = "4")]
     pub index_config_deltas: ::prost::alloc::vec::Vec<
         field_operation_metadata::IndexConfigDelta,
@@ -576,7 +579,7 @@ pub mod field_operation_metadata {
             }
         }
     }
-    /// Information about an TTL configuration change.
+    /// Information about a TTL configuration change.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct TtlConfigDelta {
@@ -631,7 +634,8 @@ pub mod field_operation_metadata {
         }
     }
 }
-/// Metadata for [google.longrunning.Operation][google.longrunning.Operation] results from
+/// Metadata for [google.longrunning.Operation][google.longrunning.Operation]
+/// results from
 /// [FirestoreAdmin.ExportDocuments][google.firestore.admin.v1.FirestoreAdmin.ExportDocuments].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -655,11 +659,20 @@ pub struct ExportDocumentsMetadata {
     /// Which collection ids are being exported.
     #[prost(string, repeated, tag = "6")]
     pub collection_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Where the entities are being exported to.
+    /// Where the documents are being exported to.
     #[prost(string, tag = "7")]
     pub output_uri_prefix: ::prost::alloc::string::String,
+    /// Which namespace ids are being exported.
+    #[prost(string, repeated, tag = "8")]
+    pub namespace_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The timestamp that corresponds to the version of the database that is being
+    /// exported. If unspecified, there are no guarantees about the consistency of
+    /// the documents being exported.
+    #[prost(message, optional, tag = "9")]
+    pub snapshot_time: ::core::option::Option<::prost_types::Timestamp>,
 }
-/// Metadata for [google.longrunning.Operation][google.longrunning.Operation] results from
+/// Metadata for [google.longrunning.Operation][google.longrunning.Operation]
+/// results from
 /// [FirestoreAdmin.ImportDocuments][google.firestore.admin.v1.FirestoreAdmin.ImportDocuments].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -686,8 +699,12 @@ pub struct ImportDocumentsMetadata {
     /// The location of the documents being imported.
     #[prost(string, tag = "7")]
     pub input_uri_prefix: ::prost::alloc::string::String,
+    /// Which namespace ids are being imported.
+    #[prost(string, repeated, tag = "8")]
+    pub namespace_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// Returned in the [google.longrunning.Operation][google.longrunning.Operation] response field.
+/// Returned in the [google.longrunning.Operation][google.longrunning.Operation]
+/// response field.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ExportDocumentsResponse {
@@ -698,8 +715,8 @@ pub struct ExportDocumentsResponse {
     pub output_uri_prefix: ::prost::alloc::string::String,
 }
 /// Describes the progress of the operation.
-/// Unit of work is generic and must be interpreted based on where [Progress][google.firestore.admin.v1.Progress]
-/// is used.
+/// Unit of work is generic and must be interpreted based on where
+/// [Progress][google.firestore.admin.v1.Progress] is used.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Progress {
@@ -775,7 +792,7 @@ pub struct Database {
     /// Format: `projects/{project}/databases/{database}`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// The location of the database. Available databases are listed at
+    /// The location of the database. Available locations are listed at
     /// <https://cloud.google.com/firestore/docs/locations.>
     #[prost(string, tag = "9")]
     pub location_id: ::prost::alloc::string::String,
@@ -787,13 +804,38 @@ pub struct Database {
     /// The concurrency control mode to use for this database.
     #[prost(enumeration = "database::ConcurrencyMode", tag = "15")]
     pub concurrency_mode: i32,
+    /// Output only. The period during which past versions of data are retained in
+    /// the database.
+    ///
+    /// Any [read][google.firestore.v1.GetDocumentRequest.read_time]
+    /// or [query][google.firestore.v1.ListDocumentsRequest.read_time] can specify
+    /// a `read_time` within this window, and will read the state of the database
+    /// at that time.
+    ///
+    /// If the PITR feature is enabled, the retention period is 7 days. Otherwise,
+    /// the retention period is 1 hour.
+    #[prost(message, optional, tag = "17")]
+    pub version_retention_period: ::core::option::Option<::prost_types::Duration>,
+    /// Output only. The earliest timestamp at which older versions of the data can
+    /// be read from the database. See \[version_retention_period\] above; this field
+    /// is populated with `now - version_retention_period`.
+    ///
+    /// This value is continuously updated, and becomes stale the moment it is
+    /// queried. If you are using this value to recover data, make sure to account
+    /// for the time from the moment when the value is queried to the moment when
+    /// you initiate the recovery.
+    #[prost(message, optional, tag = "18")]
+    pub earliest_version_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Whether to enable the PITR feature on this database.
+    #[prost(enumeration = "database::PointInTimeRecoveryEnablement", tag = "21")]
+    pub point_in_time_recovery_enablement: i32,
     /// The App Engine integration mode to use for this database.
     #[prost(enumeration = "database::AppEngineIntegrationMode", tag = "19")]
     pub app_engine_integration_mode: i32,
-    /// Output only. The key_prefix for this database. This key_prefix is used, in combination
-    /// with the project id ("<key prefix>~<project id>") to construct the
-    /// application id that is returned from the Cloud Datastore APIs in Google App
-    /// Engine first generation runtimes.
+    /// Output only. The key_prefix for this database. This key_prefix is used, in
+    /// combination with the project id ("<key prefix>~<project id>") to construct
+    /// the application id that is returned from the Cloud Datastore APIs in Google
+    /// App Engine first generation runtimes.
     ///
     /// This value may be empty in which case the appid to use for URL-encoded keys
     /// is the project_id (eg: foo instead of v~foo).
@@ -912,6 +954,69 @@ pub mod database {
             }
         }
     }
+    /// Point In Time Recovery feature enablement.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum PointInTimeRecoveryEnablement {
+        /// Not used.
+        Unspecified = 0,
+        /// Reads are supported on selected versions of the data from within the past
+        /// 7 days:
+        ///
+        /// * Reads against any timestamp within the past hour
+        /// * Reads against 1-minute snapshots beyond 1 hour and within 7 days
+        ///
+        /// `version_retention_period` and `earliest_version_time` can be
+        /// used to determine the supported versions.
+        PointInTimeRecoveryEnabled = 1,
+        /// Reads are supported on any version of the data from within the past 1
+        /// hour.
+        PointInTimeRecoveryDisabled = 2,
+    }
+    impl PointInTimeRecoveryEnablement {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                PointInTimeRecoveryEnablement::Unspecified => {
+                    "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED"
+                }
+                PointInTimeRecoveryEnablement::PointInTimeRecoveryEnabled => {
+                    "POINT_IN_TIME_RECOVERY_ENABLED"
+                }
+                PointInTimeRecoveryEnablement::PointInTimeRecoveryDisabled => {
+                    "POINT_IN_TIME_RECOVERY_DISABLED"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED" => {
+                    Some(Self::Unspecified)
+                }
+                "POINT_IN_TIME_RECOVERY_ENABLED" => {
+                    Some(Self::PointInTimeRecoveryEnabled)
+                }
+                "POINT_IN_TIME_RECOVERY_DISABLED" => {
+                    Some(Self::PointInTimeRecoveryDisabled)
+                }
+                _ => None,
+            }
+        }
+    }
     /// The type of App Engine integration mode.
     #[derive(
         Clone,
@@ -933,8 +1038,10 @@ pub mod database {
         /// disabling of the application & database, as well as disabling writes to
         /// the database.
         Enabled = 1,
-        /// Appengine has no affect on the ability of this database to serve
+        /// App Engine has no effect on the ability of this database to serve
         /// requests.
+        ///
+        /// This is the default setting for databases created with the Firestore API.
         Disabled = 2,
     }
     impl AppEngineIntegrationMode {
@@ -1179,6 +1286,23 @@ pub struct ExportDocumentsRequest {
     /// generated based on the start time.
     #[prost(string, tag = "3")]
     pub output_uri_prefix: ::prost::alloc::string::String,
+    /// Unspecified means all namespaces. This is the preferred
+    /// usage for databases that don't use namespaces.
+    ///
+    /// An empty string element represents the default namespace. This should be
+    /// used if the database has data in non-default namespaces, but doesn't want
+    /// to include them. Each namespace in this list must be unique.
+    #[prost(string, repeated, tag = "4")]
+    pub namespace_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The timestamp that corresponds to the version of the database to be
+    /// exported. The timestamp must be in the past, rounded to the minute and not
+    /// older than
+    /// [earliestVersionTime][google.firestore.admin.v1.Database.earliest_version_time].
+    /// If specified, then the exported documents will represent a consistent view
+    /// of the database at the provided time. Otherwise, there are no guarantees
+    /// about the consistency of the exported documents.
+    #[prost(message, optional, tag = "5")]
+    pub snapshot_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// The request for
 /// [FirestoreAdmin.ImportDocuments][google.firestore.admin.v1.FirestoreAdmin.ImportDocuments].
@@ -1200,6 +1324,14 @@ pub struct ImportDocumentsRequest {
     /// [google.firestore.admin.v1.ExportDocumentsResponse.output_uri_prefix][google.firestore.admin.v1.ExportDocumentsResponse.output_uri_prefix].
     #[prost(string, tag = "3")]
     pub input_uri_prefix: ::prost::alloc::string::String,
+    /// Unspecified means all namespaces. This is the preferred
+    /// usage for databases that don't use namespaces.
+    ///
+    /// An empty string element represents the default namespace. This should be
+    /// used if the database has data in non-default namespaces, but doesn't want
+    /// to include them. Each namespace in this list must be unique.
+    #[prost(string, repeated, tag = "4")]
+    pub namespace_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Generated client implementations.
 pub mod firestore_admin_client {
@@ -1736,7 +1868,8 @@ pub mod firestore_admin_client {
         }
     }
 }
-/// The metadata message for [google.cloud.location.Location.metadata][google.cloud.location.Location.metadata].
+/// The metadata message for
+/// [google.cloud.location.Location.metadata][google.cloud.location.Location.metadata].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct LocationMetadata {}
