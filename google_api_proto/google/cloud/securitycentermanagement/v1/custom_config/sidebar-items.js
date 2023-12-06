@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Severity"],"mod":["custom_output_spec"],"struct":["CustomOutputSpec","ResourceSelector"]};

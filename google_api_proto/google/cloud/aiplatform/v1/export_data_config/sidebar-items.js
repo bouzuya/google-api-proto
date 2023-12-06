@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Destination","Split"]};
+window.SIDEBAR_ITEMS = {"enum":["Destination","ExportUse","Split"]};

@@ -7718,6 +7718,30 @@
 <a href="#7718" id="7718">7718</a>
 <a href="#7719" id="7719">7719</a>
 <a href="#7720" id="7720">7720</a>
+<a href="#7721" id="7721">7721</a>
+<a href="#7722" id="7722">7722</a>
+<a href="#7723" id="7723">7723</a>
+<a href="#7724" id="7724">7724</a>
+<a href="#7725" id="7725">7725</a>
+<a href="#7726" id="7726">7726</a>
+<a href="#7727" id="7727">7727</a>
+<a href="#7728" id="7728">7728</a>
+<a href="#7729" id="7729">7729</a>
+<a href="#7730" id="7730">7730</a>
+<a href="#7731" id="7731">7731</a>
+<a href="#7732" id="7732">7732</a>
+<a href="#7733" id="7733">7733</a>
+<a href="#7734" id="7734">7734</a>
+<a href="#7735" id="7735">7735</a>
+<a href="#7736" id="7736">7736</a>
+<a href="#7737" id="7737">7737</a>
+<a href="#7738" id="7738">7738</a>
+<a href="#7739" id="7739">7739</a>
+<a href="#7740" id="7740">7740</a>
+<a href="#7741" id="7741">7741</a>
+<a href="#7742" id="7742">7742</a>
+<a href="#7743" id="7743">7743</a>
+<a href="#7744" id="7744">7744</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An entry for an Access Control list.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -7774,6 +7798,12 @@
         <span class="doccomment">/// Warning when user provided maxResults parameter exceeds the limit.  The
         /// returned result set may be incomplete.
         </span>MaxResultsExceedsLimit = <span class="number">2</span>,
+        <span class="doccomment">/// Warning when user tries to create/update a user with credentials that
+        /// have previously been compromised by a public data breach.
+        </span>CompromisedCredentials = <span class="number">3</span>,
+        <span class="doccomment">/// Warning when the operation succeeds but some non-critical workflow state
+        /// failed.
+        </span>InternalStateFailure = <span class="number">4</span>,
     }
     <span class="kw">impl </span>SqlApiWarningCode {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -7785,6 +7815,8 @@
                 SqlApiWarningCode::Unspecified =&gt; <span class="string">&quot;SQL_API_WARNING_CODE_UNSPECIFIED&quot;</span>,
                 SqlApiWarningCode::RegionUnreachable =&gt; <span class="string">&quot;REGION_UNREACHABLE&quot;</span>,
                 SqlApiWarningCode::MaxResultsExceedsLimit =&gt; <span class="string">&quot;MAX_RESULTS_EXCEEDS_LIMIT&quot;</span>,
+                SqlApiWarningCode::CompromisedCredentials =&gt; <span class="string">&quot;COMPROMISED_CREDENTIALS&quot;</span>,
+                SqlApiWarningCode::InternalStateFailure =&gt; <span class="string">&quot;INTERNAL_STATE_FAILURE&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -7793,6 +7825,8 @@
                 <span class="string">&quot;SQL_API_WARNING_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
                 <span class="string">&quot;REGION_UNREACHABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RegionUnreachable),
                 <span class="string">&quot;MAX_RESULTS_EXCEEDS_LIMIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MaxResultsExceedsLimit),
+                <span class="string">&quot;COMPROMISED_CREDENTIALS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CompromisedCredentials),
+                <span class="string">&quot;INTERNAL_STATE_FAILURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalStateFailure),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -8667,6 +8701,9 @@
     /// populated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;OperationErrors&gt;,
+    <span class="doccomment">/// An Admin API warning message.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>api_warning: ::core::option::Option&lt;ApiWarning&gt;,
     <span class="doccomment">/// The type of the operation. Valid values are:
     /// *  `CREATE`
     /// *  `DELETE`
@@ -8993,6 +9030,10 @@
     <span class="doccomment">/// Whether the password policy is enabled or not.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>enable_password_policy: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Disallow credentials that have been previously compromised by a public data
+    /// breach.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>disallow_compromised_credentials: ::core::option::Option&lt;bool&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PasswordValidationPolicy`.
 </span><span class="kw">pub mod </span>password_validation_policy {
@@ -9896,6 +9937,11 @@
     /// your instance prefer to let Cloud SQL choose the timing of restart (within
     /// its Maintenance window, if applicable).
     </span>Stable = <span class="number">2</span>,
+    <span class="doccomment">/// For instance update that requires a restart, this update track indicates
+    /// your instance prefer to let Cloud SQL choose the timing of restart (within
+    /// its Maintenance window, if applicable) to be at least 5 weeks after the
+    /// notification.
+    </span>Week5 = <span class="number">3</span>,
 }
 <span class="kw">impl </span>SqlUpdateTrack {
     <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -9907,6 +9953,7 @@
             SqlUpdateTrack::Unspecified =&gt; <span class="string">&quot;SQL_UPDATE_TRACK_UNSPECIFIED&quot;</span>,
             SqlUpdateTrack::Canary =&gt; <span class="string">&quot;canary&quot;</span>,
             SqlUpdateTrack::Stable =&gt; <span class="string">&quot;stable&quot;</span>,
+            SqlUpdateTrack::Week5 =&gt; <span class="string">&quot;week5&quot;</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -9915,6 +9962,7 @@
             <span class="string">&quot;SQL_UPDATE_TRACK_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
             <span class="string">&quot;canary&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Canary),
             <span class="string">&quot;stable&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stable),
+            <span class="string">&quot;week5&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Week5),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
