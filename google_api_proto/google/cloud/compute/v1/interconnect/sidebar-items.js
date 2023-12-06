@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["InterconnectType","LinkType","OperationalStatus","State"]};
+window.SIDEBAR_ITEMS = {"enum":["AvailableFeatures","InterconnectType","LinkType","OperationalStatus","RequestedFeatures","State"]};

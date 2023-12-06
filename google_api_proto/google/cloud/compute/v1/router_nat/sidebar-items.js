@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["AutoNetworkTier","EndpointTypes","NatIpAllocateOption","SourceSubnetworkIpRangesToNat"]};
+window.SIDEBAR_ITEMS = {"enum":["AutoNetworkTier","EndpointTypes","NatIpAllocateOption","SourceSubnetworkIpRangesToNat","Type"]};

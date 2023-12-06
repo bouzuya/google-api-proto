@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Continent","Status"]};
+window.SIDEBAR_ITEMS = {"enum":["AvailableFeatures","AvailableLinkTypes","Continent","Status"]};
