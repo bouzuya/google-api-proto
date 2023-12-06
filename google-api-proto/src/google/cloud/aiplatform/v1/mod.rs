@@ -4451,6 +4451,12 @@ pub struct Model {
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
+    /// Stats of data used for training or evaluating the Model.
+    ///
+    /// Only populated when the Model is trained by a TrainingPipeline with
+    /// [data_input_config][TrainingPipeline.data_input_config].
+    #[prost(message, optional, tag = "21")]
+    pub data_stats: ::core::option::Option<model::DataStats>,
     /// Customer-managed encryption key spec for a Model. If set, this
     /// Model and all sub-resources of this Model will be secured by this key.
     #[prost(message, optional, tag = "24")]
@@ -4561,6 +4567,37 @@ pub mod model {
                 }
             }
         }
+    }
+    /// Stats of data used for train or evaluate the Model.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DataStats {
+        /// Number of DataItems that were used for training this Model.
+        #[prost(int64, tag = "1")]
+        pub training_data_items_count: i64,
+        /// Number of DataItems that were used for validating this Model during
+        /// training.
+        #[prost(int64, tag = "2")]
+        pub validation_data_items_count: i64,
+        /// Number of DataItems that were used for evaluating this Model. If the
+        /// Model is evaluated multiple times, this will be the number of test
+        /// DataItems used by the first evaluation. If the Model is not evaluated,
+        /// the number is 0.
+        #[prost(int64, tag = "3")]
+        pub test_data_items_count: i64,
+        /// Number of Annotations that are used for training this Model.
+        #[prost(int64, tag = "4")]
+        pub training_annotations_count: i64,
+        /// Number of Annotations that are used for validating this Model during
+        /// training.
+        #[prost(int64, tag = "5")]
+        pub validation_annotations_count: i64,
+        /// Number of Annotations that are used for evaluating this Model. If the
+        /// Model is evaluated multiple times, this will be the number of test
+        /// Annotations used by the first evaluation. If the Model is not evaluated,
+        /// the number is 0.
+        #[prost(int64, tag = "6")]
+        pub test_annotations_count: i64,
     }
     /// Contains information about the original Model if this Model is a copy.
     #[allow(clippy::derive_partial_eq_without_eq)]
@@ -4982,6 +5019,8 @@ pub mod model_source_info {
         ModelGarden = 4,
         /// The Model is saved or tuned from Genie.
         Genie = 5,
+        /// The Model is uploaded by text embedding finetuning pipeline.
+        CustomTextEmbedding = 6,
     }
     impl ModelSourceType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -4996,6 +5035,7 @@ pub mod model_source_info {
                 ModelSourceType::Bqml => "BQML",
                 ModelSourceType::ModelGarden => "MODEL_GARDEN",
                 ModelSourceType::Genie => "GENIE",
+                ModelSourceType::CustomTextEmbedding => "CUSTOM_TEXT_EMBEDDING",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -5007,6 +5047,7 @@ pub mod model_source_info {
                 "BQML" => Some(Self::Bqml),
                 "MODEL_GARDEN" => Some(Self::ModelGarden),
                 "GENIE" => Some(Self::Genie),
+                "CUSTOM_TEXT_EMBEDDING" => Some(Self::CustomTextEmbedding),
                 _ => None,
             }
         }
@@ -20843,16 +20884,106 @@ pub struct ExportDataConfig {
     /// [ListAnnotations][google.cloud.aiplatform.v1.DatasetService.ListAnnotations].
     #[prost(string, tag = "2")]
     pub annotations_filter: ::prost::alloc::string::String,
+    /// The ID of a SavedQuery (annotation set) under the Dataset specified by
+    /// [dataset_id][] used for filtering Annotations for training.
+    ///
+    /// Only used for custom training data export use cases.
+    /// Only applicable to Datasets that have SavedQueries.
+    ///
+    /// Only Annotations that are associated with this SavedQuery are used in
+    /// respectively training. When used in conjunction with
+    /// [annotations_filter][google.cloud.aiplatform.v1.ExportDataConfig.annotations_filter],
+    /// the Annotations used for training are filtered by both
+    /// [saved_query_id][google.cloud.aiplatform.v1.ExportDataConfig.saved_query_id]
+    /// and
+    /// [annotations_filter][google.cloud.aiplatform.v1.ExportDataConfig.annotations_filter].
+    ///
+    /// Only one of
+    /// [saved_query_id][google.cloud.aiplatform.v1.ExportDataConfig.saved_query_id]
+    /// and
+    /// [annotation_schema_uri][google.cloud.aiplatform.v1.ExportDataConfig.annotation_schema_uri]
+    /// should be specified as both of them represent the same thing: problem type.
+    #[prost(string, tag = "11")]
+    pub saved_query_id: ::prost::alloc::string::String,
+    /// The Cloud Storage URI that points to a YAML file describing the annotation
+    /// schema. The schema is defined as an OpenAPI 3.0.2 [Schema
+    /// Object](<https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject>).
+    /// The schema files that can be used here are found in
+    /// gs://google-cloud-aiplatform/schema/dataset/annotation/, note that the
+    /// chosen schema must be consistent with
+    /// [metadata][google.cloud.aiplatform.v1.Dataset.metadata_schema_uri] of the
+    /// Dataset specified by [dataset_id][].
+    ///
+    /// Only used for custom training data export use cases.
+    /// Only applicable to Datasets that have DataItems and Annotations.
+    ///
+    /// Only Annotations that both match this schema and belong to DataItems not
+    /// ignored by the split method are used in respectively training, validation
+    /// or test role, depending on the role of the DataItem they are on.
+    ///
+    /// When used in conjunction with
+    /// [annotations_filter][google.cloud.aiplatform.v1.ExportDataConfig.annotations_filter],
+    /// the Annotations used for training are filtered by both
+    /// [annotations_filter][google.cloud.aiplatform.v1.ExportDataConfig.annotations_filter]
+    /// and
+    /// [annotation_schema_uri][google.cloud.aiplatform.v1.ExportDataConfig.annotation_schema_uri].
+    #[prost(string, tag = "12")]
+    pub annotation_schema_uri: ::prost::alloc::string::String,
+    /// Indicates the usage of the exported files.
+    #[prost(enumeration = "export_data_config::ExportUse", tag = "4")]
+    pub export_use: i32,
     /// The destination of the output.
     #[prost(oneof = "export_data_config::Destination", tags = "1")]
     pub destination: ::core::option::Option<export_data_config::Destination>,
     /// The instructions how the export data should be split between the
     /// training, validation and test sets.
-    #[prost(oneof = "export_data_config::Split", tags = "5")]
+    #[prost(oneof = "export_data_config::Split", tags = "5, 7")]
     pub split: ::core::option::Option<export_data_config::Split>,
 }
 /// Nested message and enum types in `ExportDataConfig`.
 pub mod export_data_config {
+    /// ExportUse indicates the usage of the exported files. It restricts file
+    /// destination, format, annotations to be exported, whether to allow
+    /// unannotated data to be exported and whether to clone files to temp Cloud
+    /// Storage bucket.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ExportUse {
+        /// Regular user export.
+        Unspecified = 0,
+        /// Export for custom code training.
+        CustomCodeTraining = 6,
+    }
+    impl ExportUse {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ExportUse::Unspecified => "EXPORT_USE_UNSPECIFIED",
+                ExportUse::CustomCodeTraining => "CUSTOM_CODE_TRAINING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "EXPORT_USE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CUSTOM_CODE_TRAINING" => Some(Self::CustomCodeTraining),
+                _ => None,
+            }
+        }
+    }
     /// The destination of the output.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
@@ -20877,6 +21008,9 @@ pub mod export_data_config {
         /// Split based on fractions defining the size of each set.
         #[prost(message, tag = "5")]
         FractionSplit(super::ExportFractionSplit),
+        /// Split based on the provided filters for each set.
+        #[prost(message, tag = "7")]
+        FilterSplit(super::ExportFilterSplit),
     }
 }
 /// Assigns the input data to training, validation, and test sets as per the
@@ -20897,6 +21031,44 @@ pub struct ExportFractionSplit {
     /// The fraction of the input data that is to be used to evaluate the Model.
     #[prost(double, tag = "3")]
     pub test_fraction: f64,
+}
+/// Assigns input data to training, validation, and test sets based on the given
+/// filters, data pieces not matched by any filter are ignored. Currently only
+/// supported for Datasets containing DataItems.
+/// If any of the filters in this message are to match nothing, then they can be
+/// set as '-' (the minus sign).
+///
+/// Supported only for unstructured Datasets.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExportFilterSplit {
+    /// Required. A filter on DataItems of the Dataset. DataItems that match
+    /// this filter are used to train the Model. A filter with same syntax
+    /// as the one used in
+    /// [DatasetService.ListDataItems][google.cloud.aiplatform.v1.DatasetService.ListDataItems]
+    /// may be used. If a single DataItem is matched by more than one of the
+    /// FilterSplit filters, then it is assigned to the first set that applies to
+    /// it in the training, validation, test order.
+    #[prost(string, tag = "1")]
+    pub training_filter: ::prost::alloc::string::String,
+    /// Required. A filter on DataItems of the Dataset. DataItems that match
+    /// this filter are used to validate the Model. A filter with same syntax
+    /// as the one used in
+    /// [DatasetService.ListDataItems][google.cloud.aiplatform.v1.DatasetService.ListDataItems]
+    /// may be used. If a single DataItem is matched by more than one of the
+    /// FilterSplit filters, then it is assigned to the first set that applies to
+    /// it in the training, validation, test order.
+    #[prost(string, tag = "2")]
+    pub validation_filter: ::prost::alloc::string::String,
+    /// Required. A filter on DataItems of the Dataset. DataItems that match
+    /// this filter are used to test the Model. A filter with same syntax
+    /// as the one used in
+    /// [DatasetService.ListDataItems][google.cloud.aiplatform.v1.DatasetService.ListDataItems]
+    /// may be used. If a single DataItem is matched by more than one of the
+    /// FilterSplit filters, then it is assigned to the first set that applies to
+    /// it in the training, validation, test order.
+    #[prost(string, tag = "3")]
+    pub test_filter: ::prost::alloc::string::String,
 }
 /// Request message for
 /// [DatasetService.CreateDataset][google.cloud.aiplatform.v1.DatasetService.CreateDataset].
@@ -21065,9 +21237,16 @@ pub struct ExportDataRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ExportDataResponse {
-    /// All of the files that are exported in this export operation.
+    /// All of the files that are exported in this export operation. For custom
+    /// code training export, only three (training, validation and test) GCS paths
+    /// in wildcard format are populated (e.g., gs://.../training-*).
     #[prost(string, repeated, tag = "1")]
     pub exported_files: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Only present for custom code training export use case. Records data stats,
+    /// i.e., train/validation/test item/annotation counts calculated during
+    /// the export operation.
+    #[prost(message, optional, tag = "2")]
+    pub data_stats: ::core::option::Option<model::DataStats>,
 }
 /// Runtime operation information for
 /// [DatasetService.ExportData][google.cloud.aiplatform.v1.DatasetService.ExportData].

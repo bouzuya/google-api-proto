@@ -54,6 +54,12 @@ pub mod api_warning {
         /// Warning when user provided maxResults parameter exceeds the limit.  The
         /// returned result set may be incomplete.
         MaxResultsExceedsLimit = 2,
+        /// Warning when user tries to create/update a user with credentials that
+        /// have previously been compromised by a public data breach.
+        CompromisedCredentials = 3,
+        /// Warning when the operation succeeds but some non-critical workflow state
+        /// failed.
+        InternalStateFailure = 4,
     }
     impl SqlApiWarningCode {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -65,6 +71,8 @@ pub mod api_warning {
                 SqlApiWarningCode::Unspecified => "SQL_API_WARNING_CODE_UNSPECIFIED",
                 SqlApiWarningCode::RegionUnreachable => "REGION_UNREACHABLE",
                 SqlApiWarningCode::MaxResultsExceedsLimit => "MAX_RESULTS_EXCEEDS_LIMIT",
+                SqlApiWarningCode::CompromisedCredentials => "COMPROMISED_CREDENTIALS",
+                SqlApiWarningCode::InternalStateFailure => "INTERNAL_STATE_FAILURE",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -73,6 +81,8 @@ pub mod api_warning {
                 "SQL_API_WARNING_CODE_UNSPECIFIED" => Some(Self::Unspecified),
                 "REGION_UNREACHABLE" => Some(Self::RegionUnreachable),
                 "MAX_RESULTS_EXCEEDS_LIMIT" => Some(Self::MaxResultsExceedsLimit),
+                "COMPROMISED_CREDENTIALS" => Some(Self::CompromisedCredentials),
+                "INTERNAL_STATE_FAILURE" => Some(Self::InternalStateFailure),
                 _ => None,
             }
         }
@@ -947,6 +957,9 @@ pub struct Operation {
     /// populated.
     #[prost(message, optional, tag = "8")]
     pub error: ::core::option::Option<OperationErrors>,
+    /// An Admin API warning message.
+    #[prost(message, optional, tag = "19")]
+    pub api_warning: ::core::option::Option<ApiWarning>,
     /// The type of the operation. Valid values are:
     /// *  `CREATE`
     /// *  `DELETE`
@@ -1273,6 +1286,10 @@ pub struct PasswordValidationPolicy {
     /// Whether the password policy is enabled or not.
     #[prost(message, optional, tag = "6")]
     pub enable_password_policy: ::core::option::Option<bool>,
+    /// Disallow credentials that have been previously compromised by a public data
+    /// breach.
+    #[prost(message, optional, tag = "7")]
+    pub disallow_compromised_credentials: ::core::option::Option<bool>,
 }
 /// Nested message and enum types in `PasswordValidationPolicy`.
 pub mod password_validation_policy {
@@ -2176,6 +2193,11 @@ pub enum SqlUpdateTrack {
     /// your instance prefer to let Cloud SQL choose the timing of restart (within
     /// its Maintenance window, if applicable).
     Stable = 2,
+    /// For instance update that requires a restart, this update track indicates
+    /// your instance prefer to let Cloud SQL choose the timing of restart (within
+    /// its Maintenance window, if applicable) to be at least 5 weeks after the
+    /// notification.
+    Week5 = 3,
 }
 impl SqlUpdateTrack {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -2187,6 +2209,7 @@ impl SqlUpdateTrack {
             SqlUpdateTrack::Unspecified => "SQL_UPDATE_TRACK_UNSPECIFIED",
             SqlUpdateTrack::Canary => "canary",
             SqlUpdateTrack::Stable => "stable",
+            SqlUpdateTrack::Week5 => "week5",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -2195,6 +2218,7 @@ impl SqlUpdateTrack {
             "SQL_UPDATE_TRACK_UNSPECIFIED" => Some(Self::Unspecified),
             "canary" => Some(Self::Canary),
             "stable" => Some(Self::Stable),
+            "week5" => Some(Self::Week5),
             _ => None,
         }
     }
