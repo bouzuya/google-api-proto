@@ -827,6 +827,20 @@
 <a href="#827" id="827">827</a>
 <a href="#828" id="828">828</a>
 <a href="#829" id="829">829</a>
+<a href="#830" id="830">830</a>
+<a href="#831" id="831">831</a>
+<a href="#832" id="832">832</a>
+<a href="#833" id="833">833</a>
+<a href="#834" id="834">834</a>
+<a href="#835" id="835">835</a>
+<a href="#836" id="836">836</a>
+<a href="#837" id="837">837</a>
+<a href="#838" id="838">838</a>
+<a href="#839" id="839">839</a>
+<a href="#840" id="840">840</a>
+<a href="#841" id="841">841</a>
+<a href="#842" id="842">842</a>
+<a href="#843" id="843">843</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// QuotaInfo represents information about a particular quota for a given
 /// project, folder or organization.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -857,7 +871,7 @@
     </span><span class="kw">pub </span>is_precise: bool,
     <span class="doccomment">/// The reset time interval for the quota. Refresh interval applies to rate
     /// quota only.
-    /// Example: “minute” for per minute, “day” for per day, or “10 seconds” for
+    /// Example: &quot;minute&quot; for per minute, &quot;day&quot; for per day, or &quot;10 seconds&quot; for
     /// every 10 seconds.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>refresh_interval: ::prost::alloc::string::String,
@@ -873,7 +887,7 @@
     <span class="doccomment">/// The display name of the quota.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>quota_display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The unit in which the metric value is reported, e.g., “MByte”.
+    <span class="doccomment">/// The unit in which the metric value is reported, e.g., &quot;MByte&quot;.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>metric_unit: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether it is eligible to request a higher quota value for this quota.
@@ -984,8 +998,8 @@
     </span><span class="kw">pub enum </span>IneligibilityReason {
         <span class="doccomment">/// Default value when is_eligible is true.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The container is not linked with a billing account.
-        </span>NoBillingAccount = <span class="number">2</span>,
+        <span class="doccomment">/// The container is not linked with a valid billing account.
+        </span>NoValidBillingAccount = <span class="number">2</span>,
         <span class="doccomment">/// Other reasons.
         </span>Other = <span class="number">3</span>,
     }
@@ -997,7 +1011,7 @@
         </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
                 IneligibilityReason::Unspecified =&gt; <span class="string">&quot;INELIGIBILITY_REASON_UNSPECIFIED&quot;</span>,
-                IneligibilityReason::NoBillingAccount =&gt; <span class="string">&quot;NO_BILLING_ACCOUNT&quot;</span>,
+                IneligibilityReason::NoValidBillingAccount =&gt; <span class="string">&quot;NO_VALID_BILLING_ACCOUNT&quot;</span>,
                 IneligibilityReason::Other =&gt; <span class="string">&quot;OTHER&quot;</span>,
             }
         }
@@ -1005,7 +1019,7 @@
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
                 <span class="string">&quot;INELIGIBILITY_REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NO_BILLING_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoBillingAccount),
+                <span class="string">&quot;NO_VALID_BILLING_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoValidBillingAccount),
                 <span class="string">&quot;OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
@@ -1026,7 +1040,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The dimensions that this quota preference applies to. The key of the map
-    /// entry is the name of a dimension, such as &quot;region&quot;, &quot;zone&quot;, “network_id”,
+    /// entry is the name of a dimension, such as &quot;region&quot;, &quot;zone&quot;, &quot;network_id&quot;,
     /// and the value of the map entry is the dimension value.
     ///
     /// If a dimension is missing from the map of dimensions, the quota preference
@@ -1066,12 +1080,26 @@
     /// quota name is unique in the service. Example: `CpusPerProjectPerRegion`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>quota_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Is the quota preference pending GCP approval and fulfillment.
+    <span class="doccomment">/// Output only. Is the quota preference pending Google Cloud approval and
+    /// fulfillment.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>reconciling: bool,
     <span class="doccomment">/// The reason / justification for this quota preference.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>justification: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Input only. An optional email address that can be used for quota
+    /// related communication between the Google Cloud and the user in case the
+    /// Google Cloud needs further information to make a decision on whether the
+    /// user preferred quota can be granted.
+    ///
+    /// The Google account for the email address must have quota update permission
+    /// for the project, folder or organization this quota preference is for.
+    ///
+    /// If no contact email address is provided, or the provided email address does
+    /// not have the required quota update permission, the quota preference request
+    /// will be denied in case further information is required to make a decision.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>contact_email: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The preferred quota configuration.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1087,10 +1115,10 @@
     <span class="doccomment">/// Output only. Granted quota value.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>granted_value: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Output only. The trace id that the GCP uses to provision the requested
-    /// quota. This trace id may be used by the client to contact Cloud support to
-    /// track the state of a quota preference request. The trace id is only
-    /// produced for increase requests and is unique for each request. The
+    <span class="doccomment">/// Output only. The trace id that the Google Cloud uses to provision the
+    /// requested quota. This trace id may be used by the client to contact Cloud
+    /// support to track the state of a quota preference request. The trace id is
+    /// only produced for increase requests and is unique for each request. The
     /// quota decrease requests do not have a trace id.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>trace_id: ::prost::alloc::string::String,
