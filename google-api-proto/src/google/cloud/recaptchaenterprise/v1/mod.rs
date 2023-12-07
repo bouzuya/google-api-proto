@@ -561,7 +561,7 @@ pub struct PrivatePasswordLeakVerification {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Assessment {
-    /// Output only. The resource name for the Assessment in the format
+    /// Output only. Identifier. The resource name for the Assessment in the format
     /// `projects/{project}/assessments/{assessment}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
@@ -1474,7 +1474,7 @@ pub struct GetMetricsRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Metrics {
-    /// Output only. The name of the metrics, in the format
+    /// Output only. Identifier. The name of the metrics, in the format
     /// `projects/{project}/keys/{key}/metrics`.
     #[prost(string, tag = "4")]
     pub name: ::prost::alloc::string::String,
@@ -1508,7 +1508,7 @@ pub struct RetrieveLegacySecretKeyResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Key {
-    /// The resource name for the Key in the format
+    /// Identifier. The resource name for the Key in the format
     /// `projects/{project}/keys/{key}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
@@ -1941,7 +1941,7 @@ pub mod firewall_action {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FirewallPolicy {
-    /// The resource name for the FirewallPolicy in the format
+    /// Identifier. The resource name for the FirewallPolicy in the format
     /// `projects/{project}/firewallpolicies/{firewallpolicy}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
@@ -2055,9 +2055,18 @@ pub struct SearchRelatedAccountGroupMembershipsRequest {
     /// `projects/{project}`.
     #[prost(string, tag = "1")]
     pub project: ::prost::alloc::string::String,
-    /// Optional. The unique stable hashed user identifier used to search
-    /// connections. The identifier should correspond to a `hashed_account_id`
-    /// provided in a previous `CreateAssessment` or `AnnotateAssessment` call.
+    /// Optional. The unique stable account identifier used to search connections.
+    /// The identifier should correspond to an `account_id` provided in a previous
+    /// `CreateAssessment` or `AnnotateAssessment` call. Either hashed_account_id
+    /// or account_id must be set, but not both.
+    #[prost(string, tag = "5")]
+    pub account_id: ::prost::alloc::string::String,
+    /// Optional. Deprecated: use `account_id` instead.
+    /// The unique stable hashed account identifier used to search connections. The
+    /// identifier should correspond to a `hashed_account_id` provided in a
+    /// previous `CreateAssessment` or `AnnotateAssessment` call. Either
+    /// hashed_account_id or account_id must be set, but not both.
+    #[deprecated]
     #[prost(bytes = "bytes", tag = "2")]
     pub hashed_account_id: ::prost::bytes::Bytes,
     /// Optional. The maximum number of groups to return. The service might return
@@ -2093,13 +2102,20 @@ pub struct SearchRelatedAccountGroupMembershipsResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RelatedAccountGroupMembership {
-    /// Required. The resource name for this membership in the format
+    /// Required. Identifier. The resource name for this membership in the format
     /// `projects/{project}/relatedaccountgroups/{relatedaccountgroup}/memberships/{membership}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// The unique stable hashed user identifier of the member. The identifier
+    /// The unique stable account identifier of the member. The identifier
+    /// corresponds to an `account_id` provided in a previous `CreateAssessment` or
+    /// `AnnotateAssessment` call.
+    #[prost(string, tag = "4")]
+    pub account_id: ::prost::alloc::string::String,
+    /// Deprecated: use `account_id` instead.
+    /// The unique stable hashed account identifier of the member. The identifier
     /// corresponds to a `hashed_account_id` provided in a previous
     /// `CreateAssessment` or `AnnotateAssessment` call.
+    #[deprecated]
     #[prost(bytes = "bytes", tag = "2")]
     pub hashed_account_id: ::prost::bytes::Bytes,
 }
@@ -2107,7 +2123,8 @@ pub struct RelatedAccountGroupMembership {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RelatedAccountGroup {
-    /// Required. The resource name for the related account group in the format
+    /// Required. Identifier. The resource name for the related account group in
+    /// the format
     /// `projects/{project}/relatedaccountgroups/{related_account_group}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,

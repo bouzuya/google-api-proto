@@ -28,7 +28,7 @@ pub struct QuotaInfo {
     pub is_precise: bool,
     /// The reset time interval for the quota. Refresh interval applies to rate
     /// quota only.
-    /// Example: “minute” for per minute, “day” for per day, or “10 seconds” for
+    /// Example: "minute" for per minute, "day" for per day, or "10 seconds" for
     /// every 10 seconds.
     #[prost(string, tag = "6")]
     pub refresh_interval: ::prost::alloc::string::String,
@@ -44,7 +44,7 @@ pub struct QuotaInfo {
     /// The display name of the quota.
     #[prost(string, tag = "10")]
     pub quota_display_name: ::prost::alloc::string::String,
-    /// The unit in which the metric value is reported, e.g., “MByte”.
+    /// The unit in which the metric value is reported, e.g., "MByte".
     #[prost(string, tag = "11")]
     pub metric_unit: ::prost::alloc::string::String,
     /// Whether it is eligible to request a higher quota value for this quota.
@@ -155,8 +155,8 @@ pub mod quota_increase_eligibility {
     pub enum IneligibilityReason {
         /// Default value when is_eligible is true.
         Unspecified = 0,
-        /// The container is not linked with a billing account.
-        NoBillingAccount = 2,
+        /// The container is not linked with a valid billing account.
+        NoValidBillingAccount = 2,
         /// Other reasons.
         Other = 3,
     }
@@ -168,7 +168,7 @@ pub mod quota_increase_eligibility {
         pub fn as_str_name(&self) -> &'static str {
             match self {
                 IneligibilityReason::Unspecified => "INELIGIBILITY_REASON_UNSPECIFIED",
-                IneligibilityReason::NoBillingAccount => "NO_BILLING_ACCOUNT",
+                IneligibilityReason::NoValidBillingAccount => "NO_VALID_BILLING_ACCOUNT",
                 IneligibilityReason::Other => "OTHER",
             }
         }
@@ -176,7 +176,7 @@ pub mod quota_increase_eligibility {
         pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
             match value {
                 "INELIGIBILITY_REASON_UNSPECIFIED" => Some(Self::Unspecified),
-                "NO_BILLING_ACCOUNT" => Some(Self::NoBillingAccount),
+                "NO_VALID_BILLING_ACCOUNT" => Some(Self::NoValidBillingAccount),
                 "OTHER" => Some(Self::Other),
                 _ => None,
             }
@@ -197,7 +197,7 @@ pub struct QuotaPreference {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// The dimensions that this quota preference applies to. The key of the map
-    /// entry is the name of a dimension, such as "region", "zone", “network_id”,
+    /// entry is the name of a dimension, such as "region", "zone", "network_id",
     /// and the value of the map entry is the dimension value.
     ///
     /// If a dimension is missing from the map of dimensions, the quota preference
@@ -237,12 +237,26 @@ pub struct QuotaPreference {
     /// quota name is unique in the service. Example: `CpusPerProjectPerRegion`
     #[prost(string, tag = "8")]
     pub quota_id: ::prost::alloc::string::String,
-    /// Output only. Is the quota preference pending GCP approval and fulfillment.
+    /// Output only. Is the quota preference pending Google Cloud approval and
+    /// fulfillment.
     #[prost(bool, tag = "10")]
     pub reconciling: bool,
     /// The reason / justification for this quota preference.
     #[prost(string, tag = "11")]
     pub justification: ::prost::alloc::string::String,
+    /// Optional. Input only. An optional email address that can be used for quota
+    /// related communication between the Google Cloud and the user in case the
+    /// Google Cloud needs further information to make a decision on whether the
+    /// user preferred quota can be granted.
+    ///
+    /// The Google account for the email address must have quota update permission
+    /// for the project, folder or organization this quota preference is for.
+    ///
+    /// If no contact email address is provided, or the provided email address does
+    /// not have the required quota update permission, the quota preference request
+    /// will be denied in case further information is required to make a decision.
+    #[prost(string, tag = "12")]
+    pub contact_email: ::prost::alloc::string::String,
 }
 /// The preferred quota configuration.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -258,10 +272,10 @@ pub struct QuotaConfig {
     /// Output only. Granted quota value.
     #[prost(message, optional, tag = "3")]
     pub granted_value: ::core::option::Option<i64>,
-    /// Output only. The trace id that the GCP uses to provision the requested
-    /// quota. This trace id may be used by the client to contact Cloud support to
-    /// track the state of a quota preference request. The trace id is only
-    /// produced for increase requests and is unique for each request. The
+    /// Output only. The trace id that the Google Cloud uses to provision the
+    /// requested quota. This trace id may be used by the client to contact Cloud
+    /// support to track the state of a quota preference request. The trace id is
+    /// only produced for increase requests and is unique for each request. The
     /// quota decrease requests do not have a trace id.
     #[prost(string, tag = "4")]
     pub trace_id: ::prost::alloc::string::String,
