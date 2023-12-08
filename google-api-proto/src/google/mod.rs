@@ -81,6 +81,7 @@ pub mod appengine;
         feature = "google-apps-drive-activity-v2",
         feature = "google-apps-drive-labels-v2",
         feature = "google-apps-drive-labels-v2beta",
+        feature = "google-apps-meet-v2beta",
         feature = "google-apps-script-type",
         feature = "google-apps-script-type-calendar",
         feature = "google-apps-script-type-docs",

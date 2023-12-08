@@ -8,6 +8,8 @@ pub mod alertcenter;
     )
 )]
 pub mod drive;
+#[cfg(any(feature = "google-apps-meet-v2beta"))]
+pub mod meet;
 #[cfg(
     any(
         feature = "google-apps-script-type",
