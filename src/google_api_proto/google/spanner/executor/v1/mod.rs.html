@@ -1868,6 +1868,20 @@
 <a href="#1868" id="1868">1868</a>
 <a href="#1869" id="1869">1869</a>
 <a href="#1870" id="1870">1870</a>
+<a href="#1871" id="1871">1871</a>
+<a href="#1872" id="1872">1872</a>
+<a href="#1873" id="1873">1873</a>
+<a href="#1874" id="1874">1874</a>
+<a href="#1875" id="1875">1875</a>
+<a href="#1876" id="1876">1876</a>
+<a href="#1877" id="1877">1877</a>
+<a href="#1878" id="1878">1878</a>
+<a href="#1879" id="1879">1879</a>
+<a href="#1880" id="1880">1880</a>
+<a href="#1881" id="1881">1881</a>
+<a href="#1882" id="1882">1882</a>
+<a href="#1883" id="1883">1883</a>
+<a href="#1884" id="1884">1884</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Request to executor service that start a new Spanner action.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2661,6 +2675,13 @@
     <span class="doccomment">/// Number of processing units (node_count should be set to 0 if used).
     </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>processing_units: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// The autoscaling config for this instance. If non-empty, an autoscaling
+    /// instance will be created (processing_units and node_count should be set to
+    /// 0 if used).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>autoscaling_config: ::core::option::Option&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::admin::instance::v1::AutoscalingConfig,
+    &gt;,
     <span class="doccomment">/// labels.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
@@ -2690,6 +2711,13 @@
     /// processing_units or node_count should be present in the message.
     </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>processing_units: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// The autoscaling config for this instance. If non-empty, this instance is
+    /// using autoscaling (processing_units and node_count should be set to
+    /// 0 if used).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>autoscaling_config: ::core::option::Option&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::admin::instance::v1::AutoscalingConfig,
+    &gt;,
     <span class="doccomment">/// labels.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;

@@ -2204,174 +2204,7 @@
 <a href="#2204" id="2204">2204</a>
 <a href="#2205" id="2205">2205</a>
 <a href="#2206" id="2206">2206</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Describes an event and a trigger URI.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Event {
-    <span class="doccomment">/// Describes the event that occurred.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;event::EventType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-    <span class="doccomment">/// The URI to trigger for this event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// The ID of the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The offset in seconds if the event type is `PROGRESS`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Event`.
-</span><span class="kw">pub mod </span>event {
-    <span class="doccomment">/// Describes the event that occurred.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>EventType {
-        <span class="doccomment">/// The event type is unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// First frame of creative ad viewed.
-        </span>CreativeView = <span class="number">1</span>,
-        <span class="doccomment">/// Creative ad started.
-        </span>Start = <span class="number">2</span>,
-        <span class="doccomment">/// Start of an ad break.
-        </span>BreakStart = <span class="number">3</span>,
-        <span class="doccomment">/// End of an ad break.
-        </span>BreakEnd = <span class="number">4</span>,
-        <span class="doccomment">/// Impression.
-        </span>Impression = <span class="number">5</span>,
-        <span class="doccomment">/// First quartile progress.
-        </span>FirstQuartile = <span class="number">6</span>,
-        <span class="doccomment">/// Midpoint progress.
-        </span>Midpoint = <span class="number">7</span>,
-        <span class="doccomment">/// Third quartile progress.
-        </span>ThirdQuartile = <span class="number">8</span>,
-        <span class="doccomment">/// Ad progress completed.
-        </span>Complete = <span class="number">9</span>,
-        <span class="doccomment">/// Specific progress event with an offset.
-        </span>Progress = <span class="number">10</span>,
-        <span class="doccomment">/// Player muted.
-        </span>Mute = <span class="number">11</span>,
-        <span class="doccomment">/// Player unmuted.
-        </span>Unmute = <span class="number">12</span>,
-        <span class="doccomment">/// Player paused.
-        </span>Pause = <span class="number">13</span>,
-        <span class="doccomment">/// Click event.
-        </span>Click = <span class="number">14</span>,
-        <span class="doccomment">/// Click-through event.
-        </span>ClickThrough = <span class="number">15</span>,
-        <span class="doccomment">/// Player rewinding.
-        </span>Rewind = <span class="number">16</span>,
-        <span class="doccomment">/// Player resumed.
-        </span>Resume = <span class="number">17</span>,
-        <span class="doccomment">/// Error event.
-        </span>Error = <span class="number">18</span>,
-        <span class="doccomment">/// Ad expanded to a larger size.
-        </span>Expand = <span class="number">21</span>,
-        <span class="doccomment">/// Ad collapsed to a smaller size.
-        </span>Collapse = <span class="number">22</span>,
-        <span class="doccomment">/// Non-linear ad closed.
-        </span>Close = <span class="number">24</span>,
-        <span class="doccomment">/// Linear ad closed.
-        </span>CloseLinear = <span class="number">25</span>,
-        <span class="doccomment">/// Ad skipped.
-        </span>Skip = <span class="number">26</span>,
-        <span class="doccomment">/// Accept invitation event.
-        </span>AcceptInvitation = <span class="number">27</span>,
-    }
-    <span class="kw">impl </span>EventType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                EventType::Unspecified =&gt; <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot;</span>,
-                EventType::CreativeView =&gt; <span class="string">&quot;CREATIVE_VIEW&quot;</span>,
-                EventType::Start =&gt; <span class="string">&quot;START&quot;</span>,
-                EventType::BreakStart =&gt; <span class="string">&quot;BREAK_START&quot;</span>,
-                EventType::BreakEnd =&gt; <span class="string">&quot;BREAK_END&quot;</span>,
-                EventType::Impression =&gt; <span class="string">&quot;IMPRESSION&quot;</span>,
-                EventType::FirstQuartile =&gt; <span class="string">&quot;FIRST_QUARTILE&quot;</span>,
-                EventType::Midpoint =&gt; <span class="string">&quot;MIDPOINT&quot;</span>,
-                EventType::ThirdQuartile =&gt; <span class="string">&quot;THIRD_QUARTILE&quot;</span>,
-                EventType::Complete =&gt; <span class="string">&quot;COMPLETE&quot;</span>,
-                EventType::Progress =&gt; <span class="string">&quot;PROGRESS&quot;</span>,
-                EventType::Mute =&gt; <span class="string">&quot;MUTE&quot;</span>,
-                EventType::Unmute =&gt; <span class="string">&quot;UNMUTE&quot;</span>,
-                EventType::Pause =&gt; <span class="string">&quot;PAUSE&quot;</span>,
-                EventType::Click =&gt; <span class="string">&quot;CLICK&quot;</span>,
-                EventType::ClickThrough =&gt; <span class="string">&quot;CLICK_THROUGH&quot;</span>,
-                EventType::Rewind =&gt; <span class="string">&quot;REWIND&quot;</span>,
-                EventType::Resume =&gt; <span class="string">&quot;RESUME&quot;</span>,
-                EventType::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-                EventType::Expand =&gt; <span class="string">&quot;EXPAND&quot;</span>,
-                EventType::Collapse =&gt; <span class="string">&quot;COLLAPSE&quot;</span>,
-                EventType::Close =&gt; <span class="string">&quot;CLOSE&quot;</span>,
-                EventType::CloseLinear =&gt; <span class="string">&quot;CLOSE_LINEAR&quot;</span>,
-                EventType::Skip =&gt; <span class="string">&quot;SKIP&quot;</span>,
-                EventType::AcceptInvitation =&gt; <span class="string">&quot;ACCEPT_INVITATION&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATIVE_VIEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreativeView),
-                <span class="string">&quot;START&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Start),
-                <span class="string">&quot;BREAK_START&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakStart),
-                <span class="string">&quot;BREAK_END&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakEnd),
-                <span class="string">&quot;IMPRESSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Impression),
-                <span class="string">&quot;FIRST_QUARTILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FirstQuartile),
-                <span class="string">&quot;MIDPOINT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Midpoint),
-                <span class="string">&quot;THIRD_QUARTILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ThirdQuartile),
-                <span class="string">&quot;COMPLETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complete),
-                <span class="string">&quot;PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Progress),
-                <span class="string">&quot;MUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mute),
-                <span class="string">&quot;UNMUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unmute),
-                <span class="string">&quot;PAUSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pause),
-                <span class="string">&quot;CLICK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Click),
-                <span class="string">&quot;CLICK_THROUGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClickThrough),
-                <span class="string">&quot;REWIND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rewind),
-                <span class="string">&quot;RESUME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resume),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="string">&quot;EXPAND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expand),
-                <span class="string">&quot;COLLAPSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Collapse),
-                <span class="string">&quot;CLOSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Close),
-                <span class="string">&quot;CLOSE_LINEAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloseLinear),
-                <span class="string">&quot;SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
-                <span class="string">&quot;ACCEPT_INVITATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AcceptInvitation),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Indicates a time in which a list of events should be triggered
-/// during media playback.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ProgressEvent {
-    <span class="doccomment">/// The time when the following tracking events occurs. The time is in
-    /// seconds relative to the start of the VOD asset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    <span class="doccomment">/// The list of progress tracking events for the ad break. These can be of
-    /// the following IAB types: `BREAK_START`, `BREAK_END`, `IMPRESSION`,
-    /// `CREATIVE_VIEW`, `START`, `FIRST_QUARTILE`, `MIDPOINT`, `THIRD_QUARTILE`,
-    /// `COMPLETE`, `PROGRESS`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>events: ::prost::alloc::vec::Vec&lt;Event&gt;,
-}
-<span class="doccomment">/// Container for a live session&#39;s ad tag detail.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Container for a live session&#39;s ad tag detail.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LiveAdTagDetail {
@@ -2441,6 +2274,37 @@
     <span class="doccomment">/// The body of the response.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Slate object
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Slate {
+    <span class="doccomment">/// Output only. The name of the slate, in the form of
+    /// `projects/{project_number}/locations/{location}/slates/{id}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The URI to fetch the source content for the slate. This URI must return an
+    /// MP4 video with at least one audio track.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// gam_slate has all the GAM-related attributes of slates.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>gam_slate: ::core::option::Option&lt;slate::GamSlate&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Slate`.
+</span><span class="kw">pub mod </span>slate {
+    <span class="doccomment">/// GamSlate object has Google Ad Manager (GAM) related properties for the
+    /// slate.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>GamSlate {
+        <span class="doccomment">/// Required. Ad Manager network code to associate with the live config.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>network_code: ::prost::alloc::string::String,
+        <span class="doccomment">/// Output only. The identifier generated for the slate by GAM.
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>gam_slate_id: i64,
+    }
 }
 <span class="doccomment">/// Configuration for a CDN key. Used by the Video Stitcher
 /// to sign URIs for fetching video manifests and signing
@@ -2706,6 +2570,173 @@
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
+}
+<span class="doccomment">/// Describes an event and a trigger URI.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Event {
+    <span class="doccomment">/// Describes the event that occurred.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;event::EventType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// The URI to trigger for this event.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// The ID of the event.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The offset in seconds if the event type is `PROGRESS`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Event`.
+</span><span class="kw">pub mod </span>event {
+    <span class="doccomment">/// Describes the event that occurred.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>EventType {
+        <span class="doccomment">/// The event type is unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// First frame of creative ad viewed.
+        </span>CreativeView = <span class="number">1</span>,
+        <span class="doccomment">/// Creative ad started.
+        </span>Start = <span class="number">2</span>,
+        <span class="doccomment">/// Start of an ad break.
+        </span>BreakStart = <span class="number">3</span>,
+        <span class="doccomment">/// End of an ad break.
+        </span>BreakEnd = <span class="number">4</span>,
+        <span class="doccomment">/// Impression.
+        </span>Impression = <span class="number">5</span>,
+        <span class="doccomment">/// First quartile progress.
+        </span>FirstQuartile = <span class="number">6</span>,
+        <span class="doccomment">/// Midpoint progress.
+        </span>Midpoint = <span class="number">7</span>,
+        <span class="doccomment">/// Third quartile progress.
+        </span>ThirdQuartile = <span class="number">8</span>,
+        <span class="doccomment">/// Ad progress completed.
+        </span>Complete = <span class="number">9</span>,
+        <span class="doccomment">/// Specific progress event with an offset.
+        </span>Progress = <span class="number">10</span>,
+        <span class="doccomment">/// Player muted.
+        </span>Mute = <span class="number">11</span>,
+        <span class="doccomment">/// Player unmuted.
+        </span>Unmute = <span class="number">12</span>,
+        <span class="doccomment">/// Player paused.
+        </span>Pause = <span class="number">13</span>,
+        <span class="doccomment">/// Click event.
+        </span>Click = <span class="number">14</span>,
+        <span class="doccomment">/// Click-through event.
+        </span>ClickThrough = <span class="number">15</span>,
+        <span class="doccomment">/// Player rewinding.
+        </span>Rewind = <span class="number">16</span>,
+        <span class="doccomment">/// Player resumed.
+        </span>Resume = <span class="number">17</span>,
+        <span class="doccomment">/// Error event.
+        </span>Error = <span class="number">18</span>,
+        <span class="doccomment">/// Ad expanded to a larger size.
+        </span>Expand = <span class="number">21</span>,
+        <span class="doccomment">/// Ad collapsed to a smaller size.
+        </span>Collapse = <span class="number">22</span>,
+        <span class="doccomment">/// Non-linear ad closed.
+        </span>Close = <span class="number">24</span>,
+        <span class="doccomment">/// Linear ad closed.
+        </span>CloseLinear = <span class="number">25</span>,
+        <span class="doccomment">/// Ad skipped.
+        </span>Skip = <span class="number">26</span>,
+        <span class="doccomment">/// Accept invitation event.
+        </span>AcceptInvitation = <span class="number">27</span>,
+    }
+    <span class="kw">impl </span>EventType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                EventType::Unspecified =&gt; <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot;</span>,
+                EventType::CreativeView =&gt; <span class="string">&quot;CREATIVE_VIEW&quot;</span>,
+                EventType::Start =&gt; <span class="string">&quot;START&quot;</span>,
+                EventType::BreakStart =&gt; <span class="string">&quot;BREAK_START&quot;</span>,
+                EventType::BreakEnd =&gt; <span class="string">&quot;BREAK_END&quot;</span>,
+                EventType::Impression =&gt; <span class="string">&quot;IMPRESSION&quot;</span>,
+                EventType::FirstQuartile =&gt; <span class="string">&quot;FIRST_QUARTILE&quot;</span>,
+                EventType::Midpoint =&gt; <span class="string">&quot;MIDPOINT&quot;</span>,
+                EventType::ThirdQuartile =&gt; <span class="string">&quot;THIRD_QUARTILE&quot;</span>,
+                EventType::Complete =&gt; <span class="string">&quot;COMPLETE&quot;</span>,
+                EventType::Progress =&gt; <span class="string">&quot;PROGRESS&quot;</span>,
+                EventType::Mute =&gt; <span class="string">&quot;MUTE&quot;</span>,
+                EventType::Unmute =&gt; <span class="string">&quot;UNMUTE&quot;</span>,
+                EventType::Pause =&gt; <span class="string">&quot;PAUSE&quot;</span>,
+                EventType::Click =&gt; <span class="string">&quot;CLICK&quot;</span>,
+                EventType::ClickThrough =&gt; <span class="string">&quot;CLICK_THROUGH&quot;</span>,
+                EventType::Rewind =&gt; <span class="string">&quot;REWIND&quot;</span>,
+                EventType::Resume =&gt; <span class="string">&quot;RESUME&quot;</span>,
+                EventType::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                EventType::Expand =&gt; <span class="string">&quot;EXPAND&quot;</span>,
+                EventType::Collapse =&gt; <span class="string">&quot;COLLAPSE&quot;</span>,
+                EventType::Close =&gt; <span class="string">&quot;CLOSE&quot;</span>,
+                EventType::CloseLinear =&gt; <span class="string">&quot;CLOSE_LINEAR&quot;</span>,
+                EventType::Skip =&gt; <span class="string">&quot;SKIP&quot;</span>,
+                EventType::AcceptInvitation =&gt; <span class="string">&quot;ACCEPT_INVITATION&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CREATIVE_VIEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreativeView),
+                <span class="string">&quot;START&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Start),
+                <span class="string">&quot;BREAK_START&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakStart),
+                <span class="string">&quot;BREAK_END&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakEnd),
+                <span class="string">&quot;IMPRESSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Impression),
+                <span class="string">&quot;FIRST_QUARTILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FirstQuartile),
+                <span class="string">&quot;MIDPOINT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Midpoint),
+                <span class="string">&quot;THIRD_QUARTILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ThirdQuartile),
+                <span class="string">&quot;COMPLETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complete),
+                <span class="string">&quot;PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Progress),
+                <span class="string">&quot;MUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mute),
+                <span class="string">&quot;UNMUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unmute),
+                <span class="string">&quot;PAUSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pause),
+                <span class="string">&quot;CLICK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Click),
+                <span class="string">&quot;CLICK_THROUGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClickThrough),
+                <span class="string">&quot;REWIND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rewind),
+                <span class="string">&quot;RESUME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resume),
+                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">&quot;EXPAND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expand),
+                <span class="string">&quot;COLLAPSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Collapse),
+                <span class="string">&quot;CLOSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Close),
+                <span class="string">&quot;CLOSE_LINEAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloseLinear),
+                <span class="string">&quot;SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
+                <span class="string">&quot;ACCEPT_INVITATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AcceptInvitation),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Indicates a time in which a list of events should be triggered
+/// during media playback.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ProgressEvent {
+    <span class="doccomment">/// The time when the following tracking events occurs. The time is in
+    /// seconds relative to the start of the VOD asset.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    <span class="doccomment">/// The list of progress tracking events for the ad break. These can be of
+    /// the following IAB types: `BREAK_START`, `BREAK_END`, `IMPRESSION`,
+    /// `CREATIVE_VIEW`, `START`, `FIRST_QUARTILE`, `MIDPOINT`, `THIRD_QUARTILE`,
+    /// `COMPLETE`, `PROGRESS`.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>events: ::prost::alloc::vec::Vec&lt;Event&gt;,
 }
 <span class="doccomment">/// Metadata for companion ads.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3095,37 +3126,6 @@
     /// will match.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>codecs: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Slate object
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Slate {
-    <span class="doccomment">/// Output only. The name of the slate, in the form of
-    /// `projects/{project_number}/locations/{location}/slates/{id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The URI to fetch the source content for the slate. This URI must return an
-    /// MP4 video with at least one audio track.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// gam_slate has all the GAM-related attributes of slates.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>gam_slate: ::core::option::Option&lt;slate::GamSlate&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Slate`.
-</span><span class="kw">pub mod </span>slate {
-    <span class="doccomment">/// GamSlate object has Google Ad Manager (GAM) related properties for the
-    /// slate.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>GamSlate {
-        <span class="doccomment">/// Required. Ad Manager network code to associate with the live config.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>network_code: ::prost::alloc::string::String,
-        <span class="doccomment">/// Output only. The identifier generated for the slate by GAM.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>gam_slate_id: i64,
-    }
 }
 <span class="doccomment">/// Detailed information related to the interstitial of a VOD session. This
 /// resource is only available for VOD sessions that do not implement Google Ad
