@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["alertcenter","drive","script"]};
+window.SIDEBAR_ITEMS = {"mod":["alertcenter","drive","meet","script"]};
