@@ -1,92 +1,3 @@
-/// Information related to how and why a fallback result was used. If this field
-/// is set, then it means the server used a different routing mode from your
-/// preferred mode as fallback.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FallbackInfo {
-    /// Routing mode used for the response. If fallback was triggered, the mode
-    /// may be different from routing preference set in the original client
-    /// request.
-    #[prost(enumeration = "FallbackRoutingMode", tag = "1")]
-    pub routing_mode: i32,
-    /// The reason why fallback response was used instead of the original response.
-    /// This field is only populated when the fallback mode is triggered and the
-    /// fallback response is returned.
-    #[prost(enumeration = "FallbackReason", tag = "2")]
-    pub reason: i32,
-}
-/// Reasons for using fallback response.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum FallbackReason {
-    /// No fallback reason specified.
-    Unspecified = 0,
-    /// A server error happened while calculating routes with your preferred
-    /// routing mode, but we were able to return a result calculated by an
-    /// alternative mode.
-    ServerError = 1,
-    /// We were not able to finish the calculation with your preferred routing mode
-    /// on time, but we were able to return a result calculated by an alternative
-    /// mode.
-    LatencyExceeded = 2,
-}
-impl FallbackReason {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            FallbackReason::Unspecified => "FALLBACK_REASON_UNSPECIFIED",
-            FallbackReason::ServerError => "SERVER_ERROR",
-            FallbackReason::LatencyExceeded => "LATENCY_EXCEEDED",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "FALLBACK_REASON_UNSPECIFIED" => Some(Self::Unspecified),
-            "SERVER_ERROR" => Some(Self::ServerError),
-            "LATENCY_EXCEEDED" => Some(Self::LatencyExceeded),
-            _ => None,
-        }
-    }
-}
-/// Actual routing mode used for returned fallback response.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum FallbackRoutingMode {
-    /// Not used.
-    Unspecified = 0,
-    /// Indicates the "TRAFFIC_UNAWARE" routing mode was used to compute the
-    /// response.
-    FallbackTrafficUnaware = 1,
-    /// Indicates the "TRAFFIC_AWARE" routing mode was used to compute the
-    /// response.
-    FallbackTrafficAware = 2,
-}
-impl FallbackRoutingMode {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            FallbackRoutingMode::Unspecified => "FALLBACK_ROUTING_MODE_UNSPECIFIED",
-            FallbackRoutingMode::FallbackTrafficUnaware => "FALLBACK_TRAFFIC_UNAWARE",
-            FallbackRoutingMode::FallbackTrafficAware => "FALLBACK_TRAFFIC_AWARE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "FALLBACK_ROUTING_MODE_UNSPECIFIED" => Some(Self::Unspecified),
-            "FALLBACK_TRAFFIC_UNAWARE" => Some(Self::FallbackTrafficUnaware),
-            "FALLBACK_TRAFFIC_AWARE" => Some(Self::FallbackTrafficAware),
-            _ => None,
-        }
-    }
-}
 /// Encapsulates an encoded polyline.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1552,6 +1463,95 @@ pub struct CustomRoute {
     /// opaque blob.
     #[prost(string, tag = "12")]
     pub token: ::prost::alloc::string::String,
+}
+/// Information related to how and why a fallback result was used. If this field
+/// is set, then it means the server used a different routing mode from your
+/// preferred mode as fallback.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FallbackInfo {
+    /// Routing mode used for the response. If fallback was triggered, the mode
+    /// may be different from routing preference set in the original client
+    /// request.
+    #[prost(enumeration = "FallbackRoutingMode", tag = "1")]
+    pub routing_mode: i32,
+    /// The reason why fallback response was used instead of the original response.
+    /// This field is only populated when the fallback mode is triggered and the
+    /// fallback response is returned.
+    #[prost(enumeration = "FallbackReason", tag = "2")]
+    pub reason: i32,
+}
+/// Reasons for using fallback response.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum FallbackReason {
+    /// No fallback reason specified.
+    Unspecified = 0,
+    /// A server error happened while calculating routes with your preferred
+    /// routing mode, but we were able to return a result calculated by an
+    /// alternative mode.
+    ServerError = 1,
+    /// We were not able to finish the calculation with your preferred routing mode
+    /// on time, but we were able to return a result calculated by an alternative
+    /// mode.
+    LatencyExceeded = 2,
+}
+impl FallbackReason {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            FallbackReason::Unspecified => "FALLBACK_REASON_UNSPECIFIED",
+            FallbackReason::ServerError => "SERVER_ERROR",
+            FallbackReason::LatencyExceeded => "LATENCY_EXCEEDED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "FALLBACK_REASON_UNSPECIFIED" => Some(Self::Unspecified),
+            "SERVER_ERROR" => Some(Self::ServerError),
+            "LATENCY_EXCEEDED" => Some(Self::LatencyExceeded),
+            _ => None,
+        }
+    }
+}
+/// Actual routing mode used for returned fallback response.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum FallbackRoutingMode {
+    /// Not used.
+    Unspecified = 0,
+    /// Indicates the "TRAFFIC_UNAWARE" routing mode was used to compute the
+    /// response.
+    FallbackTrafficUnaware = 1,
+    /// Indicates the "TRAFFIC_AWARE" routing mode was used to compute the
+    /// response.
+    FallbackTrafficAware = 2,
+}
+impl FallbackRoutingMode {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            FallbackRoutingMode::Unspecified => "FALLBACK_ROUTING_MODE_UNSPECIFIED",
+            FallbackRoutingMode::FallbackTrafficUnaware => "FALLBACK_TRAFFIC_UNAWARE",
+            FallbackRoutingMode::FallbackTrafficAware => "FALLBACK_TRAFFIC_AWARE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "FALLBACK_ROUTING_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+            "FALLBACK_TRAFFIC_UNAWARE" => Some(Self::FallbackTrafficUnaware),
+            "FALLBACK_TRAFFIC_AWARE" => Some(Self::FallbackTrafficAware),
+            _ => None,
+        }
+    }
 }
 /// ComputeCustomRoutes response message.
 #[allow(clippy::derive_partial_eq_without_eq)]

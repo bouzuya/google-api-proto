@@ -1,3 +1,40 @@
+/// Enum Product.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum Product {
+    /// Default value.
+    Unspecified = 0,
+    /// Integration Platform.
+    Ip = 1,
+    /// Apigee.
+    Apigee = 2,
+    /// Security Command Center.
+    Security = 3,
+}
+impl Product {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Product::Unspecified => "PRODUCT_UNSPECIFIED",
+            Product::Ip => "IP",
+            Product::Apigee => "APIGEE",
+            Product::Security => "SECURITY",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "PRODUCT_UNSPECIFIED" => Some(Self::Unspecified),
+            "IP" => Some(Self::Ip),
+            "APIGEE" => Some(Self::Apigee),
+            "SECURITY" => Some(Self::Security),
+            _ => None,
+        }
+    }
+}
 /// The type of the parameter.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -71,6 +108,21 @@ pub struct BooleanParameterArray {
     #[prost(bool, repeated, tag = "1")]
     pub boolean_values: ::prost::alloc::vec::Vec<bool>,
 }
+/// This message is used for processing and persisting (when applicable) key
+/// value pair parameters for each event in the event bus.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EventParameter {
+    /// Key is used to retrieve the corresponding parameter value. This should be
+    /// unique for a given fired event. These parameters must be predefined in the
+    /// integration definition.
+    #[prost(string, tag = "1")]
+    pub key: ::prost::alloc::string::String,
+    /// Values for the defined keys. Each value can either be string, int, double
+    /// or any proto message.
+    #[prost(message, optional, tag = "2")]
+    pub value: ::core::option::Option<ValueType>,
+}
 /// Options for how to validate json schemas.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -114,58 +166,6 @@ impl JsonValidationOption {
             _ => None,
         }
     }
-}
-/// Enum Product.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum Product {
-    /// Default value.
-    Unspecified = 0,
-    /// Integration Platform.
-    Ip = 1,
-    /// Apigee.
-    Apigee = 2,
-    /// Security Command Center.
-    Security = 3,
-}
-impl Product {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            Product::Unspecified => "PRODUCT_UNSPECIFIED",
-            Product::Ip => "IP",
-            Product::Apigee => "APIGEE",
-            Product::Security => "SECURITY",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "PRODUCT_UNSPECIFIED" => Some(Self::Unspecified),
-            "IP" => Some(Self::Ip),
-            "APIGEE" => Some(Self::Apigee),
-            "SECURITY" => Some(Self::Security),
-            _ => None,
-        }
-    }
-}
-/// This message is used for processing and persisting (when applicable) key
-/// value pair parameters for each event in the event bus.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EventParameter {
-    /// Key is used to retrieve the corresponding parameter value. This should be
-    /// unique for a given fired event. These parameters must be predefined in the
-    /// integration definition.
-    #[prost(string, tag = "1")]
-    pub key: ::prost::alloc::string::String,
-    /// Values for the defined keys. Each value can either be string, int, double
-    /// or any proto message.
-    #[prost(message, optional, tag = "2")]
-    pub value: ::core::option::Option<ValueType>,
 }
 /// The task configuration details. This is not the implementation of Task.
 /// There might be multiple TaskConfigs for the same Task.
