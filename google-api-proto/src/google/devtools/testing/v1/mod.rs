@@ -1,217 +1,3 @@
-/// A message returned from a device.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeviceMessage {
-    #[prost(oneof = "device_message::Contents", tags = "1, 2, 3")]
-    pub contents: ::core::option::Option<device_message::Contents>,
-}
-/// Nested message and enum types in `DeviceMessage`.
-pub mod device_message {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Contents {
-        /// Information about the device's state.
-        #[prost(message, tag = "1")]
-        StatusUpdate(super::StatusUpdate),
-        /// The result of a device stream from ADB.
-        #[prost(message, tag = "2")]
-        StreamStatus(super::StreamStatus),
-        /// Data from an open stream.
-        #[prost(message, tag = "3")]
-        StreamData(super::StreamData),
-    }
-}
-/// A message to an ADB server.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdbMessage {
-    #[prost(oneof = "adb_message::Contents", tags = "1, 2")]
-    pub contents: ::core::option::Option<adb_message::Contents>,
-}
-/// Nested message and enum types in `AdbMessage`.
-pub mod adb_message {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Contents {
-        /// Open a new stream.
-        #[prost(message, tag = "1")]
-        Open(super::Open),
-        /// Send data to a stream.
-        #[prost(message, tag = "2")]
-        StreamData(super::StreamData),
-    }
-}
-/// A StatusUpdate message given over the ADB protocol for the device state.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StatusUpdate {
-    /// The device's state
-    #[prost(enumeration = "status_update::DeviceState", tag = "1")]
-    pub state: i32,
-    /// A map of properties with information about this device.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub properties: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// A comma-separated list of "features" that this device supports.
-    #[prost(string, tag = "3")]
-    pub features: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `StatusUpdate`.
-pub mod status_update {
-    /// The state displayed with the ADB Device when running "adb devices"
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum DeviceState {
-        /// The device state is unknown.
-        Unspecified = 0,
-        /// The ADB device is in the "device" status.
-        Device = 1,
-        /// The ADB device is in the "recovery" status.
-        Recovery = 2,
-        /// The ADB device is in the "rescue" status.
-        Rescue = 3,
-        /// The ADB device is in the "sideload" status.
-        Sideload = 4,
-        /// The ADB device is in the "missing" status.
-        Missing = 10,
-        /// The ADB device is in the "offline" status.
-        Offline = 11,
-        /// The ADB device is in the "unauthorized" status.
-        Unauthorized = 12,
-        /// The ADB device is in the "authorizing" status.
-        Authorizing = 13,
-        /// The ADB device is in the "connecting" status.
-        Connecting = 14,
-    }
-    impl DeviceState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                DeviceState::Unspecified => "DEVICE_STATE_UNSPECIFIED",
-                DeviceState::Device => "DEVICE",
-                DeviceState::Recovery => "RECOVERY",
-                DeviceState::Rescue => "RESCUE",
-                DeviceState::Sideload => "SIDELOAD",
-                DeviceState::Missing => "MISSING",
-                DeviceState::Offline => "OFFLINE",
-                DeviceState::Unauthorized => "UNAUTHORIZED",
-                DeviceState::Authorizing => "AUTHORIZING",
-                DeviceState::Connecting => "CONNECTING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "DEVICE_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "DEVICE" => Some(Self::Device),
-                "RECOVERY" => Some(Self::Recovery),
-                "RESCUE" => Some(Self::Rescue),
-                "SIDELOAD" => Some(Self::Sideload),
-                "MISSING" => Some(Self::Missing),
-                "OFFLINE" => Some(Self::Offline),
-                "UNAUTHORIZED" => Some(Self::Unauthorized),
-                "AUTHORIZING" => Some(Self::Authorizing),
-                "CONNECTING" => Some(Self::Connecting),
-                _ => None,
-            }
-        }
-    }
-}
-/// The result of a stream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamStatus {
-    /// The unique ID of this stream, assigned by the client.
-    #[prost(int32, tag = "1")]
-    pub stream_id: i32,
-    /// The result of the stream. Either "Okay" for success or "Fail" for failure.
-    #[prost(oneof = "stream_status::Status", tags = "2, 3")]
-    pub status: ::core::option::Option<stream_status::Status>,
-}
-/// Nested message and enum types in `StreamStatus`.
-pub mod stream_status {
-    /// The result of the stream. Either "Okay" for success or "Fail" for failure.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Status {
-        /// Okay for success.
-        #[prost(message, tag = "2")]
-        Okay(super::Okay),
-        /// Fail for failure.
-        #[prost(message, tag = "3")]
-        Fail(super::Fail),
-    }
-}
-/// Message for opening a new stream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Open {
-    /// The unique ID that will be used to talk to this stream. This should
-    /// probably just be a number that increments for each new Open request.
-    #[prost(int32, tag = "1")]
-    pub stream_id: i32,
-    /// An ADB service to use in the new stream.
-    #[prost(string, tag = "2")]
-    pub service: ::prost::alloc::string::String,
-}
-/// Data for a stream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamData {
-    /// The unique ID of this stream, assigned by the client.
-    #[prost(int32, tag = "1")]
-    pub stream_id: i32,
-    /// The data of the stream, either bytes or "Close", indicating that the stream
-    /// is done.
-    #[prost(oneof = "stream_data::Contents", tags = "2, 3")]
-    pub contents: ::core::option::Option<stream_data::Contents>,
-}
-/// Nested message and enum types in `StreamData`.
-pub mod stream_data {
-    /// The data of the stream, either bytes or "Close", indicating that the stream
-    /// is done.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Contents {
-        /// Data in the stream.
-        #[prost(bytes, tag = "2")]
-        Data(::prost::bytes::Bytes),
-        /// The stream is closing. EOF.
-        #[prost(message, tag = "3")]
-        Close(super::Close),
-    }
-}
-/// Message signifying that the stream is open
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Okay {}
-/// Message signifying that the stream failed to open
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Fail {
-    /// A user-displayable failure reason.
-    #[prost(string, tag = "1")]
-    pub reason: ::prost::alloc::string::String,
-}
-/// Message signifying that the stream closed.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Close {}
 /// TestMatrix captures all details about a test. It contains the environment
 /// configuration, test specification, test executions and overall state and
 /// outcome.
@@ -2157,498 +1943,6 @@ pub mod test_execution_service_client {
         }
     }
 }
-/// A Request for the device session from the session service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateDeviceSessionRequest {
-    /// Required. The Compute Engine project under which this device will be
-    /// allocated. "projects/{project_id}"
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. A device session to create.
-    #[prost(message, optional, tag = "2")]
-    pub device_session: ::core::option::Option<DeviceSession>,
-}
-/// Request a list of device sessions in the provided parent matching the given
-/// filter.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListDeviceSessionsRequest {
-    /// Required. The name of the parent to request, e.g. "projects/{project_id}"
-    #[prost(string, tag = "4")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. The maximum number of DeviceSessions to return.
-    #[prost(int32, tag = "1")]
-    pub page_size: i32,
-    /// Optional. A continuation token for paging.
-    #[prost(string, tag = "2")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. If specified, responses will be filtered by the given filter.
-    /// Allowed fields are: session_state.
-    #[prost(string, tag = "3")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// A list of device sessions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListDeviceSessionsResponse {
-    /// The sessions matching the specified filter in the given cloud project.
-    #[prost(message, repeated, tag = "1")]
-    pub device_sessions: ::prost::alloc::vec::Vec<DeviceSession>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// The request object for a Device Session.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetDeviceSessionRequest {
-    /// Required. Name of the DeviceSession, e.g.
-    /// "projects/{project_id}/deviceSessions/{session_id}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The request object for cancelling a Device Session.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CancelDeviceSessionRequest {
-    /// Required. Name of the DeviceSession, e.g.
-    /// "projects/{project_id}/deviceSessions/{session_id}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The request object for the UpdateDeviceSession RPC.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateDeviceSessionRequest {
-    /// Required. DeviceSession to update.
-    /// The device session's `name` field is used to identify the session to update
-    /// "projects/{project_id}/deviceSessions/{session_id}"
-    #[prost(message, optional, tag = "1")]
-    pub device_session: ::core::option::Option<DeviceSession>,
-    /// Required. The list of fields to update.
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Protobuf message describing the device message, used from several RPCs.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeviceSession {
-    /// Optional. Name of the DeviceSession, e.g.
-    /// "projects/{project_id}/deviceSessions/{session_id}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The title of the DeviceSession to be presented in the UI.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Output only. Current state of the DeviceSession.
-    #[prost(enumeration = "device_session::SessionState", tag = "3")]
-    pub state: i32,
-    /// Output only. The historical state transitions of the session_state message
-    /// including the current session state.
-    #[prost(message, repeated, tag = "14")]
-    pub state_histories: ::prost::alloc::vec::Vec<device_session::SessionStateEvent>,
-    /// Output only. The interval of time that this device must be interacted with
-    /// before it transitions from ACTIVE to TIMEOUT_INACTIVITY.
-    #[prost(message, optional, tag = "7")]
-    pub inactivity_timeout: ::core::option::Option<::prost_types::Duration>,
-    /// Output only. The time that the Session was created.
-    #[prost(message, optional, tag = "8")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp that the session first became ACTIVE.
-    #[prost(message, optional, tag = "9")]
-    pub active_start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Required. The requested device
-    #[prost(message, optional, tag = "15")]
-    pub android_device: ::core::option::Option<AndroidDevice>,
-    #[prost(oneof = "device_session::Expiration", tags = "13, 5")]
-    pub expiration: ::core::option::Option<device_session::Expiration>,
-}
-/// Nested message and enum types in `DeviceSession`.
-pub mod device_session {
-    /// A message encapsulating a series of Session states and the time that the
-    /// DeviceSession first entered those states.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SessionStateEvent {
-        /// Output only. The session_state tracked by this event
-        #[prost(enumeration = "SessionState", tag = "1")]
-        pub session_state: i32,
-        /// Output only. The time that the session_state first encountered that
-        /// state.
-        #[prost(message, optional, tag = "2")]
-        pub event_time: ::core::option::Option<::prost_types::Timestamp>,
-        /// Output only. A human-readable message to explain the state.
-        #[prost(string, tag = "3")]
-        pub state_message: ::prost::alloc::string::String,
-    }
-    /// The state that the device session resides.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum SessionState {
-        /// Default value. This value is unused.
-        Unspecified = 0,
-        /// Initial state of a session request. The session is being validated for
-        /// correctness and a device is not yet requested.
-        Requested = 1,
-        /// The session has been validated and is in the queue for a device.
-        Pending = 2,
-        /// The session has been granted and the device is accepting
-        /// connections.
-        Active = 3,
-        /// The session duration exceeded the device’s reservation time period and
-        /// timed out automatically.
-        Expired = 4,
-        /// The user is finished with the session and it was canceled by the user
-        /// while the request was still getting allocated or after allocation and
-        /// during device usage period.
-        Finished = 5,
-        /// Unable to complete the session because the device was unavailable and
-        /// it failed to allocate through the scheduler. For example, a device not
-        /// in the catalog was requested or the request expired in the allocation
-        /// queue.
-        Unavailable = 6,
-        /// Unable to complete the session for an internal reason, such as an
-        /// infrastructure failure.
-        Error = 7,
-    }
-    impl SessionState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                SessionState::Unspecified => "SESSION_STATE_UNSPECIFIED",
-                SessionState::Requested => "REQUESTED",
-                SessionState::Pending => "PENDING",
-                SessionState::Active => "ACTIVE",
-                SessionState::Expired => "EXPIRED",
-                SessionState::Finished => "FINISHED",
-                SessionState::Unavailable => "UNAVAILABLE",
-                SessionState::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "SESSION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "REQUESTED" => Some(Self::Requested),
-                "PENDING" => Some(Self::Pending),
-                "ACTIVE" => Some(Self::Active),
-                "EXPIRED" => Some(Self::Expired),
-                "FINISHED" => Some(Self::Finished),
-                "UNAVAILABLE" => Some(Self::Unavailable),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Expiration {
-        /// Optional. The amount of time that a device will be initially allocated
-        /// for. This can eventually be extended with the UpdateDeviceSession RPC.
-        /// Default: 30 minutes.
-        #[prost(message, tag = "13")]
-        Ttl(::prost_types::Duration),
-        /// Optional. If the device is still in use at this time, any connections
-        /// will be ended and the SessionState will transition from ACTIVE to
-        /// FINISHED.
-        #[prost(message, tag = "5")]
-        ExpireTime(::prost_types::Timestamp),
-    }
-}
-/// Generated client implementations.
-pub mod direct_access_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// A service for allocating devices and interacting with the live-allocated
-    /// devices.
-    ///
-    /// This service is part of Firebase Test Lab. To learn about how to use the
-    /// product, and how to integrate it with your system,
-    /// visit https://firebase.google.com/docs/test-lab.
-    ///
-    /// Each Session will wait for available capacity, at a higher
-    /// priority over Test Execution. When allocated, the session will be exposed
-    /// through a stream for integration.
-    ///
-    /// DirectAccessService is currently available as a preview to select developers.
-    /// You can register today on behalf of you and your team at
-    /// https://developer.android.com/studio/preview/android-device-streaming
-    #[derive(Debug, Clone)]
-    pub struct DirectAccessServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> DirectAccessServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> DirectAccessServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            DirectAccessServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// POST /v1/projects/{project_id}/deviceSessions
-        pub async fn create_device_session(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateDeviceSessionRequest>,
-        ) -> std::result::Result<tonic::Response<super::DeviceSession>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.testing.v1.DirectAccessService/CreateDeviceSession",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.testing.v1.DirectAccessService",
-                        "CreateDeviceSession",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// GET /v1/projects/{project_id}/deviceSessions
-        /// Lists device Sessions owned by the project user.
-        pub async fn list_device_sessions(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListDeviceSessionsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListDeviceSessionsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.testing.v1.DirectAccessService/ListDeviceSessions",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.testing.v1.DirectAccessService",
-                        "ListDeviceSessions",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// GET /v1/projects/{project_id}/deviceSessions/{device_session_id}
-        /// Return a DeviceSession, which documents the allocation status and
-        /// whether the device is allocated. Clients making requests from this API
-        /// must poll GetDeviceSession.
-        pub async fn get_device_session(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetDeviceSessionRequest>,
-        ) -> std::result::Result<tonic::Response<super::DeviceSession>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.testing.v1.DirectAccessService/GetDeviceSession",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.testing.v1.DirectAccessService",
-                        "GetDeviceSession",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// POST
-        /// /v1/projects/{project_id}/deviceSessions/{device_session_id}:cancel
-        /// Changes the DeviceSession to state FINISHED and terminates all connections.
-        /// Canceled sessions are not deleted and can be retrieved or
-        /// listed by the user until they expire based on the 28 day deletion policy.
-        pub async fn cancel_device_session(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CancelDeviceSessionRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.testing.v1.DirectAccessService/CancelDeviceSession",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.testing.v1.DirectAccessService",
-                        "CancelDeviceSession",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// PATCH
-        /// /v1/projects/{projectId}/deviceSessions/deviceSessionId}:updateDeviceSession
-        /// Updates the current device session to the fields described by the
-        /// update_mask.
-        pub async fn update_device_session(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateDeviceSessionRequest>,
-        ) -> std::result::Result<tonic::Response<super::DeviceSession>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.testing.v1.DirectAccessService/UpdateDeviceSession",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.testing.v1.DirectAccessService",
-                        "UpdateDeviceSession",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Exposes ADB connection for use with the Adb Device Forwarder project
-        /// if the reserved device supports ADB.
-        /// gRPC headers are used to authenticate the Connect RPC, as well as
-        /// associate to a particular device session.
-        /// In particular, the user must specify the "X-FTL-Session-Name" header.
-        pub async fn adb_connect(
-            &mut self,
-            request: impl tonic::IntoStreamingRequest<Message = super::AdbMessage>,
-        ) -> std::result::Result<
-            tonic::Response<tonic::codec::Streaming<super::DeviceMessage>>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.testing.v1.DirectAccessService/AdbConnect",
-            );
-            let mut req = request.into_streaming_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.testing.v1.DirectAccessService",
-                        "AdbConnect",
-                    ),
-                );
-            self.inner.streaming(req, path, codec).await
-        }
-    }
-}
 /// Android application details based on application manifest and apk archive
 /// contents.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3683,6 +2977,712 @@ pub mod test_environment_discovery_service_client {
                     ),
                 );
             self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// A message returned from a device.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeviceMessage {
+    #[prost(oneof = "device_message::Contents", tags = "1, 2, 3")]
+    pub contents: ::core::option::Option<device_message::Contents>,
+}
+/// Nested message and enum types in `DeviceMessage`.
+pub mod device_message {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Contents {
+        /// Information about the device's state.
+        #[prost(message, tag = "1")]
+        StatusUpdate(super::StatusUpdate),
+        /// The result of a device stream from ADB.
+        #[prost(message, tag = "2")]
+        StreamStatus(super::StreamStatus),
+        /// Data from an open stream.
+        #[prost(message, tag = "3")]
+        StreamData(super::StreamData),
+    }
+}
+/// A message to an ADB server.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdbMessage {
+    #[prost(oneof = "adb_message::Contents", tags = "1, 2")]
+    pub contents: ::core::option::Option<adb_message::Contents>,
+}
+/// Nested message and enum types in `AdbMessage`.
+pub mod adb_message {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Contents {
+        /// Open a new stream.
+        #[prost(message, tag = "1")]
+        Open(super::Open),
+        /// Send data to a stream.
+        #[prost(message, tag = "2")]
+        StreamData(super::StreamData),
+    }
+}
+/// A StatusUpdate message given over the ADB protocol for the device state.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StatusUpdate {
+    /// The device's state
+    #[prost(enumeration = "status_update::DeviceState", tag = "1")]
+    pub state: i32,
+    /// A map of properties with information about this device.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub properties: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// A comma-separated list of "features" that this device supports.
+    #[prost(string, tag = "3")]
+    pub features: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `StatusUpdate`.
+pub mod status_update {
+    /// The state displayed with the ADB Device when running "adb devices"
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DeviceState {
+        /// The device state is unknown.
+        Unspecified = 0,
+        /// The ADB device is in the "device" status.
+        Device = 1,
+        /// The ADB device is in the "recovery" status.
+        Recovery = 2,
+        /// The ADB device is in the "rescue" status.
+        Rescue = 3,
+        /// The ADB device is in the "sideload" status.
+        Sideload = 4,
+        /// The ADB device is in the "missing" status.
+        Missing = 10,
+        /// The ADB device is in the "offline" status.
+        Offline = 11,
+        /// The ADB device is in the "unauthorized" status.
+        Unauthorized = 12,
+        /// The ADB device is in the "authorizing" status.
+        Authorizing = 13,
+        /// The ADB device is in the "connecting" status.
+        Connecting = 14,
+    }
+    impl DeviceState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DeviceState::Unspecified => "DEVICE_STATE_UNSPECIFIED",
+                DeviceState::Device => "DEVICE",
+                DeviceState::Recovery => "RECOVERY",
+                DeviceState::Rescue => "RESCUE",
+                DeviceState::Sideload => "SIDELOAD",
+                DeviceState::Missing => "MISSING",
+                DeviceState::Offline => "OFFLINE",
+                DeviceState::Unauthorized => "UNAUTHORIZED",
+                DeviceState::Authorizing => "AUTHORIZING",
+                DeviceState::Connecting => "CONNECTING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DEVICE_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DEVICE" => Some(Self::Device),
+                "RECOVERY" => Some(Self::Recovery),
+                "RESCUE" => Some(Self::Rescue),
+                "SIDELOAD" => Some(Self::Sideload),
+                "MISSING" => Some(Self::Missing),
+                "OFFLINE" => Some(Self::Offline),
+                "UNAUTHORIZED" => Some(Self::Unauthorized),
+                "AUTHORIZING" => Some(Self::Authorizing),
+                "CONNECTING" => Some(Self::Connecting),
+                _ => None,
+            }
+        }
+    }
+}
+/// The result of a stream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamStatus {
+    /// The unique ID of this stream, assigned by the client.
+    #[prost(int32, tag = "1")]
+    pub stream_id: i32,
+    /// The result of the stream. Either "Okay" for success or "Fail" for failure.
+    #[prost(oneof = "stream_status::Status", tags = "2, 3")]
+    pub status: ::core::option::Option<stream_status::Status>,
+}
+/// Nested message and enum types in `StreamStatus`.
+pub mod stream_status {
+    /// The result of the stream. Either "Okay" for success or "Fail" for failure.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Status {
+        /// Okay for success.
+        #[prost(message, tag = "2")]
+        Okay(super::Okay),
+        /// Fail for failure.
+        #[prost(message, tag = "3")]
+        Fail(super::Fail),
+    }
+}
+/// Message for opening a new stream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Open {
+    /// The unique ID that will be used to talk to this stream. This should
+    /// probably just be a number that increments for each new Open request.
+    #[prost(int32, tag = "1")]
+    pub stream_id: i32,
+    /// An ADB service to use in the new stream.
+    #[prost(string, tag = "2")]
+    pub service: ::prost::alloc::string::String,
+}
+/// Data for a stream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamData {
+    /// The unique ID of this stream, assigned by the client.
+    #[prost(int32, tag = "1")]
+    pub stream_id: i32,
+    /// The data of the stream, either bytes or "Close", indicating that the stream
+    /// is done.
+    #[prost(oneof = "stream_data::Contents", tags = "2, 3")]
+    pub contents: ::core::option::Option<stream_data::Contents>,
+}
+/// Nested message and enum types in `StreamData`.
+pub mod stream_data {
+    /// The data of the stream, either bytes or "Close", indicating that the stream
+    /// is done.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Contents {
+        /// Data in the stream.
+        #[prost(bytes, tag = "2")]
+        Data(::prost::bytes::Bytes),
+        /// The stream is closing. EOF.
+        #[prost(message, tag = "3")]
+        Close(super::Close),
+    }
+}
+/// Message signifying that the stream is open
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Okay {}
+/// Message signifying that the stream failed to open
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Fail {
+    /// A user-displayable failure reason.
+    #[prost(string, tag = "1")]
+    pub reason: ::prost::alloc::string::String,
+}
+/// Message signifying that the stream closed.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Close {}
+/// A Request for the device session from the session service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateDeviceSessionRequest {
+    /// Required. The Compute Engine project under which this device will be
+    /// allocated. "projects/{project_id}"
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. A device session to create.
+    #[prost(message, optional, tag = "2")]
+    pub device_session: ::core::option::Option<DeviceSession>,
+}
+/// Request a list of device sessions in the provided parent matching the given
+/// filter.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDeviceSessionsRequest {
+    /// Required. The name of the parent to request, e.g. "projects/{project_id}"
+    #[prost(string, tag = "4")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The maximum number of DeviceSessions to return.
+    #[prost(int32, tag = "1")]
+    pub page_size: i32,
+    /// Optional. A continuation token for paging.
+    #[prost(string, tag = "2")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. If specified, responses will be filtered by the given filter.
+    /// Allowed fields are: session_state.
+    #[prost(string, tag = "3")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// A list of device sessions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDeviceSessionsResponse {
+    /// The sessions matching the specified filter in the given cloud project.
+    #[prost(message, repeated, tag = "1")]
+    pub device_sessions: ::prost::alloc::vec::Vec<DeviceSession>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The request object for a Device Session.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDeviceSessionRequest {
+    /// Required. Name of the DeviceSession, e.g.
+    /// "projects/{project_id}/deviceSessions/{session_id}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The request object for cancelling a Device Session.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CancelDeviceSessionRequest {
+    /// Required. Name of the DeviceSession, e.g.
+    /// "projects/{project_id}/deviceSessions/{session_id}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The request object for the UpdateDeviceSession RPC.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateDeviceSessionRequest {
+    /// Required. DeviceSession to update.
+    /// The device session's `name` field is used to identify the session to update
+    /// "projects/{project_id}/deviceSessions/{session_id}"
+    #[prost(message, optional, tag = "1")]
+    pub device_session: ::core::option::Option<DeviceSession>,
+    /// Required. The list of fields to update.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Protobuf message describing the device message, used from several RPCs.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeviceSession {
+    /// Optional. Name of the DeviceSession, e.g.
+    /// "projects/{project_id}/deviceSessions/{session_id}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The title of the DeviceSession to be presented in the UI.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Output only. Current state of the DeviceSession.
+    #[prost(enumeration = "device_session::SessionState", tag = "3")]
+    pub state: i32,
+    /// Output only. The historical state transitions of the session_state message
+    /// including the current session state.
+    #[prost(message, repeated, tag = "14")]
+    pub state_histories: ::prost::alloc::vec::Vec<device_session::SessionStateEvent>,
+    /// Output only. The interval of time that this device must be interacted with
+    /// before it transitions from ACTIVE to TIMEOUT_INACTIVITY.
+    #[prost(message, optional, tag = "7")]
+    pub inactivity_timeout: ::core::option::Option<::prost_types::Duration>,
+    /// Output only. The time that the Session was created.
+    #[prost(message, optional, tag = "8")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp that the session first became ACTIVE.
+    #[prost(message, optional, tag = "9")]
+    pub active_start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Required. The requested device
+    #[prost(message, optional, tag = "15")]
+    pub android_device: ::core::option::Option<AndroidDevice>,
+    #[prost(oneof = "device_session::Expiration", tags = "13, 5")]
+    pub expiration: ::core::option::Option<device_session::Expiration>,
+}
+/// Nested message and enum types in `DeviceSession`.
+pub mod device_session {
+    /// A message encapsulating a series of Session states and the time that the
+    /// DeviceSession first entered those states.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SessionStateEvent {
+        /// Output only. The session_state tracked by this event
+        #[prost(enumeration = "SessionState", tag = "1")]
+        pub session_state: i32,
+        /// Output only. The time that the session_state first encountered that
+        /// state.
+        #[prost(message, optional, tag = "2")]
+        pub event_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// Output only. A human-readable message to explain the state.
+        #[prost(string, tag = "3")]
+        pub state_message: ::prost::alloc::string::String,
+    }
+    /// The state that the device session resides.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum SessionState {
+        /// Default value. This value is unused.
+        Unspecified = 0,
+        /// Initial state of a session request. The session is being validated for
+        /// correctness and a device is not yet requested.
+        Requested = 1,
+        /// The session has been validated and is in the queue for a device.
+        Pending = 2,
+        /// The session has been granted and the device is accepting
+        /// connections.
+        Active = 3,
+        /// The session duration exceeded the device’s reservation time period and
+        /// timed out automatically.
+        Expired = 4,
+        /// The user is finished with the session and it was canceled by the user
+        /// while the request was still getting allocated or after allocation and
+        /// during device usage period.
+        Finished = 5,
+        /// Unable to complete the session because the device was unavailable and
+        /// it failed to allocate through the scheduler. For example, a device not
+        /// in the catalog was requested or the request expired in the allocation
+        /// queue.
+        Unavailable = 6,
+        /// Unable to complete the session for an internal reason, such as an
+        /// infrastructure failure.
+        Error = 7,
+    }
+    impl SessionState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                SessionState::Unspecified => "SESSION_STATE_UNSPECIFIED",
+                SessionState::Requested => "REQUESTED",
+                SessionState::Pending => "PENDING",
+                SessionState::Active => "ACTIVE",
+                SessionState::Expired => "EXPIRED",
+                SessionState::Finished => "FINISHED",
+                SessionState::Unavailable => "UNAVAILABLE",
+                SessionState::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "SESSION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "REQUESTED" => Some(Self::Requested),
+                "PENDING" => Some(Self::Pending),
+                "ACTIVE" => Some(Self::Active),
+                "EXPIRED" => Some(Self::Expired),
+                "FINISHED" => Some(Self::Finished),
+                "UNAVAILABLE" => Some(Self::Unavailable),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Expiration {
+        /// Optional. The amount of time that a device will be initially allocated
+        /// for. This can eventually be extended with the UpdateDeviceSession RPC.
+        /// Default: 30 minutes.
+        #[prost(message, tag = "13")]
+        Ttl(::prost_types::Duration),
+        /// Optional. If the device is still in use at this time, any connections
+        /// will be ended and the SessionState will transition from ACTIVE to
+        /// FINISHED.
+        #[prost(message, tag = "5")]
+        ExpireTime(::prost_types::Timestamp),
+    }
+}
+/// Generated client implementations.
+pub mod direct_access_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// A service for allocating devices and interacting with the live-allocated
+    /// devices.
+    ///
+    /// This service is part of Firebase Test Lab. To learn about how to use the
+    /// product, and how to integrate it with your system,
+    /// visit https://firebase.google.com/docs/test-lab.
+    ///
+    /// Each Session will wait for available capacity, at a higher
+    /// priority over Test Execution. When allocated, the session will be exposed
+    /// through a stream for integration.
+    ///
+    /// DirectAccessService is currently available as a preview to select developers.
+    /// You can register today on behalf of you and your team at
+    /// https://developer.android.com/studio/preview/android-device-streaming
+    #[derive(Debug, Clone)]
+    pub struct DirectAccessServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> DirectAccessServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> DirectAccessServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            DirectAccessServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// POST /v1/projects/{project_id}/deviceSessions
+        pub async fn create_device_session(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateDeviceSessionRequest>,
+        ) -> std::result::Result<tonic::Response<super::DeviceSession>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.testing.v1.DirectAccessService/CreateDeviceSession",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.testing.v1.DirectAccessService",
+                        "CreateDeviceSession",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// GET /v1/projects/{project_id}/deviceSessions
+        /// Lists device Sessions owned by the project user.
+        pub async fn list_device_sessions(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListDeviceSessionsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListDeviceSessionsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.testing.v1.DirectAccessService/ListDeviceSessions",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.testing.v1.DirectAccessService",
+                        "ListDeviceSessions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// GET /v1/projects/{project_id}/deviceSessions/{device_session_id}
+        /// Return a DeviceSession, which documents the allocation status and
+        /// whether the device is allocated. Clients making requests from this API
+        /// must poll GetDeviceSession.
+        pub async fn get_device_session(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetDeviceSessionRequest>,
+        ) -> std::result::Result<tonic::Response<super::DeviceSession>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.testing.v1.DirectAccessService/GetDeviceSession",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.testing.v1.DirectAccessService",
+                        "GetDeviceSession",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// POST
+        /// /v1/projects/{project_id}/deviceSessions/{device_session_id}:cancel
+        /// Changes the DeviceSession to state FINISHED and terminates all connections.
+        /// Canceled sessions are not deleted and can be retrieved or
+        /// listed by the user until they expire based on the 28 day deletion policy.
+        pub async fn cancel_device_session(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CancelDeviceSessionRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.testing.v1.DirectAccessService/CancelDeviceSession",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.testing.v1.DirectAccessService",
+                        "CancelDeviceSession",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// PATCH
+        /// /v1/projects/{projectId}/deviceSessions/deviceSessionId}:updateDeviceSession
+        /// Updates the current device session to the fields described by the
+        /// update_mask.
+        pub async fn update_device_session(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateDeviceSessionRequest>,
+        ) -> std::result::Result<tonic::Response<super::DeviceSession>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.testing.v1.DirectAccessService/UpdateDeviceSession",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.testing.v1.DirectAccessService",
+                        "UpdateDeviceSession",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Exposes ADB connection for use with the Adb Device Forwarder project
+        /// if the reserved device supports ADB.
+        /// gRPC headers are used to authenticate the Connect RPC, as well as
+        /// associate to a particular device session.
+        /// In particular, the user must specify the "X-FTL-Session-Name" header.
+        pub async fn adb_connect(
+            &mut self,
+            request: impl tonic::IntoStreamingRequest<Message = super::AdbMessage>,
+        ) -> std::result::Result<
+            tonic::Response<tonic::codec::Streaming<super::DeviceMessage>>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.testing.v1.DirectAccessService/AdbConnect",
+            );
+            let mut req = request.into_streaming_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.testing.v1.DirectAccessService",
+                        "AdbConnect",
+                    ),
+                );
+            self.inner.streaming(req, path, codec).await
         }
     }
 }

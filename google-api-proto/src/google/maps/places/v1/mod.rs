@@ -37,21 +37,6 @@ pub struct Photo {
     #[prost(message, repeated, tag = "4")]
     pub author_attributions: ::prost::alloc::vec::Vec<AuthorAttribution>,
 }
-/// Circle with a LatLng as center and radius.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Circle {
-    /// Required. Center latitude and longitude.
-    ///
-    /// The range of latitude must be within \[-90.0, 90.0\]. The range of the
-    /// longitude must be within \[-180.0, 180.0\].
-    #[prost(message, optional, tag = "1")]
-    pub center: ::core::option::Option<super::super::super::r#type::LatLng>,
-    /// Required. Radius measured in meters. The radius must be within [0.0,
-    /// 50000.0].
-    #[prost(double, tag = "2")]
-    pub radius: f64,
-}
 /// Information about the EV Charge Station hosted in Place.
 /// Terminology follows
 /// <https://afdc.energy.gov/fuels/electricity_infrastructure.html> One port
@@ -314,6 +299,21 @@ pub mod fuel_options {
             }
         }
     }
+}
+/// Circle with a LatLng as center and radius.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Circle {
+    /// Required. Center latitude and longitude.
+    ///
+    /// The range of latitude must be within \[-90.0, 90.0\]. The range of the
+    /// longitude must be within \[-180.0, 180.0\].
+    #[prost(message, optional, tag = "1")]
+    pub center: ::core::option::Option<super::super::super::r#type::LatLng>,
+    /// Required. Radius measured in meters. The radius must be within [0.0,
+    /// 50000.0].
+    #[prost(double, tag = "2")]
+    pub radius: f64,
 }
 /// Information about a review of a place.
 #[allow(clippy::derive_partial_eq_without_eq)]
