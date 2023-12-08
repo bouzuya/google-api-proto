@@ -62,6 +62,29 @@ pub struct Endpoint {
     #[prost(string, tag = "9")]
     pub uid: ::prost::alloc::string::String,
 }
+/// A container for [services][google.cloud.servicedirectory.v1.Service].
+/// Namespaces allow administrators to group services together and define
+/// permissions for a collection of services.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Namespace {
+    /// Immutable. The resource name for the namespace in the format
+    /// `projects/*/locations/*/namespaces/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. Resource labels associated with this namespace.
+    /// No more than 64 user labels can be associated with a given resource. Label
+    /// keys and values can be no longer than 63 characters.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The globally unique identifier of the namespace in the UUID4
+    /// format.
+    #[prost(string, tag = "5")]
+    pub uid: ::prost::alloc::string::String,
+}
 /// An individual service. A service contains a name and optional metadata.
 /// A service must exist before
 /// [endpoints][google.cloud.servicedirectory.v1.Endpoint] can be
@@ -107,29 +130,6 @@ pub struct Service {
     /// Output only. The globally unique identifier of the service in the UUID4
     /// format.
     #[prost(string, tag = "7")]
-    pub uid: ::prost::alloc::string::String,
-}
-/// A container for [services][google.cloud.servicedirectory.v1.Service].
-/// Namespaces allow administrators to group services together and define
-/// permissions for a collection of services.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Namespace {
-    /// Immutable. The resource name for the namespace in the format
-    /// `projects/*/locations/*/namespaces/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. Resource labels associated with this namespace.
-    /// No more than 64 user labels can be associated with a given resource. Label
-    /// keys and values can be no longer than 63 characters.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The globally unique identifier of the namespace in the UUID4
-    /// format.
-    #[prost(string, tag = "5")]
     pub uid: ::prost::alloc::string::String,
 }
 /// The request message for

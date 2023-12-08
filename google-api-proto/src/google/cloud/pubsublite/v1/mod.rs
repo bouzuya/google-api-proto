@@ -897,327 +897,6 @@ pub mod publisher_service_client {
         }
     }
 }
-/// The first streaming request that must be sent on a newly-opened stream. The
-/// client must wait for the response before sending subsequent requests on the
-/// stream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct InitialCommitCursorRequest {
-    /// The subscription for which to manage committed cursors.
-    #[prost(string, tag = "1")]
-    pub subscription: ::prost::alloc::string::String,
-    /// The partition for which to manage committed cursors. Partitions are zero
-    /// indexed, so `partition` must be in the range [0, topic.num_partitions).
-    #[prost(int64, tag = "2")]
-    pub partition: i64,
-}
-/// Response to an InitialCommitCursorRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct InitialCommitCursorResponse {}
-/// Streaming request to update the committed cursor. Subsequent
-/// SequencedCommitCursorRequests override outstanding ones.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SequencedCommitCursorRequest {
-    /// The new value for the committed cursor.
-    #[prost(message, optional, tag = "1")]
-    pub cursor: ::core::option::Option<Cursor>,
-}
-/// Response to a SequencedCommitCursorRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SequencedCommitCursorResponse {
-    /// The number of outstanding SequencedCommitCursorRequests acknowledged by
-    /// this response. Note that SequencedCommitCursorRequests are acknowledged in
-    /// the order that they are received.
-    #[prost(int64, tag = "1")]
-    pub acknowledged_commits: i64,
-}
-/// A request sent from the client to the server on a stream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamingCommitCursorRequest {
-    /// The type of request this is.
-    #[prost(oneof = "streaming_commit_cursor_request::Request", tags = "1, 2")]
-    pub request: ::core::option::Option<streaming_commit_cursor_request::Request>,
-}
-/// Nested message and enum types in `StreamingCommitCursorRequest`.
-pub mod streaming_commit_cursor_request {
-    /// The type of request this is.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Request {
-        /// Initial request on the stream.
-        #[prost(message, tag = "1")]
-        Initial(super::InitialCommitCursorRequest),
-        /// Request to commit a new cursor value.
-        #[prost(message, tag = "2")]
-        Commit(super::SequencedCommitCursorRequest),
-    }
-}
-/// Response to a StreamingCommitCursorRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamingCommitCursorResponse {
-    /// The type of request this is.
-    #[prost(oneof = "streaming_commit_cursor_response::Request", tags = "1, 2")]
-    pub request: ::core::option::Option<streaming_commit_cursor_response::Request>,
-}
-/// Nested message and enum types in `StreamingCommitCursorResponse`.
-pub mod streaming_commit_cursor_response {
-    /// The type of request this is.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Request {
-        /// Initial response on the stream.
-        #[prost(message, tag = "1")]
-        Initial(super::InitialCommitCursorResponse),
-        /// Response to committing a new cursor value.
-        #[prost(message, tag = "2")]
-        Commit(super::SequencedCommitCursorResponse),
-    }
-}
-/// Request for CommitCursor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CommitCursorRequest {
-    /// The subscription for which to update the cursor.
-    #[prost(string, tag = "1")]
-    pub subscription: ::prost::alloc::string::String,
-    /// The partition for which to update the cursor. Partitions are zero indexed,
-    /// so `partition` must be in the range [0, topic.num_partitions).
-    #[prost(int64, tag = "2")]
-    pub partition: i64,
-    /// The new value for the committed cursor.
-    #[prost(message, optional, tag = "3")]
-    pub cursor: ::core::option::Option<Cursor>,
-}
-/// Response for CommitCursor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CommitCursorResponse {}
-/// Request for ListPartitionCursors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPartitionCursorsRequest {
-    /// Required. The subscription for which to retrieve cursors.
-    /// Structured like
-    /// `projects/{project_number}/locations/{location}/subscriptions/{subscription_id}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of cursors to return. The service may return fewer than
-    /// this value.
-    /// If unset or zero, all cursors for the parent will be returned.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A page token, received from a previous `ListPartitionCursors` call.
-    /// Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to `ListPartitionCursors`
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// A pair of a Cursor and the partition it is for.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PartitionCursor {
-    /// The partition this is for.
-    #[prost(int64, tag = "1")]
-    pub partition: i64,
-    /// The value of the cursor.
-    #[prost(message, optional, tag = "2")]
-    pub cursor: ::core::option::Option<Cursor>,
-}
-/// Response for ListPartitionCursors
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPartitionCursorsResponse {
-    /// The partition cursors from this request.
-    #[prost(message, repeated, tag = "1")]
-    pub partition_cursors: ::prost::alloc::vec::Vec<PartitionCursor>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod cursor_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// The service that a subscriber client application uses to manage committed
-    /// cursors while receiving messsages. A cursor represents a subscriber's
-    /// progress within a topic partition for a given subscription.
-    #[derive(Debug, Clone)]
-    pub struct CursorServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> CursorServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> CursorServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            CursorServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Establishes a stream with the server for managing committed cursors.
-        pub async fn streaming_commit_cursor(
-            &mut self,
-            request: impl tonic::IntoStreamingRequest<
-                Message = super::StreamingCommitCursorRequest,
-            >,
-        ) -> std::result::Result<
-            tonic::Response<
-                tonic::codec::Streaming<super::StreamingCommitCursorResponse>,
-            >,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.pubsublite.v1.CursorService/StreamingCommitCursor",
-            );
-            let mut req = request.into_streaming_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.pubsublite.v1.CursorService",
-                        "StreamingCommitCursor",
-                    ),
-                );
-            self.inner.streaming(req, path, codec).await
-        }
-        /// Updates the committed cursor.
-        pub async fn commit_cursor(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CommitCursorRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::CommitCursorResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.pubsublite.v1.CursorService/CommitCursor",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.pubsublite.v1.CursorService",
-                        "CommitCursor",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Returns all committed cursor information for a subscription.
-        pub async fn list_partition_cursors(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListPartitionCursorsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListPartitionCursorsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.pubsublite.v1.CursorService/ListPartitionCursors",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.pubsublite.v1.CursorService",
-                        "ListPartitionCursors",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
 /// Request for CreateTopic.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2292,6 +1971,327 @@ pub mod admin_service_client {
                     GrpcMethod::new(
                         "google.cloud.pubsublite.v1.AdminService",
                         "ListReservationTopics",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// The first streaming request that must be sent on a newly-opened stream. The
+/// client must wait for the response before sending subsequent requests on the
+/// stream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct InitialCommitCursorRequest {
+    /// The subscription for which to manage committed cursors.
+    #[prost(string, tag = "1")]
+    pub subscription: ::prost::alloc::string::String,
+    /// The partition for which to manage committed cursors. Partitions are zero
+    /// indexed, so `partition` must be in the range [0, topic.num_partitions).
+    #[prost(int64, tag = "2")]
+    pub partition: i64,
+}
+/// Response to an InitialCommitCursorRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct InitialCommitCursorResponse {}
+/// Streaming request to update the committed cursor. Subsequent
+/// SequencedCommitCursorRequests override outstanding ones.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SequencedCommitCursorRequest {
+    /// The new value for the committed cursor.
+    #[prost(message, optional, tag = "1")]
+    pub cursor: ::core::option::Option<Cursor>,
+}
+/// Response to a SequencedCommitCursorRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SequencedCommitCursorResponse {
+    /// The number of outstanding SequencedCommitCursorRequests acknowledged by
+    /// this response. Note that SequencedCommitCursorRequests are acknowledged in
+    /// the order that they are received.
+    #[prost(int64, tag = "1")]
+    pub acknowledged_commits: i64,
+}
+/// A request sent from the client to the server on a stream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamingCommitCursorRequest {
+    /// The type of request this is.
+    #[prost(oneof = "streaming_commit_cursor_request::Request", tags = "1, 2")]
+    pub request: ::core::option::Option<streaming_commit_cursor_request::Request>,
+}
+/// Nested message and enum types in `StreamingCommitCursorRequest`.
+pub mod streaming_commit_cursor_request {
+    /// The type of request this is.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Request {
+        /// Initial request on the stream.
+        #[prost(message, tag = "1")]
+        Initial(super::InitialCommitCursorRequest),
+        /// Request to commit a new cursor value.
+        #[prost(message, tag = "2")]
+        Commit(super::SequencedCommitCursorRequest),
+    }
+}
+/// Response to a StreamingCommitCursorRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamingCommitCursorResponse {
+    /// The type of request this is.
+    #[prost(oneof = "streaming_commit_cursor_response::Request", tags = "1, 2")]
+    pub request: ::core::option::Option<streaming_commit_cursor_response::Request>,
+}
+/// Nested message and enum types in `StreamingCommitCursorResponse`.
+pub mod streaming_commit_cursor_response {
+    /// The type of request this is.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Request {
+        /// Initial response on the stream.
+        #[prost(message, tag = "1")]
+        Initial(super::InitialCommitCursorResponse),
+        /// Response to committing a new cursor value.
+        #[prost(message, tag = "2")]
+        Commit(super::SequencedCommitCursorResponse),
+    }
+}
+/// Request for CommitCursor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CommitCursorRequest {
+    /// The subscription for which to update the cursor.
+    #[prost(string, tag = "1")]
+    pub subscription: ::prost::alloc::string::String,
+    /// The partition for which to update the cursor. Partitions are zero indexed,
+    /// so `partition` must be in the range [0, topic.num_partitions).
+    #[prost(int64, tag = "2")]
+    pub partition: i64,
+    /// The new value for the committed cursor.
+    #[prost(message, optional, tag = "3")]
+    pub cursor: ::core::option::Option<Cursor>,
+}
+/// Response for CommitCursor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CommitCursorResponse {}
+/// Request for ListPartitionCursors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPartitionCursorsRequest {
+    /// Required. The subscription for which to retrieve cursors.
+    /// Structured like
+    /// `projects/{project_number}/locations/{location}/subscriptions/{subscription_id}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of cursors to return. The service may return fewer than
+    /// this value.
+    /// If unset or zero, all cursors for the parent will be returned.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A page token, received from a previous `ListPartitionCursors` call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to `ListPartitionCursors`
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// A pair of a Cursor and the partition it is for.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PartitionCursor {
+    /// The partition this is for.
+    #[prost(int64, tag = "1")]
+    pub partition: i64,
+    /// The value of the cursor.
+    #[prost(message, optional, tag = "2")]
+    pub cursor: ::core::option::Option<Cursor>,
+}
+/// Response for ListPartitionCursors
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPartitionCursorsResponse {
+    /// The partition cursors from this request.
+    #[prost(message, repeated, tag = "1")]
+    pub partition_cursors: ::prost::alloc::vec::Vec<PartitionCursor>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod cursor_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The service that a subscriber client application uses to manage committed
+    /// cursors while receiving messsages. A cursor represents a subscriber's
+    /// progress within a topic partition for a given subscription.
+    #[derive(Debug, Clone)]
+    pub struct CursorServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> CursorServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> CursorServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            CursorServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Establishes a stream with the server for managing committed cursors.
+        pub async fn streaming_commit_cursor(
+            &mut self,
+            request: impl tonic::IntoStreamingRequest<
+                Message = super::StreamingCommitCursorRequest,
+            >,
+        ) -> std::result::Result<
+            tonic::Response<
+                tonic::codec::Streaming<super::StreamingCommitCursorResponse>,
+            >,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.pubsublite.v1.CursorService/StreamingCommitCursor",
+            );
+            let mut req = request.into_streaming_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.CursorService",
+                        "StreamingCommitCursor",
+                    ),
+                );
+            self.inner.streaming(req, path, codec).await
+        }
+        /// Updates the committed cursor.
+        pub async fn commit_cursor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CommitCursorRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::CommitCursorResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.pubsublite.v1.CursorService/CommitCursor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.CursorService",
+                        "CommitCursor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Returns all committed cursor information for a subscription.
+        pub async fn list_partition_cursors(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListPartitionCursorsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListPartitionCursorsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.pubsublite.v1.CursorService/ListPartitionCursors",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.CursorService",
+                        "ListPartitionCursors",
                     ),
                 );
             self.inner.unary(req, path, codec).await

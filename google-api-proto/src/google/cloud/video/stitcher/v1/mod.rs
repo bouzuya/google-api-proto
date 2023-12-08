@@ -1,3 +1,170 @@
+/// Describes an event and a trigger URI.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Event {
+    /// Describes the event that occurred.
+    #[prost(enumeration = "event::EventType", tag = "1")]
+    pub r#type: i32,
+    /// The URI to trigger for this event.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// The ID of the event.
+    #[prost(string, tag = "3")]
+    pub id: ::prost::alloc::string::String,
+    /// The offset in seconds if the event type is `PROGRESS`.
+    #[prost(message, optional, tag = "4")]
+    pub offset: ::core::option::Option<::prost_types::Duration>,
+}
+/// Nested message and enum types in `Event`.
+pub mod event {
+    /// Describes the event that occurred.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum EventType {
+        /// The event type is unspecified.
+        Unspecified = 0,
+        /// First frame of creative ad viewed.
+        CreativeView = 1,
+        /// Creative ad started.
+        Start = 2,
+        /// Start of an ad break.
+        BreakStart = 3,
+        /// End of an ad break.
+        BreakEnd = 4,
+        /// Impression.
+        Impression = 5,
+        /// First quartile progress.
+        FirstQuartile = 6,
+        /// Midpoint progress.
+        Midpoint = 7,
+        /// Third quartile progress.
+        ThirdQuartile = 8,
+        /// Ad progress completed.
+        Complete = 9,
+        /// Specific progress event with an offset.
+        Progress = 10,
+        /// Player muted.
+        Mute = 11,
+        /// Player unmuted.
+        Unmute = 12,
+        /// Player paused.
+        Pause = 13,
+        /// Click event.
+        Click = 14,
+        /// Click-through event.
+        ClickThrough = 15,
+        /// Player rewinding.
+        Rewind = 16,
+        /// Player resumed.
+        Resume = 17,
+        /// Error event.
+        Error = 18,
+        /// Ad expanded to a larger size.
+        Expand = 21,
+        /// Ad collapsed to a smaller size.
+        Collapse = 22,
+        /// Non-linear ad closed.
+        Close = 24,
+        /// Linear ad closed.
+        CloseLinear = 25,
+        /// Ad skipped.
+        Skip = 26,
+        /// Accept invitation event.
+        AcceptInvitation = 27,
+    }
+    impl EventType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                EventType::Unspecified => "EVENT_TYPE_UNSPECIFIED",
+                EventType::CreativeView => "CREATIVE_VIEW",
+                EventType::Start => "START",
+                EventType::BreakStart => "BREAK_START",
+                EventType::BreakEnd => "BREAK_END",
+                EventType::Impression => "IMPRESSION",
+                EventType::FirstQuartile => "FIRST_QUARTILE",
+                EventType::Midpoint => "MIDPOINT",
+                EventType::ThirdQuartile => "THIRD_QUARTILE",
+                EventType::Complete => "COMPLETE",
+                EventType::Progress => "PROGRESS",
+                EventType::Mute => "MUTE",
+                EventType::Unmute => "UNMUTE",
+                EventType::Pause => "PAUSE",
+                EventType::Click => "CLICK",
+                EventType::ClickThrough => "CLICK_THROUGH",
+                EventType::Rewind => "REWIND",
+                EventType::Resume => "RESUME",
+                EventType::Error => "ERROR",
+                EventType::Expand => "EXPAND",
+                EventType::Collapse => "COLLAPSE",
+                EventType::Close => "CLOSE",
+                EventType::CloseLinear => "CLOSE_LINEAR",
+                EventType::Skip => "SKIP",
+                EventType::AcceptInvitation => "ACCEPT_INVITATION",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "EVENT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATIVE_VIEW" => Some(Self::CreativeView),
+                "START" => Some(Self::Start),
+                "BREAK_START" => Some(Self::BreakStart),
+                "BREAK_END" => Some(Self::BreakEnd),
+                "IMPRESSION" => Some(Self::Impression),
+                "FIRST_QUARTILE" => Some(Self::FirstQuartile),
+                "MIDPOINT" => Some(Self::Midpoint),
+                "THIRD_QUARTILE" => Some(Self::ThirdQuartile),
+                "COMPLETE" => Some(Self::Complete),
+                "PROGRESS" => Some(Self::Progress),
+                "MUTE" => Some(Self::Mute),
+                "UNMUTE" => Some(Self::Unmute),
+                "PAUSE" => Some(Self::Pause),
+                "CLICK" => Some(Self::Click),
+                "CLICK_THROUGH" => Some(Self::ClickThrough),
+                "REWIND" => Some(Self::Rewind),
+                "RESUME" => Some(Self::Resume),
+                "ERROR" => Some(Self::Error),
+                "EXPAND" => Some(Self::Expand),
+                "COLLAPSE" => Some(Self::Collapse),
+                "CLOSE" => Some(Self::Close),
+                "CLOSE_LINEAR" => Some(Self::CloseLinear),
+                "SKIP" => Some(Self::Skip),
+                "ACCEPT_INVITATION" => Some(Self::AcceptInvitation),
+                _ => None,
+            }
+        }
+    }
+}
+/// Indicates a time in which a list of events should be triggered
+/// during media playback.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProgressEvent {
+    /// The time when the following tracking events occurs. The time is in
+    /// seconds relative to the start of the VOD asset.
+    #[prost(message, optional, tag = "1")]
+    pub time_offset: ::core::option::Option<::prost_types::Duration>,
+    /// The list of progress tracking events for the ad break. These can be of
+    /// the following IAB types: `BREAK_START`, `BREAK_END`, `IMPRESSION`,
+    /// `CREATIVE_VIEW`, `START`, `FIRST_QUARTILE`, `MIDPOINT`, `THIRD_QUARTILE`,
+    /// `COMPLETE`, `PROGRESS`.
+    #[prost(message, repeated, tag = "2")]
+    pub events: ::prost::alloc::vec::Vec<Event>,
+}
 /// Container for a live session's ad tag detail.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -68,37 +235,6 @@ pub struct ResponseMetadata {
     /// The body of the response.
     #[prost(string, tag = "6")]
     pub body: ::prost::alloc::string::String,
-}
-/// Slate object
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Slate {
-    /// Output only. The name of the slate, in the form of
-    /// `projects/{project_number}/locations/{location}/slates/{id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The URI to fetch the source content for the slate. This URI must return an
-    /// MP4 video with at least one audio track.
-    #[prost(string, tag = "2")]
-    pub uri: ::prost::alloc::string::String,
-    /// gam_slate has all the GAM-related attributes of slates.
-    #[prost(message, optional, tag = "3")]
-    pub gam_slate: ::core::option::Option<slate::GamSlate>,
-}
-/// Nested message and enum types in `Slate`.
-pub mod slate {
-    /// GamSlate object has Google Ad Manager (GAM) related properties for the
-    /// slate.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GamSlate {
-        /// Required. Ad Manager network code to associate with the live config.
-        #[prost(string, tag = "1")]
-        pub network_code: ::prost::alloc::string::String,
-        /// Output only. The identifier generated for the slate by GAM.
-        #[prost(int64, tag = "2")]
-        pub gam_slate_id: i64,
-    }
 }
 /// Configuration for a CDN key. Used by the Video Stitcher
 /// to sign URIs for fetching video manifests and signing
@@ -364,173 +500,6 @@ impl AdTracking {
             _ => None,
         }
     }
-}
-/// Describes an event and a trigger URI.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Event {
-    /// Describes the event that occurred.
-    #[prost(enumeration = "event::EventType", tag = "1")]
-    pub r#type: i32,
-    /// The URI to trigger for this event.
-    #[prost(string, tag = "2")]
-    pub uri: ::prost::alloc::string::String,
-    /// The ID of the event.
-    #[prost(string, tag = "3")]
-    pub id: ::prost::alloc::string::String,
-    /// The offset in seconds if the event type is `PROGRESS`.
-    #[prost(message, optional, tag = "4")]
-    pub offset: ::core::option::Option<::prost_types::Duration>,
-}
-/// Nested message and enum types in `Event`.
-pub mod event {
-    /// Describes the event that occurred.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum EventType {
-        /// The event type is unspecified.
-        Unspecified = 0,
-        /// First frame of creative ad viewed.
-        CreativeView = 1,
-        /// Creative ad started.
-        Start = 2,
-        /// Start of an ad break.
-        BreakStart = 3,
-        /// End of an ad break.
-        BreakEnd = 4,
-        /// Impression.
-        Impression = 5,
-        /// First quartile progress.
-        FirstQuartile = 6,
-        /// Midpoint progress.
-        Midpoint = 7,
-        /// Third quartile progress.
-        ThirdQuartile = 8,
-        /// Ad progress completed.
-        Complete = 9,
-        /// Specific progress event with an offset.
-        Progress = 10,
-        /// Player muted.
-        Mute = 11,
-        /// Player unmuted.
-        Unmute = 12,
-        /// Player paused.
-        Pause = 13,
-        /// Click event.
-        Click = 14,
-        /// Click-through event.
-        ClickThrough = 15,
-        /// Player rewinding.
-        Rewind = 16,
-        /// Player resumed.
-        Resume = 17,
-        /// Error event.
-        Error = 18,
-        /// Ad expanded to a larger size.
-        Expand = 21,
-        /// Ad collapsed to a smaller size.
-        Collapse = 22,
-        /// Non-linear ad closed.
-        Close = 24,
-        /// Linear ad closed.
-        CloseLinear = 25,
-        /// Ad skipped.
-        Skip = 26,
-        /// Accept invitation event.
-        AcceptInvitation = 27,
-    }
-    impl EventType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                EventType::Unspecified => "EVENT_TYPE_UNSPECIFIED",
-                EventType::CreativeView => "CREATIVE_VIEW",
-                EventType::Start => "START",
-                EventType::BreakStart => "BREAK_START",
-                EventType::BreakEnd => "BREAK_END",
-                EventType::Impression => "IMPRESSION",
-                EventType::FirstQuartile => "FIRST_QUARTILE",
-                EventType::Midpoint => "MIDPOINT",
-                EventType::ThirdQuartile => "THIRD_QUARTILE",
-                EventType::Complete => "COMPLETE",
-                EventType::Progress => "PROGRESS",
-                EventType::Mute => "MUTE",
-                EventType::Unmute => "UNMUTE",
-                EventType::Pause => "PAUSE",
-                EventType::Click => "CLICK",
-                EventType::ClickThrough => "CLICK_THROUGH",
-                EventType::Rewind => "REWIND",
-                EventType::Resume => "RESUME",
-                EventType::Error => "ERROR",
-                EventType::Expand => "EXPAND",
-                EventType::Collapse => "COLLAPSE",
-                EventType::Close => "CLOSE",
-                EventType::CloseLinear => "CLOSE_LINEAR",
-                EventType::Skip => "SKIP",
-                EventType::AcceptInvitation => "ACCEPT_INVITATION",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "EVENT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATIVE_VIEW" => Some(Self::CreativeView),
-                "START" => Some(Self::Start),
-                "BREAK_START" => Some(Self::BreakStart),
-                "BREAK_END" => Some(Self::BreakEnd),
-                "IMPRESSION" => Some(Self::Impression),
-                "FIRST_QUARTILE" => Some(Self::FirstQuartile),
-                "MIDPOINT" => Some(Self::Midpoint),
-                "THIRD_QUARTILE" => Some(Self::ThirdQuartile),
-                "COMPLETE" => Some(Self::Complete),
-                "PROGRESS" => Some(Self::Progress),
-                "MUTE" => Some(Self::Mute),
-                "UNMUTE" => Some(Self::Unmute),
-                "PAUSE" => Some(Self::Pause),
-                "CLICK" => Some(Self::Click),
-                "CLICK_THROUGH" => Some(Self::ClickThrough),
-                "REWIND" => Some(Self::Rewind),
-                "RESUME" => Some(Self::Resume),
-                "ERROR" => Some(Self::Error),
-                "EXPAND" => Some(Self::Expand),
-                "COLLAPSE" => Some(Self::Collapse),
-                "CLOSE" => Some(Self::Close),
-                "CLOSE_LINEAR" => Some(Self::CloseLinear),
-                "SKIP" => Some(Self::Skip),
-                "ACCEPT_INVITATION" => Some(Self::AcceptInvitation),
-                _ => None,
-            }
-        }
-    }
-}
-/// Indicates a time in which a list of events should be triggered
-/// during media playback.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProgressEvent {
-    /// The time when the following tracking events occurs. The time is in
-    /// seconds relative to the start of the VOD asset.
-    #[prost(message, optional, tag = "1")]
-    pub time_offset: ::core::option::Option<::prost_types::Duration>,
-    /// The list of progress tracking events for the ad break. These can be of
-    /// the following IAB types: `BREAK_START`, `BREAK_END`, `IMPRESSION`,
-    /// `CREATIVE_VIEW`, `START`, `FIRST_QUARTILE`, `MIDPOINT`, `THIRD_QUARTILE`,
-    /// `COMPLETE`, `PROGRESS`.
-    #[prost(message, repeated, tag = "2")]
-    pub events: ::prost::alloc::vec::Vec<Event>,
 }
 /// Metadata for companion ads.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -920,6 +889,37 @@ pub struct RenditionFilter {
     /// will match.
     #[prost(string, tag = "2")]
     pub codecs: ::prost::alloc::string::String,
+}
+/// Slate object
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Slate {
+    /// Output only. The name of the slate, in the form of
+    /// `projects/{project_number}/locations/{location}/slates/{id}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The URI to fetch the source content for the slate. This URI must return an
+    /// MP4 video with at least one audio track.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// gam_slate has all the GAM-related attributes of slates.
+    #[prost(message, optional, tag = "3")]
+    pub gam_slate: ::core::option::Option<slate::GamSlate>,
+}
+/// Nested message and enum types in `Slate`.
+pub mod slate {
+    /// GamSlate object has Google Ad Manager (GAM) related properties for the
+    /// slate.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GamSlate {
+        /// Required. Ad Manager network code to associate with the live config.
+        #[prost(string, tag = "1")]
+        pub network_code: ::prost::alloc::string::String,
+        /// Output only. The identifier generated for the slate by GAM.
+        #[prost(int64, tag = "2")]
+        pub gam_slate_id: i64,
+    }
 }
 /// Detailed information related to the interstitial of a VOD session. This
 /// resource is only available for VOD sessions that do not implement Google Ad

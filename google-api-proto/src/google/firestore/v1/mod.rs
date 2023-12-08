@@ -1,3 +1,54 @@
+/// A sequence of bits, encoded in a byte array.
+///
+/// Each byte in the `bitmap` byte array stores 8 bits of the sequence. The only
+/// exception is the last byte, which may store 8 _or fewer_ bits. The `padding`
+/// defines the number of bits of the last byte to be ignored as "padding". The
+/// values of these "padding" bits are unspecified and must be ignored.
+///
+/// To retrieve the first bit, bit 0, calculate: `(bitmap\[0\] & 0x01) != 0`.
+/// To retrieve the second bit, bit 1, calculate: `(bitmap\[0\] & 0x02) != 0`.
+/// To retrieve the third bit, bit 2, calculate: `(bitmap\[0\] & 0x04) != 0`.
+/// To retrieve the fourth bit, bit 3, calculate: `(bitmap\[0\] & 0x08) != 0`.
+/// To retrieve bit n, calculate: `(bitmap\[n / 8\] & (0x01 << (n % 8))) != 0`.
+///
+/// The "size" of a `BitSequence` (the number of bits it contains) is calculated
+/// by this formula: `(bitmap.length * 8) - padding`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BitSequence {
+    /// The bytes that encode the bit sequence.
+    /// May have a length of zero.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub bitmap: ::prost::bytes::Bytes,
+    /// The number of bits of the last byte in `bitmap` to ignore as "padding".
+    /// If the length of `bitmap` is zero, then this value must be `0`.
+    /// Otherwise, this value must be between 0 and 7, inclusive.
+    #[prost(int32, tag = "2")]
+    pub padding: i32,
+}
+/// A bloom filter (<https://en.wikipedia.org/wiki/Bloom_filter>).
+///
+/// The bloom filter hashes the entries with MD5 and treats the resulting 128-bit
+/// hash as 2 distinct 64-bit hash values, interpreted as unsigned integers
+/// using 2's complement encoding.
+///
+/// These two hash values, named `h1` and `h2`, are then used to compute the
+/// `hash_count` hash values using the formula, starting at `i=0`:
+///
+///      h(i) = h1 + (i * h2)
+///
+/// These resulting values are then taken modulo the number of bits in the bloom
+/// filter to get the bits of the bloom filter to test for the given entry.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BloomFilter {
+    /// The bloom filter data.
+    #[prost(message, optional, tag = "1")]
+    pub bits: ::core::option::Option<BitSequence>,
+    /// The number of hashes used by the algorithm.
+    #[prost(int32, tag = "2")]
+    pub hash_count: i32,
+}
 /// A Firestore document.
 ///
 /// Must not exceed 1 MiB - 4 bytes.
@@ -825,77 +876,6 @@ pub struct Cursor {
     #[prost(bool, tag = "2")]
     pub before: bool,
 }
-/// The result of a single bucket from a Firestore aggregation query.
-///
-/// The keys of `aggregate_fields` are the same for all results in an aggregation
-/// query, unlike document queries which can have different fields present for
-/// each result.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AggregationResult {
-    /// The result of the aggregation functions, ex: `COUNT(*) AS total_docs`.
-    ///
-    /// The key is the
-    /// [alias][google.firestore.v1.StructuredAggregationQuery.Aggregation.alias]
-    /// assigned to the aggregation function on input and the size of this map
-    /// equals the number of aggregation functions in the query.
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub aggregate_fields: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        Value,
-    >,
-}
-/// A sequence of bits, encoded in a byte array.
-///
-/// Each byte in the `bitmap` byte array stores 8 bits of the sequence. The only
-/// exception is the last byte, which may store 8 _or fewer_ bits. The `padding`
-/// defines the number of bits of the last byte to be ignored as "padding". The
-/// values of these "padding" bits are unspecified and must be ignored.
-///
-/// To retrieve the first bit, bit 0, calculate: `(bitmap\[0\] & 0x01) != 0`.
-/// To retrieve the second bit, bit 1, calculate: `(bitmap\[0\] & 0x02) != 0`.
-/// To retrieve the third bit, bit 2, calculate: `(bitmap\[0\] & 0x04) != 0`.
-/// To retrieve the fourth bit, bit 3, calculate: `(bitmap\[0\] & 0x08) != 0`.
-/// To retrieve bit n, calculate: `(bitmap\[n / 8\] & (0x01 << (n % 8))) != 0`.
-///
-/// The "size" of a `BitSequence` (the number of bits it contains) is calculated
-/// by this formula: `(bitmap.length * 8) - padding`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BitSequence {
-    /// The bytes that encode the bit sequence.
-    /// May have a length of zero.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub bitmap: ::prost::bytes::Bytes,
-    /// The number of bits of the last byte in `bitmap` to ignore as "padding".
-    /// If the length of `bitmap` is zero, then this value must be `0`.
-    /// Otherwise, this value must be between 0 and 7, inclusive.
-    #[prost(int32, tag = "2")]
-    pub padding: i32,
-}
-/// A bloom filter (<https://en.wikipedia.org/wiki/Bloom_filter>).
-///
-/// The bloom filter hashes the entries with MD5 and treats the resulting 128-bit
-/// hash as 2 distinct 64-bit hash values, interpreted as unsigned integers
-/// using 2's complement encoding.
-///
-/// These two hash values, named `h1` and `h2`, are then used to compute the
-/// `hash_count` hash values using the formula, starting at `i=0`:
-///
-///      h(i) = h1 + (i * h2)
-///
-/// These resulting values are then taken modulo the number of bits in the bloom
-/// filter to get the bits of the bloom filter to test for the given entry.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BloomFilter {
-    /// The bloom filter data.
-    #[prost(message, optional, tag = "1")]
-    pub bits: ::core::option::Option<BitSequence>,
-    /// The number of hashes used by the algorithm.
-    #[prost(int32, tag = "2")]
-    pub hash_count: i32,
-}
 /// A set of field paths on a document.
 /// Used to restrict a get or update operation on a document to a subset of its
 /// fields.
@@ -1312,6 +1292,26 @@ pub struct ExistenceFilter {
     /// figure out which documents in the client's cache are out of sync.
     #[prost(message, optional, tag = "3")]
     pub unchanged_names: ::core::option::Option<BloomFilter>,
+}
+/// The result of a single bucket from a Firestore aggregation query.
+///
+/// The keys of `aggregate_fields` are the same for all results in an aggregation
+/// query, unlike document queries which can have different fields present for
+/// each result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AggregationResult {
+    /// The result of the aggregation functions, ex: `COUNT(*) AS total_docs`.
+    ///
+    /// The key is the
+    /// [alias][google.firestore.v1.StructuredAggregationQuery.Aggregation.alias]
+    /// assigned to the aggregation function on input and the size of this map
+    /// equals the number of aggregation functions in the query.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub aggregate_fields: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        Value,
+    >,
 }
 /// The request for
 /// [Firestore.GetDocument][google.firestore.v1.Firestore.GetDocument].
