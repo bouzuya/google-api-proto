@@ -3607,7 +3607,811 @@
 <a href="#3607" id="3607">3607</a>
 <a href="#3608" id="3608">3608</a>
 <a href="#3609" id="3609">3609</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Step performed by the OS Config agent for configuring an `OSPolicyResource`
+</pre></div><pre class="rust"><code><span class="doccomment">/// An OS policy defines the desired state configuration for a VM.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OsPolicy {
+    <span class="doccomment">/// Required. The id of the OS policy with the following restrictions:
+    ///
+    /// * Must contain only lowercase letters, numbers, and hyphens.
+    /// * Must start with a letter.
+    /// * Must be between 1-63 characters.
+    /// * Must end with a number or a letter.
+    /// * Must be unique within the assignment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Policy description.
+    /// Length of the description is limited to 1024 characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Policy mode
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;os_policy::Mode&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>mode: i32,
+    <span class="doccomment">/// Required. List of resource groups for the policy.
+    /// For a particular VM, resource groups are evaluated in the order specified
+    /// and the first resource group that is applicable is selected and the rest
+    /// are ignored.
+    ///
+    /// If none of the resource groups are applicable for a VM, the VM is
+    /// considered to be non-compliant w.r.t this policy. This behavior can be
+    /// toggled by the flag `allow_no_resource_group_match`
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>resource_groups: ::prost::alloc::vec::Vec&lt;os_policy::ResourceGroup&gt;,
+    <span class="doccomment">/// This flag determines the OS policy compliance status when none of the
+    /// resource groups within the policy are applicable for a VM. Set this value
+    /// to `true` if the policy needs to be reported as compliant even if the
+    /// policy has nothing to validate or enforce.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>allow_no_resource_group_match: bool,
+}
+<span class="doccomment">/// Nested message and enum types in `OSPolicy`.
+</span><span class="kw">pub mod </span>os_policy {
+    <span class="doccomment">/// Filtering criteria to select VMs based on OS details.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>OsFilter {
+        <span class="doccomment">/// This should match OS short name emitted by the OS inventory agent.
+        /// An empty value matches any OS.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>os_short_name: ::prost::alloc::string::String,
+        <span class="doccomment">/// This value should match the version emitted by the OS inventory
+        /// agent.
+        /// Prefix matches are supported if asterisk(*) is provided as the
+        /// last character. For example, to match all versions with a major
+        /// version of `7`, specify the following value for this field `7.*`
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>os_version: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Filtering criteria to select VMs based on inventory details.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>InventoryFilter {
+        <span class="doccomment">/// Required. The OS short name
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>os_short_name: ::prost::alloc::string::String,
+        <span class="doccomment">/// The OS version
+        ///
+        /// Prefix matches are supported if asterisk(*) is provided as the
+        /// last character. For example, to match all versions with a major
+        /// version of `7`, specify the following value for this field `7.*`
+        ///
+        /// An empty string matches all OS versions.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>os_version: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// An OS policy resource is used to define the desired state configuration
+    /// and provides a specific functionality like installing/removing packages,
+    /// executing a script etc.
+    ///
+    /// The system ensures that resources are always in their desired state by
+    /// taking necessary actions if they have drifted from their desired state.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Resource {
+        <span class="doccomment">/// Required. The id of the resource with the following restrictions:
+        ///
+        /// * Must contain only lowercase letters, numbers, and hyphens.
+        /// * Must start with a letter.
+        /// * Must be between 1-63 characters.
+        /// * Must end with a number or a letter.
+        /// * Must be unique within the OS policy.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+        <span class="doccomment">/// Resource type.
+        </span><span class="attr">#[prost(oneof = <span class="string">&quot;resource::ResourceType&quot;</span>, tags = <span class="string">&quot;2, 3, 4, 5&quot;</span>)]
+        </span><span class="kw">pub </span>resource_type: ::core::option::Option&lt;resource::ResourceType&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `Resource`.
+    </span><span class="kw">pub mod </span>resource {
+        <span class="doccomment">/// A remote or local file.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>File {
+            <span class="doccomment">/// Defaults to false. When false, files are subject to validations
+            /// based on the file type:
+            ///
+            /// Remote: A checksum must be specified.
+            /// Cloud Storage: An object generation number must be specified.
+            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="kw">pub </span>allow_insecure: bool,
+            <span class="doccomment">/// A specific type of file.
+            </span><span class="attr">#[prost(oneof = <span class="string">&quot;file::Type&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+            </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;file::Type&gt;,
+        }
+        <span class="doccomment">/// Nested message and enum types in `File`.
+        </span><span class="kw">pub mod </span>file {
+            <span class="doccomment">/// Specifies a file available via some URI.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>Remote {
+                <span class="doccomment">/// Required. URI from which to fetch the object. It should contain both the
+                /// protocol and path following the format `{protocol}://{location}`.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
+                <span class="doccomment">/// SHA256 checksum of the remote file.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="kw">pub </span>sha256_checksum: ::prost::alloc::string::String,
+            }
+            <span class="doccomment">/// Specifies a file available as a Cloud Storage Object.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>Gcs {
+                <span class="doccomment">/// Required. Bucket of the Cloud Storage object.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>bucket: ::prost::alloc::string::String,
+                <span class="doccomment">/// Required. Name of the Cloud Storage object.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="kw">pub </span>object: ::prost::alloc::string::String,
+                <span class="doccomment">/// Generation number of the Cloud Storage object.
+                </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="kw">pub </span>generation: i64,
+            }
+            <span class="doccomment">/// A specific type of file.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            </span><span class="kw">pub enum </span>Type {
+                <span class="doccomment">/// A generic remote file.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+                </span>Remote(Remote),
+                <span class="doccomment">/// A Cloud Storage object.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+                </span>Gcs(Gcs),
+                <span class="doccomment">/// A local path within the VM to use.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+                </span>LocalPath(::prost::alloc::string::String),
+            }
+        }
+        <span class="doccomment">/// A resource that manages a system package.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>PackageResource {
+            <span class="doccomment">/// Required. The desired state the agent should maintain for this package.
+            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;package_resource::DesiredState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>desired_state: i32,
+            <span class="doccomment">/// A system package.
+            </span><span class="attr">#[prost(
+                oneof = <span class="string">&quot;package_resource::SystemPackage&quot;</span>,
+                tags = <span class="string">&quot;2, 3, 4, 5, 6, 7, 8&quot;
+            </span>)]
+            </span><span class="kw">pub </span>system_package: ::core::option::Option&lt;package_resource::SystemPackage&gt;,
+        }
+        <span class="doccomment">/// Nested message and enum types in `PackageResource`.
+        </span><span class="kw">pub mod </span>package_resource {
+            <span class="doccomment">/// A deb package file. dpkg packages only support INSTALLED state.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>Deb {
+                <span class="doccomment">/// Required. A deb package.
+                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>source: ::core::option::Option&lt;<span class="kw">super</span>::File&gt;,
+                <span class="doccomment">/// Whether dependencies should also be installed.
+                /// - install when false: `dpkg -i package`
+                /// - install when true: `apt-get update &amp;&amp; apt-get -y install
+                /// package.deb`
+                </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="kw">pub </span>pull_deps: bool,
+            }
+            <span class="doccomment">/// A package managed by APT.
+            /// - install: `apt-get update &amp;&amp; apt-get -y install \[name\]`
+            /// - remove: `apt-get -y remove \[name\]`
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>Apt {
+                <span class="doccomment">/// Required. Package name.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+            }
+            <span class="doccomment">/// An RPM package file. RPM packages only support INSTALLED state.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>Rpm {
+                <span class="doccomment">/// Required. An rpm package.
+                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>source: ::core::option::Option&lt;<span class="kw">super</span>::File&gt;,
+                <span class="doccomment">/// Whether dependencies should also be installed.
+                /// - install when false: `rpm --upgrade --replacepkgs package.rpm`
+                /// - install when true: `yum -y install package.rpm` or
+                /// `zypper -y install package.rpm`
+                </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="kw">pub </span>pull_deps: bool,
+            }
+            <span class="doccomment">/// A package managed by YUM.
+            /// - install: `yum -y install package`
+            /// - remove: `yum -y remove package`
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>Yum {
+                <span class="doccomment">/// Required. Package name.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+            }
+            <span class="doccomment">/// A package managed by Zypper.
+            /// - install: `zypper -y install package`
+            /// - remove: `zypper -y rm package`
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>Zypper {
+                <span class="doccomment">/// Required. Package name.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+            }
+            <span class="doccomment">/// A package managed by GooGet.
+            /// - install: `googet -noconfirm install package`
+            /// - remove: `googet -noconfirm remove package`
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>GooGet {
+                <span class="doccomment">/// Required. Package name.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+            }
+            <span class="doccomment">/// An MSI package. MSI packages only support INSTALLED state.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>Msi {
+                <span class="doccomment">/// Required. The MSI package.
+                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>source: ::core::option::Option&lt;<span class="kw">super</span>::File&gt;,
+                <span class="doccomment">/// Additional properties to use during installation.
+                /// This should be in the format of Property=Setting.
+                /// Appended to the defaults of `ACTION=INSTALL
+                /// REBOOT=ReallySuppress`.
+                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="kw">pub </span>properties: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+            }
+            <span class="doccomment">/// The desired state that the OS Config agent maintains on the VM.
+            </span><span class="attr">#[derive(
+                Clone,
+                Copy,
+                Debug,
+                PartialEq,
+                Eq,
+                Hash,
+                PartialOrd,
+                Ord,
+                ::prost::Enumeration
+            )]
+            #[repr(i32)]
+            </span><span class="kw">pub enum </span>DesiredState {
+                <span class="doccomment">/// Unspecified is invalid.
+                </span>Unspecified = <span class="number">0</span>,
+                <span class="doccomment">/// Ensure that the package is installed.
+                </span>Installed = <span class="number">1</span>,
+                <span class="doccomment">/// The agent ensures that the package is not installed and
+                /// uninstalls it if detected.
+                </span>Removed = <span class="number">2</span>,
+            }
+            <span class="kw">impl </span>DesiredState {
+                <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+                ///
+                /// The values are not transformed in any way and thus are considered stable
+                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                    <span class="kw">match </span><span class="self">self </span>{
+                        DesiredState::Unspecified =&gt; <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot;</span>,
+                        DesiredState::Installed =&gt; <span class="string">&quot;INSTALLED&quot;</span>,
+                        DesiredState::Removed =&gt; <span class="string">&quot;REMOVED&quot;</span>,
+                    }
+                }
+                <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+                </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                    <span class="kw">match </span>value {
+                        <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                        <span class="string">&quot;INSTALLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Installed),
+                        <span class="string">&quot;REMOVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Removed),
+                        <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                    }
+                }
+            }
+            <span class="doccomment">/// A system package.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            </span><span class="kw">pub enum </span>SystemPackage {
+                <span class="doccomment">/// A package managed by Apt.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+                </span>Apt(Apt),
+                <span class="doccomment">/// A deb package file.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+                </span>Deb(Deb),
+                <span class="doccomment">/// A package managed by YUM.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+                </span>Yum(Yum),
+                <span class="doccomment">/// A package managed by Zypper.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+                </span>Zypper(Zypper),
+                <span class="doccomment">/// An rpm package file.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+                </span>Rpm(Rpm),
+                <span class="doccomment">/// A package managed by GooGet.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+                </span>Googet(GooGet),
+                <span class="doccomment">/// An MSI package.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+                </span>Msi(Msi),
+            }
+        }
+        <span class="doccomment">/// A resource that manages a package repository.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>RepositoryResource {
+            <span class="doccomment">/// A specific type of repository.
+            </span><span class="attr">#[prost(oneof = <span class="string">&quot;repository_resource::Repository&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
+            </span><span class="kw">pub </span>repository: ::core::option::Option&lt;repository_resource::Repository&gt;,
+        }
+        <span class="doccomment">/// Nested message and enum types in `RepositoryResource`.
+        </span><span class="kw">pub mod </span>repository_resource {
+            <span class="doccomment">/// Represents a single apt package repository. These will be added to
+            /// a repo file that will be managed at
+            /// `/etc/apt/sources.list.d/google_osconfig.list`.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>AptRepository {
+                <span class="doccomment">/// Required. Type of archive files in this repository.
+                </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apt_repository::ArchiveType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>archive_type: i32,
+                <span class="doccomment">/// Required. URI for this repository.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
+                <span class="doccomment">/// Required. Distribution of this repository.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="kw">pub </span>distribution: ::prost::alloc::string::String,
+                <span class="doccomment">/// Required. List of components for this repository. Must contain at least one
+                /// item.
+                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="kw">pub </span>components: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+                <span class="doccomment">/// URI of the key file for this repository. The agent maintains a
+                /// keyring at `/etc/apt/trusted.gpg.d/osconfig_agent_managed.gpg`.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+                </span><span class="kw">pub </span>gpg_key: ::prost::alloc::string::String,
+            }
+            <span class="doccomment">/// Nested message and enum types in `AptRepository`.
+            </span><span class="kw">pub mod </span>apt_repository {
+                <span class="doccomment">/// Type of archive.
+                </span><span class="attr">#[derive(
+                    Clone,
+                    Copy,
+                    Debug,
+                    PartialEq,
+                    Eq,
+                    Hash,
+                    PartialOrd,
+                    Ord,
+                    ::prost::Enumeration
+                )]
+                #[repr(i32)]
+                </span><span class="kw">pub enum </span>ArchiveType {
+                    <span class="doccomment">/// Unspecified is invalid.
+                    </span>Unspecified = <span class="number">0</span>,
+                    <span class="doccomment">/// Deb indicates that the archive contains binary files.
+                    </span>Deb = <span class="number">1</span>,
+                    <span class="doccomment">/// Deb-src indicates that the archive contains source files.
+                    </span>DebSrc = <span class="number">2</span>,
+                }
+                <span class="kw">impl </span>ArchiveType {
+                    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+                    ///
+                    /// The values are not transformed in any way and thus are considered stable
+                    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                        <span class="kw">match </span><span class="self">self </span>{
+                            ArchiveType::Unspecified =&gt; <span class="string">&quot;ARCHIVE_TYPE_UNSPECIFIED&quot;</span>,
+                            ArchiveType::Deb =&gt; <span class="string">&quot;DEB&quot;</span>,
+                            ArchiveType::DebSrc =&gt; <span class="string">&quot;DEB_SRC&quot;</span>,
+                        }
+                    }
+                    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+                    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                        <span class="kw">match </span>value {
+                            <span class="string">&quot;ARCHIVE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                            <span class="string">&quot;DEB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deb),
+                            <span class="string">&quot;DEB_SRC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DebSrc),
+                            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                        }
+                    }
+                }
+            }
+            <span class="doccomment">/// Represents a single yum package repository. These are added to a
+            /// repo file that is managed at
+            /// `/etc/yum.repos.d/google_osconfig.repo`.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>YumRepository {
+                <span class="doccomment">/// Required. A one word, unique name for this repository. This is  the `repo
+                /// id` in the yum config file and also the `display_name` if
+                /// `display_name` is omitted. This id is also used as the unique
+                /// identifier when checking for resource conflicts.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+                <span class="doccomment">/// The display name of the repository.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+                <span class="doccomment">/// Required. The location of the repository directory.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="kw">pub </span>base_url: ::prost::alloc::string::String,
+                <span class="doccomment">/// URIs of GPG keys.
+                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="kw">pub </span>gpg_keys: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+            }
+            <span class="doccomment">/// Represents a single zypper package repository. These are added to a
+            /// repo file that is managed at
+            /// `/etc/zypp/repos.d/google_osconfig.repo`.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>ZypperRepository {
+                <span class="doccomment">/// Required. A one word, unique name for this repository. This is the `repo
+                /// id` in the zypper config file and also the `display_name` if
+                /// `display_name` is omitted. This id is also used as the unique
+                /// identifier when checking for GuestPolicy conflicts.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+                <span class="doccomment">/// The display name of the repository.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+                <span class="doccomment">/// Required. The location of the repository directory.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="kw">pub </span>base_url: ::prost::alloc::string::String,
+                <span class="doccomment">/// URIs of GPG keys.
+                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="kw">pub </span>gpg_keys: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+            }
+            <span class="doccomment">/// Represents a Goo package repository. These are added to a repo file
+            /// that is managed at
+            /// `C:/ProgramData/GooGet/repos/google_osconfig.repo`.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>GooRepository {
+                <span class="doccomment">/// Required. The name of the repository.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+                <span class="doccomment">/// Required. The url of the repository.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
+            }
+            <span class="doccomment">/// A specific type of repository.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            </span><span class="kw">pub enum </span>Repository {
+                <span class="doccomment">/// An Apt Repository.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+                </span>Apt(AptRepository),
+                <span class="doccomment">/// A Yum Repository.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+                </span>Yum(YumRepository),
+                <span class="doccomment">/// A Zypper Repository.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+                </span>Zypper(ZypperRepository),
+                <span class="doccomment">/// A Goo Repository.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+                </span>Goo(GooRepository),
+            }
+        }
+        <span class="doccomment">/// A resource that allows executing scripts on the VM.
+        ///
+        /// The `ExecResource` has 2 stages: `validate` and `enforce` and both stages
+        /// accept a script as an argument to execute.
+        ///
+        /// When the `ExecResource` is applied by the agent, it first executes the
+        /// script in the `validate` stage. The `validate` stage can signal that the
+        /// `ExecResource` is already in the desired state by returning an exit code
+        /// of `100`. If the `ExecResource` is not in the desired state, it should
+        /// return an exit code of `101`. Any other exit code returned by this stage
+        /// is considered an error.
+        ///
+        /// If the `ExecResource` is not in the desired state based on the exit code
+        /// from the `validate` stage, the agent proceeds to execute the script from
+        /// the `enforce` stage. If the `ExecResource` is already in the desired
+        /// state, the `enforce` stage will not be run.
+        /// Similar to `validate` stage, the `enforce` stage should return an exit
+        /// code of `100` to indicate that the resource in now in its desired state.
+        /// Any other exit code is considered an error.
+        ///
+        /// NOTE: An exit code of `100` was chosen over `0` (and `101` vs `1`) to
+        /// have an explicit indicator of `in desired state`, `not in desired state`
+        /// and errors. Because, for example, Powershell will always return an exit
+        /// code of `0` unless an `exit` statement is provided in the script. So, for
+        /// reasons of consistency and being explicit, exit codes `100` and `101`
+        /// were chosen.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>ExecResource {
+            <span class="doccomment">/// Required. What to run to validate this resource is in the desired state.
+            /// An exit code of 100 indicates &quot;in desired state&quot;, and exit code of 101
+            /// indicates &quot;not in desired state&quot;. Any other exit code indicates a
+            /// failure running validate.
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>validate: ::core::option::Option&lt;exec_resource::Exec&gt;,
+            <span class="doccomment">/// What to run to bring this resource into the desired state.
+            /// An exit code of 100 indicates &quot;success&quot;, any other exit code indicates
+            /// a failure running enforce.
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="kw">pub </span>enforce: ::core::option::Option&lt;exec_resource::Exec&gt;,
+        }
+        <span class="doccomment">/// Nested message and enum types in `ExecResource`.
+        </span><span class="kw">pub mod </span>exec_resource {
+            <span class="doccomment">/// A file or script to execute.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            </span><span class="kw">pub struct </span>Exec {
+                <span class="doccomment">/// Optional arguments to pass to the source during execution.
+                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="kw">pub </span>args: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+                <span class="doccomment">/// Required. The script interpreter to use.
+                </span><span class="attr">#[prost(enumeration = <span class="string">&quot;exec::Interpreter&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="kw">pub </span>interpreter: i32,
+                <span class="doccomment">/// Only recorded for enforce Exec.
+                /// Path to an output file (that is created by this Exec) whose
+                /// content will be recorded in OSPolicyResourceCompliance after a
+                /// successful run. Absence or failure to read this file will result in
+                /// this ExecResource being non-compliant. Output file size is limited to
+                /// 100K bytes.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+                </span><span class="kw">pub </span>output_file_path: ::prost::alloc::string::String,
+                <span class="doccomment">/// What to execute.
+                </span><span class="attr">#[prost(oneof = <span class="string">&quot;exec::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+                </span><span class="kw">pub </span>source: ::core::option::Option&lt;exec::Source&gt;,
+            }
+            <span class="doccomment">/// Nested message and enum types in `Exec`.
+            </span><span class="kw">pub mod </span>exec {
+                <span class="doccomment">/// The interpreter to use.
+                </span><span class="attr">#[derive(
+                    Clone,
+                    Copy,
+                    Debug,
+                    PartialEq,
+                    Eq,
+                    Hash,
+                    PartialOrd,
+                    Ord,
+                    ::prost::Enumeration
+                )]
+                #[repr(i32)]
+                </span><span class="kw">pub enum </span>Interpreter {
+                    <span class="doccomment">/// Invalid value, the request will return validation error.
+                    </span>Unspecified = <span class="number">0</span>,
+                    <span class="doccomment">/// If an interpreter is not specified, the
+                    /// source is executed directly. This execution, without an
+                    /// interpreter, only succeeds for executables and scripts that have &lt;a
+                    /// href=&quot;&lt;https://en.wikipedia.org/wiki/Shebang_(Unix&gt;)&quot;
+                    /// class=&quot;external&quot;&gt;shebang lines&lt;/a&gt;.
+                    </span><span class="prelude-val">None </span>= <span class="number">1</span>,
+                    <span class="doccomment">/// Indicates that the script runs with `/bin/sh` on Linux and
+                    /// `cmd.exe` on Windows.
+                    </span>Shell = <span class="number">2</span>,
+                    <span class="doccomment">/// Indicates that the script runs with PowerShell.
+                    </span>Powershell = <span class="number">3</span>,
+                }
+                <span class="kw">impl </span>Interpreter {
+                    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+                    ///
+                    /// The values are not transformed in any way and thus are considered stable
+                    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                        <span class="kw">match </span><span class="self">self </span>{
+                            Interpreter::Unspecified =&gt; <span class="string">&quot;INTERPRETER_UNSPECIFIED&quot;</span>,
+                            Interpreter::None =&gt; <span class="string">&quot;NONE&quot;</span>,
+                            Interpreter::Shell =&gt; <span class="string">&quot;SHELL&quot;</span>,
+                            Interpreter::Powershell =&gt; <span class="string">&quot;POWERSHELL&quot;</span>,
+                        }
+                    }
+                    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+                    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                        <span class="kw">match </span>value {
+                            <span class="string">&quot;INTERPRETER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                            <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+                            <span class="string">&quot;SHELL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shell),
+                            <span class="string">&quot;POWERSHELL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Powershell),
+                            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                        }
+                    }
+                }
+                <span class="doccomment">/// What to execute.
+                </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+                #[derive(Clone, PartialEq, ::prost::Oneof)]
+                </span><span class="kw">pub enum </span>Source {
+                    <span class="doccomment">/// A remote or local file.
+                    </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+                    </span>File(<span class="kw">super</span>::<span class="kw">super</span>::File),
+                    <span class="doccomment">/// An inline script.
+                    /// The size of the script is limited to 1024 characters.
+                    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                    </span>Script(::prost::alloc::string::String),
+                }
+            }
+        }
+        <span class="doccomment">/// A resource that manages the state of a file.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>FileResource {
+            <span class="doccomment">/// Required. The absolute path of the file within the VM.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
+            <span class="doccomment">/// Required. Desired state of the file.
+            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;file_resource::DesiredState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="kw">pub </span>state: i32,
+            <span class="doccomment">/// Consists of three octal digits which represent, in
+            /// order, the permissions of the owner, group, and other users for the
+            /// file (similarly to the numeric mode used in the linux chmod
+            /// utility). Each digit represents a three bit number with the 4 bit
+            /// corresponding to the read permissions, the 2 bit corresponds to the
+            /// write bit, and the one bit corresponds to the execute permission.
+            /// Default behavior is 755.
+            ///
+            /// Below are some examples of permissions and their associated values:
+            /// read, write, and execute: 7
+            /// read and execute: 5
+            /// read and write: 6
+            /// read only: 4
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="kw">pub </span>permissions: ::prost::alloc::string::String,
+            <span class="doccomment">/// The source for the contents of the file.
+            </span><span class="attr">#[prost(oneof = <span class="string">&quot;file_resource::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+            </span><span class="kw">pub </span>source: ::core::option::Option&lt;file_resource::Source&gt;,
+        }
+        <span class="doccomment">/// Nested message and enum types in `FileResource`.
+        </span><span class="kw">pub mod </span>file_resource {
+            <span class="doccomment">/// Desired state of the file.
+            </span><span class="attr">#[derive(
+                Clone,
+                Copy,
+                Debug,
+                PartialEq,
+                Eq,
+                Hash,
+                PartialOrd,
+                Ord,
+                ::prost::Enumeration
+            )]
+            #[repr(i32)]
+            </span><span class="kw">pub enum </span>DesiredState {
+                <span class="doccomment">/// Unspecified is invalid.
+                </span>Unspecified = <span class="number">0</span>,
+                <span class="doccomment">/// Ensure file at path is present.
+                </span>Present = <span class="number">1</span>,
+                <span class="doccomment">/// Ensure file at path is absent.
+                </span>Absent = <span class="number">2</span>,
+                <span class="doccomment">/// Ensure the contents of the file at path matches. If the file does
+                /// not exist it will be created.
+                </span>ContentsMatch = <span class="number">3</span>,
+            }
+            <span class="kw">impl </span>DesiredState {
+                <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+                ///
+                /// The values are not transformed in any way and thus are considered stable
+                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                    <span class="kw">match </span><span class="self">self </span>{
+                        DesiredState::Unspecified =&gt; <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot;</span>,
+                        DesiredState::Present =&gt; <span class="string">&quot;PRESENT&quot;</span>,
+                        DesiredState::Absent =&gt; <span class="string">&quot;ABSENT&quot;</span>,
+                        DesiredState::ContentsMatch =&gt; <span class="string">&quot;CONTENTS_MATCH&quot;</span>,
+                    }
+                }
+                <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+                </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                    <span class="kw">match </span>value {
+                        <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                        <span class="string">&quot;PRESENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Present),
+                        <span class="string">&quot;ABSENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Absent),
+                        <span class="string">&quot;CONTENTS_MATCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ContentsMatch),
+                        <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                    }
+                }
+            }
+            <span class="doccomment">/// The source for the contents of the file.
+            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            </span><span class="kw">pub enum </span>Source {
+                <span class="doccomment">/// A remote or local source.
+                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+                </span>File(<span class="kw">super</span>::File),
+                <span class="doccomment">/// A a file with this content.
+                /// The size of the content is limited to 1024 characters.
+                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span>Content(::prost::alloc::string::String),
+            }
+        }
+        <span class="doccomment">/// Resource type.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        </span><span class="kw">pub enum </span>ResourceType {
+            <span class="doccomment">/// Package resource
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span>Pkg(PackageResource),
+            <span class="doccomment">/// Package repository resource
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+            </span>Repository(RepositoryResource),
+            <span class="doccomment">/// Exec resource
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+            </span>Exec(ExecResource),
+            <span class="doccomment">/// File resource
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+            </span>File(FileResource),
+        }
+    }
+    <span class="doccomment">/// Resource groups provide a mechanism to group OS policy resources.
+    ///
+    /// Resource groups enable OS policy authors to create a single OS policy
+    /// to be applied to VMs running different operating Systems.
+    ///
+    /// When the OS policy is applied to a target VM, the appropriate resource
+    /// group within the OS policy is selected based on the `OSFilter` specified
+    /// within the resource group.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ResourceGroup {
+        <span class="doccomment">/// Deprecated. Use the `inventory_filters` field instead.
+        /// Used to specify the OS filter for a resource group
+        </span><span class="attr">#[deprecated]
+        #[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>os_filter: ::core::option::Option&lt;OsFilter&gt;,
+        <span class="doccomment">/// List of inventory filters for the resource group.
+        ///
+        /// The resources in this resource group are applied to the target VM if it
+        /// satisfies at least one of the following inventory filters.
+        ///
+        /// For example, to apply this resource group to VMs running either `RHEL` or
+        /// `CentOS` operating systems, specify 2 items for the list with following
+        /// values:
+        /// inventory_filters\[0\].os_short_name=&#39;rhel&#39; and
+        /// inventory_filters\[1\].os_short_name=&#39;centos&#39;
+        ///
+        /// If the list is empty, this resource group will be applied to the target
+        /// VM unconditionally.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>inventory_filters: ::prost::alloc::vec::Vec&lt;InventoryFilter&gt;,
+        <span class="doccomment">/// Required. List of resources configured for this resource group.
+        /// The resources are executed in the exact order specified here.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>resources: ::prost::alloc::vec::Vec&lt;Resource&gt;,
+    }
+    <span class="doccomment">/// Policy mode
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Mode {
+        <span class="doccomment">/// Invalid mode
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// This mode checks if the configuration resources in the policy are in
+        /// their desired state. No actions are performed if they are not in the
+        /// desired state. This mode is used for reporting purposes.
+        </span>Validation = <span class="number">1</span>,
+        <span class="doccomment">/// This mode checks if the configuration resources in the policy are in
+        /// their desired state, and if not, enforces the desired state.
+        </span>Enforcement = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>Mode {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
+                Mode::Validation =&gt; <span class="string">&quot;VALIDATION&quot;</span>,
+                Mode::Enforcement =&gt; <span class="string">&quot;ENFORCEMENT&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;VALIDATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Validation),
+                <span class="string">&quot;ENFORCEMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enforcement),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Step performed by the OS Config agent for configuring an `OSPolicyResource`
 /// to its desired state.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4433,6 +5237,30 @@
         }
     }
 }
+<span class="doccomment">/// Message encapsulating a value that can be either absolute (&quot;fixed&quot;) or
+/// relative (&quot;percent&quot;) to a value.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FixedOrPercent {
+    <span class="doccomment">/// Type of the value.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;fixed_or_percent::Mode&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>mode: ::core::option::Option&lt;fixed_or_percent::Mode&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `FixedOrPercent`.
+</span><span class="kw">pub mod </span>fixed_or_percent {
+    <span class="doccomment">/// Type of the value.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Mode {
+        <span class="doccomment">/// Specifies a fixed value.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>Fixed(i32),
+        <span class="doccomment">/// Specifies the relative value defined as a percentage, which will be
+        /// multiplied by a reference value.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>Percent(i32),
+    }
+}
 <span class="doccomment">/// Get a report of the OS policy assignment for a VM instance.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4821,1297 +5649,6 @@
             }
         }
     }
-}
-<span class="doccomment">/// An OS policy defines the desired state configuration for a VM.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OsPolicy {
-    <span class="doccomment">/// Required. The id of the OS policy with the following restrictions:
-    ///
-    /// * Must contain only lowercase letters, numbers, and hyphens.
-    /// * Must start with a letter.
-    /// * Must be between 1-63 characters.
-    /// * Must end with a number or a letter.
-    /// * Must be unique within the assignment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Policy description.
-    /// Length of the description is limited to 1024 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Policy mode
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;os_policy::Mode&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>mode: i32,
-    <span class="doccomment">/// Required. List of resource groups for the policy.
-    /// For a particular VM, resource groups are evaluated in the order specified
-    /// and the first resource group that is applicable is selected and the rest
-    /// are ignored.
-    ///
-    /// If none of the resource groups are applicable for a VM, the VM is
-    /// considered to be non-compliant w.r.t this policy. This behavior can be
-    /// toggled by the flag `allow_no_resource_group_match`
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>resource_groups: ::prost::alloc::vec::Vec&lt;os_policy::ResourceGroup&gt;,
-    <span class="doccomment">/// This flag determines the OS policy compliance status when none of the
-    /// resource groups within the policy are applicable for a VM. Set this value
-    /// to `true` if the policy needs to be reported as compliant even if the
-    /// policy has nothing to validate or enforce.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>allow_no_resource_group_match: bool,
-}
-<span class="doccomment">/// Nested message and enum types in `OSPolicy`.
-</span><span class="kw">pub mod </span>os_policy {
-    <span class="doccomment">/// Filtering criteria to select VMs based on OS details.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>OsFilter {
-        <span class="doccomment">/// This should match OS short name emitted by the OS inventory agent.
-        /// An empty value matches any OS.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>os_short_name: ::prost::alloc::string::String,
-        <span class="doccomment">/// This value should match the version emitted by the OS inventory
-        /// agent.
-        /// Prefix matches are supported if asterisk(*) is provided as the
-        /// last character. For example, to match all versions with a major
-        /// version of `7`, specify the following value for this field `7.*`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>os_version: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Filtering criteria to select VMs based on inventory details.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>InventoryFilter {
-        <span class="doccomment">/// Required. The OS short name
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>os_short_name: ::prost::alloc::string::String,
-        <span class="doccomment">/// The OS version
-        ///
-        /// Prefix matches are supported if asterisk(*) is provided as the
-        /// last character. For example, to match all versions with a major
-        /// version of `7`, specify the following value for this field `7.*`
-        ///
-        /// An empty string matches all OS versions.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>os_version: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// An OS policy resource is used to define the desired state configuration
-    /// and provides a specific functionality like installing/removing packages,
-    /// executing a script etc.
-    ///
-    /// The system ensures that resources are always in their desired state by
-    /// taking necessary actions if they have drifted from their desired state.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Resource {
-        <span class="doccomment">/// Required. The id of the resource with the following restrictions:
-        ///
-        /// * Must contain only lowercase letters, numbers, and hyphens.
-        /// * Must start with a letter.
-        /// * Must be between 1-63 characters.
-        /// * Must end with a number or a letter.
-        /// * Must be unique within the OS policy.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-        <span class="doccomment">/// Resource type.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;resource::ResourceType&quot;</span>, tags = <span class="string">&quot;2, 3, 4, 5&quot;</span>)]
-        </span><span class="kw">pub </span>resource_type: ::core::option::Option&lt;resource::ResourceType&gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `Resource`.
-    </span><span class="kw">pub mod </span>resource {
-        <span class="doccomment">/// A remote or local file.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>File {
-            <span class="doccomment">/// Defaults to false. When false, files are subject to validations
-            /// based on the file type:
-            ///
-            /// Remote: A checksum must be specified.
-            /// Cloud Storage: An object generation number must be specified.
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-            </span><span class="kw">pub </span>allow_insecure: bool,
-            <span class="doccomment">/// A specific type of file.
-            </span><span class="attr">#[prost(oneof = <span class="string">&quot;file::Type&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
-            </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;file::Type&gt;,
-        }
-        <span class="doccomment">/// Nested message and enum types in `File`.
-        </span><span class="kw">pub mod </span>file {
-            <span class="doccomment">/// Specifies a file available via some URI.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>Remote {
-                <span class="doccomment">/// Required. URI from which to fetch the object. It should contain both the
-                /// protocol and path following the format `{protocol}://{location}`.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
-                <span class="doccomment">/// SHA256 checksum of the remote file.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-                </span><span class="kw">pub </span>sha256_checksum: ::prost::alloc::string::String,
-            }
-            <span class="doccomment">/// Specifies a file available as a Cloud Storage Object.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>Gcs {
-                <span class="doccomment">/// Required. Bucket of the Cloud Storage object.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>bucket: ::prost::alloc::string::String,
-                <span class="doccomment">/// Required. Name of the Cloud Storage object.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-                </span><span class="kw">pub </span>object: ::prost::alloc::string::String,
-                <span class="doccomment">/// Generation number of the Cloud Storage object.
-                </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
-                </span><span class="kw">pub </span>generation: i64,
-            }
-            <span class="doccomment">/// A specific type of file.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            </span><span class="kw">pub enum </span>Type {
-                <span class="doccomment">/// A generic remote file.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-                </span>Remote(Remote),
-                <span class="doccomment">/// A Cloud Storage object.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-                </span>Gcs(Gcs),
-                <span class="doccomment">/// A local path within the VM to use.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-                </span>LocalPath(::prost::alloc::string::String),
-            }
-        }
-        <span class="doccomment">/// A resource that manages a system package.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>PackageResource {
-            <span class="doccomment">/// Required. The desired state the agent should maintain for this package.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;package_resource::DesiredState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-            </span><span class="kw">pub </span>desired_state: i32,
-            <span class="doccomment">/// A system package.
-            </span><span class="attr">#[prost(
-                oneof = <span class="string">&quot;package_resource::SystemPackage&quot;</span>,
-                tags = <span class="string">&quot;2, 3, 4, 5, 6, 7, 8&quot;
-            </span>)]
-            </span><span class="kw">pub </span>system_package: ::core::option::Option&lt;package_resource::SystemPackage&gt;,
-        }
-        <span class="doccomment">/// Nested message and enum types in `PackageResource`.
-        </span><span class="kw">pub mod </span>package_resource {
-            <span class="doccomment">/// A deb package file. dpkg packages only support INSTALLED state.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>Deb {
-                <span class="doccomment">/// Required. A deb package.
-                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>source: ::core::option::Option&lt;<span class="kw">super</span>::File&gt;,
-                <span class="doccomment">/// Whether dependencies should also be installed.
-                /// - install when false: `dpkg -i package`
-                /// - install when true: `apt-get update &amp;&amp; apt-get -y install
-                /// package.deb`
-                </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-                </span><span class="kw">pub </span>pull_deps: bool,
-            }
-            <span class="doccomment">/// A package managed by APT.
-            /// - install: `apt-get update &amp;&amp; apt-get -y install \[name\]`
-            /// - remove: `apt-get -y remove \[name\]`
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>Apt {
-                <span class="doccomment">/// Required. Package name.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-            }
-            <span class="doccomment">/// An RPM package file. RPM packages only support INSTALLED state.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>Rpm {
-                <span class="doccomment">/// Required. An rpm package.
-                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>source: ::core::option::Option&lt;<span class="kw">super</span>::File&gt;,
-                <span class="doccomment">/// Whether dependencies should also be installed.
-                /// - install when false: `rpm --upgrade --replacepkgs package.rpm`
-                /// - install when true: `yum -y install package.rpm` or
-                /// `zypper -y install package.rpm`
-                </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-                </span><span class="kw">pub </span>pull_deps: bool,
-            }
-            <span class="doccomment">/// A package managed by YUM.
-            /// - install: `yum -y install package`
-            /// - remove: `yum -y remove package`
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>Yum {
-                <span class="doccomment">/// Required. Package name.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-            }
-            <span class="doccomment">/// A package managed by Zypper.
-            /// - install: `zypper -y install package`
-            /// - remove: `zypper -y rm package`
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>Zypper {
-                <span class="doccomment">/// Required. Package name.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-            }
-            <span class="doccomment">/// A package managed by GooGet.
-            /// - install: `googet -noconfirm install package`
-            /// - remove: `googet -noconfirm remove package`
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>GooGet {
-                <span class="doccomment">/// Required. Package name.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-            }
-            <span class="doccomment">/// An MSI package. MSI packages only support INSTALLED state.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>Msi {
-                <span class="doccomment">/// Required. The MSI package.
-                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>source: ::core::option::Option&lt;<span class="kw">super</span>::File&gt;,
-                <span class="doccomment">/// Additional properties to use during installation.
-                /// This should be in the format of Property=Setting.
-                /// Appended to the defaults of `ACTION=INSTALL
-                /// REBOOT=ReallySuppress`.
-                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-                </span><span class="kw">pub </span>properties: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-            }
-            <span class="doccomment">/// The desired state that the OS Config agent maintains on the VM.
-            </span><span class="attr">#[derive(
-                Clone,
-                Copy,
-                Debug,
-                PartialEq,
-                Eq,
-                Hash,
-                PartialOrd,
-                Ord,
-                ::prost::Enumeration
-            )]
-            #[repr(i32)]
-            </span><span class="kw">pub enum </span>DesiredState {
-                <span class="doccomment">/// Unspecified is invalid.
-                </span>Unspecified = <span class="number">0</span>,
-                <span class="doccomment">/// Ensure that the package is installed.
-                </span>Installed = <span class="number">1</span>,
-                <span class="doccomment">/// The agent ensures that the package is not installed and
-                /// uninstalls it if detected.
-                </span>Removed = <span class="number">2</span>,
-            }
-            <span class="kw">impl </span>DesiredState {
-                <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-                ///
-                /// The values are not transformed in any way and thus are considered stable
-                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                    <span class="kw">match </span><span class="self">self </span>{
-                        DesiredState::Unspecified =&gt; <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot;</span>,
-                        DesiredState::Installed =&gt; <span class="string">&quot;INSTALLED&quot;</span>,
-                        DesiredState::Removed =&gt; <span class="string">&quot;REMOVED&quot;</span>,
-                    }
-                }
-                <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-                </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                    <span class="kw">match </span>value {
-                        <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                        <span class="string">&quot;INSTALLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Installed),
-                        <span class="string">&quot;REMOVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Removed),
-                        <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                    }
-                }
-            }
-            <span class="doccomment">/// A system package.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            </span><span class="kw">pub enum </span>SystemPackage {
-                <span class="doccomment">/// A package managed by Apt.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-                </span>Apt(Apt),
-                <span class="doccomment">/// A deb package file.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-                </span>Deb(Deb),
-                <span class="doccomment">/// A package managed by YUM.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-                </span>Yum(Yum),
-                <span class="doccomment">/// A package managed by Zypper.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
-                </span>Zypper(Zypper),
-                <span class="doccomment">/// An rpm package file.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-                </span>Rpm(Rpm),
-                <span class="doccomment">/// A package managed by GooGet.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-                </span>Googet(GooGet),
-                <span class="doccomment">/// An MSI package.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
-                </span>Msi(Msi),
-            }
-        }
-        <span class="doccomment">/// A resource that manages a package repository.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>RepositoryResource {
-            <span class="doccomment">/// A specific type of repository.
-            </span><span class="attr">#[prost(oneof = <span class="string">&quot;repository_resource::Repository&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
-            </span><span class="kw">pub </span>repository: ::core::option::Option&lt;repository_resource::Repository&gt;,
-        }
-        <span class="doccomment">/// Nested message and enum types in `RepositoryResource`.
-        </span><span class="kw">pub mod </span>repository_resource {
-            <span class="doccomment">/// Represents a single apt package repository. These will be added to
-            /// a repo file that will be managed at
-            /// `/etc/apt/sources.list.d/google_osconfig.list`.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>AptRepository {
-                <span class="doccomment">/// Required. Type of archive files in this repository.
-                </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apt_repository::ArchiveType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>archive_type: i32,
-                <span class="doccomment">/// Required. URI for this repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-                </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
-                <span class="doccomment">/// Required. Distribution of this repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-                </span><span class="kw">pub </span>distribution: ::prost::alloc::string::String,
-                <span class="doccomment">/// Required. List of components for this repository. Must contain at least one
-                /// item.
-                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-                </span><span class="kw">pub </span>components: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-                <span class="doccomment">/// URI of the key file for this repository. The agent maintains a
-                /// keyring at `/etc/apt/trusted.gpg.d/osconfig_agent_managed.gpg`.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-                </span><span class="kw">pub </span>gpg_key: ::prost::alloc::string::String,
-            }
-            <span class="doccomment">/// Nested message and enum types in `AptRepository`.
-            </span><span class="kw">pub mod </span>apt_repository {
-                <span class="doccomment">/// Type of archive.
-                </span><span class="attr">#[derive(
-                    Clone,
-                    Copy,
-                    Debug,
-                    PartialEq,
-                    Eq,
-                    Hash,
-                    PartialOrd,
-                    Ord,
-                    ::prost::Enumeration
-                )]
-                #[repr(i32)]
-                </span><span class="kw">pub enum </span>ArchiveType {
-                    <span class="doccomment">/// Unspecified is invalid.
-                    </span>Unspecified = <span class="number">0</span>,
-                    <span class="doccomment">/// Deb indicates that the archive contains binary files.
-                    </span>Deb = <span class="number">1</span>,
-                    <span class="doccomment">/// Deb-src indicates that the archive contains source files.
-                    </span>DebSrc = <span class="number">2</span>,
-                }
-                <span class="kw">impl </span>ArchiveType {
-                    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-                    ///
-                    /// The values are not transformed in any way and thus are considered stable
-                    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                        <span class="kw">match </span><span class="self">self </span>{
-                            ArchiveType::Unspecified =&gt; <span class="string">&quot;ARCHIVE_TYPE_UNSPECIFIED&quot;</span>,
-                            ArchiveType::Deb =&gt; <span class="string">&quot;DEB&quot;</span>,
-                            ArchiveType::DebSrc =&gt; <span class="string">&quot;DEB_SRC&quot;</span>,
-                        }
-                    }
-                    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-                    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                        <span class="kw">match </span>value {
-                            <span class="string">&quot;ARCHIVE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                            <span class="string">&quot;DEB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deb),
-                            <span class="string">&quot;DEB_SRC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DebSrc),
-                            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                        }
-                    }
-                }
-            }
-            <span class="doccomment">/// Represents a single yum package repository. These are added to a
-            /// repo file that is managed at
-            /// `/etc/yum.repos.d/google_osconfig.repo`.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>YumRepository {
-                <span class="doccomment">/// Required. A one word, unique name for this repository. This is  the `repo
-                /// id` in the yum config file and also the `display_name` if
-                /// `display_name` is omitted. This id is also used as the unique
-                /// identifier when checking for resource conflicts.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-                <span class="doccomment">/// The display name of the repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-                </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-                <span class="doccomment">/// Required. The location of the repository directory.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-                </span><span class="kw">pub </span>base_url: ::prost::alloc::string::String,
-                <span class="doccomment">/// URIs of GPG keys.
-                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-                </span><span class="kw">pub </span>gpg_keys: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-            }
-            <span class="doccomment">/// Represents a single zypper package repository. These are added to a
-            /// repo file that is managed at
-            /// `/etc/zypp/repos.d/google_osconfig.repo`.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>ZypperRepository {
-                <span class="doccomment">/// Required. A one word, unique name for this repository. This is the `repo
-                /// id` in the zypper config file and also the `display_name` if
-                /// `display_name` is omitted. This id is also used as the unique
-                /// identifier when checking for GuestPolicy conflicts.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-                <span class="doccomment">/// The display name of the repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-                </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-                <span class="doccomment">/// Required. The location of the repository directory.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-                </span><span class="kw">pub </span>base_url: ::prost::alloc::string::String,
-                <span class="doccomment">/// URIs of GPG keys.
-                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-                </span><span class="kw">pub </span>gpg_keys: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-            }
-            <span class="doccomment">/// Represents a Goo package repository. These are added to a repo file
-            /// that is managed at
-            /// `C:/ProgramData/GooGet/repos/google_osconfig.repo`.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>GooRepository {
-                <span class="doccomment">/// Required. The name of the repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-                </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-                <span class="doccomment">/// Required. The url of the repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-                </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
-            }
-            <span class="doccomment">/// A specific type of repository.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            </span><span class="kw">pub enum </span>Repository {
-                <span class="doccomment">/// An Apt Repository.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-                </span>Apt(AptRepository),
-                <span class="doccomment">/// A Yum Repository.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-                </span>Yum(YumRepository),
-                <span class="doccomment">/// A Zypper Repository.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-                </span>Zypper(ZypperRepository),
-                <span class="doccomment">/// A Goo Repository.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-                </span>Goo(GooRepository),
-            }
-        }
-        <span class="doccomment">/// A resource that allows executing scripts on the VM.
-        ///
-        /// The `ExecResource` has 2 stages: `validate` and `enforce` and both stages
-        /// accept a script as an argument to execute.
-        ///
-        /// When the `ExecResource` is applied by the agent, it first executes the
-        /// script in the `validate` stage. The `validate` stage can signal that the
-        /// `ExecResource` is already in the desired state by returning an exit code
-        /// of `100`. If the `ExecResource` is not in the desired state, it should
-        /// return an exit code of `101`. Any other exit code returned by this stage
-        /// is considered an error.
-        ///
-        /// If the `ExecResource` is not in the desired state based on the exit code
-        /// from the `validate` stage, the agent proceeds to execute the script from
-        /// the `enforce` stage. If the `ExecResource` is already in the desired
-        /// state, the `enforce` stage will not be run.
-        /// Similar to `validate` stage, the `enforce` stage should return an exit
-        /// code of `100` to indicate that the resource in now in its desired state.
-        /// Any other exit code is considered an error.
-        ///
-        /// NOTE: An exit code of `100` was chosen over `0` (and `101` vs `1`) to
-        /// have an explicit indicator of `in desired state`, `not in desired state`
-        /// and errors. Because, for example, Powershell will always return an exit
-        /// code of `0` unless an `exit` statement is provided in the script. So, for
-        /// reasons of consistency and being explicit, exit codes `100` and `101`
-        /// were chosen.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>ExecResource {
-            <span class="doccomment">/// Required. What to run to validate this resource is in the desired state.
-            /// An exit code of 100 indicates &quot;in desired state&quot;, and exit code of 101
-            /// indicates &quot;not in desired state&quot;. Any other exit code indicates a
-            /// failure running validate.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-            </span><span class="kw">pub </span>validate: ::core::option::Option&lt;exec_resource::Exec&gt;,
-            <span class="doccomment">/// What to run to bring this resource into the desired state.
-            /// An exit code of 100 indicates &quot;success&quot;, any other exit code indicates
-            /// a failure running enforce.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-            </span><span class="kw">pub </span>enforce: ::core::option::Option&lt;exec_resource::Exec&gt;,
-        }
-        <span class="doccomment">/// Nested message and enum types in `ExecResource`.
-        </span><span class="kw">pub mod </span>exec_resource {
-            <span class="doccomment">/// A file or script to execute.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            </span><span class="kw">pub struct </span>Exec {
-                <span class="doccomment">/// Optional arguments to pass to the source during execution.
-                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-                </span><span class="kw">pub </span>args: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-                <span class="doccomment">/// Required. The script interpreter to use.
-                </span><span class="attr">#[prost(enumeration = <span class="string">&quot;exec::Interpreter&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-                </span><span class="kw">pub </span>interpreter: i32,
-                <span class="doccomment">/// Only recorded for enforce Exec.
-                /// Path to an output file (that is created by this Exec) whose
-                /// content will be recorded in OSPolicyResourceCompliance after a
-                /// successful run. Absence or failure to read this file will result in
-                /// this ExecResource being non-compliant. Output file size is limited to
-                /// 100K bytes.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-                </span><span class="kw">pub </span>output_file_path: ::prost::alloc::string::String,
-                <span class="doccomment">/// What to execute.
-                </span><span class="attr">#[prost(oneof = <span class="string">&quot;exec::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-                </span><span class="kw">pub </span>source: ::core::option::Option&lt;exec::Source&gt;,
-            }
-            <span class="doccomment">/// Nested message and enum types in `Exec`.
-            </span><span class="kw">pub mod </span>exec {
-                <span class="doccomment">/// The interpreter to use.
-                </span><span class="attr">#[derive(
-                    Clone,
-                    Copy,
-                    Debug,
-                    PartialEq,
-                    Eq,
-                    Hash,
-                    PartialOrd,
-                    Ord,
-                    ::prost::Enumeration
-                )]
-                #[repr(i32)]
-                </span><span class="kw">pub enum </span>Interpreter {
-                    <span class="doccomment">/// Invalid value, the request will return validation error.
-                    </span>Unspecified = <span class="number">0</span>,
-                    <span class="doccomment">/// If an interpreter is not specified, the
-                    /// source is executed directly. This execution, without an
-                    /// interpreter, only succeeds for executables and scripts that have &lt;a
-                    /// href=&quot;&lt;https://en.wikipedia.org/wiki/Shebang_(Unix&gt;)&quot;
-                    /// class=&quot;external&quot;&gt;shebang lines&lt;/a&gt;.
-                    </span><span class="prelude-val">None </span>= <span class="number">1</span>,
-                    <span class="doccomment">/// Indicates that the script runs with `/bin/sh` on Linux and
-                    /// `cmd.exe` on Windows.
-                    </span>Shell = <span class="number">2</span>,
-                    <span class="doccomment">/// Indicates that the script runs with PowerShell.
-                    </span>Powershell = <span class="number">3</span>,
-                }
-                <span class="kw">impl </span>Interpreter {
-                    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-                    ///
-                    /// The values are not transformed in any way and thus are considered stable
-                    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                        <span class="kw">match </span><span class="self">self </span>{
-                            Interpreter::Unspecified =&gt; <span class="string">&quot;INTERPRETER_UNSPECIFIED&quot;</span>,
-                            Interpreter::None =&gt; <span class="string">&quot;NONE&quot;</span>,
-                            Interpreter::Shell =&gt; <span class="string">&quot;SHELL&quot;</span>,
-                            Interpreter::Powershell =&gt; <span class="string">&quot;POWERSHELL&quot;</span>,
-                        }
-                    }
-                    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-                    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                        <span class="kw">match </span>value {
-                            <span class="string">&quot;INTERPRETER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                            <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
-                            <span class="string">&quot;SHELL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shell),
-                            <span class="string">&quot;POWERSHELL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Powershell),
-                            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                        }
-                    }
-                }
-                <span class="doccomment">/// What to execute.
-                </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-                #[derive(Clone, PartialEq, ::prost::Oneof)]
-                </span><span class="kw">pub enum </span>Source {
-                    <span class="doccomment">/// A remote or local file.
-                    </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-                    </span>File(<span class="kw">super</span>::<span class="kw">super</span>::File),
-                    <span class="doccomment">/// An inline script.
-                    /// The size of the script is limited to 1024 characters.
-                    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-                    </span>Script(::prost::alloc::string::String),
-                }
-            }
-        }
-        <span class="doccomment">/// A resource that manages the state of a file.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>FileResource {
-            <span class="doccomment">/// Required. The absolute path of the file within the VM.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-            </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
-            <span class="doccomment">/// Required. Desired state of the file.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;file_resource::DesiredState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-            </span><span class="kw">pub </span>state: i32,
-            <span class="doccomment">/// Consists of three octal digits which represent, in
-            /// order, the permissions of the owner, group, and other users for the
-            /// file (similarly to the numeric mode used in the linux chmod
-            /// utility). Each digit represents a three bit number with the 4 bit
-            /// corresponding to the read permissions, the 2 bit corresponds to the
-            /// write bit, and the one bit corresponds to the execute permission.
-            /// Default behavior is 755.
-            ///
-            /// Below are some examples of permissions and their associated values:
-            /// read, write, and execute: 7
-            /// read and execute: 5
-            /// read and write: 6
-            /// read only: 4
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-            </span><span class="kw">pub </span>permissions: ::prost::alloc::string::String,
-            <span class="doccomment">/// The source for the contents of the file.
-            </span><span class="attr">#[prost(oneof = <span class="string">&quot;file_resource::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-            </span><span class="kw">pub </span>source: ::core::option::Option&lt;file_resource::Source&gt;,
-        }
-        <span class="doccomment">/// Nested message and enum types in `FileResource`.
-        </span><span class="kw">pub mod </span>file_resource {
-            <span class="doccomment">/// Desired state of the file.
-            </span><span class="attr">#[derive(
-                Clone,
-                Copy,
-                Debug,
-                PartialEq,
-                Eq,
-                Hash,
-                PartialOrd,
-                Ord,
-                ::prost::Enumeration
-            )]
-            #[repr(i32)]
-            </span><span class="kw">pub enum </span>DesiredState {
-                <span class="doccomment">/// Unspecified is invalid.
-                </span>Unspecified = <span class="number">0</span>,
-                <span class="doccomment">/// Ensure file at path is present.
-                </span>Present = <span class="number">1</span>,
-                <span class="doccomment">/// Ensure file at path is absent.
-                </span>Absent = <span class="number">2</span>,
-                <span class="doccomment">/// Ensure the contents of the file at path matches. If the file does
-                /// not exist it will be created.
-                </span>ContentsMatch = <span class="number">3</span>,
-            }
-            <span class="kw">impl </span>DesiredState {
-                <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-                ///
-                /// The values are not transformed in any way and thus are considered stable
-                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                    <span class="kw">match </span><span class="self">self </span>{
-                        DesiredState::Unspecified =&gt; <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot;</span>,
-                        DesiredState::Present =&gt; <span class="string">&quot;PRESENT&quot;</span>,
-                        DesiredState::Absent =&gt; <span class="string">&quot;ABSENT&quot;</span>,
-                        DesiredState::ContentsMatch =&gt; <span class="string">&quot;CONTENTS_MATCH&quot;</span>,
-                    }
-                }
-                <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-                </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                    <span class="kw">match </span>value {
-                        <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                        <span class="string">&quot;PRESENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Present),
-                        <span class="string">&quot;ABSENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Absent),
-                        <span class="string">&quot;CONTENTS_MATCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ContentsMatch),
-                        <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                    }
-                }
-            }
-            <span class="doccomment">/// The source for the contents of the file.
-            </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            </span><span class="kw">pub enum </span>Source {
-                <span class="doccomment">/// A remote or local source.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-                </span>File(<span class="kw">super</span>::File),
-                <span class="doccomment">/// A a file with this content.
-                /// The size of the content is limited to 1024 characters.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-                </span>Content(::prost::alloc::string::String),
-            }
-        }
-        <span class="doccomment">/// Resource type.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        </span><span class="kw">pub enum </span>ResourceType {
-            <span class="doccomment">/// Package resource
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-            </span>Pkg(PackageResource),
-            <span class="doccomment">/// Package repository resource
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-            </span>Repository(RepositoryResource),
-            <span class="doccomment">/// Exec resource
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-            </span>Exec(ExecResource),
-            <span class="doccomment">/// File resource
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
-            </span>File(FileResource),
-        }
-    }
-    <span class="doccomment">/// Resource groups provide a mechanism to group OS policy resources.
-    ///
-    /// Resource groups enable OS policy authors to create a single OS policy
-    /// to be applied to VMs running different operating Systems.
-    ///
-    /// When the OS policy is applied to a target VM, the appropriate resource
-    /// group within the OS policy is selected based on the `OSFilter` specified
-    /// within the resource group.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ResourceGroup {
-        <span class="doccomment">/// Deprecated. Use the `inventory_filters` field instead.
-        /// Used to specify the OS filter for a resource group
-        </span><span class="attr">#[deprecated]
-        #[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>os_filter: ::core::option::Option&lt;OsFilter&gt;,
-        <span class="doccomment">/// List of inventory filters for the resource group.
-        ///
-        /// The resources in this resource group are applied to the target VM if it
-        /// satisfies at least one of the following inventory filters.
-        ///
-        /// For example, to apply this resource group to VMs running either `RHEL` or
-        /// `CentOS` operating systems, specify 2 items for the list with following
-        /// values:
-        /// inventory_filters\[0\].os_short_name=&#39;rhel&#39; and
-        /// inventory_filters\[1\].os_short_name=&#39;centos&#39;
-        ///
-        /// If the list is empty, this resource group will be applied to the target
-        /// VM unconditionally.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>inventory_filters: ::prost::alloc::vec::Vec&lt;InventoryFilter&gt;,
-        <span class="doccomment">/// Required. List of resources configured for this resource group.
-        /// The resources are executed in the exact order specified here.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>resources: ::prost::alloc::vec::Vec&lt;Resource&gt;,
-    }
-    <span class="doccomment">/// Policy mode
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Mode {
-        <span class="doccomment">/// Invalid mode
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// This mode checks if the configuration resources in the policy are in
-        /// their desired state. No actions are performed if they are not in the
-        /// desired state. This mode is used for reporting purposes.
-        </span>Validation = <span class="number">1</span>,
-        <span class="doccomment">/// This mode checks if the configuration resources in the policy are in
-        /// their desired state, and if not, enforces the desired state.
-        </span>Enforcement = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>Mode {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
-                Mode::Validation =&gt; <span class="string">&quot;VALIDATION&quot;</span>,
-                Mode::Enforcement =&gt; <span class="string">&quot;ENFORCEMENT&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;VALIDATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Validation),
-                <span class="string">&quot;ENFORCEMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enforcement),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Message encapsulating a value that can be either absolute (&quot;fixed&quot;) or
-/// relative (&quot;percent&quot;) to a value.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FixedOrPercent {
-    <span class="doccomment">/// Type of the value.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;fixed_or_percent::Mode&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-    </span><span class="kw">pub </span>mode: ::core::option::Option&lt;fixed_or_percent::Mode&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `FixedOrPercent`.
-</span><span class="kw">pub mod </span>fixed_or_percent {
-    <span class="doccomment">/// Type of the value.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Mode {
-        <span class="doccomment">/// Specifies a fixed value.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>Fixed(i32),
-        <span class="doccomment">/// Specifies the relative value defined as a percentage, which will be
-        /// multiplied by a reference value.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>Percent(i32),
-    }
-}
-<span class="doccomment">/// OS policy assignment is an API resource that is used to
-/// apply a set of OS policies to a dynamically targeted group of Compute Engine
-/// VM instances.
-///
-/// An OS policy is used to define the desired state configuration for a
-/// Compute Engine VM instance through a set of configuration resources that
-/// provide capabilities such as installing or removing software packages, or
-/// executing a script.
-///
-/// For more information, see [OS policy and OS policy
-/// assignment](&lt;https://cloud.google.com/compute/docs/os-configuration-management/working-with-os-policies&gt;).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OsPolicyAssignment {
-    <span class="doccomment">/// Resource name.
-    ///
-    /// Format:
-    /// `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id}`
-    ///
-    /// This field is ignored when you create an OS policy assignment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// OS policy assignment description.
-    /// Length of the description is limited to 1024 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. List of OS policies to be applied to the VMs.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>os_policies: ::prost::alloc::vec::Vec&lt;OsPolicy&gt;,
-    <span class="doccomment">/// Required. Filter to select VMs.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>instance_filter: ::core::option::Option&lt;os_policy_assignment::InstanceFilter&gt;,
-    <span class="doccomment">/// Required. Rollout to deploy the OS policy assignment.
-    /// A rollout is triggered in the following situations:
-    /// 1) OSPolicyAssignment is created.
-    /// 2) OSPolicyAssignment is updated and the update contains changes to one of
-    /// the following fields:
-    ///     - instance_filter
-    ///     - os_policies
-    /// 3) OSPolicyAssignment is deleted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>rollout: ::core::option::Option&lt;os_policy_assignment::Rollout&gt;,
-    <span class="doccomment">/// Output only. The assignment revision ID
-    /// A new revision is committed whenever a rollout is triggered for a OS policy
-    /// assignment
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>revision_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The timestamp that the revision was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>revision_create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The etag for this OS policy assignment.
-    /// If this is provided on update, it must match the server&#39;s etag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. OS policy assignment rollout state
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;os_policy_assignment::RolloutState&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>rollout_state: i32,
-    <span class="doccomment">/// Output only. Indicates that this revision has been successfully rolled out in this zone
-    /// and new VMs will be assigned OS policies from this revision.
-    ///
-    /// For a given OS policy assignment, there is only one revision with a value
-    /// of `true` for this field.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>baseline: bool,
-    <span class="doccomment">/// Output only. Indicates that this revision deletes the OS policy assignment.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>deleted: bool,
-    <span class="doccomment">/// Output only. Indicates that reconciliation is in progress for the revision.
-    /// This value is `true` when the `rollout_state` is one of:
-    /// * IN_PROGRESS
-    /// * CANCELLING
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>reconciling: bool,
-    <span class="doccomment">/// Output only. Server generated unique id for the OS policy assignment resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `OSPolicyAssignment`.
-</span><span class="kw">pub mod </span>os_policy_assignment {
-    <span class="doccomment">/// Message representing label set.
-    /// * A label is a key value pair set for a VM.
-    /// * A LabelSet is a set of labels.
-    /// * Labels within a LabelSet are ANDed. In other words, a LabelSet is
-    ///    applicable for a VM only if it matches all the labels in the
-    ///    LabelSet.
-    /// * Example: A LabelSet with 2 labels: `env=prod` and `type=webserver` will
-    ///             only be applicable for those VMs with both labels
-    ///             present.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>LabelSet {
-        <span class="doccomment">/// Labels are identified by key/value pairs in this map.
-        /// A VM should contain all the key/value pairs specified in this
-        /// map to be selected.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-            ::prost::alloc::string::String,
-            ::prost::alloc::string::String,
-        &gt;,
-    }
-    <span class="doccomment">/// Filters to select target VMs for an assignment.
-    ///
-    /// If more than one filter criteria is specified below, a VM will be selected
-    /// if and only if it satisfies all of them.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>InstanceFilter {
-        <span class="doccomment">/// Target all VMs in the project. If true, no other criteria is
-        /// permitted.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>all: bool,
-        <span class="doccomment">/// Deprecated. Use the `inventories` field instead.
-        /// A VM is selected if it&#39;s OS short name matches with any of the
-        /// values provided in this list.
-        </span><span class="attr">#[deprecated]
-        #[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>os_short_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// List of label sets used for VM inclusion.
-        ///
-        /// If the list has more than one `LabelSet`, the VM is included if any
-        /// of the label sets are applicable for the VM.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>inclusion_labels: ::prost::alloc::vec::Vec&lt;LabelSet&gt;,
-        <span class="doccomment">/// List of label sets used for VM exclusion.
-        ///
-        /// If the list has more than one label set, the VM is excluded if any
-        /// of the label sets are applicable for the VM.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>exclusion_labels: ::prost::alloc::vec::Vec&lt;LabelSet&gt;,
-        <span class="doccomment">/// List of inventories to select VMs.
-        ///
-        /// A VM is selected if its inventory data matches at least one of the
-        /// following inventories.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>inventories: ::prost::alloc::vec::Vec&lt;instance_filter::Inventory&gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `InstanceFilter`.
-    </span><span class="kw">pub mod </span>instance_filter {
-        <span class="doccomment">/// VM inventory details.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>Inventory {
-            <span class="doccomment">/// Required. The OS short name
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-            </span><span class="kw">pub </span>os_short_name: ::prost::alloc::string::String,
-            <span class="doccomment">/// The OS version
-            ///
-            /// Prefix matches are supported if asterisk(*) is provided as the
-            /// last character. For example, to match all versions with a major
-            /// version of `7`, specify the following value for this field `7.*`
-            ///
-            /// An empty string matches all OS versions.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-            </span><span class="kw">pub </span>os_version: ::prost::alloc::string::String,
-        }
-    }
-    <span class="doccomment">/// Message to configure the rollout at the zonal level for the OS policy
-    /// assignment.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Rollout {
-        <span class="doccomment">/// Required. The maximum number (or percentage) of VMs per zone to disrupt at
-        /// any given moment.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>disruption_budget: ::core::option::Option&lt;<span class="kw">super</span>::FixedOrPercent&gt;,
-        <span class="doccomment">/// Required. This determines the minimum duration of time to wait after the
-        /// configuration changes are applied through the current rollout. A
-        /// VM continues to count towards the `disruption_budget` at least
-        /// until this duration of time has passed after configuration changes are
-        /// applied.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>min_wait_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    }
-    <span class="doccomment">/// OS policy assignment rollout state
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>RolloutState {
-        <span class="doccomment">/// Invalid value
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The rollout is in progress.
-        </span>InProgress = <span class="number">1</span>,
-        <span class="doccomment">/// The rollout is being cancelled.
-        </span>Cancelling = <span class="number">2</span>,
-        <span class="doccomment">/// The rollout is cancelled.
-        </span>Cancelled = <span class="number">3</span>,
-        <span class="doccomment">/// The rollout has completed successfully.
-        </span>Succeeded = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>RolloutState {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                RolloutState::Unspecified =&gt; <span class="string">&quot;ROLLOUT_STATE_UNSPECIFIED&quot;</span>,
-                RolloutState::InProgress =&gt; <span class="string">&quot;IN_PROGRESS&quot;</span>,
-                RolloutState::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
-                RolloutState::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-                RolloutState::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;ROLLOUT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgress),
-                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// OS policy assignment operation metadata provided by OS policy assignment API
-/// methods that return long running operations.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OsPolicyAssignmentOperationMetadata {
-    <span class="doccomment">/// Reference to the `OSPolicyAssignment` API resource.
-    ///
-    /// Format:
-    /// `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>os_policy_assignment: ::prost::alloc::string::String,
-    <span class="doccomment">/// The OS policy assignment API method.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;os_policy_assignment_operation_metadata::ApiMethod&quot;</span>,
-        tag = <span class="string">&quot;2&quot;
-    </span>)]
-    </span><span class="kw">pub </span>api_method: i32,
-    <span class="doccomment">/// State of the rollout
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;os_policy_assignment_operation_metadata::RolloutState&quot;</span>,
-        tag = <span class="string">&quot;3&quot;
-    </span>)]
-    </span><span class="kw">pub </span>rollout_state: i32,
-    <span class="doccomment">/// Rollout start time
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>rollout_start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Rollout update time
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>rollout_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `OSPolicyAssignmentOperationMetadata`.
-</span><span class="kw">pub mod </span>os_policy_assignment_operation_metadata {
-    <span class="doccomment">/// The OS policy assignment API method.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>ApiMethod {
-        <span class="doccomment">/// Invalid value
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Create OS policy assignment API method
-        </span>Create = <span class="number">1</span>,
-        <span class="doccomment">/// Update OS policy assignment API method
-        </span>Update = <span class="number">2</span>,
-        <span class="doccomment">/// Delete OS policy assignment API method
-        </span>Delete = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>ApiMethod {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                ApiMethod::Unspecified =&gt; <span class="string">&quot;API_METHOD_UNSPECIFIED&quot;</span>,
-                ApiMethod::Create =&gt; <span class="string">&quot;CREATE&quot;</span>,
-                ApiMethod::Update =&gt; <span class="string">&quot;UPDATE&quot;</span>,
-                ApiMethod::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;API_METHOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
-                <span class="string">&quot;UPDATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
-                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// State of the rollout
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>RolloutState {
-        <span class="doccomment">/// Invalid value
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The rollout is in progress.
-        </span>InProgress = <span class="number">1</span>,
-        <span class="doccomment">/// The rollout is being cancelled.
-        </span>Cancelling = <span class="number">2</span>,
-        <span class="doccomment">/// The rollout is cancelled.
-        </span>Cancelled = <span class="number">3</span>,
-        <span class="doccomment">/// The rollout has completed successfully.
-        </span>Succeeded = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>RolloutState {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                RolloutState::Unspecified =&gt; <span class="string">&quot;ROLLOUT_STATE_UNSPECIFIED&quot;</span>,
-                RolloutState::InProgress =&gt; <span class="string">&quot;IN_PROGRESS&quot;</span>,
-                RolloutState::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
-                RolloutState::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-                RolloutState::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;ROLLOUT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgress),
-                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// A request message to create an OS policy assignment
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateOsPolicyAssignmentRequest {
-    <span class="doccomment">/// Required. The parent resource name in the form:
-    /// projects/{project}/locations/{location}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The OS policy assignment to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>os_policy_assignment: ::core::option::Option&lt;OsPolicyAssignment&gt;,
-    <span class="doccomment">/// Required. The logical name of the OS policy assignment in the project
-    /// with the following restrictions:
-    ///
-    /// * Must contain only lowercase letters, numbers, and hyphens.
-    /// * Must start with a letter.
-    /// * Must be between 1-63 characters.
-    /// * Must end with a number or a letter.
-    /// * Must be unique within the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>os_policy_assignment_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A request message to update an OS policy assignment
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateOsPolicyAssignmentRequest {
-    <span class="doccomment">/// Required. The updated OS policy assignment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>os_policy_assignment: ::core::option::Option&lt;OsPolicyAssignment&gt;,
-    <span class="doccomment">/// Optional. Field mask that controls which fields of the assignment should be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-}
-<span class="doccomment">/// A request message to get an OS policy assignment
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetOsPolicyAssignmentRequest {
-    <span class="doccomment">/// Required. The resource name of OS policy assignment.
-    ///
-    /// Format:
-    /// `projects/{project}/locations/{location}/osPolicyAssignments/{os_policy_assignment}@{revisionId}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A request message to list OS policy assignments for a parent resource
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListOsPolicyAssignmentsRequest {
-    <span class="doccomment">/// Required. The parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of assignments to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A pagination token returned from a previous call to
-    /// `ListOSPolicyAssignments` that indicates where this listing should continue
-    /// from.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A response message for listing all assignments under given parent.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListOsPolicyAssignmentsResponse {
-    <span class="doccomment">/// The list of assignments
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>os_policy_assignments: ::prost::alloc::vec::Vec&lt;OsPolicyAssignment&gt;,
-    <span class="doccomment">/// The pagination token to retrieve the next page of OS policy assignments.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A request message to list revisions for a OS policy assignment
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListOsPolicyAssignmentRevisionsRequest {
-    <span class="doccomment">/// Required. The name of the OS policy assignment to list revisions for.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of revisions to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A pagination token returned from a previous call to
-    /// `ListOSPolicyAssignmentRevisions` that indicates where this listing should
-    /// continue from.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A response message for listing all revisions for a OS policy assignment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListOsPolicyAssignmentRevisionsResponse {
-    <span class="doccomment">/// The OS policy assignment revisions
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>os_policy_assignments: ::prost::alloc::vec::Vec&lt;OsPolicyAssignment&gt;,
-    <span class="doccomment">/// The pagination token to retrieve the next page of OS policy assignment
-    /// revisions.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A request message for deleting a OS policy assignment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteOsPolicyAssignmentRequest {
-    <span class="doccomment">/// Required. The name of the OS policy assignment to be deleted
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// This API resource represents the vulnerability report for a specified
 /// Compute Engine virtual machine (VM) instance at a given point in time.
@@ -6659,6 +6196,469 @@
             }
         }
     }
+}
+<span class="doccomment">/// OS policy assignment is an API resource that is used to
+/// apply a set of OS policies to a dynamically targeted group of Compute Engine
+/// VM instances.
+///
+/// An OS policy is used to define the desired state configuration for a
+/// Compute Engine VM instance through a set of configuration resources that
+/// provide capabilities such as installing or removing software packages, or
+/// executing a script.
+///
+/// For more information, see [OS policy and OS policy
+/// assignment](&lt;https://cloud.google.com/compute/docs/os-configuration-management/working-with-os-policies&gt;).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OsPolicyAssignment {
+    <span class="doccomment">/// Resource name.
+    ///
+    /// Format:
+    /// `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id}`
+    ///
+    /// This field is ignored when you create an OS policy assignment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// OS policy assignment description.
+    /// Length of the description is limited to 1024 characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. List of OS policies to be applied to the VMs.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>os_policies: ::prost::alloc::vec::Vec&lt;OsPolicy&gt;,
+    <span class="doccomment">/// Required. Filter to select VMs.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>instance_filter: ::core::option::Option&lt;os_policy_assignment::InstanceFilter&gt;,
+    <span class="doccomment">/// Required. Rollout to deploy the OS policy assignment.
+    /// A rollout is triggered in the following situations:
+    /// 1) OSPolicyAssignment is created.
+    /// 2) OSPolicyAssignment is updated and the update contains changes to one of
+    /// the following fields:
+    ///     - instance_filter
+    ///     - os_policies
+    /// 3) OSPolicyAssignment is deleted.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>rollout: ::core::option::Option&lt;os_policy_assignment::Rollout&gt;,
+    <span class="doccomment">/// Output only. The assignment revision ID
+    /// A new revision is committed whenever a rollout is triggered for a OS policy
+    /// assignment
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>revision_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The timestamp that the revision was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>revision_create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The etag for this OS policy assignment.
+    /// If this is provided on update, it must match the server&#39;s etag.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. OS policy assignment rollout state
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;os_policy_assignment::RolloutState&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>rollout_state: i32,
+    <span class="doccomment">/// Output only. Indicates that this revision has been successfully rolled out in this zone
+    /// and new VMs will be assigned OS policies from this revision.
+    ///
+    /// For a given OS policy assignment, there is only one revision with a value
+    /// of `true` for this field.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>baseline: bool,
+    <span class="doccomment">/// Output only. Indicates that this revision deletes the OS policy assignment.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>deleted: bool,
+    <span class="doccomment">/// Output only. Indicates that reconciliation is in progress for the revision.
+    /// This value is `true` when the `rollout_state` is one of:
+    /// * IN_PROGRESS
+    /// * CANCELLING
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>reconciling: bool,
+    <span class="doccomment">/// Output only. Server generated unique id for the OS policy assignment resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `OSPolicyAssignment`.
+</span><span class="kw">pub mod </span>os_policy_assignment {
+    <span class="doccomment">/// Message representing label set.
+    /// * A label is a key value pair set for a VM.
+    /// * A LabelSet is a set of labels.
+    /// * Labels within a LabelSet are ANDed. In other words, a LabelSet is
+    ///    applicable for a VM only if it matches all the labels in the
+    ///    LabelSet.
+    /// * Example: A LabelSet with 2 labels: `env=prod` and `type=webserver` will
+    ///             only be applicable for those VMs with both labels
+    ///             present.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>LabelSet {
+        <span class="doccomment">/// Labels are identified by key/value pairs in this map.
+        /// A VM should contain all the key/value pairs specified in this
+        /// map to be selected.
+        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+            ::prost::alloc::string::String,
+            ::prost::alloc::string::String,
+        &gt;,
+    }
+    <span class="doccomment">/// Filters to select target VMs for an assignment.
+    ///
+    /// If more than one filter criteria is specified below, a VM will be selected
+    /// if and only if it satisfies all of them.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>InstanceFilter {
+        <span class="doccomment">/// Target all VMs in the project. If true, no other criteria is
+        /// permitted.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>all: bool,
+        <span class="doccomment">/// Deprecated. Use the `inventories` field instead.
+        /// A VM is selected if it&#39;s OS short name matches with any of the
+        /// values provided in this list.
+        </span><span class="attr">#[deprecated]
+        #[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>os_short_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+        <span class="doccomment">/// List of label sets used for VM inclusion.
+        ///
+        /// If the list has more than one `LabelSet`, the VM is included if any
+        /// of the label sets are applicable for the VM.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>inclusion_labels: ::prost::alloc::vec::Vec&lt;LabelSet&gt;,
+        <span class="doccomment">/// List of label sets used for VM exclusion.
+        ///
+        /// If the list has more than one label set, the VM is excluded if any
+        /// of the label sets are applicable for the VM.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>exclusion_labels: ::prost::alloc::vec::Vec&lt;LabelSet&gt;,
+        <span class="doccomment">/// List of inventories to select VMs.
+        ///
+        /// A VM is selected if its inventory data matches at least one of the
+        /// following inventories.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>inventories: ::prost::alloc::vec::Vec&lt;instance_filter::Inventory&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `InstanceFilter`.
+    </span><span class="kw">pub mod </span>instance_filter {
+        <span class="doccomment">/// VM inventory details.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>Inventory {
+            <span class="doccomment">/// Required. The OS short name
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>os_short_name: ::prost::alloc::string::String,
+            <span class="doccomment">/// The OS version
+            ///
+            /// Prefix matches are supported if asterisk(*) is provided as the
+            /// last character. For example, to match all versions with a major
+            /// version of `7`, specify the following value for this field `7.*`
+            ///
+            /// An empty string matches all OS versions.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="kw">pub </span>os_version: ::prost::alloc::string::String,
+        }
+    }
+    <span class="doccomment">/// Message to configure the rollout at the zonal level for the OS policy
+    /// assignment.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Rollout {
+        <span class="doccomment">/// Required. The maximum number (or percentage) of VMs per zone to disrupt at
+        /// any given moment.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>disruption_budget: ::core::option::Option&lt;<span class="kw">super</span>::FixedOrPercent&gt;,
+        <span class="doccomment">/// Required. This determines the minimum duration of time to wait after the
+        /// configuration changes are applied through the current rollout. A
+        /// VM continues to count towards the `disruption_budget` at least
+        /// until this duration of time has passed after configuration changes are
+        /// applied.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>min_wait_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    }
+    <span class="doccomment">/// OS policy assignment rollout state
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>RolloutState {
+        <span class="doccomment">/// Invalid value
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The rollout is in progress.
+        </span>InProgress = <span class="number">1</span>,
+        <span class="doccomment">/// The rollout is being cancelled.
+        </span>Cancelling = <span class="number">2</span>,
+        <span class="doccomment">/// The rollout is cancelled.
+        </span>Cancelled = <span class="number">3</span>,
+        <span class="doccomment">/// The rollout has completed successfully.
+        </span>Succeeded = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>RolloutState {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                RolloutState::Unspecified =&gt; <span class="string">&quot;ROLLOUT_STATE_UNSPECIFIED&quot;</span>,
+                RolloutState::InProgress =&gt; <span class="string">&quot;IN_PROGRESS&quot;</span>,
+                RolloutState::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
+                RolloutState::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+                RolloutState::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;ROLLOUT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgress),
+                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
+                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// OS policy assignment operation metadata provided by OS policy assignment API
+/// methods that return long running operations.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OsPolicyAssignmentOperationMetadata {
+    <span class="doccomment">/// Reference to the `OSPolicyAssignment` API resource.
+    ///
+    /// Format:
+    /// `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>os_policy_assignment: ::prost::alloc::string::String,
+    <span class="doccomment">/// The OS policy assignment API method.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;os_policy_assignment_operation_metadata::ApiMethod&quot;</span>,
+        tag = <span class="string">&quot;2&quot;
+    </span>)]
+    </span><span class="kw">pub </span>api_method: i32,
+    <span class="doccomment">/// State of the rollout
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;os_policy_assignment_operation_metadata::RolloutState&quot;</span>,
+        tag = <span class="string">&quot;3&quot;
+    </span>)]
+    </span><span class="kw">pub </span>rollout_state: i32,
+    <span class="doccomment">/// Rollout start time
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>rollout_start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Rollout update time
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>rollout_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `OSPolicyAssignmentOperationMetadata`.
+</span><span class="kw">pub mod </span>os_policy_assignment_operation_metadata {
+    <span class="doccomment">/// The OS policy assignment API method.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ApiMethod {
+        <span class="doccomment">/// Invalid value
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Create OS policy assignment API method
+        </span>Create = <span class="number">1</span>,
+        <span class="doccomment">/// Update OS policy assignment API method
+        </span>Update = <span class="number">2</span>,
+        <span class="doccomment">/// Delete OS policy assignment API method
+        </span>Delete = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>ApiMethod {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ApiMethod::Unspecified =&gt; <span class="string">&quot;API_METHOD_UNSPECIFIED&quot;</span>,
+                ApiMethod::Create =&gt; <span class="string">&quot;CREATE&quot;</span>,
+                ApiMethod::Update =&gt; <span class="string">&quot;UPDATE&quot;</span>,
+                ApiMethod::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;API_METHOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CREATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
+                <span class="string">&quot;UPDATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
+                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// State of the rollout
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>RolloutState {
+        <span class="doccomment">/// Invalid value
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The rollout is in progress.
+        </span>InProgress = <span class="number">1</span>,
+        <span class="doccomment">/// The rollout is being cancelled.
+        </span>Cancelling = <span class="number">2</span>,
+        <span class="doccomment">/// The rollout is cancelled.
+        </span>Cancelled = <span class="number">3</span>,
+        <span class="doccomment">/// The rollout has completed successfully.
+        </span>Succeeded = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>RolloutState {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                RolloutState::Unspecified =&gt; <span class="string">&quot;ROLLOUT_STATE_UNSPECIFIED&quot;</span>,
+                RolloutState::InProgress =&gt; <span class="string">&quot;IN_PROGRESS&quot;</span>,
+                RolloutState::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
+                RolloutState::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+                RolloutState::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;ROLLOUT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgress),
+                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
+                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// A request message to create an OS policy assignment
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateOsPolicyAssignmentRequest {
+    <span class="doccomment">/// Required. The parent resource name in the form:
+    /// projects/{project}/locations/{location}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The OS policy assignment to be created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>os_policy_assignment: ::core::option::Option&lt;OsPolicyAssignment&gt;,
+    <span class="doccomment">/// Required. The logical name of the OS policy assignment in the project
+    /// with the following restrictions:
+    ///
+    /// * Must contain only lowercase letters, numbers, and hyphens.
+    /// * Must start with a letter.
+    /// * Must be between 1-63 characters.
+    /// * Must end with a number or a letter.
+    /// * Must be unique within the project.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>os_policy_assignment_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A request message to update an OS policy assignment
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateOsPolicyAssignmentRequest {
+    <span class="doccomment">/// Required. The updated OS policy assignment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>os_policy_assignment: ::core::option::Option&lt;OsPolicyAssignment&gt;,
+    <span class="doccomment">/// Optional. Field mask that controls which fields of the assignment should be updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+}
+<span class="doccomment">/// A request message to get an OS policy assignment
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetOsPolicyAssignmentRequest {
+    <span class="doccomment">/// Required. The resource name of OS policy assignment.
+    ///
+    /// Format:
+    /// `projects/{project}/locations/{location}/osPolicyAssignments/{os_policy_assignment}@{revisionId}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A request message to list OS policy assignments for a parent resource
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListOsPolicyAssignmentsRequest {
+    <span class="doccomment">/// Required. The parent resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of assignments to return.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A pagination token returned from a previous call to
+    /// `ListOSPolicyAssignments` that indicates where this listing should continue
+    /// from.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A response message for listing all assignments under given parent.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListOsPolicyAssignmentsResponse {
+    <span class="doccomment">/// The list of assignments
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>os_policy_assignments: ::prost::alloc::vec::Vec&lt;OsPolicyAssignment&gt;,
+    <span class="doccomment">/// The pagination token to retrieve the next page of OS policy assignments.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A request message to list revisions for a OS policy assignment
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListOsPolicyAssignmentRevisionsRequest {
+    <span class="doccomment">/// Required. The name of the OS policy assignment to list revisions for.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of revisions to return.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A pagination token returned from a previous call to
+    /// `ListOSPolicyAssignmentRevisions` that indicates where this listing should
+    /// continue from.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A response message for listing all revisions for a OS policy assignment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListOsPolicyAssignmentRevisionsResponse {
+    <span class="doccomment">/// The OS policy assignment revisions
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>os_policy_assignments: ::prost::alloc::vec::Vec&lt;OsPolicyAssignment&gt;,
+    <span class="doccomment">/// The pagination token to retrieve the next page of OS policy assignment
+    /// revisions.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A request message for deleting a OS policy assignment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteOsPolicyAssignmentRequest {
+    <span class="doccomment">/// Required. The name of the OS policy assignment to be deleted
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>os_config_zonal_service_client {

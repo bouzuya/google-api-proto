@@ -919,44 +919,7 @@
 <a href="#919" id="919">919</a>
 <a href="#920" id="920">920</a>
 <a href="#921" id="921">921</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Enum Product.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>Product {
-    <span class="doccomment">/// Default value.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Integration Platform.
-    </span>Ip = <span class="number">1</span>,
-    <span class="doccomment">/// Apigee.
-    </span>Apigee = <span class="number">2</span>,
-    <span class="doccomment">/// Security Command Center.
-    </span>Security = <span class="number">3</span>,
-}
-<span class="kw">impl </span>Product {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            Product::Unspecified =&gt; <span class="string">&quot;PRODUCT_UNSPECIFIED&quot;</span>,
-            Product::Ip =&gt; <span class="string">&quot;IP&quot;</span>,
-            Product::Apigee =&gt; <span class="string">&quot;APIGEE&quot;</span>,
-            Product::Security =&gt; <span class="string">&quot;SECURITY&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;PRODUCT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;IP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ip),
-            <span class="string">&quot;APIGEE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Apigee),
-            <span class="string">&quot;SECURITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Security),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// The type of the parameter.
+</pre></div><pre class="rust"><code><span class="doccomment">/// The type of the parameter.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ValueType {
@@ -1029,21 +992,6 @@
     </span><span class="attr">#[prost(bool, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>boolean_values: ::prost::alloc::vec::Vec&lt;bool&gt;,
 }
-<span class="doccomment">/// This message is used for processing and persisting (when applicable) key
-/// value pair parameters for each event in the event bus.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EventParameter {
-    <span class="doccomment">/// Key is used to retrieve the corresponding parameter value. This should be
-    /// unique for a given fired event. These parameters must be predefined in the
-    /// integration definition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
-    <span class="doccomment">/// Values for the defined keys. Each value can either be string, int, double
-    /// or any proto message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>value: ::core::option::Option&lt;ValueType&gt;,
-}
 <span class="doccomment">/// Options for how to validate json schemas.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -1087,6 +1035,58 @@
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
+}
+<span class="doccomment">/// Enum Product.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>Product {
+    <span class="doccomment">/// Default value.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Integration Platform.
+    </span>Ip = <span class="number">1</span>,
+    <span class="doccomment">/// Apigee.
+    </span>Apigee = <span class="number">2</span>,
+    <span class="doccomment">/// Security Command Center.
+    </span>Security = <span class="number">3</span>,
+}
+<span class="kw">impl </span>Product {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            Product::Unspecified =&gt; <span class="string">&quot;PRODUCT_UNSPECIFIED&quot;</span>,
+            Product::Ip =&gt; <span class="string">&quot;IP&quot;</span>,
+            Product::Apigee =&gt; <span class="string">&quot;APIGEE&quot;</span>,
+            Product::Security =&gt; <span class="string">&quot;SECURITY&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;PRODUCT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;IP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ip),
+            <span class="string">&quot;APIGEE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Apigee),
+            <span class="string">&quot;SECURITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Security),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// This message is used for processing and persisting (when applicable) key
+/// value pair parameters for each event in the event bus.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EventParameter {
+    <span class="doccomment">/// Key is used to retrieve the corresponding parameter value. This should be
+    /// unique for a given fired event. These parameters must be predefined in the
+    /// integration definition.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
+    <span class="doccomment">/// Values for the defined keys. Each value can either be string, int, double
+    /// or any proto message.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>value: ::core::option::Option&lt;ValueType&gt;,
 }
 <span class="doccomment">/// The task configuration details. This is not the implementation of Task.
 /// There might be multiple TaskConfigs for the same Task.

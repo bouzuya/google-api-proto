@@ -3982,7 +3982,52 @@
 <a href="#3982" id="3982">3982</a>
 <a href="#3983" id="3983">3983</a>
 <a href="#3984" id="3984">3984</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Metadata for any related URL information.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Note provider assigned severity/impact ranking.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>Severity {
+    <span class="doccomment">/// Unknown.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Minimal severity.
+    </span>Minimal = <span class="number">1</span>,
+    <span class="doccomment">/// Low severity.
+    </span>Low = <span class="number">2</span>,
+    <span class="doccomment">/// Medium severity.
+    </span>Medium = <span class="number">3</span>,
+    <span class="doccomment">/// High severity.
+    </span>High = <span class="number">4</span>,
+    <span class="doccomment">/// Critical severity.
+    </span>Critical = <span class="number">5</span>,
+}
+<span class="kw">impl </span>Severity {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            Severity::Unspecified =&gt; <span class="string">&quot;SEVERITY_UNSPECIFIED&quot;</span>,
+            Severity::Minimal =&gt; <span class="string">&quot;MINIMAL&quot;</span>,
+            Severity::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
+            Severity::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
+            Severity::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
+            Severity::Critical =&gt; <span class="string">&quot;CRITICAL&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;SEVERITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;MINIMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Minimal),
+            <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+            <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+            <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+            <span class="string">&quot;CRITICAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Metadata for any related URL information.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RelatedUrl {
@@ -4170,6 +4215,433 @@
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
+}
+<span class="doccomment">/// Note kind that represents a logical attestation &quot;role&quot; or &quot;authority&quot;. For
+/// example, an organization might have one `Authority` for &quot;QA&quot; and one for
+/// &quot;build&quot;. This note is intended to act strictly as a grouping mechanism for
+/// the attached occurrences (Attestations). This grouping mechanism also
+/// provides a security boundary, since IAM ACLs gate the ability for a principle
+/// to attach an occurrence to a given note. It also provides a single point of
+/// lookup to find all attached attestation occurrences, even if they don&#39;t all
+/// live in the same project.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AttestationNote {
+    <span class="doccomment">/// Hint hints at the purpose of the attestation authority.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>hint: ::core::option::Option&lt;attestation_note::Hint&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `AttestationNote`.
+</span><span class="kw">pub mod </span>attestation_note {
+    <span class="doccomment">/// This submessage provides human-readable hints about the purpose of the
+    /// authority. Because the name of a note acts as its resource reference, it is
+    /// important to disambiguate the canonical name of the Note (which might be a
+    /// UUID for security purposes) from &quot;readable&quot; names more suitable for debug
+    /// output. Note that these hints should not be used to look up authorities in
+    /// security sensitive contexts, such as when looking up attestations to
+    /// verify.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Hint {
+        <span class="doccomment">/// Required. The human readable name of this attestation authority, for
+        /// example &quot;qa&quot;.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>human_readable_name: ::prost::alloc::string::String,
+    }
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Jwt {
+    <span class="doccomment">/// The compact encoding of a JWS, which is always three base64 encoded strings
+    /// joined by periods. For details, see:
+    /// &lt;https://tools.ietf.org/html/rfc7515.html#section-3.1&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>compact_jwt: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Occurrence that represents a single &quot;attestation&quot;. The authenticity of an
+/// attestation can be verified using the attached signature. If the verifier
+/// trusts the public key of the signer, then verifying the signature is
+/// sufficient to establish trust. In this circumstance, the authority to which
+/// this attestation is attached is primarily useful for lookup (how to find
+/// this attestation if you already know the authority and artifact to be
+/// verified) and intent (for which authority this attestation was intended to
+/// sign.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AttestationOccurrence {
+    <span class="doccomment">/// Required. The serialized payload that is verified by one or more
+    /// `signatures`.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>serialized_payload: ::prost::bytes::Bytes,
+    <span class="doccomment">/// One or more signatures over `serialized_payload`.  Verifier implementations
+    /// should consider this attestation message verified if at least one
+    /// `signature` verifies `serialized_payload`.  See `Signature` in common.proto
+    /// for more details on signature structure and verification.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>signatures: ::prost::alloc::vec::Vec&lt;Signature&gt;,
+    <span class="doccomment">/// One or more JWTs encoding a self-contained attestation.
+    /// Each JWT encodes the payload that it verifies within the JWT itself.
+    /// Verifier implementation SHOULD ignore the `serialized_payload` field
+    /// when verifying these JWTs.
+    /// If only JWTs are present on this AttestationOccurrence, then the
+    /// `serialized_payload` SHOULD be left empty.
+    /// Each JWT SHOULD encode a claim specific to the `resource_uri` of this
+    /// Occurrence, but this is not validated by Grafeas metadata API
+    /// implementations.  The JWT itself is opaque to Grafeas.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>jwts: ::prost::alloc::vec::Vec&lt;Jwt&gt;,
+}
+<span class="doccomment">/// An artifact that can be deployed in some runtime.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeploymentNote {
+    <span class="doccomment">/// Required. Resource URI for the artifact being deployed.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_uri: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// The period during which some deployable was active in a runtime.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeploymentOccurrence {
+    <span class="doccomment">/// Identity of the user that triggered this deployment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>user_email: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Beginning of the lifetime of this deployment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>deploy_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// End of the lifetime of this deployment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>undeploy_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Configuration used to create this deployment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>config: ::prost::alloc::string::String,
+    <span class="doccomment">/// Address of the runtime element hosting this deployment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>address: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Resource URI for the artifact being deployed taken from
+    /// the deployable field with the same name.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>resource_uri: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Platform hosting this deployment.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;deployment_occurrence::Platform&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>platform: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `DeploymentOccurrence`.
+</span><span class="kw">pub mod </span>deployment_occurrence {
+    <span class="doccomment">/// Types of platforms.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Platform {
+        <span class="doccomment">/// Unknown.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Google Container Engine.
+        </span>Gke = <span class="number">1</span>,
+        <span class="doccomment">/// Google App Engine: Flexible Environment.
+        </span>Flex = <span class="number">2</span>,
+        <span class="doccomment">/// Custom user-defined platform.
+        </span>Custom = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>Platform {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Platform::Unspecified =&gt; <span class="string">&quot;PLATFORM_UNSPECIFIED&quot;</span>,
+                Platform::Gke =&gt; <span class="string">&quot;GKE&quot;</span>,
+                Platform::Flex =&gt; <span class="string">&quot;FLEX&quot;</span>,
+                Platform::Custom =&gt; <span class="string">&quot;CUSTOM&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;PLATFORM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;GKE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gke),
+                <span class="string">&quot;FLEX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Flex),
+                <span class="string">&quot;CUSTOM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Custom),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Layer holds metadata specific to a layer of a Docker image.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Layer {
+    <span class="doccomment">/// Required. The recovered Dockerfile directive used to construct this layer.
+    /// See &lt;https://docs.docker.com/engine/reference/builder/&gt; for more information.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>directive: ::prost::alloc::string::String,
+    <span class="doccomment">/// The recovered arguments to the Dockerfile directive.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>arguments: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A set of properties that uniquely identify a given Docker image.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Fingerprint {
+    <span class="doccomment">/// Required. The layer ID of the final layer in the Docker image&#39;s v1
+    /// representation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>v1_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The ordered list of v2 blobs that represent a given image.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>v2_blob: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. The name of the image&#39;s v2 blobs computed via:
+    ///    \[bottom\] := v2_blob\[bottom\]
+    ///    \[N\] := sha256(v2_blob\[N\] + &quot; &quot; + v2_name\[N+1\])
+    /// Only the name of the final blob is kept.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>v2_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Basis describes the base image portion (Note) of the DockerImage
+/// relationship. Linked occurrences are derived from this or an equivalent image
+/// via:
+///    FROM &lt;Basis.resource_url&gt;
+/// Or an equivalent reference, e.g., a tag of the resource_url.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageNote {
+    <span class="doccomment">/// Required. Immutable. The resource_url for the resource representing the
+    /// basis of associated occurrence images.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Immutable. The fingerprint of the base image.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>fingerprint: ::core::option::Option&lt;Fingerprint&gt;,
+}
+<span class="doccomment">/// Details of the derived image portion of the DockerImage relationship. This
+/// image would be produced from a Dockerfile with FROM &lt;DockerImage.Basis in
+/// attached Note&gt;.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageOccurrence {
+    <span class="doccomment">/// Required. The fingerprint of the derived image.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>fingerprint: ::core::option::Option&lt;Fingerprint&gt;,
+    <span class="doccomment">/// Output only. The number of layers by which this image differs from the
+    /// associated image basis.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>distance: i32,
+    <span class="doccomment">/// This contains layer-specific metadata, if populated it has length
+    /// &quot;distance&quot; and is ordered with \[distance\] being the layer immediately
+    /// following the base image and \[1\] being the final layer.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>layer_info: ::prost::alloc::vec::Vec&lt;Layer&gt;,
+    <span class="doccomment">/// Output only. This contains the base image URL for the derived image
+    /// occurrence.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>base_resource_url: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Steps taken to build the artifact.
+/// For a TaskRun, typically each container corresponds to one step in the
+/// recipe.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Recipe {
+    <span class="doccomment">/// URI indicating what type of recipe was performed. It determines the meaning
+    /// of recipe.entryPoint, recipe.arguments, recipe.environment, and materials.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Index in materials containing the recipe steps that are not implied by
+    /// recipe.type. For example, if the recipe type were &quot;make&quot;, then this would
+    /// point to the source containing the Makefile, not the make program itself.
+    /// Set to -1 if the recipe doesn&#39;t come from a material, as zero is default
+    /// unset value for int64.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>defined_in_material: i64,
+    <span class="doccomment">/// String identifying the entry point into the build.
+    /// This is often a path to a configuration file and/or a target label within
+    /// that file. The syntax and meaning are defined by recipe.type. For example,
+    /// if the recipe type were &quot;make&quot;, then this would reference the directory in
+    /// which to run make as well as which target to use.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>entry_point: ::prost::alloc::string::String,
+    <span class="doccomment">/// Collection of all external inputs that influenced the build on top of
+    /// recipe.definedInMaterial and recipe.entryPoint. For example, if the recipe
+    /// type were &quot;make&quot;, then this might be the flags passed to make aside from
+    /// the target, which is captured in recipe.entryPoint. Since the arguments
+    /// field can greatly vary in structure, depending on the builder and recipe
+    /// type, this is of form &quot;Any&quot;.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>arguments: ::prost::alloc::vec::Vec&lt;::prost_types::Any&gt;,
+    <span class="doccomment">/// Any other builder-controlled inputs necessary for correctly evaluating the
+    /// recipe. Usually only needed for reproducing the build but not evaluated as
+    /// part of policy. Since the environment field can greatly vary in structure,
+    /// depending on the builder and recipe type, this is of form &quot;Any&quot;.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>environment: ::prost::alloc::vec::Vec&lt;::prost_types::Any&gt;,
+}
+<span class="doccomment">/// Indicates that the builder claims certain fields in this message to be
+/// complete.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Completeness {
+    <span class="doccomment">/// If true, the builder claims that recipe.arguments is complete, meaning that
+    /// all external inputs are properly captured in the recipe.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>arguments: bool,
+    <span class="doccomment">/// If true, the builder claims that recipe.environment is claimed to be
+    /// complete.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>environment: bool,
+    <span class="doccomment">/// If true, the builder claims that materials are complete, usually through
+    /// some controls to prevent network access. Sometimes called &quot;hermetic&quot;.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>materials: bool,
+}
+<span class="doccomment">/// Other properties of the build.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Metadata {
+    <span class="doccomment">/// Identifies the particular build invocation, which can be useful for finding
+    /// associated logs or other ad-hoc analysis. The value SHOULD be globally
+    /// unique, per in-toto Provenance spec.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>build_invocation_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The timestamp of when the build started.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>build_started_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The timestamp of when the build completed.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>build_finished_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Indicates that the builder claims certain fields in this message to be
+    /// complete.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>completeness: ::core::option::Option&lt;Completeness&gt;,
+    <span class="doccomment">/// If true, the builder claims that running the recipe on materials will
+    /// produce bit-for-bit identical output.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>reproducible: bool,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BuilderConfig {
+    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>InTotoProvenance {
+    <span class="doccomment">/// required
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>builder_config: ::core::option::Option&lt;BuilderConfig&gt;,
+    <span class="doccomment">/// Identifies the configuration used for the build.
+    /// When combined with materials, this SHOULD fully describe the build,
+    /// such that re-running this recipe results in bit-for-bit identical output
+    /// (if the build is reproducible).
+    ///
+    /// required
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>recipe: ::core::option::Option&lt;Recipe&gt;,
+    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;Metadata&gt;,
+    <span class="doccomment">/// The collection of artifacts that influenced the build including sources,
+    /// dependencies, build tools, base images, and so on. This is considered to be
+    /// incomplete unless metadata.completeness.materials is true. Unset or null is
+    /// equivalent to empty.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>materials: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ComplianceNote {
+    <span class="doccomment">/// The title that identifies this compliance check.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
+    <span class="doccomment">/// A description about this compliance check.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// The OS and config versions the benchmark applies to.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>version: ::prost::alloc::vec::Vec&lt;ComplianceVersion&gt;,
+    <span class="doccomment">/// A rationale for the existence of this compliance check.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>rationale: ::prost::alloc::string::String,
+    <span class="doccomment">/// A description of remediation steps if the compliance check fails.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>remediation: ::prost::alloc::string::String,
+    <span class="doccomment">/// Serialized scan instructions with a predefined format.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>scan_instructions: ::prost::bytes::Bytes,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;compliance_note::ComplianceType&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>compliance_type: ::core::option::Option&lt;compliance_note::ComplianceType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ComplianceNote`.
+</span><span class="kw">pub mod </span>compliance_note {
+    <span class="doccomment">/// A compliance check that is a CIS benchmark.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>CisBenchmark {
+        <span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>profile_level: i32,
+        <span class="attr">#[prost(enumeration = <span class="string">&quot;super::Severity&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>severity: i32,
+    }
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>ComplianceType {
+        <span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>CisBenchmark(CisBenchmark),
+    }
+}
+<span class="doccomment">/// Describes the CIS benchmark version that is applicable to a given OS and
+/// os version.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ComplianceVersion {
+    <span class="doccomment">/// The CPE URI (&lt;https://cpe.mitre.org/specification/&gt;) this benchmark is
+    /// applicable to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>cpe_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// The name of the document that defines this benchmark, e.g. &quot;CIS
+    /// Container-Optimized OS&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>benchmark_document: ::prost::alloc::string::String,
+    <span class="doccomment">/// The version of the benchmark. This is set to the version of the OS-specific
+    /// CIS document the benchmark is defined in.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// An indication that the compliance checks in the associated ComplianceNote
+/// were not satisfied for particular resources or a specified reason.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ComplianceOccurrence {
+    <span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>non_compliant_files: ::prost::alloc::vec::Vec&lt;NonCompliantFile&gt;,
+    <span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>non_compliance_reason: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Details about files that caused a compliance check to fail.
+///
+/// display_command is a single command that can be used to display a list of
+/// non compliant files. When there is no such command, we can also iterate a
+/// list of non compliant file using &#39;path&#39;.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>NonCompliantFile {
+    <span class="doccomment">/// Empty if `display_command` is set.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
+    <span class="doccomment">/// Command to display the non-compliant files.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_command: ::prost::alloc::string::String,
+    <span class="doccomment">/// Explains why a file is non compliant for a CIS check.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Common Vulnerability Scoring System version 3.
 /// For details, see &lt;https://www.first.org/cvss/specification-document&gt;
@@ -4818,6 +5290,161 @@
         }
     }
 }
+<span class="doccomment">/// A note that indicates a type of analysis a provider would perform. This note
+/// exists in a provider&#39;s project. A `Discovery` occurrence is created in a
+/// consumer&#39;s project at the start of analysis.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DiscoveryNote {
+    <span class="doccomment">/// Required. Immutable. The kind of analysis that is handled by this
+    /// discovery.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;NoteKind&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>analysis_kind: i32,
+}
+<span class="doccomment">/// Provides information about the analysis status of a discovered resource.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DiscoveryOccurrence {
+    <span class="doccomment">/// Whether the resource is continuously analyzed.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;discovery_occurrence::ContinuousAnalysis&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>continuous_analysis: i32,
+    <span class="doccomment">/// The status of discovery for the resource.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;discovery_occurrence::AnalysisStatus&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>analysis_status: i32,
+    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>analysis_completed: ::core::option::Option&lt;
+        discovery_occurrence::AnalysisCompleted,
+    &gt;,
+    <span class="doccomment">/// Indicates any errors encountered during analysis of a resource. There
+    /// could be 0 or more of these errors.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>analysis_error: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::google::rpc::Status&gt;,
+    <span class="doccomment">/// When an error is encountered this will contain a LocalizedMessage under
+    /// details to show to the user. The LocalizedMessage is output only and
+    /// populated by the API.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>analysis_status_error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::google::rpc::Status&gt;,
+    <span class="doccomment">/// The CPE of the resource being scanned.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>cpe: ::prost::alloc::string::String,
+    <span class="doccomment">/// The last time this resource was scanned.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>last_scan_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The time occurrences related to this discovery occurrence were archived.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>archive_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `DiscoveryOccurrence`.
+</span><span class="kw">pub mod </span>discovery_occurrence {
+    <span class="doccomment">/// Indicates which analysis completed successfully. Multiple types of
+    /// analysis can be performed on a single resource.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>AnalysisCompleted {
+        <span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>analysis_type: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    }
+    <span class="doccomment">/// Whether the resource is continuously analyzed.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ContinuousAnalysis {
+        <span class="doccomment">/// Unknown.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The resource is continuously analyzed.
+        </span>Active = <span class="number">1</span>,
+        <span class="doccomment">/// The resource is ignored for continuous analysis.
+        </span>Inactive = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>ContinuousAnalysis {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ContinuousAnalysis::Unspecified =&gt; <span class="string">&quot;CONTINUOUS_ANALYSIS_UNSPECIFIED&quot;</span>,
+                ContinuousAnalysis::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                ContinuousAnalysis::Inactive =&gt; <span class="string">&quot;INACTIVE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;CONTINUOUS_ANALYSIS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">&quot;INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Analysis status for a resource. Currently for initial analysis only (not
+    /// updated in continuous analysis).
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>AnalysisStatus {
+        <span class="doccomment">/// Unknown.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Resource is known but no action has been taken yet.
+        </span>Pending = <span class="number">1</span>,
+        <span class="doccomment">/// Resource is being analyzed.
+        </span>Scanning = <span class="number">2</span>,
+        <span class="doccomment">/// Analysis has finished successfully.
+        </span>FinishedSuccess = <span class="number">3</span>,
+        <span class="doccomment">/// Analysis has finished unsuccessfully, the analysis itself is in a bad
+        /// state.
+        </span>FinishedFailed = <span class="number">4</span>,
+        <span class="doccomment">/// The resource is known not to be supported.
+        </span>FinishedUnsupported = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>AnalysisStatus {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                AnalysisStatus::Unspecified =&gt; <span class="string">&quot;ANALYSIS_STATUS_UNSPECIFIED&quot;</span>,
+                AnalysisStatus::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
+                AnalysisStatus::Scanning =&gt; <span class="string">&quot;SCANNING&quot;</span>,
+                AnalysisStatus::FinishedSuccess =&gt; <span class="string">&quot;FINISHED_SUCCESS&quot;</span>,
+                AnalysisStatus::FinishedFailed =&gt; <span class="string">&quot;FINISHED_FAILED&quot;</span>,
+                AnalysisStatus::FinishedUnsupported =&gt; <span class="string">&quot;FINISHED_UNSUPPORTED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;ANALYSIS_STATUS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">&quot;SCANNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scanning),
+                <span class="string">&quot;FINISHED_SUCCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedSuccess),
+                <span class="string">&quot;FINISHED_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedFailed),
+                <span class="string">&quot;FINISHED_UNSUPPORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedUnsupported),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
 <span class="doccomment">/// This represents a particular channel of distribution for a given package.
 /// E.g., Debian&#39;s jessie-backports dpkg mirror.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5046,51 +5673,6 @@
             <span class="string">&quot;ARCHITECTURE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
             <span class="string">&quot;X86&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::X86),
             <span class="string">&quot;X64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::X64),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Note provider assigned severity/impact ranking.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>Severity {
-    <span class="doccomment">/// Unknown.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Minimal severity.
-    </span>Minimal = <span class="number">1</span>,
-    <span class="doccomment">/// Low severity.
-    </span>Low = <span class="number">2</span>,
-    <span class="doccomment">/// Medium severity.
-    </span>Medium = <span class="number">3</span>,
-    <span class="doccomment">/// High severity.
-    </span>High = <span class="number">4</span>,
-    <span class="doccomment">/// Critical severity.
-    </span>Critical = <span class="number">5</span>,
-}
-<span class="kw">impl </span>Severity {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            Severity::Unspecified =&gt; <span class="string">&quot;SEVERITY_UNSPECIFIED&quot;</span>,
-            Severity::Minimal =&gt; <span class="string">&quot;MINIMAL&quot;</span>,
-            Severity::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
-            Severity::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-            Severity::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
-            Severity::Critical =&gt; <span class="string">&quot;CRITICAL&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;SEVERITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MINIMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Minimal),
-            <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
-            <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-            <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
-            <span class="string">&quot;CRITICAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -5727,6 +6309,270 @@
         &gt;,
     }
 }
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SlsaProvenance {
+    <span class="doccomment">/// required
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>builder: ::core::option::Option&lt;slsa_provenance::SlsaBuilder&gt;,
+    <span class="doccomment">/// Identifies the configuration used for the build.
+    /// When combined with materials, this SHOULD fully describe the build,
+    /// such that re-running this recipe results in bit-for-bit identical output
+    /// (if the build is reproducible).
+    ///
+    /// required
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>recipe: ::core::option::Option&lt;slsa_provenance::SlsaRecipe&gt;,
+    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;slsa_provenance::SlsaMetadata&gt;,
+    <span class="doccomment">/// The collection of artifacts that influenced the build including sources,
+    /// dependencies, build tools, base images, and so on. This is considered to be
+    /// incomplete unless metadata.completeness.materials is true. Unset or null is
+    /// equivalent to empty.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>materials: ::prost::alloc::vec::Vec&lt;slsa_provenance::Material&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `SlsaProvenance`.
+</span><span class="kw">pub mod </span>slsa_provenance {
+    <span class="doccomment">/// Steps taken to build the artifact.
+    /// For a TaskRun, typically each container corresponds to one step in the
+    /// recipe.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SlsaRecipe {
+        <span class="doccomment">/// URI indicating what type of recipe was performed. It determines the
+        /// meaning of recipe.entryPoint, recipe.arguments, recipe.environment, and
+        /// materials.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+        <span class="doccomment">/// Index in materials containing the recipe steps that are not implied by
+        /// recipe.type. For example, if the recipe type were &quot;make&quot;, then this would
+        /// point to the source containing the Makefile, not the make program itself.
+        /// Set to -1 if the recipe doesn&#39;t come from a material, as zero is default
+        /// unset value for int64.
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>defined_in_material: i64,
+        <span class="doccomment">/// String identifying the entry point into the build.
+        /// This is often a path to a configuration file and/or a target label within
+        /// that file. The syntax and meaning are defined by recipe.type. For
+        /// example, if the recipe type were &quot;make&quot;, then this would reference the
+        /// directory in which to run make as well as which target to use.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>entry_point: ::prost::alloc::string::String,
+        <span class="doccomment">/// Collection of all external inputs that influenced the build on top of
+        /// recipe.definedInMaterial and recipe.entryPoint. For example, if the
+        /// recipe type were &quot;make&quot;, then this might be the flags passed to make
+        /// aside from the target, which is captured in recipe.entryPoint. Depending
+        /// on the recipe Type, the structure may be different.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>arguments: ::core::option::Option&lt;::prost_types::Any&gt;,
+        <span class="doccomment">/// Any other builder-controlled inputs necessary for correctly evaluating
+        /// the recipe. Usually only needed for reproducing the build but not
+        /// evaluated as part of policy. Depending on the recipe Type, the structure
+        /// may be different.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>environment: ::core::option::Option&lt;::prost_types::Any&gt;,
+    }
+    <span class="doccomment">/// Indicates that the builder claims certain fields in this message to be
+    /// complete.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SlsaCompleteness {
+        <span class="doccomment">/// If true, the builder claims that recipe.arguments is complete, meaning
+        /// that all external inputs are properly captured in the recipe.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>arguments: bool,
+        <span class="doccomment">/// If true, the builder claims that recipe.environment is claimed to be
+        /// complete.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>environment: bool,
+        <span class="doccomment">/// If true, the builder claims that materials are complete, usually through
+        /// some controls to prevent network access. Sometimes called &quot;hermetic&quot;.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>materials: bool,
+    }
+    <span class="doccomment">/// Other properties of the build.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SlsaMetadata {
+        <span class="doccomment">/// Identifies the particular build invocation, which can be useful for
+        /// finding associated logs or other ad-hoc analysis. The value SHOULD be
+        /// globally unique, per in-toto Provenance spec.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>build_invocation_id: ::prost::alloc::string::String,
+        <span class="doccomment">/// The timestamp of when the build started.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>build_started_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+        <span class="doccomment">/// The timestamp of when the build completed.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>build_finished_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+        <span class="doccomment">/// Indicates that the builder claims certain fields in this message to be
+        /// complete.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>completeness: ::core::option::Option&lt;SlsaCompleteness&gt;,
+        <span class="doccomment">/// If true, the builder claims that running the recipe on materials will
+        /// produce bit-for-bit identical output.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>reproducible: bool,
+    }
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SlsaBuilder {
+        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    }
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Material {
+        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
+        <span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>digest: ::prost::alloc::collections::BTreeMap&lt;
+            ::prost::alloc::string::String,
+            ::prost::alloc::string::String,
+        &gt;,
+    }
+}
+<span class="doccomment">/// See full explanation of fields at slsa.dev/provenance/v0.2.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SlsaProvenanceZeroTwo {
+    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>builder: ::core::option::Option&lt;slsa_provenance_zero_two::SlsaBuilder&gt;,
+    <span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>build_type: ::prost::alloc::string::String,
+    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>invocation: ::core::option::Option&lt;slsa_provenance_zero_two::SlsaInvocation&gt;,
+    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>build_config: ::core::option::Option&lt;::prost_types::Struct&gt;,
+    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;slsa_provenance_zero_two::SlsaMetadata&gt;,
+    <span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>materials: ::prost::alloc::vec::Vec&lt;slsa_provenance_zero_two::SlsaMaterial&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `SlsaProvenanceZeroTwo`.
+</span><span class="kw">pub mod </span>slsa_provenance_zero_two {
+    <span class="doccomment">/// Identifies the entity that executed the recipe, which is trusted to have
+    /// correctly performed the operation and populated this provenance.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SlsaBuilder {
+        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// The collection of artifacts that influenced the build including sources,
+    /// dependencies, build tools, base images, and so on.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SlsaMaterial {
+        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
+        <span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>digest: ::prost::alloc::collections::BTreeMap&lt;
+            ::prost::alloc::string::String,
+            ::prost::alloc::string::String,
+        &gt;,
+    }
+    <span class="doccomment">/// Identifies the event that kicked off the build.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SlsaInvocation {
+        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>config_source: ::core::option::Option&lt;SlsaConfigSource&gt;,
+        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>parameters: ::core::option::Option&lt;::prost_types::Struct&gt;,
+        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>environment: ::core::option::Option&lt;::prost_types::Struct&gt;,
+    }
+    <span class="doccomment">/// Describes where the config file that kicked off the build came from.
+    /// This is effectively a pointer to the source where buildConfig came from.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SlsaConfigSource {
+        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
+        <span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>digest: ::prost::alloc::collections::BTreeMap&lt;
+            ::prost::alloc::string::String,
+            ::prost::alloc::string::String,
+        &gt;,
+        <span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>entry_point: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Other properties of the build.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SlsaMetadata {
+        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>build_invocation_id: ::prost::alloc::string::String,
+        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>build_started_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>build_finished_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>completeness: ::core::option::Option&lt;SlsaCompleteness&gt;,
+        <span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>reproducible: bool,
+    }
+    <span class="doccomment">/// Indicates that the builder claims certain fields in this message to be
+    /// complete.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SlsaCompleteness {
+        <span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>parameters: bool,
+        <span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>environment: bool,
+        <span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>materials: bool,
+    }
+}
+<span class="doccomment">/// Spec defined at
+/// &lt;https://github.com/in-toto/attestation/tree/main/spec#statement&gt; The
+/// serialized InTotoStatement will be stored as Envelope.payload.
+/// Envelope.payloadType is always &quot;application/vnd.in-toto+json&quot;.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>InTotoStatement {
+    <span class="doccomment">/// Always `&lt;https://in-toto.io/Statement/v0.1`.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+    <span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>subject: ::prost::alloc::vec::Vec&lt;Subject&gt;,
+    <span class="doccomment">/// `&lt;https://slsa.dev/provenance/v0.1`&gt; for SlsaProvenance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>predicate_type: ::prost::alloc::string::String,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;in_toto_statement::Predicate&quot;</span>, tags = <span class="string">&quot;4, 5, 6&quot;</span>)]
+    </span><span class="kw">pub </span>predicate: ::core::option::Option&lt;in_toto_statement::Predicate&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `InTotoStatement`.
+</span><span class="kw">pub mod </span>in_toto_statement {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Predicate {
+        <span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>Provenance(<span class="kw">super</span>::InTotoProvenance),
+        <span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>SlsaProvenance(<span class="kw">super</span>::SlsaProvenance),
+        <span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>SlsaProvenanceZeroTwo(<span class="kw">super</span>::SlsaProvenanceZeroTwo),
+    }
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Subject {
+    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// `&quot;&lt;ALGORITHM&gt;&quot;: &quot;&lt;HEX_VALUE&gt;&quot;`
+    /// Algorithms can be e.g. sha256, sha512
+    /// See
+    /// &lt;https://github.com/in-toto/attestation/blob/main/spec/field_types.md#DigestSet&gt;
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>digest: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+}
 <span class="doccomment">/// Provenance of a build. Contains all information needed to verify the full
 /// details about the build from source to completion.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6077,6 +6923,94 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>repo_name: ::prost::alloc::string::String,
 }
+<span class="doccomment">/// Note holding the version of the provider&#39;s builder and the signature of the
+/// provenance message in the build details occurrence.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BuildNote {
+    <span class="doccomment">/// Required. Immutable. Version of the builder which produced this build.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>builder_version: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Details of a build occurrence.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BuildOccurrence {
+    <span class="doccomment">/// The actual provenance for the build.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>provenance: ::core::option::Option&lt;BuildProvenance&gt;,
+    <span class="doccomment">/// Serialized JSON representation of the provenance, used in generating the
+    /// build signature in the corresponding build note. After verifying the
+    /// signature, `provenance_bytes` can be unmarshalled and compared to the
+    /// provenance to confirm that it is unchanged. A base64-encoded string
+    /// representation of the provenance bytes is used for the signature in order
+    /// to interoperate with openssl which expects this format for signature
+    /// verification.
+    ///
+    /// The serialized form is captured both to avoid ambiguity in how the
+    /// provenance is marshalled to json as well to prevent incompatibilities with
+    /// future changes.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>provenance_bytes: ::prost::alloc::string::String,
+    <span class="doccomment">/// Deprecated. See InTotoStatement for the replacement.
+    /// In-toto Provenance representation as defined in spec.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>intoto_provenance: ::core::option::Option&lt;InTotoProvenance&gt;,
+    <span class="doccomment">/// In-toto Statement representation as defined in spec.
+    /// The intoto_statement can contain any type of provenance. The serialized
+    /// payload of the statement can be stored and signed in the Occurrence&#39;s
+    /// envelope.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>intoto_statement: ::core::option::Option&lt;InTotoStatement&gt;,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DsseAttestationNote {
+    <span class="doccomment">/// DSSEHint hints at the purpose of the attestation authority.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>hint: ::core::option::Option&lt;dsse_attestation_note::DsseHint&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `DSSEAttestationNote`.
+</span><span class="kw">pub mod </span>dsse_attestation_note {
+    <span class="doccomment">/// This submessage provides human-readable hints about the purpose of the
+    /// authority. Because the name of a note acts as its resource reference, it is
+    /// important to disambiguate the canonical name of the Note (which might be a
+    /// UUID for security purposes) from &quot;readable&quot; names more suitable for debug
+    /// output. Note that these hints should not be used to look up authorities in
+    /// security sensitive contexts, such as when looking up attestations to
+    /// verify.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>DsseHint {
+        <span class="doccomment">/// Required. The human readable name of this attestation authority, for
+        /// example &quot;cloudbuild-prod&quot;.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>human_readable_name: ::prost::alloc::string::String,
+    }
+}
+<span class="doccomment">/// Deprecated. Prefer to use a regular Occurrence, and populate the
+/// Envelope at the top level of the Occurrence.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DsseAttestationOccurrence {
+    <span class="doccomment">/// If doing something security critical, make sure to verify the signatures in
+    /// this metadata.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>envelope: ::core::option::Option&lt;Envelope&gt;,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;dsse_attestation_occurrence::DecodedPayload&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>decoded_payload: ::core::option::Option&lt;
+        dsse_attestation_occurrence::DecodedPayload,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `DSSEAttestationOccurrence`.
+</span><span class="kw">pub mod </span>dsse_attestation_occurrence {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>DecodedPayload {
+        <span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>Statement(<span class="kw">super</span>::InTotoStatement),
+    }
+}
 <span class="doccomment">/// An Upgrade Note represents a potential upgrade of a package to a given
 /// version. For each package version combination (i.e. bash 4.0, bash 4.1,
 /// bash 4.1.2), there will be an Upgrade Note. For Windows, windows_update field
@@ -6199,940 +7133,6 @@
     <span class="doccomment">/// Required for Windows OS. Represents the metadata about the Windows update.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>windows_update: ::core::option::Option&lt;WindowsUpdate&gt;,
-}
-<span class="doccomment">/// Layer holds metadata specific to a layer of a Docker image.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Layer {
-    <span class="doccomment">/// Required. The recovered Dockerfile directive used to construct this layer.
-    /// See &lt;https://docs.docker.com/engine/reference/builder/&gt; for more information.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>directive: ::prost::alloc::string::String,
-    <span class="doccomment">/// The recovered arguments to the Dockerfile directive.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>arguments: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A set of properties that uniquely identify a given Docker image.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Fingerprint {
-    <span class="doccomment">/// Required. The layer ID of the final layer in the Docker image&#39;s v1
-    /// representation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>v1_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The ordered list of v2 blobs that represent a given image.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>v2_blob: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. The name of the image&#39;s v2 blobs computed via:
-    ///    \[bottom\] := v2_blob\[bottom\]
-    ///    \[N\] := sha256(v2_blob\[N\] + &quot; &quot; + v2_name\[N+1\])
-    /// Only the name of the final blob is kept.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>v2_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Basis describes the base image portion (Note) of the DockerImage
-/// relationship. Linked occurrences are derived from this or an equivalent image
-/// via:
-///    FROM &lt;Basis.resource_url&gt;
-/// Or an equivalent reference, e.g., a tag of the resource_url.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageNote {
-    <span class="doccomment">/// Required. Immutable. The resource_url for the resource representing the
-    /// basis of associated occurrence images.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Immutable. The fingerprint of the base image.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>fingerprint: ::core::option::Option&lt;Fingerprint&gt;,
-}
-<span class="doccomment">/// Details of the derived image portion of the DockerImage relationship. This
-/// image would be produced from a Dockerfile with FROM &lt;DockerImage.Basis in
-/// attached Note&gt;.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageOccurrence {
-    <span class="doccomment">/// Required. The fingerprint of the derived image.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>fingerprint: ::core::option::Option&lt;Fingerprint&gt;,
-    <span class="doccomment">/// Output only. The number of layers by which this image differs from the
-    /// associated image basis.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>distance: i32,
-    <span class="doccomment">/// This contains layer-specific metadata, if populated it has length
-    /// &quot;distance&quot; and is ordered with \[distance\] being the layer immediately
-    /// following the base image and \[1\] being the final layer.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>layer_info: ::prost::alloc::vec::Vec&lt;Layer&gt;,
-    <span class="doccomment">/// Output only. This contains the base image URL for the derived image
-    /// occurrence.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>base_resource_url: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Note kind that represents a logical attestation &quot;role&quot; or &quot;authority&quot;. For
-/// example, an organization might have one `Authority` for &quot;QA&quot; and one for
-/// &quot;build&quot;. This note is intended to act strictly as a grouping mechanism for
-/// the attached occurrences (Attestations). This grouping mechanism also
-/// provides a security boundary, since IAM ACLs gate the ability for a principle
-/// to attach an occurrence to a given note. It also provides a single point of
-/// lookup to find all attached attestation occurrences, even if they don&#39;t all
-/// live in the same project.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AttestationNote {
-    <span class="doccomment">/// Hint hints at the purpose of the attestation authority.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>hint: ::core::option::Option&lt;attestation_note::Hint&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `AttestationNote`.
-</span><span class="kw">pub mod </span>attestation_note {
-    <span class="doccomment">/// This submessage provides human-readable hints about the purpose of the
-    /// authority. Because the name of a note acts as its resource reference, it is
-    /// important to disambiguate the canonical name of the Note (which might be a
-    /// UUID for security purposes) from &quot;readable&quot; names more suitable for debug
-    /// output. Note that these hints should not be used to look up authorities in
-    /// security sensitive contexts, such as when looking up attestations to
-    /// verify.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Hint {
-        <span class="doccomment">/// Required. The human readable name of this attestation authority, for
-        /// example &quot;qa&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>human_readable_name: ::prost::alloc::string::String,
-    }
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Jwt {
-    <span class="doccomment">/// The compact encoding of a JWS, which is always three base64 encoded strings
-    /// joined by periods. For details, see:
-    /// &lt;https://tools.ietf.org/html/rfc7515.html#section-3.1&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>compact_jwt: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Occurrence that represents a single &quot;attestation&quot;. The authenticity of an
-/// attestation can be verified using the attached signature. If the verifier
-/// trusts the public key of the signer, then verifying the signature is
-/// sufficient to establish trust. In this circumstance, the authority to which
-/// this attestation is attached is primarily useful for lookup (how to find
-/// this attestation if you already know the authority and artifact to be
-/// verified) and intent (for which authority this attestation was intended to
-/// sign.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AttestationOccurrence {
-    <span class="doccomment">/// Required. The serialized payload that is verified by one or more
-    /// `signatures`.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>serialized_payload: ::prost::bytes::Bytes,
-    <span class="doccomment">/// One or more signatures over `serialized_payload`.  Verifier implementations
-    /// should consider this attestation message verified if at least one
-    /// `signature` verifies `serialized_payload`.  See `Signature` in common.proto
-    /// for more details on signature structure and verification.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>signatures: ::prost::alloc::vec::Vec&lt;Signature&gt;,
-    <span class="doccomment">/// One or more JWTs encoding a self-contained attestation.
-    /// Each JWT encodes the payload that it verifies within the JWT itself.
-    /// Verifier implementation SHOULD ignore the `serialized_payload` field
-    /// when verifying these JWTs.
-    /// If only JWTs are present on this AttestationOccurrence, then the
-    /// `serialized_payload` SHOULD be left empty.
-    /// Each JWT SHOULD encode a claim specific to the `resource_uri` of this
-    /// Occurrence, but this is not validated by Grafeas metadata API
-    /// implementations.  The JWT itself is opaque to Grafeas.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>jwts: ::prost::alloc::vec::Vec&lt;Jwt&gt;,
-}
-<span class="doccomment">/// Steps taken to build the artifact.
-/// For a TaskRun, typically each container corresponds to one step in the
-/// recipe.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Recipe {
-    <span class="doccomment">/// URI indicating what type of recipe was performed. It determines the meaning
-    /// of recipe.entryPoint, recipe.arguments, recipe.environment, and materials.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Index in materials containing the recipe steps that are not implied by
-    /// recipe.type. For example, if the recipe type were &quot;make&quot;, then this would
-    /// point to the source containing the Makefile, not the make program itself.
-    /// Set to -1 if the recipe doesn&#39;t come from a material, as zero is default
-    /// unset value for int64.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>defined_in_material: i64,
-    <span class="doccomment">/// String identifying the entry point into the build.
-    /// This is often a path to a configuration file and/or a target label within
-    /// that file. The syntax and meaning are defined by recipe.type. For example,
-    /// if the recipe type were &quot;make&quot;, then this would reference the directory in
-    /// which to run make as well as which target to use.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>entry_point: ::prost::alloc::string::String,
-    <span class="doccomment">/// Collection of all external inputs that influenced the build on top of
-    /// recipe.definedInMaterial and recipe.entryPoint. For example, if the recipe
-    /// type were &quot;make&quot;, then this might be the flags passed to make aside from
-    /// the target, which is captured in recipe.entryPoint. Since the arguments
-    /// field can greatly vary in structure, depending on the builder and recipe
-    /// type, this is of form &quot;Any&quot;.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>arguments: ::prost::alloc::vec::Vec&lt;::prost_types::Any&gt;,
-    <span class="doccomment">/// Any other builder-controlled inputs necessary for correctly evaluating the
-    /// recipe. Usually only needed for reproducing the build but not evaluated as
-    /// part of policy. Since the environment field can greatly vary in structure,
-    /// depending on the builder and recipe type, this is of form &quot;Any&quot;.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>environment: ::prost::alloc::vec::Vec&lt;::prost_types::Any&gt;,
-}
-<span class="doccomment">/// Indicates that the builder claims certain fields in this message to be
-/// complete.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Completeness {
-    <span class="doccomment">/// If true, the builder claims that recipe.arguments is complete, meaning that
-    /// all external inputs are properly captured in the recipe.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>arguments: bool,
-    <span class="doccomment">/// If true, the builder claims that recipe.environment is claimed to be
-    /// complete.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>environment: bool,
-    <span class="doccomment">/// If true, the builder claims that materials are complete, usually through
-    /// some controls to prevent network access. Sometimes called &quot;hermetic&quot;.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>materials: bool,
-}
-<span class="doccomment">/// Other properties of the build.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Metadata {
-    <span class="doccomment">/// Identifies the particular build invocation, which can be useful for finding
-    /// associated logs or other ad-hoc analysis. The value SHOULD be globally
-    /// unique, per in-toto Provenance spec.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>build_invocation_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The timestamp of when the build started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>build_started_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The timestamp of when the build completed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>build_finished_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Indicates that the builder claims certain fields in this message to be
-    /// complete.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>completeness: ::core::option::Option&lt;Completeness&gt;,
-    <span class="doccomment">/// If true, the builder claims that running the recipe on materials will
-    /// produce bit-for-bit identical output.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>reproducible: bool,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BuilderConfig {
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>InTotoProvenance {
-    <span class="doccomment">/// required
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>builder_config: ::core::option::Option&lt;BuilderConfig&gt;,
-    <span class="doccomment">/// Identifies the configuration used for the build.
-    /// When combined with materials, this SHOULD fully describe the build,
-    /// such that re-running this recipe results in bit-for-bit identical output
-    /// (if the build is reproducible).
-    ///
-    /// required
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>recipe: ::core::option::Option&lt;Recipe&gt;,
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;Metadata&gt;,
-    <span class="doccomment">/// The collection of artifacts that influenced the build including sources,
-    /// dependencies, build tools, base images, and so on. This is considered to be
-    /// incomplete unless metadata.completeness.materials is true. Unset or null is
-    /// equivalent to empty.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>materials: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SlsaProvenance {
-    <span class="doccomment">/// required
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>builder: ::core::option::Option&lt;slsa_provenance::SlsaBuilder&gt;,
-    <span class="doccomment">/// Identifies the configuration used for the build.
-    /// When combined with materials, this SHOULD fully describe the build,
-    /// such that re-running this recipe results in bit-for-bit identical output
-    /// (if the build is reproducible).
-    ///
-    /// required
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>recipe: ::core::option::Option&lt;slsa_provenance::SlsaRecipe&gt;,
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;slsa_provenance::SlsaMetadata&gt;,
-    <span class="doccomment">/// The collection of artifacts that influenced the build including sources,
-    /// dependencies, build tools, base images, and so on. This is considered to be
-    /// incomplete unless metadata.completeness.materials is true. Unset or null is
-    /// equivalent to empty.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>materials: ::prost::alloc::vec::Vec&lt;slsa_provenance::Material&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `SlsaProvenance`.
-</span><span class="kw">pub mod </span>slsa_provenance {
-    <span class="doccomment">/// Steps taken to build the artifact.
-    /// For a TaskRun, typically each container corresponds to one step in the
-    /// recipe.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SlsaRecipe {
-        <span class="doccomment">/// URI indicating what type of recipe was performed. It determines the
-        /// meaning of recipe.entryPoint, recipe.arguments, recipe.environment, and
-        /// materials.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-        <span class="doccomment">/// Index in materials containing the recipe steps that are not implied by
-        /// recipe.type. For example, if the recipe type were &quot;make&quot;, then this would
-        /// point to the source containing the Makefile, not the make program itself.
-        /// Set to -1 if the recipe doesn&#39;t come from a material, as zero is default
-        /// unset value for int64.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>defined_in_material: i64,
-        <span class="doccomment">/// String identifying the entry point into the build.
-        /// This is often a path to a configuration file and/or a target label within
-        /// that file. The syntax and meaning are defined by recipe.type. For
-        /// example, if the recipe type were &quot;make&quot;, then this would reference the
-        /// directory in which to run make as well as which target to use.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>entry_point: ::prost::alloc::string::String,
-        <span class="doccomment">/// Collection of all external inputs that influenced the build on top of
-        /// recipe.definedInMaterial and recipe.entryPoint. For example, if the
-        /// recipe type were &quot;make&quot;, then this might be the flags passed to make
-        /// aside from the target, which is captured in recipe.entryPoint. Depending
-        /// on the recipe Type, the structure may be different.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>arguments: ::core::option::Option&lt;::prost_types::Any&gt;,
-        <span class="doccomment">/// Any other builder-controlled inputs necessary for correctly evaluating
-        /// the recipe. Usually only needed for reproducing the build but not
-        /// evaluated as part of policy. Depending on the recipe Type, the structure
-        /// may be different.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>environment: ::core::option::Option&lt;::prost_types::Any&gt;,
-    }
-    <span class="doccomment">/// Indicates that the builder claims certain fields in this message to be
-    /// complete.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SlsaCompleteness {
-        <span class="doccomment">/// If true, the builder claims that recipe.arguments is complete, meaning
-        /// that all external inputs are properly captured in the recipe.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>arguments: bool,
-        <span class="doccomment">/// If true, the builder claims that recipe.environment is claimed to be
-        /// complete.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>environment: bool,
-        <span class="doccomment">/// If true, the builder claims that materials are complete, usually through
-        /// some controls to prevent network access. Sometimes called &quot;hermetic&quot;.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>materials: bool,
-    }
-    <span class="doccomment">/// Other properties of the build.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SlsaMetadata {
-        <span class="doccomment">/// Identifies the particular build invocation, which can be useful for
-        /// finding associated logs or other ad-hoc analysis. The value SHOULD be
-        /// globally unique, per in-toto Provenance spec.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>build_invocation_id: ::prost::alloc::string::String,
-        <span class="doccomment">/// The timestamp of when the build started.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>build_started_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-        <span class="doccomment">/// The timestamp of when the build completed.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>build_finished_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-        <span class="doccomment">/// Indicates that the builder claims certain fields in this message to be
-        /// complete.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>completeness: ::core::option::Option&lt;SlsaCompleteness&gt;,
-        <span class="doccomment">/// If true, the builder claims that running the recipe on materials will
-        /// produce bit-for-bit identical output.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>reproducible: bool,
-    }
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SlsaBuilder {
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    }
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Material {
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
-        <span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>digest: ::prost::alloc::collections::BTreeMap&lt;
-            ::prost::alloc::string::String,
-            ::prost::alloc::string::String,
-        &gt;,
-    }
-}
-<span class="doccomment">/// See full explanation of fields at slsa.dev/provenance/v0.2.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SlsaProvenanceZeroTwo {
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>builder: ::core::option::Option&lt;slsa_provenance_zero_two::SlsaBuilder&gt;,
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>build_type: ::prost::alloc::string::String,
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>invocation: ::core::option::Option&lt;slsa_provenance_zero_two::SlsaInvocation&gt;,
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>build_config: ::core::option::Option&lt;::prost_types::Struct&gt;,
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;slsa_provenance_zero_two::SlsaMetadata&gt;,
-    <span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>materials: ::prost::alloc::vec::Vec&lt;slsa_provenance_zero_two::SlsaMaterial&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `SlsaProvenanceZeroTwo`.
-</span><span class="kw">pub mod </span>slsa_provenance_zero_two {
-    <span class="doccomment">/// Identifies the entity that executed the recipe, which is trusted to have
-    /// correctly performed the operation and populated this provenance.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SlsaBuilder {
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// The collection of artifacts that influenced the build including sources,
-    /// dependencies, build tools, base images, and so on.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SlsaMaterial {
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
-        <span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>digest: ::prost::alloc::collections::BTreeMap&lt;
-            ::prost::alloc::string::String,
-            ::prost::alloc::string::String,
-        &gt;,
-    }
-    <span class="doccomment">/// Identifies the event that kicked off the build.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SlsaInvocation {
-        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>config_source: ::core::option::Option&lt;SlsaConfigSource&gt;,
-        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>parameters: ::core::option::Option&lt;::prost_types::Struct&gt;,
-        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>environment: ::core::option::Option&lt;::prost_types::Struct&gt;,
-    }
-    <span class="doccomment">/// Describes where the config file that kicked off the build came from.
-    /// This is effectively a pointer to the source where buildConfig came from.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SlsaConfigSource {
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
-        <span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>digest: ::prost::alloc::collections::BTreeMap&lt;
-            ::prost::alloc::string::String,
-            ::prost::alloc::string::String,
-        &gt;,
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>entry_point: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Other properties of the build.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SlsaMetadata {
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>build_invocation_id: ::prost::alloc::string::String,
-        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>build_started_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>build_finished_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-        <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>completeness: ::core::option::Option&lt;SlsaCompleteness&gt;,
-        <span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>reproducible: bool,
-    }
-    <span class="doccomment">/// Indicates that the builder claims certain fields in this message to be
-    /// complete.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SlsaCompleteness {
-        <span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>parameters: bool,
-        <span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>environment: bool,
-        <span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>materials: bool,
-    }
-}
-<span class="doccomment">/// Spec defined at
-/// &lt;https://github.com/in-toto/attestation/tree/main/spec#statement&gt; The
-/// serialized InTotoStatement will be stored as Envelope.payload.
-/// Envelope.payloadType is always &quot;application/vnd.in-toto+json&quot;.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>InTotoStatement {
-    <span class="doccomment">/// Always `&lt;https://in-toto.io/Statement/v0.1`.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-    <span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>subject: ::prost::alloc::vec::Vec&lt;Subject&gt;,
-    <span class="doccomment">/// `&lt;https://slsa.dev/provenance/v0.1`&gt; for SlsaProvenance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>predicate_type: ::prost::alloc::string::String,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;in_toto_statement::Predicate&quot;</span>, tags = <span class="string">&quot;4, 5, 6&quot;</span>)]
-    </span><span class="kw">pub </span>predicate: ::core::option::Option&lt;in_toto_statement::Predicate&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `InTotoStatement`.
-</span><span class="kw">pub mod </span>in_toto_statement {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Predicate {
-        <span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>Provenance(<span class="kw">super</span>::InTotoProvenance),
-        <span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
-        </span>SlsaProvenance(<span class="kw">super</span>::SlsaProvenance),
-        <span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>SlsaProvenanceZeroTwo(<span class="kw">super</span>::SlsaProvenanceZeroTwo),
-    }
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Subject {
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// `&quot;&lt;ALGORITHM&gt;&quot;: &quot;&lt;HEX_VALUE&gt;&quot;`
-    /// Algorithms can be e.g. sha256, sha512
-    /// See
-    /// &lt;https://github.com/in-toto/attestation/blob/main/spec/field_types.md#DigestSet&gt;
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>digest: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-}
-<span class="doccomment">/// Note holding the version of the provider&#39;s builder and the signature of the
-/// provenance message in the build details occurrence.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BuildNote {
-    <span class="doccomment">/// Required. Immutable. Version of the builder which produced this build.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>builder_version: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Details of a build occurrence.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BuildOccurrence {
-    <span class="doccomment">/// The actual provenance for the build.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>provenance: ::core::option::Option&lt;BuildProvenance&gt;,
-    <span class="doccomment">/// Serialized JSON representation of the provenance, used in generating the
-    /// build signature in the corresponding build note. After verifying the
-    /// signature, `provenance_bytes` can be unmarshalled and compared to the
-    /// provenance to confirm that it is unchanged. A base64-encoded string
-    /// representation of the provenance bytes is used for the signature in order
-    /// to interoperate with openssl which expects this format for signature
-    /// verification.
-    ///
-    /// The serialized form is captured both to avoid ambiguity in how the
-    /// provenance is marshalled to json as well to prevent incompatibilities with
-    /// future changes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>provenance_bytes: ::prost::alloc::string::String,
-    <span class="doccomment">/// Deprecated. See InTotoStatement for the replacement.
-    /// In-toto Provenance representation as defined in spec.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>intoto_provenance: ::core::option::Option&lt;InTotoProvenance&gt;,
-    <span class="doccomment">/// In-toto Statement representation as defined in spec.
-    /// The intoto_statement can contain any type of provenance. The serialized
-    /// payload of the statement can be stored and signed in the Occurrence&#39;s
-    /// envelope.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>intoto_statement: ::core::option::Option&lt;InTotoStatement&gt;,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ComplianceNote {
-    <span class="doccomment">/// The title that identifies this compliance check.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
-    <span class="doccomment">/// A description about this compliance check.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// The OS and config versions the benchmark applies to.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>version: ::prost::alloc::vec::Vec&lt;ComplianceVersion&gt;,
-    <span class="doccomment">/// A rationale for the existence of this compliance check.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>rationale: ::prost::alloc::string::String,
-    <span class="doccomment">/// A description of remediation steps if the compliance check fails.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>remediation: ::prost::alloc::string::String,
-    <span class="doccomment">/// Serialized scan instructions with a predefined format.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>scan_instructions: ::prost::bytes::Bytes,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;compliance_note::ComplianceType&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>compliance_type: ::core::option::Option&lt;compliance_note::ComplianceType&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ComplianceNote`.
-</span><span class="kw">pub mod </span>compliance_note {
-    <span class="doccomment">/// A compliance check that is a CIS benchmark.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>CisBenchmark {
-        <span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>profile_level: i32,
-        <span class="attr">#[prost(enumeration = <span class="string">&quot;super::Severity&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>severity: i32,
-    }
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>ComplianceType {
-        <span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>CisBenchmark(CisBenchmark),
-    }
-}
-<span class="doccomment">/// Describes the CIS benchmark version that is applicable to a given OS and
-/// os version.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ComplianceVersion {
-    <span class="doccomment">/// The CPE URI (&lt;https://cpe.mitre.org/specification/&gt;) this benchmark is
-    /// applicable to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>cpe_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// The name of the document that defines this benchmark, e.g. &quot;CIS
-    /// Container-Optimized OS&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>benchmark_document: ::prost::alloc::string::String,
-    <span class="doccomment">/// The version of the benchmark. This is set to the version of the OS-specific
-    /// CIS document the benchmark is defined in.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// An indication that the compliance checks in the associated ComplianceNote
-/// were not satisfied for particular resources or a specified reason.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ComplianceOccurrence {
-    <span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>non_compliant_files: ::prost::alloc::vec::Vec&lt;NonCompliantFile&gt;,
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>non_compliance_reason: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Details about files that caused a compliance check to fail.
-///
-/// display_command is a single command that can be used to display a list of
-/// non compliant files. When there is no such command, we can also iterate a
-/// list of non compliant file using &#39;path&#39;.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>NonCompliantFile {
-    <span class="doccomment">/// Empty if `display_command` is set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
-    <span class="doccomment">/// Command to display the non-compliant files.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_command: ::prost::alloc::string::String,
-    <span class="doccomment">/// Explains why a file is non compliant for a CIS check.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// An artifact that can be deployed in some runtime.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeploymentNote {
-    <span class="doccomment">/// Required. Resource URI for the artifact being deployed.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_uri: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// The period during which some deployable was active in a runtime.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeploymentOccurrence {
-    <span class="doccomment">/// Identity of the user that triggered this deployment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>user_email: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Beginning of the lifetime of this deployment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>deploy_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// End of the lifetime of this deployment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>undeploy_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Configuration used to create this deployment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>config: ::prost::alloc::string::String,
-    <span class="doccomment">/// Address of the runtime element hosting this deployment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>address: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Resource URI for the artifact being deployed taken from
-    /// the deployable field with the same name.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>resource_uri: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Platform hosting this deployment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;deployment_occurrence::Platform&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>platform: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `DeploymentOccurrence`.
-</span><span class="kw">pub mod </span>deployment_occurrence {
-    <span class="doccomment">/// Types of platforms.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Platform {
-        <span class="doccomment">/// Unknown.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Google Container Engine.
-        </span>Gke = <span class="number">1</span>,
-        <span class="doccomment">/// Google App Engine: Flexible Environment.
-        </span>Flex = <span class="number">2</span>,
-        <span class="doccomment">/// Custom user-defined platform.
-        </span>Custom = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>Platform {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Platform::Unspecified =&gt; <span class="string">&quot;PLATFORM_UNSPECIFIED&quot;</span>,
-                Platform::Gke =&gt; <span class="string">&quot;GKE&quot;</span>,
-                Platform::Flex =&gt; <span class="string">&quot;FLEX&quot;</span>,
-                Platform::Custom =&gt; <span class="string">&quot;CUSTOM&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;PLATFORM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;GKE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gke),
-                <span class="string">&quot;FLEX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Flex),
-                <span class="string">&quot;CUSTOM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Custom),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// A note that indicates a type of analysis a provider would perform. This note
-/// exists in a provider&#39;s project. A `Discovery` occurrence is created in a
-/// consumer&#39;s project at the start of analysis.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DiscoveryNote {
-    <span class="doccomment">/// Required. Immutable. The kind of analysis that is handled by this
-    /// discovery.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;NoteKind&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>analysis_kind: i32,
-}
-<span class="doccomment">/// Provides information about the analysis status of a discovered resource.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DiscoveryOccurrence {
-    <span class="doccomment">/// Whether the resource is continuously analyzed.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;discovery_occurrence::ContinuousAnalysis&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>continuous_analysis: i32,
-    <span class="doccomment">/// The status of discovery for the resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;discovery_occurrence::AnalysisStatus&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>analysis_status: i32,
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>analysis_completed: ::core::option::Option&lt;
-        discovery_occurrence::AnalysisCompleted,
-    &gt;,
-    <span class="doccomment">/// Indicates any errors encountered during analysis of a resource. There
-    /// could be 0 or more of these errors.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>analysis_error: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::google::rpc::Status&gt;,
-    <span class="doccomment">/// When an error is encountered this will contain a LocalizedMessage under
-    /// details to show to the user. The LocalizedMessage is output only and
-    /// populated by the API.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>analysis_status_error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::google::rpc::Status&gt;,
-    <span class="doccomment">/// The CPE of the resource being scanned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>cpe: ::prost::alloc::string::String,
-    <span class="doccomment">/// The last time this resource was scanned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>last_scan_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The time occurrences related to this discovery occurrence were archived.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>archive_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `DiscoveryOccurrence`.
-</span><span class="kw">pub mod </span>discovery_occurrence {
-    <span class="doccomment">/// Indicates which analysis completed successfully. Multiple types of
-    /// analysis can be performed on a single resource.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>AnalysisCompleted {
-        <span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>analysis_type: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    }
-    <span class="doccomment">/// Whether the resource is continuously analyzed.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>ContinuousAnalysis {
-        <span class="doccomment">/// Unknown.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The resource is continuously analyzed.
-        </span>Active = <span class="number">1</span>,
-        <span class="doccomment">/// The resource is ignored for continuous analysis.
-        </span>Inactive = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>ContinuousAnalysis {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                ContinuousAnalysis::Unspecified =&gt; <span class="string">&quot;CONTINUOUS_ANALYSIS_UNSPECIFIED&quot;</span>,
-                ContinuousAnalysis::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                ContinuousAnalysis::Inactive =&gt; <span class="string">&quot;INACTIVE&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;CONTINUOUS_ANALYSIS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Analysis status for a resource. Currently for initial analysis only (not
-    /// updated in continuous analysis).
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>AnalysisStatus {
-        <span class="doccomment">/// Unknown.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Resource is known but no action has been taken yet.
-        </span>Pending = <span class="number">1</span>,
-        <span class="doccomment">/// Resource is being analyzed.
-        </span>Scanning = <span class="number">2</span>,
-        <span class="doccomment">/// Analysis has finished successfully.
-        </span>FinishedSuccess = <span class="number">3</span>,
-        <span class="doccomment">/// Analysis has finished unsuccessfully, the analysis itself is in a bad
-        /// state.
-        </span>FinishedFailed = <span class="number">4</span>,
-        <span class="doccomment">/// The resource is known not to be supported.
-        </span>FinishedUnsupported = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>AnalysisStatus {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                AnalysisStatus::Unspecified =&gt; <span class="string">&quot;ANALYSIS_STATUS_UNSPECIFIED&quot;</span>,
-                AnalysisStatus::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                AnalysisStatus::Scanning =&gt; <span class="string">&quot;SCANNING&quot;</span>,
-                AnalysisStatus::FinishedSuccess =&gt; <span class="string">&quot;FINISHED_SUCCESS&quot;</span>,
-                AnalysisStatus::FinishedFailed =&gt; <span class="string">&quot;FINISHED_FAILED&quot;</span>,
-                AnalysisStatus::FinishedUnsupported =&gt; <span class="string">&quot;FINISHED_UNSUPPORTED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;ANALYSIS_STATUS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;SCANNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scanning),
-                <span class="string">&quot;FINISHED_SUCCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedSuccess),
-                <span class="string">&quot;FINISHED_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedFailed),
-                <span class="string">&quot;FINISHED_UNSUPPORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedUnsupported),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DsseAttestationNote {
-    <span class="doccomment">/// DSSEHint hints at the purpose of the attestation authority.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>hint: ::core::option::Option&lt;dsse_attestation_note::DsseHint&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `DSSEAttestationNote`.
-</span><span class="kw">pub mod </span>dsse_attestation_note {
-    <span class="doccomment">/// This submessage provides human-readable hints about the purpose of the
-    /// authority. Because the name of a note acts as its resource reference, it is
-    /// important to disambiguate the canonical name of the Note (which might be a
-    /// UUID for security purposes) from &quot;readable&quot; names more suitable for debug
-    /// output. Note that these hints should not be used to look up authorities in
-    /// security sensitive contexts, such as when looking up attestations to
-    /// verify.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>DsseHint {
-        <span class="doccomment">/// Required. The human readable name of this attestation authority, for
-        /// example &quot;cloudbuild-prod&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>human_readable_name: ::prost::alloc::string::String,
-    }
-}
-<span class="doccomment">/// Deprecated. Prefer to use a regular Occurrence, and populate the
-/// Envelope at the top level of the Occurrence.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DsseAttestationOccurrence {
-    <span class="doccomment">/// If doing something security critical, make sure to verify the signatures in
-    /// this metadata.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>envelope: ::core::option::Option&lt;Envelope&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;dsse_attestation_occurrence::DecodedPayload&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>decoded_payload: ::core::option::Option&lt;
-        dsse_attestation_occurrence::DecodedPayload,
-    &gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `DSSEAttestationOccurrence`.
-</span><span class="kw">pub mod </span>dsse_attestation_occurrence {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>DecodedPayload {
-        <span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>Statement(<span class="kw">super</span>::InTotoStatement),
-    }
 }
 <span class="doccomment">/// An instance of an analysis type that has been found on a resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
