@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["LaunchStage","OpenSourceCategory"],"mod":["call_to_action","resource_reference"],"struct":["CallToAction","Documentation","Parent","ResourceReference"]};
+window.SIDEBAR_ITEMS = {"enum":["LaunchStage","OpenSourceCategory","VersionState"],"mod":["call_to_action","resource_reference"],"struct":["CallToAction","Documentation","Parent","ResourceReference"]};

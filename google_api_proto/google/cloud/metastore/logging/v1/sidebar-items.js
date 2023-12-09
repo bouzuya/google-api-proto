@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["RequestsLogEntry","SystemActivityLogEntry"]};
+window.SIDEBAR_ITEMS = {"mod":["scheduled_backup_log_entry"],"struct":["RequestsLogEntry","ScheduledBackupLogEntry","SystemActivityLogEntry"]};

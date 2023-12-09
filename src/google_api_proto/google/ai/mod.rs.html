@@ -5,8 +5,12 @@
 <a href="#5" id="5">5</a>
 <a href="#6" id="6">6</a>
 <a href="#7" id="7">7</a>
+<a href="#8" id="8">8</a>
+<a href="#9" id="9">9</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(
     any(
+        feature = <span class="string">&quot;google-ai-generativelanguage-v1&quot;</span>,
+        feature = <span class="string">&quot;google-ai-generativelanguage-v1beta&quot;</span>,
         feature = <span class="string">&quot;google-ai-generativelanguage-v1beta2&quot;</span>,
         feature = <span class="string">&quot;google-ai-generativelanguage-v1beta3&quot;</span>,
     )
