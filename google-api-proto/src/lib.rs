@@ -30,6 +30,8 @@ pub mod cloud;
         feature = "google-ads-searchads360-v0-enums",
         feature = "google-ads-searchads360-v0-resources",
         feature = "google-ads-searchads360-v0-services",
+        feature = "google-ai-generativelanguage-v1",
+        feature = "google-ai-generativelanguage-v1beta",
         feature = "google-ai-generativelanguage-v1beta2",
         feature = "google-ai-generativelanguage-v1beta3",
         feature = "google-analytics-admin-v1alpha",
