@@ -467,6 +467,7 @@ pub mod cloud;
         feature = "google-rpc",
         feature = "google-rpc-context",
         feature = "google-search-partnerdataingestion-logging-v1",
+        feature = "google-shopping-css-v1",
         feature = "google-shopping-merchant-inventories-v1beta",
         feature = "google-shopping-merchant-reports-v1beta",
         feature = "google-shopping-type",
