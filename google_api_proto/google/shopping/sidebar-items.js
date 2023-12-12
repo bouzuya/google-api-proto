@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["merchant","type"]};
+window.SIDEBAR_ITEMS = {"mod":["css","merchant","type"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["ConditionCombinerType"],"mod":["alert_strategy","condition"],"struct":["AlertStrategy","Condition","Documentation"]};
+window.SIDEBAR_ITEMS = {"enum":["ConditionCombinerType","Severity"],"mod":["alert_strategy","condition"],"struct":["AlertStrategy","Condition","Documentation"]};

@@ -1721,6 +1721,25 @@
 <a href="#1721" id="1721">1721</a>
 <a href="#1722" id="1722">1722</a>
 <a href="#1723" id="1723">1723</a>
+<a href="#1724" id="1724">1724</a>
+<a href="#1725" id="1725">1725</a>
+<a href="#1726" id="1726">1726</a>
+<a href="#1727" id="1727">1727</a>
+<a href="#1728" id="1728">1728</a>
+<a href="#1729" id="1729">1729</a>
+<a href="#1730" id="1730">1730</a>
+<a href="#1731" id="1731">1731</a>
+<a href="#1732" id="1732">1732</a>
+<a href="#1733" id="1733">1733</a>
+<a href="#1734" id="1734">1734</a>
+<a href="#1735" id="1735">1735</a>
+<a href="#1736" id="1736">1736</a>
+<a href="#1737" id="1737">1737</a>
+<a href="#1738" id="1738">1738</a>
+<a href="#1739" id="1739">1739</a>
+<a href="#1740" id="1740">1740</a>
+<a href="#1741" id="1741">1741</a>
+<a href="#1742" id="1742">1742</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An insight along with the information used to derive the insight. The insight
 /// may have associated recommendations as well.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2248,6 +2267,11 @@
     <span class="doccomment">/// Duration for which this cost applies.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    <span class="doccomment">/// The approximate cost savings in the billing account&#39;s local currency.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>cost_in_local_currency: ::core::option::Option&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money,
+    &gt;,
 }
 <span class="doccomment">/// Contains various ways of describing the impact on Security.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2417,7 +2441,7 @@
         <span class="doccomment">/// Use with CategoryType.SUSTAINABILITY
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;102&quot;</span>)]
         </span>SustainabilityProjection(<span class="kw">super</span>::SustainabilityProjection),
-        <span class="doccomment">/// Use with CategoryType.RELAIBILITY
+        <span class="doccomment">/// Use with CategoryType.RELIABILITY
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;103&quot;</span>)]
         </span>ReliabilityProjection(<span class="kw">super</span>::ReliabilityProjection),
     }
@@ -2664,6 +2688,8 @@
     ///
     /// * `severity`
     ///
+    /// * `targetResources`
+    ///
     /// Examples:
     ///
     /// * `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED`
@@ -2672,7 +2698,12 @@
     ///
     /// * `severity = CRITICAL OR severity = HIGH`
     ///
+    /// * `targetResources :
+    /// //compute.googleapis.com/projects/1234/zones/us-central1-a/instances/instance-1`
+    ///
     /// * `stateInfo.state = ACTIVE AND (severity = CRITICAL OR severity = HIGH)`
+    ///
+    /// The max allowed filter length is 500 characters.
     ///
     /// (These expressions are based on the filter language described at
     /// &lt;https://google.aip.dev/160&gt;)
@@ -2760,6 +2791,8 @@
     ///
     /// * `priority`
     ///
+    /// * `targetResources`
+    ///
     /// Examples:
     ///
     /// * `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED`
@@ -2768,7 +2801,12 @@
     ///
     /// * `priority = P1 OR priority = P2`
     ///
+    /// * `targetResources :
+    /// //compute.googleapis.com/projects/1234/zones/us-central1-a/instances/instance-1`
+    ///
     /// * `stateInfo.state = ACTIVE AND (priority = P1 OR priority = P2)`
+    ///
+    /// The max allowed filter length is 500 characters.
     ///
     /// (These expressions are based on the filter language described at
     /// &lt;https://google.aip.dev/160&gt;)
@@ -2799,7 +2837,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MarkRecommendationDismissedRequest {
-    <span class="doccomment">/// Name of the recommendation.
+    <span class="doccomment">/// Required. Name of the recommendation.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Fingerprint of the Recommendation. Provides optimistic locking.

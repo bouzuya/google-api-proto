@@ -547,88 +547,231 @@
 <a href="#547" id="547">547</a>
 <a href="#548" id="548">548</a>
 <a href="#549" id="549">549</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Temporal asset. In addition to the asset, the temporal asset includes the
-/// status of the asset and valid from and to time of it.
+<a href="#550" id="550">550</a>
+<a href="#551" id="551">551</a>
+<a href="#552" id="552">552</a>
+<a href="#553" id="553">553</a>
+<a href="#554" id="554">554</a>
+<a href="#555" id="555">555</a>
+<a href="#556" id="556">556</a>
+<a href="#557" id="557">557</a>
+<a href="#558" id="558">558</a>
+<a href="#559" id="559">559</a>
+<a href="#560" id="560">560</a>
+<a href="#561" id="561">561</a>
+<a href="#562" id="562">562</a>
+<a href="#563" id="563">563</a>
+<a href="#564" id="564">564</a>
+<a href="#565" id="565">565</a>
+<a href="#566" id="566">566</a>
+<a href="#567" id="567">567</a>
+<a href="#568" id="568">568</a>
+<a href="#569" id="569">569</a>
+<a href="#570" id="570">570</a>
+<a href="#571" id="571">571</a>
+<a href="#572" id="572">572</a>
+<a href="#573" id="573">573</a>
+<a href="#574" id="574">574</a>
+<a href="#575" id="575">575</a>
+<a href="#576" id="576">576</a>
+<a href="#577" id="577">577</a>
+<a href="#578" id="578">578</a>
+<a href="#579" id="579">579</a>
+<a href="#580" id="580">580</a>
+<a href="#581" id="581">581</a>
+<a href="#582" id="582">582</a>
+<a href="#583" id="583">583</a>
+<a href="#584" id="584">584</a>
+<a href="#585" id="585">585</a>
+<a href="#586" id="586">586</a>
+<a href="#587" id="587">587</a>
+<a href="#588" id="588">588</a>
+<a href="#589" id="589">589</a>
+<a href="#590" id="590">590</a>
+<a href="#591" id="591">591</a>
+<a href="#592" id="592">592</a>
+<a href="#593" id="593">593</a>
+<a href="#594" id="594">594</a>
+<a href="#595" id="595">595</a>
+<a href="#596" id="596">596</a>
+<a href="#597" id="597">597</a>
+<a href="#598" id="598">598</a>
+<a href="#599" id="599">599</a>
+<a href="#600" id="600">600</a>
+<a href="#601" id="601">601</a>
+<a href="#602" id="602">602</a>
+<a href="#603" id="603">603</a>
+<a href="#604" id="604">604</a>
+<a href="#605" id="605">605</a>
+<a href="#606" id="606">606</a>
+<a href="#607" id="607">607</a>
+<a href="#608" id="608">608</a>
+<a href="#609" id="609">609</a>
+<a href="#610" id="610">610</a>
+<a href="#611" id="611">611</a>
+<a href="#612" id="612">612</a>
+<a href="#613" id="613">613</a>
+<a href="#614" id="614">614</a>
+<a href="#615" id="615">615</a>
+<a href="#616" id="616">616</a>
+<a href="#617" id="617">617</a>
+<a href="#618" id="618">618</a>
+<a href="#619" id="619">619</a>
+<a href="#620" id="620">620</a>
+<a href="#621" id="621">621</a>
+<a href="#622" id="622">622</a>
+<a href="#623" id="623">623</a>
+<a href="#624" id="624">624</a>
+<a href="#625" id="625">625</a>
+<a href="#626" id="626">626</a>
+<a href="#627" id="627">627</a>
+<a href="#628" id="628">628</a>
+<a href="#629" id="629">629</a>
+<a href="#630" id="630">630</a>
+<a href="#631" id="631">631</a>
+<a href="#632" id="632">632</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// An asset in Google Cloud and its temporal metadata, including the time window
+/// when it was observed and its status during that window.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TemporalAsset {
     <span class="doccomment">/// The time window when the asset data and state was observed.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>window: ::core::option::Option&lt;TimeWindow&gt;,
-    <span class="doccomment">/// If the asset is deleted or not.
+    <span class="doccomment">/// Whether the asset has been deleted or not.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>deleted: bool,
-    <span class="doccomment">/// Asset.
+    <span class="doccomment">/// An asset in Google Cloud.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>asset: ::core::option::Option&lt;Asset&gt;,
 }
-<span class="doccomment">/// A time window of (start_time, end_time].
+<span class="doccomment">/// A time window specified by its `start_time` and `end_time`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimeWindow {
     <span class="doccomment">/// Start time of the time window (exclusive).
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// End time of the time window (inclusive).
-    /// Current timestamp if not specified.
+    <span class="doccomment">/// End time of the time window (inclusive). If not specified, the current
+    /// timestamp is used instead.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
-<span class="doccomment">/// Cloud asset. This includes all Google Cloud Platform resources,
-/// Cloud IAM policies, and other non-GCP assets.
+<span class="doccomment">/// An asset in Google Cloud. An asset can be any resource in the Google Cloud
+/// [resource
+/// hierarchy](&lt;https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy&gt;),
+/// a resource outside the Google Cloud resource hierarchy (such as Google
+/// Kubernetes Engine clusters and objects), or a policy (e.g. IAM policy).
+/// See [Supported asset
+/// types](&lt;https://cloud.google.com/asset-inventory/docs/supported-asset-types&gt;)
+/// for more information.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Asset {
-    <span class="doccomment">/// The full name of the asset. For example:
-    /// `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
+    <span class="doccomment">/// The full name of the asset. Example:
+    /// `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`
+    ///
     /// See [Resource
-    /// Names](&lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;)
+    /// names](&lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;)
     /// for more information.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Type of the asset. Example: &quot;compute.googleapis.com/Disk&quot;.
+    <span class="doccomment">/// The type of the asset. Example: `compute.googleapis.com/Disk`
+    ///
+    /// See [Supported asset
+    /// types](&lt;https://cloud.google.com/asset-inventory/docs/supported-asset-types&gt;)
+    /// for more information.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>asset_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Representation of the resource.
+    <span class="doccomment">/// A representation of the resource.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Resource&gt;,
-    <span class="doccomment">/// Representation of the actual Cloud IAM policy set on a cloud resource. For
-    /// each resource, there must be at most one Cloud IAM policy set on it.
+    <span class="doccomment">/// A representation of the IAM policy set on a Google Cloud resource.
+    /// There can be a maximum of one IAM policy set on any given resource.
+    /// In addition, IAM policies inherit their granted access scope from any
+    /// policies set on parent resources in the resource hierarchy. Therefore, the
+    /// effectively policy is the union of both the policy set on this resource
+    /// and each policy set on all of the resource&#39;s ancestry resource levels in
+    /// the hierarchy. See
+    /// [this topic](&lt;https://cloud.google.com/iam/help/allow-policies/inheritance&gt;)
+    /// for more information.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>iam_policy: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
-    <span class="doccomment">/// Asset&#39;s ancestry path in Cloud Resource Manager (CRM) hierarchy,
-    /// represented as a list of relative resource names. Ancestry path starts with
-    /// the closest CRM ancestor and ends at root. If the asset is a CRM
-    /// project/folder/organization, this starts from the asset itself.
+    <span class="doccomment">/// The ancestry path of an asset in Google Cloud [resource
+    /// hierarchy](&lt;https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy&gt;),
+    /// represented as a list of relative resource names. An ancestry path starts
+    /// with the closest ancestor in the hierarchy and ends at root. If the asset
+    /// is a project, folder, or organization, the ancestry path starts from the
+    /// asset itself.
     ///
-    /// Example: \[&quot;projects/123456789&quot;, &quot;folders/5432&quot;, &quot;organizations/1234&quot;\]
+    /// Example: `\[&quot;projects/123456789&quot;, &quot;folders/5432&quot;, &quot;organizations/1234&quot;\]`
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>ancestors: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// A representation of an [organization
+    /// policy](&lt;https://cloud.google.com/resource-manager/docs/organization-policy/overview#organization_policy&gt;).
+    /// There can be more than one organization policy with different constraints
+    /// set on a given resource.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>org_policy: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::orgpolicy::v1::Policy&gt;,
+    <span class="doccomment">/// A representation of an [access
+    /// policy](&lt;https://cloud.google.com/access-context-manager/docs/overview#access-policies&gt;).
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;asset::AccessContextPolicy&quot;</span>, tags = <span class="string">&quot;7, 8, 9&quot;</span>)]
+    </span><span class="kw">pub </span>access_context_policy: ::core::option::Option&lt;asset::AccessContextPolicy&gt;,
 }
-<span class="doccomment">/// Representation of a cloud resource.
+<span class="doccomment">/// Nested message and enum types in `Asset`.
+</span><span class="kw">pub mod </span>asset {
+    <span class="doccomment">/// A representation of an [access
+    /// policy](&lt;https://cloud.google.com/access-context-manager/docs/overview#access-policies&gt;).
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>AccessContextPolicy {
+        <span class="doccomment">/// Please also refer to the [access policy user
+        /// guide](&lt;https://cloud.google.com/access-context-manager/docs/overview#access-policies&gt;).
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>AccessPolicy(
+            <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::identity::accesscontextmanager::v1::AccessPolicy,
+        ),
+        <span class="doccomment">/// Please also refer to the [access level user
+        /// guide](&lt;https://cloud.google.com/access-context-manager/docs/overview#access-levels&gt;).
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span>AccessLevel(
+            <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::identity::accesscontextmanager::v1::AccessLevel,
+        ),
+        <span class="doccomment">/// Please also refer to the [service perimeter user
+        /// guide](&lt;https://cloud.google.com/vpc-service-controls/docs/overview&gt;).
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span>ServicePerimeter(
+            <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::identity::accesscontextmanager::v1::ServicePerimeter,
+        ),
+    }
+}
+<span class="doccomment">/// A representation of a Google Cloud resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Resource {
-    <span class="doccomment">/// The API version. Example: &quot;v1&quot;.
+    <span class="doccomment">/// The API version. Example: `v1`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// The URL of the discovery document containing the resource&#39;s JSON schema.
-    /// For example:
-    /// `&quot;&lt;https://www.googleapis.com/discovery/v1/apis/compute/v1/rest&quot;`.&gt;
-    /// It will be left unspecified for resources without a discovery-based API,
-    /// such as Cloud Bigtable.
+    /// Example:
+    /// `&lt;https://www.googleapis.com/discovery/v1/apis/compute/v1/rest`&gt;
+    ///
+    /// This value is unspecified for resources that do not have an API based on a
+    /// discovery document, such as Cloud Bigtable.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>discovery_document_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// The JSON schema name listed in the discovery document.
-    /// Example: &quot;Project&quot;. It will be left unspecified for resources (such as
-    /// Cloud Bigtable) without a discovery-based API.
+    <span class="doccomment">/// The JSON schema name listed in the discovery document. Example:
+    /// `Project`
+    ///
+    /// This value is unspecified for resources that do not have an API based on a
+    /// discovery document, such as Cloud Bigtable.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>discovery_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The REST URL for accessing the resource. An HTTP GET operation using this
-    /// URL returns the resource itself.
-    /// Example:
-    /// `&lt;https://cloudresourcemanager.googleapis.com/v1/projects/my-project-123`.&gt;
-    /// It will be left unspecified for resources without a REST API.
+    <span class="doccomment">/// The REST URL for accessing the resource. An HTTP `GET` request using this
+    /// URL returns the resource itself. Example:
+    /// `&lt;https://cloudresourcemanager.googleapis.com/v1/projects/my-project-123`&gt;
+    ///
+    /// This value is unspecified for resources without a REST API.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>resource_url: ::prost::alloc::string::String,
     <span class="doccomment">/// The full name of the immediate parent of this resource. See
@@ -636,18 +779,42 @@
     /// Names](&lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;)
     /// for more information.
     ///
-    /// For GCP assets, it is the parent resource defined in the [Cloud IAM policy
+    /// For Google Cloud assets, this value is the parent resource defined in the
+    /// [IAM policy
     /// hierarchy](&lt;https://cloud.google.com/iam/docs/overview#policy_hierarchy&gt;).
-    /// For example:
-    /// `&quot;//cloudresourcemanager.googleapis.com/projects/my_project_123&quot;`.
+    /// Example:
+    /// `//cloudresourcemanager.googleapis.com/projects/my_project_123`
     ///
-    /// For third-party assets, it is up to the users to define.
+    /// For third-party assets, this field may be set differently.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The content of the resource, in which some sensitive fields are scrubbed
-    /// away and may not be present.
+    <span class="doccomment">/// The content of the resource, in which some sensitive fields are removed
+    /// and may not be present.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>data: ::core::option::Option&lt;::prost_types::Struct&gt;,
+}
+<span class="doccomment">/// The export asset response. This message is returned by the
+/// [google.longrunning.Operations.GetOperation][google.longrunning.Operations.GetOperation]
+/// method in the returned
+/// [google.longrunning.Operation.response][google.longrunning.Operation.response]
+/// field.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExportAssetsResponse {
+    <span class="doccomment">/// Time the snapshot was taken.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output configuration indicating where the results were output to.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>output_config: ::core::option::Option&lt;OutputConfig&gt;,
+}
+<span class="doccomment">/// Batch get assets history response.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BatchGetAssetsHistoryResponse {
+    <span class="doccomment">/// A list of assets with valid time windows.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>assets: ::prost::alloc::vec::Vec&lt;TemporalAsset&gt;,
 }
 <span class="doccomment">/// Create asset feed request.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -656,7 +823,7 @@
     <span class="doccomment">/// Required. The name of the project/folder/organization where this feed
     /// should be created in. It can only be an organization number (such as
     /// &quot;organizations/123&quot;), a folder number (such as &quot;folders/123&quot;), a project ID
-    /// (such as &quot;projects/my-project-id&quot;)&quot;, or a project number (such as
+    /// (such as &quot;projects/my-project-id&quot;), or a project number (such as
     /// &quot;projects/12345&quot;).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
@@ -664,9 +831,8 @@
     /// be unique under a specific parent project/folder/organization.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>feed_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The feed details. The field `name` must be empty and it will be generated
-    /// in the format of:
-    /// projects/project_number/feeds/feed_id
+    <span class="doccomment">/// Required. The feed details. The field `name` must be empty and it will be
+    /// generated in the format of: projects/project_number/feeds/feed_id
     /// folders/folder_number/feeds/feed_id
     /// organizations/organization_number/feeds/feed_id
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
@@ -704,8 +870,8 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateFeedRequest {
-    <span class="doccomment">/// Required. The new values of feed details. It must match an existing feed and the
-    /// field `name` must be in the format of:
+    <span class="doccomment">/// Required. The new values of feed details. It must match an existing feed
+    /// and the field `name` must be in the format of:
     /// projects/project_number/feeds/feed_id or
     /// folders/folder_number/feeds/feed_id or
     /// organizations/organization_number/feeds/feed_id.
@@ -760,7 +926,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ObjectUri {
-        <span class="doccomment">/// The uri of the Cloud Storage object. It&#39;s the same uri that is used by
+        <span class="doccomment">/// The URI of the Cloud Storage object. It&#39;s the same URI that is used by
         /// gsutil. For example: &quot;gs://bucket_name/object_name&quot;. See [Viewing and
         /// Editing Object
         /// Metadata](&lt;https://cloud.google.com/storage/docs/viewing-editing-metadata&gt;)
@@ -769,11 +935,11 @@
         </span>Uri(::prost::alloc::string::String),
     }
 }
-<span class="doccomment">/// A Cloud Pubsub destination.
+<span class="doccomment">/// A Pub/Sub destination.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PubsubDestination {
-    <span class="doccomment">/// The name of the Cloud Pub/Sub topic to publish to.
+    <span class="doccomment">/// The name of the Pub/Sub topic to publish to.
     /// For example: `projects/PROJECT_ID/topics/TOPIC_ID`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>topic: ::prost::alloc::string::String,
@@ -792,7 +958,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Destination {
-        <span class="doccomment">/// Destination on Cloud Pubsub.
+        <span class="doccomment">/// Destination on Pub/Sub.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
         </span>PubsubDestination(<span class="kw">super</span>::PubsubDestination),
     }
@@ -816,7 +982,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of the full names of the assets to receive updates. You must specify
     /// either or both of asset_names and asset_types. Only asset updates matching
-    /// specified asset_names and asset_types are exported to the feed. For
+    /// specified asset_names or asset_types are exported to the feed. For
     /// example:
     /// `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
     /// See [Resource
@@ -826,7 +992,7 @@
     </span><span class="kw">pub </span>asset_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A list of types of the assets to receive updates. You must specify either
     /// or both of asset_names and asset_types. Only asset updates matching
-    /// specified asset_names and asset_types are exported to the feed.
+    /// specified asset_names or asset_types are exported to the feed.
     /// For example:
     /// &quot;compute.googleapis.com/Disk&quot; See [Introduction to Cloud Asset
     /// Inventory](&lt;https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/overview&gt;)
