@@ -1,144 +1,3 @@
-/// A detailed representation of an Apt artifact. Information in the record
-/// is derived from the archive's control file.
-/// See <https://www.debian.org/doc/debian-policy/ch-controlfields.html>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AptArtifact {
-    /// Output only. The Artifact Registry resource name of the artifact.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The Apt package name of the artifact.
-    #[prost(string, tag = "2")]
-    pub package_name: ::prost::alloc::string::String,
-    /// Output only. An artifact is a binary or source package.
-    #[prost(enumeration = "apt_artifact::PackageType", tag = "3")]
-    pub package_type: i32,
-    /// Output only. Operating system architecture of the artifact.
-    #[prost(string, tag = "4")]
-    pub architecture: ::prost::alloc::string::String,
-    /// Output only. Repository component of the artifact.
-    #[prost(string, tag = "5")]
-    pub component: ::prost::alloc::string::String,
-    /// Output only. Contents of the artifact's control metadata file.
-    #[prost(bytes = "bytes", tag = "6")]
-    pub control_file: ::prost::bytes::Bytes,
-}
-/// Nested message and enum types in `AptArtifact`.
-pub mod apt_artifact {
-    /// Package type is either binary or source.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum PackageType {
-        /// Package type is not specified.
-        Unspecified = 0,
-        /// Binary package.
-        Binary = 1,
-        /// Source package.
-        Source = 2,
-    }
-    impl PackageType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                PackageType::Unspecified => "PACKAGE_TYPE_UNSPECIFIED",
-                PackageType::Binary => "BINARY",
-                PackageType::Source => "SOURCE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "PACKAGE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "BINARY" => Some(Self::Binary),
-                "SOURCE" => Some(Self::Source),
-                _ => None,
-            }
-        }
-    }
-}
-/// Google Cloud Storage location where the artifacts currently reside.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportAptArtifactsGcsSource {
-    /// Cloud Storage paths URI (e.g., gs://my_bucket//my_object).
-    #[prost(string, repeated, tag = "1")]
-    pub uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Supports URI wildcards for matching multiple objects from a single URI.
-    #[prost(bool, tag = "2")]
-    pub use_wildcards: bool,
-}
-/// The request to import new apt artifacts.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportAptArtifactsRequest {
-    /// The name of the parent resource where the artifacts will be imported.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The source location of the package binaries.
-    #[prost(oneof = "import_apt_artifacts_request::Source", tags = "2")]
-    pub source: ::core::option::Option<import_apt_artifacts_request::Source>,
-}
-/// Nested message and enum types in `ImportAptArtifactsRequest`.
-pub mod import_apt_artifacts_request {
-    /// The source location of the package binaries.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Source {
-        /// Google Cloud Storage location where input content is located.
-        #[prost(message, tag = "2")]
-        GcsSource(super::ImportAptArtifactsGcsSource),
-    }
-}
-/// Error information explaining why a package was not imported.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportAptArtifactsErrorInfo {
-    /// The detailed error status.
-    #[prost(message, optional, tag = "2")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-    /// The source that was not imported.
-    #[prost(oneof = "import_apt_artifacts_error_info::Source", tags = "1")]
-    pub source: ::core::option::Option<import_apt_artifacts_error_info::Source>,
-}
-/// Nested message and enum types in `ImportAptArtifactsErrorInfo`.
-pub mod import_apt_artifacts_error_info {
-    /// The source that was not imported.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Source {
-        /// Google Cloud Storage location requested.
-        #[prost(message, tag = "1")]
-        GcsSource(super::ImportAptArtifactsGcsSource),
-    }
-}
-/// The response message from importing APT artifacts.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportAptArtifactsResponse {
-    /// The Apt artifacts imported.
-    #[prost(message, repeated, tag = "1")]
-    pub apt_artifacts: ::prost::alloc::vec::Vec<AptArtifact>,
-    /// Detailed error info for packages that were not imported.
-    #[prost(message, repeated, tag = "2")]
-    pub errors: ::prost::alloc::vec::Vec<ImportAptArtifactsErrorInfo>,
-}
-/// The operation metadata for importing artifacts.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportAptArtifactsMetadata {}
 /// Tags point to a version and represent an alternative name that can be used
 /// to access the version.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -386,20 +245,34 @@ impl VersionView {
         }
     }
 }
-/// A hash of file content.
+/// A detailed representation of an Apt artifact. Information in the record
+/// is derived from the archive's control file.
+/// See <https://www.debian.org/doc/debian-policy/ch-controlfields.html>
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Hash {
-    /// The algorithm used to compute the hash value.
-    #[prost(enumeration = "hash::HashType", tag = "1")]
-    pub r#type: i32,
-    /// The hash value.
-    #[prost(bytes = "bytes", tag = "2")]
-    pub value: ::prost::bytes::Bytes,
+pub struct AptArtifact {
+    /// Output only. The Artifact Registry resource name of the artifact.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The Apt package name of the artifact.
+    #[prost(string, tag = "2")]
+    pub package_name: ::prost::alloc::string::String,
+    /// Output only. An artifact is a binary or source package.
+    #[prost(enumeration = "apt_artifact::PackageType", tag = "3")]
+    pub package_type: i32,
+    /// Output only. Operating system architecture of the artifact.
+    #[prost(string, tag = "4")]
+    pub architecture: ::prost::alloc::string::String,
+    /// Output only. Repository component of the artifact.
+    #[prost(string, tag = "5")]
+    pub component: ::prost::alloc::string::String,
+    /// Output only. Contents of the artifact's control metadata file.
+    #[prost(bytes = "bytes", tag = "6")]
+    pub control_file: ::prost::bytes::Bytes,
 }
-/// Nested message and enum types in `Hash`.
-pub mod hash {
-    /// The algorithm used to compute the hash.
+/// Nested message and enum types in `AptArtifact`.
+pub mod apt_artifact {
+    /// Package type is either binary or source.
     #[derive(
         Clone,
         Copy,
@@ -412,118 +285,107 @@ pub mod hash {
         ::prost::Enumeration
     )]
     #[repr(i32)]
-    pub enum HashType {
-        /// Unspecified.
+    pub enum PackageType {
+        /// Package type is not specified.
         Unspecified = 0,
-        /// SHA256 hash.
-        Sha256 = 1,
-        /// MD5 hash.
-        Md5 = 2,
+        /// Binary package.
+        Binary = 1,
+        /// Source package.
+        Source = 2,
     }
-    impl HashType {
+    impl PackageType {
         /// String value of the enum field names used in the ProtoBuf definition.
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                HashType::Unspecified => "HASH_TYPE_UNSPECIFIED",
-                HashType::Sha256 => "SHA256",
-                HashType::Md5 => "MD5",
+                PackageType::Unspecified => "PACKAGE_TYPE_UNSPECIFIED",
+                PackageType::Binary => "BINARY",
+                PackageType::Source => "SOURCE",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
         pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
             match value {
-                "HASH_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "SHA256" => Some(Self::Sha256),
-                "MD5" => Some(Self::Md5),
+                "PACKAGE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "BINARY" => Some(Self::Binary),
+                "SOURCE" => Some(Self::Source),
                 _ => None,
             }
         }
     }
 }
-/// Files store content that is potentially associated with Packages or Versions.
+/// Google Cloud Storage location where the artifacts currently reside.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct File {
-    /// The name of the file, for example:
-    /// "projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt".
-    /// If the file ID part contains slashes, they are escaped.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The size of the File in bytes.
-    #[prost(int64, tag = "3")]
-    pub size_bytes: i64,
-    /// The hashes of the file content.
-    #[prost(message, repeated, tag = "4")]
-    pub hashes: ::prost::alloc::vec::Vec<Hash>,
-    /// Output only. The time when the File was created.
-    #[prost(message, optional, tag = "5")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time when the File was last updated.
-    #[prost(message, optional, tag = "6")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The name of the Package or Version that owns this file, if any.
-    #[prost(string, tag = "7")]
-    pub owner: ::prost::alloc::string::String,
-    /// Output only. The time when the last attempt to refresh the file's data was
-    /// made. Only set when the repository is remote.
-    #[prost(message, optional, tag = "8")]
-    pub fetch_time: ::core::option::Option<::prost_types::Timestamp>,
+pub struct ImportAptArtifactsGcsSource {
+    /// Cloud Storage paths URI (e.g., gs://my_bucket//my_object).
+    #[prost(string, repeated, tag = "1")]
+    pub uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Supports URI wildcards for matching multiple objects from a single URI.
+    #[prost(bool, tag = "2")]
+    pub use_wildcards: bool,
 }
-/// The request to list files.
+/// The request to import new apt artifacts.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListFilesRequest {
-    /// Required. The name of the repository whose files will be listed. For
-    /// example: "projects/p1/locations/us-central1/repositories/repo1
+pub struct ImportAptArtifactsRequest {
+    /// The name of the parent resource where the artifacts will be imported.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// An expression for filtering the results of the request. Filter rules are
-    /// case insensitive. The fields eligible for filtering are:
-    ///
-    ///    * `name`
-    ///    * `owner`
-    ///
-    ///   An example of using a filter:
-    ///
-    ///    * `name="projects/p1/locations/us-central1/repositories/repo1/files/a/b/*"` --> Files with an
-    ///    ID starting with "a/b/".
-    ///    * `owner="projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0"` -->
-    ///    Files owned by the version `1.0` in package `pkg1`.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// The maximum number of files to return.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The next_page_token value returned from a previous list request, if any.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// The field to order the results by.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
+    /// The source location of the package binaries.
+    #[prost(oneof = "import_apt_artifacts_request::Source", tags = "2")]
+    pub source: ::core::option::Option<import_apt_artifacts_request::Source>,
 }
-/// The response from listing files.
+/// Nested message and enum types in `ImportAptArtifactsRequest`.
+pub mod import_apt_artifacts_request {
+    /// The source location of the package binaries.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Source {
+        /// Google Cloud Storage location where input content is located.
+        #[prost(message, tag = "2")]
+        GcsSource(super::ImportAptArtifactsGcsSource),
+    }
+}
+/// Error information explaining why a package was not imported.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListFilesResponse {
-    /// The files returned.
+pub struct ImportAptArtifactsErrorInfo {
+    /// The detailed error status.
+    #[prost(message, optional, tag = "2")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+    /// The source that was not imported.
+    #[prost(oneof = "import_apt_artifacts_error_info::Source", tags = "1")]
+    pub source: ::core::option::Option<import_apt_artifacts_error_info::Source>,
+}
+/// Nested message and enum types in `ImportAptArtifactsErrorInfo`.
+pub mod import_apt_artifacts_error_info {
+    /// The source that was not imported.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Source {
+        /// Google Cloud Storage location requested.
+        #[prost(message, tag = "1")]
+        GcsSource(super::ImportAptArtifactsGcsSource),
+    }
+}
+/// The response message from importing APT artifacts.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportAptArtifactsResponse {
+    /// The Apt artifacts imported.
     #[prost(message, repeated, tag = "1")]
-    pub files: ::prost::alloc::vec::Vec<File>,
-    /// The token to retrieve the next page of files, or empty if there are no
-    /// more files to return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
+    pub apt_artifacts: ::prost::alloc::vec::Vec<AptArtifact>,
+    /// Detailed error info for packages that were not imported.
+    #[prost(message, repeated, tag = "2")]
+    pub errors: ::prost::alloc::vec::Vec<ImportAptArtifactsErrorInfo>,
 }
-/// The request to retrieve a file.
+/// The operation metadata for importing artifacts.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetFileRequest {
-    /// Required. The name of the file to retrieve.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
+pub struct ImportAptArtifactsMetadata {}
 /// DockerImage represents a docker artifact.
 /// The following fields are returned as untyped metadata in the Version
 /// resource, using camelcase keys (i.e. metadata.imageSizeBytes):
@@ -817,6 +679,144 @@ pub struct ListPythonPackagesResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetPythonPackageRequest {
     /// Required. The name of the python package.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// A hash of file content.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Hash {
+    /// The algorithm used to compute the hash value.
+    #[prost(enumeration = "hash::HashType", tag = "1")]
+    pub r#type: i32,
+    /// The hash value.
+    #[prost(bytes = "bytes", tag = "2")]
+    pub value: ::prost::bytes::Bytes,
+}
+/// Nested message and enum types in `Hash`.
+pub mod hash {
+    /// The algorithm used to compute the hash.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum HashType {
+        /// Unspecified.
+        Unspecified = 0,
+        /// SHA256 hash.
+        Sha256 = 1,
+        /// MD5 hash.
+        Md5 = 2,
+    }
+    impl HashType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                HashType::Unspecified => "HASH_TYPE_UNSPECIFIED",
+                HashType::Sha256 => "SHA256",
+                HashType::Md5 => "MD5",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "HASH_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "SHA256" => Some(Self::Sha256),
+                "MD5" => Some(Self::Md5),
+                _ => None,
+            }
+        }
+    }
+}
+/// Files store content that is potentially associated with Packages or Versions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct File {
+    /// The name of the file, for example:
+    /// "projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt".
+    /// If the file ID part contains slashes, they are escaped.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The size of the File in bytes.
+    #[prost(int64, tag = "3")]
+    pub size_bytes: i64,
+    /// The hashes of the file content.
+    #[prost(message, repeated, tag = "4")]
+    pub hashes: ::prost::alloc::vec::Vec<Hash>,
+    /// Output only. The time when the File was created.
+    #[prost(message, optional, tag = "5")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time when the File was last updated.
+    #[prost(message, optional, tag = "6")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The name of the Package or Version that owns this file, if any.
+    #[prost(string, tag = "7")]
+    pub owner: ::prost::alloc::string::String,
+    /// Output only. The time when the last attempt to refresh the file's data was
+    /// made. Only set when the repository is remote.
+    #[prost(message, optional, tag = "8")]
+    pub fetch_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// The request to list files.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFilesRequest {
+    /// Required. The name of the repository whose files will be listed. For
+    /// example: "projects/p1/locations/us-central1/repositories/repo1
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// An expression for filtering the results of the request. Filter rules are
+    /// case insensitive. The fields eligible for filtering are:
+    ///
+    ///    * `name`
+    ///    * `owner`
+    ///
+    ///   An example of using a filter:
+    ///
+    ///    * `name="projects/p1/locations/us-central1/repositories/repo1/files/a/b/*"` --> Files with an
+    ///    ID starting with "a/b/".
+    ///    * `owner="projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0"` -->
+    ///    Files owned by the version `1.0` in package `pkg1`.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// The maximum number of files to return.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The next_page_token value returned from a previous list request, if any.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// The field to order the results by.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// The response from listing files.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFilesResponse {
+    /// The files returned.
+    #[prost(message, repeated, tag = "1")]
+    pub files: ::prost::alloc::vec::Vec<File>,
+    /// The token to retrieve the next page of files, or empty if there are no
+    /// more files to return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The request to retrieve a file.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFileRequest {
+    /// Required. The name of the file to retrieve.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
