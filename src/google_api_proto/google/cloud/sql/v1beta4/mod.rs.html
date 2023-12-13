@@ -7448,6 +7448,85 @@
 <a href="#7448" id="7448">7448</a>
 <a href="#7449" id="7449">7449</a>
 <a href="#7450" id="7450">7450</a>
+<a href="#7451" id="7451">7451</a>
+<a href="#7452" id="7452">7452</a>
+<a href="#7453" id="7453">7453</a>
+<a href="#7454" id="7454">7454</a>
+<a href="#7455" id="7455">7455</a>
+<a href="#7456" id="7456">7456</a>
+<a href="#7457" id="7457">7457</a>
+<a href="#7458" id="7458">7458</a>
+<a href="#7459" id="7459">7459</a>
+<a href="#7460" id="7460">7460</a>
+<a href="#7461" id="7461">7461</a>
+<a href="#7462" id="7462">7462</a>
+<a href="#7463" id="7463">7463</a>
+<a href="#7464" id="7464">7464</a>
+<a href="#7465" id="7465">7465</a>
+<a href="#7466" id="7466">7466</a>
+<a href="#7467" id="7467">7467</a>
+<a href="#7468" id="7468">7468</a>
+<a href="#7469" id="7469">7469</a>
+<a href="#7470" id="7470">7470</a>
+<a href="#7471" id="7471">7471</a>
+<a href="#7472" id="7472">7472</a>
+<a href="#7473" id="7473">7473</a>
+<a href="#7474" id="7474">7474</a>
+<a href="#7475" id="7475">7475</a>
+<a href="#7476" id="7476">7476</a>
+<a href="#7477" id="7477">7477</a>
+<a href="#7478" id="7478">7478</a>
+<a href="#7479" id="7479">7479</a>
+<a href="#7480" id="7480">7480</a>
+<a href="#7481" id="7481">7481</a>
+<a href="#7482" id="7482">7482</a>
+<a href="#7483" id="7483">7483</a>
+<a href="#7484" id="7484">7484</a>
+<a href="#7485" id="7485">7485</a>
+<a href="#7486" id="7486">7486</a>
+<a href="#7487" id="7487">7487</a>
+<a href="#7488" id="7488">7488</a>
+<a href="#7489" id="7489">7489</a>
+<a href="#7490" id="7490">7490</a>
+<a href="#7491" id="7491">7491</a>
+<a href="#7492" id="7492">7492</a>
+<a href="#7493" id="7493">7493</a>
+<a href="#7494" id="7494">7494</a>
+<a href="#7495" id="7495">7495</a>
+<a href="#7496" id="7496">7496</a>
+<a href="#7497" id="7497">7497</a>
+<a href="#7498" id="7498">7498</a>
+<a href="#7499" id="7499">7499</a>
+<a href="#7500" id="7500">7500</a>
+<a href="#7501" id="7501">7501</a>
+<a href="#7502" id="7502">7502</a>
+<a href="#7503" id="7503">7503</a>
+<a href="#7504" id="7504">7504</a>
+<a href="#7505" id="7505">7505</a>
+<a href="#7506" id="7506">7506</a>
+<a href="#7507" id="7507">7507</a>
+<a href="#7508" id="7508">7508</a>
+<a href="#7509" id="7509">7509</a>
+<a href="#7510" id="7510">7510</a>
+<a href="#7511" id="7511">7511</a>
+<a href="#7512" id="7512">7512</a>
+<a href="#7513" id="7513">7513</a>
+<a href="#7514" id="7514">7514</a>
+<a href="#7515" id="7515">7515</a>
+<a href="#7516" id="7516">7516</a>
+<a href="#7517" id="7517">7517</a>
+<a href="#7518" id="7518">7518</a>
+<a href="#7519" id="7519">7519</a>
+<a href="#7520" id="7520">7520</a>
+<a href="#7521" id="7521">7521</a>
+<a href="#7522" id="7522">7522</a>
+<a href="#7523" id="7523">7523</a>
+<a href="#7524" id="7524">7524</a>
+<a href="#7525" id="7525">7525</a>
+<a href="#7526" id="7526">7526</a>
+<a href="#7527" id="7527">7527</a>
+<a href="#7528" id="7528">7528</a>
+<a href="#7529" id="7529">7529</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>sql_iam_policies_service_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -7581,6 +7660,12 @@
         <span class="doccomment">/// Warning when user provided maxResults parameter exceeds the limit.  The
         /// returned result set may be incomplete.
         </span>MaxResultsExceedsLimit = <span class="number">2</span>,
+        <span class="doccomment">/// Warning when user tries to create/update a user with credentials that
+        /// have previously been compromised by a public data breach.
+        </span>CompromisedCredentials = <span class="number">3</span>,
+        <span class="doccomment">/// Warning when the operation succeeds but some non-critical workflow state
+        /// failed.
+        </span>InternalStateFailure = <span class="number">4</span>,
     }
     <span class="kw">impl </span>SqlApiWarningCode {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -7592,6 +7677,8 @@
                 SqlApiWarningCode::Unspecified =&gt; <span class="string">&quot;SQL_API_WARNING_CODE_UNSPECIFIED&quot;</span>,
                 SqlApiWarningCode::RegionUnreachable =&gt; <span class="string">&quot;REGION_UNREACHABLE&quot;</span>,
                 SqlApiWarningCode::MaxResultsExceedsLimit =&gt; <span class="string">&quot;MAX_RESULTS_EXCEEDS_LIMIT&quot;</span>,
+                SqlApiWarningCode::CompromisedCredentials =&gt; <span class="string">&quot;COMPROMISED_CREDENTIALS&quot;</span>,
+                SqlApiWarningCode::InternalStateFailure =&gt; <span class="string">&quot;INTERNAL_STATE_FAILURE&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -7600,6 +7687,8 @@
                 <span class="string">&quot;SQL_API_WARNING_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
                 <span class="string">&quot;REGION_UNREACHABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RegionUnreachable),
                 <span class="string">&quot;MAX_RESULTS_EXCEEDS_LIMIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MaxResultsExceedsLimit),
+                <span class="string">&quot;COMPROMISED_CREDENTIALS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CompromisedCredentials),
+                <span class="string">&quot;INTERNAL_STATE_FAILURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalStateFailure),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -8110,6 +8199,13 @@
     <span class="doccomment">/// The current software version on the instance.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;42&quot;</span>)]
     </span><span class="kw">pub </span>maintenance_version: ::prost::alloc::string::String,
+    <span class="doccomment">/// The SQL network architecture for the instance.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;database_instance::SqlNetworkArchitecture&quot;</span>,
+        optional,
+        tag = <span class="string">&quot;47&quot;
+    </span>)]
+    </span><span class="kw">pub </span>sql_network_architecture: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Output only. The link to service attachment of PSC instance.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;48&quot;</span>)]
     </span><span class="kw">pub </span>psc_service_attachment_link: ::core::option::Option&lt;
@@ -8290,6 +8386,54 @@
                 <span class="string">&quot;MAINTENANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maintenance),
                 <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="string">&quot;ONLINE_MAINTENANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OnlineMaintenance),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The current SQL network architecture for the instance.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>SqlNetworkArchitecture {
+        Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Instance is a Tenancy Unit (TU) instance.
+        </span>NewNetworkArchitecture = <span class="number">1</span>,
+        <span class="doccomment">/// Instance is an Umbrella instance.
+        </span>OldNetworkArchitecture = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>SqlNetworkArchitecture {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                SqlNetworkArchitecture::Unspecified =&gt; {
+                    <span class="string">&quot;SQL_NETWORK_ARCHITECTURE_UNSPECIFIED&quot;
+                </span>}
+                SqlNetworkArchitecture::NewNetworkArchitecture =&gt; {
+                    <span class="string">&quot;NEW_NETWORK_ARCHITECTURE&quot;
+                </span>}
+                SqlNetworkArchitecture::OldNetworkArchitecture =&gt; {
+                    <span class="string">&quot;OLD_NETWORK_ARCHITECTURE&quot;
+                </span>}
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;SQL_NETWORK_ARCHITECTURE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;NEW_NETWORK_ARCHITECTURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NewNetworkArchitecture),
+                <span class="string">&quot;OLD_NETWORK_ARCHITECTURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OldNetworkArchitecture),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -9538,6 +9682,9 @@
     /// populated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;OperationErrors&gt;,
+    <span class="doccomment">/// An Admin API warning message.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>api_warning: ::core::option::Option&lt;ApiWarning&gt;,
     <span class="doccomment">/// The type of the operation. Valid values are:
     /// *  `CREATE`
     /// *  `DELETE`
@@ -9864,6 +10011,10 @@
     <span class="doccomment">/// Whether the password policy is enabled or not.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>enable_password_policy: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Disallow credentials that have been previously compromised by a public data
+    /// breach.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>disallow_compromised_credentials: ::core::option::Option&lt;bool&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PasswordValidationPolicy`.
 </span><span class="kw">pub mod </span>password_validation_policy {
@@ -11185,6 +11336,11 @@
     /// your instance prefer to let Cloud SQL choose the timing of restart (within
     /// its Maintenance window, if applicable).
     </span>Stable = <span class="number">2</span>,
+    <span class="doccomment">/// For instance update that requires a restart, this update track indicates
+    /// your instance prefer to let Cloud SQL choose the timing of restart (within
+    /// its Maintenance window, if applicable) to be at least 5 weeks after the
+    /// notification.
+    </span>Week5 = <span class="number">3</span>,
 }
 <span class="kw">impl </span>SqlUpdateTrack {
     <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -11196,6 +11352,7 @@
             SqlUpdateTrack::Unspecified =&gt; <span class="string">&quot;SQL_UPDATE_TRACK_UNSPECIFIED&quot;</span>,
             SqlUpdateTrack::Canary =&gt; <span class="string">&quot;canary&quot;</span>,
             SqlUpdateTrack::Stable =&gt; <span class="string">&quot;stable&quot;</span>,
+            SqlUpdateTrack::Week5 =&gt; <span class="string">&quot;week5&quot;</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -11204,6 +11361,7 @@
             <span class="string">&quot;SQL_UPDATE_TRACK_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
             <span class="string">&quot;canary&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Canary),
             <span class="string">&quot;stable&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stable),
+            <span class="string">&quot;week5&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Week5),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -14021,238 +14179,6 @@
         </span>}
     }
 }
-<span class="doccomment">/// Connect settings retrieval request.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetConnectSettingsRequest {
-    <span class="doccomment">/// Cloud SQL instance ID. This does not include the project ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
-    <span class="doccomment">/// Project ID of the project that contains the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Optional snapshot read timestamp to trade freshness for
-    /// performance.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Connect settings retrieval response.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ConnectSettings {
-    <span class="doccomment">/// This is always `sql#connectSettings`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
-    <span class="doccomment">/// SSL configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>server_ca_cert: ::core::option::Option&lt;SslCert&gt;,
-    <span class="doccomment">/// The assigned IP addresses for the instance.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>ip_addresses: ::prost::alloc::vec::Vec&lt;IpMapping&gt;,
-    <span class="doccomment">/// The cloud region for the instance. e.g. `us-central1`, `europe-west1`.
-    /// The region cannot be changed after instance creation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
-    <span class="doccomment">/// The database engine type and version. The `databaseVersion`
-    /// field cannot be changed after instance creation.
-    ///    MySQL instances: `MYSQL_8_0`, `MYSQL_5_7` (default),
-    /// or `MYSQL_5_6`.
-    ///    PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`,
-    /// `POSTGRES_11` or `POSTGRES_12` (default), `POSTGRES_13`, or `POSTGRES_14`.
-    ///    SQL Server instances: `SQLSERVER_2017_STANDARD` (default),
-    /// `SQLSERVER_2017_ENTERPRISE`, `SQLSERVER_2017_EXPRESS`,
-    /// `SQLSERVER_2017_WEB`, `SQLSERVER_2019_STANDARD`,
-    /// `SQLSERVER_2019_ENTERPRISE`, `SQLSERVER_2019_EXPRESS`, or
-    /// `SQLSERVER_2019_WEB`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SqlDatabaseVersion&quot;</span>, tag = <span class="string">&quot;31&quot;</span>)]
-    </span><span class="kw">pub </span>database_version: i32,
-    <span class="doccomment">/// `SECOND_GEN`: Cloud SQL database instance.
-    /// `EXTERNAL`: A database server that is not managed by Google.
-    /// This property is read-only; use the `tier` property in the `settings`
-    /// object to determine the database type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SqlBackendType&quot;</span>, tag = <span class="string">&quot;32&quot;</span>)]
-    </span><span class="kw">pub </span>backend_type: i32,
-    <span class="doccomment">/// Whether PSC connectivity is enabled for this instance.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;33&quot;</span>)]
-    </span><span class="kw">pub </span>psc_enabled: bool,
-    <span class="doccomment">/// The dns name of the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;34&quot;</span>)]
-    </span><span class="kw">pub </span>dns_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Ephemeral certificate creation request.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GenerateEphemeralCertRequest {
-    <span class="doccomment">/// Cloud SQL instance ID. This does not include the project ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
-    <span class="doccomment">/// Project ID of the project that contains the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
-    <span class="doccomment">/// PEM encoded public key to include in the signed certificate.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>public_key: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Access token to include in the signed certificate.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>access_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Optional snapshot read timestamp to trade freshness for
-    /// performance.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Optional. If set, it will contain the cert valid duration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>valid_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
-}
-<span class="doccomment">/// Ephemeral certificate creation request.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GenerateEphemeralCertResponse {
-    <span class="doccomment">/// Generated cert
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>ephemeral_cert: ::core::option::Option&lt;SslCert&gt;,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>sql_connect_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Cloud SQL connect service.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>SqlConnectServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; SqlConnectServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; SqlConnectServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            SqlConnectServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Retrieves connect settings about a Cloud SQL instance.
-        </span><span class="kw">pub async fn </span>get_connect_settings(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetConnectSettingsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ConnectSettings&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.sql.v1beta4.SqlConnectService/GetConnectSettings&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.sql.v1beta4.SqlConnectService&quot;</span>,
-                        <span class="string">&quot;GetConnectSettings&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Generates a short-lived X509 certificate containing the provided public key
-        /// and signed by a private key specific to the target instance. Users may use
-        /// the certificate to authenticate as themselves when connecting to the
-        /// database.
-        </span><span class="kw">pub async fn </span>generate_ephemeral_cert(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GenerateEphemeralCertRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::GenerateEphemeralCertResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.sql.v1beta4.SqlConnectService/GenerateEphemeralCert&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.sql.v1beta4.SqlConnectService&quot;</span>,
-                        <span class="string">&quot;GenerateEphemeralCert&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SqlUsersDeleteRequest {
@@ -14893,6 +14819,238 @@
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(<span class="string">&quot;google.cloud.sql.v1beta4.SqlTiersService&quot;</span>, <span class="string">&quot;List&quot;</span>),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// Connect settings retrieval request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetConnectSettingsRequest {
+    <span class="doccomment">/// Cloud SQL instance ID. This does not include the project ID.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
+    <span class="doccomment">/// Project ID of the project that contains the instance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Optional snapshot read timestamp to trade freshness for
+    /// performance.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Connect settings retrieval response.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ConnectSettings {
+    <span class="doccomment">/// This is always `sql#connectSettings`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
+    <span class="doccomment">/// SSL configuration.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>server_ca_cert: ::core::option::Option&lt;SslCert&gt;,
+    <span class="doccomment">/// The assigned IP addresses for the instance.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>ip_addresses: ::prost::alloc::vec::Vec&lt;IpMapping&gt;,
+    <span class="doccomment">/// The cloud region for the instance. e.g. `us-central1`, `europe-west1`.
+    /// The region cannot be changed after instance creation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
+    <span class="doccomment">/// The database engine type and version. The `databaseVersion`
+    /// field cannot be changed after instance creation.
+    ///    MySQL instances: `MYSQL_8_0`, `MYSQL_5_7` (default),
+    /// or `MYSQL_5_6`.
+    ///    PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`,
+    /// `POSTGRES_11` or `POSTGRES_12` (default), `POSTGRES_13`, or `POSTGRES_14`.
+    ///    SQL Server instances: `SQLSERVER_2017_STANDARD` (default),
+    /// `SQLSERVER_2017_ENTERPRISE`, `SQLSERVER_2017_EXPRESS`,
+    /// `SQLSERVER_2017_WEB`, `SQLSERVER_2019_STANDARD`,
+    /// `SQLSERVER_2019_ENTERPRISE`, `SQLSERVER_2019_EXPRESS`, or
+    /// `SQLSERVER_2019_WEB`.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SqlDatabaseVersion&quot;</span>, tag = <span class="string">&quot;31&quot;</span>)]
+    </span><span class="kw">pub </span>database_version: i32,
+    <span class="doccomment">/// `SECOND_GEN`: Cloud SQL database instance.
+    /// `EXTERNAL`: A database server that is not managed by Google.
+    /// This property is read-only; use the `tier` property in the `settings`
+    /// object to determine the database type.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SqlBackendType&quot;</span>, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="kw">pub </span>backend_type: i32,
+    <span class="doccomment">/// Whether PSC connectivity is enabled for this instance.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;33&quot;</span>)]
+    </span><span class="kw">pub </span>psc_enabled: bool,
+    <span class="doccomment">/// The dns name of the instance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;34&quot;</span>)]
+    </span><span class="kw">pub </span>dns_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Ephemeral certificate creation request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerateEphemeralCertRequest {
+    <span class="doccomment">/// Cloud SQL instance ID. This does not include the project ID.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
+    <span class="doccomment">/// Project ID of the project that contains the instance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
+    <span class="doccomment">/// PEM encoded public key to include in the signed certificate.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>public_key: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Access token to include in the signed certificate.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>access_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Optional snapshot read timestamp to trade freshness for
+    /// performance.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Optional. If set, it will contain the cert valid duration.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>valid_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
+}
+<span class="doccomment">/// Ephemeral certificate creation request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerateEphemeralCertResponse {
+    <span class="doccomment">/// Generated cert
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>ephemeral_cert: ::core::option::Option&lt;SslCert&gt;,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>sql_connect_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Cloud SQL connect service.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>SqlConnectServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; SqlConnectServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; SqlConnectServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            SqlConnectServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Retrieves connect settings about a Cloud SQL instance.
+        </span><span class="kw">pub async fn </span>get_connect_settings(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetConnectSettingsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ConnectSettings&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.sql.v1beta4.SqlConnectService/GetConnectSettings&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.sql.v1beta4.SqlConnectService&quot;</span>,
+                        <span class="string">&quot;GetConnectSettings&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Generates a short-lived X509 certificate containing the provided public key
+        /// and signed by a private key specific to the target instance. Users may use
+        /// the certificate to authenticate as themselves when connecting to the
+        /// database.
+        </span><span class="kw">pub async fn </span>generate_ephemeral_cert(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GenerateEphemeralCertRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::GenerateEphemeralCertResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.sql.v1beta4.SqlConnectService/GenerateEphemeralCert&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.sql.v1beta4.SqlConnectService&quot;</span>,
+                        <span class="string">&quot;GenerateEphemeralCert&quot;</span>,
+                    ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}

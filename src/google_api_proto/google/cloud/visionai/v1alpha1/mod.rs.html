@@ -16031,123 +16031,6 @@
         </span>}
     }
 }
-<span class="doccomment">/// Represents an actual value of an operator attribute.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AttributeValue {
-    <span class="doccomment">/// Attribute value.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;attribute_value::Value&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
-    </span><span class="kw">pub </span>value: ::core::option::Option&lt;attribute_value::Value&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `AttributeValue`.
-</span><span class="kw">pub mod </span>attribute_value {
-    <span class="doccomment">/// Attribute value.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Value {
-        <span class="doccomment">/// int.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>I(i64),
-        <span class="doccomment">/// float.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>F(f32),
-        <span class="doccomment">/// bool.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>B(bool),
-        <span class="doccomment">/// string.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>S(::prost::bytes::Bytes),
-    }
-}
-<span class="doccomment">/// Defines an Analyzer.
-///
-/// An analyzer processes data from its input streams using the logic defined in
-/// the Operator that it represents. Of course, it produces data for the output
-/// streams declared in the Operator.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AnalyzerDefinition {
-    <span class="doccomment">/// The name of this analyzer.
-    ///
-    /// Tentatively [a-z][a-z0-9]*(_\[a-z0-9\]+)*.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>analyzer: ::prost::alloc::string::String,
-    <span class="doccomment">/// The name of the operator that this analyzer runs.
-    ///
-    /// Must match the name of a supported operator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>operator: ::prost::alloc::string::String,
-    <span class="doccomment">/// Input streams.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>inputs: ::prost::alloc::vec::Vec&lt;analyzer_definition::StreamInput&gt;,
-    <span class="doccomment">/// The attribute values that this analyzer applies to the operator.
-    ///
-    /// Supply a mapping between the attribute names and the actual value you wish
-    /// to apply. If an attribute name is omitted, then it will take a
-    /// preconfigured default value.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>attrs: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        AttributeValue,
-    &gt;,
-    <span class="doccomment">/// Debug options.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>debug_options: ::core::option::Option&lt;analyzer_definition::DebugOptions&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `AnalyzerDefinition`.
-</span><span class="kw">pub mod </span>analyzer_definition {
-    <span class="doccomment">/// The inputs to this analyzer.
-    ///
-    /// We accept input name references of the following form:
-    /// &lt;analyzer-name&gt;:&lt;output-argument-name&gt;
-    ///
-    /// Example:
-    ///
-    /// Suppose you had an operator named &quot;SomeOp&quot; that has 2 output
-    /// arguments, the first of which is named &quot;foo&quot; and the second of which is
-    /// named &quot;bar&quot;, and an operator named &quot;MyOp&quot; that accepts 2 inputs.
-    ///
-    /// Also suppose that there is an analyzer named &quot;some-analyzer&quot; that is
-    /// running &quot;SomeOp&quot; and another analyzer named &quot;my-analyzer&quot; running &quot;MyOp&quot;.
-    ///
-    /// To indicate that &quot;my-analyzer&quot; is to consume &quot;some-analyzer&quot;&#39;s &quot;foo&quot;
-    /// output as its first input and &quot;some-analyzer&quot;&#39;s &quot;bar&quot; output as its
-    /// second input, you can set this field to the following:
-    /// input = \[&quot;some-analyzer:foo&quot;, &quot;some-analyzer:bar&quot;\]
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>StreamInput {
-        <span class="doccomment">/// The name of the stream input (as discussed above).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>input: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Options available for debugging purposes only.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>DebugOptions {
-        <span class="doccomment">/// Environment variables.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>environment_variables: ::prost::alloc::collections::BTreeMap&lt;
-            ::prost::alloc::string::String,
-            ::prost::alloc::string::String,
-        &gt;,
-    }
-}
-<span class="doccomment">/// Defines a full analysis.
-///
-/// This is a description of the overall live analytics pipeline.
-/// You may think of this as an edge list representation of a multigraph.
-///
-/// This may be directly authored by a human in protobuf textformat, or it may be
-/// generated by a programming API (perhaps Python or JavaScript depending on
-/// context).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AnalysisDefinition {
-    <span class="doccomment">/// Analyzer definitions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>analyzers: ::prost::alloc::vec::Vec&lt;AnalyzerDefinition&gt;,
-}
 <span class="doccomment">/// Request message for CreateAssetRequest.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -18717,6 +18600,123 @@
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }
+}
+<span class="doccomment">/// Represents an actual value of an operator attribute.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AttributeValue {
+    <span class="doccomment">/// Attribute value.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;attribute_value::Value&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
+    </span><span class="kw">pub </span>value: ::core::option::Option&lt;attribute_value::Value&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `AttributeValue`.
+</span><span class="kw">pub mod </span>attribute_value {
+    <span class="doccomment">/// Attribute value.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Value {
+        <span class="doccomment">/// int.
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>I(i64),
+        <span class="doccomment">/// float.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>F(f32),
+        <span class="doccomment">/// bool.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>B(bool),
+        <span class="doccomment">/// string.
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>S(::prost::bytes::Bytes),
+    }
+}
+<span class="doccomment">/// Defines an Analyzer.
+///
+/// An analyzer processes data from its input streams using the logic defined in
+/// the Operator that it represents. Of course, it produces data for the output
+/// streams declared in the Operator.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AnalyzerDefinition {
+    <span class="doccomment">/// The name of this analyzer.
+    ///
+    /// Tentatively [a-z][a-z0-9]*(_\[a-z0-9\]+)*.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>analyzer: ::prost::alloc::string::String,
+    <span class="doccomment">/// The name of the operator that this analyzer runs.
+    ///
+    /// Must match the name of a supported operator.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>operator: ::prost::alloc::string::String,
+    <span class="doccomment">/// Input streams.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>inputs: ::prost::alloc::vec::Vec&lt;analyzer_definition::StreamInput&gt;,
+    <span class="doccomment">/// The attribute values that this analyzer applies to the operator.
+    ///
+    /// Supply a mapping between the attribute names and the actual value you wish
+    /// to apply. If an attribute name is omitted, then it will take a
+    /// preconfigured default value.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>attrs: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        AttributeValue,
+    &gt;,
+    <span class="doccomment">/// Debug options.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>debug_options: ::core::option::Option&lt;analyzer_definition::DebugOptions&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `AnalyzerDefinition`.
+</span><span class="kw">pub mod </span>analyzer_definition {
+    <span class="doccomment">/// The inputs to this analyzer.
+    ///
+    /// We accept input name references of the following form:
+    /// &lt;analyzer-name&gt;:&lt;output-argument-name&gt;
+    ///
+    /// Example:
+    ///
+    /// Suppose you had an operator named &quot;SomeOp&quot; that has 2 output
+    /// arguments, the first of which is named &quot;foo&quot; and the second of which is
+    /// named &quot;bar&quot;, and an operator named &quot;MyOp&quot; that accepts 2 inputs.
+    ///
+    /// Also suppose that there is an analyzer named &quot;some-analyzer&quot; that is
+    /// running &quot;SomeOp&quot; and another analyzer named &quot;my-analyzer&quot; running &quot;MyOp&quot;.
+    ///
+    /// To indicate that &quot;my-analyzer&quot; is to consume &quot;some-analyzer&quot;&#39;s &quot;foo&quot;
+    /// output as its first input and &quot;some-analyzer&quot;&#39;s &quot;bar&quot; output as its
+    /// second input, you can set this field to the following:
+    /// input = \[&quot;some-analyzer:foo&quot;, &quot;some-analyzer:bar&quot;\]
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>StreamInput {
+        <span class="doccomment">/// The name of the stream input (as discussed above).
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>input: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Options available for debugging purposes only.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>DebugOptions {
+        <span class="doccomment">/// Environment variables.
+        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>environment_variables: ::prost::alloc::collections::BTreeMap&lt;
+            ::prost::alloc::string::String,
+            ::prost::alloc::string::String,
+        &gt;,
+    }
+}
+<span class="doccomment">/// Defines a full analysis.
+///
+/// This is a description of the overall live analytics pipeline.
+/// You may think of this as an edge list representation of a multigraph.
+///
+/// This may be directly authored by a human in protobuf textformat, or it may be
+/// generated by a programming API (perhaps Python or JavaScript depending on
+/// context).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AnalysisDefinition {
+    <span class="doccomment">/// Analyzer definitions.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>analyzers: ::prost::alloc::vec::Vec&lt;AnalyzerDefinition&gt;,
 }
 <span class="doccomment">/// Message describing the Analysis object.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

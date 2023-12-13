@@ -2040,6 +2040,10 @@
 <a href="#2040" id="2040">2040</a>
 <a href="#2041" id="2041">2041</a>
 <a href="#2042" id="2042">2042</a>
+<a href="#2043" id="2043">2043</a>
+<a href="#2044" id="2044">2044</a>
+<a href="#2045" id="2045">2045</a>
+<a href="#2046" id="2046">2046</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Describes a vehicle attribute as a key-value pair. The &quot;key:value&quot; string
 /// length cannot exceed 256 characters.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2722,6 +2726,10 @@
     /// Field value example: `23`.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>android_api_level: i32,
+    <span class="doccomment">/// Optional ID that can be provided for logging purposes in order to identify
+    /// the request.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>trace_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `DeliveryRequestHeader`.
 </span><span class="kw">pub mod </span>delivery_request_header {

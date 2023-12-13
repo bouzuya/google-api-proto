@@ -13965,7 +13965,84 @@
 <a href="#13965" id="13965">13965</a>
 <a href="#13966" id="13966">13966</a>
 <a href="#13967" id="13967">13967</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Message describing the Cluster object.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>prediction_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// A service for online prediction.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>PredictionServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; PredictionServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; PredictionServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            PredictionServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+    }
+}
+<span class="doccomment">/// Message describing the Cluster object.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Cluster {
@@ -15642,147 +15719,6 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.visionai.v1.StreamsService&quot;</span>,
                         <span class="string">&quot;MaterializeChannel&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
-<span class="doccomment">/// HealthCheckRequest is the request message for Check.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>HealthCheckRequest {
-    <span class="doccomment">/// The parent of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// HealthCheckResponse is the response message for Check.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>HealthCheckResponse {
-    <span class="doccomment">/// Indicates whether the cluster is in healthy state or not.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>healthy: bool,
-    <span class="doccomment">/// Reason of why the cluster is in unhealthy state.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
-    <span class="doccomment">/// Other information of the cluster client may be interested.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>cluster_info: ::core::option::Option&lt;ClusterInfo&gt;,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ClusterInfo {
-    <span class="doccomment">/// The number of active streams in the cluster.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>streams_count: i32,
-    <span class="doccomment">/// The number of active processes in the cluster.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>processes_count: i32,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>health_check_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// HealthCheckService provides an interface for Vertex AI Vision Cluster Health
-    /// Check.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>HealthCheckServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; HealthCheckServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; HealthCheckServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            HealthCheckServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// HealthCheck method checks the health status of the cluster.
-        </span><span class="kw">pub async fn </span>health_check(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::HealthCheckRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::HealthCheckResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.visionai.v1.HealthCheckService/HealthCheck&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.visionai.v1.HealthCheckService&quot;</span>,
-                        <span class="string">&quot;HealthCheck&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -20059,83 +19995,6 @@
         </span>}
     }
 }
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>prediction_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// A service for online prediction.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>PredictionServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; PredictionServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; PredictionServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            PredictionServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-    }
-}
 <span class="doccomment">/// The descriptor for a gstreamer buffer payload.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -21021,377 +20880,6 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-    }
-}
-<span class="doccomment">/// Defines the interface of an Operator.
-///
-/// Arguments to an operator are input/output streams that are getting
-/// processesed/returned while attributes are fixed configuration parameters.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OperatorDefinition {
-    <span class="doccomment">/// The name of this operator.
-    ///
-    /// Tentatively [A-Z][a-zA-Z0-9]*, e.g., BboxCounter, PetDetector,
-    /// PetDetector1.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>operator: ::prost::alloc::string::String,
-    <span class="doccomment">/// Declares input arguments.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>input_args: ::prost::alloc::vec::Vec&lt;operator_definition::ArgumentDefinition&gt;,
-    <span class="doccomment">/// Declares output arguments.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>output_args: ::prost::alloc::vec::Vec&lt;operator_definition::ArgumentDefinition&gt;,
-    <span class="doccomment">/// Declares the attributes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>attributes: ::prost::alloc::vec::Vec&lt;operator_definition::AttributeDefinition&gt;,
-    <span class="doccomment">/// The resources for running the operator.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>resources: ::core::option::Option&lt;ResourceSpecification&gt;,
-    <span class="doccomment">/// Short description of the operator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>short_description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Full description of the operator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `OperatorDefinition`.
-</span><span class="kw">pub mod </span>operator_definition {
-    <span class="doccomment">/// Defines an argument to an operator.
-    ///
-    /// Used for both inputs and outputs.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ArgumentDefinition {
-        <span class="doccomment">/// The name of the argument.
-        ///
-        /// Tentatively [a-z](\[_a-z0-9\]*[a-z0-9])?, e.g., video, audio,
-        /// high_fps_frame.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>argument: ::prost::alloc::string::String,
-        <span class="doccomment">/// The data type of the argument.
-        ///
-        /// This should match the textual representation of a stream/Packet type.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Defines an attribute of an operator.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>AttributeDefinition {
-        <span class="doccomment">/// The name of the attribute.
-        ///
-        /// Tentatively [a-z](\[_a-z0-9\]*[a-z0-9])?, e.g., max_frames_per_video,
-        /// resize_height.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>attribute: ::prost::alloc::string::String,
-        <span class="doccomment">/// The type of this attribute.
-        ///
-        /// See attribute_value.proto for possibilities.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-        <span class="doccomment">/// The default value for the attribute.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>default_value: ::core::option::Option&lt;<span class="kw">super</span>::AttributeValue&gt;,
-    }
-}
-<span class="doccomment">/// ResourceSpec collects a set of resources that can
-/// be used to specify requests and requirements.
-///
-/// Note: Highly experimental as this can be runtime dependent.
-/// Can use the &quot;extras&quot; field to experiment first before trying
-/// to abstract it.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ResourceSpecification {
-    <span class="doccomment">/// CPU specification.
-    ///
-    /// Examples:
-    /// &quot;100m&quot;, &quot;0.5&quot;, &quot;1&quot;, &quot;2&quot;, ... correspond to
-    /// 0.1, half, 1, or 2 cpus.
-    ///
-    /// Leave empty to let the system decide.
-    ///
-    /// Note that this does *not* determine the cpu vender/make,
-    /// or its underlying clock speed and specific SIMD features.
-    /// It is only the amount time it requires in timeslicing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>cpu: ::prost::alloc::string::String,
-    <span class="doccomment">/// CPU limit.
-    ///
-    /// Examples:
-    /// &quot;100m&quot;, &quot;0.5&quot;, &quot;1&quot;, &quot;2&quot;, ... correspond to
-    /// 0.1, half, 1, or 2 cpus.
-    ///
-    /// Leave empty to indicate no limit.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>cpu_limits: ::prost::alloc::string::String,
-    <span class="doccomment">/// Memory specification (in bytes).
-    ///
-    /// Examples:
-    /// &quot;128974848&quot;, &quot;129e6&quot;, &quot;129M&quot;, &quot;123Mi&quot;, ... correspond to
-    /// 128974848 bytes, 129000000 bytes, 129 mebibytes, 123 megabytes.
-    ///
-    /// Leave empty to let the system decide.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>memory: ::prost::alloc::string::String,
-    <span class="doccomment">/// Memory usage limits.
-    ///
-    /// Examples:
-    /// &quot;128974848&quot;, &quot;129e6&quot;, &quot;129M&quot;, &quot;123Mi&quot;, ... correspond to
-    /// 128974848 bytes, 129000000 bytes, 129 mebibytes, 123 megabytes.
-    ///
-    /// Leave empty to indicate no limit.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>memory_limits: ::prost::alloc::string::String,
-    <span class="doccomment">/// Number of gpus.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>gpus: i32,
-    <span class="doccomment">/// The maximum latency that this operator may use to process an element.
-    ///
-    /// If non positive, then a system default will be used.
-    /// Operator developers should arrange for the system compute resources to be
-    /// aligned with this latency budget; e.g. if you want a ML model to produce
-    /// results within 500ms, then you should make sure you request enough
-    /// cpu/gpu/memory to achieve that.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>latency_budget_ms: i32,
-}
-<span class="doccomment">/// Represents an actual value of an operator attribute.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AttributeValue {
-    <span class="doccomment">/// Attribute value.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;attribute_value::Value&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
-    </span><span class="kw">pub </span>value: ::core::option::Option&lt;attribute_value::Value&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `AttributeValue`.
-</span><span class="kw">pub mod </span>attribute_value {
-    <span class="doccomment">/// Attribute value.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Value {
-        <span class="doccomment">/// int.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>I(i64),
-        <span class="doccomment">/// float.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>F(f32),
-        <span class="doccomment">/// bool.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>B(bool),
-        <span class="doccomment">/// string.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>S(::prost::bytes::Bytes),
-    }
-}
-<span class="doccomment">/// Defines an Analyzer.
-///
-/// An analyzer processes data from its input streams using the logic defined in
-/// the Operator that it represents. Of course, it produces data for the output
-/// streams declared in the Operator.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AnalyzerDefinition {
-    <span class="doccomment">/// The name of this analyzer.
-    ///
-    /// Tentatively [a-z][a-z0-9]*(_\[a-z0-9\]+)*.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>analyzer: ::prost::alloc::string::String,
-    <span class="doccomment">/// The name of the operator that this analyzer runs.
-    ///
-    /// Must match the name of a supported operator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>operator: ::prost::alloc::string::String,
-    <span class="doccomment">/// Input streams.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>inputs: ::prost::alloc::vec::Vec&lt;analyzer_definition::StreamInput&gt;,
-    <span class="doccomment">/// The attribute values that this analyzer applies to the operator.
-    ///
-    /// Supply a mapping between the attribute names and the actual value you wish
-    /// to apply. If an attribute name is omitted, then it will take a
-    /// preconfigured default value.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>attrs: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        AttributeValue,
-    &gt;,
-    <span class="doccomment">/// Debug options.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>debug_options: ::core::option::Option&lt;analyzer_definition::DebugOptions&gt;,
-    <span class="doccomment">/// Operator option.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>operator_option: ::core::option::Option&lt;analyzer_definition::OperatorOption&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `AnalyzerDefinition`.
-</span><span class="kw">pub mod </span>analyzer_definition {
-    <span class="doccomment">/// The inputs to this analyzer.
-    ///
-    /// We accept input name references of the following form:
-    /// &lt;analyzer-name&gt;:&lt;output-argument-name&gt;
-    ///
-    /// Example:
-    ///
-    /// Suppose you had an operator named &quot;SomeOp&quot; that has 2 output
-    /// arguments, the first of which is named &quot;foo&quot; and the second of which is
-    /// named &quot;bar&quot;, and an operator named &quot;MyOp&quot; that accepts 2 inputs.
-    ///
-    /// Also suppose that there is an analyzer named &quot;some-analyzer&quot; that is
-    /// running &quot;SomeOp&quot; and another analyzer named &quot;my-analyzer&quot; running &quot;MyOp&quot;.
-    ///
-    /// To indicate that &quot;my-analyzer&quot; is to consume &quot;some-analyzer&quot;&#39;s &quot;foo&quot;
-    /// output as its first input and &quot;some-analyzer&quot;&#39;s &quot;bar&quot; output as its
-    /// second input, you can set this field to the following:
-    /// input = \[&quot;some-analyzer:foo&quot;, &quot;some-analyzer:bar&quot;\]
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>StreamInput {
-        <span class="doccomment">/// The name of the stream input (as discussed above).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>input: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Options available for debugging purposes only.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>DebugOptions {
-        <span class="doccomment">/// Environment variables.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>environment_variables: ::prost::alloc::collections::BTreeMap&lt;
-            ::prost::alloc::string::String,
-            ::prost::alloc::string::String,
-        &gt;,
-    }
-    <span class="doccomment">/// Option related to the operator.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>OperatorOption {
-        <span class="doccomment">/// Tag of the operator.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>tag: ::prost::alloc::string::String,
-        <span class="doccomment">/// Registry of the operator. e.g. public, dev.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>registry: ::prost::alloc::string::String,
-    }
-}
-<span class="doccomment">/// Defines a full analysis.
-///
-/// This is a description of the overall live analytics pipeline.
-/// You may think of this as an edge list representation of a multigraph.
-///
-/// This may be directly authored by a human in protobuf textformat, or it may be
-/// generated by a programming API (perhaps Python or JavaScript depending on
-/// context).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AnalysisDefinition {
-    <span class="doccomment">/// Analyzer definitions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>analyzers: ::prost::alloc::vec::Vec&lt;AnalyzerDefinition&gt;,
-}
-<span class="doccomment">/// Message describing the status of the Process.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RunStatus {
-    <span class="doccomment">/// The state of the Process.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;run_status::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// The reason of becoming the state.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `RunStatus`.
-</span><span class="kw">pub mod </span>run_status {
-    <span class="doccomment">/// State represents the running status of the Process.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// State is unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// INITIALIZING means the Process is scheduled but yet ready to handle
-        /// real traffic.
-        </span>Initializing = <span class="number">1</span>,
-        <span class="doccomment">/// RUNNING means the Process is up running and handling traffic.
-        </span>Running = <span class="number">2</span>,
-        <span class="doccomment">/// COMPLETED means the Process has completed the processing, especially
-        /// for non-streaming use case.
-        </span>Completed = <span class="number">3</span>,
-        <span class="doccomment">/// FAILED means the Process failed to complete the processing.
-        </span>Failed = <span class="number">4</span>,
-        <span class="doccomment">/// PENDING means the Process is created but yet to be scheduled.
-        </span>Pending = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// RunMode represents the mode to launch the Process on.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>RunMode {
-    <span class="doccomment">/// Mode is unspecified.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Live mode. Meaning the Process is launched to handle live video
-    /// source, and possible packet drops are expected.
-    </span>Live = <span class="number">1</span>,
-    <span class="doccomment">/// Submission mode. Meaning the Process is launched to handle bounded video
-    /// files, with no packet drop. Completion status is tracked.
-    </span>Submission = <span class="number">2</span>,
-}
-<span class="kw">impl </span>RunMode {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            RunMode::Unspecified =&gt; <span class="string">&quot;RUN_MODE_UNSPECIFIED&quot;</span>,
-            RunMode::Live =&gt; <span class="string">&quot;LIVE&quot;</span>,
-            RunMode::Submission =&gt; <span class="string">&quot;SUBMISSION&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;RUN_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;LIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Live),
-            <span class="string">&quot;SUBMISSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Submission),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
     }
 }
 <span class="doccomment">/// Request message for CreateAssetRequest.
@@ -26671,6 +26159,518 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+    }
+}
+<span class="doccomment">/// HealthCheckRequest is the request message for Check.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>HealthCheckRequest {
+    <span class="doccomment">/// The parent of the resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// HealthCheckResponse is the response message for Check.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>HealthCheckResponse {
+    <span class="doccomment">/// Indicates whether the cluster is in healthy state or not.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>healthy: bool,
+    <span class="doccomment">/// Reason of why the cluster is in unhealthy state.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
+    <span class="doccomment">/// Other information of the cluster client may be interested.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>cluster_info: ::core::option::Option&lt;ClusterInfo&gt;,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ClusterInfo {
+    <span class="doccomment">/// The number of active streams in the cluster.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>streams_count: i32,
+    <span class="doccomment">/// The number of active processes in the cluster.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>processes_count: i32,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>health_check_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// HealthCheckService provides an interface for Vertex AI Vision Cluster Health
+    /// Check.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>HealthCheckServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; HealthCheckServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; HealthCheckServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            HealthCheckServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// HealthCheck method checks the health status of the cluster.
+        </span><span class="kw">pub async fn </span>health_check(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::HealthCheckRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::HealthCheckResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.visionai.v1.HealthCheckService/HealthCheck&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.visionai.v1.HealthCheckService&quot;</span>,
+                        <span class="string">&quot;HealthCheck&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// Defines the interface of an Operator.
+///
+/// Arguments to an operator are input/output streams that are getting
+/// processesed/returned while attributes are fixed configuration parameters.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OperatorDefinition {
+    <span class="doccomment">/// The name of this operator.
+    ///
+    /// Tentatively [A-Z][a-zA-Z0-9]*, e.g., BboxCounter, PetDetector,
+    /// PetDetector1.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>operator: ::prost::alloc::string::String,
+    <span class="doccomment">/// Declares input arguments.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>input_args: ::prost::alloc::vec::Vec&lt;operator_definition::ArgumentDefinition&gt;,
+    <span class="doccomment">/// Declares output arguments.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>output_args: ::prost::alloc::vec::Vec&lt;operator_definition::ArgumentDefinition&gt;,
+    <span class="doccomment">/// Declares the attributes.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>attributes: ::prost::alloc::vec::Vec&lt;operator_definition::AttributeDefinition&gt;,
+    <span class="doccomment">/// The resources for running the operator.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>resources: ::core::option::Option&lt;ResourceSpecification&gt;,
+    <span class="doccomment">/// Short description of the operator.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>short_description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Full description of the operator.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `OperatorDefinition`.
+</span><span class="kw">pub mod </span>operator_definition {
+    <span class="doccomment">/// Defines an argument to an operator.
+    ///
+    /// Used for both inputs and outputs.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ArgumentDefinition {
+        <span class="doccomment">/// The name of the argument.
+        ///
+        /// Tentatively [a-z](\[_a-z0-9\]*[a-z0-9])?, e.g., video, audio,
+        /// high_fps_frame.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>argument: ::prost::alloc::string::String,
+        <span class="doccomment">/// The data type of the argument.
+        ///
+        /// This should match the textual representation of a stream/Packet type.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Defines an attribute of an operator.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>AttributeDefinition {
+        <span class="doccomment">/// The name of the attribute.
+        ///
+        /// Tentatively [a-z](\[_a-z0-9\]*[a-z0-9])?, e.g., max_frames_per_video,
+        /// resize_height.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>attribute: ::prost::alloc::string::String,
+        <span class="doccomment">/// The type of this attribute.
+        ///
+        /// See attribute_value.proto for possibilities.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+        <span class="doccomment">/// The default value for the attribute.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>default_value: ::core::option::Option&lt;<span class="kw">super</span>::AttributeValue&gt;,
+    }
+}
+<span class="doccomment">/// ResourceSpec collects a set of resources that can
+/// be used to specify requests and requirements.
+///
+/// Note: Highly experimental as this can be runtime dependent.
+/// Can use the &quot;extras&quot; field to experiment first before trying
+/// to abstract it.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ResourceSpecification {
+    <span class="doccomment">/// CPU specification.
+    ///
+    /// Examples:
+    /// &quot;100m&quot;, &quot;0.5&quot;, &quot;1&quot;, &quot;2&quot;, ... correspond to
+    /// 0.1, half, 1, or 2 cpus.
+    ///
+    /// Leave empty to let the system decide.
+    ///
+    /// Note that this does *not* determine the cpu vender/make,
+    /// or its underlying clock speed and specific SIMD features.
+    /// It is only the amount time it requires in timeslicing.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>cpu: ::prost::alloc::string::String,
+    <span class="doccomment">/// CPU limit.
+    ///
+    /// Examples:
+    /// &quot;100m&quot;, &quot;0.5&quot;, &quot;1&quot;, &quot;2&quot;, ... correspond to
+    /// 0.1, half, 1, or 2 cpus.
+    ///
+    /// Leave empty to indicate no limit.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>cpu_limits: ::prost::alloc::string::String,
+    <span class="doccomment">/// Memory specification (in bytes).
+    ///
+    /// Examples:
+    /// &quot;128974848&quot;, &quot;129e6&quot;, &quot;129M&quot;, &quot;123Mi&quot;, ... correspond to
+    /// 128974848 bytes, 129000000 bytes, 129 mebibytes, 123 megabytes.
+    ///
+    /// Leave empty to let the system decide.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>memory: ::prost::alloc::string::String,
+    <span class="doccomment">/// Memory usage limits.
+    ///
+    /// Examples:
+    /// &quot;128974848&quot;, &quot;129e6&quot;, &quot;129M&quot;, &quot;123Mi&quot;, ... correspond to
+    /// 128974848 bytes, 129000000 bytes, 129 mebibytes, 123 megabytes.
+    ///
+    /// Leave empty to indicate no limit.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>memory_limits: ::prost::alloc::string::String,
+    <span class="doccomment">/// Number of gpus.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>gpus: i32,
+    <span class="doccomment">/// The maximum latency that this operator may use to process an element.
+    ///
+    /// If non positive, then a system default will be used.
+    /// Operator developers should arrange for the system compute resources to be
+    /// aligned with this latency budget; e.g. if you want a ML model to produce
+    /// results within 500ms, then you should make sure you request enough
+    /// cpu/gpu/memory to achieve that.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>latency_budget_ms: i32,
+}
+<span class="doccomment">/// Represents an actual value of an operator attribute.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AttributeValue {
+    <span class="doccomment">/// Attribute value.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;attribute_value::Value&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
+    </span><span class="kw">pub </span>value: ::core::option::Option&lt;attribute_value::Value&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `AttributeValue`.
+</span><span class="kw">pub mod </span>attribute_value {
+    <span class="doccomment">/// Attribute value.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Value {
+        <span class="doccomment">/// int.
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>I(i64),
+        <span class="doccomment">/// float.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>F(f32),
+        <span class="doccomment">/// bool.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>B(bool),
+        <span class="doccomment">/// string.
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>S(::prost::bytes::Bytes),
+    }
+}
+<span class="doccomment">/// Defines an Analyzer.
+///
+/// An analyzer processes data from its input streams using the logic defined in
+/// the Operator that it represents. Of course, it produces data for the output
+/// streams declared in the Operator.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AnalyzerDefinition {
+    <span class="doccomment">/// The name of this analyzer.
+    ///
+    /// Tentatively [a-z][a-z0-9]*(_\[a-z0-9\]+)*.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>analyzer: ::prost::alloc::string::String,
+    <span class="doccomment">/// The name of the operator that this analyzer runs.
+    ///
+    /// Must match the name of a supported operator.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>operator: ::prost::alloc::string::String,
+    <span class="doccomment">/// Input streams.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>inputs: ::prost::alloc::vec::Vec&lt;analyzer_definition::StreamInput&gt;,
+    <span class="doccomment">/// The attribute values that this analyzer applies to the operator.
+    ///
+    /// Supply a mapping between the attribute names and the actual value you wish
+    /// to apply. If an attribute name is omitted, then it will take a
+    /// preconfigured default value.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>attrs: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        AttributeValue,
+    &gt;,
+    <span class="doccomment">/// Debug options.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>debug_options: ::core::option::Option&lt;analyzer_definition::DebugOptions&gt;,
+    <span class="doccomment">/// Operator option.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>operator_option: ::core::option::Option&lt;analyzer_definition::OperatorOption&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `AnalyzerDefinition`.
+</span><span class="kw">pub mod </span>analyzer_definition {
+    <span class="doccomment">/// The inputs to this analyzer.
+    ///
+    /// We accept input name references of the following form:
+    /// &lt;analyzer-name&gt;:&lt;output-argument-name&gt;
+    ///
+    /// Example:
+    ///
+    /// Suppose you had an operator named &quot;SomeOp&quot; that has 2 output
+    /// arguments, the first of which is named &quot;foo&quot; and the second of which is
+    /// named &quot;bar&quot;, and an operator named &quot;MyOp&quot; that accepts 2 inputs.
+    ///
+    /// Also suppose that there is an analyzer named &quot;some-analyzer&quot; that is
+    /// running &quot;SomeOp&quot; and another analyzer named &quot;my-analyzer&quot; running &quot;MyOp&quot;.
+    ///
+    /// To indicate that &quot;my-analyzer&quot; is to consume &quot;some-analyzer&quot;&#39;s &quot;foo&quot;
+    /// output as its first input and &quot;some-analyzer&quot;&#39;s &quot;bar&quot; output as its
+    /// second input, you can set this field to the following:
+    /// input = \[&quot;some-analyzer:foo&quot;, &quot;some-analyzer:bar&quot;\]
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>StreamInput {
+        <span class="doccomment">/// The name of the stream input (as discussed above).
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>input: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Options available for debugging purposes only.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>DebugOptions {
+        <span class="doccomment">/// Environment variables.
+        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>environment_variables: ::prost::alloc::collections::BTreeMap&lt;
+            ::prost::alloc::string::String,
+            ::prost::alloc::string::String,
+        &gt;,
+    }
+    <span class="doccomment">/// Option related to the operator.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>OperatorOption {
+        <span class="doccomment">/// Tag of the operator.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>tag: ::prost::alloc::string::String,
+        <span class="doccomment">/// Registry of the operator. e.g. public, dev.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>registry: ::prost::alloc::string::String,
+    }
+}
+<span class="doccomment">/// Defines a full analysis.
+///
+/// This is a description of the overall live analytics pipeline.
+/// You may think of this as an edge list representation of a multigraph.
+///
+/// This may be directly authored by a human in protobuf textformat, or it may be
+/// generated by a programming API (perhaps Python or JavaScript depending on
+/// context).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AnalysisDefinition {
+    <span class="doccomment">/// Analyzer definitions.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>analyzers: ::prost::alloc::vec::Vec&lt;AnalyzerDefinition&gt;,
+}
+<span class="doccomment">/// Message describing the status of the Process.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RunStatus {
+    <span class="doccomment">/// The state of the Process.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;run_status::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// The reason of becoming the state.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `RunStatus`.
+</span><span class="kw">pub mod </span>run_status {
+    <span class="doccomment">/// State represents the running status of the Process.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// State is unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// INITIALIZING means the Process is scheduled but yet ready to handle
+        /// real traffic.
+        </span>Initializing = <span class="number">1</span>,
+        <span class="doccomment">/// RUNNING means the Process is up running and handling traffic.
+        </span>Running = <span class="number">2</span>,
+        <span class="doccomment">/// COMPLETED means the Process has completed the processing, especially
+        /// for non-streaming use case.
+        </span>Completed = <span class="number">3</span>,
+        <span class="doccomment">/// FAILED means the Process failed to complete the processing.
+        </span>Failed = <span class="number">4</span>,
+        <span class="doccomment">/// PENDING means the Process is created but yet to be scheduled.
+        </span>Pending = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
+                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
+                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
+                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// RunMode represents the mode to launch the Process on.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>RunMode {
+    <span class="doccomment">/// Mode is unspecified.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Live mode. Meaning the Process is launched to handle live video
+    /// source, and possible packet drops are expected.
+    </span>Live = <span class="number">1</span>,
+    <span class="doccomment">/// Submission mode. Meaning the Process is launched to handle bounded video
+    /// files, with no packet drop. Completion status is tracked.
+    </span>Submission = <span class="number">2</span>,
+}
+<span class="kw">impl </span>RunMode {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            RunMode::Unspecified =&gt; <span class="string">&quot;RUN_MODE_UNSPECIFIED&quot;</span>,
+            RunMode::Live =&gt; <span class="string">&quot;LIVE&quot;</span>,
+            RunMode::Submission =&gt; <span class="string">&quot;SUBMISSION&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;RUN_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;LIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Live),
+            <span class="string">&quot;SUBMISSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Submission),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
     }
 }
 <span class="doccomment">/// Message describing the Operator object.
