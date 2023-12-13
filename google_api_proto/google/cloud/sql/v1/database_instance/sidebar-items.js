@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["SqlInstanceState"],"mod":["sql_out_of_disk_report"],"struct":["SqlFailoverReplica","SqlOutOfDiskReport","SqlScheduledMaintenance"]};
+window.SIDEBAR_ITEMS = {"enum":["SqlInstanceState","SqlNetworkArchitecture"],"mod":["sql_out_of_disk_report"],"struct":["SqlFailoverReplica","SqlOutOfDiskReport","SqlScheduledMaintenance"]};
