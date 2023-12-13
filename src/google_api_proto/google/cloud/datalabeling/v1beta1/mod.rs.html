@@ -4079,7 +4079,243 @@
 <a href="#4079" id="4079">4079</a>
 <a href="#4080" id="4080">4080</a>
 <a href="#4081" id="4081">4081</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// An AnnotationSpecSet is a collection of label definitions. For example, in
+</pre></div><pre class="rust"><code><span class="doccomment">/// Configuration for how human labeling task should be done.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>HumanAnnotationConfig {
+    <span class="doccomment">/// Required. Instruction resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instruction: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. A human-readable name for AnnotatedDataset defined by
+    /// users. Maximum of 64 characters
+    /// .
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>annotated_dataset_display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A human-readable description for AnnotatedDataset.
+    /// The description can be up to 10000 characters long.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>annotated_dataset_description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A human-readable label used to logically group labeling tasks.
+    /// This string must match the regular expression `\[a-zA-Z\\d_-\]{0,128}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>label_group: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The Language of this question, as a
+    /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;).
+    /// Default value is en-US.
+    /// Only need to set this when task is language related. For example, French
+    /// text classification.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Replication of questions. Each question will be sent to up to
+    /// this number of contributors to label. Aggregated answers will be returned.
+    /// Default is set to 1.
+    /// For image related labeling, valid values are 1, 3, 5.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>replica_count: i32,
+    <span class="doccomment">/// Optional. Maximum duration for contributors to answer a question. Maximum
+    /// is 3600 seconds. Default is 3600 seconds.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>question_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    <span class="doccomment">/// Optional. If you want your own labeling contributors to manage and work on
+    /// this labeling request, you can set these contributors here. We will give
+    /// them access to the question types in crowdcompute. Note that these
+    /// emails must be registered in crowdcompute worker UI:
+    /// &lt;https://crowd-compute.appspot.com/&gt;
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>contributor_emails: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Email of the user who started the labeling task and should be notified by
+    /// email. If empty no notification will be sent.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>user_email_address: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Config for image classification human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageClassificationConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to choose
+    /// multiple labels for one image.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>allow_multi_label: bool,
+    <span class="doccomment">/// Optional. The type of how to aggregate answers.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;StringAggregationType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>answer_aggregation_type: i32,
+}
+<span class="doccomment">/// Config for image bounding poly (and bounding box) human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BoundingPolyConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Instruction message showed on contributors UI.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Config for image polyline human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PolylineConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Instruction message showed on contributors UI.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Config for image segmentation
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SegmentationConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name. format:
+    /// projects/{project_id}/annotationSpecSets/{annotation_spec_set_id}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Instruction message showed on labelers UI.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Config for video classification human labeling task.
+/// Currently two types of video classification are supported:
+/// 1. Assign labels on the entire video.
+/// 2. Split the video into multiple video clips based on camera shot, and
+/// assign labels on each video clip.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VideoClassificationConfig {
+    <span class="doccomment">/// Required. The list of annotation spec set configs.
+    /// Since watching a video clip takes much longer time than an image, we
+    /// support label with multiple AnnotationSpecSet at the same time. Labels
+    /// in each AnnotationSpecSet will be shown in a group to contributors.
+    /// Contributors can select one or more (depending on whether to allow multi
+    /// label) from each group.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set_configs: ::prost::alloc::vec::Vec&lt;
+        video_classification_config::AnnotationSpecSetConfig,
+    &gt;,
+    <span class="doccomment">/// Optional. Option to apply shot detection on the video.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>apply_shot_detection: bool,
+}
+<span class="doccomment">/// Nested message and enum types in `VideoClassificationConfig`.
+</span><span class="kw">pub mod </span>video_classification_config {
+    <span class="doccomment">/// Annotation spec set with the setting of allowing multi labels or not.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>AnnotationSpecSetConfig {
+        <span class="doccomment">/// Required. Annotation spec set resource name.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+        <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to
+        /// choose multiple labels from one annotation spec set.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>allow_multi_label: bool,
+    }
+}
+<span class="doccomment">/// Config for video object detection human labeling task.
+/// Object detection will be conducted on the images extracted from the video,
+/// and those objects will be labeled with bounding boxes.
+/// User need to specify the number of images to be extracted per second as the
+/// extraction frame rate.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ObjectDetectionConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Number of frames per second to be extracted from the video.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>extraction_frame_rate: f64,
+}
+<span class="doccomment">/// Config for video object tracking human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ObjectTrackingConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Config for video event human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EventConfig {
+    <span class="doccomment">/// Required. The list of annotation spec set resource name. Similar to video
+    /// classification, we support selecting event from multiple AnnotationSpecSet
+    /// at the same time.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_sets: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Config for text classification human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextClassificationConfig {
+    <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to choose
+    /// multiple labels for one text segment.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>allow_multi_label: bool,
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Configs for sentiment selection.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>sentiment_config: ::core::option::Option&lt;SentimentConfig&gt;,
+}
+<span class="doccomment">/// Config for setting up sentiments.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SentimentConfig {
+    <span class="doccomment">/// If set to true, contributors will have the option to select sentiment of
+    /// the label they selected, to mark it as negative or positive label. Default
+    /// is false.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>enable_label_sentiment_selection: bool,
+}
+<span class="doccomment">/// Config for text entity extraction human labeling task.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextEntityExtractionConfig {
+    <span class="doccomment">/// Required. Annotation spec set resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
+}
+<span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>StringAggregationType {
+    Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Majority vote to aggregate answers.
+    </span>MajorityVote = <span class="number">1</span>,
+    <span class="doccomment">/// Unanimous answers will be adopted.
+    </span>UnanimousVote = <span class="number">2</span>,
+    <span class="doccomment">/// Preserve all answers by crowd compute.
+    </span>NoAggregation = <span class="number">3</span>,
+}
+<span class="kw">impl </span>StringAggregationType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            StringAggregationType::Unspecified =&gt; <span class="string">&quot;STRING_AGGREGATION_TYPE_UNSPECIFIED&quot;</span>,
+            StringAggregationType::MajorityVote =&gt; <span class="string">&quot;MAJORITY_VOTE&quot;</span>,
+            StringAggregationType::UnanimousVote =&gt; <span class="string">&quot;UNANIMOUS_VOTE&quot;</span>,
+            StringAggregationType::NoAggregation =&gt; <span class="string">&quot;NO_AGGREGATION&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;STRING_AGGREGATION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;MAJORITY_VOTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MajorityVote),
+            <span class="string">&quot;UNANIMOUS_VOTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnanimousVote),
+            <span class="string">&quot;NO_AGGREGATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoAggregation),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// An AnnotationSpecSet is a collection of label definitions. For example, in
 /// image classification tasks, you define a set of possible labels for images as
 /// an AnnotationSpecSet. An AnnotationSpecSet is immutable upon creation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4682,242 +4918,6 @@
     <span class="doccomment">/// Signed uri of the video file in the service bucket.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>signed_uri: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Configuration for how human labeling task should be done.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>HumanAnnotationConfig {
-    <span class="doccomment">/// Required. Instruction resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>instruction: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. A human-readable name for AnnotatedDataset defined by
-    /// users. Maximum of 64 characters
-    /// .
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>annotated_dataset_display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A human-readable description for AnnotatedDataset.
-    /// The description can be up to 10000 characters long.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>annotated_dataset_description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A human-readable label used to logically group labeling tasks.
-    /// This string must match the regular expression `\[a-zA-Z\\d_-\]{0,128}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>label_group: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The Language of this question, as a
-    /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;).
-    /// Default value is en-US.
-    /// Only need to set this when task is language related. For example, French
-    /// text classification.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Replication of questions. Each question will be sent to up to
-    /// this number of contributors to label. Aggregated answers will be returned.
-    /// Default is set to 1.
-    /// For image related labeling, valid values are 1, 3, 5.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>replica_count: i32,
-    <span class="doccomment">/// Optional. Maximum duration for contributors to answer a question. Maximum
-    /// is 3600 seconds. Default is 3600 seconds.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>question_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    <span class="doccomment">/// Optional. If you want your own labeling contributors to manage and work on
-    /// this labeling request, you can set these contributors here. We will give
-    /// them access to the question types in crowdcompute. Note that these
-    /// emails must be registered in crowdcompute worker UI:
-    /// &lt;https://crowd-compute.appspot.com/&gt;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>contributor_emails: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Email of the user who started the labeling task and should be notified by
-    /// email. If empty no notification will be sent.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>user_email_address: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Config for image classification human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageClassificationConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to choose
-    /// multiple labels for one image.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>allow_multi_label: bool,
-    <span class="doccomment">/// Optional. The type of how to aggregate answers.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;StringAggregationType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>answer_aggregation_type: i32,
-}
-<span class="doccomment">/// Config for image bounding poly (and bounding box) human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BoundingPolyConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Instruction message showed on contributors UI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Config for image polyline human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PolylineConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Instruction message showed on contributors UI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Config for image segmentation
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SegmentationConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name. format:
-    /// projects/{project_id}/annotationSpecSets/{annotation_spec_set_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Instruction message showed on labelers UI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>instruction_message: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Config for video classification human labeling task.
-/// Currently two types of video classification are supported:
-/// 1. Assign labels on the entire video.
-/// 2. Split the video into multiple video clips based on camera shot, and
-/// assign labels on each video clip.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoClassificationConfig {
-    <span class="doccomment">/// Required. The list of annotation spec set configs.
-    /// Since watching a video clip takes much longer time than an image, we
-    /// support label with multiple AnnotationSpecSet at the same time. Labels
-    /// in each AnnotationSpecSet will be shown in a group to contributors.
-    /// Contributors can select one or more (depending on whether to allow multi
-    /// label) from each group.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set_configs: ::prost::alloc::vec::Vec&lt;
-        video_classification_config::AnnotationSpecSetConfig,
-    &gt;,
-    <span class="doccomment">/// Optional. Option to apply shot detection on the video.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>apply_shot_detection: bool,
-}
-<span class="doccomment">/// Nested message and enum types in `VideoClassificationConfig`.
-</span><span class="kw">pub mod </span>video_classification_config {
-    <span class="doccomment">/// Annotation spec set with the setting of allowing multi labels or not.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>AnnotationSpecSetConfig {
-        <span class="doccomment">/// Required. Annotation spec set resource name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-        <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to
-        /// choose multiple labels from one annotation spec set.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>allow_multi_label: bool,
-    }
-}
-<span class="doccomment">/// Config for video object detection human labeling task.
-/// Object detection will be conducted on the images extracted from the video,
-/// and those objects will be labeled with bounding boxes.
-/// User need to specify the number of images to be extracted per second as the
-/// extraction frame rate.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ObjectDetectionConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Number of frames per second to be extracted from the video.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>extraction_frame_rate: f64,
-}
-<span class="doccomment">/// Config for video object tracking human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ObjectTrackingConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Config for video event human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EventConfig {
-    <span class="doccomment">/// Required. The list of annotation spec set resource name. Similar to video
-    /// classification, we support selecting event from multiple AnnotationSpecSet
-    /// at the same time.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_sets: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Config for text classification human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextClassificationConfig {
-    <span class="doccomment">/// Optional. If allow_multi_label is true, contributors are able to choose
-    /// multiple labels for one text segment.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>allow_multi_label: bool,
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Configs for sentiment selection.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>sentiment_config: ::core::option::Option&lt;SentimentConfig&gt;,
-}
-<span class="doccomment">/// Config for setting up sentiments.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SentimentConfig {
-    <span class="doccomment">/// If set to true, contributors will have the option to select sentiment of
-    /// the label they selected, to mark it as negative or positive label. Default
-    /// is false.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>enable_label_sentiment_selection: bool,
-}
-<span class="doccomment">/// Config for text entity extraction human labeling task.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextEntityExtractionConfig {
-    <span class="doccomment">/// Required. Annotation spec set resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_set: ::prost::alloc::string::String,
-}
-<span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>StringAggregationType {
-    Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Majority vote to aggregate answers.
-    </span>MajorityVote = <span class="number">1</span>,
-    <span class="doccomment">/// Unanimous answers will be adopted.
-    </span>UnanimousVote = <span class="number">2</span>,
-    <span class="doccomment">/// Preserve all answers by crowd compute.
-    </span>NoAggregation = <span class="number">3</span>,
-}
-<span class="kw">impl </span>StringAggregationType {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            StringAggregationType::Unspecified =&gt; <span class="string">&quot;STRING_AGGREGATION_TYPE_UNSPECIFIED&quot;</span>,
-            StringAggregationType::MajorityVote =&gt; <span class="string">&quot;MAJORITY_VOTE&quot;</span>,
-            StringAggregationType::UnanimousVote =&gt; <span class="string">&quot;UNANIMOUS_VOTE&quot;</span>,
-            StringAggregationType::NoAggregation =&gt; <span class="string">&quot;NO_AGGREGATION&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;STRING_AGGREGATION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MAJORITY_VOTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MajorityVote),
-            <span class="string">&quot;UNANIMOUS_VOTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnanimousVote),
-            <span class="string">&quot;NO_AGGREGATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoAggregation),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
 }
 <span class="doccomment">/// Dataset is the resource to hold your data. You can request multiple labeling
 /// tasks for a dataset while each one will generate an AnnotatedDataset.
