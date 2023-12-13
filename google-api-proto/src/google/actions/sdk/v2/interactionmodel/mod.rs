@@ -2,6 +2,30 @@
 pub mod prompt;
 #[cfg(any(feature = "google-actions-sdk-v2-interactionmodel-type"))]
 pub mod r#type;
+/// Entity sets describe the pre-defined set of entities that the values of
+/// built-in intent parameters can come from. Entity sets can be referenced from
+/// entity_set in built-in intent parameters.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EntitySet {
+    /// Required. The list of entities this entity set supports.
+    #[prost(message, repeated, tag = "1")]
+    pub entities: ::prost::alloc::vec::Vec<entity_set::Entity>,
+}
+/// Nested message and enum types in `EntitySet`.
+pub mod entity_set {
+    /// An entity a built-in intent parameter value can come from.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Entity {
+        /// Required. The ID of the entity.
+        /// For a list of built-in-intent parameters and their supported entities,
+        /// see
+        /// <https://developers.google.com/assistant/conversational/build/built-in-intents>
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+    }
+}
 /// Defines a handler to be executed after an event. Examples of events are
 /// intent and condition based events in a scene.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -50,147 +74,6 @@ pub struct GlobalIntentEvent {
     /// in response to events.
     #[prost(message, optional, tag = "2")]
     pub handler: ::core::option::Option<EventHandler>,
-}
-/// Entity sets describe the pre-defined set of entities that the values of
-/// built-in intent parameters can come from. Entity sets can be referenced from
-/// entity_set in built-in intent parameters.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EntitySet {
-    /// Required. The list of entities this entity set supports.
-    #[prost(message, repeated, tag = "1")]
-    pub entities: ::prost::alloc::vec::Vec<entity_set::Entity>,
-}
-/// Nested message and enum types in `EntitySet`.
-pub mod entity_set {
-    /// An entity a built-in intent parameter value can come from.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Entity {
-        /// Required. The ID of the entity.
-        /// For a list of built-in-intent parameters and their supported entities,
-        /// see
-        /// <https://developers.google.com/assistant/conversational/build/built-in-intents>
-        #[prost(string, tag = "1")]
-        pub id: ::prost::alloc::string::String,
-    }
-}
-/// Configuration for a slot. Slots are single units of data that can be filled
-/// through natural language (ie. intent parameters), session parameters, and
-/// other sources.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Slot {
-    /// Required. Name of the slot.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Declares the data type of this slot.
-    #[prost(message, optional, tag = "2")]
-    pub r#type: ::core::option::Option<r#type::ClassReference>,
-    /// Optional. Indicates whether the slot is required to be filled before
-    /// advancing. Required slots that are not filled will trigger a customizable
-    /// prompt to the user.
-    #[prost(bool, tag = "3")]
-    pub required: bool,
-    /// Optional. Registers Prompts for different stages of slot filling.
-    #[prost(message, optional, tag = "4")]
-    pub prompt_settings: ::core::option::Option<slot::PromptSettings>,
-    /// Optional. Commit behavior associated with the slot.
-    #[prost(message, optional, tag = "5")]
-    pub commit_behavior: ::core::option::Option<slot::CommitBehavior>,
-    /// Optional. Additional configuration associated with the slot which is
-    /// used for filling the slot. The format of the config is specific to the
-    /// type of the slot. Resource references to user or session parameter can be
-    /// added to this config. This config is needed for filling slots related to
-    /// transactions and user engagement.
-    ///
-    /// Example:
-    ///   For a slot of type actions.type.CompletePurchaseValue, the following
-    ///   config proposes a digital good order with a reference to a client defined
-    ///   session parameter `userSelectedSkuId`:
-    ///
-    ///     {
-    ///       "@type": "type.googleapis.com/
-    ///                   google.actions.transactions.v3.CompletePurchaseValueSpec",
-    ///       "skuId": {
-    ///         "skuType": "SKU_TYPE_IN_APP",
-    ///         "id": "$session.params.userSelectedSkuId",
-    ///         "packageName": "com.example.company"
-    ///       }
-    ///     }
-    #[prost(message, optional, tag = "6")]
-    pub config: ::core::option::Option<::prost_types::Value>,
-    /// Optional. Configuration to populate a default value for this slot.
-    #[prost(message, optional, tag = "7")]
-    pub default_value: ::core::option::Option<slot::DefaultValue>,
-}
-/// Nested message and enum types in `Slot`.
-pub mod slot {
-    /// A single place where slot prompts are defined.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PromptSettings {
-        /// Prompt for the slot value itself. Example: "What size did you want?"
-        #[prost(message, optional, tag = "1")]
-        pub initial_prompt: ::core::option::Option<super::EventHandler>,
-        /// Prompt to give when the user's input does not match the expected
-        /// value type for the slot for the first time. Example: "Sorry, I
-        /// didn't get that."
-        #[prost(message, optional, tag = "2")]
-        pub no_match_prompt1: ::core::option::Option<super::EventHandler>,
-        /// Prompt to give when the user's input does not match the expected
-        /// value type for the slot for the second time. Example: "Sorry, I
-        /// didn't get that."
-        #[prost(message, optional, tag = "3")]
-        pub no_match_prompt2: ::core::option::Option<super::EventHandler>,
-        /// Prompt to give when the user's input does not match the expected
-        /// value type for the slot for the last time. Example: "Sorry, I
-        /// didn't get that."
-        #[prost(message, optional, tag = "4")]
-        pub no_match_final_prompt: ::core::option::Option<super::EventHandler>,
-        /// Prompt to give when the user does not provide an input for the first
-        /// time. Example: "Sorry, I didn't get that."
-        #[prost(message, optional, tag = "5")]
-        pub no_input_prompt1: ::core::option::Option<super::EventHandler>,
-        /// Prompt to give when the user does not provide an input for the second
-        /// time. Example: "Sorry, I didn't get that."
-        #[prost(message, optional, tag = "6")]
-        pub no_input_prompt2: ::core::option::Option<super::EventHandler>,
-        /// Prompt to give when the user does not provide an input for the last
-        /// time. Example: "Sorry, I didn't get that."
-        #[prost(message, optional, tag = "7")]
-        pub no_input_final_prompt: ::core::option::Option<super::EventHandler>,
-    }
-    /// Message describing the commit behavior associated with the slot after it
-    /// has been successfully filled.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct CommitBehavior {
-        /// The session parameter to write the slot value after it is filled. Note
-        /// that nested paths are not currently supported. "$$" is used to write the
-        /// slot value to a session parameter with same name as the slot.
-        /// Eg: write_session_param = "fruit" corresponds to "$session.params.fruit".
-        /// write_session_param = "ticket" corresponds to "$session.params.ticket".
-        #[prost(string, tag = "1")]
-        pub write_session_param: ::prost::alloc::string::String,
-    }
-    /// Configuration to populate a default value for this slot.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DefaultValue {
-        /// Optional. The session parameter to be used to initialize the slot value, if it has
-        /// a non-empty value. The type of the value must match the type of the slot.
-        /// Note that nested paths are not currently supported.
-        /// Eg: `session_param = "fruit"` corresponds to `$session.params.fruit`.
-        /// `session_param = "ticket"` corresponds to `$session.params.ticket`.
-        #[prost(string, tag = "1")]
-        pub session_param: ::prost::alloc::string::String,
-        /// Optional. Constant default value for the slot. This will only be used if a value
-        /// for this slot was not populated through the `session_param`. The
-        /// type for this value must match the type of the slot.
-        #[prost(message, optional, tag = "2")]
-        pub constant: ::core::option::Option<::prost_types::Value>,
-    }
 }
 /// Intents map open-ended user input to structured objects. Spoken
 /// phrases are matched to intents with Google's Natural Language Understanding
@@ -324,6 +207,123 @@ pub struct IntentEvent {
     /// in response to events.
     #[prost(message, optional, tag = "3")]
     pub handler: ::core::option::Option<EventHandler>,
+}
+/// Configuration for a slot. Slots are single units of data that can be filled
+/// through natural language (ie. intent parameters), session parameters, and
+/// other sources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Slot {
+    /// Required. Name of the slot.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Declares the data type of this slot.
+    #[prost(message, optional, tag = "2")]
+    pub r#type: ::core::option::Option<r#type::ClassReference>,
+    /// Optional. Indicates whether the slot is required to be filled before
+    /// advancing. Required slots that are not filled will trigger a customizable
+    /// prompt to the user.
+    #[prost(bool, tag = "3")]
+    pub required: bool,
+    /// Optional. Registers Prompts for different stages of slot filling.
+    #[prost(message, optional, tag = "4")]
+    pub prompt_settings: ::core::option::Option<slot::PromptSettings>,
+    /// Optional. Commit behavior associated with the slot.
+    #[prost(message, optional, tag = "5")]
+    pub commit_behavior: ::core::option::Option<slot::CommitBehavior>,
+    /// Optional. Additional configuration associated with the slot which is
+    /// used for filling the slot. The format of the config is specific to the
+    /// type of the slot. Resource references to user or session parameter can be
+    /// added to this config. This config is needed for filling slots related to
+    /// transactions and user engagement.
+    ///
+    /// Example:
+    ///   For a slot of type actions.type.CompletePurchaseValue, the following
+    ///   config proposes a digital good order with a reference to a client defined
+    ///   session parameter `userSelectedSkuId`:
+    ///
+    ///     {
+    ///       "@type": "type.googleapis.com/
+    ///                   google.actions.transactions.v3.CompletePurchaseValueSpec",
+    ///       "skuId": {
+    ///         "skuType": "SKU_TYPE_IN_APP",
+    ///         "id": "$session.params.userSelectedSkuId",
+    ///         "packageName": "com.example.company"
+    ///       }
+    ///     }
+    #[prost(message, optional, tag = "6")]
+    pub config: ::core::option::Option<::prost_types::Value>,
+    /// Optional. Configuration to populate a default value for this slot.
+    #[prost(message, optional, tag = "7")]
+    pub default_value: ::core::option::Option<slot::DefaultValue>,
+}
+/// Nested message and enum types in `Slot`.
+pub mod slot {
+    /// A single place where slot prompts are defined.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PromptSettings {
+        /// Prompt for the slot value itself. Example: "What size did you want?"
+        #[prost(message, optional, tag = "1")]
+        pub initial_prompt: ::core::option::Option<super::EventHandler>,
+        /// Prompt to give when the user's input does not match the expected
+        /// value type for the slot for the first time. Example: "Sorry, I
+        /// didn't get that."
+        #[prost(message, optional, tag = "2")]
+        pub no_match_prompt1: ::core::option::Option<super::EventHandler>,
+        /// Prompt to give when the user's input does not match the expected
+        /// value type for the slot for the second time. Example: "Sorry, I
+        /// didn't get that."
+        #[prost(message, optional, tag = "3")]
+        pub no_match_prompt2: ::core::option::Option<super::EventHandler>,
+        /// Prompt to give when the user's input does not match the expected
+        /// value type for the slot for the last time. Example: "Sorry, I
+        /// didn't get that."
+        #[prost(message, optional, tag = "4")]
+        pub no_match_final_prompt: ::core::option::Option<super::EventHandler>,
+        /// Prompt to give when the user does not provide an input for the first
+        /// time. Example: "Sorry, I didn't get that."
+        #[prost(message, optional, tag = "5")]
+        pub no_input_prompt1: ::core::option::Option<super::EventHandler>,
+        /// Prompt to give when the user does not provide an input for the second
+        /// time. Example: "Sorry, I didn't get that."
+        #[prost(message, optional, tag = "6")]
+        pub no_input_prompt2: ::core::option::Option<super::EventHandler>,
+        /// Prompt to give when the user does not provide an input for the last
+        /// time. Example: "Sorry, I didn't get that."
+        #[prost(message, optional, tag = "7")]
+        pub no_input_final_prompt: ::core::option::Option<super::EventHandler>,
+    }
+    /// Message describing the commit behavior associated with the slot after it
+    /// has been successfully filled.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CommitBehavior {
+        /// The session parameter to write the slot value after it is filled. Note
+        /// that nested paths are not currently supported. "$$" is used to write the
+        /// slot value to a session parameter with same name as the slot.
+        /// Eg: write_session_param = "fruit" corresponds to "$session.params.fruit".
+        /// write_session_param = "ticket" corresponds to "$session.params.ticket".
+        #[prost(string, tag = "1")]
+        pub write_session_param: ::prost::alloc::string::String,
+    }
+    /// Configuration to populate a default value for this slot.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DefaultValue {
+        /// Optional. The session parameter to be used to initialize the slot value, if it has
+        /// a non-empty value. The type of the value must match the type of the slot.
+        /// Note that nested paths are not currently supported.
+        /// Eg: `session_param = "fruit"` corresponds to `$session.params.fruit`.
+        /// `session_param = "ticket"` corresponds to `$session.params.ticket`.
+        #[prost(string, tag = "1")]
+        pub session_param: ::prost::alloc::string::String,
+        /// Optional. Constant default value for the slot. This will only be used if a value
+        /// for this slot was not populated through the `session_param`. The
+        /// type for this value must match the type of the slot.
+        #[prost(message, optional, tag = "2")]
+        pub constant: ::core::option::Option<::prost_types::Value>,
+    }
 }
 /// Scene is the basic unit of control flow when designing a conversation. They
 /// can be chained together with other scenes, generate prompts for the end user,

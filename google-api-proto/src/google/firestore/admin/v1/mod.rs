@@ -309,6 +309,443 @@ pub mod index {
         }
     }
 }
+/// Represents a single field in the database.
+///
+/// Fields are grouped by their "Collection Group", which represent all
+/// collections in the database with the same id.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Field {
+    /// Required. A field name of the form
+    /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
+    ///
+    /// A field path may be a simple field name, e.g. `address` or a path to fields
+    /// within map_value , e.g. `address.city`,
+    /// or a special field path. The only valid special field is `*`, which
+    /// represents any field.
+    ///
+    /// Field paths may be quoted using ` (backtick). The only character that needs
+    /// to be escaped within a quoted field path is the backtick character itself,
+    /// escaped using a backslash. Special characters in field paths that
+    /// must be quoted include: `*`, `.`,
+    /// ``` (backtick), `\[`, `\]`, as well as any ascii symbolic characters.
+    ///
+    /// Examples:
+    /// (Note: Comments here are written in markdown syntax, so there is an
+    ///   additional layer of backticks to represent a code block)
+    /// `\`address.city\`` represents a field named `address.city`, not the map key
+    /// `city` in the field `address`.
+    /// `\`*\`` represents a field named `*`, not any field.
+    ///
+    /// A special `Field` contains the default indexing settings for all fields.
+    /// This field's resource name is:
+    /// `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/*`
+    /// Indexes defined on this `Field` will be applied to all fields which do not
+    /// have their own `Field` index configuration.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The index configuration for this field. If unset, field indexing will
+    /// revert to the configuration defined by the `ancestor_field`. To
+    /// explicitly remove all indexes for this field, specify an index config
+    /// with an empty list of indexes.
+    #[prost(message, optional, tag = "2")]
+    pub index_config: ::core::option::Option<field::IndexConfig>,
+    /// The TTL configuration for this `Field`.
+    /// Setting or unsetting this will enable or disable the TTL for
+    /// documents that have this `Field`.
+    #[prost(message, optional, tag = "3")]
+    pub ttl_config: ::core::option::Option<field::TtlConfig>,
+}
+/// Nested message and enum types in `Field`.
+pub mod field {
+    /// The index configuration for this field.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IndexConfig {
+        /// The indexes supported for this field.
+        #[prost(message, repeated, tag = "1")]
+        pub indexes: ::prost::alloc::vec::Vec<super::Index>,
+        /// Output only. When true, the `Field`'s index configuration is set from the
+        /// configuration specified by the `ancestor_field`.
+        /// When false, the `Field`'s index configuration is defined explicitly.
+        #[prost(bool, tag = "2")]
+        pub uses_ancestor_config: bool,
+        /// Output only. Specifies the resource name of the `Field` from which this field's
+        /// index configuration is set (when `uses_ancestor_config` is true),
+        /// or from which it *would* be set if this field had no index configuration
+        /// (when `uses_ancestor_config` is false).
+        #[prost(string, tag = "3")]
+        pub ancestor_field: ::prost::alloc::string::String,
+        /// Output only
+        /// When true, the `Field`'s index configuration is in the process of being
+        /// reverted. Once complete, the index config will transition to the same
+        /// state as the field specified by `ancestor_field`, at which point
+        /// `uses_ancestor_config` will be `true` and `reverting` will be `false`.
+        #[prost(bool, tag = "4")]
+        pub reverting: bool,
+    }
+    /// The TTL (time-to-live) configuration for documents that have this `Field`
+    /// set.
+    /// Storing a timestamp value into a TTL-enabled field will be treated as
+    /// the document's absolute expiration time. Using any other data type or
+    /// leaving the field absent will disable the TTL for the individual document.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TtlConfig {
+        /// Output only. The state of the TTL configuration.
+        #[prost(enumeration = "ttl_config::State", tag = "1")]
+        pub state: i32,
+    }
+    /// Nested message and enum types in `TtlConfig`.
+    pub mod ttl_config {
+        /// The state of applying the TTL configuration to all documents.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum State {
+            /// The state is unspecified or unknown.
+            Unspecified = 0,
+            /// The TTL is being applied. There is an active long-running operation to
+            /// track the change. Newly written documents will have TTLs applied as
+            /// requested. Requested TTLs on existing documents are still being
+            /// processed. When TTLs on all existing documents have been processed, the
+            /// state will move to 'ACTIVE'.
+            Creating = 1,
+            /// The TTL is active for all documents.
+            Active = 2,
+            /// The TTL configuration could not be enabled for all existing documents.
+            /// Newly written documents will continue to have their TTL applied.
+            /// The LRO returned when last attempting to enable TTL for this `Field`
+            /// has failed, and may have more details.
+            NeedsRepair = 3,
+        }
+        impl State {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    State::Unspecified => "STATE_UNSPECIFIED",
+                    State::Creating => "CREATING",
+                    State::Active => "ACTIVE",
+                    State::NeedsRepair => "NEEDS_REPAIR",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "CREATING" => Some(Self::Creating),
+                    "ACTIVE" => Some(Self::Active),
+                    "NEEDS_REPAIR" => Some(Self::NeedsRepair),
+                    _ => None,
+                }
+            }
+        }
+    }
+}
+/// A Cloud Firestore Database.
+/// Currently only one database is allowed per cloud project; this database
+/// must have a `database_id` of '(default)'.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Database {
+    /// The resource name of the Database.
+    /// Format: `projects/{project}/databases/{database}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The location of the database. Available locations are listed at
+    /// <https://cloud.google.com/firestore/docs/locations.>
+    #[prost(string, tag = "9")]
+    pub location_id: ::prost::alloc::string::String,
+    /// The type of the database.
+    /// See <https://cloud.google.com/datastore/docs/firestore-or-datastore> for
+    /// information about how to choose.
+    #[prost(enumeration = "database::DatabaseType", tag = "10")]
+    pub r#type: i32,
+    /// The concurrency control mode to use for this database.
+    #[prost(enumeration = "database::ConcurrencyMode", tag = "15")]
+    pub concurrency_mode: i32,
+    /// Output only. The period during which past versions of data are retained in
+    /// the database.
+    ///
+    /// Any [read][google.firestore.v1.GetDocumentRequest.read_time]
+    /// or [query][google.firestore.v1.ListDocumentsRequest.read_time] can specify
+    /// a `read_time` within this window, and will read the state of the database
+    /// at that time.
+    ///
+    /// If the PITR feature is enabled, the retention period is 7 days. Otherwise,
+    /// the retention period is 1 hour.
+    #[prost(message, optional, tag = "17")]
+    pub version_retention_period: ::core::option::Option<::prost_types::Duration>,
+    /// Output only. The earliest timestamp at which older versions of the data can
+    /// be read from the database. See \[version_retention_period\] above; this field
+    /// is populated with `now - version_retention_period`.
+    ///
+    /// This value is continuously updated, and becomes stale the moment it is
+    /// queried. If you are using this value to recover data, make sure to account
+    /// for the time from the moment when the value is queried to the moment when
+    /// you initiate the recovery.
+    #[prost(message, optional, tag = "18")]
+    pub earliest_version_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Whether to enable the PITR feature on this database.
+    #[prost(enumeration = "database::PointInTimeRecoveryEnablement", tag = "21")]
+    pub point_in_time_recovery_enablement: i32,
+    /// The App Engine integration mode to use for this database.
+    #[prost(enumeration = "database::AppEngineIntegrationMode", tag = "19")]
+    pub app_engine_integration_mode: i32,
+    /// Output only. The key_prefix for this database. This key_prefix is used, in
+    /// combination with the project id ("<key prefix>~<project id>") to construct
+    /// the application id that is returned from the Cloud Datastore APIs in Google
+    /// App Engine first generation runtimes.
+    ///
+    /// This value may be empty in which case the appid to use for URL-encoded keys
+    /// is the project_id (eg: foo instead of v~foo).
+    #[prost(string, tag = "20")]
+    pub key_prefix: ::prost::alloc::string::String,
+    /// This checksum is computed by the server based on the value of other
+    /// fields, and may be sent on update and delete requests to ensure the
+    /// client has an up-to-date value before proceeding.
+    #[prost(string, tag = "99")]
+    pub etag: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Database`.
+pub mod database {
+    /// The type of the database.
+    /// See <https://cloud.google.com/datastore/docs/firestore-or-datastore> for
+    /// information about how to choose.
+    ///
+    /// Mode changes are only allowed if the database is empty.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DatabaseType {
+        /// The default value. This value is used if the database type is omitted.
+        Unspecified = 0,
+        /// Firestore Native Mode
+        FirestoreNative = 1,
+        /// Firestore in Datastore Mode.
+        DatastoreMode = 2,
+    }
+    impl DatabaseType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DatabaseType::Unspecified => "DATABASE_TYPE_UNSPECIFIED",
+                DatabaseType::FirestoreNative => "FIRESTORE_NATIVE",
+                DatabaseType::DatastoreMode => "DATASTORE_MODE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DATABASE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "FIRESTORE_NATIVE" => Some(Self::FirestoreNative),
+                "DATASTORE_MODE" => Some(Self::DatastoreMode),
+                _ => None,
+            }
+        }
+    }
+    /// The type of concurrency control mode for transactions.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ConcurrencyMode {
+        /// Not used.
+        Unspecified = 0,
+        /// Use optimistic concurrency control by default. This mode is available
+        /// for Cloud Firestore databases.
+        Optimistic = 1,
+        /// Use pessimistic concurrency control by default. This mode is available
+        /// for Cloud Firestore databases.
+        ///
+        /// This is the default setting for Cloud Firestore.
+        Pessimistic = 2,
+        /// Use optimistic concurrency control with entity groups by default.
+        ///
+        /// This is the only available mode for Cloud Datastore.
+        ///
+        /// This mode is also available for Cloud Firestore with Datastore Mode but
+        /// is not recommended.
+        OptimisticWithEntityGroups = 3,
+    }
+    impl ConcurrencyMode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ConcurrencyMode::Unspecified => "CONCURRENCY_MODE_UNSPECIFIED",
+                ConcurrencyMode::Optimistic => "OPTIMISTIC",
+                ConcurrencyMode::Pessimistic => "PESSIMISTIC",
+                ConcurrencyMode::OptimisticWithEntityGroups => {
+                    "OPTIMISTIC_WITH_ENTITY_GROUPS"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CONCURRENCY_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "OPTIMISTIC" => Some(Self::Optimistic),
+                "PESSIMISTIC" => Some(Self::Pessimistic),
+                "OPTIMISTIC_WITH_ENTITY_GROUPS" => Some(Self::OptimisticWithEntityGroups),
+                _ => None,
+            }
+        }
+    }
+    /// Point In Time Recovery feature enablement.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum PointInTimeRecoveryEnablement {
+        /// Not used.
+        Unspecified = 0,
+        /// Reads are supported on selected versions of the data from within the past
+        /// 7 days:
+        ///
+        /// * Reads against any timestamp within the past hour
+        /// * Reads against 1-minute snapshots beyond 1 hour and within 7 days
+        ///
+        /// `version_retention_period` and `earliest_version_time` can be
+        /// used to determine the supported versions.
+        PointInTimeRecoveryEnabled = 1,
+        /// Reads are supported on any version of the data from within the past 1
+        /// hour.
+        PointInTimeRecoveryDisabled = 2,
+    }
+    impl PointInTimeRecoveryEnablement {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                PointInTimeRecoveryEnablement::Unspecified => {
+                    "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED"
+                }
+                PointInTimeRecoveryEnablement::PointInTimeRecoveryEnabled => {
+                    "POINT_IN_TIME_RECOVERY_ENABLED"
+                }
+                PointInTimeRecoveryEnablement::PointInTimeRecoveryDisabled => {
+                    "POINT_IN_TIME_RECOVERY_DISABLED"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED" => {
+                    Some(Self::Unspecified)
+                }
+                "POINT_IN_TIME_RECOVERY_ENABLED" => {
+                    Some(Self::PointInTimeRecoveryEnabled)
+                }
+                "POINT_IN_TIME_RECOVERY_DISABLED" => {
+                    Some(Self::PointInTimeRecoveryDisabled)
+                }
+                _ => None,
+            }
+        }
+    }
+    /// The type of App Engine integration mode.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum AppEngineIntegrationMode {
+        /// Not used.
+        Unspecified = 0,
+        /// If an App Engine application exists in the same region as this database,
+        /// App Engine configuration will impact this database. This includes
+        /// disabling of the application & database, as well as disabling writes to
+        /// the database.
+        Enabled = 1,
+        /// App Engine has no effect on the ability of this database to serve
+        /// requests.
+        ///
+        /// This is the default setting for databases created with the Firestore API.
+        Disabled = 2,
+    }
+    impl AppEngineIntegrationMode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                AppEngineIntegrationMode::Unspecified => {
+                    "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED"
+                }
+                AppEngineIntegrationMode::Enabled => "ENABLED",
+                AppEngineIntegrationMode::Disabled => "DISABLED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ENABLED" => Some(Self::Enabled),
+                "DISABLED" => Some(Self::Disabled),
+                _ => None,
+            }
+        }
+    }
+}
+/// The metadata message for
+/// [google.cloud.location.Location.metadata][google.cloud.location.Location.metadata].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LocationMetadata {}
 /// Metadata for [google.longrunning.Operation][google.longrunning.Operation]
 /// results from
 /// [FirestoreAdmin.CreateIndex][google.firestore.admin.v1.FirestoreAdmin.CreateIndex].
@@ -634,438 +1071,6 @@ impl OperationState {
             "FAILED" => Some(Self::Failed),
             "CANCELLED" => Some(Self::Cancelled),
             _ => None,
-        }
-    }
-}
-/// A Cloud Firestore Database.
-/// Currently only one database is allowed per cloud project; this database
-/// must have a `database_id` of '(default)'.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Database {
-    /// The resource name of the Database.
-    /// Format: `projects/{project}/databases/{database}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The location of the database. Available locations are listed at
-    /// <https://cloud.google.com/firestore/docs/locations.>
-    #[prost(string, tag = "9")]
-    pub location_id: ::prost::alloc::string::String,
-    /// The type of the database.
-    /// See <https://cloud.google.com/datastore/docs/firestore-or-datastore> for
-    /// information about how to choose.
-    #[prost(enumeration = "database::DatabaseType", tag = "10")]
-    pub r#type: i32,
-    /// The concurrency control mode to use for this database.
-    #[prost(enumeration = "database::ConcurrencyMode", tag = "15")]
-    pub concurrency_mode: i32,
-    /// Output only. The period during which past versions of data are retained in
-    /// the database.
-    ///
-    /// Any [read][google.firestore.v1.GetDocumentRequest.read_time]
-    /// or [query][google.firestore.v1.ListDocumentsRequest.read_time] can specify
-    /// a `read_time` within this window, and will read the state of the database
-    /// at that time.
-    ///
-    /// If the PITR feature is enabled, the retention period is 7 days. Otherwise,
-    /// the retention period is 1 hour.
-    #[prost(message, optional, tag = "17")]
-    pub version_retention_period: ::core::option::Option<::prost_types::Duration>,
-    /// Output only. The earliest timestamp at which older versions of the data can
-    /// be read from the database. See \[version_retention_period\] above; this field
-    /// is populated with `now - version_retention_period`.
-    ///
-    /// This value is continuously updated, and becomes stale the moment it is
-    /// queried. If you are using this value to recover data, make sure to account
-    /// for the time from the moment when the value is queried to the moment when
-    /// you initiate the recovery.
-    #[prost(message, optional, tag = "18")]
-    pub earliest_version_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Whether to enable the PITR feature on this database.
-    #[prost(enumeration = "database::PointInTimeRecoveryEnablement", tag = "21")]
-    pub point_in_time_recovery_enablement: i32,
-    /// The App Engine integration mode to use for this database.
-    #[prost(enumeration = "database::AppEngineIntegrationMode", tag = "19")]
-    pub app_engine_integration_mode: i32,
-    /// Output only. The key_prefix for this database. This key_prefix is used, in
-    /// combination with the project id ("<key prefix>~<project id>") to construct
-    /// the application id that is returned from the Cloud Datastore APIs in Google
-    /// App Engine first generation runtimes.
-    ///
-    /// This value may be empty in which case the appid to use for URL-encoded keys
-    /// is the project_id (eg: foo instead of v~foo).
-    #[prost(string, tag = "20")]
-    pub key_prefix: ::prost::alloc::string::String,
-    /// This checksum is computed by the server based on the value of other
-    /// fields, and may be sent on update and delete requests to ensure the
-    /// client has an up-to-date value before proceeding.
-    #[prost(string, tag = "99")]
-    pub etag: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Database`.
-pub mod database {
-    /// The type of the database.
-    /// See <https://cloud.google.com/datastore/docs/firestore-or-datastore> for
-    /// information about how to choose.
-    ///
-    /// Mode changes are only allowed if the database is empty.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum DatabaseType {
-        /// The default value. This value is used if the database type is omitted.
-        Unspecified = 0,
-        /// Firestore Native Mode
-        FirestoreNative = 1,
-        /// Firestore in Datastore Mode.
-        DatastoreMode = 2,
-    }
-    impl DatabaseType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                DatabaseType::Unspecified => "DATABASE_TYPE_UNSPECIFIED",
-                DatabaseType::FirestoreNative => "FIRESTORE_NATIVE",
-                DatabaseType::DatastoreMode => "DATASTORE_MODE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "DATABASE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "FIRESTORE_NATIVE" => Some(Self::FirestoreNative),
-                "DATASTORE_MODE" => Some(Self::DatastoreMode),
-                _ => None,
-            }
-        }
-    }
-    /// The type of concurrency control mode for transactions.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ConcurrencyMode {
-        /// Not used.
-        Unspecified = 0,
-        /// Use optimistic concurrency control by default. This mode is available
-        /// for Cloud Firestore databases.
-        Optimistic = 1,
-        /// Use pessimistic concurrency control by default. This mode is available
-        /// for Cloud Firestore databases.
-        ///
-        /// This is the default setting for Cloud Firestore.
-        Pessimistic = 2,
-        /// Use optimistic concurrency control with entity groups by default.
-        ///
-        /// This is the only available mode for Cloud Datastore.
-        ///
-        /// This mode is also available for Cloud Firestore with Datastore Mode but
-        /// is not recommended.
-        OptimisticWithEntityGroups = 3,
-    }
-    impl ConcurrencyMode {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ConcurrencyMode::Unspecified => "CONCURRENCY_MODE_UNSPECIFIED",
-                ConcurrencyMode::Optimistic => "OPTIMISTIC",
-                ConcurrencyMode::Pessimistic => "PESSIMISTIC",
-                ConcurrencyMode::OptimisticWithEntityGroups => {
-                    "OPTIMISTIC_WITH_ENTITY_GROUPS"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CONCURRENCY_MODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "OPTIMISTIC" => Some(Self::Optimistic),
-                "PESSIMISTIC" => Some(Self::Pessimistic),
-                "OPTIMISTIC_WITH_ENTITY_GROUPS" => Some(Self::OptimisticWithEntityGroups),
-                _ => None,
-            }
-        }
-    }
-    /// Point In Time Recovery feature enablement.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum PointInTimeRecoveryEnablement {
-        /// Not used.
-        Unspecified = 0,
-        /// Reads are supported on selected versions of the data from within the past
-        /// 7 days:
-        ///
-        /// * Reads against any timestamp within the past hour
-        /// * Reads against 1-minute snapshots beyond 1 hour and within 7 days
-        ///
-        /// `version_retention_period` and `earliest_version_time` can be
-        /// used to determine the supported versions.
-        PointInTimeRecoveryEnabled = 1,
-        /// Reads are supported on any version of the data from within the past 1
-        /// hour.
-        PointInTimeRecoveryDisabled = 2,
-    }
-    impl PointInTimeRecoveryEnablement {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                PointInTimeRecoveryEnablement::Unspecified => {
-                    "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED"
-                }
-                PointInTimeRecoveryEnablement::PointInTimeRecoveryEnabled => {
-                    "POINT_IN_TIME_RECOVERY_ENABLED"
-                }
-                PointInTimeRecoveryEnablement::PointInTimeRecoveryDisabled => {
-                    "POINT_IN_TIME_RECOVERY_DISABLED"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED" => {
-                    Some(Self::Unspecified)
-                }
-                "POINT_IN_TIME_RECOVERY_ENABLED" => {
-                    Some(Self::PointInTimeRecoveryEnabled)
-                }
-                "POINT_IN_TIME_RECOVERY_DISABLED" => {
-                    Some(Self::PointInTimeRecoveryDisabled)
-                }
-                _ => None,
-            }
-        }
-    }
-    /// The type of App Engine integration mode.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum AppEngineIntegrationMode {
-        /// Not used.
-        Unspecified = 0,
-        /// If an App Engine application exists in the same region as this database,
-        /// App Engine configuration will impact this database. This includes
-        /// disabling of the application & database, as well as disabling writes to
-        /// the database.
-        Enabled = 1,
-        /// App Engine has no effect on the ability of this database to serve
-        /// requests.
-        ///
-        /// This is the default setting for databases created with the Firestore API.
-        Disabled = 2,
-    }
-    impl AppEngineIntegrationMode {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                AppEngineIntegrationMode::Unspecified => {
-                    "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED"
-                }
-                AppEngineIntegrationMode::Enabled => "ENABLED",
-                AppEngineIntegrationMode::Disabled => "DISABLED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ENABLED" => Some(Self::Enabled),
-                "DISABLED" => Some(Self::Disabled),
-                _ => None,
-            }
-        }
-    }
-}
-/// Represents a single field in the database.
-///
-/// Fields are grouped by their "Collection Group", which represent all
-/// collections in the database with the same id.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Field {
-    /// Required. A field name of the form
-    /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
-    ///
-    /// A field path may be a simple field name, e.g. `address` or a path to fields
-    /// within map_value , e.g. `address.city`,
-    /// or a special field path. The only valid special field is `*`, which
-    /// represents any field.
-    ///
-    /// Field paths may be quoted using ` (backtick). The only character that needs
-    /// to be escaped within a quoted field path is the backtick character itself,
-    /// escaped using a backslash. Special characters in field paths that
-    /// must be quoted include: `*`, `.`,
-    /// ``` (backtick), `\[`, `\]`, as well as any ascii symbolic characters.
-    ///
-    /// Examples:
-    /// (Note: Comments here are written in markdown syntax, so there is an
-    ///   additional layer of backticks to represent a code block)
-    /// `\`address.city\`` represents a field named `address.city`, not the map key
-    /// `city` in the field `address`.
-    /// `\`*\`` represents a field named `*`, not any field.
-    ///
-    /// A special `Field` contains the default indexing settings for all fields.
-    /// This field's resource name is:
-    /// `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/*`
-    /// Indexes defined on this `Field` will be applied to all fields which do not
-    /// have their own `Field` index configuration.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The index configuration for this field. If unset, field indexing will
-    /// revert to the configuration defined by the `ancestor_field`. To
-    /// explicitly remove all indexes for this field, specify an index config
-    /// with an empty list of indexes.
-    #[prost(message, optional, tag = "2")]
-    pub index_config: ::core::option::Option<field::IndexConfig>,
-    /// The TTL configuration for this `Field`.
-    /// Setting or unsetting this will enable or disable the TTL for
-    /// documents that have this `Field`.
-    #[prost(message, optional, tag = "3")]
-    pub ttl_config: ::core::option::Option<field::TtlConfig>,
-}
-/// Nested message and enum types in `Field`.
-pub mod field {
-    /// The index configuration for this field.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IndexConfig {
-        /// The indexes supported for this field.
-        #[prost(message, repeated, tag = "1")]
-        pub indexes: ::prost::alloc::vec::Vec<super::Index>,
-        /// Output only. When true, the `Field`'s index configuration is set from the
-        /// configuration specified by the `ancestor_field`.
-        /// When false, the `Field`'s index configuration is defined explicitly.
-        #[prost(bool, tag = "2")]
-        pub uses_ancestor_config: bool,
-        /// Output only. Specifies the resource name of the `Field` from which this field's
-        /// index configuration is set (when `uses_ancestor_config` is true),
-        /// or from which it *would* be set if this field had no index configuration
-        /// (when `uses_ancestor_config` is false).
-        #[prost(string, tag = "3")]
-        pub ancestor_field: ::prost::alloc::string::String,
-        /// Output only
-        /// When true, the `Field`'s index configuration is in the process of being
-        /// reverted. Once complete, the index config will transition to the same
-        /// state as the field specified by `ancestor_field`, at which point
-        /// `uses_ancestor_config` will be `true` and `reverting` will be `false`.
-        #[prost(bool, tag = "4")]
-        pub reverting: bool,
-    }
-    /// The TTL (time-to-live) configuration for documents that have this `Field`
-    /// set.
-    /// Storing a timestamp value into a TTL-enabled field will be treated as
-    /// the document's absolute expiration time. Using any other data type or
-    /// leaving the field absent will disable the TTL for the individual document.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TtlConfig {
-        /// Output only. The state of the TTL configuration.
-        #[prost(enumeration = "ttl_config::State", tag = "1")]
-        pub state: i32,
-    }
-    /// Nested message and enum types in `TtlConfig`.
-    pub mod ttl_config {
-        /// The state of applying the TTL configuration to all documents.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum State {
-            /// The state is unspecified or unknown.
-            Unspecified = 0,
-            /// The TTL is being applied. There is an active long-running operation to
-            /// track the change. Newly written documents will have TTLs applied as
-            /// requested. Requested TTLs on existing documents are still being
-            /// processed. When TTLs on all existing documents have been processed, the
-            /// state will move to 'ACTIVE'.
-            Creating = 1,
-            /// The TTL is active for all documents.
-            Active = 2,
-            /// The TTL configuration could not be enabled for all existing documents.
-            /// Newly written documents will continue to have their TTL applied.
-            /// The LRO returned when last attempting to enable TTL for this `Field`
-            /// has failed, and may have more details.
-            NeedsRepair = 3,
-        }
-        impl State {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    State::Unspecified => "STATE_UNSPECIFIED",
-                    State::Creating => "CREATING",
-                    State::Active => "ACTIVE",
-                    State::NeedsRepair => "NEEDS_REPAIR",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "CREATING" => Some(Self::Creating),
-                    "ACTIVE" => Some(Self::Active),
-                    "NEEDS_REPAIR" => Some(Self::NeedsRepair),
-                    _ => None,
-                }
-            }
         }
     }
 }
@@ -1868,8 +1873,3 @@ pub mod firestore_admin_client {
         }
     }
 }
-/// The metadata message for
-/// [google.cloud.location.Location.metadata][google.cloud.location.Location.metadata].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LocationMetadata {}

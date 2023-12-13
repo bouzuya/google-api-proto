@@ -1,3 +1,1131 @@
+/// A set of values describing the vehicle's emission type.
+/// Applies only to the `DRIVE`
+/// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum VehicleEmissionType {
+    /// No emission type specified. Default to `GASOLINE`.
+    Unspecified = 0,
+    /// Gasoline/petrol fueled vehicle.
+    Gasoline = 1,
+    /// Electricity powered vehicle.
+    Electric = 2,
+    /// Hybrid fuel (such as gasoline + electric) vehicle.
+    Hybrid = 3,
+    /// Diesel fueled vehicle.
+    Diesel = 4,
+}
+impl VehicleEmissionType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            VehicleEmissionType::Unspecified => "VEHICLE_EMISSION_TYPE_UNSPECIFIED",
+            VehicleEmissionType::Gasoline => "GASOLINE",
+            VehicleEmissionType::Electric => "ELECTRIC",
+            VehicleEmissionType::Hybrid => "HYBRID",
+            VehicleEmissionType::Diesel => "DIESEL",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "VEHICLE_EMISSION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "GASOLINE" => Some(Self::Gasoline),
+            "ELECTRIC" => Some(Self::Electric),
+            "HYBRID" => Some(Self::Hybrid),
+            "DIESEL" => Some(Self::Diesel),
+            _ => None,
+        }
+    }
+}
+/// Specifies the assumptions to use when calculating time in traffic. This
+/// setting affects the value returned in the `duration` field in the
+/// response, which contains the predicted time in traffic based on historical
+/// averages.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum TrafficModel {
+    /// Unused. If specified, will default to `BEST_GUESS`.
+    Unspecified = 0,
+    /// Indicates that the returned `duration` should be the best
+    /// estimate of travel time given what is known about both historical traffic
+    /// conditions and live traffic. Live traffic becomes more important the closer
+    /// the `departure_time` is to now.
+    BestGuess = 1,
+    /// Indicates that the returned duration should be longer than the
+    /// actual travel time on most days, though occasional days with particularly
+    /// bad traffic conditions may exceed this value.
+    Pessimistic = 2,
+    /// Indicates that the returned duration should be shorter than the actual
+    /// travel time on most days, though occasional days with particularly good
+    /// traffic conditions may be faster than this value.
+    Optimistic = 3,
+}
+impl TrafficModel {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            TrafficModel::Unspecified => "TRAFFIC_MODEL_UNSPECIFIED",
+            TrafficModel::BestGuess => "BEST_GUESS",
+            TrafficModel::Pessimistic => "PESSIMISTIC",
+            TrafficModel::Optimistic => "OPTIMISTIC",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "TRAFFIC_MODEL_UNSPECIFIED" => Some(Self::Unspecified),
+            "BEST_GUESS" => Some(Self::BestGuess),
+            "PESSIMISTIC" => Some(Self::Pessimistic),
+            "OPTIMISTIC" => Some(Self::Optimistic),
+            _ => None,
+        }
+    }
+}
+/// A set of values that specify the navigation action to take for the current
+/// step (e.g., turn left, merge, straight, etc.).
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum Maneuver {
+    /// Not used.
+    Unspecified = 0,
+    /// Turn slightly to the left.
+    TurnSlightLeft = 1,
+    /// Turn sharply to the left.
+    TurnSharpLeft = 2,
+    /// Make a left u-turn.
+    UturnLeft = 3,
+    /// Turn left.
+    TurnLeft = 4,
+    /// Turn slightly to the right.
+    TurnSlightRight = 5,
+    /// Turn sharply to the right.
+    TurnSharpRight = 6,
+    /// Make a right u-turn.
+    UturnRight = 7,
+    /// Turn right.
+    TurnRight = 8,
+    /// Go straight.
+    Straight = 9,
+    /// Take the left ramp.
+    RampLeft = 10,
+    /// Take the right ramp.
+    RampRight = 11,
+    /// Merge into traffic.
+    Merge = 12,
+    /// Take the left fork.
+    ForkLeft = 13,
+    /// Take the right fork.
+    ForkRight = 14,
+    /// Take the ferry.
+    Ferry = 15,
+    /// Take the train leading onto the ferry.
+    FerryTrain = 16,
+    /// Turn left at the roundabout.
+    RoundaboutLeft = 17,
+    /// Turn right at the roundabout.
+    RoundaboutRight = 18,
+    /// Initial maneuver.
+    Depart = 19,
+    /// Used to indicate a street name change.
+    NameChange = 20,
+}
+impl Maneuver {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Maneuver::Unspecified => "MANEUVER_UNSPECIFIED",
+            Maneuver::TurnSlightLeft => "TURN_SLIGHT_LEFT",
+            Maneuver::TurnSharpLeft => "TURN_SHARP_LEFT",
+            Maneuver::UturnLeft => "UTURN_LEFT",
+            Maneuver::TurnLeft => "TURN_LEFT",
+            Maneuver::TurnSlightRight => "TURN_SLIGHT_RIGHT",
+            Maneuver::TurnSharpRight => "TURN_SHARP_RIGHT",
+            Maneuver::UturnRight => "UTURN_RIGHT",
+            Maneuver::TurnRight => "TURN_RIGHT",
+            Maneuver::Straight => "STRAIGHT",
+            Maneuver::RampLeft => "RAMP_LEFT",
+            Maneuver::RampRight => "RAMP_RIGHT",
+            Maneuver::Merge => "MERGE",
+            Maneuver::ForkLeft => "FORK_LEFT",
+            Maneuver::ForkRight => "FORK_RIGHT",
+            Maneuver::Ferry => "FERRY",
+            Maneuver::FerryTrain => "FERRY_TRAIN",
+            Maneuver::RoundaboutLeft => "ROUNDABOUT_LEFT",
+            Maneuver::RoundaboutRight => "ROUNDABOUT_RIGHT",
+            Maneuver::Depart => "DEPART",
+            Maneuver::NameChange => "NAME_CHANGE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "MANEUVER_UNSPECIFIED" => Some(Self::Unspecified),
+            "TURN_SLIGHT_LEFT" => Some(Self::TurnSlightLeft),
+            "TURN_SHARP_LEFT" => Some(Self::TurnSharpLeft),
+            "UTURN_LEFT" => Some(Self::UturnLeft),
+            "TURN_LEFT" => Some(Self::TurnLeft),
+            "TURN_SLIGHT_RIGHT" => Some(Self::TurnSlightRight),
+            "TURN_SHARP_RIGHT" => Some(Self::TurnSharpRight),
+            "UTURN_RIGHT" => Some(Self::UturnRight),
+            "TURN_RIGHT" => Some(Self::TurnRight),
+            "STRAIGHT" => Some(Self::Straight),
+            "RAMP_LEFT" => Some(Self::RampLeft),
+            "RAMP_RIGHT" => Some(Self::RampRight),
+            "MERGE" => Some(Self::Merge),
+            "FORK_LEFT" => Some(Self::ForkLeft),
+            "FORK_RIGHT" => Some(Self::ForkRight),
+            "FERRY" => Some(Self::Ferry),
+            "FERRY_TRAIN" => Some(Self::FerryTrain),
+            "ROUNDABOUT_LEFT" => Some(Self::RoundaboutLeft),
+            "ROUNDABOUT_RIGHT" => Some(Self::RoundaboutRight),
+            "DEPART" => Some(Self::Depart),
+            "NAME_CHANGE" => Some(Self::NameChange),
+            _ => None,
+        }
+    }
+}
+/// Encapsulates navigation instructions for a
+/// [RouteLegStep][google.maps.routing.v2.RouteLegStep]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NavigationInstruction {
+    /// Encapsulates the navigation instructions for the current step (e.g., turn
+    /// left, merge, straight, etc.). This field determines which icon to display.
+    #[prost(enumeration = "Maneuver", tag = "1")]
+    pub maneuver: i32,
+    /// Instructions for navigating this step.
+    #[prost(string, tag = "2")]
+    pub instructions: ::prost::alloc::string::String,
+}
+/// Encapsulates a location (a geographic point, and an optional heading).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Location {
+    /// The waypoint's geographic coordinates.
+    #[prost(message, optional, tag = "1")]
+    pub lat_lng: ::core::option::Option<super::super::super::r#type::LatLng>,
+    /// The compass heading associated with the direction of the flow of traffic.
+    /// This value specifies the side of the road for pickup and drop-off. Heading
+    /// values can be from 0 to 360, where 0 specifies a heading of due North, 90
+    /// specifies a heading of due East, and so on. You can use this field only for
+    /// `DRIVE` and `TWO_WHEELER`
+    /// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
+    #[prost(message, optional, tag = "2")]
+    pub heading: ::core::option::Option<i32>,
+}
+/// Localized description of time.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LocalizedTime {
+    /// The time specified as a string in a given time zone.
+    #[prost(message, optional, tag = "1")]
+    pub time: ::core::option::Option<super::super::super::r#type::LocalizedText>,
+    /// Contains the time zone. The value is the name of the time zone as defined
+    /// in the [IANA Time Zone Database](<http://www.iana.org/time-zones>), e.g.
+    /// "America/New_York".
+    #[prost(string, tag = "2")]
+    pub time_zone: ::prost::alloc::string::String,
+}
+/// Encapsulates an encoded polyline.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Polyline {
+    /// Encapsulates the type of polyline. Defaults to encoded_polyline.
+    #[prost(oneof = "polyline::PolylineType", tags = "1, 2")]
+    pub polyline_type: ::core::option::Option<polyline::PolylineType>,
+}
+/// Nested message and enum types in `Polyline`.
+pub mod polyline {
+    /// Encapsulates the type of polyline. Defaults to encoded_polyline.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum PolylineType {
+        /// The string encoding of the polyline using the [polyline encoding
+        /// algorithm](<https://developers.google.com/maps/documentation/utilities/polylinealgorithm>)
+        #[prost(string, tag = "1")]
+        EncodedPolyline(::prost::alloc::string::String),
+        /// Specifies a polyline using the [GeoJSON LineString
+        /// format](<https://tools.ietf.org/html/rfc7946#section-3.1.4>)
+        #[prost(message, tag = "2")]
+        GeoJsonLinestring(::prost_types::Struct),
+    }
+}
+/// A set of values that specify the quality of the polyline.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum PolylineQuality {
+    /// No polyline quality preference specified. Defaults to `OVERVIEW`.
+    Unspecified = 0,
+    /// Specifies a high-quality polyline - which is composed using more points
+    /// than `OVERVIEW`, at the cost of increased response size. Use this value
+    /// when you need more precision.
+    HighQuality = 1,
+    /// Specifies an overview polyline - which is composed using a small number of
+    /// points. Use this value when displaying an overview of the route. Using this
+    /// option has a lower request latency compared to using the
+    /// `HIGH_QUALITY` option.
+    Overview = 2,
+}
+impl PolylineQuality {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            PolylineQuality::Unspecified => "POLYLINE_QUALITY_UNSPECIFIED",
+            PolylineQuality::HighQuality => "HIGH_QUALITY",
+            PolylineQuality::Overview => "OVERVIEW",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "POLYLINE_QUALITY_UNSPECIFIED" => Some(Self::Unspecified),
+            "HIGH_QUALITY" => Some(Self::HighQuality),
+            "OVERVIEW" => Some(Self::Overview),
+            _ => None,
+        }
+    }
+}
+/// Specifies the preferred type of polyline to be returned.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum PolylineEncoding {
+    /// No polyline type preference specified. Defaults to `ENCODED_POLYLINE`.
+    Unspecified = 0,
+    /// Specifies a polyline encoded using the [polyline encoding
+    /// algorithm](<https://developers.google.com/maps/documentation/utilities/polylinealgorithm>).
+    EncodedPolyline = 1,
+    /// Specifies a polyline using the [GeoJSON LineString
+    /// format](<https://tools.ietf.org/html/rfc7946#section-3.1.4>)
+    GeoJsonLinestring = 2,
+}
+impl PolylineEncoding {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            PolylineEncoding::Unspecified => "POLYLINE_ENCODING_UNSPECIFIED",
+            PolylineEncoding::EncodedPolyline => "ENCODED_POLYLINE",
+            PolylineEncoding::GeoJsonLinestring => "GEO_JSON_LINESTRING",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "POLYLINE_ENCODING_UNSPECIFIED" => Some(Self::Unspecified),
+            "ENCODED_POLYLINE" => Some(Self::EncodedPolyline),
+            "GEO_JSON_LINESTRING" => Some(Self::GeoJsonLinestring),
+            _ => None,
+        }
+    }
+}
+/// Labels for the [Route][google.maps.routing.v2.Route] that are useful to
+/// identify specific properties of the route to compare against others.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum RouteLabel {
+    /// Default - not used.
+    Unspecified = 0,
+    /// The default "best" route returned for the route computation.
+    DefaultRoute = 1,
+    /// An alternative to the default "best" route. Routes like this will be
+    /// returned when
+    /// [compute_alternative_routes][google.maps.routing.v2.ComputeRoutesRequest.compute_alternative_routes]
+    /// is specified.
+    DefaultRouteAlternate = 2,
+    /// Fuel efficient route. Routes labeled with this value are determined to be
+    /// optimized for Eco parameters such as fuel consumption.
+    FuelEfficient = 3,
+}
+impl RouteLabel {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            RouteLabel::Unspecified => "ROUTE_LABEL_UNSPECIFIED",
+            RouteLabel::DefaultRoute => "DEFAULT_ROUTE",
+            RouteLabel::DefaultRouteAlternate => "DEFAULT_ROUTE_ALTERNATE",
+            RouteLabel::FuelEfficient => "FUEL_EFFICIENT",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "ROUTE_LABEL_UNSPECIFIED" => Some(Self::Unspecified),
+            "DEFAULT_ROUTE" => Some(Self::DefaultRoute),
+            "DEFAULT_ROUTE_ALTERNATE" => Some(Self::DefaultRouteAlternate),
+            "FUEL_EFFICIENT" => Some(Self::FuelEfficient),
+            _ => None,
+        }
+    }
+}
+/// A set of values used to specify the mode of travel.
+/// NOTE: `WALK`, `BICYCLE`, and `TWO_WHEELER` routes are in beta and might
+/// sometimes be missing clear sidewalks, pedestrian paths, or bicycling paths.
+/// You must display this warning to the user for all walking, bicycling, and
+/// two-wheel routes that you display in your app.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum RouteTravelMode {
+    /// No travel mode specified. Defaults to `DRIVE`.
+    TravelModeUnspecified = 0,
+    /// Travel by passenger car.
+    Drive = 1,
+    /// Travel by bicycle.
+    Bicycle = 2,
+    /// Travel by walking.
+    Walk = 3,
+    /// Two-wheeled, motorized vehicle. For example, motorcycle. Note that this
+    /// differs from the `BICYCLE` travel mode which covers human-powered mode.
+    TwoWheeler = 4,
+    /// Travel by public transit routes, where available.
+    Transit = 7,
+}
+impl RouteTravelMode {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            RouteTravelMode::TravelModeUnspecified => "TRAVEL_MODE_UNSPECIFIED",
+            RouteTravelMode::Drive => "DRIVE",
+            RouteTravelMode::Bicycle => "BICYCLE",
+            RouteTravelMode::Walk => "WALK",
+            RouteTravelMode::TwoWheeler => "TWO_WHEELER",
+            RouteTravelMode::Transit => "TRANSIT",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "TRAVEL_MODE_UNSPECIFIED" => Some(Self::TravelModeUnspecified),
+            "DRIVE" => Some(Self::Drive),
+            "BICYCLE" => Some(Self::Bicycle),
+            "WALK" => Some(Self::Walk),
+            "TWO_WHEELER" => Some(Self::TwoWheeler),
+            "TRANSIT" => Some(Self::Transit),
+            _ => None,
+        }
+    }
+}
+/// Traffic density indicator on a contiguous segment of a polyline or path.
+/// Given a path with points P_0, P_1, ... , P_N (zero-based index), the
+/// SpeedReadingInterval defines an interval and describes its traffic using the
+/// following categories.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SpeedReadingInterval {
+    /// The starting index of this interval in the polyline.
+    #[prost(int32, optional, tag = "1")]
+    pub start_polyline_point_index: ::core::option::Option<i32>,
+    /// The ending index of this interval in the polyline.
+    #[prost(int32, optional, tag = "2")]
+    pub end_polyline_point_index: ::core::option::Option<i32>,
+    #[prost(oneof = "speed_reading_interval::SpeedType", tags = "3")]
+    pub speed_type: ::core::option::Option<speed_reading_interval::SpeedType>,
+}
+/// Nested message and enum types in `SpeedReadingInterval`.
+pub mod speed_reading_interval {
+    /// The classification of polyline speed based on traffic data.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Speed {
+        /// Default value. This value is unused.
+        Unspecified = 0,
+        /// Normal speed, no slowdown is detected.
+        Normal = 1,
+        /// Slowdown detected, but no traffic jam formed.
+        Slow = 2,
+        /// Traffic jam detected.
+        TrafficJam = 3,
+    }
+    impl Speed {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Speed::Unspecified => "SPEED_UNSPECIFIED",
+                Speed::Normal => "NORMAL",
+                Speed::Slow => "SLOW",
+                Speed::TrafficJam => "TRAFFIC_JAM",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "SPEED_UNSPECIFIED" => Some(Self::Unspecified),
+                "NORMAL" => Some(Self::Normal),
+                "SLOW" => Some(Self::Slow),
+                "TRAFFIC_JAM" => Some(Self::TrafficJam),
+                _ => None,
+            }
+        }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum SpeedType {
+        /// Traffic speed in this interval.
+        #[prost(enumeration = "Speed", tag = "3")]
+        Speed(i32),
+    }
+}
+/// Encapsulates toll information on a [Route][google.maps.routing.v2.Route] or
+/// on a [RouteLeg][google.maps.routing.v2.RouteLeg].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TollInfo {
+    /// The monetary amount of tolls for the corresponding
+    /// [Route][google.maps.routing.v2.Route] or
+    /// [RouteLeg][google.maps.routing.v2.RouteLeg]. This list contains a money
+    /// amount for each currency that is expected to be charged by the toll
+    /// stations. Typically this list will contain only one item for routes with
+    /// tolls in one currency. For international trips, this list may contain
+    /// multiple items to reflect tolls in different currencies.
+    #[prost(message, repeated, tag = "1")]
+    pub estimated_price: ::prost::alloc::vec::Vec<super::super::super::r#type::Money>,
+}
+/// A transit agency that operates a transit line.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TransitAgency {
+    /// The name of this transit agency.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The transit agency's locale-specific formatted phone number.
+    #[prost(string, tag = "2")]
+    pub phone_number: ::prost::alloc::string::String,
+    /// The transit agency's URI.
+    #[prost(string, tag = "3")]
+    pub uri: ::prost::alloc::string::String,
+}
+/// Contains information about the transit line used in this step.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TransitLine {
+    /// The transit agency (or agencies) that operates this transit line.
+    #[prost(message, repeated, tag = "1")]
+    pub agencies: ::prost::alloc::vec::Vec<TransitAgency>,
+    /// The full name of this transit line, For example, "8 Avenue Local".
+    #[prost(string, tag = "2")]
+    pub name: ::prost::alloc::string::String,
+    /// the URI for this transit line as provided by the transit agency.
+    #[prost(string, tag = "3")]
+    pub uri: ::prost::alloc::string::String,
+    /// The color commonly used in signage for this line. Represented in
+    /// hexadecimal.
+    #[prost(string, tag = "4")]
+    pub color: ::prost::alloc::string::String,
+    /// The URI for the icon associated with this line.
+    #[prost(string, tag = "5")]
+    pub icon_uri: ::prost::alloc::string::String,
+    /// The short name of this transit line. This name will normally be a line
+    /// number, such as "M7" or "355".
+    #[prost(string, tag = "6")]
+    pub name_short: ::prost::alloc::string::String,
+    /// The color commonly used in text on signage for this line. Represented in
+    /// hexadecimal.
+    #[prost(string, tag = "7")]
+    pub text_color: ::prost::alloc::string::String,
+    /// The type of vehicle that operates on this transit line.
+    #[prost(message, optional, tag = "8")]
+    pub vehicle: ::core::option::Option<TransitVehicle>,
+}
+/// Information about a transit stop.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TransitStop {
+    /// The name of the transit stop.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The location of the stop expressed in latitude/longitude coordinates.
+    #[prost(message, optional, tag = "2")]
+    pub location: ::core::option::Option<Location>,
+}
+/// Information about a vehicle used in transit routes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TransitVehicle {
+    /// The name of this vehicle, capitalized.
+    #[prost(message, optional, tag = "1")]
+    pub name: ::core::option::Option<super::super::super::r#type::LocalizedText>,
+    /// The type of vehicle used.
+    #[prost(enumeration = "transit_vehicle::TransitVehicleType", tag = "2")]
+    pub r#type: i32,
+    /// The URI for an icon associated with this vehicle type.
+    #[prost(string, tag = "3")]
+    pub icon_uri: ::prost::alloc::string::String,
+    /// The URI for the icon associated with this vehicle type, based on the local
+    /// transport signage.
+    #[prost(string, tag = "4")]
+    pub local_icon_uri: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `TransitVehicle`.
+pub mod transit_vehicle {
+    /// The type of vehicles for transit routes.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum TransitVehicleType {
+        /// Unused.
+        Unspecified = 0,
+        /// Bus.
+        Bus = 1,
+        /// A vehicle that operates on a cable, usually on the ground. Aerial cable
+        /// cars may be of the type `GONDOLA_LIFT`.
+        CableCar = 2,
+        /// Commuter rail.
+        CommuterTrain = 3,
+        /// Ferry.
+        Ferry = 4,
+        /// A vehicle that is pulled up a steep incline by a cable. A Funicular
+        /// typically consists of two cars, with each car acting as a counterweight
+        /// for the other.
+        Funicular = 5,
+        /// An aerial cable car.
+        GondolaLift = 6,
+        /// Heavy rail.
+        HeavyRail = 7,
+        /// High speed train.
+        HighSpeedTrain = 8,
+        /// Intercity bus.
+        IntercityBus = 9,
+        /// Long distance train.
+        LongDistanceTrain = 10,
+        /// Light rail transit.
+        MetroRail = 11,
+        /// Monorail.
+        Monorail = 12,
+        /// All other vehicles.
+        Other = 13,
+        /// Rail.
+        Rail = 14,
+        /// Share taxi is a kind of bus with the ability to drop off and pick up
+        /// passengers anywhere on its route.
+        ShareTaxi = 15,
+        /// Underground light rail.
+        Subway = 16,
+        /// Above ground light rail.
+        Tram = 17,
+        /// Trolleybus.
+        Trolleybus = 18,
+    }
+    impl TransitVehicleType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                TransitVehicleType::Unspecified => "TRANSIT_VEHICLE_TYPE_UNSPECIFIED",
+                TransitVehicleType::Bus => "BUS",
+                TransitVehicleType::CableCar => "CABLE_CAR",
+                TransitVehicleType::CommuterTrain => "COMMUTER_TRAIN",
+                TransitVehicleType::Ferry => "FERRY",
+                TransitVehicleType::Funicular => "FUNICULAR",
+                TransitVehicleType::GondolaLift => "GONDOLA_LIFT",
+                TransitVehicleType::HeavyRail => "HEAVY_RAIL",
+                TransitVehicleType::HighSpeedTrain => "HIGH_SPEED_TRAIN",
+                TransitVehicleType::IntercityBus => "INTERCITY_BUS",
+                TransitVehicleType::LongDistanceTrain => "LONG_DISTANCE_TRAIN",
+                TransitVehicleType::MetroRail => "METRO_RAIL",
+                TransitVehicleType::Monorail => "MONORAIL",
+                TransitVehicleType::Other => "OTHER",
+                TransitVehicleType::Rail => "RAIL",
+                TransitVehicleType::ShareTaxi => "SHARE_TAXI",
+                TransitVehicleType::Subway => "SUBWAY",
+                TransitVehicleType::Tram => "TRAM",
+                TransitVehicleType::Trolleybus => "TROLLEYBUS",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "TRANSIT_VEHICLE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "BUS" => Some(Self::Bus),
+                "CABLE_CAR" => Some(Self::CableCar),
+                "COMMUTER_TRAIN" => Some(Self::CommuterTrain),
+                "FERRY" => Some(Self::Ferry),
+                "FUNICULAR" => Some(Self::Funicular),
+                "GONDOLA_LIFT" => Some(Self::GondolaLift),
+                "HEAVY_RAIL" => Some(Self::HeavyRail),
+                "HIGH_SPEED_TRAIN" => Some(Self::HighSpeedTrain),
+                "INTERCITY_BUS" => Some(Self::IntercityBus),
+                "LONG_DISTANCE_TRAIN" => Some(Self::LongDistanceTrain),
+                "METRO_RAIL" => Some(Self::MetroRail),
+                "MONORAIL" => Some(Self::Monorail),
+                "OTHER" => Some(Self::Other),
+                "RAIL" => Some(Self::Rail),
+                "SHARE_TAXI" => Some(Self::ShareTaxi),
+                "SUBWAY" => Some(Self::Subway),
+                "TRAM" => Some(Self::Tram),
+                "TROLLEYBUS" => Some(Self::Trolleybus),
+                _ => None,
+            }
+        }
+    }
+}
+/// Contains a route, which consists of a series of connected road segments
+/// that join beginning, ending, and intermediate waypoints.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Route {
+    /// Labels for the `Route` that are useful to identify specific properties
+    /// of the route to compare against others.
+    #[prost(enumeration = "RouteLabel", repeated, tag = "13")]
+    pub route_labels: ::prost::alloc::vec::Vec<i32>,
+    /// A collection of legs (path segments between waypoints) that make up the
+    /// route. Each leg corresponds to the trip between two non-`via`
+    /// [Waypoints][google.maps.routing.v2.Waypoint]. For example, a route with no
+    /// intermediate waypoints has only one leg. A route that includes one
+    /// non-`via` intermediate waypoint has two legs. A route that includes one
+    /// `via` intermediate waypoint has one leg. The order of the legs matches the
+    /// order of waypoints from `origin` to `intermediates` to `destination`.
+    #[prost(message, repeated, tag = "1")]
+    pub legs: ::prost::alloc::vec::Vec<RouteLeg>,
+    /// The travel distance of the route, in meters.
+    #[prost(int32, tag = "2")]
+    pub distance_meters: i32,
+    /// The length of time needed to navigate the route. If you set the
+    /// `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+    /// `static_duration`. If you set the `routing_preference` to either
+    /// `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
+    /// taking traffic conditions into account.
+    #[prost(message, optional, tag = "3")]
+    pub duration: ::core::option::Option<::prost_types::Duration>,
+    /// The duration of travel through the route without taking traffic
+    /// conditions into consideration.
+    #[prost(message, optional, tag = "4")]
+    pub static_duration: ::core::option::Option<::prost_types::Duration>,
+    /// The overall route polyline. This polyline is the combined polyline of
+    /// all `legs`.
+    #[prost(message, optional, tag = "5")]
+    pub polyline: ::core::option::Option<Polyline>,
+    /// A description of the route.
+    #[prost(string, tag = "6")]
+    pub description: ::prost::alloc::string::String,
+    /// An array of warnings to show when displaying the route.
+    #[prost(string, repeated, tag = "7")]
+    pub warnings: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The viewport bounding box of the polyline.
+    #[prost(message, optional, tag = "8")]
+    pub viewport: ::core::option::Option<super::super::super::geo::r#type::Viewport>,
+    /// Additional information about the route.
+    #[prost(message, optional, tag = "9")]
+    pub travel_advisory: ::core::option::Option<RouteTravelAdvisory>,
+    /// If you set
+    /// [optimize_waypoint_order][google.maps.routing.v2.ComputeRoutesRequest.optimize_waypoint_order]
+    /// to true, this field contains the optimized ordering of intermediate
+    /// waypoints. Otherwise, this field is empty.
+    /// For example, if you give an input of Origin: LA; Intermediate waypoints:
+    /// Dallas, Bangor, Phoenix; Destination: New York; and the optimized
+    /// intermediate waypoint order is Phoenix, Dallas, Bangor, then this field
+    /// contains the values \[2, 0, 1\]. The index starts with 0 for the first
+    /// intermediate waypoint provided in the input.
+    #[prost(int32, repeated, tag = "10")]
+    pub optimized_intermediate_waypoint_index: ::prost::alloc::vec::Vec<i32>,
+    /// Text representations of properties of the `Route`.
+    #[prost(message, optional, tag = "11")]
+    pub localized_values: ::core::option::Option<route::RouteLocalizedValues>,
+    /// A web-safe, base64-encoded route token that can be passed to the Navigation
+    /// SDK, that allows the Navigation SDK to reconstruct the route during
+    /// navigation, and, in the event of rerouting, honor the original intention
+    /// when you created the route by calling ComputeRoutes. Customers should treat
+    /// this token as an opaque blob. It is not meant for reading or mutating.
+    /// NOTE: `Route.route_token` is only available for requests that have set
+    /// `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
+    /// `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is not supported for requests
+    /// that have Via waypoints.
+    #[prost(string, tag = "12")]
+    pub route_token: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Route`.
+pub mod route {
+    /// Text representations of certain properties.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RouteLocalizedValues {
+        /// Travel distance represented in text form.
+        #[prost(message, optional, tag = "1")]
+        pub distance: ::core::option::Option<
+            super::super::super::super::r#type::LocalizedText,
+        >,
+        /// Duration taking traffic conditions into consideration, represented in
+        /// text form. Note: If you did not request traffic information, this value
+        /// will be the same value as static_duration.
+        #[prost(message, optional, tag = "2")]
+        pub duration: ::core::option::Option<
+            super::super::super::super::r#type::LocalizedText,
+        >,
+        /// Duration without taking traffic conditions into
+        /// consideration, represented in text form.
+        #[prost(message, optional, tag = "3")]
+        pub static_duration: ::core::option::Option<
+            super::super::super::super::r#type::LocalizedText,
+        >,
+        /// Transit fare represented in text form.
+        #[prost(message, optional, tag = "4")]
+        pub transit_fare: ::core::option::Option<
+            super::super::super::super::r#type::LocalizedText,
+        >,
+    }
+}
+/// Contains the additional information that the user should be informed
+/// about, such as possible traffic zone restrictions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RouteTravelAdvisory {
+    /// Contains information about tolls on the route. This field is only populated
+    /// if tolls are expected on the route. If this field is set, but the
+    /// estimatedPrice subfield is not populated, then the route contains tolls,
+    /// but the estimated price is unknown. If this field is not set, then there
+    /// are no tolls expected on the route.
+    #[prost(message, optional, tag = "2")]
+    pub toll_info: ::core::option::Option<TollInfo>,
+    /// Speed reading intervals detailing traffic density. Applicable in case of
+    /// `TRAFFIC_AWARE` and `TRAFFIC_AWARE_OPTIMAL` routing preferences.
+    /// The intervals cover the entire polyline of the route without overlap.
+    /// The start point of a specified interval is the same as the end point of the
+    /// preceding interval.
+    ///
+    /// Example:
+    ///
+    ///      polyline: A ---- B ---- C ---- D ---- E ---- F ---- G
+    ///      speed_reading_intervals: [A,C), [C,D), [D,G).
+    #[prost(message, repeated, tag = "3")]
+    pub speed_reading_intervals: ::prost::alloc::vec::Vec<SpeedReadingInterval>,
+    /// The predicted fuel consumption in microliters.
+    #[prost(int64, tag = "5")]
+    pub fuel_consumption_microliters: i64,
+    /// Returned route may have restrictions that are not suitable for requested
+    /// travel mode or route modifiers.
+    #[prost(bool, tag = "6")]
+    pub route_restrictions_partially_ignored: bool,
+    /// If present, contains the total fare or ticket costs on this route
+    /// This property is only returned for `TRANSIT` requests and only
+    /// for routes where fare information is available for all transit steps.
+    #[prost(message, optional, tag = "7")]
+    pub transit_fare: ::core::option::Option<super::super::super::r#type::Money>,
+}
+/// Contains the additional information that the user should be informed
+/// about on a leg step, such as possible traffic zone restrictions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RouteLegTravelAdvisory {
+    /// Contains information about tolls on the specific `RouteLeg`.
+    /// This field is only populated if we expect there are tolls on the
+    /// `RouteLeg`. If this field is set but the estimated_price subfield is not
+    /// populated, we expect that road contains tolls but we do not know an
+    /// estimated price. If this field does not exist, then there is no toll on the
+    /// `RouteLeg`.
+    #[prost(message, optional, tag = "1")]
+    pub toll_info: ::core::option::Option<TollInfo>,
+    /// Speed reading intervals detailing traffic density. Applicable in case of
+    /// `TRAFFIC_AWARE` and `TRAFFIC_AWARE_OPTIMAL` routing preferences.
+    /// The intervals cover the entire polyline of the `RouteLeg` without overlap.
+    /// The start point of a specified interval is the same as the end point of the
+    /// preceding interval.
+    ///
+    /// Example:
+    ///
+    ///      polyline: A ---- B ---- C ---- D ---- E ---- F ---- G
+    ///      speed_reading_intervals: [A,C), [C,D), [D,G).
+    #[prost(message, repeated, tag = "2")]
+    pub speed_reading_intervals: ::prost::alloc::vec::Vec<SpeedReadingInterval>,
+}
+/// Contains the additional information that the user should be informed
+/// about, such as possible traffic zone restrictions on a leg step.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RouteLegStepTravelAdvisory {
+    /// NOTE: This field is not currently populated.
+    #[prost(message, repeated, tag = "1")]
+    pub speed_reading_intervals: ::prost::alloc::vec::Vec<SpeedReadingInterval>,
+}
+/// Contains a segment between non-`via` waypoints.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RouteLeg {
+    /// The travel distance of the route leg, in meters.
+    #[prost(int32, tag = "1")]
+    pub distance_meters: i32,
+    /// The length of time needed to navigate the leg. If the `route_preference`
+    /// is set to `TRAFFIC_UNAWARE`, then this value is the same as
+    /// `static_duration`. If the `route_preference` is either `TRAFFIC_AWARE` or
+    /// `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated taking traffic
+    /// conditions into account.
+    #[prost(message, optional, tag = "2")]
+    pub duration: ::core::option::Option<::prost_types::Duration>,
+    /// The duration of travel through the leg, calculated without taking
+    /// traffic conditions into consideration.
+    #[prost(message, optional, tag = "3")]
+    pub static_duration: ::core::option::Option<::prost_types::Duration>,
+    /// The overall polyline for this leg that includes each `step`'s
+    /// polyline.
+    #[prost(message, optional, tag = "4")]
+    pub polyline: ::core::option::Option<Polyline>,
+    /// The start location of this leg. This location might be different from the
+    /// provided `origin`. For example, when the provided `origin` is not near a
+    /// road, this is a point on the road.
+    #[prost(message, optional, tag = "5")]
+    pub start_location: ::core::option::Option<Location>,
+    /// The end location of this leg. This location might be different from the
+    /// provided `destination`. For example, when the provided `destination` is not
+    /// near a road, this is a point on the road.
+    #[prost(message, optional, tag = "6")]
+    pub end_location: ::core::option::Option<Location>,
+    /// An array of steps denoting segments within this leg. Each step represents
+    /// one navigation instruction.
+    #[prost(message, repeated, tag = "7")]
+    pub steps: ::prost::alloc::vec::Vec<RouteLegStep>,
+    /// Contains the additional information that the user should be informed
+    /// about, such as possible traffic zone restrictions, on a route leg.
+    #[prost(message, optional, tag = "8")]
+    pub travel_advisory: ::core::option::Option<RouteLegTravelAdvisory>,
+    /// Text representations of properties of the `RouteLeg`.
+    #[prost(message, optional, tag = "9")]
+    pub localized_values: ::core::option::Option<route_leg::RouteLegLocalizedValues>,
+    /// Overview information about the steps in this `RouteLeg`. This field is only
+    /// populated for TRANSIT routes.
+    #[prost(message, optional, tag = "10")]
+    pub steps_overview: ::core::option::Option<route_leg::StepsOverview>,
+}
+/// Nested message and enum types in `RouteLeg`.
+pub mod route_leg {
+    /// Text representations of certain properties.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RouteLegLocalizedValues {
+        /// Travel distance represented in text form.
+        #[prost(message, optional, tag = "1")]
+        pub distance: ::core::option::Option<
+            super::super::super::super::r#type::LocalizedText,
+        >,
+        /// Duration taking traffic conditions into consideration represented in text
+        /// form. Note: If you did not request traffic information, this value will
+        /// be the same value as static_duration.
+        #[prost(message, optional, tag = "2")]
+        pub duration: ::core::option::Option<
+            super::super::super::super::r#type::LocalizedText,
+        >,
+        /// Duration without taking traffic conditions into
+        /// consideration, represented in text form.
+        #[prost(message, optional, tag = "3")]
+        pub static_duration: ::core::option::Option<
+            super::super::super::super::r#type::LocalizedText,
+        >,
+    }
+    /// Provides overview information about a list of `RouteLegStep`s.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct StepsOverview {
+        /// Summarized information about different multi-modal segments of
+        /// the `RouteLeg.steps`. This field is not populated if the `RouteLeg` does
+        /// not contain any multi-modal segments in the steps.
+        #[prost(message, repeated, tag = "1")]
+        pub multi_modal_segments: ::prost::alloc::vec::Vec<
+            steps_overview::MultiModalSegment,
+        >,
+    }
+    /// Nested message and enum types in `StepsOverview`.
+    pub mod steps_overview {
+        /// Provides summarized information about different multi-modal segments of
+        /// the `RouteLeg.steps`. A multi-modal segment is defined as one or more
+        /// contiguous `RouteLegStep` that have the same `RouteTravelMode`.
+        /// This field is not populated if the `RouteLeg` does not contain any
+        /// multi-modal segments in the steps.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct MultiModalSegment {
+            /// The corresponding `RouteLegStep` index that is the start of a
+            /// multi-modal segment.
+            #[prost(int32, optional, tag = "1")]
+            pub step_start_index: ::core::option::Option<i32>,
+            /// The corresponding `RouteLegStep` index that is the end of a
+            /// multi-modal segment.
+            #[prost(int32, optional, tag = "2")]
+            pub step_end_index: ::core::option::Option<i32>,
+            /// NavigationInstruction for the multi-modal segment.
+            #[prost(message, optional, tag = "3")]
+            pub navigation_instruction: ::core::option::Option<
+                super::super::NavigationInstruction,
+            >,
+            /// The travel mode of the multi-modal segment.
+            #[prost(enumeration = "super::super::RouteTravelMode", tag = "4")]
+            pub travel_mode: i32,
+        }
+    }
+}
+/// Contains a segment of a [RouteLeg][google.maps.routing.v2.RouteLeg]. A
+/// step corresponds to a single navigation instruction. Route legs are made up
+/// of steps.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RouteLegStep {
+    /// The travel distance of this step, in meters. In some circumstances, this
+    /// field might not have a value.
+    #[prost(int32, tag = "1")]
+    pub distance_meters: i32,
+    /// The duration of travel through this step without taking traffic conditions
+    /// into consideration. In some circumstances, this field might not have a
+    /// value.
+    #[prost(message, optional, tag = "2")]
+    pub static_duration: ::core::option::Option<::prost_types::Duration>,
+    /// The polyline associated with this step.
+    #[prost(message, optional, tag = "3")]
+    pub polyline: ::core::option::Option<Polyline>,
+    /// The start location of this step.
+    #[prost(message, optional, tag = "4")]
+    pub start_location: ::core::option::Option<Location>,
+    /// The end location of this step.
+    #[prost(message, optional, tag = "5")]
+    pub end_location: ::core::option::Option<Location>,
+    /// Navigation instructions.
+    #[prost(message, optional, tag = "6")]
+    pub navigation_instruction: ::core::option::Option<NavigationInstruction>,
+    /// Contains the additional information that the user should be informed
+    /// about, such as possible traffic zone restrictions, on a leg step.
+    #[prost(message, optional, tag = "7")]
+    pub travel_advisory: ::core::option::Option<RouteLegStepTravelAdvisory>,
+    /// Text representations of properties of the `RouteLegStep`.
+    #[prost(message, optional, tag = "8")]
+    pub localized_values: ::core::option::Option<
+        route_leg_step::RouteLegStepLocalizedValues,
+    >,
+    /// Details pertaining to this step if the travel mode is `TRANSIT`.
+    #[prost(message, optional, tag = "9")]
+    pub transit_details: ::core::option::Option<RouteLegStepTransitDetails>,
+    /// The travel mode used for this step.
+    #[prost(enumeration = "RouteTravelMode", tag = "10")]
+    pub travel_mode: i32,
+}
+/// Nested message and enum types in `RouteLegStep`.
+pub mod route_leg_step {
+    /// Text representations of certain properties.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RouteLegStepLocalizedValues {
+        /// Travel distance represented in text form.
+        #[prost(message, optional, tag = "1")]
+        pub distance: ::core::option::Option<
+            super::super::super::super::r#type::LocalizedText,
+        >,
+        /// Duration without taking traffic conditions into
+        /// consideration, represented in text form.
+        #[prost(message, optional, tag = "3")]
+        pub static_duration: ::core::option::Option<
+            super::super::super::super::r#type::LocalizedText,
+        >,
+    }
+}
+/// Additional information for the `RouteLegStep` related to `TRANSIT` routes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RouteLegStepTransitDetails {
+    /// Information about the arrival and departure stops for the step.
+    #[prost(message, optional, tag = "1")]
+    pub stop_details: ::core::option::Option<
+        route_leg_step_transit_details::TransitStopDetails,
+    >,
+    /// Text representations of properties of the `RouteLegStepTransitDetails`.
+    #[prost(message, optional, tag = "2")]
+    pub localized_values: ::core::option::Option<
+        route_leg_step_transit_details::TransitDetailsLocalizedValues,
+    >,
+    /// Specifies the direction in which to travel on this line as marked on
+    /// the vehicle or at the departure stop. The direction is often the terminus
+    /// station.
+    #[prost(string, tag = "3")]
+    pub headsign: ::prost::alloc::string::String,
+    /// Specifies the expected time as a duration between departures from the same
+    /// stop at this time. For example, with a headway seconds value of 600, you
+    /// would expect a ten minute wait if you should miss your bus.
+    #[prost(message, optional, tag = "4")]
+    pub headway: ::core::option::Option<::prost_types::Duration>,
+    /// Information about the transit line used in this step.
+    #[prost(message, optional, tag = "5")]
+    pub transit_line: ::core::option::Option<TransitLine>,
+    /// The number of stops from the departure to the arrival stop. This count
+    /// includes the arrival stop, but excludes the departure stop. For example, if
+    /// your route leaves from Stop A, passes through stops B and C, and arrives at
+    /// stop D, stop_count will return 3.
+    #[prost(int32, tag = "6")]
+    pub stop_count: i32,
+    /// The text that appears in schedules and sign boards to identify a transit
+    /// trip to passengers. The text should uniquely identify a trip within a
+    /// service day. For example, "538" is the `trip_short_text` of the Amtrak
+    /// train that leaves San Jose, CA at 15:10 on weekdays to Sacramento, CA.
+    #[prost(string, tag = "7")]
+    pub trip_short_text: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `RouteLegStepTransitDetails`.
+pub mod route_leg_step_transit_details {
+    /// Details about the transit stops for the `RouteLegStep`
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TransitStopDetails {
+        /// Information about the arrival stop for the step.
+        #[prost(message, optional, tag = "1")]
+        pub arrival_stop: ::core::option::Option<super::TransitStop>,
+        /// The estimated time of arrival for the step.
+        #[prost(message, optional, tag = "2")]
+        pub arrival_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// Information about the departure stop for the step.
+        #[prost(message, optional, tag = "3")]
+        pub departure_stop: ::core::option::Option<super::TransitStop>,
+        /// The estimated time of departure for the step.
+        #[prost(message, optional, tag = "4")]
+        pub departure_time: ::core::option::Option<::prost_types::Timestamp>,
+    }
+    /// Localized descriptions of values for RouteTransitDetails.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TransitDetailsLocalizedValues {
+        /// Time in its formatted text representation with a corresponding time zone.
+        #[prost(message, optional, tag = "1")]
+        pub arrival_time: ::core::option::Option<super::LocalizedTime>,
+        /// Time in its formatted text representation with a corresponding time zone.
+        #[prost(message, optional, tag = "2")]
+        pub departure_time: ::core::option::Option<super::LocalizedTime>,
+    }
+}
 /// List of toll passes around the world that we support.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -447,136 +1575,240 @@ impl TollPass {
         }
     }
 }
-/// Traffic density indicator on a contiguous segment of a polyline or path.
-/// Given a path with points P_0, P_1, ... , P_N (zero-based index), the
-/// SpeedReadingInterval defines an interval and describes its traffic using the
-/// following categories.
+/// Contains the vehicle information, such as the vehicle emission type.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SpeedReadingInterval {
-    /// The starting index of this interval in the polyline.
-    #[prost(int32, optional, tag = "1")]
-    pub start_polyline_point_index: ::core::option::Option<i32>,
-    /// The ending index of this interval in the polyline.
-    #[prost(int32, optional, tag = "2")]
-    pub end_polyline_point_index: ::core::option::Option<i32>,
-    #[prost(oneof = "speed_reading_interval::SpeedType", tags = "3")]
-    pub speed_type: ::core::option::Option<speed_reading_interval::SpeedType>,
+pub struct VehicleInfo {
+    /// Describes the vehicle's emission type.
+    /// Applies only to the `DRIVE`
+    /// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
+    #[prost(enumeration = "VehicleEmissionType", tag = "2")]
+    pub emission_type: i32,
 }
-/// Nested message and enum types in `SpeedReadingInterval`.
-pub mod speed_reading_interval {
-    /// The classification of polyline speed based on traffic data.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Speed {
-        /// Default value. This value is unused.
-        Unspecified = 0,
-        /// Normal speed, no slowdown is detected.
-        Normal = 1,
-        /// Slowdown detected, but no traffic jam formed.
-        Slow = 2,
-        /// Traffic jam detected.
-        TrafficJam = 3,
-    }
-    impl Speed {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Speed::Unspecified => "SPEED_UNSPECIFIED",
-                Speed::Normal => "NORMAL",
-                Speed::Slow => "SLOW",
-                Speed::TrafficJam => "TRAFFIC_JAM",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "SPEED_UNSPECIFIED" => Some(Self::Unspecified),
-                "NORMAL" => Some(Self::Normal),
-                "SLOW" => Some(Self::Slow),
-                "TRAFFIC_JAM" => Some(Self::TrafficJam),
-                _ => None,
-            }
-        }
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum SpeedType {
-        /// Traffic speed in this interval.
-        #[prost(enumeration = "Speed", tag = "3")]
-        Speed(i32),
-    }
+/// Encapsulates a set of optional conditions to satisfy when calculating the
+/// routes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RouteModifiers {
+    /// When set to true, avoids toll roads where reasonable, giving preference to
+    /// routes not containing toll roads. Applies only to the `DRIVE` and
+    /// `TWO_WHEELER` [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
+    #[prost(bool, tag = "1")]
+    pub avoid_tolls: bool,
+    /// When set to true, avoids highways where reasonable, giving preference to
+    /// routes not containing highways. Applies only to the `DRIVE` and
+    /// `TWO_WHEELER` [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
+    #[prost(bool, tag = "2")]
+    pub avoid_highways: bool,
+    /// When set to true, avoids ferries where reasonable, giving preference to
+    /// routes not containing ferries. Applies only to the `DRIVE` and`TWO_WHEELER`
+    /// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
+    #[prost(bool, tag = "3")]
+    pub avoid_ferries: bool,
+    /// When set to true, avoids navigating indoors where reasonable, giving
+    /// preference to routes not containing indoor navigation. Applies only to the
+    /// `WALK` [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
+    #[prost(bool, tag = "4")]
+    pub avoid_indoor: bool,
+    /// Specifies the vehicle information.
+    #[prost(message, optional, tag = "5")]
+    pub vehicle_info: ::core::option::Option<VehicleInfo>,
+    /// Encapsulates information about toll passes.
+    /// If toll passes are provided, the API tries to return the pass price. If
+    /// toll passes are not provided, the API treats the toll pass as unknown and
+    /// tries to return the cash price.
+    /// Applies only to the `DRIVE` and `TWO_WHEELER`
+    /// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
+    #[prost(enumeration = "TollPass", repeated, tag = "6")]
+    pub toll_passes: ::prost::alloc::vec::Vec<i32>,
 }
-/// A set of values describing the vehicle's emission type.
-/// Applies only to the `DRIVE`
-/// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
+/// A set of values that specify factors to take into consideration when
+/// calculating the route.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
-pub enum VehicleEmissionType {
-    /// No emission type specified. Default to `GASOLINE`.
+pub enum RoutingPreference {
+    /// No routing preference specified. Default to `TRAFFIC_UNAWARE`.
     Unspecified = 0,
-    /// Gasoline/petrol fueled vehicle.
-    Gasoline = 1,
-    /// Electricity powered vehicle.
-    Electric = 2,
-    /// Hybrid fuel (such as gasoline + electric) vehicle.
-    Hybrid = 3,
-    /// Diesel fueled vehicle.
-    Diesel = 4,
+    /// Computes routes without taking live traffic conditions into consideration.
+    /// Suitable when traffic conditions don't matter or are not applicable.
+    /// Using this value produces the lowest latency.
+    /// Note: For [RouteTravelMode][google.maps.routing.v2.RouteTravelMode] `DRIVE`
+    /// and `TWO_WHEELER` choice of route and duration are based on road network
+    /// and average time-independent traffic conditions. Results for a given
+    /// request may vary over time due to changes in the road network, updated
+    /// average traffic conditions, and the distributed nature of the service.
+    /// Results may also vary between nearly-equivalent routes at any time or
+    /// frequency.
+    TrafficUnaware = 1,
+    /// Calculates routes taking live traffic conditions into consideration.
+    /// In contrast to `TRAFFIC_AWARE_OPTIMAL`, some optimizations are applied to
+    /// significantly reduce latency.
+    TrafficAware = 2,
+    /// Calculates the routes taking live traffic conditions into consideration,
+    /// without applying most performance optimizations. Using this value produces
+    /// the highest latency.
+    TrafficAwareOptimal = 3,
 }
-impl VehicleEmissionType {
+impl RoutingPreference {
     /// String value of the enum field names used in the ProtoBuf definition.
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            VehicleEmissionType::Unspecified => "VEHICLE_EMISSION_TYPE_UNSPECIFIED",
-            VehicleEmissionType::Gasoline => "GASOLINE",
-            VehicleEmissionType::Electric => "ELECTRIC",
-            VehicleEmissionType::Hybrid => "HYBRID",
-            VehicleEmissionType::Diesel => "DIESEL",
+            RoutingPreference::Unspecified => "ROUTING_PREFERENCE_UNSPECIFIED",
+            RoutingPreference::TrafficUnaware => "TRAFFIC_UNAWARE",
+            RoutingPreference::TrafficAware => "TRAFFIC_AWARE",
+            RoutingPreference::TrafficAwareOptimal => "TRAFFIC_AWARE_OPTIMAL",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
     pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
         match value {
-            "VEHICLE_EMISSION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "GASOLINE" => Some(Self::Gasoline),
-            "ELECTRIC" => Some(Self::Electric),
-            "HYBRID" => Some(Self::Hybrid),
-            "DIESEL" => Some(Self::Diesel),
+            "ROUTING_PREFERENCE_UNSPECIFIED" => Some(Self::Unspecified),
+            "TRAFFIC_UNAWARE" => Some(Self::TrafficUnaware),
+            "TRAFFIC_AWARE" => Some(Self::TrafficAware),
+            "TRAFFIC_AWARE_OPTIMAL" => Some(Self::TrafficAwareOptimal),
             _ => None,
         }
     }
 }
-/// Encapsulates toll information on a [Route][google.maps.routing.v2.Route] or
-/// on a [RouteLeg][google.maps.routing.v2.RouteLeg].
+/// Information related to how and why a fallback result was used. If this field
+/// is set, then it means the server used a different routing mode from your
+/// preferred mode as fallback.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TollInfo {
-    /// The monetary amount of tolls for the corresponding
-    /// [Route][google.maps.routing.v2.Route] or
-    /// [RouteLeg][google.maps.routing.v2.RouteLeg]. This list contains a money
-    /// amount for each currency that is expected to be charged by the toll
-    /// stations. Typically this list will contain only one item for routes with
-    /// tolls in one currency. For international trips, this list may contain
-    /// multiple items to reflect tolls in different currencies.
-    #[prost(message, repeated, tag = "1")]
-    pub estimated_price: ::prost::alloc::vec::Vec<super::super::super::r#type::Money>,
+pub struct FallbackInfo {
+    /// Routing mode used for the response. If fallback was triggered, the mode
+    /// may be different from routing preference set in the original client
+    /// request.
+    #[prost(enumeration = "FallbackRoutingMode", tag = "1")]
+    pub routing_mode: i32,
+    /// The reason why fallback response was used instead of the original response.
+    /// This field is only populated when the fallback mode is triggered and the
+    /// fallback response is returned.
+    #[prost(enumeration = "FallbackReason", tag = "2")]
+    pub reason: i32,
+}
+/// Reasons for using fallback response.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum FallbackReason {
+    /// No fallback reason specified.
+    Unspecified = 0,
+    /// A server error happened while calculating routes with your preferred
+    /// routing mode, but we were able to return a result calculated by an
+    /// alternative mode.
+    ServerError = 1,
+    /// We were not able to finish the calculation with your preferred routing mode
+    /// on time, but we were able to return a result calculated by an alternative
+    /// mode.
+    LatencyExceeded = 2,
+}
+impl FallbackReason {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            FallbackReason::Unspecified => "FALLBACK_REASON_UNSPECIFIED",
+            FallbackReason::ServerError => "SERVER_ERROR",
+            FallbackReason::LatencyExceeded => "LATENCY_EXCEEDED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "FALLBACK_REASON_UNSPECIFIED" => Some(Self::Unspecified),
+            "SERVER_ERROR" => Some(Self::ServerError),
+            "LATENCY_EXCEEDED" => Some(Self::LatencyExceeded),
+            _ => None,
+        }
+    }
+}
+/// Actual routing mode used for returned fallback response.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum FallbackRoutingMode {
+    /// Not used.
+    Unspecified = 0,
+    /// Indicates the `TRAFFIC_UNAWARE` \[google.maps.routing.v2.RoutingPreference\]
+    /// was used to compute the response.
+    FallbackTrafficUnaware = 1,
+    /// Indicates the `TRAFFIC_AWARE`
+    /// [RoutingPreference][google.maps.routing.v2.RoutingPreference] was used to
+    /// compute the response.
+    FallbackTrafficAware = 2,
+}
+impl FallbackRoutingMode {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            FallbackRoutingMode::Unspecified => "FALLBACK_ROUTING_MODE_UNSPECIFIED",
+            FallbackRoutingMode::FallbackTrafficUnaware => "FALLBACK_TRAFFIC_UNAWARE",
+            FallbackRoutingMode::FallbackTrafficAware => "FALLBACK_TRAFFIC_AWARE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "FALLBACK_ROUTING_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+            "FALLBACK_TRAFFIC_UNAWARE" => Some(Self::FallbackTrafficUnaware),
+            "FALLBACK_TRAFFIC_AWARE" => Some(Self::FallbackTrafficAware),
+            _ => None,
+        }
+    }
+}
+/// Contains [GeocodedWaypoints][google.maps.routing.v2.GeocodedWaypoint] for
+/// origin, destination and intermediate waypoints. Only populated for address
+/// waypoints.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GeocodingResults {
+    /// Origin geocoded waypoint.
+    #[prost(message, optional, tag = "1")]
+    pub origin: ::core::option::Option<GeocodedWaypoint>,
+    /// Destination geocoded waypoint.
+    #[prost(message, optional, tag = "2")]
+    pub destination: ::core::option::Option<GeocodedWaypoint>,
+    /// A list of intermediate geocoded waypoints each containing an index field
+    /// that corresponds to the zero-based position of the waypoint in the order
+    /// they were specified in the request.
+    #[prost(message, repeated, tag = "3")]
+    pub intermediates: ::prost::alloc::vec::Vec<GeocodedWaypoint>,
+}
+/// Details about the locations used as waypoints. Only populated for address
+/// waypoints. Includes details about the geocoding results for the purposes of
+/// determining what the address was geocoded to.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GeocodedWaypoint {
+    /// Indicates the status code resulting from the geocoding operation.
+    #[prost(message, optional, tag = "1")]
+    pub geocoder_status: ::core::option::Option<super::super::super::rpc::Status>,
+    /// The index of the corresponding intermediate waypoint in the request.
+    /// Only populated if the corresponding waypoint is an intermediate
+    /// waypoint.
+    #[prost(int32, optional, tag = "2")]
+    pub intermediate_waypoint_request_index: ::core::option::Option<i32>,
+    /// The type(s) of the result, in the form of zero or more type tags.
+    /// Supported types:
+    /// <https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types>
+    #[prost(string, repeated, tag = "3")]
+    pub r#type: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Indicates that the geocoder did not return an exact match for the original
+    /// request, though it was able to match part of the requested address. You may
+    /// wish to examine the original request for misspellings and/or an incomplete
+    /// address.
+    #[prost(bool, tag = "4")]
+    pub partial_match: bool,
+    /// The place ID for this result.
+    #[prost(string, tag = "5")]
+    pub place_id: ::prost::alloc::string::String,
 }
 /// Preferences for `TRANSIT` based routes that influence the route that is
 /// returned.
@@ -695,1238 +1927,6 @@ pub mod transit_preferences {
                 "FEWER_TRANSFERS" => Some(Self::FewerTransfers),
                 _ => None,
             }
-        }
-    }
-}
-/// Information related to how and why a fallback result was used. If this field
-/// is set, then it means the server used a different routing mode from your
-/// preferred mode as fallback.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FallbackInfo {
-    /// Routing mode used for the response. If fallback was triggered, the mode
-    /// may be different from routing preference set in the original client
-    /// request.
-    #[prost(enumeration = "FallbackRoutingMode", tag = "1")]
-    pub routing_mode: i32,
-    /// The reason why fallback response was used instead of the original response.
-    /// This field is only populated when the fallback mode is triggered and the
-    /// fallback response is returned.
-    #[prost(enumeration = "FallbackReason", tag = "2")]
-    pub reason: i32,
-}
-/// Reasons for using fallback response.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum FallbackReason {
-    /// No fallback reason specified.
-    Unspecified = 0,
-    /// A server error happened while calculating routes with your preferred
-    /// routing mode, but we were able to return a result calculated by an
-    /// alternative mode.
-    ServerError = 1,
-    /// We were not able to finish the calculation with your preferred routing mode
-    /// on time, but we were able to return a result calculated by an alternative
-    /// mode.
-    LatencyExceeded = 2,
-}
-impl FallbackReason {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            FallbackReason::Unspecified => "FALLBACK_REASON_UNSPECIFIED",
-            FallbackReason::ServerError => "SERVER_ERROR",
-            FallbackReason::LatencyExceeded => "LATENCY_EXCEEDED",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "FALLBACK_REASON_UNSPECIFIED" => Some(Self::Unspecified),
-            "SERVER_ERROR" => Some(Self::ServerError),
-            "LATENCY_EXCEEDED" => Some(Self::LatencyExceeded),
-            _ => None,
-        }
-    }
-}
-/// Actual routing mode used for returned fallback response.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum FallbackRoutingMode {
-    /// Not used.
-    Unspecified = 0,
-    /// Indicates the `TRAFFIC_UNAWARE` \[google.maps.routing.v2.RoutingPreference\]
-    /// was used to compute the response.
-    FallbackTrafficUnaware = 1,
-    /// Indicates the `TRAFFIC_AWARE`
-    /// [RoutingPreference][google.maps.routing.v2.RoutingPreference] was used to
-    /// compute the response.
-    FallbackTrafficAware = 2,
-}
-impl FallbackRoutingMode {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            FallbackRoutingMode::Unspecified => "FALLBACK_ROUTING_MODE_UNSPECIFIED",
-            FallbackRoutingMode::FallbackTrafficUnaware => "FALLBACK_TRAFFIC_UNAWARE",
-            FallbackRoutingMode::FallbackTrafficAware => "FALLBACK_TRAFFIC_AWARE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "FALLBACK_ROUTING_MODE_UNSPECIFIED" => Some(Self::Unspecified),
-            "FALLBACK_TRAFFIC_UNAWARE" => Some(Self::FallbackTrafficUnaware),
-            "FALLBACK_TRAFFIC_AWARE" => Some(Self::FallbackTrafficAware),
-            _ => None,
-        }
-    }
-}
-/// Specifies the assumptions to use when calculating time in traffic. This
-/// setting affects the value returned in the `duration` field in the
-/// response, which contains the predicted time in traffic based on historical
-/// averages.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum TrafficModel {
-    /// Unused. If specified, will default to `BEST_GUESS`.
-    Unspecified = 0,
-    /// Indicates that the returned `duration` should be the best
-    /// estimate of travel time given what is known about both historical traffic
-    /// conditions and live traffic. Live traffic becomes more important the closer
-    /// the `departure_time` is to now.
-    BestGuess = 1,
-    /// Indicates that the returned duration should be longer than the
-    /// actual travel time on most days, though occasional days with particularly
-    /// bad traffic conditions may exceed this value.
-    Pessimistic = 2,
-    /// Indicates that the returned duration should be shorter than the actual
-    /// travel time on most days, though occasional days with particularly good
-    /// traffic conditions may be faster than this value.
-    Optimistic = 3,
-}
-impl TrafficModel {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            TrafficModel::Unspecified => "TRAFFIC_MODEL_UNSPECIFIED",
-            TrafficModel::BestGuess => "BEST_GUESS",
-            TrafficModel::Pessimistic => "PESSIMISTIC",
-            TrafficModel::Optimistic => "OPTIMISTIC",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "TRAFFIC_MODEL_UNSPECIFIED" => Some(Self::Unspecified),
-            "BEST_GUESS" => Some(Self::BestGuess),
-            "PESSIMISTIC" => Some(Self::Pessimistic),
-            "OPTIMISTIC" => Some(Self::Optimistic),
-            _ => None,
-        }
-    }
-}
-/// Contains the vehicle information, such as the vehicle emission type.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VehicleInfo {
-    /// Describes the vehicle's emission type.
-    /// Applies only to the `DRIVE`
-    /// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
-    #[prost(enumeration = "VehicleEmissionType", tag = "2")]
-    pub emission_type: i32,
-}
-/// A set of values that specify the navigation action to take for the current
-/// step (e.g., turn left, merge, straight, etc.).
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum Maneuver {
-    /// Not used.
-    Unspecified = 0,
-    /// Turn slightly to the left.
-    TurnSlightLeft = 1,
-    /// Turn sharply to the left.
-    TurnSharpLeft = 2,
-    /// Make a left u-turn.
-    UturnLeft = 3,
-    /// Turn left.
-    TurnLeft = 4,
-    /// Turn slightly to the right.
-    TurnSlightRight = 5,
-    /// Turn sharply to the right.
-    TurnSharpRight = 6,
-    /// Make a right u-turn.
-    UturnRight = 7,
-    /// Turn right.
-    TurnRight = 8,
-    /// Go straight.
-    Straight = 9,
-    /// Take the left ramp.
-    RampLeft = 10,
-    /// Take the right ramp.
-    RampRight = 11,
-    /// Merge into traffic.
-    Merge = 12,
-    /// Take the left fork.
-    ForkLeft = 13,
-    /// Take the right fork.
-    ForkRight = 14,
-    /// Take the ferry.
-    Ferry = 15,
-    /// Take the train leading onto the ferry.
-    FerryTrain = 16,
-    /// Turn left at the roundabout.
-    RoundaboutLeft = 17,
-    /// Turn right at the roundabout.
-    RoundaboutRight = 18,
-    /// Initial maneuver.
-    Depart = 19,
-    /// Used to indicate a street name change.
-    NameChange = 20,
-}
-impl Maneuver {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            Maneuver::Unspecified => "MANEUVER_UNSPECIFIED",
-            Maneuver::TurnSlightLeft => "TURN_SLIGHT_LEFT",
-            Maneuver::TurnSharpLeft => "TURN_SHARP_LEFT",
-            Maneuver::UturnLeft => "UTURN_LEFT",
-            Maneuver::TurnLeft => "TURN_LEFT",
-            Maneuver::TurnSlightRight => "TURN_SLIGHT_RIGHT",
-            Maneuver::TurnSharpRight => "TURN_SHARP_RIGHT",
-            Maneuver::UturnRight => "UTURN_RIGHT",
-            Maneuver::TurnRight => "TURN_RIGHT",
-            Maneuver::Straight => "STRAIGHT",
-            Maneuver::RampLeft => "RAMP_LEFT",
-            Maneuver::RampRight => "RAMP_RIGHT",
-            Maneuver::Merge => "MERGE",
-            Maneuver::ForkLeft => "FORK_LEFT",
-            Maneuver::ForkRight => "FORK_RIGHT",
-            Maneuver::Ferry => "FERRY",
-            Maneuver::FerryTrain => "FERRY_TRAIN",
-            Maneuver::RoundaboutLeft => "ROUNDABOUT_LEFT",
-            Maneuver::RoundaboutRight => "ROUNDABOUT_RIGHT",
-            Maneuver::Depart => "DEPART",
-            Maneuver::NameChange => "NAME_CHANGE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "MANEUVER_UNSPECIFIED" => Some(Self::Unspecified),
-            "TURN_SLIGHT_LEFT" => Some(Self::TurnSlightLeft),
-            "TURN_SHARP_LEFT" => Some(Self::TurnSharpLeft),
-            "UTURN_LEFT" => Some(Self::UturnLeft),
-            "TURN_LEFT" => Some(Self::TurnLeft),
-            "TURN_SLIGHT_RIGHT" => Some(Self::TurnSlightRight),
-            "TURN_SHARP_RIGHT" => Some(Self::TurnSharpRight),
-            "UTURN_RIGHT" => Some(Self::UturnRight),
-            "TURN_RIGHT" => Some(Self::TurnRight),
-            "STRAIGHT" => Some(Self::Straight),
-            "RAMP_LEFT" => Some(Self::RampLeft),
-            "RAMP_RIGHT" => Some(Self::RampRight),
-            "MERGE" => Some(Self::Merge),
-            "FORK_LEFT" => Some(Self::ForkLeft),
-            "FORK_RIGHT" => Some(Self::ForkRight),
-            "FERRY" => Some(Self::Ferry),
-            "FERRY_TRAIN" => Some(Self::FerryTrain),
-            "ROUNDABOUT_LEFT" => Some(Self::RoundaboutLeft),
-            "ROUNDABOUT_RIGHT" => Some(Self::RoundaboutRight),
-            "DEPART" => Some(Self::Depart),
-            "NAME_CHANGE" => Some(Self::NameChange),
-            _ => None,
-        }
-    }
-}
-/// Contains [GeocodedWaypoints][google.maps.routing.v2.GeocodedWaypoint] for
-/// origin, destination and intermediate waypoints. Only populated for address
-/// waypoints.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GeocodingResults {
-    /// Origin geocoded waypoint.
-    #[prost(message, optional, tag = "1")]
-    pub origin: ::core::option::Option<GeocodedWaypoint>,
-    /// Destination geocoded waypoint.
-    #[prost(message, optional, tag = "2")]
-    pub destination: ::core::option::Option<GeocodedWaypoint>,
-    /// A list of intermediate geocoded waypoints each containing an index field
-    /// that corresponds to the zero-based position of the waypoint in the order
-    /// they were specified in the request.
-    #[prost(message, repeated, tag = "3")]
-    pub intermediates: ::prost::alloc::vec::Vec<GeocodedWaypoint>,
-}
-/// Details about the locations used as waypoints. Only populated for address
-/// waypoints. Includes details about the geocoding results for the purposes of
-/// determining what the address was geocoded to.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GeocodedWaypoint {
-    /// Indicates the status code resulting from the geocoding operation.
-    #[prost(message, optional, tag = "1")]
-    pub geocoder_status: ::core::option::Option<super::super::super::rpc::Status>,
-    /// The index of the corresponding intermediate waypoint in the request.
-    /// Only populated if the corresponding waypoint is an intermediate
-    /// waypoint.
-    #[prost(int32, optional, tag = "2")]
-    pub intermediate_waypoint_request_index: ::core::option::Option<i32>,
-    /// The type(s) of the result, in the form of zero or more type tags.
-    /// Supported types:
-    /// <https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types>
-    #[prost(string, repeated, tag = "3")]
-    pub r#type: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Indicates that the geocoder did not return an exact match for the original
-    /// request, though it was able to match part of the requested address. You may
-    /// wish to examine the original request for misspellings and/or an incomplete
-    /// address.
-    #[prost(bool, tag = "4")]
-    pub partial_match: bool,
-    /// The place ID for this result.
-    #[prost(string, tag = "5")]
-    pub place_id: ::prost::alloc::string::String,
-}
-/// Encapsulates navigation instructions for a
-/// [RouteLegStep][google.maps.routing.v2.RouteLegStep]
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NavigationInstruction {
-    /// Encapsulates the navigation instructions for the current step (e.g., turn
-    /// left, merge, straight, etc.). This field determines which icon to display.
-    #[prost(enumeration = "Maneuver", tag = "1")]
-    pub maneuver: i32,
-    /// Instructions for navigating this step.
-    #[prost(string, tag = "2")]
-    pub instructions: ::prost::alloc::string::String,
-}
-/// Encapsulates a location (a geographic point, and an optional heading).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Location {
-    /// The waypoint's geographic coordinates.
-    #[prost(message, optional, tag = "1")]
-    pub lat_lng: ::core::option::Option<super::super::super::r#type::LatLng>,
-    /// The compass heading associated with the direction of the flow of traffic.
-    /// This value specifies the side of the road for pickup and drop-off. Heading
-    /// values can be from 0 to 360, where 0 specifies a heading of due North, 90
-    /// specifies a heading of due East, and so on. You can use this field only for
-    /// `DRIVE` and `TWO_WHEELER`
-    /// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
-    #[prost(message, optional, tag = "2")]
-    pub heading: ::core::option::Option<i32>,
-}
-/// A transit agency that operates a transit line.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TransitAgency {
-    /// The name of this transit agency.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The transit agency's locale-specific formatted phone number.
-    #[prost(string, tag = "2")]
-    pub phone_number: ::prost::alloc::string::String,
-    /// The transit agency's URI.
-    #[prost(string, tag = "3")]
-    pub uri: ::prost::alloc::string::String,
-}
-/// Contains information about the transit line used in this step.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TransitLine {
-    /// The transit agency (or agencies) that operates this transit line.
-    #[prost(message, repeated, tag = "1")]
-    pub agencies: ::prost::alloc::vec::Vec<TransitAgency>,
-    /// The full name of this transit line, For example, "8 Avenue Local".
-    #[prost(string, tag = "2")]
-    pub name: ::prost::alloc::string::String,
-    /// the URI for this transit line as provided by the transit agency.
-    #[prost(string, tag = "3")]
-    pub uri: ::prost::alloc::string::String,
-    /// The color commonly used in signage for this line. Represented in
-    /// hexadecimal.
-    #[prost(string, tag = "4")]
-    pub color: ::prost::alloc::string::String,
-    /// The URI for the icon associated with this line.
-    #[prost(string, tag = "5")]
-    pub icon_uri: ::prost::alloc::string::String,
-    /// The short name of this transit line. This name will normally be a line
-    /// number, such as "M7" or "355".
-    #[prost(string, tag = "6")]
-    pub name_short: ::prost::alloc::string::String,
-    /// The color commonly used in text on signage for this line. Represented in
-    /// hexadecimal.
-    #[prost(string, tag = "7")]
-    pub text_color: ::prost::alloc::string::String,
-    /// The type of vehicle that operates on this transit line.
-    #[prost(message, optional, tag = "8")]
-    pub vehicle: ::core::option::Option<TransitVehicle>,
-}
-/// Information about a transit stop.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TransitStop {
-    /// The name of the transit stop.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The location of the stop expressed in latitude/longitude coordinates.
-    #[prost(message, optional, tag = "2")]
-    pub location: ::core::option::Option<Location>,
-}
-/// Information about a vehicle used in transit routes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TransitVehicle {
-    /// The name of this vehicle, capitalized.
-    #[prost(message, optional, tag = "1")]
-    pub name: ::core::option::Option<super::super::super::r#type::LocalizedText>,
-    /// The type of vehicle used.
-    #[prost(enumeration = "transit_vehicle::TransitVehicleType", tag = "2")]
-    pub r#type: i32,
-    /// The URI for an icon associated with this vehicle type.
-    #[prost(string, tag = "3")]
-    pub icon_uri: ::prost::alloc::string::String,
-    /// The URI for the icon associated with this vehicle type, based on the local
-    /// transport signage.
-    #[prost(string, tag = "4")]
-    pub local_icon_uri: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `TransitVehicle`.
-pub mod transit_vehicle {
-    /// The type of vehicles for transit routes.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum TransitVehicleType {
-        /// Unused.
-        Unspecified = 0,
-        /// Bus.
-        Bus = 1,
-        /// A vehicle that operates on a cable, usually on the ground. Aerial cable
-        /// cars may be of the type `GONDOLA_LIFT`.
-        CableCar = 2,
-        /// Commuter rail.
-        CommuterTrain = 3,
-        /// Ferry.
-        Ferry = 4,
-        /// A vehicle that is pulled up a steep incline by a cable. A Funicular
-        /// typically consists of two cars, with each car acting as a counterweight
-        /// for the other.
-        Funicular = 5,
-        /// An aerial cable car.
-        GondolaLift = 6,
-        /// Heavy rail.
-        HeavyRail = 7,
-        /// High speed train.
-        HighSpeedTrain = 8,
-        /// Intercity bus.
-        IntercityBus = 9,
-        /// Long distance train.
-        LongDistanceTrain = 10,
-        /// Light rail transit.
-        MetroRail = 11,
-        /// Monorail.
-        Monorail = 12,
-        /// All other vehicles.
-        Other = 13,
-        /// Rail.
-        Rail = 14,
-        /// Share taxi is a kind of bus with the ability to drop off and pick up
-        /// passengers anywhere on its route.
-        ShareTaxi = 15,
-        /// Underground light rail.
-        Subway = 16,
-        /// Above ground light rail.
-        Tram = 17,
-        /// Trolleybus.
-        Trolleybus = 18,
-    }
-    impl TransitVehicleType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                TransitVehicleType::Unspecified => "TRANSIT_VEHICLE_TYPE_UNSPECIFIED",
-                TransitVehicleType::Bus => "BUS",
-                TransitVehicleType::CableCar => "CABLE_CAR",
-                TransitVehicleType::CommuterTrain => "COMMUTER_TRAIN",
-                TransitVehicleType::Ferry => "FERRY",
-                TransitVehicleType::Funicular => "FUNICULAR",
-                TransitVehicleType::GondolaLift => "GONDOLA_LIFT",
-                TransitVehicleType::HeavyRail => "HEAVY_RAIL",
-                TransitVehicleType::HighSpeedTrain => "HIGH_SPEED_TRAIN",
-                TransitVehicleType::IntercityBus => "INTERCITY_BUS",
-                TransitVehicleType::LongDistanceTrain => "LONG_DISTANCE_TRAIN",
-                TransitVehicleType::MetroRail => "METRO_RAIL",
-                TransitVehicleType::Monorail => "MONORAIL",
-                TransitVehicleType::Other => "OTHER",
-                TransitVehicleType::Rail => "RAIL",
-                TransitVehicleType::ShareTaxi => "SHARE_TAXI",
-                TransitVehicleType::Subway => "SUBWAY",
-                TransitVehicleType::Tram => "TRAM",
-                TransitVehicleType::Trolleybus => "TROLLEYBUS",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "TRANSIT_VEHICLE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "BUS" => Some(Self::Bus),
-                "CABLE_CAR" => Some(Self::CableCar),
-                "COMMUTER_TRAIN" => Some(Self::CommuterTrain),
-                "FERRY" => Some(Self::Ferry),
-                "FUNICULAR" => Some(Self::Funicular),
-                "GONDOLA_LIFT" => Some(Self::GondolaLift),
-                "HEAVY_RAIL" => Some(Self::HeavyRail),
-                "HIGH_SPEED_TRAIN" => Some(Self::HighSpeedTrain),
-                "INTERCITY_BUS" => Some(Self::IntercityBus),
-                "LONG_DISTANCE_TRAIN" => Some(Self::LongDistanceTrain),
-                "METRO_RAIL" => Some(Self::MetroRail),
-                "MONORAIL" => Some(Self::Monorail),
-                "OTHER" => Some(Self::Other),
-                "RAIL" => Some(Self::Rail),
-                "SHARE_TAXI" => Some(Self::ShareTaxi),
-                "SUBWAY" => Some(Self::Subway),
-                "TRAM" => Some(Self::Tram),
-                "TROLLEYBUS" => Some(Self::Trolleybus),
-                _ => None,
-            }
-        }
-    }
-}
-/// Labels for the [Route][google.maps.routing.v2.Route] that are useful to
-/// identify specific properties of the route to compare against others.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum RouteLabel {
-    /// Default - not used.
-    Unspecified = 0,
-    /// The default "best" route returned for the route computation.
-    DefaultRoute = 1,
-    /// An alternative to the default "best" route. Routes like this will be
-    /// returned when
-    /// [compute_alternative_routes][google.maps.routing.v2.ComputeRoutesRequest.compute_alternative_routes]
-    /// is specified.
-    DefaultRouteAlternate = 2,
-    /// Fuel efficient route. Routes labeled with this value are determined to be
-    /// optimized for Eco parameters such as fuel consumption.
-    FuelEfficient = 3,
-}
-impl RouteLabel {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            RouteLabel::Unspecified => "ROUTE_LABEL_UNSPECIFIED",
-            RouteLabel::DefaultRoute => "DEFAULT_ROUTE",
-            RouteLabel::DefaultRouteAlternate => "DEFAULT_ROUTE_ALTERNATE",
-            RouteLabel::FuelEfficient => "FUEL_EFFICIENT",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "ROUTE_LABEL_UNSPECIFIED" => Some(Self::Unspecified),
-            "DEFAULT_ROUTE" => Some(Self::DefaultRoute),
-            "DEFAULT_ROUTE_ALTERNATE" => Some(Self::DefaultRouteAlternate),
-            "FUEL_EFFICIENT" => Some(Self::FuelEfficient),
-            _ => None,
-        }
-    }
-}
-/// Encapsulates an encoded polyline.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Polyline {
-    /// Encapsulates the type of polyline. Defaults to encoded_polyline.
-    #[prost(oneof = "polyline::PolylineType", tags = "1, 2")]
-    pub polyline_type: ::core::option::Option<polyline::PolylineType>,
-}
-/// Nested message and enum types in `Polyline`.
-pub mod polyline {
-    /// Encapsulates the type of polyline. Defaults to encoded_polyline.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum PolylineType {
-        /// The string encoding of the polyline using the [polyline encoding
-        /// algorithm](<https://developers.google.com/maps/documentation/utilities/polylinealgorithm>)
-        #[prost(string, tag = "1")]
-        EncodedPolyline(::prost::alloc::string::String),
-        /// Specifies a polyline using the [GeoJSON LineString
-        /// format](<https://tools.ietf.org/html/rfc7946#section-3.1.4>)
-        #[prost(message, tag = "2")]
-        GeoJsonLinestring(::prost_types::Struct),
-    }
-}
-/// A set of values that specify the quality of the polyline.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum PolylineQuality {
-    /// No polyline quality preference specified. Defaults to `OVERVIEW`.
-    Unspecified = 0,
-    /// Specifies a high-quality polyline - which is composed using more points
-    /// than `OVERVIEW`, at the cost of increased response size. Use this value
-    /// when you need more precision.
-    HighQuality = 1,
-    /// Specifies an overview polyline - which is composed using a small number of
-    /// points. Use this value when displaying an overview of the route. Using this
-    /// option has a lower request latency compared to using the
-    /// `HIGH_QUALITY` option.
-    Overview = 2,
-}
-impl PolylineQuality {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            PolylineQuality::Unspecified => "POLYLINE_QUALITY_UNSPECIFIED",
-            PolylineQuality::HighQuality => "HIGH_QUALITY",
-            PolylineQuality::Overview => "OVERVIEW",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "POLYLINE_QUALITY_UNSPECIFIED" => Some(Self::Unspecified),
-            "HIGH_QUALITY" => Some(Self::HighQuality),
-            "OVERVIEW" => Some(Self::Overview),
-            _ => None,
-        }
-    }
-}
-/// Specifies the preferred type of polyline to be returned.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum PolylineEncoding {
-    /// No polyline type preference specified. Defaults to `ENCODED_POLYLINE`.
-    Unspecified = 0,
-    /// Specifies a polyline encoded using the [polyline encoding
-    /// algorithm](<https://developers.google.com/maps/documentation/utilities/polylinealgorithm>).
-    EncodedPolyline = 1,
-    /// Specifies a polyline using the [GeoJSON LineString
-    /// format](<https://tools.ietf.org/html/rfc7946#section-3.1.4>)
-    GeoJsonLinestring = 2,
-}
-impl PolylineEncoding {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            PolylineEncoding::Unspecified => "POLYLINE_ENCODING_UNSPECIFIED",
-            PolylineEncoding::EncodedPolyline => "ENCODED_POLYLINE",
-            PolylineEncoding::GeoJsonLinestring => "GEO_JSON_LINESTRING",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "POLYLINE_ENCODING_UNSPECIFIED" => Some(Self::Unspecified),
-            "ENCODED_POLYLINE" => Some(Self::EncodedPolyline),
-            "GEO_JSON_LINESTRING" => Some(Self::GeoJsonLinestring),
-            _ => None,
-        }
-    }
-}
-/// Localized description of time.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LocalizedTime {
-    /// The time specified as a string in a given time zone.
-    #[prost(message, optional, tag = "1")]
-    pub time: ::core::option::Option<super::super::super::r#type::LocalizedText>,
-    /// Contains the time zone. The value is the name of the time zone as defined
-    /// in the [IANA Time Zone Database](<http://www.iana.org/time-zones>), e.g.
-    /// "America/New_York".
-    #[prost(string, tag = "2")]
-    pub time_zone: ::prost::alloc::string::String,
-}
-/// A set of values used to specify the mode of travel.
-/// NOTE: `WALK`, `BICYCLE`, and `TWO_WHEELER` routes are in beta and might
-/// sometimes be missing clear sidewalks, pedestrian paths, or bicycling paths.
-/// You must display this warning to the user for all walking, bicycling, and
-/// two-wheel routes that you display in your app.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum RouteTravelMode {
-    /// No travel mode specified. Defaults to `DRIVE`.
-    TravelModeUnspecified = 0,
-    /// Travel by passenger car.
-    Drive = 1,
-    /// Travel by bicycle.
-    Bicycle = 2,
-    /// Travel by walking.
-    Walk = 3,
-    /// Two-wheeled, motorized vehicle. For example, motorcycle. Note that this
-    /// differs from the `BICYCLE` travel mode which covers human-powered mode.
-    TwoWheeler = 4,
-    /// Travel by public transit routes, where available.
-    Transit = 7,
-}
-impl RouteTravelMode {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            RouteTravelMode::TravelModeUnspecified => "TRAVEL_MODE_UNSPECIFIED",
-            RouteTravelMode::Drive => "DRIVE",
-            RouteTravelMode::Bicycle => "BICYCLE",
-            RouteTravelMode::Walk => "WALK",
-            RouteTravelMode::TwoWheeler => "TWO_WHEELER",
-            RouteTravelMode::Transit => "TRANSIT",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "TRAVEL_MODE_UNSPECIFIED" => Some(Self::TravelModeUnspecified),
-            "DRIVE" => Some(Self::Drive),
-            "BICYCLE" => Some(Self::Bicycle),
-            "WALK" => Some(Self::Walk),
-            "TWO_WHEELER" => Some(Self::TwoWheeler),
-            "TRANSIT" => Some(Self::Transit),
-            _ => None,
-        }
-    }
-}
-/// Contains a route, which consists of a series of connected road segments
-/// that join beginning, ending, and intermediate waypoints.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Route {
-    /// Labels for the `Route` that are useful to identify specific properties
-    /// of the route to compare against others.
-    #[prost(enumeration = "RouteLabel", repeated, tag = "13")]
-    pub route_labels: ::prost::alloc::vec::Vec<i32>,
-    /// A collection of legs (path segments between waypoints) that make up the
-    /// route. Each leg corresponds to the trip between two non-`via`
-    /// [Waypoints][google.maps.routing.v2.Waypoint]. For example, a route with no
-    /// intermediate waypoints has only one leg. A route that includes one
-    /// non-`via` intermediate waypoint has two legs. A route that includes one
-    /// `via` intermediate waypoint has one leg. The order of the legs matches the
-    /// order of waypoints from `origin` to `intermediates` to `destination`.
-    #[prost(message, repeated, tag = "1")]
-    pub legs: ::prost::alloc::vec::Vec<RouteLeg>,
-    /// The travel distance of the route, in meters.
-    #[prost(int32, tag = "2")]
-    pub distance_meters: i32,
-    /// The length of time needed to navigate the route. If you set the
-    /// `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-    /// `static_duration`. If you set the `routing_preference` to either
-    /// `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
-    /// taking traffic conditions into account.
-    #[prost(message, optional, tag = "3")]
-    pub duration: ::core::option::Option<::prost_types::Duration>,
-    /// The duration of travel through the route without taking traffic
-    /// conditions into consideration.
-    #[prost(message, optional, tag = "4")]
-    pub static_duration: ::core::option::Option<::prost_types::Duration>,
-    /// The overall route polyline. This polyline is the combined polyline of
-    /// all `legs`.
-    #[prost(message, optional, tag = "5")]
-    pub polyline: ::core::option::Option<Polyline>,
-    /// A description of the route.
-    #[prost(string, tag = "6")]
-    pub description: ::prost::alloc::string::String,
-    /// An array of warnings to show when displaying the route.
-    #[prost(string, repeated, tag = "7")]
-    pub warnings: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The viewport bounding box of the polyline.
-    #[prost(message, optional, tag = "8")]
-    pub viewport: ::core::option::Option<super::super::super::geo::r#type::Viewport>,
-    /// Additional information about the route.
-    #[prost(message, optional, tag = "9")]
-    pub travel_advisory: ::core::option::Option<RouteTravelAdvisory>,
-    /// If you set
-    /// [optimize_waypoint_order][google.maps.routing.v2.ComputeRoutesRequest.optimize_waypoint_order]
-    /// to true, this field contains the optimized ordering of intermediate
-    /// waypoints. Otherwise, this field is empty.
-    /// For example, if you give an input of Origin: LA; Intermediate waypoints:
-    /// Dallas, Bangor, Phoenix; Destination: New York; and the optimized
-    /// intermediate waypoint order is Phoenix, Dallas, Bangor, then this field
-    /// contains the values \[2, 0, 1\]. The index starts with 0 for the first
-    /// intermediate waypoint provided in the input.
-    #[prost(int32, repeated, tag = "10")]
-    pub optimized_intermediate_waypoint_index: ::prost::alloc::vec::Vec<i32>,
-    /// Text representations of properties of the `Route`.
-    #[prost(message, optional, tag = "11")]
-    pub localized_values: ::core::option::Option<route::RouteLocalizedValues>,
-    /// A web-safe, base64-encoded route token that can be passed to the Navigation
-    /// SDK, that allows the Navigation SDK to reconstruct the route during
-    /// navigation, and, in the event of rerouting, honor the original intention
-    /// when you created the route by calling ComputeRoutes. Customers should treat
-    /// this token as an opaque blob. It is not meant for reading or mutating.
-    /// NOTE: `Route.route_token` is only available for requests that have set
-    /// `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
-    /// `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is not supported for requests
-    /// that have Via waypoints.
-    #[prost(string, tag = "12")]
-    pub route_token: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Route`.
-pub mod route {
-    /// Text representations of certain properties.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RouteLocalizedValues {
-        /// Travel distance represented in text form.
-        #[prost(message, optional, tag = "1")]
-        pub distance: ::core::option::Option<
-            super::super::super::super::r#type::LocalizedText,
-        >,
-        /// Duration taking traffic conditions into consideration, represented in
-        /// text form. Note: If you did not request traffic information, this value
-        /// will be the same value as static_duration.
-        #[prost(message, optional, tag = "2")]
-        pub duration: ::core::option::Option<
-            super::super::super::super::r#type::LocalizedText,
-        >,
-        /// Duration without taking traffic conditions into
-        /// consideration, represented in text form.
-        #[prost(message, optional, tag = "3")]
-        pub static_duration: ::core::option::Option<
-            super::super::super::super::r#type::LocalizedText,
-        >,
-        /// Transit fare represented in text form.
-        #[prost(message, optional, tag = "4")]
-        pub transit_fare: ::core::option::Option<
-            super::super::super::super::r#type::LocalizedText,
-        >,
-    }
-}
-/// Contains the additional information that the user should be informed
-/// about, such as possible traffic zone restrictions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RouteTravelAdvisory {
-    /// Contains information about tolls on the route. This field is only populated
-    /// if tolls are expected on the route. If this field is set, but the
-    /// estimatedPrice subfield is not populated, then the route contains tolls,
-    /// but the estimated price is unknown. If this field is not set, then there
-    /// are no tolls expected on the route.
-    #[prost(message, optional, tag = "2")]
-    pub toll_info: ::core::option::Option<TollInfo>,
-    /// Speed reading intervals detailing traffic density. Applicable in case of
-    /// `TRAFFIC_AWARE` and `TRAFFIC_AWARE_OPTIMAL` routing preferences.
-    /// The intervals cover the entire polyline of the route without overlap.
-    /// The start point of a specified interval is the same as the end point of the
-    /// preceding interval.
-    ///
-    /// Example:
-    ///
-    ///      polyline: A ---- B ---- C ---- D ---- E ---- F ---- G
-    ///      speed_reading_intervals: [A,C), [C,D), [D,G).
-    #[prost(message, repeated, tag = "3")]
-    pub speed_reading_intervals: ::prost::alloc::vec::Vec<SpeedReadingInterval>,
-    /// The predicted fuel consumption in microliters.
-    #[prost(int64, tag = "5")]
-    pub fuel_consumption_microliters: i64,
-    /// Returned route may have restrictions that are not suitable for requested
-    /// travel mode or route modifiers.
-    #[prost(bool, tag = "6")]
-    pub route_restrictions_partially_ignored: bool,
-    /// If present, contains the total fare or ticket costs on this route
-    /// This property is only returned for `TRANSIT` requests and only
-    /// for routes where fare information is available for all transit steps.
-    #[prost(message, optional, tag = "7")]
-    pub transit_fare: ::core::option::Option<super::super::super::r#type::Money>,
-}
-/// Contains the additional information that the user should be informed
-/// about on a leg step, such as possible traffic zone restrictions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RouteLegTravelAdvisory {
-    /// Contains information about tolls on the specific `RouteLeg`.
-    /// This field is only populated if we expect there are tolls on the
-    /// `RouteLeg`. If this field is set but the estimated_price subfield is not
-    /// populated, we expect that road contains tolls but we do not know an
-    /// estimated price. If this field does not exist, then there is no toll on the
-    /// `RouteLeg`.
-    #[prost(message, optional, tag = "1")]
-    pub toll_info: ::core::option::Option<TollInfo>,
-    /// Speed reading intervals detailing traffic density. Applicable in case of
-    /// `TRAFFIC_AWARE` and `TRAFFIC_AWARE_OPTIMAL` routing preferences.
-    /// The intervals cover the entire polyline of the `RouteLeg` without overlap.
-    /// The start point of a specified interval is the same as the end point of the
-    /// preceding interval.
-    ///
-    /// Example:
-    ///
-    ///      polyline: A ---- B ---- C ---- D ---- E ---- F ---- G
-    ///      speed_reading_intervals: [A,C), [C,D), [D,G).
-    #[prost(message, repeated, tag = "2")]
-    pub speed_reading_intervals: ::prost::alloc::vec::Vec<SpeedReadingInterval>,
-}
-/// Contains the additional information that the user should be informed
-/// about, such as possible traffic zone restrictions on a leg step.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RouteLegStepTravelAdvisory {
-    /// NOTE: This field is not currently populated.
-    #[prost(message, repeated, tag = "1")]
-    pub speed_reading_intervals: ::prost::alloc::vec::Vec<SpeedReadingInterval>,
-}
-/// Contains a segment between non-`via` waypoints.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RouteLeg {
-    /// The travel distance of the route leg, in meters.
-    #[prost(int32, tag = "1")]
-    pub distance_meters: i32,
-    /// The length of time needed to navigate the leg. If the `route_preference`
-    /// is set to `TRAFFIC_UNAWARE`, then this value is the same as
-    /// `static_duration`. If the `route_preference` is either `TRAFFIC_AWARE` or
-    /// `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated taking traffic
-    /// conditions into account.
-    #[prost(message, optional, tag = "2")]
-    pub duration: ::core::option::Option<::prost_types::Duration>,
-    /// The duration of travel through the leg, calculated without taking
-    /// traffic conditions into consideration.
-    #[prost(message, optional, tag = "3")]
-    pub static_duration: ::core::option::Option<::prost_types::Duration>,
-    /// The overall polyline for this leg that includes each `step`'s
-    /// polyline.
-    #[prost(message, optional, tag = "4")]
-    pub polyline: ::core::option::Option<Polyline>,
-    /// The start location of this leg. This location might be different from the
-    /// provided `origin`. For example, when the provided `origin` is not near a
-    /// road, this is a point on the road.
-    #[prost(message, optional, tag = "5")]
-    pub start_location: ::core::option::Option<Location>,
-    /// The end location of this leg. This location might be different from the
-    /// provided `destination`. For example, when the provided `destination` is not
-    /// near a road, this is a point on the road.
-    #[prost(message, optional, tag = "6")]
-    pub end_location: ::core::option::Option<Location>,
-    /// An array of steps denoting segments within this leg. Each step represents
-    /// one navigation instruction.
-    #[prost(message, repeated, tag = "7")]
-    pub steps: ::prost::alloc::vec::Vec<RouteLegStep>,
-    /// Contains the additional information that the user should be informed
-    /// about, such as possible traffic zone restrictions, on a route leg.
-    #[prost(message, optional, tag = "8")]
-    pub travel_advisory: ::core::option::Option<RouteLegTravelAdvisory>,
-    /// Text representations of properties of the `RouteLeg`.
-    #[prost(message, optional, tag = "9")]
-    pub localized_values: ::core::option::Option<route_leg::RouteLegLocalizedValues>,
-    /// Overview information about the steps in this `RouteLeg`. This field is only
-    /// populated for TRANSIT routes.
-    #[prost(message, optional, tag = "10")]
-    pub steps_overview: ::core::option::Option<route_leg::StepsOverview>,
-}
-/// Nested message and enum types in `RouteLeg`.
-pub mod route_leg {
-    /// Text representations of certain properties.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RouteLegLocalizedValues {
-        /// Travel distance represented in text form.
-        #[prost(message, optional, tag = "1")]
-        pub distance: ::core::option::Option<
-            super::super::super::super::r#type::LocalizedText,
-        >,
-        /// Duration taking traffic conditions into consideration represented in text
-        /// form. Note: If you did not request traffic information, this value will
-        /// be the same value as static_duration.
-        #[prost(message, optional, tag = "2")]
-        pub duration: ::core::option::Option<
-            super::super::super::super::r#type::LocalizedText,
-        >,
-        /// Duration without taking traffic conditions into
-        /// consideration, represented in text form.
-        #[prost(message, optional, tag = "3")]
-        pub static_duration: ::core::option::Option<
-            super::super::super::super::r#type::LocalizedText,
-        >,
-    }
-    /// Provides overview information about a list of `RouteLegStep`s.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct StepsOverview {
-        /// Summarized information about different multi-modal segments of
-        /// the `RouteLeg.steps`. This field is not populated if the `RouteLeg` does
-        /// not contain any multi-modal segments in the steps.
-        #[prost(message, repeated, tag = "1")]
-        pub multi_modal_segments: ::prost::alloc::vec::Vec<
-            steps_overview::MultiModalSegment,
-        >,
-    }
-    /// Nested message and enum types in `StepsOverview`.
-    pub mod steps_overview {
-        /// Provides summarized information about different multi-modal segments of
-        /// the `RouteLeg.steps`. A multi-modal segment is defined as one or more
-        /// contiguous `RouteLegStep` that have the same `RouteTravelMode`.
-        /// This field is not populated if the `RouteLeg` does not contain any
-        /// multi-modal segments in the steps.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct MultiModalSegment {
-            /// The corresponding `RouteLegStep` index that is the start of a
-            /// multi-modal segment.
-            #[prost(int32, optional, tag = "1")]
-            pub step_start_index: ::core::option::Option<i32>,
-            /// The corresponding `RouteLegStep` index that is the end of a
-            /// multi-modal segment.
-            #[prost(int32, optional, tag = "2")]
-            pub step_end_index: ::core::option::Option<i32>,
-            /// NavigationInstruction for the multi-modal segment.
-            #[prost(message, optional, tag = "3")]
-            pub navigation_instruction: ::core::option::Option<
-                super::super::NavigationInstruction,
-            >,
-            /// The travel mode of the multi-modal segment.
-            #[prost(enumeration = "super::super::RouteTravelMode", tag = "4")]
-            pub travel_mode: i32,
-        }
-    }
-}
-/// Contains a segment of a [RouteLeg][google.maps.routing.v2.RouteLeg]. A
-/// step corresponds to a single navigation instruction. Route legs are made up
-/// of steps.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RouteLegStep {
-    /// The travel distance of this step, in meters. In some circumstances, this
-    /// field might not have a value.
-    #[prost(int32, tag = "1")]
-    pub distance_meters: i32,
-    /// The duration of travel through this step without taking traffic conditions
-    /// into consideration. In some circumstances, this field might not have a
-    /// value.
-    #[prost(message, optional, tag = "2")]
-    pub static_duration: ::core::option::Option<::prost_types::Duration>,
-    /// The polyline associated with this step.
-    #[prost(message, optional, tag = "3")]
-    pub polyline: ::core::option::Option<Polyline>,
-    /// The start location of this step.
-    #[prost(message, optional, tag = "4")]
-    pub start_location: ::core::option::Option<Location>,
-    /// The end location of this step.
-    #[prost(message, optional, tag = "5")]
-    pub end_location: ::core::option::Option<Location>,
-    /// Navigation instructions.
-    #[prost(message, optional, tag = "6")]
-    pub navigation_instruction: ::core::option::Option<NavigationInstruction>,
-    /// Contains the additional information that the user should be informed
-    /// about, such as possible traffic zone restrictions, on a leg step.
-    #[prost(message, optional, tag = "7")]
-    pub travel_advisory: ::core::option::Option<RouteLegStepTravelAdvisory>,
-    /// Text representations of properties of the `RouteLegStep`.
-    #[prost(message, optional, tag = "8")]
-    pub localized_values: ::core::option::Option<
-        route_leg_step::RouteLegStepLocalizedValues,
-    >,
-    /// Details pertaining to this step if the travel mode is `TRANSIT`.
-    #[prost(message, optional, tag = "9")]
-    pub transit_details: ::core::option::Option<RouteLegStepTransitDetails>,
-    /// The travel mode used for this step.
-    #[prost(enumeration = "RouteTravelMode", tag = "10")]
-    pub travel_mode: i32,
-}
-/// Nested message and enum types in `RouteLegStep`.
-pub mod route_leg_step {
-    /// Text representations of certain properties.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RouteLegStepLocalizedValues {
-        /// Travel distance represented in text form.
-        #[prost(message, optional, tag = "1")]
-        pub distance: ::core::option::Option<
-            super::super::super::super::r#type::LocalizedText,
-        >,
-        /// Duration without taking traffic conditions into
-        /// consideration, represented in text form.
-        #[prost(message, optional, tag = "3")]
-        pub static_duration: ::core::option::Option<
-            super::super::super::super::r#type::LocalizedText,
-        >,
-    }
-}
-/// Additional information for the `RouteLegStep` related to `TRANSIT` routes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RouteLegStepTransitDetails {
-    /// Information about the arrival and departure stops for the step.
-    #[prost(message, optional, tag = "1")]
-    pub stop_details: ::core::option::Option<
-        route_leg_step_transit_details::TransitStopDetails,
-    >,
-    /// Text representations of properties of the `RouteLegStepTransitDetails`.
-    #[prost(message, optional, tag = "2")]
-    pub localized_values: ::core::option::Option<
-        route_leg_step_transit_details::TransitDetailsLocalizedValues,
-    >,
-    /// Specifies the direction in which to travel on this line as marked on
-    /// the vehicle or at the departure stop. The direction is often the terminus
-    /// station.
-    #[prost(string, tag = "3")]
-    pub headsign: ::prost::alloc::string::String,
-    /// Specifies the expected time as a duration between departures from the same
-    /// stop at this time. For example, with a headway seconds value of 600, you
-    /// would expect a ten minute wait if you should miss your bus.
-    #[prost(message, optional, tag = "4")]
-    pub headway: ::core::option::Option<::prost_types::Duration>,
-    /// Information about the transit line used in this step.
-    #[prost(message, optional, tag = "5")]
-    pub transit_line: ::core::option::Option<TransitLine>,
-    /// The number of stops from the departure to the arrival stop. This count
-    /// includes the arrival stop, but excludes the departure stop. For example, if
-    /// your route leaves from Stop A, passes through stops B and C, and arrives at
-    /// stop D, stop_count will return 3.
-    #[prost(int32, tag = "6")]
-    pub stop_count: i32,
-    /// The text that appears in schedules and sign boards to identify a transit
-    /// trip to passengers. The text should uniquely identify a trip within a
-    /// service day. For example, "538" is the `trip_short_text` of the Amtrak
-    /// train that leaves San Jose, CA at 15:10 on weekdays to Sacramento, CA.
-    #[prost(string, tag = "7")]
-    pub trip_short_text: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `RouteLegStepTransitDetails`.
-pub mod route_leg_step_transit_details {
-    /// Details about the transit stops for the `RouteLegStep`
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TransitStopDetails {
-        /// Information about the arrival stop for the step.
-        #[prost(message, optional, tag = "1")]
-        pub arrival_stop: ::core::option::Option<super::TransitStop>,
-        /// The estimated time of arrival for the step.
-        #[prost(message, optional, tag = "2")]
-        pub arrival_time: ::core::option::Option<::prost_types::Timestamp>,
-        /// Information about the departure stop for the step.
-        #[prost(message, optional, tag = "3")]
-        pub departure_stop: ::core::option::Option<super::TransitStop>,
-        /// The estimated time of departure for the step.
-        #[prost(message, optional, tag = "4")]
-        pub departure_time: ::core::option::Option<::prost_types::Timestamp>,
-    }
-    /// Localized descriptions of values for RouteTransitDetails.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TransitDetailsLocalizedValues {
-        /// Time in its formatted text representation with a corresponding time zone.
-        #[prost(message, optional, tag = "1")]
-        pub arrival_time: ::core::option::Option<super::LocalizedTime>,
-        /// Time in its formatted text representation with a corresponding time zone.
-        #[prost(message, optional, tag = "2")]
-        pub departure_time: ::core::option::Option<super::LocalizedTime>,
-    }
-}
-/// Encapsulates a set of optional conditions to satisfy when calculating the
-/// routes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RouteModifiers {
-    /// When set to true, avoids toll roads where reasonable, giving preference to
-    /// routes not containing toll roads. Applies only to the `DRIVE` and
-    /// `TWO_WHEELER` [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
-    #[prost(bool, tag = "1")]
-    pub avoid_tolls: bool,
-    /// When set to true, avoids highways where reasonable, giving preference to
-    /// routes not containing highways. Applies only to the `DRIVE` and
-    /// `TWO_WHEELER` [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
-    #[prost(bool, tag = "2")]
-    pub avoid_highways: bool,
-    /// When set to true, avoids ferries where reasonable, giving preference to
-    /// routes not containing ferries. Applies only to the `DRIVE` and`TWO_WHEELER`
-    /// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
-    #[prost(bool, tag = "3")]
-    pub avoid_ferries: bool,
-    /// When set to true, avoids navigating indoors where reasonable, giving
-    /// preference to routes not containing indoor navigation. Applies only to the
-    /// `WALK` [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
-    #[prost(bool, tag = "4")]
-    pub avoid_indoor: bool,
-    /// Specifies the vehicle information.
-    #[prost(message, optional, tag = "5")]
-    pub vehicle_info: ::core::option::Option<VehicleInfo>,
-    /// Encapsulates information about toll passes.
-    /// If toll passes are provided, the API tries to return the pass price. If
-    /// toll passes are not provided, the API treats the toll pass as unknown and
-    /// tries to return the cash price.
-    /// Applies only to the `DRIVE` and `TWO_WHEELER`
-    /// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
-    #[prost(enumeration = "TollPass", repeated, tag = "6")]
-    pub toll_passes: ::prost::alloc::vec::Vec<i32>,
-}
-/// A set of values that specify factors to take into consideration when
-/// calculating the route.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum RoutingPreference {
-    /// No routing preference specified. Default to `TRAFFIC_UNAWARE`.
-    Unspecified = 0,
-    /// Computes routes without taking live traffic conditions into consideration.
-    /// Suitable when traffic conditions don't matter or are not applicable.
-    /// Using this value produces the lowest latency.
-    /// Note: For [RouteTravelMode][google.maps.routing.v2.RouteTravelMode] `DRIVE`
-    /// and `TWO_WHEELER` choice of route and duration are based on road network
-    /// and average time-independent traffic conditions. Results for a given
-    /// request may vary over time due to changes in the road network, updated
-    /// average traffic conditions, and the distributed nature of the service.
-    /// Results may also vary between nearly-equivalent routes at any time or
-    /// frequency.
-    TrafficUnaware = 1,
-    /// Calculates routes taking live traffic conditions into consideration.
-    /// In contrast to `TRAFFIC_AWARE_OPTIMAL`, some optimizations are applied to
-    /// significantly reduce latency.
-    TrafficAware = 2,
-    /// Calculates the routes taking live traffic conditions into consideration,
-    /// without applying most performance optimizations. Using this value produces
-    /// the highest latency.
-    TrafficAwareOptimal = 3,
-}
-impl RoutingPreference {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            RoutingPreference::Unspecified => "ROUTING_PREFERENCE_UNSPECIFIED",
-            RoutingPreference::TrafficUnaware => "TRAFFIC_UNAWARE",
-            RoutingPreference::TrafficAware => "TRAFFIC_AWARE",
-            RoutingPreference::TrafficAwareOptimal => "TRAFFIC_AWARE_OPTIMAL",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "ROUTING_PREFERENCE_UNSPECIFIED" => Some(Self::Unspecified),
-            "TRAFFIC_UNAWARE" => Some(Self::TrafficUnaware),
-            "TRAFFIC_AWARE" => Some(Self::TrafficAware),
-            "TRAFFIC_AWARE_OPTIMAL" => Some(Self::TrafficAwareOptimal),
-            _ => None,
         }
     }
 }
