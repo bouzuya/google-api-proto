@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["ProfileType"],"mod":["profiler_service_client"],"struct":["CreateOfflineProfileRequest","CreateProfileRequest","Deployment","Profile","UpdateProfileRequest"]};
+window.SIDEBAR_ITEMS = {"enum":["ProfileType"],"mod":["export_service_client","profiler_service_client"],"struct":["CreateOfflineProfileRequest","CreateProfileRequest","Deployment","ListProfilesRequest","ListProfilesResponse","Profile","UpdateProfileRequest"]};

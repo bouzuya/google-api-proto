@@ -3403,148 +3403,7 @@
 <a href="#3403" id="3403">3403</a>
 <a href="#3404" id="3404">3404</a>
 <a href="#3405" id="3405">3405</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A detailed representation of an Apt artifact. Information in the record
-/// is derived from the archive&#39;s control file.
-/// See &lt;https://www.debian.org/doc/debian-policy/ch-controlfields.html&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AptArtifact {
-    <span class="doccomment">/// Output only. The Artifact Registry resource name of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The Apt package name of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>package_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. An artifact is a binary or source package.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apt_artifact::PackageType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>package_type: i32,
-    <span class="doccomment">/// Output only. Operating system architecture of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>architecture: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Repository component of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>component: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Contents of the artifact&#39;s control metadata file.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>control_file: ::prost::bytes::Bytes,
-}
-<span class="doccomment">/// Nested message and enum types in `AptArtifact`.
-</span><span class="kw">pub mod </span>apt_artifact {
-    <span class="doccomment">/// Package type is either binary or source.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>PackageType {
-        <span class="doccomment">/// Package type is not specified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Binary package.
-        </span>Binary = <span class="number">1</span>,
-        <span class="doccomment">/// Source package.
-        </span>Source = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>PackageType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                PackageType::Unspecified =&gt; <span class="string">&quot;PACKAGE_TYPE_UNSPECIFIED&quot;</span>,
-                PackageType::Binary =&gt; <span class="string">&quot;BINARY&quot;</span>,
-                PackageType::Source =&gt; <span class="string">&quot;SOURCE&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;PACKAGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BINARY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Binary),
-                <span class="string">&quot;SOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Source),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Google Cloud Storage location where the artifacts currently reside.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportAptArtifactsGcsSource {
-    <span class="doccomment">/// Cloud Storage paths URI (e.g., gs://my_bucket//my_object).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Supports URI wildcards for matching multiple objects from a single URI.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>use_wildcards: bool,
-}
-<span class="doccomment">/// The request to import new apt artifacts.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportAptArtifactsRequest {
-    <span class="doccomment">/// The name of the parent resource where the artifacts will be imported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The source location of the package binaries.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_apt_artifacts_request::Source&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_apt_artifacts_request::Source&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ImportAptArtifactsRequest`.
-</span><span class="kw">pub mod </span>import_apt_artifacts_request {
-    <span class="doccomment">/// The source location of the package binaries.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Source {
-        <span class="doccomment">/// Google Cloud Storage location where input content is located.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>GcsSource(<span class="kw">super</span>::ImportAptArtifactsGcsSource),
-    }
-}
-<span class="doccomment">/// Error information explaining why a package was not imported.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportAptArtifactsErrorInfo {
-    <span class="doccomment">/// The detailed error status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-    <span class="doccomment">/// The source that was not imported.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_apt_artifacts_error_info::Source&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_apt_artifacts_error_info::Source&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ImportAptArtifactsErrorInfo`.
-</span><span class="kw">pub mod </span>import_apt_artifacts_error_info {
-    <span class="doccomment">/// The source that was not imported.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Source {
-        <span class="doccomment">/// Google Cloud Storage location requested.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>GcsSource(<span class="kw">super</span>::ImportAptArtifactsGcsSource),
-    }
-}
-<span class="doccomment">/// The response message from importing APT artifacts.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportAptArtifactsResponse {
-    <span class="doccomment">/// The Apt artifacts imported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>apt_artifacts: ::prost::alloc::vec::Vec&lt;AptArtifact&gt;,
-    <span class="doccomment">/// Detailed error info for packages that were not imported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;ImportAptArtifactsErrorInfo&gt;,
-}
-<span class="doccomment">/// The operation metadata for importing artifacts.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportAptArtifactsMetadata {}
-<span class="doccomment">/// Tags point to a version and represent an alternative name that can be used
+</pre></div><pre class="rust"><code><span class="doccomment">/// Tags point to a version and represent an alternative name that can be used
 /// to access the version.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3791,20 +3650,34 @@
         }
     }
 }
-<span class="doccomment">/// A hash of file content.
+<span class="doccomment">/// A detailed representation of an Apt artifact. Information in the record
+/// is derived from the archive&#39;s control file.
+/// See &lt;https://www.debian.org/doc/debian-policy/ch-controlfields.html&gt;
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Hash {
-    <span class="doccomment">/// The algorithm used to compute the hash value.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;hash::HashType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-    <span class="doccomment">/// The hash value.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>value: ::prost::bytes::Bytes,
+</span><span class="kw">pub struct </span>AptArtifact {
+    <span class="doccomment">/// Output only. The Artifact Registry resource name of the artifact.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The Apt package name of the artifact.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>package_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. An artifact is a binary or source package.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apt_artifact::PackageType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>package_type: i32,
+    <span class="doccomment">/// Output only. Operating system architecture of the artifact.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>architecture: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Repository component of the artifact.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>component: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Contents of the artifact&#39;s control metadata file.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>control_file: ::prost::bytes::Bytes,
 }
-<span class="doccomment">/// Nested message and enum types in `Hash`.
-</span><span class="kw">pub mod </span>hash {
-    <span class="doccomment">/// The algorithm used to compute the hash.
+<span class="doccomment">/// Nested message and enum types in `AptArtifact`.
+</span><span class="kw">pub mod </span>apt_artifact {
+    <span class="doccomment">/// Package type is either binary or source.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -3817,118 +3690,107 @@
         ::prost::Enumeration
     )]
     #[repr(i32)]
-    </span><span class="kw">pub enum </span>HashType {
-        <span class="doccomment">/// Unspecified.
+    </span><span class="kw">pub enum </span>PackageType {
+        <span class="doccomment">/// Package type is not specified.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// SHA256 hash.
-        </span>Sha256 = <span class="number">1</span>,
-        <span class="doccomment">/// MD5 hash.
-        </span>Md5 = <span class="number">2</span>,
+        <span class="doccomment">/// Binary package.
+        </span>Binary = <span class="number">1</span>,
+        <span class="doccomment">/// Source package.
+        </span>Source = <span class="number">2</span>,
     }
-    <span class="kw">impl </span>HashType {
+    <span class="kw">impl </span>PackageType {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                HashType::Unspecified =&gt; <span class="string">&quot;HASH_TYPE_UNSPECIFIED&quot;</span>,
-                HashType::Sha256 =&gt; <span class="string">&quot;SHA256&quot;</span>,
-                HashType::Md5 =&gt; <span class="string">&quot;MD5&quot;</span>,
+                PackageType::Unspecified =&gt; <span class="string">&quot;PACKAGE_TYPE_UNSPECIFIED&quot;</span>,
+                PackageType::Binary =&gt; <span class="string">&quot;BINARY&quot;</span>,
+                PackageType::Source =&gt; <span class="string">&quot;SOURCE&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;HASH_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha256),
-                <span class="string">&quot;MD5&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Md5),
+                <span class="string">&quot;PACKAGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;BINARY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Binary),
+                <span class="string">&quot;SOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Source),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
 }
-<span class="doccomment">/// Files store content that is potentially associated with Packages or Versions.
+<span class="doccomment">/// Google Cloud Storage location where the artifacts currently reside.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>File {
-    <span class="doccomment">/// The name of the file, for example:
-    /// &quot;projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt&quot;.
-    /// If the file ID part contains slashes, they are escaped.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The size of the File in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>size_bytes: i64,
-    <span class="doccomment">/// The hashes of the file content.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>hashes: ::prost::alloc::vec::Vec&lt;Hash&gt;,
-    <span class="doccomment">/// Output only. The time when the File was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time when the File was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The name of the Package or Version that owns this file, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>owner: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The time when the last attempt to refresh the file&#39;s data was
-    /// made. Only set when the repository is remote.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>fetch_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+</span><span class="kw">pub struct </span>ImportAptArtifactsGcsSource {
+    <span class="doccomment">/// Cloud Storage paths URI (e.g., gs://my_bucket//my_object).
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Supports URI wildcards for matching multiple objects from a single URI.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>use_wildcards: bool,
 }
-<span class="doccomment">/// The request to list files.
+<span class="doccomment">/// The request to import new apt artifacts.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListFilesRequest {
-    <span class="doccomment">/// Required. The name of the repository whose files will be listed. For
-    /// example: &quot;projects/p1/locations/us-central1/repositories/repo1
+</span><span class="kw">pub struct </span>ImportAptArtifactsRequest {
+    <span class="doccomment">/// The name of the parent resource where the artifacts will be imported.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// An expression for filtering the results of the request. Filter rules are
-    /// case insensitive. The fields eligible for filtering are:
-    ///
-    ///    * `name`
-    ///    * `owner`
-    ///
-    ///   An example of using a filter:
-    ///
-    ///    * `name=&quot;projects/p1/locations/us-central1/repositories/repo1/files/a/b/*&quot;` --&gt; Files with an
-    ///    ID starting with &quot;a/b/&quot;.
-    ///    * `owner=&quot;projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0&quot;` --&gt;
-    ///    Files owned by the version `1.0` in package `pkg1`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of files to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// The next_page_token value returned from a previous list request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// The field to order the results by.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
+    <span class="doccomment">/// The source location of the package binaries.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_apt_artifacts_request::Source&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_apt_artifacts_request::Source&gt;,
 }
-<span class="doccomment">/// The response from listing files.
+<span class="doccomment">/// Nested message and enum types in `ImportAptArtifactsRequest`.
+</span><span class="kw">pub mod </span>import_apt_artifacts_request {
+    <span class="doccomment">/// The source location of the package binaries.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Source {
+        <span class="doccomment">/// Google Cloud Storage location where input content is located.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>GcsSource(<span class="kw">super</span>::ImportAptArtifactsGcsSource),
+    }
+}
+<span class="doccomment">/// Error information explaining why a package was not imported.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListFilesResponse {
-    <span class="doccomment">/// The files returned.
+</span><span class="kw">pub struct </span>ImportAptArtifactsErrorInfo {
+    <span class="doccomment">/// The detailed error status.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+    <span class="doccomment">/// The source that was not imported.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_apt_artifacts_error_info::Source&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_apt_artifacts_error_info::Source&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ImportAptArtifactsErrorInfo`.
+</span><span class="kw">pub mod </span>import_apt_artifacts_error_info {
+    <span class="doccomment">/// The source that was not imported.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Source {
+        <span class="doccomment">/// Google Cloud Storage location requested.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>GcsSource(<span class="kw">super</span>::ImportAptArtifactsGcsSource),
+    }
+}
+<span class="doccomment">/// The response message from importing APT artifacts.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportAptArtifactsResponse {
+    <span class="doccomment">/// The Apt artifacts imported.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>files: ::prost::alloc::vec::Vec&lt;File&gt;,
-    <span class="doccomment">/// The token to retrieve the next page of files, or empty if there are no
-    /// more files to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+    </span><span class="kw">pub </span>apt_artifacts: ::prost::alloc::vec::Vec&lt;AptArtifact&gt;,
+    <span class="doccomment">/// Detailed error info for packages that were not imported.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;ImportAptArtifactsErrorInfo&gt;,
 }
-<span class="doccomment">/// The request to retrieve a file.
+<span class="doccomment">/// The operation metadata for importing artifacts.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetFileRequest {
-    <span class="doccomment">/// Required. The name of the file to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
+</span><span class="kw">pub struct </span>ImportAptArtifactsMetadata {}
 <span class="doccomment">/// DockerImage represents a docker artifact.
 /// The following fields are returned as untyped metadata in the Version
 /// resource, using camelcase keys (i.e. metadata.imageSizeBytes):
@@ -4222,6 +4084,144 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetPythonPackageRequest {
     <span class="doccomment">/// Required. The name of the python package.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A hash of file content.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Hash {
+    <span class="doccomment">/// The algorithm used to compute the hash value.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;hash::HashType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// The hash value.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>value: ::prost::bytes::Bytes,
+}
+<span class="doccomment">/// Nested message and enum types in `Hash`.
+</span><span class="kw">pub mod </span>hash {
+    <span class="doccomment">/// The algorithm used to compute the hash.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>HashType {
+        <span class="doccomment">/// Unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// SHA256 hash.
+        </span>Sha256 = <span class="number">1</span>,
+        <span class="doccomment">/// MD5 hash.
+        </span>Md5 = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>HashType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                HashType::Unspecified =&gt; <span class="string">&quot;HASH_TYPE_UNSPECIFIED&quot;</span>,
+                HashType::Sha256 =&gt; <span class="string">&quot;SHA256&quot;</span>,
+                HashType::Md5 =&gt; <span class="string">&quot;MD5&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;HASH_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha256),
+                <span class="string">&quot;MD5&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Md5),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Files store content that is potentially associated with Packages or Versions.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>File {
+    <span class="doccomment">/// The name of the file, for example:
+    /// &quot;projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt&quot;.
+    /// If the file ID part contains slashes, they are escaped.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The size of the File in bytes.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>size_bytes: i64,
+    <span class="doccomment">/// The hashes of the file content.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>hashes: ::prost::alloc::vec::Vec&lt;Hash&gt;,
+    <span class="doccomment">/// Output only. The time when the File was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time when the File was last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The name of the Package or Version that owns this file, if any.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>owner: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The time when the last attempt to refresh the file&#39;s data was
+    /// made. Only set when the repository is remote.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>fetch_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// The request to list files.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListFilesRequest {
+    <span class="doccomment">/// Required. The name of the repository whose files will be listed. For
+    /// example: &quot;projects/p1/locations/us-central1/repositories/repo1
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// An expression for filtering the results of the request. Filter rules are
+    /// case insensitive. The fields eligible for filtering are:
+    ///
+    ///    * `name`
+    ///    * `owner`
+    ///
+    ///   An example of using a filter:
+    ///
+    ///    * `name=&quot;projects/p1/locations/us-central1/repositories/repo1/files/a/b/*&quot;` --&gt; Files with an
+    ///    ID starting with &quot;a/b/&quot;.
+    ///    * `owner=&quot;projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0&quot;` --&gt;
+    ///    Files owned by the version `1.0` in package `pkg1`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of files to return.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// The next_page_token value returned from a previous list request, if any.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// The field to order the results by.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The response from listing files.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListFilesResponse {
+    <span class="doccomment">/// The files returned.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>files: ::prost::alloc::vec::Vec&lt;File&gt;,
+    <span class="doccomment">/// The token to retrieve the next page of files, or empty if there are no
+    /// more files to return.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The request to retrieve a file.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetFileRequest {
+    <span class="doccomment">/// Required. The name of the file to retrieve.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }

@@ -1209,113 +1209,7 @@
 <a href="#1209" id="1209">1209</a>
 <a href="#1210" id="1210">1210</a>
 <a href="#1211" id="1211">1211</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Information about a Generative Language Model.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Model {
-    <span class="doccomment">/// Required. The resource name of the `Model`.
-    ///
-    /// Format: `models/{model}` with a `{model}` naming convention of:
-    ///
-    /// * &quot;{base_model_id}-{version}&quot;
-    ///
-    /// Examples:
-    ///
-    /// * `models/chat-bison-001`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The name of the base model, pass this to the generation request.
-    ///
-    /// Examples:
-    ///
-    /// * `chat-bison`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>base_model_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The version number of the model.
-    ///
-    /// This represents the major version
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
-    <span class="doccomment">/// The human-readable name of the model. E.g. &quot;Chat Bison&quot;.
-    ///
-    /// The name can be up to 128 characters long and can consist of any UTF-8
-    /// characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// A short description of the model.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Maximum number of input tokens allowed for this model.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>input_token_limit: i32,
-    <span class="doccomment">/// Maximum number of output tokens available for this model.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>output_token_limit: i32,
-    <span class="doccomment">/// The model&#39;s supported generation methods.
-    ///
-    /// The method names are defined as Pascal case
-    /// strings, such as `generateMessage` which correspond to API methods.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>supported_generation_methods: ::prost::alloc::vec::Vec&lt;
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Controls the randomness of the output.
-    ///
-    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
-    /// produce responses that are more varied, while a value closer to `0.0` will
-    /// typically result in less surprising responses from the model.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>temperature: ::core::option::Option&lt;f32&gt;,
-    <span class="doccomment">/// For Nucleus sampling.
-    ///
-    /// Nucleus sampling considers the smallest set of tokens whose probability
-    /// sum is at least `top_p`.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>top_p: ::core::option::Option&lt;f32&gt;,
-    <span class="doccomment">/// For Top-k sampling.
-    ///
-    /// Top-k sampling considers the set of `top_k` most probable tokens.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>top_k: ::core::option::Option&lt;i32&gt;,
-}
-<span class="doccomment">/// A collection of source attributions for a piece of content.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CitationMetadata {
-    <span class="doccomment">/// Citations to sources for a specific response.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>citation_sources: ::prost::alloc::vec::Vec&lt;CitationSource&gt;,
-}
-<span class="doccomment">/// A citation to a source for a portion of a specific response.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CitationSource {
-    <span class="doccomment">/// Optional. Start of segment of the response that is attributed to this
-    /// source.
-    ///
-    /// Index indicates the start of the segment, measured in bytes.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>start_index: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// Optional. End of the attributed segment, exclusive.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>end_index: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// Optional. URI that is attributed as a source for a portion of the text.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>uri: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Optional. License for the GitHub project that is attributed as a source for
-    /// segment.
-    ///
-    /// License info is required for code citations.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>license: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// The base structured datatype containing multi-part content of a message.
+</pre></div><pre class="rust"><code><span class="doccomment">/// The base structured datatype containing multi-part content of a message.
 ///
 /// A `Content` includes a `role` field designating the producer of the `Content`
 /// and a `parts` field containing multi-part data that contains the content of
@@ -1374,6 +1268,37 @@
     <span class="doccomment">/// Raw bytes for media formats.
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>data: ::prost::bytes::Bytes,
+}
+<span class="doccomment">/// A collection of source attributions for a piece of content.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CitationMetadata {
+    <span class="doccomment">/// Citations to sources for a specific response.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>citation_sources: ::prost::alloc::vec::Vec&lt;CitationSource&gt;,
+}
+<span class="doccomment">/// A citation to a source for a portion of a specific response.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CitationSource {
+    <span class="doccomment">/// Optional. Start of segment of the response that is attributed to this
+    /// source.
+    ///
+    /// Index indicates the start of the segment, measured in bytes.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>start_index: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// Optional. End of the attributed segment, exclusive.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end_index: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// Optional. URI that is attributed as a source for a portion of the text.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>uri: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Optional. License for the GitHub project that is attributed as a source for
+    /// segment.
+    ///
+    /// License info is required for code citations.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>license: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Safety rating for a piece of content.
 ///
@@ -2236,6 +2161,81 @@
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }
+}
+<span class="doccomment">/// Information about a Generative Language Model.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Model {
+    <span class="doccomment">/// Required. The resource name of the `Model`.
+    ///
+    /// Format: `models/{model}` with a `{model}` naming convention of:
+    ///
+    /// * &quot;{base_model_id}-{version}&quot;
+    ///
+    /// Examples:
+    ///
+    /// * `models/chat-bison-001`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The name of the base model, pass this to the generation request.
+    ///
+    /// Examples:
+    ///
+    /// * `chat-bison`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>base_model_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The version number of the model.
+    ///
+    /// This represents the major version
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
+    <span class="doccomment">/// The human-readable name of the model. E.g. &quot;Chat Bison&quot;.
+    ///
+    /// The name can be up to 128 characters long and can consist of any UTF-8
+    /// characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// A short description of the model.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Maximum number of input tokens allowed for this model.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>input_token_limit: i32,
+    <span class="doccomment">/// Maximum number of output tokens available for this model.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>output_token_limit: i32,
+    <span class="doccomment">/// The model&#39;s supported generation methods.
+    ///
+    /// The method names are defined as Pascal case
+    /// strings, such as `generateMessage` which correspond to API methods.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>supported_generation_methods: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Controls the randomness of the output.
+    ///
+    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
+    /// produce responses that are more varied, while a value closer to `0.0` will
+    /// typically result in less surprising responses from the model.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>temperature: ::core::option::Option&lt;f32&gt;,
+    <span class="doccomment">/// For Nucleus sampling.
+    ///
+    /// Nucleus sampling considers the smallest set of tokens whose probability
+    /// sum is at least `top_p`.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>top_p: ::core::option::Option&lt;f32&gt;,
+    <span class="doccomment">/// For Top-k sampling.
+    ///
+    /// Top-k sampling considers the set of `top_k` most probable tokens.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>top_k: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// Request for getting information about a specific Model.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
