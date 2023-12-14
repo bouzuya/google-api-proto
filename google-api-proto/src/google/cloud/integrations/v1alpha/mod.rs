@@ -1,40 +1,3 @@
-/// Enum Product.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum Product {
-    /// Default value.
-    Unspecified = 0,
-    /// Integration Platform.
-    Ip = 1,
-    /// Apigee.
-    Apigee = 2,
-    /// Security Command Center.
-    Security = 3,
-}
-impl Product {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            Product::Unspecified => "PRODUCT_UNSPECIFIED",
-            Product::Ip => "IP",
-            Product::Apigee => "APIGEE",
-            Product::Security => "SECURITY",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "PRODUCT_UNSPECIFIED" => Some(Self::Unspecified),
-            "IP" => Some(Self::Ip),
-            "APIGEE" => Some(Self::Apigee),
-            "SECURITY" => Some(Self::Security),
-            _ => None,
-        }
-    }
-}
 /// The type of the parameter.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -122,6 +85,43 @@ pub struct EventParameter {
     /// or any proto message.
     #[prost(message, optional, tag = "2")]
     pub value: ::core::option::Option<ValueType>,
+}
+/// Enum Product.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum Product {
+    /// Default value.
+    Unspecified = 0,
+    /// Integration Platform.
+    Ip = 1,
+    /// Apigee.
+    Apigee = 2,
+    /// Security Command Center.
+    Security = 3,
+}
+impl Product {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Product::Unspecified => "PRODUCT_UNSPECIFIED",
+            Product::Ip => "IP",
+            Product::Apigee => "APIGEE",
+            Product::Security => "SECURITY",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "PRODUCT_UNSPECIFIED" => Some(Self::Unspecified),
+            "IP" => Some(Self::Ip),
+            "APIGEE" => Some(Self::Apigee),
+            "SECURITY" => Some(Self::Security),
+            _ => None,
+        }
+    }
 }
 /// Options for how to validate json schemas.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]

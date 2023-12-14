@@ -1714,6 +1714,218 @@ pub struct HttpBody {
     #[prost(message, repeated, tag = "3")]
     pub extensions: ::prost::alloc::vec::Vec<::prost_types::Any>,
 }
+/// `Distribution` contains summary statistics for a population of values. It
+/// optionally contains a histogram representing the distribution of those values
+/// across a set of buckets.
+///
+/// The summary statistics are the count, mean, sum of the squared deviation from
+/// the mean, the minimum, and the maximum of the set of population of values.
+/// The histogram is based on a sequence of buckets and gives a count of values
+/// that fall into each bucket. The boundaries of the buckets are given either
+/// explicitly or by formulas for buckets of fixed or exponentially increasing
+/// widths.
+///
+/// Although it is not forbidden, it is generally a bad idea to include
+/// non-finite values (infinities or NaNs) in the population of values, as this
+/// will render the `mean` and `sum_of_squared_deviation` fields meaningless.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Distribution {
+    /// The number of values in the population. Must be non-negative. This value
+    /// must equal the sum of the values in `bucket_counts` if a histogram is
+    /// provided.
+    #[prost(int64, tag = "1")]
+    pub count: i64,
+    /// The arithmetic mean of the values in the population. If `count` is zero
+    /// then this field must be zero.
+    #[prost(double, tag = "2")]
+    pub mean: f64,
+    /// The sum of squared deviations from the mean of the values in the
+    /// population. For values x_i this is:
+    ///
+    ///      Sum[i=1..n]((x_i - mean)^2)
+    ///
+    /// Knuth, "The Art of Computer Programming", Vol. 2, page 232, 3rd edition
+    /// describes Welford's method for accumulating this sum in one pass.
+    ///
+    /// If `count` is zero then this field must be zero.
+    #[prost(double, tag = "3")]
+    pub sum_of_squared_deviation: f64,
+    /// If specified, contains the range of the population values. The field
+    /// must not be present if the `count` is zero.
+    #[prost(message, optional, tag = "4")]
+    pub range: ::core::option::Option<distribution::Range>,
+    /// Defines the histogram bucket boundaries. If the distribution does not
+    /// contain a histogram, then omit this field.
+    #[prost(message, optional, tag = "6")]
+    pub bucket_options: ::core::option::Option<distribution::BucketOptions>,
+    /// The number of values in each bucket of the histogram, as described in
+    /// `bucket_options`. If the distribution does not have a histogram, then omit
+    /// this field. If there is a histogram, then the sum of the values in
+    /// `bucket_counts` must equal the value in the `count` field of the
+    /// distribution.
+    ///
+    /// If present, `bucket_counts` should contain N values, where N is the number
+    /// of buckets specified in `bucket_options`. If you supply fewer than N
+    /// values, the remaining values are assumed to be 0.
+    ///
+    /// The order of the values in `bucket_counts` follows the bucket numbering
+    /// schemes described for the three bucket types. The first value must be the
+    /// count for the underflow bucket (number 0). The next N-2 values are the
+    /// counts for the finite buckets (number 1 through N-2). The N'th value in
+    /// `bucket_counts` is the count for the overflow bucket (number N-1).
+    #[prost(int64, repeated, tag = "7")]
+    pub bucket_counts: ::prost::alloc::vec::Vec<i64>,
+    /// Must be in increasing order of `value` field.
+    #[prost(message, repeated, tag = "10")]
+    pub exemplars: ::prost::alloc::vec::Vec<distribution::Exemplar>,
+}
+/// Nested message and enum types in `Distribution`.
+pub mod distribution {
+    /// The range of the population values.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Range {
+        /// The minimum of the population values.
+        #[prost(double, tag = "1")]
+        pub min: f64,
+        /// The maximum of the population values.
+        #[prost(double, tag = "2")]
+        pub max: f64,
+    }
+    /// `BucketOptions` describes the bucket boundaries used to create a histogram
+    /// for the distribution. The buckets can be in a linear sequence, an
+    /// exponential sequence, or each bucket can be specified explicitly.
+    /// `BucketOptions` does not include the number of values in each bucket.
+    ///
+    /// A bucket has an inclusive lower bound and exclusive upper bound for the
+    /// values that are counted for that bucket. The upper bound of a bucket must
+    /// be strictly greater than the lower bound. The sequence of N buckets for a
+    /// distribution consists of an underflow bucket (number 0), zero or more
+    /// finite buckets (number 1 through N - 2) and an overflow bucket (number N -
+    /// 1). The buckets are contiguous: the lower bound of bucket i (i > 0) is the
+    /// same as the upper bound of bucket i - 1. The buckets span the whole range
+    /// of finite values: lower bound of the underflow bucket is -infinity and the
+    /// upper bound of the overflow bucket is +infinity. The finite buckets are
+    /// so-called because both bounds are finite.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BucketOptions {
+        /// Exactly one of these three fields must be set.
+        #[prost(oneof = "bucket_options::Options", tags = "1, 2, 3")]
+        pub options: ::core::option::Option<bucket_options::Options>,
+    }
+    /// Nested message and enum types in `BucketOptions`.
+    pub mod bucket_options {
+        /// Specifies a linear sequence of buckets that all have the same width
+        /// (except overflow and underflow). Each bucket represents a constant
+        /// absolute uncertainty on the specific value in the bucket.
+        ///
+        /// There are `num_finite_buckets + 2` (= N) buckets. Bucket `i` has the
+        /// following boundaries:
+        ///
+        ///     Upper bound (0 <= i < N-1):     offset + (width * i).
+        ///
+        ///     Lower bound (1 <= i < N):       offset + (width * (i - 1)).
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Linear {
+            /// Must be greater than 0.
+            #[prost(int32, tag = "1")]
+            pub num_finite_buckets: i32,
+            /// Must be greater than 0.
+            #[prost(double, tag = "2")]
+            pub width: f64,
+            /// Lower bound of the first bucket.
+            #[prost(double, tag = "3")]
+            pub offset: f64,
+        }
+        /// Specifies an exponential sequence of buckets that have a width that is
+        /// proportional to the value of the lower bound. Each bucket represents a
+        /// constant relative uncertainty on a specific value in the bucket.
+        ///
+        /// There are `num_finite_buckets + 2` (= N) buckets. Bucket `i` has the
+        /// following boundaries:
+        ///
+        ///     Upper bound (0 <= i < N-1):     scale * (growth_factor ^ i).
+        ///
+        ///     Lower bound (1 <= i < N):       scale * (growth_factor ^ (i - 1)).
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Exponential {
+            /// Must be greater than 0.
+            #[prost(int32, tag = "1")]
+            pub num_finite_buckets: i32,
+            /// Must be greater than 1.
+            #[prost(double, tag = "2")]
+            pub growth_factor: f64,
+            /// Must be greater than 0.
+            #[prost(double, tag = "3")]
+            pub scale: f64,
+        }
+        /// Specifies a set of buckets with arbitrary widths.
+        ///
+        /// There are `size(bounds) + 1` (= N) buckets. Bucket `i` has the following
+        /// boundaries:
+        ///
+        ///     Upper bound (0 <= i < N-1):     bounds\[i\]
+        ///     Lower bound (1 <= i < N);       bounds\[i - 1\]
+        ///
+        /// The `bounds` field must contain at least one element. If `bounds` has
+        /// only one element, then there are no finite buckets, and that single
+        /// element is the common boundary of the overflow and underflow buckets.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Explicit {
+            /// The values must be monotonically increasing.
+            #[prost(double, repeated, tag = "1")]
+            pub bounds: ::prost::alloc::vec::Vec<f64>,
+        }
+        /// Exactly one of these three fields must be set.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Options {
+            /// The linear bucket.
+            #[prost(message, tag = "1")]
+            LinearBuckets(Linear),
+            /// The exponential buckets.
+            #[prost(message, tag = "2")]
+            ExponentialBuckets(Exponential),
+            /// The explicit buckets.
+            #[prost(message, tag = "3")]
+            ExplicitBuckets(Explicit),
+        }
+    }
+    /// Exemplars are example points that may be used to annotate aggregated
+    /// distribution values. They are metadata that gives information about a
+    /// particular value added to a Distribution bucket, such as a trace ID that
+    /// was active when a value was added. They may contain further information,
+    /// such as a example values and timestamps, origin, etc.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Exemplar {
+        /// Value of the exemplar point. This value determines to which bucket the
+        /// exemplar belongs.
+        #[prost(double, tag = "1")]
+        pub value: f64,
+        /// The observation (sampling) time of the above value.
+        #[prost(message, optional, tag = "2")]
+        pub timestamp: ::core::option::Option<::prost_types::Timestamp>,
+        /// Contextual information about the example value. Examples are:
+        ///
+        ///    Trace: type.googleapis.com/google.monitoring.v3.SpanContext
+        ///
+        ///    Literal string: type.googleapis.com/google.protobuf.StringValue
+        ///
+        ///    Labels dropped during aggregation:
+        ///      type.googleapis.com/google.monitoring.v3.DroppedLabels
+        ///
+        /// There may be only a single attachment of any given message type in a
+        /// single exemplar, and this is enforced by the system.
+        #[prost(message, repeated, tag = "3")]
+        pub attachments: ::prost::alloc::vec::Vec<::prost_types::Any>,
+    }
+}
 /// A description of a label.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2097,480 +2309,6 @@ pub struct Metric {
         ::prost::alloc::string::String,
     >,
 }
-/// An object that describes the schema of a
-/// [MonitoredResource][google.api.MonitoredResource] object using a type name
-/// and a set of labels.  For example, the monitored resource descriptor for
-/// Google Compute Engine VM instances has a type of
-/// `"gce_instance"` and specifies the use of the labels `"instance_id"` and
-/// `"zone"` to identify particular VM instances.
-///
-/// Different APIs can support different monitored resource types. APIs generally
-/// provide a `list` method that returns the monitored resource descriptors used
-/// by the API.
-///
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MonitoredResourceDescriptor {
-    /// Optional. The resource name of the monitored resource descriptor:
-    /// `"projects/{project_id}/monitoredResourceDescriptors/{type}"` where
-    /// {type} is the value of the `type` field in this object and
-    /// {project_id} is a project ID that provides API-specific context for
-    /// accessing the type.  APIs that do not use project information can use the
-    /// resource name format `"monitoredResourceDescriptors/{type}"`.
-    #[prost(string, tag = "5")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The monitored resource type. For example, the type
-    /// `"cloudsql_database"` represents databases in Google Cloud SQL.
-    ///   For a list of types, see [Monitoring resource
-    ///   types](<https://cloud.google.com/monitoring/api/resources>)
-    /// and [Logging resource
-    /// types](<https://cloud.google.com/logging/docs/api/v2/resource-list>).
-    #[prost(string, tag = "1")]
-    pub r#type: ::prost::alloc::string::String,
-    /// Optional. A concise name for the monitored resource type that might be
-    /// displayed in user interfaces. It should be a Title Cased Noun Phrase,
-    /// without any article or other determiners. For example,
-    /// `"Google Cloud SQL Database"`.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Optional. A detailed description of the monitored resource type that might
-    /// be used in documentation.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// Required. A set of labels used to describe instances of this monitored
-    /// resource type. For example, an individual Google Cloud SQL database is
-    /// identified by values for the labels `"database_id"` and `"zone"`.
-    #[prost(message, repeated, tag = "4")]
-    pub labels: ::prost::alloc::vec::Vec<LabelDescriptor>,
-    /// Optional. The launch stage of the monitored resource definition.
-    #[prost(enumeration = "LaunchStage", tag = "7")]
-    pub launch_stage: i32,
-}
-/// An object representing a resource that can be used for monitoring, logging,
-/// billing, or other purposes. Examples include virtual machine instances,
-/// databases, and storage devices such as disks. The `type` field identifies a
-/// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor] object
-/// that describes the resource's schema. Information in the `labels` field
-/// identifies the actual resource and its attributes according to the schema.
-/// For example, a particular Compute Engine VM instance could be represented by
-/// the following object, because the
-/// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor] for
-/// `"gce_instance"` has labels
-/// `"project_id"`, `"instance_id"` and `"zone"`:
-///
-///      { "type": "gce_instance",
-///        "labels": { "project_id": "my-project",
-///                    "instance_id": "12345678901234",
-///                    "zone": "us-central1-a" }}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MonitoredResource {
-    /// Required. The monitored resource type. This field must match
-    /// the `type` field of a
-    /// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor]
-    /// object. For example, the type of a Compute Engine VM instance is
-    /// `gce_instance`. Some descriptors include the service name in the type; for
-    /// example, the type of a Datastream stream is
-    /// `datastream.googleapis.com/Stream`.
-    #[prost(string, tag = "1")]
-    pub r#type: ::prost::alloc::string::String,
-    /// Required. Values for all of the labels listed in the associated monitored
-    /// resource descriptor. For example, Compute Engine VM instances use the
-    /// labels `"project_id"`, `"instance_id"`, and `"zone"`.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Auxiliary metadata for a [MonitoredResource][google.api.MonitoredResource]
-/// object. [MonitoredResource][google.api.MonitoredResource] objects contain the
-/// minimum set of information to uniquely identify a monitored resource
-/// instance. There is some other useful auxiliary metadata. Monitoring and
-/// Logging use an ingestion pipeline to extract metadata for cloud resources of
-/// all types, and store the metadata in this message.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MonitoredResourceMetadata {
-    /// Output only. Values for predefined system metadata labels.
-    /// System labels are a kind of metadata extracted by Google, including
-    /// "machine_image", "vpc", "subnet_id",
-    /// "security_group", "name", etc.
-    /// System label values can be only strings, Boolean values, or a list of
-    /// strings. For example:
-    ///
-    ///      { "name": "my-test-instance",
-    ///        "security_group": \["a", "b", "c"\],
-    ///        "spot_instance": false }
-    #[prost(message, optional, tag = "1")]
-    pub system_labels: ::core::option::Option<::prost_types::Struct>,
-    /// Output only. A map of user-defined metadata labels.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub user_labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// `Distribution` contains summary statistics for a population of values. It
-/// optionally contains a histogram representing the distribution of those values
-/// across a set of buckets.
-///
-/// The summary statistics are the count, mean, sum of the squared deviation from
-/// the mean, the minimum, and the maximum of the set of population of values.
-/// The histogram is based on a sequence of buckets and gives a count of values
-/// that fall into each bucket. The boundaries of the buckets are given either
-/// explicitly or by formulas for buckets of fixed or exponentially increasing
-/// widths.
-///
-/// Although it is not forbidden, it is generally a bad idea to include
-/// non-finite values (infinities or NaNs) in the population of values, as this
-/// will render the `mean` and `sum_of_squared_deviation` fields meaningless.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Distribution {
-    /// The number of values in the population. Must be non-negative. This value
-    /// must equal the sum of the values in `bucket_counts` if a histogram is
-    /// provided.
-    #[prost(int64, tag = "1")]
-    pub count: i64,
-    /// The arithmetic mean of the values in the population. If `count` is zero
-    /// then this field must be zero.
-    #[prost(double, tag = "2")]
-    pub mean: f64,
-    /// The sum of squared deviations from the mean of the values in the
-    /// population. For values x_i this is:
-    ///
-    ///      Sum[i=1..n]((x_i - mean)^2)
-    ///
-    /// Knuth, "The Art of Computer Programming", Vol. 2, page 232, 3rd edition
-    /// describes Welford's method for accumulating this sum in one pass.
-    ///
-    /// If `count` is zero then this field must be zero.
-    #[prost(double, tag = "3")]
-    pub sum_of_squared_deviation: f64,
-    /// If specified, contains the range of the population values. The field
-    /// must not be present if the `count` is zero.
-    #[prost(message, optional, tag = "4")]
-    pub range: ::core::option::Option<distribution::Range>,
-    /// Defines the histogram bucket boundaries. If the distribution does not
-    /// contain a histogram, then omit this field.
-    #[prost(message, optional, tag = "6")]
-    pub bucket_options: ::core::option::Option<distribution::BucketOptions>,
-    /// The number of values in each bucket of the histogram, as described in
-    /// `bucket_options`. If the distribution does not have a histogram, then omit
-    /// this field. If there is a histogram, then the sum of the values in
-    /// `bucket_counts` must equal the value in the `count` field of the
-    /// distribution.
-    ///
-    /// If present, `bucket_counts` should contain N values, where N is the number
-    /// of buckets specified in `bucket_options`. If you supply fewer than N
-    /// values, the remaining values are assumed to be 0.
-    ///
-    /// The order of the values in `bucket_counts` follows the bucket numbering
-    /// schemes described for the three bucket types. The first value must be the
-    /// count for the underflow bucket (number 0). The next N-2 values are the
-    /// counts for the finite buckets (number 1 through N-2). The N'th value in
-    /// `bucket_counts` is the count for the overflow bucket (number N-1).
-    #[prost(int64, repeated, tag = "7")]
-    pub bucket_counts: ::prost::alloc::vec::Vec<i64>,
-    /// Must be in increasing order of `value` field.
-    #[prost(message, repeated, tag = "10")]
-    pub exemplars: ::prost::alloc::vec::Vec<distribution::Exemplar>,
-}
-/// Nested message and enum types in `Distribution`.
-pub mod distribution {
-    /// The range of the population values.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Range {
-        /// The minimum of the population values.
-        #[prost(double, tag = "1")]
-        pub min: f64,
-        /// The maximum of the population values.
-        #[prost(double, tag = "2")]
-        pub max: f64,
-    }
-    /// `BucketOptions` describes the bucket boundaries used to create a histogram
-    /// for the distribution. The buckets can be in a linear sequence, an
-    /// exponential sequence, or each bucket can be specified explicitly.
-    /// `BucketOptions` does not include the number of values in each bucket.
-    ///
-    /// A bucket has an inclusive lower bound and exclusive upper bound for the
-    /// values that are counted for that bucket. The upper bound of a bucket must
-    /// be strictly greater than the lower bound. The sequence of N buckets for a
-    /// distribution consists of an underflow bucket (number 0), zero or more
-    /// finite buckets (number 1 through N - 2) and an overflow bucket (number N -
-    /// 1). The buckets are contiguous: the lower bound of bucket i (i > 0) is the
-    /// same as the upper bound of bucket i - 1. The buckets span the whole range
-    /// of finite values: lower bound of the underflow bucket is -infinity and the
-    /// upper bound of the overflow bucket is +infinity. The finite buckets are
-    /// so-called because both bounds are finite.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct BucketOptions {
-        /// Exactly one of these three fields must be set.
-        #[prost(oneof = "bucket_options::Options", tags = "1, 2, 3")]
-        pub options: ::core::option::Option<bucket_options::Options>,
-    }
-    /// Nested message and enum types in `BucketOptions`.
-    pub mod bucket_options {
-        /// Specifies a linear sequence of buckets that all have the same width
-        /// (except overflow and underflow). Each bucket represents a constant
-        /// absolute uncertainty on the specific value in the bucket.
-        ///
-        /// There are `num_finite_buckets + 2` (= N) buckets. Bucket `i` has the
-        /// following boundaries:
-        ///
-        ///     Upper bound (0 <= i < N-1):     offset + (width * i).
-        ///
-        ///     Lower bound (1 <= i < N):       offset + (width * (i - 1)).
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Linear {
-            /// Must be greater than 0.
-            #[prost(int32, tag = "1")]
-            pub num_finite_buckets: i32,
-            /// Must be greater than 0.
-            #[prost(double, tag = "2")]
-            pub width: f64,
-            /// Lower bound of the first bucket.
-            #[prost(double, tag = "3")]
-            pub offset: f64,
-        }
-        /// Specifies an exponential sequence of buckets that have a width that is
-        /// proportional to the value of the lower bound. Each bucket represents a
-        /// constant relative uncertainty on a specific value in the bucket.
-        ///
-        /// There are `num_finite_buckets + 2` (= N) buckets. Bucket `i` has the
-        /// following boundaries:
-        ///
-        ///     Upper bound (0 <= i < N-1):     scale * (growth_factor ^ i).
-        ///
-        ///     Lower bound (1 <= i < N):       scale * (growth_factor ^ (i - 1)).
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Exponential {
-            /// Must be greater than 0.
-            #[prost(int32, tag = "1")]
-            pub num_finite_buckets: i32,
-            /// Must be greater than 1.
-            #[prost(double, tag = "2")]
-            pub growth_factor: f64,
-            /// Must be greater than 0.
-            #[prost(double, tag = "3")]
-            pub scale: f64,
-        }
-        /// Specifies a set of buckets with arbitrary widths.
-        ///
-        /// There are `size(bounds) + 1` (= N) buckets. Bucket `i` has the following
-        /// boundaries:
-        ///
-        ///     Upper bound (0 <= i < N-1):     bounds\[i\]
-        ///     Lower bound (1 <= i < N);       bounds\[i - 1\]
-        ///
-        /// The `bounds` field must contain at least one element. If `bounds` has
-        /// only one element, then there are no finite buckets, and that single
-        /// element is the common boundary of the overflow and underflow buckets.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Explicit {
-            /// The values must be monotonically increasing.
-            #[prost(double, repeated, tag = "1")]
-            pub bounds: ::prost::alloc::vec::Vec<f64>,
-        }
-        /// Exactly one of these three fields must be set.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Options {
-            /// The linear bucket.
-            #[prost(message, tag = "1")]
-            LinearBuckets(Linear),
-            /// The exponential buckets.
-            #[prost(message, tag = "2")]
-            ExponentialBuckets(Exponential),
-            /// The explicit buckets.
-            #[prost(message, tag = "3")]
-            ExplicitBuckets(Explicit),
-        }
-    }
-    /// Exemplars are example points that may be used to annotate aggregated
-    /// distribution values. They are metadata that gives information about a
-    /// particular value added to a Distribution bucket, such as a trace ID that
-    /// was active when a value was added. They may contain further information,
-    /// such as a example values and timestamps, origin, etc.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Exemplar {
-        /// Value of the exemplar point. This value determines to which bucket the
-        /// exemplar belongs.
-        #[prost(double, tag = "1")]
-        pub value: f64,
-        /// The observation (sampling) time of the above value.
-        #[prost(message, optional, tag = "2")]
-        pub timestamp: ::core::option::Option<::prost_types::Timestamp>,
-        /// Contextual information about the example value. Examples are:
-        ///
-        ///    Trace: type.googleapis.com/google.monitoring.v3.SpanContext
-        ///
-        ///    Literal string: type.googleapis.com/google.protobuf.StringValue
-        ///
-        ///    Labels dropped during aggregation:
-        ///      type.googleapis.com/google.monitoring.v3.DroppedLabels
-        ///
-        /// There may be only a single attachment of any given message type in a
-        /// single exemplar, and this is enforced by the system.
-        #[prost(message, repeated, tag = "3")]
-        pub attachments: ::prost::alloc::vec::Vec<::prost_types::Any>,
-    }
-}
-/// Monitoring configuration of the service.
-///
-/// The example below shows how to configure monitored resources and metrics
-/// for monitoring. In the example, a monitored resource and two metrics are
-/// defined. The `library.googleapis.com/book/returned_count` metric is sent
-/// to both producer and consumer projects, whereas the
-/// `library.googleapis.com/book/num_overdue` metric is only sent to the
-/// consumer project.
-///
-///      monitored_resources:
-///      - type: library.googleapis.com/Branch
-///        display_name: "Library Branch"
-///        description: "A branch of a library."
-///        launch_stage: GA
-///        labels:
-///        - key: resource_container
-///          description: "The Cloud container (ie. project id) for the Branch."
-///        - key: location
-///          description: "The location of the library branch."
-///        - key: branch_id
-///          description: "The id of the branch."
-///      metrics:
-///      - name: library.googleapis.com/book/returned_count
-///        display_name: "Books Returned"
-///        description: "The count of books that have been returned."
-///        launch_stage: GA
-///        metric_kind: DELTA
-///        value_type: INT64
-///        unit: "1"
-///        labels:
-///        - key: customer_id
-///          description: "The id of the customer."
-///      - name: library.googleapis.com/book/num_overdue
-///        display_name: "Books Overdue"
-///        description: "The current number of overdue books."
-///        launch_stage: GA
-///        metric_kind: GAUGE
-///        value_type: INT64
-///        unit: "1"
-///        labels:
-///        - key: customer_id
-///          description: "The id of the customer."
-///      monitoring:
-///        producer_destinations:
-///        - monitored_resource: library.googleapis.com/Branch
-///          metrics:
-///          - library.googleapis.com/book/returned_count
-///        consumer_destinations:
-///        - monitored_resource: library.googleapis.com/Branch
-///          metrics:
-///          - library.googleapis.com/book/returned_count
-///          - library.googleapis.com/book/num_overdue
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Monitoring {
-    /// Monitoring configurations for sending metrics to the producer project.
-    /// There can be multiple producer destinations. A monitored resource type may
-    /// appear in multiple monitoring destinations if different aggregations are
-    /// needed for different sets of metrics associated with that monitored
-    /// resource type. A monitored resource and metric pair may only be used once
-    /// in the Monitoring configuration.
-    #[prost(message, repeated, tag = "1")]
-    pub producer_destinations: ::prost::alloc::vec::Vec<
-        monitoring::MonitoringDestination,
-    >,
-    /// Monitoring configurations for sending metrics to the consumer project.
-    /// There can be multiple consumer destinations. A monitored resource type may
-    /// appear in multiple monitoring destinations if different aggregations are
-    /// needed for different sets of metrics associated with that monitored
-    /// resource type. A monitored resource and metric pair may only be used once
-    /// in the Monitoring configuration.
-    #[prost(message, repeated, tag = "2")]
-    pub consumer_destinations: ::prost::alloc::vec::Vec<
-        monitoring::MonitoringDestination,
-    >,
-}
-/// Nested message and enum types in `Monitoring`.
-pub mod monitoring {
-    /// Configuration of a specific monitoring destination (the producer project
-    /// or the consumer project).
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct MonitoringDestination {
-        /// The monitored resource type. The type must be defined in
-        /// [Service.monitored_resources][google.api.Service.monitored_resources]
-        /// section.
-        #[prost(string, tag = "1")]
-        pub monitored_resource: ::prost::alloc::string::String,
-        /// Types of the metrics to report to this monitoring destination.
-        /// Each type must be defined in
-        /// [Service.metrics][google.api.Service.metrics] section.
-        #[prost(string, repeated, tag = "2")]
-        pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-}
-/// `Endpoint` describes a network address of a service that serves a set of
-/// APIs. It is commonly known as a service endpoint. A service may expose
-/// any number of service endpoints, and all service endpoints share the same
-/// service definition, such as quota limits and monitoring metrics.
-///
-/// Example:
-///
-///      type: google.api.Service
-///      name: library-example.googleapis.com
-///      endpoints:
-///        # Declares network address `<https://library-example.googleapis.com`>
-///        # for service `library-example.googleapis.com`. The `https` scheme
-///        # is implicit for all service endpoints. Other schemes may be
-///        # supported in the future.
-///      - name: library-example.googleapis.com
-///        allow_cors: false
-///      - name: content-staging-library-example.googleapis.com
-///        # Allows HTTP OPTIONS calls to be passed to the API frontend, for it
-///        # to decide whether the subsequent cross-origin request is allowed
-///        # to proceed.
-///        allow_cors: true
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Endpoint {
-    /// The canonical name of this endpoint.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Unimplemented. Dot not use.
-    ///
-    /// DEPRECATED: This field is no longer supported. Instead of using aliases,
-    /// please specify multiple [google.api.Endpoint][google.api.Endpoint] for each
-    /// of the intended aliases.
-    ///
-    /// Additional names that this endpoint will be hosted on.
-    #[deprecated]
-    #[prost(string, repeated, tag = "2")]
-    pub aliases: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The specification of an Internet routable address of API frontend that will
-    /// handle requests to this [API
-    /// Endpoint](<https://cloud.google.com/apis/design/glossary>). It should be
-    /// either a valid IPv4 address or a fully-qualified domain name. For example,
-    /// "8.8.8.8" or "myservice.appspot.com".
-    #[prost(string, tag = "101")]
-    pub target: ::prost::alloc::string::String,
-    /// Allowing
-    /// [CORS](<https://en.wikipedia.org/wiki/Cross-origin_resource_sharing>), aka
-    /// cross-domain traffic, would allow the backends served from this endpoint to
-    /// receive and respond to HTTP OPTIONS requests. The response will be used by
-    /// the browser to determine whether the subsequent cross-origin request is
-    /// allowed to proceed.
-    #[prost(bool, tag = "5")]
-    pub allow_cors: bool,
-}
 /// Output generated from semantically comparing two versions of a service
 /// configuration.
 ///
@@ -2657,6 +2395,81 @@ impl ChangeType {
             _ => None,
         }
     }
+}
+/// `Context` defines which contexts an API requests.
+///
+/// Example:
+///
+///      context:
+///        rules:
+///        - selector: "*"
+///          requested:
+///          - google.rpc.context.ProjectContext
+///          - google.rpc.context.OriginContext
+///
+/// The above specifies that all methods in the API request
+/// `google.rpc.context.ProjectContext` and
+/// `google.rpc.context.OriginContext`.
+///
+/// Available context types are defined in package
+/// `google.rpc.context`.
+///
+/// This also provides mechanism to allowlist any protobuf message extension that
+/// can be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and
+/// “x-goog-ext-<extension_id>-jspb” format. For example, list any service
+/// specific protobuf types that can appear in grpc metadata as follows in your
+/// yaml file:
+///
+/// Example:
+///
+///      context:
+///        rules:
+///         - selector: "google.example.library.v1.LibraryService.CreateBook"
+///           allowed_request_extensions:
+///           - google.foo.v1.NewExtension
+///           allowed_response_extensions:
+///           - google.foo.v1.NewExtension
+///
+/// You can also specify extension ID instead of fully qualified extension name
+/// here.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Context {
+    /// A list of RPC context rules that apply to individual API methods.
+    ///
+    /// **NOTE:** All service configuration rules follow "last one wins" order.
+    #[prost(message, repeated, tag = "1")]
+    pub rules: ::prost::alloc::vec::Vec<ContextRule>,
+}
+/// A context rule provides information about the context for an individual API
+/// element.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ContextRule {
+    /// Selects the methods to which this rule applies.
+    ///
+    /// Refer to [selector][google.api.DocumentationRule.selector] for syntax
+    /// details.
+    #[prost(string, tag = "1")]
+    pub selector: ::prost::alloc::string::String,
+    /// A list of full type names of requested contexts.
+    #[prost(string, repeated, tag = "2")]
+    pub requested: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of full type names of provided contexts.
+    #[prost(string, repeated, tag = "3")]
+    pub provided: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of full type names or extension IDs of extensions allowed in grpc
+    /// side channel from client to backend.
+    #[prost(string, repeated, tag = "4")]
+    pub allowed_request_extensions: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// A list of full type names or extension IDs of extensions allowed in grpc
+    /// side channel from backend to client.
+    #[prost(string, repeated, tag = "5")]
+    pub allowed_response_extensions: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
 }
 /// `Authentication` defines the authentication configuration for API methods
 /// provided by an API service.
@@ -3174,81 +2987,6 @@ pub mod billing {
         pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
 }
-/// `Context` defines which contexts an API requests.
-///
-/// Example:
-///
-///      context:
-///        rules:
-///        - selector: "*"
-///          requested:
-///          - google.rpc.context.ProjectContext
-///          - google.rpc.context.OriginContext
-///
-/// The above specifies that all methods in the API request
-/// `google.rpc.context.ProjectContext` and
-/// `google.rpc.context.OriginContext`.
-///
-/// Available context types are defined in package
-/// `google.rpc.context`.
-///
-/// This also provides mechanism to allowlist any protobuf message extension that
-/// can be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and
-/// “x-goog-ext-<extension_id>-jspb” format. For example, list any service
-/// specific protobuf types that can appear in grpc metadata as follows in your
-/// yaml file:
-///
-/// Example:
-///
-///      context:
-///        rules:
-///         - selector: "google.example.library.v1.LibraryService.CreateBook"
-///           allowed_request_extensions:
-///           - google.foo.v1.NewExtension
-///           allowed_response_extensions:
-///           - google.foo.v1.NewExtension
-///
-/// You can also specify extension ID instead of fully qualified extension name
-/// here.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Context {
-    /// A list of RPC context rules that apply to individual API methods.
-    ///
-    /// **NOTE:** All service configuration rules follow "last one wins" order.
-    #[prost(message, repeated, tag = "1")]
-    pub rules: ::prost::alloc::vec::Vec<ContextRule>,
-}
-/// A context rule provides information about the context for an individual API
-/// element.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ContextRule {
-    /// Selects the methods to which this rule applies.
-    ///
-    /// Refer to [selector][google.api.DocumentationRule.selector] for syntax
-    /// details.
-    #[prost(string, tag = "1")]
-    pub selector: ::prost::alloc::string::String,
-    /// A list of full type names of requested contexts.
-    #[prost(string, repeated, tag = "2")]
-    pub requested: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of full type names of provided contexts.
-    #[prost(string, repeated, tag = "3")]
-    pub provided: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of full type names or extension IDs of extensions allowed in grpc
-    /// side channel from client to backend.
-    #[prost(string, repeated, tag = "4")]
-    pub allowed_request_extensions: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// A list of full type names or extension IDs of extensions allowed in grpc
-    /// side channel from backend to client.
-    #[prost(string, repeated, tag = "5")]
-    pub allowed_response_extensions: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-}
 /// Google API Policy Annotation
 ///
 /// This message defines a simple API policy annotation that can be used to
@@ -3469,6 +3207,59 @@ pub struct Page {
     #[prost(message, repeated, tag = "3")]
     pub subpages: ::prost::alloc::vec::Vec<Page>,
 }
+/// `Endpoint` describes a network address of a service that serves a set of
+/// APIs. It is commonly known as a service endpoint. A service may expose
+/// any number of service endpoints, and all service endpoints share the same
+/// service definition, such as quota limits and monitoring metrics.
+///
+/// Example:
+///
+///      type: google.api.Service
+///      name: library-example.googleapis.com
+///      endpoints:
+///        # Declares network address `<https://library-example.googleapis.com`>
+///        # for service `library-example.googleapis.com`. The `https` scheme
+///        # is implicit for all service endpoints. Other schemes may be
+///        # supported in the future.
+///      - name: library-example.googleapis.com
+///        allow_cors: false
+///      - name: content-staging-library-example.googleapis.com
+///        # Allows HTTP OPTIONS calls to be passed to the API frontend, for it
+///        # to decide whether the subsequent cross-origin request is allowed
+///        # to proceed.
+///        allow_cors: true
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Endpoint {
+    /// The canonical name of this endpoint.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Unimplemented. Dot not use.
+    ///
+    /// DEPRECATED: This field is no longer supported. Instead of using aliases,
+    /// please specify multiple [google.api.Endpoint][google.api.Endpoint] for each
+    /// of the intended aliases.
+    ///
+    /// Additional names that this endpoint will be hosted on.
+    #[deprecated]
+    #[prost(string, repeated, tag = "2")]
+    pub aliases: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The specification of an Internet routable address of API frontend that will
+    /// handle requests to this [API
+    /// Endpoint](<https://cloud.google.com/apis/design/glossary>). It should be
+    /// either a valid IPv4 address or a fully-qualified domain name. For example,
+    /// "8.8.8.8" or "myservice.appspot.com".
+    #[prost(string, tag = "101")]
+    pub target: ::prost::alloc::string::String,
+    /// Allowing
+    /// [CORS](<https://en.wikipedia.org/wiki/Cross-origin_resource_sharing>), aka
+    /// cross-domain traffic, would allow the backends served from this endpoint to
+    /// receive and respond to HTTP OPTIONS requests. The response will be used by
+    /// the browser to determine whether the subsequent cross-origin request is
+    /// allowed to proceed.
+    #[prost(bool, tag = "5")]
+    pub allow_cors: bool,
+}
 /// A description of a log type. Example in YAML format:
 ///
 ///      - name: library.googleapis.com/activity_history
@@ -3563,6 +3354,215 @@ pub mod logging {
         /// with the service name followed by "/".
         #[prost(string, repeated, tag = "1")]
         pub logs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+}
+/// An object that describes the schema of a
+/// [MonitoredResource][google.api.MonitoredResource] object using a type name
+/// and a set of labels.  For example, the monitored resource descriptor for
+/// Google Compute Engine VM instances has a type of
+/// `"gce_instance"` and specifies the use of the labels `"instance_id"` and
+/// `"zone"` to identify particular VM instances.
+///
+/// Different APIs can support different monitored resource types. APIs generally
+/// provide a `list` method that returns the monitored resource descriptors used
+/// by the API.
+///
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MonitoredResourceDescriptor {
+    /// Optional. The resource name of the monitored resource descriptor:
+    /// `"projects/{project_id}/monitoredResourceDescriptors/{type}"` where
+    /// {type} is the value of the `type` field in this object and
+    /// {project_id} is a project ID that provides API-specific context for
+    /// accessing the type.  APIs that do not use project information can use the
+    /// resource name format `"monitoredResourceDescriptors/{type}"`.
+    #[prost(string, tag = "5")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The monitored resource type. For example, the type
+    /// `"cloudsql_database"` represents databases in Google Cloud SQL.
+    ///   For a list of types, see [Monitoring resource
+    ///   types](<https://cloud.google.com/monitoring/api/resources>)
+    /// and [Logging resource
+    /// types](<https://cloud.google.com/logging/docs/api/v2/resource-list>).
+    #[prost(string, tag = "1")]
+    pub r#type: ::prost::alloc::string::String,
+    /// Optional. A concise name for the monitored resource type that might be
+    /// displayed in user interfaces. It should be a Title Cased Noun Phrase,
+    /// without any article or other determiners. For example,
+    /// `"Google Cloud SQL Database"`.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. A detailed description of the monitored resource type that might
+    /// be used in documentation.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Required. A set of labels used to describe instances of this monitored
+    /// resource type. For example, an individual Google Cloud SQL database is
+    /// identified by values for the labels `"database_id"` and `"zone"`.
+    #[prost(message, repeated, tag = "4")]
+    pub labels: ::prost::alloc::vec::Vec<LabelDescriptor>,
+    /// Optional. The launch stage of the monitored resource definition.
+    #[prost(enumeration = "LaunchStage", tag = "7")]
+    pub launch_stage: i32,
+}
+/// An object representing a resource that can be used for monitoring, logging,
+/// billing, or other purposes. Examples include virtual machine instances,
+/// databases, and storage devices such as disks. The `type` field identifies a
+/// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor] object
+/// that describes the resource's schema. Information in the `labels` field
+/// identifies the actual resource and its attributes according to the schema.
+/// For example, a particular Compute Engine VM instance could be represented by
+/// the following object, because the
+/// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor] for
+/// `"gce_instance"` has labels
+/// `"project_id"`, `"instance_id"` and `"zone"`:
+///
+///      { "type": "gce_instance",
+///        "labels": { "project_id": "my-project",
+///                    "instance_id": "12345678901234",
+///                    "zone": "us-central1-a" }}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MonitoredResource {
+    /// Required. The monitored resource type. This field must match
+    /// the `type` field of a
+    /// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor]
+    /// object. For example, the type of a Compute Engine VM instance is
+    /// `gce_instance`. Some descriptors include the service name in the type; for
+    /// example, the type of a Datastream stream is
+    /// `datastream.googleapis.com/Stream`.
+    #[prost(string, tag = "1")]
+    pub r#type: ::prost::alloc::string::String,
+    /// Required. Values for all of the labels listed in the associated monitored
+    /// resource descriptor. For example, Compute Engine VM instances use the
+    /// labels `"project_id"`, `"instance_id"`, and `"zone"`.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Auxiliary metadata for a [MonitoredResource][google.api.MonitoredResource]
+/// object. [MonitoredResource][google.api.MonitoredResource] objects contain the
+/// minimum set of information to uniquely identify a monitored resource
+/// instance. There is some other useful auxiliary metadata. Monitoring and
+/// Logging use an ingestion pipeline to extract metadata for cloud resources of
+/// all types, and store the metadata in this message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MonitoredResourceMetadata {
+    /// Output only. Values for predefined system metadata labels.
+    /// System labels are a kind of metadata extracted by Google, including
+    /// "machine_image", "vpc", "subnet_id",
+    /// "security_group", "name", etc.
+    /// System label values can be only strings, Boolean values, or a list of
+    /// strings. For example:
+    ///
+    ///      { "name": "my-test-instance",
+    ///        "security_group": \["a", "b", "c"\],
+    ///        "spot_instance": false }
+    #[prost(message, optional, tag = "1")]
+    pub system_labels: ::core::option::Option<::prost_types::Struct>,
+    /// Output only. A map of user-defined metadata labels.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub user_labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Monitoring configuration of the service.
+///
+/// The example below shows how to configure monitored resources and metrics
+/// for monitoring. In the example, a monitored resource and two metrics are
+/// defined. The `library.googleapis.com/book/returned_count` metric is sent
+/// to both producer and consumer projects, whereas the
+/// `library.googleapis.com/book/num_overdue` metric is only sent to the
+/// consumer project.
+///
+///      monitored_resources:
+///      - type: library.googleapis.com/Branch
+///        display_name: "Library Branch"
+///        description: "A branch of a library."
+///        launch_stage: GA
+///        labels:
+///        - key: resource_container
+///          description: "The Cloud container (ie. project id) for the Branch."
+///        - key: location
+///          description: "The location of the library branch."
+///        - key: branch_id
+///          description: "The id of the branch."
+///      metrics:
+///      - name: library.googleapis.com/book/returned_count
+///        display_name: "Books Returned"
+///        description: "The count of books that have been returned."
+///        launch_stage: GA
+///        metric_kind: DELTA
+///        value_type: INT64
+///        unit: "1"
+///        labels:
+///        - key: customer_id
+///          description: "The id of the customer."
+///      - name: library.googleapis.com/book/num_overdue
+///        display_name: "Books Overdue"
+///        description: "The current number of overdue books."
+///        launch_stage: GA
+///        metric_kind: GAUGE
+///        value_type: INT64
+///        unit: "1"
+///        labels:
+///        - key: customer_id
+///          description: "The id of the customer."
+///      monitoring:
+///        producer_destinations:
+///        - monitored_resource: library.googleapis.com/Branch
+///          metrics:
+///          - library.googleapis.com/book/returned_count
+///        consumer_destinations:
+///        - monitored_resource: library.googleapis.com/Branch
+///          metrics:
+///          - library.googleapis.com/book/returned_count
+///          - library.googleapis.com/book/num_overdue
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Monitoring {
+    /// Monitoring configurations for sending metrics to the producer project.
+    /// There can be multiple producer destinations. A monitored resource type may
+    /// appear in multiple monitoring destinations if different aggregations are
+    /// needed for different sets of metrics associated with that monitored
+    /// resource type. A monitored resource and metric pair may only be used once
+    /// in the Monitoring configuration.
+    #[prost(message, repeated, tag = "1")]
+    pub producer_destinations: ::prost::alloc::vec::Vec<
+        monitoring::MonitoringDestination,
+    >,
+    /// Monitoring configurations for sending metrics to the consumer project.
+    /// There can be multiple consumer destinations. A monitored resource type may
+    /// appear in multiple monitoring destinations if different aggregations are
+    /// needed for different sets of metrics associated with that monitored
+    /// resource type. A monitored resource and metric pair may only be used once
+    /// in the Monitoring configuration.
+    #[prost(message, repeated, tag = "2")]
+    pub consumer_destinations: ::prost::alloc::vec::Vec<
+        monitoring::MonitoringDestination,
+    >,
+}
+/// Nested message and enum types in `Monitoring`.
+pub mod monitoring {
+    /// Configuration of a specific monitoring destination (the producer project
+    /// or the consumer project).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct MonitoringDestination {
+        /// The monitored resource type. The type must be defined in
+        /// [Service.monitored_resources][google.api.Service.monitored_resources]
+        /// section.
+        #[prost(string, tag = "1")]
+        pub monitored_resource: ::prost::alloc::string::String,
+        /// Types of the metrics to report to this monitoring destination.
+        /// Each type must be defined in
+        /// [Service.metrics][google.api.Service.metrics] section.
+        #[prost(string, repeated, tag = "2")]
+        pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
 }
 /// Quota configuration helps to achieve fairness and budgeting in service
@@ -4050,67 +4050,6 @@ pub struct Service {
     #[prost(message, optional, tag = "20")]
     pub config_version: ::core::option::Option<u32>,
 }
-/// `Visibility` restricts service consumer's access to service elements,
-/// such as whether an application can call a visibility-restricted method.
-/// The restriction is expressed by applying visibility labels on service
-/// elements. The visibility labels are elsewhere linked to service consumers.
-///
-/// A service can define multiple visibility labels, but a service consumer
-/// should be granted at most one visibility label. Multiple visibility
-/// labels for a single service consumer are not supported.
-///
-/// If an element and all its parents have no visibility label, its visibility
-/// is unconditionally granted.
-///
-/// Example:
-///
-///      visibility:
-///        rules:
-///        - selector: google.calendar.Calendar.EnhancedSearch
-///          restriction: PREVIEW
-///        - selector: google.calendar.Calendar.Delegate
-///          restriction: INTERNAL
-///
-/// Here, all methods are publicly visible except for the restricted methods
-/// EnhancedSearch and Delegate.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Visibility {
-    /// A list of visibility rules that apply to individual API elements.
-    ///
-    /// **NOTE:** All service configuration rules follow "last one wins" order.
-    #[prost(message, repeated, tag = "1")]
-    pub rules: ::prost::alloc::vec::Vec<VisibilityRule>,
-}
-/// A visibility rule provides visibility configuration for an individual API
-/// element.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VisibilityRule {
-    /// Selects methods, messages, fields, enums, etc. to which this rule applies.
-    ///
-    /// Refer to [selector][google.api.DocumentationRule.selector] for syntax
-    /// details.
-    #[prost(string, tag = "1")]
-    pub selector: ::prost::alloc::string::String,
-    /// A comma-separated list of visibility labels that apply to the `selector`.
-    /// Any of the listed labels can be used to grant the visibility.
-    ///
-    /// If a rule has multiple labels, removing one of the labels but not all of
-    /// them can break clients.
-    ///
-    /// Example:
-    ///
-    ///      visibility:
-    ///        rules:
-    ///        - selector: google.calendar.Calendar.EnhancedSearch
-    ///          restriction: INTERNAL, PREVIEW
-    ///
-    /// Removing INTERNAL from this restriction will break clients that rely on
-    /// this method and only had access to it through INTERNAL.
-    #[prost(string, tag = "2")]
-    pub restriction: ::prost::alloc::string::String,
-}
 /// Rich semantic information of an API field beyond basic typing.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4184,106 +4123,6 @@ pub mod field_info {
                 "IPV4" => Some(Self::Ipv4),
                 "IPV6" => Some(Self::Ipv6),
                 "IPV4_OR_IPV6" => Some(Self::Ipv4OrIpv6),
-                _ => None,
-            }
-        }
-    }
-}
-/// A descriptor for defining project properties for a service. One service may
-/// have many consumer projects, and the service may want to behave differently
-/// depending on some properties on the project. For example, a project may be
-/// associated with a school, or a business, or a government agency, a business
-/// type property on the project may affect how a service responds to the client.
-/// This descriptor defines which properties are allowed to be set on a project.
-///
-/// Example:
-///
-///     project_properties:
-///       properties:
-///       - name: NO_WATERMARK
-///         type: BOOL
-///         description: Allows usage of the API without watermarks.
-///       - name: EXTENDED_TILE_CACHE_PERIOD
-///         type: INT64
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProjectProperties {
-    /// List of per consumer project-specific properties.
-    #[prost(message, repeated, tag = "1")]
-    pub properties: ::prost::alloc::vec::Vec<Property>,
-}
-/// Defines project properties.
-///
-/// API services can define properties that can be assigned to consumer projects
-/// so that backends can perform response customization without having to make
-/// additional calls or maintain additional storage. For example, Maps API
-/// defines properties that controls map tile cache period, or whether to embed a
-/// watermark in a result.
-///
-/// These values can be set via API producer console. Only API providers can
-/// define and set these properties.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Property {
-    /// The name of the property (a.k.a key).
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The type of this property.
-    #[prost(enumeration = "property::PropertyType", tag = "2")]
-    pub r#type: i32,
-    /// The description of the property
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Property`.
-pub mod property {
-    /// Supported data type of the property values
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum PropertyType {
-        /// The type is unspecified, and will result in an error.
-        Unspecified = 0,
-        /// The type is `int64`.
-        Int64 = 1,
-        /// The type is `bool`.
-        Bool = 2,
-        /// The type is `string`.
-        String = 3,
-        /// The type is 'double'.
-        Double = 4,
-    }
-    impl PropertyType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                PropertyType::Unspecified => "UNSPECIFIED",
-                PropertyType::Int64 => "INT64",
-                PropertyType::Bool => "BOOL",
-                PropertyType::String => "STRING",
-                PropertyType::Double => "DOUBLE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED" => Some(Self::Unspecified),
-                "INT64" => Some(Self::Int64),
-                "BOOL" => Some(Self::Bool),
-                "STRING" => Some(Self::String),
-                "DOUBLE" => Some(Self::Double),
                 _ => None,
             }
         }
@@ -4887,6 +4726,167 @@ impl ErrorReason {
             "SERVICE_NOT_VISIBLE" => Some(Self::ServiceNotVisible),
             "GCP_SUSPENDED" => Some(Self::GcpSuspended),
             _ => None,
+        }
+    }
+}
+/// `Visibility` restricts service consumer's access to service elements,
+/// such as whether an application can call a visibility-restricted method.
+/// The restriction is expressed by applying visibility labels on service
+/// elements. The visibility labels are elsewhere linked to service consumers.
+///
+/// A service can define multiple visibility labels, but a service consumer
+/// should be granted at most one visibility label. Multiple visibility
+/// labels for a single service consumer are not supported.
+///
+/// If an element and all its parents have no visibility label, its visibility
+/// is unconditionally granted.
+///
+/// Example:
+///
+///      visibility:
+///        rules:
+///        - selector: google.calendar.Calendar.EnhancedSearch
+///          restriction: PREVIEW
+///        - selector: google.calendar.Calendar.Delegate
+///          restriction: INTERNAL
+///
+/// Here, all methods are publicly visible except for the restricted methods
+/// EnhancedSearch and Delegate.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Visibility {
+    /// A list of visibility rules that apply to individual API elements.
+    ///
+    /// **NOTE:** All service configuration rules follow "last one wins" order.
+    #[prost(message, repeated, tag = "1")]
+    pub rules: ::prost::alloc::vec::Vec<VisibilityRule>,
+}
+/// A visibility rule provides visibility configuration for an individual API
+/// element.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VisibilityRule {
+    /// Selects methods, messages, fields, enums, etc. to which this rule applies.
+    ///
+    /// Refer to [selector][google.api.DocumentationRule.selector] for syntax
+    /// details.
+    #[prost(string, tag = "1")]
+    pub selector: ::prost::alloc::string::String,
+    /// A comma-separated list of visibility labels that apply to the `selector`.
+    /// Any of the listed labels can be used to grant the visibility.
+    ///
+    /// If a rule has multiple labels, removing one of the labels but not all of
+    /// them can break clients.
+    ///
+    /// Example:
+    ///
+    ///      visibility:
+    ///        rules:
+    ///        - selector: google.calendar.Calendar.EnhancedSearch
+    ///          restriction: INTERNAL, PREVIEW
+    ///
+    /// Removing INTERNAL from this restriction will break clients that rely on
+    /// this method and only had access to it through INTERNAL.
+    #[prost(string, tag = "2")]
+    pub restriction: ::prost::alloc::string::String,
+}
+/// A descriptor for defining project properties for a service. One service may
+/// have many consumer projects, and the service may want to behave differently
+/// depending on some properties on the project. For example, a project may be
+/// associated with a school, or a business, or a government agency, a business
+/// type property on the project may affect how a service responds to the client.
+/// This descriptor defines which properties are allowed to be set on a project.
+///
+/// Example:
+///
+///     project_properties:
+///       properties:
+///       - name: NO_WATERMARK
+///         type: BOOL
+///         description: Allows usage of the API without watermarks.
+///       - name: EXTENDED_TILE_CACHE_PERIOD
+///         type: INT64
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProjectProperties {
+    /// List of per consumer project-specific properties.
+    #[prost(message, repeated, tag = "1")]
+    pub properties: ::prost::alloc::vec::Vec<Property>,
+}
+/// Defines project properties.
+///
+/// API services can define properties that can be assigned to consumer projects
+/// so that backends can perform response customization without having to make
+/// additional calls or maintain additional storage. For example, Maps API
+/// defines properties that controls map tile cache period, or whether to embed a
+/// watermark in a result.
+///
+/// These values can be set via API producer console. Only API providers can
+/// define and set these properties.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Property {
+    /// The name of the property (a.k.a key).
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The type of this property.
+    #[prost(enumeration = "property::PropertyType", tag = "2")]
+    pub r#type: i32,
+    /// The description of the property
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Property`.
+pub mod property {
+    /// Supported data type of the property values
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum PropertyType {
+        /// The type is unspecified, and will result in an error.
+        Unspecified = 0,
+        /// The type is `int64`.
+        Int64 = 1,
+        /// The type is `bool`.
+        Bool = 2,
+        /// The type is `string`.
+        String = 3,
+        /// The type is 'double'.
+        Double = 4,
+    }
+    impl PropertyType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                PropertyType::Unspecified => "UNSPECIFIED",
+                PropertyType::Int64 => "INT64",
+                PropertyType::Bool => "BOOL",
+                PropertyType::String => "STRING",
+                PropertyType::Double => "DOUBLE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "INT64" => Some(Self::Int64),
+                "BOOL" => Some(Self::Bool),
+                "STRING" => Some(Self::String),
+                "DOUBLE" => Some(Self::Double),
+                _ => None,
+            }
         }
     }
 }
