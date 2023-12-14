@@ -1,3 +1,80 @@
+/// Generated client implementations.
+pub mod prediction_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// A service for online prediction.
+    #[derive(Debug, Clone)]
+    pub struct PredictionServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> PredictionServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> PredictionServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            PredictionServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+    }
+}
 /// Message describing the Cluster object.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1675,147 +1752,6 @@ pub mod streams_service_client {
                     GrpcMethod::new(
                         "google.cloud.visionai.v1.StreamsService",
                         "MaterializeChannel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// HealthCheckRequest is the request message for Check.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HealthCheckRequest {
-    /// The parent of the resource.
-    #[prost(string, tag = "1")]
-    pub cluster: ::prost::alloc::string::String,
-}
-/// HealthCheckResponse is the response message for Check.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HealthCheckResponse {
-    /// Indicates whether the cluster is in healthy state or not.
-    #[prost(bool, tag = "1")]
-    pub healthy: bool,
-    /// Reason of why the cluster is in unhealthy state.
-    #[prost(string, tag = "2")]
-    pub reason: ::prost::alloc::string::String,
-    /// Other information of the cluster client may be interested.
-    #[prost(message, optional, tag = "3")]
-    pub cluster_info: ::core::option::Option<ClusterInfo>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ClusterInfo {
-    /// The number of active streams in the cluster.
-    #[prost(int32, tag = "1")]
-    pub streams_count: i32,
-    /// The number of active processes in the cluster.
-    #[prost(int32, tag = "2")]
-    pub processes_count: i32,
-}
-/// Generated client implementations.
-pub mod health_check_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// HealthCheckService provides an interface for Vertex AI Vision Cluster Health
-    /// Check.
-    #[derive(Debug, Clone)]
-    pub struct HealthCheckServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> HealthCheckServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> HealthCheckServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            HealthCheckServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// HealthCheck method checks the health status of the cluster.
-        pub async fn health_check(
-            &mut self,
-            request: impl tonic::IntoRequest<super::HealthCheckRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::HealthCheckResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.HealthCheckService/HealthCheck",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.HealthCheckService",
-                        "HealthCheck",
                     ),
                 );
             self.inner.unary(req, path, codec).await
@@ -6092,83 +6028,6 @@ pub mod app_platform_client {
         }
     }
 }
-/// Generated client implementations.
-pub mod prediction_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// A service for online prediction.
-    #[derive(Debug, Clone)]
-    pub struct PredictionServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> PredictionServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> PredictionServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            PredictionServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-    }
-}
 /// The descriptor for a gstreamer buffer payload.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -7053,377 +6912,6 @@ pub mod streaming_service_client {
                     ),
                 );
             self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// Defines the interface of an Operator.
-///
-/// Arguments to an operator are input/output streams that are getting
-/// processesed/returned while attributes are fixed configuration parameters.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OperatorDefinition {
-    /// The name of this operator.
-    ///
-    /// Tentatively [A-Z][a-zA-Z0-9]*, e.g., BboxCounter, PetDetector,
-    /// PetDetector1.
-    #[prost(string, tag = "1")]
-    pub operator: ::prost::alloc::string::String,
-    /// Declares input arguments.
-    #[prost(message, repeated, tag = "2")]
-    pub input_args: ::prost::alloc::vec::Vec<operator_definition::ArgumentDefinition>,
-    /// Declares output arguments.
-    #[prost(message, repeated, tag = "3")]
-    pub output_args: ::prost::alloc::vec::Vec<operator_definition::ArgumentDefinition>,
-    /// Declares the attributes.
-    #[prost(message, repeated, tag = "4")]
-    pub attributes: ::prost::alloc::vec::Vec<operator_definition::AttributeDefinition>,
-    /// The resources for running the operator.
-    #[prost(message, optional, tag = "5")]
-    pub resources: ::core::option::Option<ResourceSpecification>,
-    /// Short description of the operator.
-    #[prost(string, tag = "6")]
-    pub short_description: ::prost::alloc::string::String,
-    /// Full description of the operator.
-    #[prost(string, tag = "7")]
-    pub description: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `OperatorDefinition`.
-pub mod operator_definition {
-    /// Defines an argument to an operator.
-    ///
-    /// Used for both inputs and outputs.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ArgumentDefinition {
-        /// The name of the argument.
-        ///
-        /// Tentatively [a-z](\[_a-z0-9\]*[a-z0-9])?, e.g., video, audio,
-        /// high_fps_frame.
-        #[prost(string, tag = "1")]
-        pub argument: ::prost::alloc::string::String,
-        /// The data type of the argument.
-        ///
-        /// This should match the textual representation of a stream/Packet type.
-        #[prost(string, tag = "2")]
-        pub r#type: ::prost::alloc::string::String,
-    }
-    /// Defines an attribute of an operator.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct AttributeDefinition {
-        /// The name of the attribute.
-        ///
-        /// Tentatively [a-z](\[_a-z0-9\]*[a-z0-9])?, e.g., max_frames_per_video,
-        /// resize_height.
-        #[prost(string, tag = "1")]
-        pub attribute: ::prost::alloc::string::String,
-        /// The type of this attribute.
-        ///
-        /// See attribute_value.proto for possibilities.
-        #[prost(string, tag = "2")]
-        pub r#type: ::prost::alloc::string::String,
-        /// The default value for the attribute.
-        #[prost(message, optional, tag = "3")]
-        pub default_value: ::core::option::Option<super::AttributeValue>,
-    }
-}
-/// ResourceSpec collects a set of resources that can
-/// be used to specify requests and requirements.
-///
-/// Note: Highly experimental as this can be runtime dependent.
-/// Can use the "extras" field to experiment first before trying
-/// to abstract it.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResourceSpecification {
-    /// CPU specification.
-    ///
-    /// Examples:
-    /// "100m", "0.5", "1", "2", ... correspond to
-    /// 0.1, half, 1, or 2 cpus.
-    ///
-    /// Leave empty to let the system decide.
-    ///
-    /// Note that this does *not* determine the cpu vender/make,
-    /// or its underlying clock speed and specific SIMD features.
-    /// It is only the amount time it requires in timeslicing.
-    #[prost(string, tag = "1")]
-    pub cpu: ::prost::alloc::string::String,
-    /// CPU limit.
-    ///
-    /// Examples:
-    /// "100m", "0.5", "1", "2", ... correspond to
-    /// 0.1, half, 1, or 2 cpus.
-    ///
-    /// Leave empty to indicate no limit.
-    #[prost(string, tag = "5")]
-    pub cpu_limits: ::prost::alloc::string::String,
-    /// Memory specification (in bytes).
-    ///
-    /// Examples:
-    /// "128974848", "129e6", "129M", "123Mi", ... correspond to
-    /// 128974848 bytes, 129000000 bytes, 129 mebibytes, 123 megabytes.
-    ///
-    /// Leave empty to let the system decide.
-    #[prost(string, tag = "2")]
-    pub memory: ::prost::alloc::string::String,
-    /// Memory usage limits.
-    ///
-    /// Examples:
-    /// "128974848", "129e6", "129M", "123Mi", ... correspond to
-    /// 128974848 bytes, 129000000 bytes, 129 mebibytes, 123 megabytes.
-    ///
-    /// Leave empty to indicate no limit.
-    #[prost(string, tag = "6")]
-    pub memory_limits: ::prost::alloc::string::String,
-    /// Number of gpus.
-    #[prost(int32, tag = "3")]
-    pub gpus: i32,
-    /// The maximum latency that this operator may use to process an element.
-    ///
-    /// If non positive, then a system default will be used.
-    /// Operator developers should arrange for the system compute resources to be
-    /// aligned with this latency budget; e.g. if you want a ML model to produce
-    /// results within 500ms, then you should make sure you request enough
-    /// cpu/gpu/memory to achieve that.
-    #[prost(int32, tag = "4")]
-    pub latency_budget_ms: i32,
-}
-/// Represents an actual value of an operator attribute.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AttributeValue {
-    /// Attribute value.
-    #[prost(oneof = "attribute_value::Value", tags = "1, 2, 3, 4")]
-    pub value: ::core::option::Option<attribute_value::Value>,
-}
-/// Nested message and enum types in `AttributeValue`.
-pub mod attribute_value {
-    /// Attribute value.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Value {
-        /// int.
-        #[prost(int64, tag = "1")]
-        I(i64),
-        /// float.
-        #[prost(float, tag = "2")]
-        F(f32),
-        /// bool.
-        #[prost(bool, tag = "3")]
-        B(bool),
-        /// string.
-        #[prost(bytes, tag = "4")]
-        S(::prost::bytes::Bytes),
-    }
-}
-/// Defines an Analyzer.
-///
-/// An analyzer processes data from its input streams using the logic defined in
-/// the Operator that it represents. Of course, it produces data for the output
-/// streams declared in the Operator.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AnalyzerDefinition {
-    /// The name of this analyzer.
-    ///
-    /// Tentatively [a-z][a-z0-9]*(_\[a-z0-9\]+)*.
-    #[prost(string, tag = "1")]
-    pub analyzer: ::prost::alloc::string::String,
-    /// The name of the operator that this analyzer runs.
-    ///
-    /// Must match the name of a supported operator.
-    #[prost(string, tag = "2")]
-    pub operator: ::prost::alloc::string::String,
-    /// Input streams.
-    #[prost(message, repeated, tag = "3")]
-    pub inputs: ::prost::alloc::vec::Vec<analyzer_definition::StreamInput>,
-    /// The attribute values that this analyzer applies to the operator.
-    ///
-    /// Supply a mapping between the attribute names and the actual value you wish
-    /// to apply. If an attribute name is omitted, then it will take a
-    /// preconfigured default value.
-    #[prost(btree_map = "string, message", tag = "4")]
-    pub attrs: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        AttributeValue,
-    >,
-    /// Debug options.
-    #[prost(message, optional, tag = "5")]
-    pub debug_options: ::core::option::Option<analyzer_definition::DebugOptions>,
-    /// Operator option.
-    #[prost(message, optional, tag = "6")]
-    pub operator_option: ::core::option::Option<analyzer_definition::OperatorOption>,
-}
-/// Nested message and enum types in `AnalyzerDefinition`.
-pub mod analyzer_definition {
-    /// The inputs to this analyzer.
-    ///
-    /// We accept input name references of the following form:
-    /// <analyzer-name>:<output-argument-name>
-    ///
-    /// Example:
-    ///
-    /// Suppose you had an operator named "SomeOp" that has 2 output
-    /// arguments, the first of which is named "foo" and the second of which is
-    /// named "bar", and an operator named "MyOp" that accepts 2 inputs.
-    ///
-    /// Also suppose that there is an analyzer named "some-analyzer" that is
-    /// running "SomeOp" and another analyzer named "my-analyzer" running "MyOp".
-    ///
-    /// To indicate that "my-analyzer" is to consume "some-analyzer"'s "foo"
-    /// output as its first input and "some-analyzer"'s "bar" output as its
-    /// second input, you can set this field to the following:
-    /// input = \["some-analyzer:foo", "some-analyzer:bar"\]
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct StreamInput {
-        /// The name of the stream input (as discussed above).
-        #[prost(string, tag = "1")]
-        pub input: ::prost::alloc::string::String,
-    }
-    /// Options available for debugging purposes only.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DebugOptions {
-        /// Environment variables.
-        #[prost(btree_map = "string, string", tag = "1")]
-        pub environment_variables: ::prost::alloc::collections::BTreeMap<
-            ::prost::alloc::string::String,
-            ::prost::alloc::string::String,
-        >,
-    }
-    /// Option related to the operator.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct OperatorOption {
-        /// Tag of the operator.
-        #[prost(string, tag = "1")]
-        pub tag: ::prost::alloc::string::String,
-        /// Registry of the operator. e.g. public, dev.
-        #[prost(string, tag = "2")]
-        pub registry: ::prost::alloc::string::String,
-    }
-}
-/// Defines a full analysis.
-///
-/// This is a description of the overall live analytics pipeline.
-/// You may think of this as an edge list representation of a multigraph.
-///
-/// This may be directly authored by a human in protobuf textformat, or it may be
-/// generated by a programming API (perhaps Python or JavaScript depending on
-/// context).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AnalysisDefinition {
-    /// Analyzer definitions.
-    #[prost(message, repeated, tag = "1")]
-    pub analyzers: ::prost::alloc::vec::Vec<AnalyzerDefinition>,
-}
-/// Message describing the status of the Process.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RunStatus {
-    /// The state of the Process.
-    #[prost(enumeration = "run_status::State", tag = "1")]
-    pub state: i32,
-    /// The reason of becoming the state.
-    #[prost(string, tag = "2")]
-    pub reason: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `RunStatus`.
-pub mod run_status {
-    /// State represents the running status of the Process.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// State is unspecified.
-        Unspecified = 0,
-        /// INITIALIZING means the Process is scheduled but yet ready to handle
-        /// real traffic.
-        Initializing = 1,
-        /// RUNNING means the Process is up running and handling traffic.
-        Running = 2,
-        /// COMPLETED means the Process has completed the processing, especially
-        /// for non-streaming use case.
-        Completed = 3,
-        /// FAILED means the Process failed to complete the processing.
-        Failed = 4,
-        /// PENDING means the Process is created but yet to be scheduled.
-        Pending = 5,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Initializing => "INITIALIZING",
-                State::Running => "RUNNING",
-                State::Completed => "COMPLETED",
-                State::Failed => "FAILED",
-                State::Pending => "PENDING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "INITIALIZING" => Some(Self::Initializing),
-                "RUNNING" => Some(Self::Running),
-                "COMPLETED" => Some(Self::Completed),
-                "FAILED" => Some(Self::Failed),
-                "PENDING" => Some(Self::Pending),
-                _ => None,
-            }
-        }
-    }
-}
-/// RunMode represents the mode to launch the Process on.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum RunMode {
-    /// Mode is unspecified.
-    Unspecified = 0,
-    /// Live mode. Meaning the Process is launched to handle live video
-    /// source, and possible packet drops are expected.
-    Live = 1,
-    /// Submission mode. Meaning the Process is launched to handle bounded video
-    /// files, with no packet drop. Completion status is tracked.
-    Submission = 2,
-}
-impl RunMode {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            RunMode::Unspecified => "RUN_MODE_UNSPECIFIED",
-            RunMode::Live => "LIVE",
-            RunMode::Submission => "SUBMISSION",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "RUN_MODE_UNSPECIFIED" => Some(Self::Unspecified),
-            "LIVE" => Some(Self::Live),
-            "SUBMISSION" => Some(Self::Submission),
-            _ => None,
         }
     }
 }
@@ -12703,6 +12191,518 @@ pub mod warehouse_client {
                     ),
                 );
             self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// HealthCheckRequest is the request message for Check.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HealthCheckRequest {
+    /// The parent of the resource.
+    #[prost(string, tag = "1")]
+    pub cluster: ::prost::alloc::string::String,
+}
+/// HealthCheckResponse is the response message for Check.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HealthCheckResponse {
+    /// Indicates whether the cluster is in healthy state or not.
+    #[prost(bool, tag = "1")]
+    pub healthy: bool,
+    /// Reason of why the cluster is in unhealthy state.
+    #[prost(string, tag = "2")]
+    pub reason: ::prost::alloc::string::String,
+    /// Other information of the cluster client may be interested.
+    #[prost(message, optional, tag = "3")]
+    pub cluster_info: ::core::option::Option<ClusterInfo>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ClusterInfo {
+    /// The number of active streams in the cluster.
+    #[prost(int32, tag = "1")]
+    pub streams_count: i32,
+    /// The number of active processes in the cluster.
+    #[prost(int32, tag = "2")]
+    pub processes_count: i32,
+}
+/// Generated client implementations.
+pub mod health_check_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// HealthCheckService provides an interface for Vertex AI Vision Cluster Health
+    /// Check.
+    #[derive(Debug, Clone)]
+    pub struct HealthCheckServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> HealthCheckServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> HealthCheckServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            HealthCheckServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// HealthCheck method checks the health status of the cluster.
+        pub async fn health_check(
+            &mut self,
+            request: impl tonic::IntoRequest<super::HealthCheckRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::HealthCheckResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.HealthCheckService/HealthCheck",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.HealthCheckService",
+                        "HealthCheck",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Defines the interface of an Operator.
+///
+/// Arguments to an operator are input/output streams that are getting
+/// processesed/returned while attributes are fixed configuration parameters.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OperatorDefinition {
+    /// The name of this operator.
+    ///
+    /// Tentatively [A-Z][a-zA-Z0-9]*, e.g., BboxCounter, PetDetector,
+    /// PetDetector1.
+    #[prost(string, tag = "1")]
+    pub operator: ::prost::alloc::string::String,
+    /// Declares input arguments.
+    #[prost(message, repeated, tag = "2")]
+    pub input_args: ::prost::alloc::vec::Vec<operator_definition::ArgumentDefinition>,
+    /// Declares output arguments.
+    #[prost(message, repeated, tag = "3")]
+    pub output_args: ::prost::alloc::vec::Vec<operator_definition::ArgumentDefinition>,
+    /// Declares the attributes.
+    #[prost(message, repeated, tag = "4")]
+    pub attributes: ::prost::alloc::vec::Vec<operator_definition::AttributeDefinition>,
+    /// The resources for running the operator.
+    #[prost(message, optional, tag = "5")]
+    pub resources: ::core::option::Option<ResourceSpecification>,
+    /// Short description of the operator.
+    #[prost(string, tag = "6")]
+    pub short_description: ::prost::alloc::string::String,
+    /// Full description of the operator.
+    #[prost(string, tag = "7")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `OperatorDefinition`.
+pub mod operator_definition {
+    /// Defines an argument to an operator.
+    ///
+    /// Used for both inputs and outputs.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ArgumentDefinition {
+        /// The name of the argument.
+        ///
+        /// Tentatively [a-z](\[_a-z0-9\]*[a-z0-9])?, e.g., video, audio,
+        /// high_fps_frame.
+        #[prost(string, tag = "1")]
+        pub argument: ::prost::alloc::string::String,
+        /// The data type of the argument.
+        ///
+        /// This should match the textual representation of a stream/Packet type.
+        #[prost(string, tag = "2")]
+        pub r#type: ::prost::alloc::string::String,
+    }
+    /// Defines an attribute of an operator.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AttributeDefinition {
+        /// The name of the attribute.
+        ///
+        /// Tentatively [a-z](\[_a-z0-9\]*[a-z0-9])?, e.g., max_frames_per_video,
+        /// resize_height.
+        #[prost(string, tag = "1")]
+        pub attribute: ::prost::alloc::string::String,
+        /// The type of this attribute.
+        ///
+        /// See attribute_value.proto for possibilities.
+        #[prost(string, tag = "2")]
+        pub r#type: ::prost::alloc::string::String,
+        /// The default value for the attribute.
+        #[prost(message, optional, tag = "3")]
+        pub default_value: ::core::option::Option<super::AttributeValue>,
+    }
+}
+/// ResourceSpec collects a set of resources that can
+/// be used to specify requests and requirements.
+///
+/// Note: Highly experimental as this can be runtime dependent.
+/// Can use the "extras" field to experiment first before trying
+/// to abstract it.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResourceSpecification {
+    /// CPU specification.
+    ///
+    /// Examples:
+    /// "100m", "0.5", "1", "2", ... correspond to
+    /// 0.1, half, 1, or 2 cpus.
+    ///
+    /// Leave empty to let the system decide.
+    ///
+    /// Note that this does *not* determine the cpu vender/make,
+    /// or its underlying clock speed and specific SIMD features.
+    /// It is only the amount time it requires in timeslicing.
+    #[prost(string, tag = "1")]
+    pub cpu: ::prost::alloc::string::String,
+    /// CPU limit.
+    ///
+    /// Examples:
+    /// "100m", "0.5", "1", "2", ... correspond to
+    /// 0.1, half, 1, or 2 cpus.
+    ///
+    /// Leave empty to indicate no limit.
+    #[prost(string, tag = "5")]
+    pub cpu_limits: ::prost::alloc::string::String,
+    /// Memory specification (in bytes).
+    ///
+    /// Examples:
+    /// "128974848", "129e6", "129M", "123Mi", ... correspond to
+    /// 128974848 bytes, 129000000 bytes, 129 mebibytes, 123 megabytes.
+    ///
+    /// Leave empty to let the system decide.
+    #[prost(string, tag = "2")]
+    pub memory: ::prost::alloc::string::String,
+    /// Memory usage limits.
+    ///
+    /// Examples:
+    /// "128974848", "129e6", "129M", "123Mi", ... correspond to
+    /// 128974848 bytes, 129000000 bytes, 129 mebibytes, 123 megabytes.
+    ///
+    /// Leave empty to indicate no limit.
+    #[prost(string, tag = "6")]
+    pub memory_limits: ::prost::alloc::string::String,
+    /// Number of gpus.
+    #[prost(int32, tag = "3")]
+    pub gpus: i32,
+    /// The maximum latency that this operator may use to process an element.
+    ///
+    /// If non positive, then a system default will be used.
+    /// Operator developers should arrange for the system compute resources to be
+    /// aligned with this latency budget; e.g. if you want a ML model to produce
+    /// results within 500ms, then you should make sure you request enough
+    /// cpu/gpu/memory to achieve that.
+    #[prost(int32, tag = "4")]
+    pub latency_budget_ms: i32,
+}
+/// Represents an actual value of an operator attribute.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AttributeValue {
+    /// Attribute value.
+    #[prost(oneof = "attribute_value::Value", tags = "1, 2, 3, 4")]
+    pub value: ::core::option::Option<attribute_value::Value>,
+}
+/// Nested message and enum types in `AttributeValue`.
+pub mod attribute_value {
+    /// Attribute value.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Value {
+        /// int.
+        #[prost(int64, tag = "1")]
+        I(i64),
+        /// float.
+        #[prost(float, tag = "2")]
+        F(f32),
+        /// bool.
+        #[prost(bool, tag = "3")]
+        B(bool),
+        /// string.
+        #[prost(bytes, tag = "4")]
+        S(::prost::bytes::Bytes),
+    }
+}
+/// Defines an Analyzer.
+///
+/// An analyzer processes data from its input streams using the logic defined in
+/// the Operator that it represents. Of course, it produces data for the output
+/// streams declared in the Operator.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AnalyzerDefinition {
+    /// The name of this analyzer.
+    ///
+    /// Tentatively [a-z][a-z0-9]*(_\[a-z0-9\]+)*.
+    #[prost(string, tag = "1")]
+    pub analyzer: ::prost::alloc::string::String,
+    /// The name of the operator that this analyzer runs.
+    ///
+    /// Must match the name of a supported operator.
+    #[prost(string, tag = "2")]
+    pub operator: ::prost::alloc::string::String,
+    /// Input streams.
+    #[prost(message, repeated, tag = "3")]
+    pub inputs: ::prost::alloc::vec::Vec<analyzer_definition::StreamInput>,
+    /// The attribute values that this analyzer applies to the operator.
+    ///
+    /// Supply a mapping between the attribute names and the actual value you wish
+    /// to apply. If an attribute name is omitted, then it will take a
+    /// preconfigured default value.
+    #[prost(btree_map = "string, message", tag = "4")]
+    pub attrs: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        AttributeValue,
+    >,
+    /// Debug options.
+    #[prost(message, optional, tag = "5")]
+    pub debug_options: ::core::option::Option<analyzer_definition::DebugOptions>,
+    /// Operator option.
+    #[prost(message, optional, tag = "6")]
+    pub operator_option: ::core::option::Option<analyzer_definition::OperatorOption>,
+}
+/// Nested message and enum types in `AnalyzerDefinition`.
+pub mod analyzer_definition {
+    /// The inputs to this analyzer.
+    ///
+    /// We accept input name references of the following form:
+    /// <analyzer-name>:<output-argument-name>
+    ///
+    /// Example:
+    ///
+    /// Suppose you had an operator named "SomeOp" that has 2 output
+    /// arguments, the first of which is named "foo" and the second of which is
+    /// named "bar", and an operator named "MyOp" that accepts 2 inputs.
+    ///
+    /// Also suppose that there is an analyzer named "some-analyzer" that is
+    /// running "SomeOp" and another analyzer named "my-analyzer" running "MyOp".
+    ///
+    /// To indicate that "my-analyzer" is to consume "some-analyzer"'s "foo"
+    /// output as its first input and "some-analyzer"'s "bar" output as its
+    /// second input, you can set this field to the following:
+    /// input = \["some-analyzer:foo", "some-analyzer:bar"\]
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct StreamInput {
+        /// The name of the stream input (as discussed above).
+        #[prost(string, tag = "1")]
+        pub input: ::prost::alloc::string::String,
+    }
+    /// Options available for debugging purposes only.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DebugOptions {
+        /// Environment variables.
+        #[prost(btree_map = "string, string", tag = "1")]
+        pub environment_variables: ::prost::alloc::collections::BTreeMap<
+            ::prost::alloc::string::String,
+            ::prost::alloc::string::String,
+        >,
+    }
+    /// Option related to the operator.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct OperatorOption {
+        /// Tag of the operator.
+        #[prost(string, tag = "1")]
+        pub tag: ::prost::alloc::string::String,
+        /// Registry of the operator. e.g. public, dev.
+        #[prost(string, tag = "2")]
+        pub registry: ::prost::alloc::string::String,
+    }
+}
+/// Defines a full analysis.
+///
+/// This is a description of the overall live analytics pipeline.
+/// You may think of this as an edge list representation of a multigraph.
+///
+/// This may be directly authored by a human in protobuf textformat, or it may be
+/// generated by a programming API (perhaps Python or JavaScript depending on
+/// context).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AnalysisDefinition {
+    /// Analyzer definitions.
+    #[prost(message, repeated, tag = "1")]
+    pub analyzers: ::prost::alloc::vec::Vec<AnalyzerDefinition>,
+}
+/// Message describing the status of the Process.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RunStatus {
+    /// The state of the Process.
+    #[prost(enumeration = "run_status::State", tag = "1")]
+    pub state: i32,
+    /// The reason of becoming the state.
+    #[prost(string, tag = "2")]
+    pub reason: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `RunStatus`.
+pub mod run_status {
+    /// State represents the running status of the Process.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// State is unspecified.
+        Unspecified = 0,
+        /// INITIALIZING means the Process is scheduled but yet ready to handle
+        /// real traffic.
+        Initializing = 1,
+        /// RUNNING means the Process is up running and handling traffic.
+        Running = 2,
+        /// COMPLETED means the Process has completed the processing, especially
+        /// for non-streaming use case.
+        Completed = 3,
+        /// FAILED means the Process failed to complete the processing.
+        Failed = 4,
+        /// PENDING means the Process is created but yet to be scheduled.
+        Pending = 5,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Initializing => "INITIALIZING",
+                State::Running => "RUNNING",
+                State::Completed => "COMPLETED",
+                State::Failed => "FAILED",
+                State::Pending => "PENDING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "INITIALIZING" => Some(Self::Initializing),
+                "RUNNING" => Some(Self::Running),
+                "COMPLETED" => Some(Self::Completed),
+                "FAILED" => Some(Self::Failed),
+                "PENDING" => Some(Self::Pending),
+                _ => None,
+            }
+        }
+    }
+}
+/// RunMode represents the mode to launch the Process on.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum RunMode {
+    /// Mode is unspecified.
+    Unspecified = 0,
+    /// Live mode. Meaning the Process is launched to handle live video
+    /// source, and possible packet drops are expected.
+    Live = 1,
+    /// Submission mode. Meaning the Process is launched to handle bounded video
+    /// files, with no packet drop. Completion status is tracked.
+    Submission = 2,
+}
+impl RunMode {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            RunMode::Unspecified => "RUN_MODE_UNSPECIFIED",
+            RunMode::Live => "LIVE",
+            RunMode::Submission => "SUBMISSION",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "RUN_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+            "LIVE" => Some(Self::Live),
+            "SUBMISSION" => Some(Self::Submission),
+            _ => None,
         }
     }
 }
