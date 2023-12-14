@@ -6455,53 +6455,30 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>output_uri: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A specification of a relational table.
-/// The table&#39;s schema is represented via its child column specs. It is
-/// pre-populated as part of ImportData by schema inference algorithm, the
-/// version of which is a required parameter of ImportData InputConfig.
-/// Note: While working with a table, at times the schema may be
-/// inconsistent with the data in the table (e.g. string in a FLOAT64 column).
-/// The consistency validation is done upon creation of a model.
-/// Used by:
-///    *   Tables
+<span class="doccomment">/// A vertex represents a 2D point in the image.
+/// The normalized vertex coordinates are between 0 to 1 fractions relative to
+/// the original plane (image, video). E.g. if the plane (e.g. whole image) would
+/// have size 10 x 20 then a point with normalized coordinates (0.1, 0.3) would
+/// be at the position (1, 6) on that plane.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TableSpec {
-    <span class="doccomment">/// Output only. The resource name of the table spec.
-    /// Form:
-    ///
-    /// `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/tableSpecs/{table_spec_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// column_spec_id of the time column. Only used if the parent dataset&#39;s
-    /// ml_use_column_spec_id is not set. Used to split rows into TRAIN, VALIDATE
-    /// and TEST sets such that oldest rows go to TRAIN set, newest to TEST, and
-    /// those in between to VALIDATE.
-    /// Required type: TIMESTAMP.
-    /// If both this column and ml_use_column are not set, then ML use of all rows
-    /// will be assigned by AutoML. NOTE: Updates of this field will instantly
-    /// affect any other users concurrently working with the dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>time_column_spec_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The number of rows (i.e. examples) in the table.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>row_count: i64,
-    <span class="doccomment">/// Output only. The number of valid rows (i.e. without values that don&#39;t match
-    /// DataType-s of their columns).
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>valid_row_count: i64,
-    <span class="doccomment">/// Output only. The number of columns of the table. That is, the number of
-    /// child ColumnSpec-s.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>column_count: i64,
-    <span class="doccomment">/// Output only. Input configs via which data currently residing in the table
-    /// had been imported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>input_configs: ::prost::alloc::vec::Vec&lt;InputConfig&gt;,
-    <span class="doccomment">/// Used to perform consistent read-modify-write updates. If not set, a blind
-    /// &quot;overwrite&quot; update happens.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+</span><span class="kw">pub struct </span>NormalizedVertex {
+    <span class="doccomment">/// Required. Horizontal coordinate.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>x: f32,
+    <span class="doccomment">/// Required. Vertical coordinate.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>y: f32,
+}
+<span class="doccomment">/// A bounding polygon of a detected object on a plane.
+/// On output both vertices and normalized_vertices are provided.
+/// The polygon is formed by connecting vertices in the order they are listed.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BoundingPoly {
+    <span class="doccomment">/// Output only . The bounding polygon normalized vertices.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>normalized_vertices: ::prost::alloc::vec::Vec&lt;NormalizedVertex&gt;,
 }
 <span class="doccomment">/// A time period inside of an example that has a time dimension (e.g. video).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6515,6 +6492,375 @@
     /// example start.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>end_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
+}
+<span class="doccomment">/// A contiguous part of a text (string), assuming it has an UTF-8 NFC encoding.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextSegment {
+    <span class="doccomment">/// Output only. The content of the TextSegment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Zero-based character index of the first character of the text
+    /// segment (counting characters from the beginning of the text).
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>start_offset: i64,
+    <span class="doccomment">/// Required. Zero-based character index of the first character past the end of
+    /// the text segment (counting character from the beginning of the text).
+    /// The character at the end_offset is NOT included in the text segment.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end_offset: i64,
+}
+<span class="doccomment">/// A representation of an image.
+/// Only images up to 30MB in size are supported.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Image {
+    <span class="doccomment">/// Output only. HTTP URI to the thumbnail image.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>thumbnail_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Input only. The data representing the image.
+    /// For Predict calls [image_bytes][google.cloud.automl.v1beta1.Image.image_bytes] must be set, as other options are not
+    /// currently supported by prediction API. You can read the contents of an
+    /// uploaded image by using the [content_uri][google.cloud.automl.v1beta1.Image.content_uri] field.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;image::Data&quot;</span>, tags = <span class="string">&quot;1, 6&quot;</span>)]
+    </span><span class="kw">pub </span>data: ::core::option::Option&lt;image::Data&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Image`.
+</span><span class="kw">pub mod </span>image {
+    <span class="doccomment">/// Input only. The data representing the image.
+    /// For Predict calls [image_bytes][google.cloud.automl.v1beta1.Image.image_bytes] must be set, as other options are not
+    /// currently supported by prediction API. You can read the contents of an
+    /// uploaded image by using the [content_uri][google.cloud.automl.v1beta1.Image.content_uri] field.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Data {
+        <span class="doccomment">/// Image content represented as a stream of bytes.
+        /// Note: As with all `bytes` fields, protobuffers use a pure binary
+        /// representation, whereas JSON representations use base64.
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>ImageBytes(::prost::bytes::Bytes),
+        <span class="doccomment">/// An input config specifying the content of the image.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>InputConfig(<span class="kw">super</span>::InputConfig),
+    }
+}
+<span class="doccomment">/// A representation of a text snippet.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextSnippet {
+    <span class="doccomment">/// Required. The content of the text snippet as a string. Up to 250000
+    /// characters long.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The format of [content][google.cloud.automl.v1beta1.TextSnippet.content]. Currently the only two allowed
+    /// values are &quot;text/html&quot; and &quot;text/plain&quot;. If left blank, the format is
+    /// automatically determined from the type of the uploaded [content][google.cloud.automl.v1beta1.TextSnippet.content].
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. HTTP URI where you can download the content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>content_uri: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Message that describes dimension of a document.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DocumentDimensions {
+    <span class="doccomment">/// Unit of the dimension.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;document_dimensions::DocumentDimensionUnit&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>unit: i32,
+    <span class="doccomment">/// Width value of the document, works together with the unit.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>width: f32,
+    <span class="doccomment">/// Height value of the document, works together with the unit.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>height: f32,
+}
+<span class="doccomment">/// Nested message and enum types in `DocumentDimensions`.
+</span><span class="kw">pub mod </span>document_dimensions {
+    <span class="doccomment">/// Unit of the document dimension.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>DocumentDimensionUnit {
+        <span class="doccomment">/// Should not be used.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Document dimension is measured in inches.
+        </span>Inch = <span class="number">1</span>,
+        <span class="doccomment">/// Document dimension is measured in centimeters.
+        </span>Centimeter = <span class="number">2</span>,
+        <span class="doccomment">/// Document dimension is measured in points. 72 points = 1 inch.
+        </span>Point = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>DocumentDimensionUnit {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                DocumentDimensionUnit::Unspecified =&gt; {
+                    <span class="string">&quot;DOCUMENT_DIMENSION_UNIT_UNSPECIFIED&quot;
+                </span>}
+                DocumentDimensionUnit::Inch =&gt; <span class="string">&quot;INCH&quot;</span>,
+                DocumentDimensionUnit::Centimeter =&gt; <span class="string">&quot;CENTIMETER&quot;</span>,
+                DocumentDimensionUnit::Point =&gt; <span class="string">&quot;POINT&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;DOCUMENT_DIMENSION_UNIT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;INCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inch),
+                <span class="string">&quot;CENTIMETER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Centimeter),
+                <span class="string">&quot;POINT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Point),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// A structured text document e.g. a PDF.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Document {
+    <span class="doccomment">/// An input config specifying the content of the document.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;DocumentInputConfig&gt;,
+    <span class="doccomment">/// The plain text version of this document.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>document_text: ::core::option::Option&lt;TextSnippet&gt;,
+    <span class="doccomment">/// Describes the layout of the document.
+    /// Sorted by [page_number][].
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>layout: ::prost::alloc::vec::Vec&lt;document::Layout&gt;,
+    <span class="doccomment">/// The dimensions of the page in the document.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>document_dimensions: ::core::option::Option&lt;DocumentDimensions&gt;,
+    <span class="doccomment">/// Number of pages in the document.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>page_count: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `Document`.
+</span><span class="kw">pub mod </span>document {
+    <span class="doccomment">/// Describes the layout information of a [text_segment][google.cloud.automl.v1beta1.Document.Layout.text_segment] in the document.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Layout {
+        <span class="doccomment">/// Text Segment that represents a segment in
+        /// [document_text][google.cloud.automl.v1beta1.Document.document_text].
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>text_segment: ::core::option::Option&lt;<span class="kw">super</span>::TextSegment&gt;,
+        <span class="doccomment">/// Page number of the [text_segment][google.cloud.automl.v1beta1.Document.Layout.text_segment] in the original document, starts
+        /// from 1.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>page_number: i32,
+        <span class="doccomment">/// The position of the [text_segment][google.cloud.automl.v1beta1.Document.Layout.text_segment] in the page.
+        /// Contains exactly 4
+        ///
+        /// [normalized_vertices][google.cloud.automl.v1beta1.BoundingPoly.normalized_vertices]
+        /// and they are connected by edges in the order provided, which will
+        /// represent a rectangle parallel to the frame. The
+        /// [NormalizedVertex-s][google.cloud.automl.v1beta1.NormalizedVertex] are
+        /// relative to the page.
+        /// Coordinates are based on top-left as point (0,0).
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>bounding_poly: ::core::option::Option&lt;<span class="kw">super</span>::BoundingPoly&gt;,
+        <span class="doccomment">/// The type of the [text_segment][google.cloud.automl.v1beta1.Document.Layout.text_segment] in document.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;layout::TextSegmentType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>text_segment_type: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `Layout`.
+    </span><span class="kw">pub mod </span>layout {
+        <span class="doccomment">/// The type of TextSegment in the context of the original document.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>TextSegmentType {
+            <span class="doccomment">/// Should not be used.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// The text segment is a token. e.g. word.
+            </span>Token = <span class="number">1</span>,
+            <span class="doccomment">/// The text segment is a paragraph.
+            </span>Paragraph = <span class="number">2</span>,
+            <span class="doccomment">/// The text segment is a form field.
+            </span>FormField = <span class="number">3</span>,
+            <span class="doccomment">/// The text segment is the name part of a form field. It will be treated
+            /// as child of another FORM_FIELD TextSegment if its span is subspan of
+            /// another TextSegment with type FORM_FIELD.
+            </span>FormFieldName = <span class="number">4</span>,
+            <span class="doccomment">/// The text segment is the text content part of a form field. It will be
+            /// treated as child of another FORM_FIELD TextSegment if its span is
+            /// subspan of another TextSegment with type FORM_FIELD.
+            </span>FormFieldContents = <span class="number">5</span>,
+            <span class="doccomment">/// The text segment is a whole table, including headers, and all rows.
+            </span>Table = <span class="number">6</span>,
+            <span class="doccomment">/// The text segment is a table&#39;s headers. It will be treated as child of
+            /// another TABLE TextSegment if its span is subspan of another TextSegment
+            /// with type TABLE.
+            </span>TableHeader = <span class="number">7</span>,
+            <span class="doccomment">/// The text segment is a row in table. It will be treated as child of
+            /// another TABLE TextSegment if its span is subspan of another TextSegment
+            /// with type TABLE.
+            </span>TableRow = <span class="number">8</span>,
+            <span class="doccomment">/// The text segment is a cell in table. It will be treated as child of
+            /// another TABLE_ROW TextSegment if its span is subspan of another
+            /// TextSegment with type TABLE_ROW.
+            </span>TableCell = <span class="number">9</span>,
+        }
+        <span class="kw">impl </span>TextSegmentType {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    TextSegmentType::Unspecified =&gt; <span class="string">&quot;TEXT_SEGMENT_TYPE_UNSPECIFIED&quot;</span>,
+                    TextSegmentType::Token =&gt; <span class="string">&quot;TOKEN&quot;</span>,
+                    TextSegmentType::Paragraph =&gt; <span class="string">&quot;PARAGRAPH&quot;</span>,
+                    TextSegmentType::FormField =&gt; <span class="string">&quot;FORM_FIELD&quot;</span>,
+                    TextSegmentType::FormFieldName =&gt; <span class="string">&quot;FORM_FIELD_NAME&quot;</span>,
+                    TextSegmentType::FormFieldContents =&gt; <span class="string">&quot;FORM_FIELD_CONTENTS&quot;</span>,
+                    TextSegmentType::Table =&gt; <span class="string">&quot;TABLE&quot;</span>,
+                    TextSegmentType::TableHeader =&gt; <span class="string">&quot;TABLE_HEADER&quot;</span>,
+                    TextSegmentType::TableRow =&gt; <span class="string">&quot;TABLE_ROW&quot;</span>,
+                    TextSegmentType::TableCell =&gt; <span class="string">&quot;TABLE_CELL&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;TEXT_SEGMENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;TOKEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Token),
+                    <span class="string">&quot;PARAGRAPH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paragraph),
+                    <span class="string">&quot;FORM_FIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FormField),
+                    <span class="string">&quot;FORM_FIELD_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FormFieldName),
+                    <span class="string">&quot;FORM_FIELD_CONTENTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FormFieldContents),
+                    <span class="string">&quot;TABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Table),
+                    <span class="string">&quot;TABLE_HEADER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TableHeader),
+                    <span class="string">&quot;TABLE_ROW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TableRow),
+                    <span class="string">&quot;TABLE_CELL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TableCell),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+}
+<span class="doccomment">/// A representation of a row in a relational table.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Row {
+    <span class="doccomment">/// The resource IDs of the column specs describing the columns of the row.
+    /// If set must contain, but possibly in a different order, all input
+    /// feature
+    ///
+    /// [column_spec_ids][google.cloud.automl.v1beta1.TablesModelMetadata.input_feature_column_specs]
+    /// of the Model this row is being passed to.
+    /// Note: The below `values` field must match order of this field, if this
+    /// field is set.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>column_spec_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Required. The values of the row cells, given in the same order as the
+    /// column_spec_ids, or, if not set, then in the same order as input
+    /// feature
+    ///
+    /// [column_specs][google.cloud.automl.v1beta1.TablesModelMetadata.input_feature_column_specs]
+    /// of the Model this row is being passed to.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost_types::Value&gt;,
+}
+<span class="doccomment">/// Example data used for training or prediction.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExamplePayload {
+    <span class="doccomment">/// Required. Input only. The example data.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;example_payload::Payload&quot;</span>, tags = <span class="string">&quot;1, 2, 4, 3&quot;</span>)]
+    </span><span class="kw">pub </span>payload: ::core::option::Option&lt;example_payload::Payload&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ExamplePayload`.
+</span><span class="kw">pub mod </span>example_payload {
+    <span class="doccomment">/// Required. Input only. The example data.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Payload {
+        <span class="doccomment">/// Example image.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>Image(<span class="kw">super</span>::Image),
+        <span class="doccomment">/// Example text.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>TextSnippet(<span class="kw">super</span>::TextSnippet),
+        <span class="doccomment">/// Example document.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>Document(<span class="kw">super</span>::Document),
+        <span class="doccomment">/// Example relational table row.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>Row(<span class="kw">super</span>::Row),
+    }
+}
+<span class="doccomment">/// Dataset metadata that is specific to translation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TranslationDatasetMetadata {
+    <span class="doccomment">/// Required. The BCP-47 language code of the source language.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>source_language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The BCP-47 language code of the target language.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>target_language_code: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Evaluation metrics for the dataset.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TranslationEvaluationMetrics {
+    <span class="doccomment">/// Output only. BLEU score.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>bleu_score: f64,
+    <span class="doccomment">/// Output only. BLEU score for base model.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>base_bleu_score: f64,
+}
+<span class="doccomment">/// Model metadata that is specific to translation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TranslationModelMetadata {
+    <span class="doccomment">/// The resource name of the model to use as a baseline to train the custom
+    /// model. If unset, we use the default base model provided by Google
+    /// Translate. Format:
+    /// `projects/{project_id}/locations/{location_id}/models/{model_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>base_model: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Inferred from the dataset.
+    /// The source languge (The BCP-47 language code) that is used for training.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>source_language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The target languge (The BCP-47 language code) that is used for
+    /// training.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>target_language_code: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Annotation details specific to translation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TranslationAnnotation {
+    <span class="doccomment">/// Output only . The translated content.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>translated_content: ::core::option::Option&lt;TextSnippet&gt;,
 }
 <span class="doccomment">/// Contains annotation details specific to classification.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6749,6 +7095,286 @@
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
+}
+<span class="doccomment">/// Contains annotation details specific to text sentiment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextSentimentAnnotation {
+    <span class="doccomment">/// Output only. The sentiment with the semantic, as given to the
+    /// [AutoMl.ImportData][google.cloud.automl.v1beta1.AutoMl.ImportData] when populating the dataset from which the model used
+    /// for the prediction had been trained.
+    /// The sentiment values are between 0 and
+    /// Dataset.text_sentiment_dataset_metadata.sentiment_max (inclusive),
+    /// with higher value meaning more positive sentiment. They are completely
+    /// relative, i.e. 0 means least positive sentiment and sentiment_max means
+    /// the most positive from the sentiments present in the train data. Therefore
+    ///   e.g. if train data had only negative sentiment, then sentiment_max, would
+    /// be still negative (although least negative).
+    /// The sentiment shouldn&#39;t be confused with &quot;score&quot; or &quot;magnitude&quot;
+    /// from the previous Natural Language Sentiment Analysis API.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>sentiment: i32,
+}
+<span class="doccomment">/// Model evaluation metrics for text sentiment problems.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextSentimentEvaluationMetrics {
+    <span class="doccomment">/// Output only. Precision.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>precision: f32,
+    <span class="doccomment">/// Output only. Recall.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>recall: f32,
+    <span class="doccomment">/// Output only. The harmonic mean of recall and precision.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>f1_score: f32,
+    <span class="doccomment">/// Output only. Mean absolute error. Only set for the overall model
+    /// evaluation, not for evaluation of a single annotation spec.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>mean_absolute_error: f32,
+    <span class="doccomment">/// Output only. Mean squared error. Only set for the overall model
+    /// evaluation, not for evaluation of a single annotation spec.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>mean_squared_error: f32,
+    <span class="doccomment">/// Output only. Linear weighted kappa. Only set for the overall model
+    /// evaluation, not for evaluation of a single annotation spec.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>linear_kappa: f32,
+    <span class="doccomment">/// Output only. Quadratic weighted kappa. Only set for the overall model
+    /// evaluation, not for evaluation of a single annotation spec.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>quadratic_kappa: f32,
+    <span class="doccomment">/// Output only. Confusion matrix of the evaluation.
+    /// Only set for the overall model evaluation, not for evaluation of a single
+    /// annotation spec.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>confusion_matrix: ::core::option::Option&lt;
+        classification_evaluation_metrics::ConfusionMatrix,
+    &gt;,
+    <span class="doccomment">/// Output only. The annotation spec ids used for this evaluation.
+    /// Deprecated .
+    </span><span class="attr">#[deprecated]
+    #[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Dataset metadata specific to video classification.
+/// All Video Classification datasets are treated as multi label.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VideoClassificationDatasetMetadata {}
+<span class="doccomment">/// Dataset metadata specific to video object tracking.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VideoObjectTrackingDatasetMetadata {}
+<span class="doccomment">/// Model metadata specific to video classification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VideoClassificationModelMetadata {}
+<span class="doccomment">/// Model metadata specific to video object tracking.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VideoObjectTrackingModelMetadata {}
+<span class="doccomment">/// A range between two double numbers.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DoubleRange {
+    <span class="doccomment">/// Start of the range, inclusive.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>start: f64,
+    <span class="doccomment">/// End of the range, exclusive.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end: f64,
+}
+<span class="doccomment">/// A definition of an annotation spec.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AnnotationSpec {
+    <span class="doccomment">/// Output only. Resource name of the annotation spec.
+    /// Form:
+    ///
+    /// &#39;projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/annotationSpecs/{annotation_spec_id}&#39;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The name of the annotation spec to show in the interface. The name can be
+    /// up to 32 characters long and must match the regexp `\[a-zA-Z0-9_\]+`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The number of examples in the parent dataset
+    /// labeled by the annotation spec.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>example_count: i32,
+}
+<span class="doccomment">/// Dataset metadata that is specific to image classification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageClassificationDatasetMetadata {
+    <span class="doccomment">/// Required. Type of the classification problem.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ClassificationType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>classification_type: i32,
+}
+<span class="doccomment">/// Dataset metadata specific to image object detection.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageObjectDetectionDatasetMetadata {}
+<span class="doccomment">/// Model metadata for image classification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageClassificationModelMetadata {
+    <span class="doccomment">/// Optional. The ID of the `base` model. If it is specified, the new model
+    /// will be created based on the `base` model. Otherwise, the new model will be
+    /// created from scratch. The `base` model must be in the same
+    /// `project` and `location` as the new model to create, and have the same
+    /// `model_type`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>base_model_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The train budget of creating this model, expressed in hours. The
+    /// actual `train_cost` will be equal or less than this value.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>train_budget: i64,
+    <span class="doccomment">/// Output only. The actual train cost of creating this model, expressed in
+    /// hours. If this model is created from a `base` model, the train cost used
+    /// to create the `base` model are not included.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>train_cost: i64,
+    <span class="doccomment">/// Output only. The reason that this create model operation stopped,
+    /// e.g. `BUDGET_REACHED`, `MODEL_CONVERGED`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>stop_reason: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Type of the model. The available values are:
+    /// *   `cloud` - Model to be used via prediction calls to AutoML API.
+    ///                This is the default value.
+    /// *   `mobile-low-latency-1` - A model that, in addition to providing
+    ///                prediction via AutoML API, can also be exported (see
+    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
+    ///                with TensorFlow afterwards. Expected to have low latency, but
+    ///                may have lower prediction quality than other models.
+    /// *   `mobile-versatile-1` - A model that, in addition to providing
+    ///                prediction via AutoML API, can also be exported (see
+    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
+    ///                with TensorFlow afterwards.
+    /// *   `mobile-high-accuracy-1` - A model that, in addition to providing
+    ///                prediction via AutoML API, can also be exported (see
+    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
+    ///                with TensorFlow afterwards.  Expected to have a higher
+    ///                latency, but should also have a higher prediction quality
+    ///                than other models.
+    /// *   `mobile-core-ml-low-latency-1` - A model that, in addition to providing
+    ///                prediction via AutoML API, can also be exported (see
+    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile device with Core
+    ///                ML afterwards. Expected to have low latency, but may have
+    ///                lower prediction quality than other models.
+    /// *   `mobile-core-ml-versatile-1` - A model that, in addition to providing
+    ///                prediction via AutoML API, can also be exported (see
+    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile device with Core
+    ///                ML afterwards.
+    /// *   `mobile-core-ml-high-accuracy-1` - A model that, in addition to
+    ///                providing prediction via AutoML API, can also be exported
+    ///                (see [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile device with
+    ///                Core ML afterwards.  Expected to have a higher latency, but
+    ///                should also have a higher prediction quality than other
+    ///                models.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>model_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. An approximate number of online prediction QPS that can
+    /// be supported by this model per each node on which it is deployed.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>node_qps: f64,
+    <span class="doccomment">/// Output only. The number of nodes this model is deployed on. A node is an
+    /// abstraction of a machine resource, which can handle online prediction QPS
+    /// as given in the node_qps field.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>node_count: i64,
+}
+<span class="doccomment">/// Model metadata specific to image object detection.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageObjectDetectionModelMetadata {
+    <span class="doccomment">/// Optional. Type of the model. The available values are:
+    /// *   `cloud-high-accuracy-1` - (default) A model to be used via prediction
+    ///                calls to AutoML API. Expected to have a higher latency, but
+    ///                should also have a higher prediction quality than other
+    ///                models.
+    /// *   `cloud-low-latency-1` -  A model to be used via prediction
+    ///                calls to AutoML API. Expected to have low latency, but may
+    ///                have lower prediction quality than other models.
+    /// *   `mobile-low-latency-1` - A model that, in addition to providing
+    ///                prediction via AutoML API, can also be exported (see
+    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
+    ///                with TensorFlow afterwards. Expected to have low latency, but
+    ///                may have lower prediction quality than other models.
+    /// *   `mobile-versatile-1` - A model that, in addition to providing
+    ///                prediction via AutoML API, can also be exported (see
+    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
+    ///                with TensorFlow afterwards.
+    /// *   `mobile-high-accuracy-1` - A model that, in addition to providing
+    ///                prediction via AutoML API, can also be exported (see
+    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
+    ///                with TensorFlow afterwards.  Expected to have a higher
+    ///                latency, but should also have a higher prediction quality
+    ///                than other models.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>model_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The number of nodes this model is deployed on. A node is an
+    /// abstraction of a machine resource, which can handle online prediction QPS
+    /// as given in the qps_per_node field.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>node_count: i64,
+    <span class="doccomment">/// Output only. An approximate number of online prediction QPS that can
+    /// be supported by this model per each node on which it is deployed.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>node_qps: f64,
+    <span class="doccomment">/// Output only. The reason that this create model operation stopped,
+    /// e.g. `BUDGET_REACHED`, `MODEL_CONVERGED`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>stop_reason: ::prost::alloc::string::String,
+    <span class="doccomment">/// The train budget of creating this model, expressed in milli node
+    /// hours i.e. 1,000 value in this field means 1 node hour. The actual
+    /// `train_cost` will be equal or less than this value. If further model
+    /// training ceases to provide any improvements, it will stop without using
+    /// full budget and the stop_reason will be `MODEL_CONVERGED`.
+    /// Note, node_hour  = actual_hour * number_of_nodes_invovled.
+    /// For model type `cloud-high-accuracy-1`(default) and `cloud-low-latency-1`,
+    /// the train budget must be between 20,000 and 900,000 milli node hours,
+    /// inclusive. The default value is 216, 000 which represents one day in
+    /// wall time.
+    /// For model type `mobile-low-latency-1`, `mobile-versatile-1`,
+    /// `mobile-high-accuracy-1`, `mobile-core-ml-low-latency-1`,
+    /// `mobile-core-ml-versatile-1`, `mobile-core-ml-high-accuracy-1`, the train
+    /// budget must be between 1,000 and 100,000 milli node hours, inclusive.
+    /// The default value is 24, 000 which represents one day in wall time.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>train_budget_milli_node_hours: i64,
+    <span class="doccomment">/// Output only. The actual train cost of creating this model, expressed in
+    /// milli node hours, i.e. 1,000 value in this field means 1 node hour.
+    /// Guaranteed to not exceed the train budget.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>train_cost_milli_node_hours: i64,
+}
+<span class="doccomment">/// Model deployment metadata specific to Image Classification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageClassificationModelDeploymentMetadata {
+    <span class="doccomment">/// Input only. The number of nodes to deploy the model on. A node is an
+    /// abstraction of a machine resource, which can handle online prediction QPS
+    /// as given in the model&#39;s
+    ///
+    /// [node_qps][google.cloud.automl.v1beta1.ImageClassificationModelMetadata.node_qps].
+    /// Must be between 1 and 100, inclusive on both ends.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>node_count: i64,
+}
+<span class="doccomment">/// Model deployment metadata specific to Image Object Detection.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageObjectDetectionModelDeploymentMetadata {
+    <span class="doccomment">/// Input only. The number of nodes to deploy the model on. A node is an
+    /// abstraction of a machine resource, which can handle online prediction QPS
+    /// as given in the model&#39;s
+    ///
+    /// [qps_per_node][google.cloud.automl.v1beta1.ImageObjectDetectionModelMetadata.qps_per_node].
+    /// Must be between 1 and 100, inclusive on both ends.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>node_count: i64,
 }
 <span class="doccomment">/// The data statistics of a series of values that share the same DataType.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7115,362 +7741,6 @@
         </span><span class="kw">pub </span>correlation_stats: ::core::option::Option&lt;<span class="kw">super</span>::CorrelationStats&gt;,
     }
 }
-<span class="doccomment">/// A vertex represents a 2D point in the image.
-/// The normalized vertex coordinates are between 0 to 1 fractions relative to
-/// the original plane (image, video). E.g. if the plane (e.g. whole image) would
-/// have size 10 x 20 then a point with normalized coordinates (0.1, 0.3) would
-/// be at the position (1, 6) on that plane.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>NormalizedVertex {
-    <span class="doccomment">/// Required. Horizontal coordinate.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>x: f32,
-    <span class="doccomment">/// Required. Vertical coordinate.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>y: f32,
-}
-<span class="doccomment">/// A bounding polygon of a detected object on a plane.
-/// On output both vertices and normalized_vertices are provided.
-/// The polygon is formed by connecting vertices in the order they are listed.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BoundingPoly {
-    <span class="doccomment">/// Output only . The bounding polygon normalized vertices.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>normalized_vertices: ::prost::alloc::vec::Vec&lt;NormalizedVertex&gt;,
-}
-<span class="doccomment">/// A contiguous part of a text (string), assuming it has an UTF-8 NFC encoding.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextSegment {
-    <span class="doccomment">/// Output only. The content of the TextSegment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Zero-based character index of the first character of the text
-    /// segment (counting characters from the beginning of the text).
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>start_offset: i64,
-    <span class="doccomment">/// Required. Zero-based character index of the first character past the end of
-    /// the text segment (counting character from the beginning of the text).
-    /// The character at the end_offset is NOT included in the text segment.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>end_offset: i64,
-}
-<span class="doccomment">/// A representation of an image.
-/// Only images up to 30MB in size are supported.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Image {
-    <span class="doccomment">/// Output only. HTTP URI to the thumbnail image.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>thumbnail_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Input only. The data representing the image.
-    /// For Predict calls [image_bytes][google.cloud.automl.v1beta1.Image.image_bytes] must be set, as other options are not
-    /// currently supported by prediction API. You can read the contents of an
-    /// uploaded image by using the [content_uri][google.cloud.automl.v1beta1.Image.content_uri] field.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;image::Data&quot;</span>, tags = <span class="string">&quot;1, 6&quot;</span>)]
-    </span><span class="kw">pub </span>data: ::core::option::Option&lt;image::Data&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Image`.
-</span><span class="kw">pub mod </span>image {
-    <span class="doccomment">/// Input only. The data representing the image.
-    /// For Predict calls [image_bytes][google.cloud.automl.v1beta1.Image.image_bytes] must be set, as other options are not
-    /// currently supported by prediction API. You can read the contents of an
-    /// uploaded image by using the [content_uri][google.cloud.automl.v1beta1.Image.content_uri] field.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Data {
-        <span class="doccomment">/// Image content represented as a stream of bytes.
-        /// Note: As with all `bytes` fields, protobuffers use a pure binary
-        /// representation, whereas JSON representations use base64.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>ImageBytes(::prost::bytes::Bytes),
-        <span class="doccomment">/// An input config specifying the content of the image.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>InputConfig(<span class="kw">super</span>::InputConfig),
-    }
-}
-<span class="doccomment">/// A representation of a text snippet.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextSnippet {
-    <span class="doccomment">/// Required. The content of the text snippet as a string. Up to 250000
-    /// characters long.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The format of [content][google.cloud.automl.v1beta1.TextSnippet.content]. Currently the only two allowed
-    /// values are &quot;text/html&quot; and &quot;text/plain&quot;. If left blank, the format is
-    /// automatically determined from the type of the uploaded [content][google.cloud.automl.v1beta1.TextSnippet.content].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. HTTP URI where you can download the content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>content_uri: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Message that describes dimension of a document.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DocumentDimensions {
-    <span class="doccomment">/// Unit of the dimension.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;document_dimensions::DocumentDimensionUnit&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>unit: i32,
-    <span class="doccomment">/// Width value of the document, works together with the unit.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>width: f32,
-    <span class="doccomment">/// Height value of the document, works together with the unit.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>height: f32,
-}
-<span class="doccomment">/// Nested message and enum types in `DocumentDimensions`.
-</span><span class="kw">pub mod </span>document_dimensions {
-    <span class="doccomment">/// Unit of the document dimension.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>DocumentDimensionUnit {
-        <span class="doccomment">/// Should not be used.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Document dimension is measured in inches.
-        </span>Inch = <span class="number">1</span>,
-        <span class="doccomment">/// Document dimension is measured in centimeters.
-        </span>Centimeter = <span class="number">2</span>,
-        <span class="doccomment">/// Document dimension is measured in points. 72 points = 1 inch.
-        </span>Point = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>DocumentDimensionUnit {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                DocumentDimensionUnit::Unspecified =&gt; {
-                    <span class="string">&quot;DOCUMENT_DIMENSION_UNIT_UNSPECIFIED&quot;
-                </span>}
-                DocumentDimensionUnit::Inch =&gt; <span class="string">&quot;INCH&quot;</span>,
-                DocumentDimensionUnit::Centimeter =&gt; <span class="string">&quot;CENTIMETER&quot;</span>,
-                DocumentDimensionUnit::Point =&gt; <span class="string">&quot;POINT&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;DOCUMENT_DIMENSION_UNIT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inch),
-                <span class="string">&quot;CENTIMETER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Centimeter),
-                <span class="string">&quot;POINT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Point),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// A structured text document e.g. a PDF.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Document {
-    <span class="doccomment">/// An input config specifying the content of the document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;DocumentInputConfig&gt;,
-    <span class="doccomment">/// The plain text version of this document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>document_text: ::core::option::Option&lt;TextSnippet&gt;,
-    <span class="doccomment">/// Describes the layout of the document.
-    /// Sorted by [page_number][].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>layout: ::prost::alloc::vec::Vec&lt;document::Layout&gt;,
-    <span class="doccomment">/// The dimensions of the page in the document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>document_dimensions: ::core::option::Option&lt;DocumentDimensions&gt;,
-    <span class="doccomment">/// Number of pages in the document.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>page_count: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `Document`.
-</span><span class="kw">pub mod </span>document {
-    <span class="doccomment">/// Describes the layout information of a [text_segment][google.cloud.automl.v1beta1.Document.Layout.text_segment] in the document.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Layout {
-        <span class="doccomment">/// Text Segment that represents a segment in
-        /// [document_text][google.cloud.automl.v1beta1.Document.document_text].
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>text_segment: ::core::option::Option&lt;<span class="kw">super</span>::TextSegment&gt;,
-        <span class="doccomment">/// Page number of the [text_segment][google.cloud.automl.v1beta1.Document.Layout.text_segment] in the original document, starts
-        /// from 1.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>page_number: i32,
-        <span class="doccomment">/// The position of the [text_segment][google.cloud.automl.v1beta1.Document.Layout.text_segment] in the page.
-        /// Contains exactly 4
-        ///
-        /// [normalized_vertices][google.cloud.automl.v1beta1.BoundingPoly.normalized_vertices]
-        /// and they are connected by edges in the order provided, which will
-        /// represent a rectangle parallel to the frame. The
-        /// [NormalizedVertex-s][google.cloud.automl.v1beta1.NormalizedVertex] are
-        /// relative to the page.
-        /// Coordinates are based on top-left as point (0,0).
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>bounding_poly: ::core::option::Option&lt;<span class="kw">super</span>::BoundingPoly&gt;,
-        <span class="doccomment">/// The type of the [text_segment][google.cloud.automl.v1beta1.Document.Layout.text_segment] in document.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;layout::TextSegmentType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>text_segment_type: i32,
-    }
-    <span class="doccomment">/// Nested message and enum types in `Layout`.
-    </span><span class="kw">pub mod </span>layout {
-        <span class="doccomment">/// The type of TextSegment in the context of the original document.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>TextSegmentType {
-            <span class="doccomment">/// Should not be used.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// The text segment is a token. e.g. word.
-            </span>Token = <span class="number">1</span>,
-            <span class="doccomment">/// The text segment is a paragraph.
-            </span>Paragraph = <span class="number">2</span>,
-            <span class="doccomment">/// The text segment is a form field.
-            </span>FormField = <span class="number">3</span>,
-            <span class="doccomment">/// The text segment is the name part of a form field. It will be treated
-            /// as child of another FORM_FIELD TextSegment if its span is subspan of
-            /// another TextSegment with type FORM_FIELD.
-            </span>FormFieldName = <span class="number">4</span>,
-            <span class="doccomment">/// The text segment is the text content part of a form field. It will be
-            /// treated as child of another FORM_FIELD TextSegment if its span is
-            /// subspan of another TextSegment with type FORM_FIELD.
-            </span>FormFieldContents = <span class="number">5</span>,
-            <span class="doccomment">/// The text segment is a whole table, including headers, and all rows.
-            </span>Table = <span class="number">6</span>,
-            <span class="doccomment">/// The text segment is a table&#39;s headers. It will be treated as child of
-            /// another TABLE TextSegment if its span is subspan of another TextSegment
-            /// with type TABLE.
-            </span>TableHeader = <span class="number">7</span>,
-            <span class="doccomment">/// The text segment is a row in table. It will be treated as child of
-            /// another TABLE TextSegment if its span is subspan of another TextSegment
-            /// with type TABLE.
-            </span>TableRow = <span class="number">8</span>,
-            <span class="doccomment">/// The text segment is a cell in table. It will be treated as child of
-            /// another TABLE_ROW TextSegment if its span is subspan of another
-            /// TextSegment with type TABLE_ROW.
-            </span>TableCell = <span class="number">9</span>,
-        }
-        <span class="kw">impl </span>TextSegmentType {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    TextSegmentType::Unspecified =&gt; <span class="string">&quot;TEXT_SEGMENT_TYPE_UNSPECIFIED&quot;</span>,
-                    TextSegmentType::Token =&gt; <span class="string">&quot;TOKEN&quot;</span>,
-                    TextSegmentType::Paragraph =&gt; <span class="string">&quot;PARAGRAPH&quot;</span>,
-                    TextSegmentType::FormField =&gt; <span class="string">&quot;FORM_FIELD&quot;</span>,
-                    TextSegmentType::FormFieldName =&gt; <span class="string">&quot;FORM_FIELD_NAME&quot;</span>,
-                    TextSegmentType::FormFieldContents =&gt; <span class="string">&quot;FORM_FIELD_CONTENTS&quot;</span>,
-                    TextSegmentType::Table =&gt; <span class="string">&quot;TABLE&quot;</span>,
-                    TextSegmentType::TableHeader =&gt; <span class="string">&quot;TABLE_HEADER&quot;</span>,
-                    TextSegmentType::TableRow =&gt; <span class="string">&quot;TABLE_ROW&quot;</span>,
-                    TextSegmentType::TableCell =&gt; <span class="string">&quot;TABLE_CELL&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;TEXT_SEGMENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;TOKEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Token),
-                    <span class="string">&quot;PARAGRAPH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paragraph),
-                    <span class="string">&quot;FORM_FIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FormField),
-                    <span class="string">&quot;FORM_FIELD_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FormFieldName),
-                    <span class="string">&quot;FORM_FIELD_CONTENTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FormFieldContents),
-                    <span class="string">&quot;TABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Table),
-                    <span class="string">&quot;TABLE_HEADER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TableHeader),
-                    <span class="string">&quot;TABLE_ROW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TableRow),
-                    <span class="string">&quot;TABLE_CELL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TableCell),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-}
-<span class="doccomment">/// A representation of a row in a relational table.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Row {
-    <span class="doccomment">/// The resource IDs of the column specs describing the columns of the row.
-    /// If set must contain, but possibly in a different order, all input
-    /// feature
-    ///
-    /// [column_spec_ids][google.cloud.automl.v1beta1.TablesModelMetadata.input_feature_column_specs]
-    /// of the Model this row is being passed to.
-    /// Note: The below `values` field must match order of this field, if this
-    /// field is set.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>column_spec_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Required. The values of the row cells, given in the same order as the
-    /// column_spec_ids, or, if not set, then in the same order as input
-    /// feature
-    ///
-    /// [column_specs][google.cloud.automl.v1beta1.TablesModelMetadata.input_feature_column_specs]
-    /// of the Model this row is being passed to.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost_types::Value&gt;,
-}
-<span class="doccomment">/// Example data used for training or prediction.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExamplePayload {
-    <span class="doccomment">/// Required. Input only. The example data.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;example_payload::Payload&quot;</span>, tags = <span class="string">&quot;1, 2, 4, 3&quot;</span>)]
-    </span><span class="kw">pub </span>payload: ::core::option::Option&lt;example_payload::Payload&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ExamplePayload`.
-</span><span class="kw">pub mod </span>example_payload {
-    <span class="doccomment">/// Required. Input only. The example data.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Payload {
-        <span class="doccomment">/// Example image.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>Image(<span class="kw">super</span>::Image),
-        <span class="doccomment">/// Example text.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>TextSnippet(<span class="kw">super</span>::TextSnippet),
-        <span class="doccomment">/// Example document.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>Document(<span class="kw">super</span>::Document),
-        <span class="doccomment">/// Example relational table row.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>Row(<span class="kw">super</span>::Row),
-    }
-}
-<span class="doccomment">/// A range between two double numbers.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DoubleRange {
-    <span class="doccomment">/// Start of the range, inclusive.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>start: f64,
-    <span class="doccomment">/// End of the range, exclusive.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>end: f64,
-}
 <span class="doccomment">/// Metrics for regression problems.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -7776,6 +8046,170 @@
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>feature_importance: f32,
 }
+<span class="doccomment">/// Dataset metadata for classification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextClassificationDatasetMetadata {
+    <span class="doccomment">/// Required. Type of the classification problem.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ClassificationType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>classification_type: i32,
+}
+<span class="doccomment">/// Model metadata that is specific to text classification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextClassificationModelMetadata {
+    <span class="doccomment">/// Output only. Classification type of the dataset used to train this model.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ClassificationType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>classification_type: i32,
+}
+<span class="doccomment">/// Dataset metadata that is specific to text extraction
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextExtractionDatasetMetadata {}
+<span class="doccomment">/// Model metadata that is specific to text extraction.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextExtractionModelMetadata {
+    <span class="doccomment">/// Indicates the scope of model use case.
+    ///
+    /// * `default`: Use to train a general text extraction model. Default value.
+    ///
+    /// * `health_care`: Use to train a text extraction model that is tuned for
+    ///    healthcare applications.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>model_hint: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Dataset metadata for text sentiment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextSentimentDatasetMetadata {
+    <span class="doccomment">/// Required. A sentiment is expressed as an integer ordinal, where higher value
+    /// means a more positive sentiment. The range of sentiments that will be used
+    /// is between 0 and sentiment_max (inclusive on both ends), and all the values
+    /// in the range must be represented in the dataset before a model can be
+    /// created.
+    /// sentiment_max value must be between 1 and 10 (inclusive).
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>sentiment_max: i32,
+}
+<span class="doccomment">/// Model metadata that is specific to text sentiment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextSentimentModelMetadata {}
+<span class="doccomment">/// API proto representing a trained machine learning model.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Model {
+    <span class="doccomment">/// Output only. Resource name of the model.
+    /// Format: `projects/{project_id}/locations/{location_id}/models/{model_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The name of the model to show in the interface. The name can be
+    /// up to 32 characters long and can consist only of ASCII Latin letters A-Z
+    /// and a-z, underscores
+    /// (_), and ASCII digits 0-9. It must start with a letter.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The resource ID of the dataset used to create the model. The dataset must
+    /// come from the same ancestor project and location.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>dataset_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Timestamp when the model training finished  and can be used for prediction.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Timestamp when this model was last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Deployment state of the model. A model can only serve
+    /// prediction requests after it gets deployed.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;model::DeploymentState&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>deployment_state: i32,
+    <span class="doccomment">/// Required.
+    /// The model metadata that is specific to the problem type.
+    /// Must match the metadata type of the dataset used to train the model.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;model::ModelMetadata&quot;</span>, tags = <span class="string">&quot;15, 13, 14, 20, 23, 21, 19, 24, 22&quot;</span>)]
+    </span><span class="kw">pub </span>model_metadata: ::core::option::Option&lt;model::ModelMetadata&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Model`.
+</span><span class="kw">pub mod </span>model {
+    <span class="doccomment">/// Deployment state of the model.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>DeploymentState {
+        <span class="doccomment">/// Should not be used, an un-set enum has this value by default.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Model is deployed.
+        </span>Deployed = <span class="number">1</span>,
+        <span class="doccomment">/// Model is not deployed.
+        </span>Undeployed = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>DeploymentState {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                DeploymentState::Unspecified =&gt; <span class="string">&quot;DEPLOYMENT_STATE_UNSPECIFIED&quot;</span>,
+                DeploymentState::Deployed =&gt; <span class="string">&quot;DEPLOYED&quot;</span>,
+                DeploymentState::Undeployed =&gt; <span class="string">&quot;UNDEPLOYED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;DEPLOYMENT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;DEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deployed),
+                <span class="string">&quot;UNDEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undeployed),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Required.
+    /// The model metadata that is specific to the problem type.
+    /// Must match the metadata type of the dataset used to train the model.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>ModelMetadata {
+        <span class="doccomment">/// Metadata for translation models.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;15&quot;</span>)]
+        </span>TranslationModelMetadata(<span class="kw">super</span>::TranslationModelMetadata),
+        <span class="doccomment">/// Metadata for image classification models.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span>ImageClassificationModelMetadata(<span class="kw">super</span>::ImageClassificationModelMetadata),
+        <span class="doccomment">/// Metadata for text classification models.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
+        </span>TextClassificationModelMetadata(<span class="kw">super</span>::TextClassificationModelMetadata),
+        <span class="doccomment">/// Metadata for image object detection models.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;20&quot;</span>)]
+        </span>ImageObjectDetectionModelMetadata(<span class="kw">super</span>::ImageObjectDetectionModelMetadata),
+        <span class="doccomment">/// Metadata for video classification models.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;23&quot;</span>)]
+        </span>VideoClassificationModelMetadata(<span class="kw">super</span>::VideoClassificationModelMetadata),
+        <span class="doccomment">/// Metadata for video object tracking models.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;21&quot;</span>)]
+        </span>VideoObjectTrackingModelMetadata(<span class="kw">super</span>::VideoObjectTrackingModelMetadata),
+        <span class="doccomment">/// Metadata for text extraction models.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;19&quot;</span>)]
+        </span>TextExtractionModelMetadata(<span class="kw">super</span>::TextExtractionModelMetadata),
+        <span class="doccomment">/// Metadata for Tables models.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;24&quot;</span>)]
+        </span>TablesModelMetadata(<span class="kw">super</span>::TablesModelMetadata),
+        <span class="doccomment">/// Metadata for text sentiment models.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;22&quot;</span>)]
+        </span>TextSentimentModelMetadata(<span class="kw">super</span>::TextSentimentModelMetadata),
+    }
+}
 <span class="doccomment">/// Annotation details for image object detection.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -7961,617 +8395,6 @@
         <span class="doccomment">/// Output only. The harmonic mean of recall and precision.
         </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
         </span><span class="kw">pub </span>f1_score: f32,
-    }
-}
-<span class="doccomment">/// Contains annotation details specific to text sentiment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextSentimentAnnotation {
-    <span class="doccomment">/// Output only. The sentiment with the semantic, as given to the
-    /// [AutoMl.ImportData][google.cloud.automl.v1beta1.AutoMl.ImportData] when populating the dataset from which the model used
-    /// for the prediction had been trained.
-    /// The sentiment values are between 0 and
-    /// Dataset.text_sentiment_dataset_metadata.sentiment_max (inclusive),
-    /// with higher value meaning more positive sentiment. They are completely
-    /// relative, i.e. 0 means least positive sentiment and sentiment_max means
-    /// the most positive from the sentiments present in the train data. Therefore
-    ///   e.g. if train data had only negative sentiment, then sentiment_max, would
-    /// be still negative (although least negative).
-    /// The sentiment shouldn&#39;t be confused with &quot;score&quot; or &quot;magnitude&quot;
-    /// from the previous Natural Language Sentiment Analysis API.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>sentiment: i32,
-}
-<span class="doccomment">/// Model evaluation metrics for text sentiment problems.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextSentimentEvaluationMetrics {
-    <span class="doccomment">/// Output only. Precision.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>precision: f32,
-    <span class="doccomment">/// Output only. Recall.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>recall: f32,
-    <span class="doccomment">/// Output only. The harmonic mean of recall and precision.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>f1_score: f32,
-    <span class="doccomment">/// Output only. Mean absolute error. Only set for the overall model
-    /// evaluation, not for evaluation of a single annotation spec.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>mean_absolute_error: f32,
-    <span class="doccomment">/// Output only. Mean squared error. Only set for the overall model
-    /// evaluation, not for evaluation of a single annotation spec.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>mean_squared_error: f32,
-    <span class="doccomment">/// Output only. Linear weighted kappa. Only set for the overall model
-    /// evaluation, not for evaluation of a single annotation spec.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>linear_kappa: f32,
-    <span class="doccomment">/// Output only. Quadratic weighted kappa. Only set for the overall model
-    /// evaluation, not for evaluation of a single annotation spec.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>quadratic_kappa: f32,
-    <span class="doccomment">/// Output only. Confusion matrix of the evaluation.
-    /// Only set for the overall model evaluation, not for evaluation of a single
-    /// annotation spec.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>confusion_matrix: ::core::option::Option&lt;
-        classification_evaluation_metrics::ConfusionMatrix,
-    &gt;,
-    <span class="doccomment">/// Output only. The annotation spec ids used for this evaluation.
-    /// Deprecated .
-    </span><span class="attr">#[deprecated]
-    #[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Dataset metadata that is specific to translation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TranslationDatasetMetadata {
-    <span class="doccomment">/// Required. The BCP-47 language code of the source language.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>source_language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The BCP-47 language code of the target language.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>target_language_code: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Evaluation metrics for the dataset.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TranslationEvaluationMetrics {
-    <span class="doccomment">/// Output only. BLEU score.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>bleu_score: f64,
-    <span class="doccomment">/// Output only. BLEU score for base model.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>base_bleu_score: f64,
-}
-<span class="doccomment">/// Model metadata that is specific to translation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TranslationModelMetadata {
-    <span class="doccomment">/// The resource name of the model to use as a baseline to train the custom
-    /// model. If unset, we use the default base model provided by Google
-    /// Translate. Format:
-    /// `projects/{project_id}/locations/{location_id}/models/{model_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>base_model: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Inferred from the dataset.
-    /// The source languge (The BCP-47 language code) that is used for training.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>source_language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The target languge (The BCP-47 language code) that is used for
-    /// training.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>target_language_code: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Annotation details specific to translation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TranslationAnnotation {
-    <span class="doccomment">/// Output only . The translated content.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>translated_content: ::core::option::Option&lt;TextSnippet&gt;,
-}
-<span class="doccomment">/// Contains annotation information that is relevant to AutoML.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AnnotationPayload {
-    <span class="doccomment">/// Output only . The resource ID of the annotation spec that
-    /// this annotation pertains to. The annotation spec comes from either an
-    /// ancestor dataset, or the dataset that was used to train the model in use.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The value of
-    /// [display_name][google.cloud.automl.v1beta1.AnnotationSpec.display_name]
-    /// when the model was trained. Because this field returns a value at model
-    /// training time, for different models trained using the same dataset, the
-    /// returned value could be different as model owner could update the
-    /// `display_name` between any two model training.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only . Additional information about the annotation
-    /// specific to the AutoML domain.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;annotation_payload::Detail&quot;</span>, tags = <span class="string">&quot;2, 3, 4, 9, 8, 6, 7, 10&quot;</span>)]
-    </span><span class="kw">pub </span>detail: ::core::option::Option&lt;annotation_payload::Detail&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `AnnotationPayload`.
-</span><span class="kw">pub mod </span>annotation_payload {
-    <span class="doccomment">/// Output only . Additional information about the annotation
-    /// specific to the AutoML domain.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Detail {
-        <span class="doccomment">/// Annotation details for translation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>Translation(<span class="kw">super</span>::TranslationAnnotation),
-        <span class="doccomment">/// Annotation details for content or image classification.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>Classification(<span class="kw">super</span>::ClassificationAnnotation),
-        <span class="doccomment">/// Annotation details for image object detection.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>ImageObjectDetection(<span class="kw">super</span>::ImageObjectDetectionAnnotation),
-        <span class="doccomment">/// Annotation details for video classification.
-        /// Returned for Video Classification predictions.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
-        </span>VideoClassification(<span class="kw">super</span>::VideoClassificationAnnotation),
-        <span class="doccomment">/// Annotation details for video object tracking.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
-        </span>VideoObjectTracking(<span class="kw">super</span>::VideoObjectTrackingAnnotation),
-        <span class="doccomment">/// Annotation details for text extraction.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>TextExtraction(<span class="kw">super</span>::TextExtractionAnnotation),
-        <span class="doccomment">/// Annotation details for text sentiment.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>TextSentiment(<span class="kw">super</span>::TextSentimentAnnotation),
-        <span class="doccomment">/// Annotation details for Tables.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
-        </span>Tables(<span class="kw">super</span>::TablesAnnotation),
-    }
-}
-<span class="doccomment">/// A definition of an annotation spec.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AnnotationSpec {
-    <span class="doccomment">/// Output only. Resource name of the annotation spec.
-    /// Form:
-    ///
-    /// &#39;projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/annotationSpecs/{annotation_spec_id}&#39;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The name of the annotation spec to show in the interface. The name can be
-    /// up to 32 characters long and must match the regexp `\[a-zA-Z0-9_\]+`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The number of examples in the parent dataset
-    /// labeled by the annotation spec.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>example_count: i32,
-}
-<span class="doccomment">/// Dataset metadata that is specific to image classification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageClassificationDatasetMetadata {
-    <span class="doccomment">/// Required. Type of the classification problem.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ClassificationType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>classification_type: i32,
-}
-<span class="doccomment">/// Dataset metadata specific to image object detection.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageObjectDetectionDatasetMetadata {}
-<span class="doccomment">/// Model metadata for image classification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageClassificationModelMetadata {
-    <span class="doccomment">/// Optional. The ID of the `base` model. If it is specified, the new model
-    /// will be created based on the `base` model. Otherwise, the new model will be
-    /// created from scratch. The `base` model must be in the same
-    /// `project` and `location` as the new model to create, and have the same
-    /// `model_type`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>base_model_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The train budget of creating this model, expressed in hours. The
-    /// actual `train_cost` will be equal or less than this value.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>train_budget: i64,
-    <span class="doccomment">/// Output only. The actual train cost of creating this model, expressed in
-    /// hours. If this model is created from a `base` model, the train cost used
-    /// to create the `base` model are not included.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>train_cost: i64,
-    <span class="doccomment">/// Output only. The reason that this create model operation stopped,
-    /// e.g. `BUDGET_REACHED`, `MODEL_CONVERGED`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>stop_reason: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Type of the model. The available values are:
-    /// *   `cloud` - Model to be used via prediction calls to AutoML API.
-    ///                This is the default value.
-    /// *   `mobile-low-latency-1` - A model that, in addition to providing
-    ///                prediction via AutoML API, can also be exported (see
-    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
-    ///                with TensorFlow afterwards. Expected to have low latency, but
-    ///                may have lower prediction quality than other models.
-    /// *   `mobile-versatile-1` - A model that, in addition to providing
-    ///                prediction via AutoML API, can also be exported (see
-    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
-    ///                with TensorFlow afterwards.
-    /// *   `mobile-high-accuracy-1` - A model that, in addition to providing
-    ///                prediction via AutoML API, can also be exported (see
-    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
-    ///                with TensorFlow afterwards.  Expected to have a higher
-    ///                latency, but should also have a higher prediction quality
-    ///                than other models.
-    /// *   `mobile-core-ml-low-latency-1` - A model that, in addition to providing
-    ///                prediction via AutoML API, can also be exported (see
-    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile device with Core
-    ///                ML afterwards. Expected to have low latency, but may have
-    ///                lower prediction quality than other models.
-    /// *   `mobile-core-ml-versatile-1` - A model that, in addition to providing
-    ///                prediction via AutoML API, can also be exported (see
-    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile device with Core
-    ///                ML afterwards.
-    /// *   `mobile-core-ml-high-accuracy-1` - A model that, in addition to
-    ///                providing prediction via AutoML API, can also be exported
-    ///                (see [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile device with
-    ///                Core ML afterwards.  Expected to have a higher latency, but
-    ///                should also have a higher prediction quality than other
-    ///                models.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>model_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. An approximate number of online prediction QPS that can
-    /// be supported by this model per each node on which it is deployed.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>node_qps: f64,
-    <span class="doccomment">/// Output only. The number of nodes this model is deployed on. A node is an
-    /// abstraction of a machine resource, which can handle online prediction QPS
-    /// as given in the node_qps field.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>node_count: i64,
-}
-<span class="doccomment">/// Model metadata specific to image object detection.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageObjectDetectionModelMetadata {
-    <span class="doccomment">/// Optional. Type of the model. The available values are:
-    /// *   `cloud-high-accuracy-1` - (default) A model to be used via prediction
-    ///                calls to AutoML API. Expected to have a higher latency, but
-    ///                should also have a higher prediction quality than other
-    ///                models.
-    /// *   `cloud-low-latency-1` -  A model to be used via prediction
-    ///                calls to AutoML API. Expected to have low latency, but may
-    ///                have lower prediction quality than other models.
-    /// *   `mobile-low-latency-1` - A model that, in addition to providing
-    ///                prediction via AutoML API, can also be exported (see
-    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
-    ///                with TensorFlow afterwards. Expected to have low latency, but
-    ///                may have lower prediction quality than other models.
-    /// *   `mobile-versatile-1` - A model that, in addition to providing
-    ///                prediction via AutoML API, can also be exported (see
-    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
-    ///                with TensorFlow afterwards.
-    /// *   `mobile-high-accuracy-1` - A model that, in addition to providing
-    ///                prediction via AutoML API, can also be exported (see
-    ///                [AutoMl.ExportModel][google.cloud.automl.v1beta1.AutoMl.ExportModel]) and used on a mobile or edge device
-    ///                with TensorFlow afterwards.  Expected to have a higher
-    ///                latency, but should also have a higher prediction quality
-    ///                than other models.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>model_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The number of nodes this model is deployed on. A node is an
-    /// abstraction of a machine resource, which can handle online prediction QPS
-    /// as given in the qps_per_node field.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>node_count: i64,
-    <span class="doccomment">/// Output only. An approximate number of online prediction QPS that can
-    /// be supported by this model per each node on which it is deployed.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>node_qps: f64,
-    <span class="doccomment">/// Output only. The reason that this create model operation stopped,
-    /// e.g. `BUDGET_REACHED`, `MODEL_CONVERGED`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>stop_reason: ::prost::alloc::string::String,
-    <span class="doccomment">/// The train budget of creating this model, expressed in milli node
-    /// hours i.e. 1,000 value in this field means 1 node hour. The actual
-    /// `train_cost` will be equal or less than this value. If further model
-    /// training ceases to provide any improvements, it will stop without using
-    /// full budget and the stop_reason will be `MODEL_CONVERGED`.
-    /// Note, node_hour  = actual_hour * number_of_nodes_invovled.
-    /// For model type `cloud-high-accuracy-1`(default) and `cloud-low-latency-1`,
-    /// the train budget must be between 20,000 and 900,000 milli node hours,
-    /// inclusive. The default value is 216, 000 which represents one day in
-    /// wall time.
-    /// For model type `mobile-low-latency-1`, `mobile-versatile-1`,
-    /// `mobile-high-accuracy-1`, `mobile-core-ml-low-latency-1`,
-    /// `mobile-core-ml-versatile-1`, `mobile-core-ml-high-accuracy-1`, the train
-    /// budget must be between 1,000 and 100,000 milli node hours, inclusive.
-    /// The default value is 24, 000 which represents one day in wall time.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>train_budget_milli_node_hours: i64,
-    <span class="doccomment">/// Output only. The actual train cost of creating this model, expressed in
-    /// milli node hours, i.e. 1,000 value in this field means 1 node hour.
-    /// Guaranteed to not exceed the train budget.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>train_cost_milli_node_hours: i64,
-}
-<span class="doccomment">/// Model deployment metadata specific to Image Classification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageClassificationModelDeploymentMetadata {
-    <span class="doccomment">/// Input only. The number of nodes to deploy the model on. A node is an
-    /// abstraction of a machine resource, which can handle online prediction QPS
-    /// as given in the model&#39;s
-    ///
-    /// [node_qps][google.cloud.automl.v1beta1.ImageClassificationModelMetadata.node_qps].
-    /// Must be between 1 and 100, inclusive on both ends.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>node_count: i64,
-}
-<span class="doccomment">/// Model deployment metadata specific to Image Object Detection.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageObjectDetectionModelDeploymentMetadata {
-    <span class="doccomment">/// Input only. The number of nodes to deploy the model on. A node is an
-    /// abstraction of a machine resource, which can handle online prediction QPS
-    /// as given in the model&#39;s
-    ///
-    /// [qps_per_node][google.cloud.automl.v1beta1.ImageObjectDetectionModelMetadata.qps_per_node].
-    /// Must be between 1 and 100, inclusive on both ends.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>node_count: i64,
-}
-<span class="doccomment">/// Dataset metadata for classification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextClassificationDatasetMetadata {
-    <span class="doccomment">/// Required. Type of the classification problem.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ClassificationType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>classification_type: i32,
-}
-<span class="doccomment">/// Model metadata that is specific to text classification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextClassificationModelMetadata {
-    <span class="doccomment">/// Output only. Classification type of the dataset used to train this model.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ClassificationType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>classification_type: i32,
-}
-<span class="doccomment">/// Dataset metadata that is specific to text extraction
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextExtractionDatasetMetadata {}
-<span class="doccomment">/// Model metadata that is specific to text extraction.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextExtractionModelMetadata {
-    <span class="doccomment">/// Indicates the scope of model use case.
-    ///
-    /// * `default`: Use to train a general text extraction model. Default value.
-    ///
-    /// * `health_care`: Use to train a text extraction model that is tuned for
-    ///    healthcare applications.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>model_hint: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Dataset metadata for text sentiment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextSentimentDatasetMetadata {
-    <span class="doccomment">/// Required. A sentiment is expressed as an integer ordinal, where higher value
-    /// means a more positive sentiment. The range of sentiments that will be used
-    /// is between 0 and sentiment_max (inclusive on both ends), and all the values
-    /// in the range must be represented in the dataset before a model can be
-    /// created.
-    /// sentiment_max value must be between 1 and 10 (inclusive).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>sentiment_max: i32,
-}
-<span class="doccomment">/// Model metadata that is specific to text sentiment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextSentimentModelMetadata {}
-<span class="doccomment">/// Dataset metadata specific to video classification.
-/// All Video Classification datasets are treated as multi label.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoClassificationDatasetMetadata {}
-<span class="doccomment">/// Dataset metadata specific to video object tracking.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoObjectTrackingDatasetMetadata {}
-<span class="doccomment">/// Model metadata specific to video classification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoClassificationModelMetadata {}
-<span class="doccomment">/// Model metadata specific to video object tracking.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoObjectTrackingModelMetadata {}
-<span class="doccomment">/// A workspace for solving a single, particular machine learning (ML) problem.
-/// A workspace contains examples that may be annotated.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Dataset {
-    <span class="doccomment">/// Output only. The resource name of the dataset.
-    /// Form: `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The name of the dataset to show in the interface. The name can be
-    /// up to 32 characters long and can consist only of ASCII Latin letters A-Z
-    /// and a-z, underscores
-    /// (_), and ASCII digits 0-9.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// User-provided description of the dataset. The description can be up to
-    /// 25000 characters long.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The number of examples in the dataset.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>example_count: i32,
-    <span class="doccomment">/// Output only. Timestamp when this dataset was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Used to perform consistent read-modify-write updates. If not set, a blind
-    /// &quot;overwrite&quot; update happens.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
-    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required.
-    /// The dataset metadata that is specific to the problem type.
-    </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;dataset::DatasetMetadata&quot;</span>,
-        tags = <span class="string">&quot;23, 24, 25, 26, 31, 29, 28, 30, 33&quot;
-    </span>)]
-    </span><span class="kw">pub </span>dataset_metadata: ::core::option::Option&lt;dataset::DatasetMetadata&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Dataset`.
-</span><span class="kw">pub mod </span>dataset {
-    <span class="doccomment">/// Required.
-    /// The dataset metadata that is specific to the problem type.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>DatasetMetadata {
-        <span class="doccomment">/// Metadata for a dataset used for translation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;23&quot;</span>)]
-        </span>TranslationDatasetMetadata(<span class="kw">super</span>::TranslationDatasetMetadata),
-        <span class="doccomment">/// Metadata for a dataset used for image classification.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;24&quot;</span>)]
-        </span>ImageClassificationDatasetMetadata(<span class="kw">super</span>::ImageClassificationDatasetMetadata),
-        <span class="doccomment">/// Metadata for a dataset used for text classification.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;25&quot;</span>)]
-        </span>TextClassificationDatasetMetadata(<span class="kw">super</span>::TextClassificationDatasetMetadata),
-        <span class="doccomment">/// Metadata for a dataset used for image object detection.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;26&quot;</span>)]
-        </span>ImageObjectDetectionDatasetMetadata(<span class="kw">super</span>::ImageObjectDetectionDatasetMetadata),
-        <span class="doccomment">/// Metadata for a dataset used for video classification.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;31&quot;</span>)]
-        </span>VideoClassificationDatasetMetadata(<span class="kw">super</span>::VideoClassificationDatasetMetadata),
-        <span class="doccomment">/// Metadata for a dataset used for video object tracking.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;29&quot;</span>)]
-        </span>VideoObjectTrackingDatasetMetadata(<span class="kw">super</span>::VideoObjectTrackingDatasetMetadata),
-        <span class="doccomment">/// Metadata for a dataset used for text extraction.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;28&quot;</span>)]
-        </span>TextExtractionDatasetMetadata(<span class="kw">super</span>::TextExtractionDatasetMetadata),
-        <span class="doccomment">/// Metadata for a dataset used for text sentiment.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;30&quot;</span>)]
-        </span>TextSentimentDatasetMetadata(<span class="kw">super</span>::TextSentimentDatasetMetadata),
-        <span class="doccomment">/// Metadata for a dataset used for Tables.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;33&quot;</span>)]
-        </span>TablesDatasetMetadata(<span class="kw">super</span>::TablesDatasetMetadata),
-    }
-}
-<span class="doccomment">/// API proto representing a trained machine learning model.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Model {
-    <span class="doccomment">/// Output only. Resource name of the model.
-    /// Format: `projects/{project_id}/locations/{location_id}/models/{model_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The name of the model to show in the interface. The name can be
-    /// up to 32 characters long and can consist only of ASCII Latin letters A-Z
-    /// and a-z, underscores
-    /// (_), and ASCII digits 0-9. It must start with a letter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The resource ID of the dataset used to create the model. The dataset must
-    /// come from the same ancestor project and location.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>dataset_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Timestamp when the model training finished  and can be used for prediction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Timestamp when this model was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Deployment state of the model. A model can only serve
-    /// prediction requests after it gets deployed.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;model::DeploymentState&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>deployment_state: i32,
-    <span class="doccomment">/// Required.
-    /// The model metadata that is specific to the problem type.
-    /// Must match the metadata type of the dataset used to train the model.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;model::ModelMetadata&quot;</span>, tags = <span class="string">&quot;15, 13, 14, 20, 23, 21, 19, 24, 22&quot;</span>)]
-    </span><span class="kw">pub </span>model_metadata: ::core::option::Option&lt;model::ModelMetadata&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Model`.
-</span><span class="kw">pub mod </span>model {
-    <span class="doccomment">/// Deployment state of the model.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>DeploymentState {
-        <span class="doccomment">/// Should not be used, an un-set enum has this value by default.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Model is deployed.
-        </span>Deployed = <span class="number">1</span>,
-        <span class="doccomment">/// Model is not deployed.
-        </span>Undeployed = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>DeploymentState {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                DeploymentState::Unspecified =&gt; <span class="string">&quot;DEPLOYMENT_STATE_UNSPECIFIED&quot;</span>,
-                DeploymentState::Deployed =&gt; <span class="string">&quot;DEPLOYED&quot;</span>,
-                DeploymentState::Undeployed =&gt; <span class="string">&quot;UNDEPLOYED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;DEPLOYMENT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deployed),
-                <span class="string">&quot;UNDEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undeployed),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Required.
-    /// The model metadata that is specific to the problem type.
-    /// Must match the metadata type of the dataset used to train the model.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>ModelMetadata {
-        <span class="doccomment">/// Metadata for translation models.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;15&quot;</span>)]
-        </span>TranslationModelMetadata(<span class="kw">super</span>::TranslationModelMetadata),
-        <span class="doccomment">/// Metadata for image classification models.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
-        </span>ImageClassificationModelMetadata(<span class="kw">super</span>::ImageClassificationModelMetadata),
-        <span class="doccomment">/// Metadata for text classification models.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
-        </span>TextClassificationModelMetadata(<span class="kw">super</span>::TextClassificationModelMetadata),
-        <span class="doccomment">/// Metadata for image object detection models.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;20&quot;</span>)]
-        </span>ImageObjectDetectionModelMetadata(<span class="kw">super</span>::ImageObjectDetectionModelMetadata),
-        <span class="doccomment">/// Metadata for video classification models.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;23&quot;</span>)]
-        </span>VideoClassificationModelMetadata(<span class="kw">super</span>::VideoClassificationModelMetadata),
-        <span class="doccomment">/// Metadata for video object tracking models.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;21&quot;</span>)]
-        </span>VideoObjectTrackingModelMetadata(<span class="kw">super</span>::VideoObjectTrackingModelMetadata),
-        <span class="doccomment">/// Metadata for text extraction models.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;19&quot;</span>)]
-        </span>TextExtractionModelMetadata(<span class="kw">super</span>::TextExtractionModelMetadata),
-        <span class="doccomment">/// Metadata for Tables models.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;24&quot;</span>)]
-        </span>TablesModelMetadata(<span class="kw">super</span>::TablesModelMetadata),
-        <span class="doccomment">/// Metadata for text sentiment models.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;22&quot;</span>)]
-        </span>TextSentimentModelMetadata(<span class="kw">super</span>::TextSentimentModelMetadata),
     }
 }
 <span class="doccomment">/// Evaluation results of a model.
@@ -8886,6 +8709,183 @@
         /// format, into which the output of export evaluated examples is written.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>bigquery_output_dataset: ::prost::alloc::string::String,
+    }
+}
+<span class="doccomment">/// A specification of a relational table.
+/// The table&#39;s schema is represented via its child column specs. It is
+/// pre-populated as part of ImportData by schema inference algorithm, the
+/// version of which is a required parameter of ImportData InputConfig.
+/// Note: While working with a table, at times the schema may be
+/// inconsistent with the data in the table (e.g. string in a FLOAT64 column).
+/// The consistency validation is done upon creation of a model.
+/// Used by:
+///    *   Tables
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TableSpec {
+    <span class="doccomment">/// Output only. The resource name of the table spec.
+    /// Form:
+    ///
+    /// `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/tableSpecs/{table_spec_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// column_spec_id of the time column. Only used if the parent dataset&#39;s
+    /// ml_use_column_spec_id is not set. Used to split rows into TRAIN, VALIDATE
+    /// and TEST sets such that oldest rows go to TRAIN set, newest to TEST, and
+    /// those in between to VALIDATE.
+    /// Required type: TIMESTAMP.
+    /// If both this column and ml_use_column are not set, then ML use of all rows
+    /// will be assigned by AutoML. NOTE: Updates of this field will instantly
+    /// affect any other users concurrently working with the dataset.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>time_column_spec_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The number of rows (i.e. examples) in the table.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>row_count: i64,
+    <span class="doccomment">/// Output only. The number of valid rows (i.e. without values that don&#39;t match
+    /// DataType-s of their columns).
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>valid_row_count: i64,
+    <span class="doccomment">/// Output only. The number of columns of the table. That is, the number of
+    /// child ColumnSpec-s.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>column_count: i64,
+    <span class="doccomment">/// Output only. Input configs via which data currently residing in the table
+    /// had been imported.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>input_configs: ::prost::alloc::vec::Vec&lt;InputConfig&gt;,
+    <span class="doccomment">/// Used to perform consistent read-modify-write updates. If not set, a blind
+    /// &quot;overwrite&quot; update happens.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Contains annotation information that is relevant to AutoML.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AnnotationPayload {
+    <span class="doccomment">/// Output only . The resource ID of the annotation spec that
+    /// this annotation pertains to. The annotation spec comes from either an
+    /// ancestor dataset, or the dataset that was used to train the model in use.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The value of
+    /// [display_name][google.cloud.automl.v1beta1.AnnotationSpec.display_name]
+    /// when the model was trained. Because this field returns a value at model
+    /// training time, for different models trained using the same dataset, the
+    /// returned value could be different as model owner could update the
+    /// `display_name` between any two model training.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only . Additional information about the annotation
+    /// specific to the AutoML domain.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;annotation_payload::Detail&quot;</span>, tags = <span class="string">&quot;2, 3, 4, 9, 8, 6, 7, 10&quot;</span>)]
+    </span><span class="kw">pub </span>detail: ::core::option::Option&lt;annotation_payload::Detail&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `AnnotationPayload`.
+</span><span class="kw">pub mod </span>annotation_payload {
+    <span class="doccomment">/// Output only . Additional information about the annotation
+    /// specific to the AutoML domain.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Detail {
+        <span class="doccomment">/// Annotation details for translation.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>Translation(<span class="kw">super</span>::TranslationAnnotation),
+        <span class="doccomment">/// Annotation details for content or image classification.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>Classification(<span class="kw">super</span>::ClassificationAnnotation),
+        <span class="doccomment">/// Annotation details for image object detection.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>ImageObjectDetection(<span class="kw">super</span>::ImageObjectDetectionAnnotation),
+        <span class="doccomment">/// Annotation details for video classification.
+        /// Returned for Video Classification predictions.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span>VideoClassification(<span class="kw">super</span>::VideoClassificationAnnotation),
+        <span class="doccomment">/// Annotation details for video object tracking.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span>VideoObjectTracking(<span class="kw">super</span>::VideoObjectTrackingAnnotation),
+        <span class="doccomment">/// Annotation details for text extraction.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>TextExtraction(<span class="kw">super</span>::TextExtractionAnnotation),
+        <span class="doccomment">/// Annotation details for text sentiment.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>TextSentiment(<span class="kw">super</span>::TextSentimentAnnotation),
+        <span class="doccomment">/// Annotation details for Tables.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span>Tables(<span class="kw">super</span>::TablesAnnotation),
+    }
+}
+<span class="doccomment">/// A workspace for solving a single, particular machine learning (ML) problem.
+/// A workspace contains examples that may be annotated.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Dataset {
+    <span class="doccomment">/// Output only. The resource name of the dataset.
+    /// Form: `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The name of the dataset to show in the interface. The name can be
+    /// up to 32 characters long and can consist only of ASCII Latin letters A-Z
+    /// and a-z, underscores
+    /// (_), and ASCII digits 0-9.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// User-provided description of the dataset. The description can be up to
+    /// 25000 characters long.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The number of examples in the dataset.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="kw">pub </span>example_count: i32,
+    <span class="doccomment">/// Output only. Timestamp when this dataset was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Used to perform consistent read-modify-write updates. If not set, a blind
+    /// &quot;overwrite&quot; update happens.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required.
+    /// The dataset metadata that is specific to the problem type.
+    </span><span class="attr">#[prost(
+        oneof = <span class="string">&quot;dataset::DatasetMetadata&quot;</span>,
+        tags = <span class="string">&quot;23, 24, 25, 26, 31, 29, 28, 30, 33&quot;
+    </span>)]
+    </span><span class="kw">pub </span>dataset_metadata: ::core::option::Option&lt;dataset::DatasetMetadata&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Dataset`.
+</span><span class="kw">pub mod </span>dataset {
+    <span class="doccomment">/// Required.
+    /// The dataset metadata that is specific to the problem type.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>DatasetMetadata {
+        <span class="doccomment">/// Metadata for a dataset used for translation.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;23&quot;</span>)]
+        </span>TranslationDatasetMetadata(<span class="kw">super</span>::TranslationDatasetMetadata),
+        <span class="doccomment">/// Metadata for a dataset used for image classification.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;24&quot;</span>)]
+        </span>ImageClassificationDatasetMetadata(<span class="kw">super</span>::ImageClassificationDatasetMetadata),
+        <span class="doccomment">/// Metadata for a dataset used for text classification.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;25&quot;</span>)]
+        </span>TextClassificationDatasetMetadata(<span class="kw">super</span>::TextClassificationDatasetMetadata),
+        <span class="doccomment">/// Metadata for a dataset used for image object detection.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;26&quot;</span>)]
+        </span>ImageObjectDetectionDatasetMetadata(<span class="kw">super</span>::ImageObjectDetectionDatasetMetadata),
+        <span class="doccomment">/// Metadata for a dataset used for video classification.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;31&quot;</span>)]
+        </span>VideoClassificationDatasetMetadata(<span class="kw">super</span>::VideoClassificationDatasetMetadata),
+        <span class="doccomment">/// Metadata for a dataset used for video object tracking.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;29&quot;</span>)]
+        </span>VideoObjectTrackingDatasetMetadata(<span class="kw">super</span>::VideoObjectTrackingDatasetMetadata),
+        <span class="doccomment">/// Metadata for a dataset used for text extraction.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;28&quot;</span>)]
+        </span>TextExtractionDatasetMetadata(<span class="kw">super</span>::TextExtractionDatasetMetadata),
+        <span class="doccomment">/// Metadata for a dataset used for text sentiment.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;30&quot;</span>)]
+        </span>TextSentimentDatasetMetadata(<span class="kw">super</span>::TextSentimentDatasetMetadata),
+        <span class="doccomment">/// Metadata for a dataset used for Tables.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;33&quot;</span>)]
+        </span>TablesDatasetMetadata(<span class="kw">super</span>::TablesDatasetMetadata),
     }
 }
 <span class="doccomment">/// Request message for [AutoMl.CreateDataset][google.cloud.automl.v1beta1.AutoMl.CreateDataset].

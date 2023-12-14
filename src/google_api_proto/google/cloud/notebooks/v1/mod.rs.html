@@ -5052,7 +5052,91 @@
 <a href="#5052" id="5052">5052</a>
 <a href="#5053" id="5053">5053</a>
 <a href="#5054" id="5054">5054</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// The description a notebook execution workload.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Definition of a software environment that is used to start a notebook
+/// instance.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Environment {
+    <span class="doccomment">/// Output only. Name of this environment.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/environments/{environment_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Display name of this environment for the UI.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// A brief description of this environment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Path to a Bash script that automatically runs after a notebook instance
+    /// fully boots up. The path must be a URL or
+    /// Cloud Storage path. Example: `&quot;gs://path-to-file/file-name&quot;`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>post_startup_script: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The time at which this environment was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Type of the environment; can be one of VM image, or container image.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;environment::ImageType&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
+    </span><span class="kw">pub </span>image_type: ::core::option::Option&lt;environment::ImageType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Environment`.
+</span><span class="kw">pub mod </span>environment {
+    <span class="doccomment">/// Type of the environment; can be one of VM image, or container image.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>ImageType {
+        <span class="doccomment">/// Use a Compute Engine VM image to start the notebook instance.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>VmImage(<span class="kw">super</span>::VmImage),
+        <span class="doccomment">/// Use a container image to start the notebook instance.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>ContainerImage(<span class="kw">super</span>::ContainerImage),
+    }
+}
+<span class="doccomment">/// Definition of a custom Compute Engine virtual machine image for starting a
+/// notebook instance with the environment installed directly on the VM.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VmImage {
+    <span class="doccomment">/// Required. The name of the Google Cloud project that this VM image belongs to.
+    /// Format: `{project_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
+    <span class="doccomment">/// The reference to an external Compute Engine VM image.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;vm_image::Image&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>image: ::core::option::Option&lt;vm_image::Image&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `VmImage`.
+</span><span class="kw">pub mod </span>vm_image {
+    <span class="doccomment">/// The reference to an external Compute Engine VM image.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Image {
+        <span class="doccomment">/// Use VM image name to find the image.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>ImageName(::prost::alloc::string::String),
+        <span class="doccomment">/// Use this VM image family to find the image; the newest image in this
+        /// family will be used.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>ImageFamily(::prost::alloc::string::String),
+    }
+}
+<span class="doccomment">/// Definition of a container image for starting a notebook instance with the
+/// environment installed in a container.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ContainerImage {
+    <span class="doccomment">/// Required. The path to the container image repository. For example:
+    /// `gcr.io/{project_id}/{image_name}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>repository: ::prost::alloc::string::String,
+    <span class="doccomment">/// The tag of the container image. If not specified, this defaults
+    /// to the latest tag.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>tag: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The description a notebook execution workload.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecutionTemplate {
@@ -5536,6 +5620,121 @@
         }
     }
 }
+<span class="doccomment">/// The definition of a schedule.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Schedule {
+    <span class="doccomment">/// Output only. The name of this schedule. Format:
+    /// `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Display name used for UI purposes.
+    /// Name can only contain alphanumeric characters, hyphens `-`,
+    /// and underscores `_`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// A brief description of this environment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="attr">#[prost(enumeration = <span class="string">&quot;schedule::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Cron-tab formatted schedule by which the job will execute.
+    /// Format: minute, hour, day of month, month, day of week,
+    /// e.g. `0 0 * * WED` = every Wednesday
+    /// More examples: &lt;https://crontab.guru/examples.html&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>cron_schedule: ::prost::alloc::string::String,
+    <span class="doccomment">/// Timezone on which the cron_schedule.
+    /// The value of this field must be a time zone name from the tz database.
+    /// TZ Database: &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;
+    ///
+    /// Note that some time zones include a provision for daylight savings time.
+    /// The rules for daylight saving time are determined by the chosen tz.
+    /// For UTC use the string &quot;utc&quot;. If a time zone is not specified,
+    /// the default will be in UTC (also known as GMT).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Time the schedule was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Time the schedule was last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Notebook Execution Template corresponding to this schedule.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>execution_template: ::core::option::Option&lt;ExecutionTemplate&gt;,
+    <span class="doccomment">/// Output only. The most recent execution names triggered from this schedule and their
+    /// corresponding states.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>recent_executions: ::prost::alloc::vec::Vec&lt;Execution&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Schedule`.
+</span><span class="kw">pub mod </span>schedule {
+    <span class="doccomment">/// State of the job.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The job is executing normally.
+        </span>Enabled = <span class="number">1</span>,
+        <span class="doccomment">/// The job is paused by the user. It will not execute. A user can
+        /// intentionally pause the job using
+        /// [PauseJobRequest][].
+        </span>Paused = <span class="number">2</span>,
+        <span class="doccomment">/// The job is disabled by the system due to error. The user
+        /// cannot directly set a job to be disabled.
+        </span>Disabled = <span class="number">3</span>,
+        <span class="doccomment">/// The job state resulting from a failed [CloudScheduler.UpdateJob][]
+        /// operation. To recover a job from this state, retry
+        /// [CloudScheduler.UpdateJob][] until a successful response is received.
+        </span>UpdateFailed = <span class="number">4</span>,
+        <span class="doccomment">/// The schedule resource is being created.
+        </span>Initializing = <span class="number">5</span>,
+        <span class="doccomment">/// The schedule resource is being deleted.
+        </span>Deleting = <span class="number">6</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
+                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
+                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                State::UpdateFailed =&gt; <span class="string">&quot;UPDATE_FAILED&quot;</span>,
+                State::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">&quot;UPDATE_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateFailed),
+                <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
 <span class="doccomment">/// Defines flags that are used to run the diagnostic tool
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5572,90 +5771,6 @@
     <span class="doccomment">/// Optional. Enables flag to copy all `/home/jupyter` folder contents
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>copy_home_files_flag_enabled: bool,
-}
-<span class="doccomment">/// Definition of a software environment that is used to start a notebook
-/// instance.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Environment {
-    <span class="doccomment">/// Output only. Name of this environment.
-    /// Format:
-    /// `projects/{project_id}/locations/{location}/environments/{environment_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Display name of this environment for the UI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// A brief description of this environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Path to a Bash script that automatically runs after a notebook instance
-    /// fully boots up. The path must be a URL or
-    /// Cloud Storage path. Example: `&quot;gs://path-to-file/file-name&quot;`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>post_startup_script: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The time at which this environment was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Type of the environment; can be one of VM image, or container image.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;environment::ImageType&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
-    </span><span class="kw">pub </span>image_type: ::core::option::Option&lt;environment::ImageType&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Environment`.
-</span><span class="kw">pub mod </span>environment {
-    <span class="doccomment">/// Type of the environment; can be one of VM image, or container image.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>ImageType {
-        <span class="doccomment">/// Use a Compute Engine VM image to start the notebook instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>VmImage(<span class="kw">super</span>::VmImage),
-        <span class="doccomment">/// Use a container image to start the notebook instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>ContainerImage(<span class="kw">super</span>::ContainerImage),
-    }
-}
-<span class="doccomment">/// Definition of a custom Compute Engine virtual machine image for starting a
-/// notebook instance with the environment installed directly on the VM.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VmImage {
-    <span class="doccomment">/// Required. The name of the Google Cloud project that this VM image belongs to.
-    /// Format: `{project_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
-    <span class="doccomment">/// The reference to an external Compute Engine VM image.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;vm_image::Image&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>image: ::core::option::Option&lt;vm_image::Image&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `VmImage`.
-</span><span class="kw">pub mod </span>vm_image {
-    <span class="doccomment">/// The reference to an external Compute Engine VM image.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Image {
-        <span class="doccomment">/// Use VM image name to find the image.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>ImageName(::prost::alloc::string::String),
-        <span class="doccomment">/// Use this VM image family to find the image; the newest image in this
-        /// family will be used.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>ImageFamily(::prost::alloc::string::String),
-    }
-}
-<span class="doccomment">/// Definition of a container image for starting a notebook instance with the
-/// environment installed in a container.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ContainerImage {
-    <span class="doccomment">/// Required. The path to the container image repository. For example:
-    /// `gcr.io/{project_id}/{image_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>repository: ::prost::alloc::string::String,
-    <span class="doccomment">/// The tag of the container image. If not specified, this defaults
-    /// to the latest tag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>tag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Reservation Affinity for consuming Zonal reservation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6484,121 +6599,6 @@
     <span class="doccomment">/// Verifies core internal services are running.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>enable_health_monitoring: bool,
-}
-<span class="doccomment">/// The definition of a schedule.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Schedule {
-    <span class="doccomment">/// Output only. The name of this schedule. Format:
-    /// `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Display name used for UI purposes.
-    /// Name can only contain alphanumeric characters, hyphens `-`,
-    /// and underscores `_`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// A brief description of this environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="attr">#[prost(enumeration = <span class="string">&quot;schedule::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Cron-tab formatted schedule by which the job will execute.
-    /// Format: minute, hour, day of month, month, day of week,
-    /// e.g. `0 0 * * WED` = every Wednesday
-    /// More examples: &lt;https://crontab.guru/examples.html&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>cron_schedule: ::prost::alloc::string::String,
-    <span class="doccomment">/// Timezone on which the cron_schedule.
-    /// The value of this field must be a time zone name from the tz database.
-    /// TZ Database: &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;
-    ///
-    /// Note that some time zones include a provision for daylight savings time.
-    /// The rules for daylight saving time are determined by the chosen tz.
-    /// For UTC use the string &quot;utc&quot;. If a time zone is not specified,
-    /// the default will be in UTC (also known as GMT).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Time the schedule was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time the schedule was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Notebook Execution Template corresponding to this schedule.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>execution_template: ::core::option::Option&lt;ExecutionTemplate&gt;,
-    <span class="doccomment">/// Output only. The most recent execution names triggered from this schedule and their
-    /// corresponding states.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>recent_executions: ::prost::alloc::vec::Vec&lt;Execution&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Schedule`.
-</span><span class="kw">pub mod </span>schedule {
-    <span class="doccomment">/// State of the job.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The job is executing normally.
-        </span>Enabled = <span class="number">1</span>,
-        <span class="doccomment">/// The job is paused by the user. It will not execute. A user can
-        /// intentionally pause the job using
-        /// [PauseJobRequest][].
-        </span>Paused = <span class="number">2</span>,
-        <span class="doccomment">/// The job is disabled by the system due to error. The user
-        /// cannot directly set a job to be disabled.
-        </span>Disabled = <span class="number">3</span>,
-        <span class="doccomment">/// The job state resulting from a failed [CloudScheduler.UpdateJob][]
-        /// operation. To recover a job from this state, retry
-        /// [CloudScheduler.UpdateJob][] until a successful response is received.
-        </span>UpdateFailed = <span class="number">4</span>,
-        <span class="doccomment">/// The schedule resource is being created.
-        </span>Initializing = <span class="number">5</span>,
-        <span class="doccomment">/// The schedule resource is being deleted.
-        </span>Deleting = <span class="number">6</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
-                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                State::UpdateFailed =&gt; <span class="string">&quot;UPDATE_FAILED&quot;</span>,
-                State::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
-                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;UPDATE_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateFailed),
-                <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
 }
 <span class="doccomment">/// Represents the metadata of the long-running operation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

@@ -1657,6 +1657,76 @@
         </span>DistributionValue(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::api::Distribution),
     }
 }
+<span class="doccomment">/// Assessment task config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AssessmentTaskDetails {
+    <span class="doccomment">/// Required. The Cloud Storage path for assessment input files.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>input_path: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The BigQuery dataset for output.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>output_dataset: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. An optional Cloud Storage path to write the query logs (which is
+    /// then used as an input path on the translation task)
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>querylogs_path: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The data source or data warehouse type (eg: TERADATA/REDSHIFT)
+    /// from which the input data is extracted.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>data_source: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Details for an assessment task orchestration result.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AssessmentOrchestrationResultDetails {
+    <span class="doccomment">/// Optional. The version used for the output table schemas.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>output_tables_schema_version: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Provides details for errors and the corresponding resources.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ResourceErrorDetail {
+    <span class="doccomment">/// Required. Information about the resource where the error is located.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_info: ::core::option::Option&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ResourceInfo,
+    &gt;,
+    <span class="doccomment">/// Required. The error details for the resource.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>error_details: ::prost::alloc::vec::Vec&lt;ErrorDetail&gt;,
+    <span class="doccomment">/// Required. How many errors there are in total for the resource. Truncation can be
+    /// indicated by having an `error_count` that is higher than the size of
+    /// `error_details`.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>error_count: i32,
+}
+<span class="doccomment">/// Provides details for errors, e.g. issues that where encountered when
+/// processing a subtask.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ErrorDetail {
+    <span class="doccomment">/// Optional. The exact location within the resource (if applicable).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>location: ::core::option::Option&lt;ErrorLocation&gt;,
+    <span class="doccomment">/// Required. Describes the cause of the error with structured detail.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>error_info: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ErrorInfo&gt;,
+}
+<span class="doccomment">/// Holds information about where the error is located.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ErrorLocation {
+    <span class="doccomment">/// Optional. If applicable, denotes the line where the error occurred. A zero value
+    /// means that there is no line information.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>line: i32,
+    <span class="doccomment">/// Optional. If applicable, denotes the column where the error occurred. A zero value
+    /// means that there is no columns information.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>column: i32,
+}
 <span class="doccomment">/// Mapping between an input and output file to be translated in a subtask.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2010,76 +2080,6 @@
     <span class="doccomment">/// The ID of the project containing this dataset.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Assessment task config.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AssessmentTaskDetails {
-    <span class="doccomment">/// Required. The Cloud Storage path for assessment input files.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>input_path: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The BigQuery dataset for output.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>output_dataset: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. An optional Cloud Storage path to write the query logs (which is
-    /// then used as an input path on the translation task)
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>querylogs_path: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The data source or data warehouse type (eg: TERADATA/REDSHIFT)
-    /// from which the input data is extracted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>data_source: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Details for an assessment task orchestration result.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AssessmentOrchestrationResultDetails {
-    <span class="doccomment">/// Optional. The version used for the output table schemas.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>output_tables_schema_version: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Provides details for errors and the corresponding resources.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ResourceErrorDetail {
-    <span class="doccomment">/// Required. Information about the resource where the error is located.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_info: ::core::option::Option&lt;
-        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ResourceInfo,
-    &gt;,
-    <span class="doccomment">/// Required. The error details for the resource.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>error_details: ::prost::alloc::vec::Vec&lt;ErrorDetail&gt;,
-    <span class="doccomment">/// Required. How many errors there are in total for the resource. Truncation can be
-    /// indicated by having an `error_count` that is higher than the size of
-    /// `error_details`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>error_count: i32,
-}
-<span class="doccomment">/// Provides details for errors, e.g. issues that where encountered when
-/// processing a subtask.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ErrorDetail {
-    <span class="doccomment">/// Optional. The exact location within the resource (if applicable).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>location: ::core::option::Option&lt;ErrorLocation&gt;,
-    <span class="doccomment">/// Required. Describes the cause of the error with structured detail.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>error_info: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ErrorInfo&gt;,
-}
-<span class="doccomment">/// Holds information about where the error is located.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ErrorLocation {
-    <span class="doccomment">/// Optional. If applicable, denotes the line where the error occurred. A zero value
-    /// means that there is no line information.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>line: i32,
-    <span class="doccomment">/// Optional. If applicable, denotes the column where the error occurred. A zero value
-    /// means that there is no columns information.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>column: i32,
 }
 <span class="doccomment">/// A migration workflow which specifies what needs to be done for an EDW
 /// migration.
