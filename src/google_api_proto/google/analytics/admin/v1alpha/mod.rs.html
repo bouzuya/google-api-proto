@@ -10780,6 +10780,54 @@
 <a href="#10780" id="10780">10780</a>
 <a href="#10781" id="10781">10781</a>
 <a href="#10782" id="10782">10782</a>
+<a href="#10783" id="10783">10783</a>
+<a href="#10784" id="10784">10784</a>
+<a href="#10785" id="10785">10785</a>
+<a href="#10786" id="10786">10786</a>
+<a href="#10787" id="10787">10787</a>
+<a href="#10788" id="10788">10788</a>
+<a href="#10789" id="10789">10789</a>
+<a href="#10790" id="10790">10790</a>
+<a href="#10791" id="10791">10791</a>
+<a href="#10792" id="10792">10792</a>
+<a href="#10793" id="10793">10793</a>
+<a href="#10794" id="10794">10794</a>
+<a href="#10795" id="10795">10795</a>
+<a href="#10796" id="10796">10796</a>
+<a href="#10797" id="10797">10797</a>
+<a href="#10798" id="10798">10798</a>
+<a href="#10799" id="10799">10799</a>
+<a href="#10800" id="10800">10800</a>
+<a href="#10801" id="10801">10801</a>
+<a href="#10802" id="10802">10802</a>
+<a href="#10803" id="10803">10803</a>
+<a href="#10804" id="10804">10804</a>
+<a href="#10805" id="10805">10805</a>
+<a href="#10806" id="10806">10806</a>
+<a href="#10807" id="10807">10807</a>
+<a href="#10808" id="10808">10808</a>
+<a href="#10809" id="10809">10809</a>
+<a href="#10810" id="10810">10810</a>
+<a href="#10811" id="10811">10811</a>
+<a href="#10812" id="10812">10812</a>
+<a href="#10813" id="10813">10813</a>
+<a href="#10814" id="10814">10814</a>
+<a href="#10815" id="10815">10815</a>
+<a href="#10816" id="10816">10816</a>
+<a href="#10817" id="10817">10817</a>
+<a href="#10818" id="10818">10818</a>
+<a href="#10819" id="10819">10819</a>
+<a href="#10820" id="10820">10820</a>
+<a href="#10821" id="10821">10821</a>
+<a href="#10822" id="10822">10822</a>
+<a href="#10823" id="10823">10823</a>
+<a href="#10824" id="10824">10824</a>
+<a href="#10825" id="10825">10825</a>
+<a href="#10826" id="10826">10826</a>
+<a href="#10827" id="10827">10827</a>
+<a href="#10828" id="10828">10828</a>
+<a href="#10829" id="10829">10829</a>
+<a href="#10830" id="10830">10830</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A specific filter expression
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -11181,11 +11229,12 @@
     <span class="doccomment">/// The description of the Channel Group. Max length of 256 characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The grouping rules of channels. Maximum number of rules is 25.
+    <span class="doccomment">/// Required. The grouping rules of channels. Maximum number of rules is 50.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>grouping_rule: ::prost::alloc::vec::Vec&lt;GroupingRule&gt;,
-    <span class="doccomment">/// Output only. Default Channel Group defined by Google, which cannot be
-    /// updated.
+    <span class="doccomment">/// Output only. If true, then this channel group is the Default Channel Group
+    /// predefined by Google Analytics. Display name and grouping rules cannot be
+    /// updated for this channel group.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>system_defined: bool,
 }
@@ -13048,9 +13097,30 @@
     /// `ONCE_PER_EVENT`.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;conversion_event::ConversionCountingMethod&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>counting_method: i32,
+    <span class="doccomment">/// Optional. Defines a default value/currency for a conversion event.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>default_conversion_value: ::core::option::Option&lt;
+        conversion_event::DefaultConversionValue,
+    &gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ConversionEvent`.
 </span><span class="kw">pub mod </span>conversion_event {
+    <span class="doccomment">/// Defines a default value/currency for a conversion event. Both value and
+    /// currency must be provided.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>DefaultConversionValue {
+        <span class="doccomment">/// This value will be used to populate the value for all conversions
+        /// of the specified event_name where the event &quot;value&quot; parameter is unset.
+        </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>value: ::core::option::Option&lt;f64&gt;,
+        <span class="doccomment">/// When a conversion event for this event_name has no set currency,
+        /// this currency will be applied as the default. Must be in ISO 4217
+        /// currency code format. See &lt;https://en.wikipedia.org/wiki/ISO_4217&gt; for
+        /// more.
+        </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>currency_code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    }
     <span class="doccomment">/// The method by which conversions will be counted across multiple events
     /// within a session.
     </span><span class="attr">#[derive(
@@ -13685,51 +13755,6 @@
         /// for YouTube) before converting.
         /// Previously CROSS_CHANNEL_LAST_CLICK
         </span>PaidAndOrganicChannelsLastClick = <span class="number">2</span>,
-        <span class="doccomment">/// Starting in June 2023, new properties can no longer use this model.
-        /// See
-        /// [Analytics
-        /// Help](&lt;https://support.google.com/analytics/answer/9164320#040623&gt;)
-        /// for more details.
-        /// Starting in September 2023, we will sunset this model for all properties.
-        ///
-        /// Gives all credit for the conversion to the first channel that a customer
-        /// clicked (or engaged view through for YouTube) before converting.
-        /// Previously CROSS_CHANNEL_FIRST_CLICK
-        </span>PaidAndOrganicChannelsFirstClick = <span class="number">3</span>,
-        <span class="doccomment">/// Starting in June 2023, new properties can no longer use this model.
-        /// See
-        /// [Analytics
-        /// Help](&lt;https://support.google.com/analytics/answer/9164320#040623&gt;)
-        /// for more details.
-        /// Starting in September 2023, we will sunset this model for all properties.
-        ///
-        /// Distributes the credit for the conversion equally across all the channels
-        /// a customer clicked (or engaged view through for YouTube) before
-        /// converting.
-        /// Previously CROSS_CHANNEL_LINEAR
-        </span>PaidAndOrganicChannelsLinear = <span class="number">4</span>,
-        <span class="doccomment">/// Starting in June 2023, new properties can no longer use this model.
-        /// See
-        /// [Analytics
-        /// Help](&lt;https://support.google.com/analytics/answer/9164320#040623&gt;)
-        /// for more details.
-        /// Starting in September 2023, we will sunset this model for all properties.
-        ///
-        /// Attributes 40% credit to the first and last interaction, and the
-        /// remaining 20% credit is distributed evenly to the middle interactions.
-        /// Previously CROSS_CHANNEL_POSITION_BASED
-        </span>PaidAndOrganicChannelsPositionBased = <span class="number">5</span>,
-        <span class="doccomment">/// Starting in June 2023, new properties can no longer use this model.
-        /// See
-        /// [Analytics
-        /// Help](&lt;https://support.google.com/analytics/answer/9164320#040623&gt;)
-        /// for more details.
-        /// Starting in September 2023, we will sunset this model for all properties.
-        ///
-        /// Gives more credit to the touchpoints that happened closer in time to
-        /// the conversion.
-        /// Previously CROSS_CHANNEL_TIME_DECAY
-        </span>PaidAndOrganicChannelsTimeDecay = <span class="number">6</span>,
         <span class="doccomment">/// Attributes 100% of the conversion value to the last Google Paid channel
         /// that the customer clicked through before converting.
         /// Previously ADS_PREFERRED_LAST_CLICK
@@ -13751,18 +13776,6 @@
                 ReportingAttributionModel::PaidAndOrganicChannelsLastClick =&gt; {
                     <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_LAST_CLICK&quot;
                 </span>}
-                ReportingAttributionModel::PaidAndOrganicChannelsFirstClick =&gt; {
-                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_FIRST_CLICK&quot;
-                </span>}
-                ReportingAttributionModel::PaidAndOrganicChannelsLinear =&gt; {
-                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_LINEAR&quot;
-                </span>}
-                ReportingAttributionModel::PaidAndOrganicChannelsPositionBased =&gt; {
-                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_POSITION_BASED&quot;
-                </span>}
-                ReportingAttributionModel::PaidAndOrganicChannelsTimeDecay =&gt; {
-                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_TIME_DECAY&quot;
-                </span>}
                 ReportingAttributionModel::GooglePaidChannelsLastClick =&gt; {
                     <span class="string">&quot;GOOGLE_PAID_CHANNELS_LAST_CLICK&quot;
                 </span>}
@@ -13777,18 +13790,6 @@
                 }
                 <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_LAST_CLICK&quot; </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsLastClick)
-                }
-                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_FIRST_CLICK&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsFirstClick)
-                }
-                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_LINEAR&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsLinear)
-                }
-                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_POSITION_BASED&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsPositionBased)
-                }
-                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_TIME_DECAY&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsTimeDecay)
                 }
                 <span class="string">&quot;GOOGLE_PAID_CHANNELS_LAST_CLICK&quot; </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::GooglePaidChannelsLastClick)
@@ -20047,8 +20048,10 @@
         /// records of each time a user reads Google Analytics reporting data. Access
         /// records are retained for up to 2 years.
         ///
-        /// Data Access Reports can be requested for a property. The property must be
-        /// in Google Analytics 360. This method is only available to Administrators.
+        /// Data Access Reports can be requested for a property. Reports may be
+        /// requested for any property, but dimensions that aren&#39;t related to quota can
+        /// only be requested on Google Analytics 360 properties. This method is only
+        /// available to Administrators.
         ///
         /// These data access records include GA4 UI Reporting, GA4 UI Explorations,
         /// GA4 Data API, and other products like Firebase &amp; Admob that can retrieve
@@ -21501,34 +21504,6 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Deletes a subproperty event filter.
-        </span><span class="kw">pub async fn </span>delete_subproperty_event_filter(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteSubpropertyEventFilterRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.analytics.admin.v1alpha.AnalyticsAdminService/DeleteSubpropertyEventFilter&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.analytics.admin.v1alpha.AnalyticsAdminService&quot;</span>,
-                        <span class="string">&quot;DeleteSubpropertyEventFilter&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
         <span class="doccomment">/// Creates a subproperty Event Filter.
         </span><span class="kw">pub async fn </span>create_subproperty_event_filter(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -21556,6 +21531,127 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.analytics.admin.v1alpha.AnalyticsAdminService&quot;</span>,
                         <span class="string">&quot;CreateSubpropertyEventFilter&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Lookup for a single subproperty Event Filter.
+        </span><span class="kw">pub async fn </span>get_subproperty_event_filter(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetSubpropertyEventFilterRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::SubpropertyEventFilter&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.analytics.admin.v1alpha.AnalyticsAdminService/GetSubpropertyEventFilter&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.analytics.admin.v1alpha.AnalyticsAdminService&quot;</span>,
+                        <span class="string">&quot;GetSubpropertyEventFilter&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// List all subproperty Event Filters on a property.
+        </span><span class="kw">pub async fn </span>list_subproperty_event_filters(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListSubpropertyEventFiltersRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListSubpropertyEventFiltersResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.analytics.admin.v1alpha.AnalyticsAdminService/ListSubpropertyEventFilters&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.analytics.admin.v1alpha.AnalyticsAdminService&quot;</span>,
+                        <span class="string">&quot;ListSubpropertyEventFilters&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Updates a subproperty Event Filter.
+        </span><span class="kw">pub async fn </span>update_subproperty_event_filter(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateSubpropertyEventFilterRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::SubpropertyEventFilter&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.analytics.admin.v1alpha.AnalyticsAdminService/UpdateSubpropertyEventFilter&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.analytics.admin.v1alpha.AnalyticsAdminService&quot;</span>,
+                        <span class="string">&quot;UpdateSubpropertyEventFilter&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Deletes a subproperty event filter.
+        </span><span class="kw">pub async fn </span>delete_subproperty_event_filter(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteSubpropertyEventFilterRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.analytics.admin.v1alpha.AnalyticsAdminService/DeleteSubpropertyEventFilter&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.analytics.admin.v1alpha.AnalyticsAdminService&quot;</span>,
+                        <span class="string">&quot;DeleteSubpropertyEventFilter&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

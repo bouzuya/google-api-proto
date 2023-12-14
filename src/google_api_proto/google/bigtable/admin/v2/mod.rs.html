@@ -4114,6 +4114,9 @@
 <a href="#4114" id="4114">4114</a>
 <a href="#4115" id="4115">4115</a>
 <a href="#4116" id="4116">4116</a>
+<a href="#4117" id="4117">4117</a>
+<a href="#4118" id="4118">4118</a>
+<a href="#4119" id="4119">4119</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Encapsulates progress related information for a Cloud Bigtable long
 /// running operation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5640,6 +5643,9 @@
     </span><span class="kw">pub </span>modifications: ::prost::alloc::vec::Vec&lt;
         modify_column_families_request::Modification,
     &gt;,
+    <span class="doccomment">/// Optional. If true, ignore safety checks when modifying the column families.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>ignore_warnings: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `ModifyColumnFamiliesRequest`.
 </span><span class="kw">pub mod </span>modify_column_families_request {
