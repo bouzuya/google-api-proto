@@ -156,9 +156,9 @@ pub mod quota_increase_eligibility {
         /// Default value when is_eligible is true.
         Unspecified = 0,
         /// The container is not linked with a valid billing account.
-        NoValidBillingAccount = 2,
+        NoValidBillingAccount = 1,
         /// Other reasons.
-        Other = 3,
+        Other = 2,
     }
     impl IneligibilityReason {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -381,10 +381,10 @@ pub enum QuotaSafetyCheck {
     Unspecified = 0,
     /// Validates that a quota mutation would not cause the consumer's effective
     /// limit to be lower than the consumer's quota usage.
-    LimitDecreaseBelowUsage = 1,
+    QuotaDecreaseBelowUsage = 1,
     /// Validates that a quota mutation would not cause the consumer's effective
     /// limit to decrease by more than 10 percent.
-    LimitDecreasePercentageTooHigh = 2,
+    QuotaDecreasePercentageTooHigh = 2,
 }
 impl QuotaSafetyCheck {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -394,9 +394,9 @@ impl QuotaSafetyCheck {
     pub fn as_str_name(&self) -> &'static str {
         match self {
             QuotaSafetyCheck::Unspecified => "QUOTA_SAFETY_CHECK_UNSPECIFIED",
-            QuotaSafetyCheck::LimitDecreaseBelowUsage => "LIMIT_DECREASE_BELOW_USAGE",
-            QuotaSafetyCheck::LimitDecreasePercentageTooHigh => {
-                "LIMIT_DECREASE_PERCENTAGE_TOO_HIGH"
+            QuotaSafetyCheck::QuotaDecreaseBelowUsage => "QUOTA_DECREASE_BELOW_USAGE",
+            QuotaSafetyCheck::QuotaDecreasePercentageTooHigh => {
+                "QUOTA_DECREASE_PERCENTAGE_TOO_HIGH"
             }
         }
     }
@@ -404,9 +404,9 @@ impl QuotaSafetyCheck {
     pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
         match value {
             "QUOTA_SAFETY_CHECK_UNSPECIFIED" => Some(Self::Unspecified),
-            "LIMIT_DECREASE_BELOW_USAGE" => Some(Self::LimitDecreaseBelowUsage),
-            "LIMIT_DECREASE_PERCENTAGE_TOO_HIGH" => {
-                Some(Self::LimitDecreasePercentageTooHigh)
+            "QUOTA_DECREASE_BELOW_USAGE" => Some(Self::QuotaDecreaseBelowUsage),
+            "QUOTA_DECREASE_PERCENTAGE_TOO_HIGH" => {
+                Some(Self::QuotaDecreasePercentageTooHigh)
             }
             _ => None,
         }
