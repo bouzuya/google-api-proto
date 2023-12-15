@@ -999,9 +999,9 @@
         <span class="doccomment">/// Default value when is_eligible is true.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// The container is not linked with a valid billing account.
-        </span>NoValidBillingAccount = <span class="number">2</span>,
+        </span>NoValidBillingAccount = <span class="number">1</span>,
         <span class="doccomment">/// Other reasons.
-        </span>Other = <span class="number">3</span>,
+        </span>Other = <span class="number">2</span>,
     }
     <span class="kw">impl </span>IneligibilityReason {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -1224,10 +1224,10 @@
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// Validates that a quota mutation would not cause the consumer&#39;s effective
     /// limit to be lower than the consumer&#39;s quota usage.
-    </span>LimitDecreaseBelowUsage = <span class="number">1</span>,
+    </span>QuotaDecreaseBelowUsage = <span class="number">1</span>,
     <span class="doccomment">/// Validates that a quota mutation would not cause the consumer&#39;s effective
     /// limit to decrease by more than 10 percent.
-    </span>LimitDecreasePercentageTooHigh = <span class="number">2</span>,
+    </span>QuotaDecreasePercentageTooHigh = <span class="number">2</span>,
 }
 <span class="kw">impl </span>QuotaSafetyCheck {
     <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -1237,9 +1237,9 @@
     </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             QuotaSafetyCheck::Unspecified =&gt; <span class="string">&quot;QUOTA_SAFETY_CHECK_UNSPECIFIED&quot;</span>,
-            QuotaSafetyCheck::LimitDecreaseBelowUsage =&gt; <span class="string">&quot;LIMIT_DECREASE_BELOW_USAGE&quot;</span>,
-            QuotaSafetyCheck::LimitDecreasePercentageTooHigh =&gt; {
-                <span class="string">&quot;LIMIT_DECREASE_PERCENTAGE_TOO_HIGH&quot;
+            QuotaSafetyCheck::QuotaDecreaseBelowUsage =&gt; <span class="string">&quot;QUOTA_DECREASE_BELOW_USAGE&quot;</span>,
+            QuotaSafetyCheck::QuotaDecreasePercentageTooHigh =&gt; {
+                <span class="string">&quot;QUOTA_DECREASE_PERCENTAGE_TOO_HIGH&quot;
             </span>}
         }
     }
@@ -1247,9 +1247,9 @@
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
             <span class="string">&quot;QUOTA_SAFETY_CHECK_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;LIMIT_DECREASE_BELOW_USAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LimitDecreaseBelowUsage),
-            <span class="string">&quot;LIMIT_DECREASE_PERCENTAGE_TOO_HIGH&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::LimitDecreasePercentageTooHigh)
+            <span class="string">&quot;QUOTA_DECREASE_BELOW_USAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::QuotaDecreaseBelowUsage),
+            <span class="string">&quot;QUOTA_DECREASE_PERCENTAGE_TOO_HIGH&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::QuotaDecreasePercentageTooHigh)
             }
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
