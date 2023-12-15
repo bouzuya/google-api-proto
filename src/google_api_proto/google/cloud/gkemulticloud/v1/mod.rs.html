@@ -4556,7 +4556,946 @@
 <a href="#4556" id="4556">4556</a>
 <a href="#4557" id="4557">4557</a>
 <a href="#4558" id="4558">4558</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Workload Identity settings.
+<a href="#4559" id="4559">4559</a>
+<a href="#4560" id="4560">4560</a>
+<a href="#4561" id="4561">4561</a>
+<a href="#4562" id="4562">4562</a>
+<a href="#4563" id="4563">4563</a>
+<a href="#4564" id="4564">4564</a>
+<a href="#4565" id="4565">4565</a>
+<a href="#4566" id="4566">4566</a>
+<a href="#4567" id="4567">4567</a>
+<a href="#4568" id="4568">4568</a>
+<a href="#4569" id="4569">4569</a>
+<a href="#4570" id="4570">4570</a>
+<a href="#4571" id="4571">4571</a>
+<a href="#4572" id="4572">4572</a>
+<a href="#4573" id="4573">4573</a>
+<a href="#4574" id="4574">4574</a>
+<a href="#4575" id="4575">4575</a>
+<a href="#4576" id="4576">4576</a>
+<a href="#4577" id="4577">4577</a>
+<a href="#4578" id="4578">4578</a>
+<a href="#4579" id="4579">4579</a>
+<a href="#4580" id="4580">4580</a>
+<a href="#4581" id="4581">4581</a>
+<a href="#4582" id="4582">4582</a>
+<a href="#4583" id="4583">4583</a>
+<a href="#4584" id="4584">4584</a>
+<a href="#4585" id="4585">4585</a>
+<a href="#4586" id="4586">4586</a>
+<a href="#4587" id="4587">4587</a>
+<a href="#4588" id="4588">4588</a>
+<a href="#4589" id="4589">4589</a>
+<a href="#4590" id="4590">4590</a>
+<a href="#4591" id="4591">4591</a>
+<a href="#4592" id="4592">4592</a>
+<a href="#4593" id="4593">4593</a>
+<a href="#4594" id="4594">4594</a>
+<a href="#4595" id="4595">4595</a>
+<a href="#4596" id="4596">4596</a>
+<a href="#4597" id="4597">4597</a>
+<a href="#4598" id="4598">4598</a>
+<a href="#4599" id="4599">4599</a>
+<a href="#4600" id="4600">4600</a>
+<a href="#4601" id="4601">4601</a>
+<a href="#4602" id="4602">4602</a>
+<a href="#4603" id="4603">4603</a>
+<a href="#4604" id="4604">4604</a>
+<a href="#4605" id="4605">4605</a>
+<a href="#4606" id="4606">4606</a>
+<a href="#4607" id="4607">4607</a>
+<a href="#4608" id="4608">4608</a>
+<a href="#4609" id="4609">4609</a>
+<a href="#4610" id="4610">4610</a>
+<a href="#4611" id="4611">4611</a>
+<a href="#4612" id="4612">4612</a>
+<a href="#4613" id="4613">4613</a>
+<a href="#4614" id="4614">4614</a>
+<a href="#4615" id="4615">4615</a>
+<a href="#4616" id="4616">4616</a>
+<a href="#4617" id="4617">4617</a>
+<a href="#4618" id="4618">4618</a>
+<a href="#4619" id="4619">4619</a>
+<a href="#4620" id="4620">4620</a>
+<a href="#4621" id="4621">4621</a>
+<a href="#4622" id="4622">4622</a>
+<a href="#4623" id="4623">4623</a>
+<a href="#4624" id="4624">4624</a>
+<a href="#4625" id="4625">4625</a>
+<a href="#4626" id="4626">4626</a>
+<a href="#4627" id="4627">4627</a>
+<a href="#4628" id="4628">4628</a>
+<a href="#4629" id="4629">4629</a>
+<a href="#4630" id="4630">4630</a>
+<a href="#4631" id="4631">4631</a>
+<a href="#4632" id="4632">4632</a>
+<a href="#4633" id="4633">4633</a>
+<a href="#4634" id="4634">4634</a>
+<a href="#4635" id="4635">4635</a>
+<a href="#4636" id="4636">4636</a>
+<a href="#4637" id="4637">4637</a>
+<a href="#4638" id="4638">4638</a>
+<a href="#4639" id="4639">4639</a>
+<a href="#4640" id="4640">4640</a>
+<a href="#4641" id="4641">4641</a>
+<a href="#4642" id="4642">4642</a>
+<a href="#4643" id="4643">4643</a>
+<a href="#4644" id="4644">4644</a>
+<a href="#4645" id="4645">4645</a>
+<a href="#4646" id="4646">4646</a>
+<a href="#4647" id="4647">4647</a>
+<a href="#4648" id="4648">4648</a>
+<a href="#4649" id="4649">4649</a>
+<a href="#4650" id="4650">4650</a>
+<a href="#4651" id="4651">4651</a>
+<a href="#4652" id="4652">4652</a>
+<a href="#4653" id="4653">4653</a>
+<a href="#4654" id="4654">4654</a>
+<a href="#4655" id="4655">4655</a>
+<a href="#4656" id="4656">4656</a>
+<a href="#4657" id="4657">4657</a>
+<a href="#4658" id="4658">4658</a>
+<a href="#4659" id="4659">4659</a>
+<a href="#4660" id="4660">4660</a>
+<a href="#4661" id="4661">4661</a>
+<a href="#4662" id="4662">4662</a>
+<a href="#4663" id="4663">4663</a>
+<a href="#4664" id="4664">4664</a>
+<a href="#4665" id="4665">4665</a>
+<a href="#4666" id="4666">4666</a>
+<a href="#4667" id="4667">4667</a>
+<a href="#4668" id="4668">4668</a>
+<a href="#4669" id="4669">4669</a>
+<a href="#4670" id="4670">4670</a>
+<a href="#4671" id="4671">4671</a>
+<a href="#4672" id="4672">4672</a>
+<a href="#4673" id="4673">4673</a>
+<a href="#4674" id="4674">4674</a>
+<a href="#4675" id="4675">4675</a>
+<a href="#4676" id="4676">4676</a>
+<a href="#4677" id="4677">4677</a>
+<a href="#4678" id="4678">4678</a>
+<a href="#4679" id="4679">4679</a>
+<a href="#4680" id="4680">4680</a>
+<a href="#4681" id="4681">4681</a>
+<a href="#4682" id="4682">4682</a>
+<a href="#4683" id="4683">4683</a>
+<a href="#4684" id="4684">4684</a>
+<a href="#4685" id="4685">4685</a>
+<a href="#4686" id="4686">4686</a>
+<a href="#4687" id="4687">4687</a>
+<a href="#4688" id="4688">4688</a>
+<a href="#4689" id="4689">4689</a>
+<a href="#4690" id="4690">4690</a>
+<a href="#4691" id="4691">4691</a>
+<a href="#4692" id="4692">4692</a>
+<a href="#4693" id="4693">4693</a>
+<a href="#4694" id="4694">4694</a>
+<a href="#4695" id="4695">4695</a>
+<a href="#4696" id="4696">4696</a>
+<a href="#4697" id="4697">4697</a>
+<a href="#4698" id="4698">4698</a>
+<a href="#4699" id="4699">4699</a>
+<a href="#4700" id="4700">4700</a>
+<a href="#4701" id="4701">4701</a>
+<a href="#4702" id="4702">4702</a>
+<a href="#4703" id="4703">4703</a>
+<a href="#4704" id="4704">4704</a>
+<a href="#4705" id="4705">4705</a>
+<a href="#4706" id="4706">4706</a>
+<a href="#4707" id="4707">4707</a>
+<a href="#4708" id="4708">4708</a>
+<a href="#4709" id="4709">4709</a>
+<a href="#4710" id="4710">4710</a>
+<a href="#4711" id="4711">4711</a>
+<a href="#4712" id="4712">4712</a>
+<a href="#4713" id="4713">4713</a>
+<a href="#4714" id="4714">4714</a>
+<a href="#4715" id="4715">4715</a>
+<a href="#4716" id="4716">4716</a>
+<a href="#4717" id="4717">4717</a>
+<a href="#4718" id="4718">4718</a>
+<a href="#4719" id="4719">4719</a>
+<a href="#4720" id="4720">4720</a>
+<a href="#4721" id="4721">4721</a>
+<a href="#4722" id="4722">4722</a>
+<a href="#4723" id="4723">4723</a>
+<a href="#4724" id="4724">4724</a>
+<a href="#4725" id="4725">4725</a>
+<a href="#4726" id="4726">4726</a>
+<a href="#4727" id="4727">4727</a>
+<a href="#4728" id="4728">4728</a>
+<a href="#4729" id="4729">4729</a>
+<a href="#4730" id="4730">4730</a>
+<a href="#4731" id="4731">4731</a>
+<a href="#4732" id="4732">4732</a>
+<a href="#4733" id="4733">4733</a>
+<a href="#4734" id="4734">4734</a>
+<a href="#4735" id="4735">4735</a>
+<a href="#4736" id="4736">4736</a>
+<a href="#4737" id="4737">4737</a>
+<a href="#4738" id="4738">4738</a>
+<a href="#4739" id="4739">4739</a>
+<a href="#4740" id="4740">4740</a>
+<a href="#4741" id="4741">4741</a>
+<a href="#4742" id="4742">4742</a>
+<a href="#4743" id="4743">4743</a>
+<a href="#4744" id="4744">4744</a>
+<a href="#4745" id="4745">4745</a>
+<a href="#4746" id="4746">4746</a>
+<a href="#4747" id="4747">4747</a>
+<a href="#4748" id="4748">4748</a>
+<a href="#4749" id="4749">4749</a>
+<a href="#4750" id="4750">4750</a>
+<a href="#4751" id="4751">4751</a>
+<a href="#4752" id="4752">4752</a>
+<a href="#4753" id="4753">4753</a>
+<a href="#4754" id="4754">4754</a>
+<a href="#4755" id="4755">4755</a>
+<a href="#4756" id="4756">4756</a>
+<a href="#4757" id="4757">4757</a>
+<a href="#4758" id="4758">4758</a>
+<a href="#4759" id="4759">4759</a>
+<a href="#4760" id="4760">4760</a>
+<a href="#4761" id="4761">4761</a>
+<a href="#4762" id="4762">4762</a>
+<a href="#4763" id="4763">4763</a>
+<a href="#4764" id="4764">4764</a>
+<a href="#4765" id="4765">4765</a>
+<a href="#4766" id="4766">4766</a>
+<a href="#4767" id="4767">4767</a>
+<a href="#4768" id="4768">4768</a>
+<a href="#4769" id="4769">4769</a>
+<a href="#4770" id="4770">4770</a>
+<a href="#4771" id="4771">4771</a>
+<a href="#4772" id="4772">4772</a>
+<a href="#4773" id="4773">4773</a>
+<a href="#4774" id="4774">4774</a>
+<a href="#4775" id="4775">4775</a>
+<a href="#4776" id="4776">4776</a>
+<a href="#4777" id="4777">4777</a>
+<a href="#4778" id="4778">4778</a>
+<a href="#4779" id="4779">4779</a>
+<a href="#4780" id="4780">4780</a>
+<a href="#4781" id="4781">4781</a>
+<a href="#4782" id="4782">4782</a>
+<a href="#4783" id="4783">4783</a>
+<a href="#4784" id="4784">4784</a>
+<a href="#4785" id="4785">4785</a>
+<a href="#4786" id="4786">4786</a>
+<a href="#4787" id="4787">4787</a>
+<a href="#4788" id="4788">4788</a>
+<a href="#4789" id="4789">4789</a>
+<a href="#4790" id="4790">4790</a>
+<a href="#4791" id="4791">4791</a>
+<a href="#4792" id="4792">4792</a>
+<a href="#4793" id="4793">4793</a>
+<a href="#4794" id="4794">4794</a>
+<a href="#4795" id="4795">4795</a>
+<a href="#4796" id="4796">4796</a>
+<a href="#4797" id="4797">4797</a>
+<a href="#4798" id="4798">4798</a>
+<a href="#4799" id="4799">4799</a>
+<a href="#4800" id="4800">4800</a>
+<a href="#4801" id="4801">4801</a>
+<a href="#4802" id="4802">4802</a>
+<a href="#4803" id="4803">4803</a>
+<a href="#4804" id="4804">4804</a>
+<a href="#4805" id="4805">4805</a>
+<a href="#4806" id="4806">4806</a>
+<a href="#4807" id="4807">4807</a>
+<a href="#4808" id="4808">4808</a>
+<a href="#4809" id="4809">4809</a>
+<a href="#4810" id="4810">4810</a>
+<a href="#4811" id="4811">4811</a>
+<a href="#4812" id="4812">4812</a>
+<a href="#4813" id="4813">4813</a>
+<a href="#4814" id="4814">4814</a>
+<a href="#4815" id="4815">4815</a>
+<a href="#4816" id="4816">4816</a>
+<a href="#4817" id="4817">4817</a>
+<a href="#4818" id="4818">4818</a>
+<a href="#4819" id="4819">4819</a>
+<a href="#4820" id="4820">4820</a>
+<a href="#4821" id="4821">4821</a>
+<a href="#4822" id="4822">4822</a>
+<a href="#4823" id="4823">4823</a>
+<a href="#4824" id="4824">4824</a>
+<a href="#4825" id="4825">4825</a>
+<a href="#4826" id="4826">4826</a>
+<a href="#4827" id="4827">4827</a>
+<a href="#4828" id="4828">4828</a>
+<a href="#4829" id="4829">4829</a>
+<a href="#4830" id="4830">4830</a>
+<a href="#4831" id="4831">4831</a>
+<a href="#4832" id="4832">4832</a>
+<a href="#4833" id="4833">4833</a>
+<a href="#4834" id="4834">4834</a>
+<a href="#4835" id="4835">4835</a>
+<a href="#4836" id="4836">4836</a>
+<a href="#4837" id="4837">4837</a>
+<a href="#4838" id="4838">4838</a>
+<a href="#4839" id="4839">4839</a>
+<a href="#4840" id="4840">4840</a>
+<a href="#4841" id="4841">4841</a>
+<a href="#4842" id="4842">4842</a>
+<a href="#4843" id="4843">4843</a>
+<a href="#4844" id="4844">4844</a>
+<a href="#4845" id="4845">4845</a>
+<a href="#4846" id="4846">4846</a>
+<a href="#4847" id="4847">4847</a>
+<a href="#4848" id="4848">4848</a>
+<a href="#4849" id="4849">4849</a>
+<a href="#4850" id="4850">4850</a>
+<a href="#4851" id="4851">4851</a>
+<a href="#4852" id="4852">4852</a>
+<a href="#4853" id="4853">4853</a>
+<a href="#4854" id="4854">4854</a>
+<a href="#4855" id="4855">4855</a>
+<a href="#4856" id="4856">4856</a>
+<a href="#4857" id="4857">4857</a>
+<a href="#4858" id="4858">4858</a>
+<a href="#4859" id="4859">4859</a>
+<a href="#4860" id="4860">4860</a>
+<a href="#4861" id="4861">4861</a>
+<a href="#4862" id="4862">4862</a>
+<a href="#4863" id="4863">4863</a>
+<a href="#4864" id="4864">4864</a>
+<a href="#4865" id="4865">4865</a>
+<a href="#4866" id="4866">4866</a>
+<a href="#4867" id="4867">4867</a>
+<a href="#4868" id="4868">4868</a>
+<a href="#4869" id="4869">4869</a>
+<a href="#4870" id="4870">4870</a>
+<a href="#4871" id="4871">4871</a>
+<a href="#4872" id="4872">4872</a>
+<a href="#4873" id="4873">4873</a>
+<a href="#4874" id="4874">4874</a>
+<a href="#4875" id="4875">4875</a>
+<a href="#4876" id="4876">4876</a>
+<a href="#4877" id="4877">4877</a>
+<a href="#4878" id="4878">4878</a>
+<a href="#4879" id="4879">4879</a>
+<a href="#4880" id="4880">4880</a>
+<a href="#4881" id="4881">4881</a>
+<a href="#4882" id="4882">4882</a>
+<a href="#4883" id="4883">4883</a>
+<a href="#4884" id="4884">4884</a>
+<a href="#4885" id="4885">4885</a>
+<a href="#4886" id="4886">4886</a>
+<a href="#4887" id="4887">4887</a>
+<a href="#4888" id="4888">4888</a>
+<a href="#4889" id="4889">4889</a>
+<a href="#4890" id="4890">4890</a>
+<a href="#4891" id="4891">4891</a>
+<a href="#4892" id="4892">4892</a>
+<a href="#4893" id="4893">4893</a>
+<a href="#4894" id="4894">4894</a>
+<a href="#4895" id="4895">4895</a>
+<a href="#4896" id="4896">4896</a>
+<a href="#4897" id="4897">4897</a>
+<a href="#4898" id="4898">4898</a>
+<a href="#4899" id="4899">4899</a>
+<a href="#4900" id="4900">4900</a>
+<a href="#4901" id="4901">4901</a>
+<a href="#4902" id="4902">4902</a>
+<a href="#4903" id="4903">4903</a>
+<a href="#4904" id="4904">4904</a>
+<a href="#4905" id="4905">4905</a>
+<a href="#4906" id="4906">4906</a>
+<a href="#4907" id="4907">4907</a>
+<a href="#4908" id="4908">4908</a>
+<a href="#4909" id="4909">4909</a>
+<a href="#4910" id="4910">4910</a>
+<a href="#4911" id="4911">4911</a>
+<a href="#4912" id="4912">4912</a>
+<a href="#4913" id="4913">4913</a>
+<a href="#4914" id="4914">4914</a>
+<a href="#4915" id="4915">4915</a>
+<a href="#4916" id="4916">4916</a>
+<a href="#4917" id="4917">4917</a>
+<a href="#4918" id="4918">4918</a>
+<a href="#4919" id="4919">4919</a>
+<a href="#4920" id="4920">4920</a>
+<a href="#4921" id="4921">4921</a>
+<a href="#4922" id="4922">4922</a>
+<a href="#4923" id="4923">4923</a>
+<a href="#4924" id="4924">4924</a>
+<a href="#4925" id="4925">4925</a>
+<a href="#4926" id="4926">4926</a>
+<a href="#4927" id="4927">4927</a>
+<a href="#4928" id="4928">4928</a>
+<a href="#4929" id="4929">4929</a>
+<a href="#4930" id="4930">4930</a>
+<a href="#4931" id="4931">4931</a>
+<a href="#4932" id="4932">4932</a>
+<a href="#4933" id="4933">4933</a>
+<a href="#4934" id="4934">4934</a>
+<a href="#4935" id="4935">4935</a>
+<a href="#4936" id="4936">4936</a>
+<a href="#4937" id="4937">4937</a>
+<a href="#4938" id="4938">4938</a>
+<a href="#4939" id="4939">4939</a>
+<a href="#4940" id="4940">4940</a>
+<a href="#4941" id="4941">4941</a>
+<a href="#4942" id="4942">4942</a>
+<a href="#4943" id="4943">4943</a>
+<a href="#4944" id="4944">4944</a>
+<a href="#4945" id="4945">4945</a>
+<a href="#4946" id="4946">4946</a>
+<a href="#4947" id="4947">4947</a>
+<a href="#4948" id="4948">4948</a>
+<a href="#4949" id="4949">4949</a>
+<a href="#4950" id="4950">4950</a>
+<a href="#4951" id="4951">4951</a>
+<a href="#4952" id="4952">4952</a>
+<a href="#4953" id="4953">4953</a>
+<a href="#4954" id="4954">4954</a>
+<a href="#4955" id="4955">4955</a>
+<a href="#4956" id="4956">4956</a>
+<a href="#4957" id="4957">4957</a>
+<a href="#4958" id="4958">4958</a>
+<a href="#4959" id="4959">4959</a>
+<a href="#4960" id="4960">4960</a>
+<a href="#4961" id="4961">4961</a>
+<a href="#4962" id="4962">4962</a>
+<a href="#4963" id="4963">4963</a>
+<a href="#4964" id="4964">4964</a>
+<a href="#4965" id="4965">4965</a>
+<a href="#4966" id="4966">4966</a>
+<a href="#4967" id="4967">4967</a>
+<a href="#4968" id="4968">4968</a>
+<a href="#4969" id="4969">4969</a>
+<a href="#4970" id="4970">4970</a>
+<a href="#4971" id="4971">4971</a>
+<a href="#4972" id="4972">4972</a>
+<a href="#4973" id="4973">4973</a>
+<a href="#4974" id="4974">4974</a>
+<a href="#4975" id="4975">4975</a>
+<a href="#4976" id="4976">4976</a>
+<a href="#4977" id="4977">4977</a>
+<a href="#4978" id="4978">4978</a>
+<a href="#4979" id="4979">4979</a>
+<a href="#4980" id="4980">4980</a>
+<a href="#4981" id="4981">4981</a>
+<a href="#4982" id="4982">4982</a>
+<a href="#4983" id="4983">4983</a>
+<a href="#4984" id="4984">4984</a>
+<a href="#4985" id="4985">4985</a>
+<a href="#4986" id="4986">4986</a>
+<a href="#4987" id="4987">4987</a>
+<a href="#4988" id="4988">4988</a>
+<a href="#4989" id="4989">4989</a>
+<a href="#4990" id="4990">4990</a>
+<a href="#4991" id="4991">4991</a>
+<a href="#4992" id="4992">4992</a>
+<a href="#4993" id="4993">4993</a>
+<a href="#4994" id="4994">4994</a>
+<a href="#4995" id="4995">4995</a>
+<a href="#4996" id="4996">4996</a>
+<a href="#4997" id="4997">4997</a>
+<a href="#4998" id="4998">4998</a>
+<a href="#4999" id="4999">4999</a>
+<a href="#5000" id="5000">5000</a>
+<a href="#5001" id="5001">5001</a>
+<a href="#5002" id="5002">5002</a>
+<a href="#5003" id="5003">5003</a>
+<a href="#5004" id="5004">5004</a>
+<a href="#5005" id="5005">5005</a>
+<a href="#5006" id="5006">5006</a>
+<a href="#5007" id="5007">5007</a>
+<a href="#5008" id="5008">5008</a>
+<a href="#5009" id="5009">5009</a>
+<a href="#5010" id="5010">5010</a>
+<a href="#5011" id="5011">5011</a>
+<a href="#5012" id="5012">5012</a>
+<a href="#5013" id="5013">5013</a>
+<a href="#5014" id="5014">5014</a>
+<a href="#5015" id="5015">5015</a>
+<a href="#5016" id="5016">5016</a>
+<a href="#5017" id="5017">5017</a>
+<a href="#5018" id="5018">5018</a>
+<a href="#5019" id="5019">5019</a>
+<a href="#5020" id="5020">5020</a>
+<a href="#5021" id="5021">5021</a>
+<a href="#5022" id="5022">5022</a>
+<a href="#5023" id="5023">5023</a>
+<a href="#5024" id="5024">5024</a>
+<a href="#5025" id="5025">5025</a>
+<a href="#5026" id="5026">5026</a>
+<a href="#5027" id="5027">5027</a>
+<a href="#5028" id="5028">5028</a>
+<a href="#5029" id="5029">5029</a>
+<a href="#5030" id="5030">5030</a>
+<a href="#5031" id="5031">5031</a>
+<a href="#5032" id="5032">5032</a>
+<a href="#5033" id="5033">5033</a>
+<a href="#5034" id="5034">5034</a>
+<a href="#5035" id="5035">5035</a>
+<a href="#5036" id="5036">5036</a>
+<a href="#5037" id="5037">5037</a>
+<a href="#5038" id="5038">5038</a>
+<a href="#5039" id="5039">5039</a>
+<a href="#5040" id="5040">5040</a>
+<a href="#5041" id="5041">5041</a>
+<a href="#5042" id="5042">5042</a>
+<a href="#5043" id="5043">5043</a>
+<a href="#5044" id="5044">5044</a>
+<a href="#5045" id="5045">5045</a>
+<a href="#5046" id="5046">5046</a>
+<a href="#5047" id="5047">5047</a>
+<a href="#5048" id="5048">5048</a>
+<a href="#5049" id="5049">5049</a>
+<a href="#5050" id="5050">5050</a>
+<a href="#5051" id="5051">5051</a>
+<a href="#5052" id="5052">5052</a>
+<a href="#5053" id="5053">5053</a>
+<a href="#5054" id="5054">5054</a>
+<a href="#5055" id="5055">5055</a>
+<a href="#5056" id="5056">5056</a>
+<a href="#5057" id="5057">5057</a>
+<a href="#5058" id="5058">5058</a>
+<a href="#5059" id="5059">5059</a>
+<a href="#5060" id="5060">5060</a>
+<a href="#5061" id="5061">5061</a>
+<a href="#5062" id="5062">5062</a>
+<a href="#5063" id="5063">5063</a>
+<a href="#5064" id="5064">5064</a>
+<a href="#5065" id="5065">5065</a>
+<a href="#5066" id="5066">5066</a>
+<a href="#5067" id="5067">5067</a>
+<a href="#5068" id="5068">5068</a>
+<a href="#5069" id="5069">5069</a>
+<a href="#5070" id="5070">5070</a>
+<a href="#5071" id="5071">5071</a>
+<a href="#5072" id="5072">5072</a>
+<a href="#5073" id="5073">5073</a>
+<a href="#5074" id="5074">5074</a>
+<a href="#5075" id="5075">5075</a>
+<a href="#5076" id="5076">5076</a>
+<a href="#5077" id="5077">5077</a>
+<a href="#5078" id="5078">5078</a>
+<a href="#5079" id="5079">5079</a>
+<a href="#5080" id="5080">5080</a>
+<a href="#5081" id="5081">5081</a>
+<a href="#5082" id="5082">5082</a>
+<a href="#5083" id="5083">5083</a>
+<a href="#5084" id="5084">5084</a>
+<a href="#5085" id="5085">5085</a>
+<a href="#5086" id="5086">5086</a>
+<a href="#5087" id="5087">5087</a>
+<a href="#5088" id="5088">5088</a>
+<a href="#5089" id="5089">5089</a>
+<a href="#5090" id="5090">5090</a>
+<a href="#5091" id="5091">5091</a>
+<a href="#5092" id="5092">5092</a>
+<a href="#5093" id="5093">5093</a>
+<a href="#5094" id="5094">5094</a>
+<a href="#5095" id="5095">5095</a>
+<a href="#5096" id="5096">5096</a>
+<a href="#5097" id="5097">5097</a>
+<a href="#5098" id="5098">5098</a>
+<a href="#5099" id="5099">5099</a>
+<a href="#5100" id="5100">5100</a>
+<a href="#5101" id="5101">5101</a>
+<a href="#5102" id="5102">5102</a>
+<a href="#5103" id="5103">5103</a>
+<a href="#5104" id="5104">5104</a>
+<a href="#5105" id="5105">5105</a>
+<a href="#5106" id="5106">5106</a>
+<a href="#5107" id="5107">5107</a>
+<a href="#5108" id="5108">5108</a>
+<a href="#5109" id="5109">5109</a>
+<a href="#5110" id="5110">5110</a>
+<a href="#5111" id="5111">5111</a>
+<a href="#5112" id="5112">5112</a>
+<a href="#5113" id="5113">5113</a>
+<a href="#5114" id="5114">5114</a>
+<a href="#5115" id="5115">5115</a>
+<a href="#5116" id="5116">5116</a>
+<a href="#5117" id="5117">5117</a>
+<a href="#5118" id="5118">5118</a>
+<a href="#5119" id="5119">5119</a>
+<a href="#5120" id="5120">5120</a>
+<a href="#5121" id="5121">5121</a>
+<a href="#5122" id="5122">5122</a>
+<a href="#5123" id="5123">5123</a>
+<a href="#5124" id="5124">5124</a>
+<a href="#5125" id="5125">5125</a>
+<a href="#5126" id="5126">5126</a>
+<a href="#5127" id="5127">5127</a>
+<a href="#5128" id="5128">5128</a>
+<a href="#5129" id="5129">5129</a>
+<a href="#5130" id="5130">5130</a>
+<a href="#5131" id="5131">5131</a>
+<a href="#5132" id="5132">5132</a>
+<a href="#5133" id="5133">5133</a>
+<a href="#5134" id="5134">5134</a>
+<a href="#5135" id="5135">5135</a>
+<a href="#5136" id="5136">5136</a>
+<a href="#5137" id="5137">5137</a>
+<a href="#5138" id="5138">5138</a>
+<a href="#5139" id="5139">5139</a>
+<a href="#5140" id="5140">5140</a>
+<a href="#5141" id="5141">5141</a>
+<a href="#5142" id="5142">5142</a>
+<a href="#5143" id="5143">5143</a>
+<a href="#5144" id="5144">5144</a>
+<a href="#5145" id="5145">5145</a>
+<a href="#5146" id="5146">5146</a>
+<a href="#5147" id="5147">5147</a>
+<a href="#5148" id="5148">5148</a>
+<a href="#5149" id="5149">5149</a>
+<a href="#5150" id="5150">5150</a>
+<a href="#5151" id="5151">5151</a>
+<a href="#5152" id="5152">5152</a>
+<a href="#5153" id="5153">5153</a>
+<a href="#5154" id="5154">5154</a>
+<a href="#5155" id="5155">5155</a>
+<a href="#5156" id="5156">5156</a>
+<a href="#5157" id="5157">5157</a>
+<a href="#5158" id="5158">5158</a>
+<a href="#5159" id="5159">5159</a>
+<a href="#5160" id="5160">5160</a>
+<a href="#5161" id="5161">5161</a>
+<a href="#5162" id="5162">5162</a>
+<a href="#5163" id="5163">5163</a>
+<a href="#5164" id="5164">5164</a>
+<a href="#5165" id="5165">5165</a>
+<a href="#5166" id="5166">5166</a>
+<a href="#5167" id="5167">5167</a>
+<a href="#5168" id="5168">5168</a>
+<a href="#5169" id="5169">5169</a>
+<a href="#5170" id="5170">5170</a>
+<a href="#5171" id="5171">5171</a>
+<a href="#5172" id="5172">5172</a>
+<a href="#5173" id="5173">5173</a>
+<a href="#5174" id="5174">5174</a>
+<a href="#5175" id="5175">5175</a>
+<a href="#5176" id="5176">5176</a>
+<a href="#5177" id="5177">5177</a>
+<a href="#5178" id="5178">5178</a>
+<a href="#5179" id="5179">5179</a>
+<a href="#5180" id="5180">5180</a>
+<a href="#5181" id="5181">5181</a>
+<a href="#5182" id="5182">5182</a>
+<a href="#5183" id="5183">5183</a>
+<a href="#5184" id="5184">5184</a>
+<a href="#5185" id="5185">5185</a>
+<a href="#5186" id="5186">5186</a>
+<a href="#5187" id="5187">5187</a>
+<a href="#5188" id="5188">5188</a>
+<a href="#5189" id="5189">5189</a>
+<a href="#5190" id="5190">5190</a>
+<a href="#5191" id="5191">5191</a>
+<a href="#5192" id="5192">5192</a>
+<a href="#5193" id="5193">5193</a>
+<a href="#5194" id="5194">5194</a>
+<a href="#5195" id="5195">5195</a>
+<a href="#5196" id="5196">5196</a>
+<a href="#5197" id="5197">5197</a>
+<a href="#5198" id="5198">5198</a>
+<a href="#5199" id="5199">5199</a>
+<a href="#5200" id="5200">5200</a>
+<a href="#5201" id="5201">5201</a>
+<a href="#5202" id="5202">5202</a>
+<a href="#5203" id="5203">5203</a>
+<a href="#5204" id="5204">5204</a>
+<a href="#5205" id="5205">5205</a>
+<a href="#5206" id="5206">5206</a>
+<a href="#5207" id="5207">5207</a>
+<a href="#5208" id="5208">5208</a>
+<a href="#5209" id="5209">5209</a>
+<a href="#5210" id="5210">5210</a>
+<a href="#5211" id="5211">5211</a>
+<a href="#5212" id="5212">5212</a>
+<a href="#5213" id="5213">5213</a>
+<a href="#5214" id="5214">5214</a>
+<a href="#5215" id="5215">5215</a>
+<a href="#5216" id="5216">5216</a>
+<a href="#5217" id="5217">5217</a>
+<a href="#5218" id="5218">5218</a>
+<a href="#5219" id="5219">5219</a>
+<a href="#5220" id="5220">5220</a>
+<a href="#5221" id="5221">5221</a>
+<a href="#5222" id="5222">5222</a>
+<a href="#5223" id="5223">5223</a>
+<a href="#5224" id="5224">5224</a>
+<a href="#5225" id="5225">5225</a>
+<a href="#5226" id="5226">5226</a>
+<a href="#5227" id="5227">5227</a>
+<a href="#5228" id="5228">5228</a>
+<a href="#5229" id="5229">5229</a>
+<a href="#5230" id="5230">5230</a>
+<a href="#5231" id="5231">5231</a>
+<a href="#5232" id="5232">5232</a>
+<a href="#5233" id="5233">5233</a>
+<a href="#5234" id="5234">5234</a>
+<a href="#5235" id="5235">5235</a>
+<a href="#5236" id="5236">5236</a>
+<a href="#5237" id="5237">5237</a>
+<a href="#5238" id="5238">5238</a>
+<a href="#5239" id="5239">5239</a>
+<a href="#5240" id="5240">5240</a>
+<a href="#5241" id="5241">5241</a>
+<a href="#5242" id="5242">5242</a>
+<a href="#5243" id="5243">5243</a>
+<a href="#5244" id="5244">5244</a>
+<a href="#5245" id="5245">5245</a>
+<a href="#5246" id="5246">5246</a>
+<a href="#5247" id="5247">5247</a>
+<a href="#5248" id="5248">5248</a>
+<a href="#5249" id="5249">5249</a>
+<a href="#5250" id="5250">5250</a>
+<a href="#5251" id="5251">5251</a>
+<a href="#5252" id="5252">5252</a>
+<a href="#5253" id="5253">5253</a>
+<a href="#5254" id="5254">5254</a>
+<a href="#5255" id="5255">5255</a>
+<a href="#5256" id="5256">5256</a>
+<a href="#5257" id="5257">5257</a>
+<a href="#5258" id="5258">5258</a>
+<a href="#5259" id="5259">5259</a>
+<a href="#5260" id="5260">5260</a>
+<a href="#5261" id="5261">5261</a>
+<a href="#5262" id="5262">5262</a>
+<a href="#5263" id="5263">5263</a>
+<a href="#5264" id="5264">5264</a>
+<a href="#5265" id="5265">5265</a>
+<a href="#5266" id="5266">5266</a>
+<a href="#5267" id="5267">5267</a>
+<a href="#5268" id="5268">5268</a>
+<a href="#5269" id="5269">5269</a>
+<a href="#5270" id="5270">5270</a>
+<a href="#5271" id="5271">5271</a>
+<a href="#5272" id="5272">5272</a>
+<a href="#5273" id="5273">5273</a>
+<a href="#5274" id="5274">5274</a>
+<a href="#5275" id="5275">5275</a>
+<a href="#5276" id="5276">5276</a>
+<a href="#5277" id="5277">5277</a>
+<a href="#5278" id="5278">5278</a>
+<a href="#5279" id="5279">5279</a>
+<a href="#5280" id="5280">5280</a>
+<a href="#5281" id="5281">5281</a>
+<a href="#5282" id="5282">5282</a>
+<a href="#5283" id="5283">5283</a>
+<a href="#5284" id="5284">5284</a>
+<a href="#5285" id="5285">5285</a>
+<a href="#5286" id="5286">5286</a>
+<a href="#5287" id="5287">5287</a>
+<a href="#5288" id="5288">5288</a>
+<a href="#5289" id="5289">5289</a>
+<a href="#5290" id="5290">5290</a>
+<a href="#5291" id="5291">5291</a>
+<a href="#5292" id="5292">5292</a>
+<a href="#5293" id="5293">5293</a>
+<a href="#5294" id="5294">5294</a>
+<a href="#5295" id="5295">5295</a>
+<a href="#5296" id="5296">5296</a>
+<a href="#5297" id="5297">5297</a>
+<a href="#5298" id="5298">5298</a>
+<a href="#5299" id="5299">5299</a>
+<a href="#5300" id="5300">5300</a>
+<a href="#5301" id="5301">5301</a>
+<a href="#5302" id="5302">5302</a>
+<a href="#5303" id="5303">5303</a>
+<a href="#5304" id="5304">5304</a>
+<a href="#5305" id="5305">5305</a>
+<a href="#5306" id="5306">5306</a>
+<a href="#5307" id="5307">5307</a>
+<a href="#5308" id="5308">5308</a>
+<a href="#5309" id="5309">5309</a>
+<a href="#5310" id="5310">5310</a>
+<a href="#5311" id="5311">5311</a>
+<a href="#5312" id="5312">5312</a>
+<a href="#5313" id="5313">5313</a>
+<a href="#5314" id="5314">5314</a>
+<a href="#5315" id="5315">5315</a>
+<a href="#5316" id="5316">5316</a>
+<a href="#5317" id="5317">5317</a>
+<a href="#5318" id="5318">5318</a>
+<a href="#5319" id="5319">5319</a>
+<a href="#5320" id="5320">5320</a>
+<a href="#5321" id="5321">5321</a>
+<a href="#5322" id="5322">5322</a>
+<a href="#5323" id="5323">5323</a>
+<a href="#5324" id="5324">5324</a>
+<a href="#5325" id="5325">5325</a>
+<a href="#5326" id="5326">5326</a>
+<a href="#5327" id="5327">5327</a>
+<a href="#5328" id="5328">5328</a>
+<a href="#5329" id="5329">5329</a>
+<a href="#5330" id="5330">5330</a>
+<a href="#5331" id="5331">5331</a>
+<a href="#5332" id="5332">5332</a>
+<a href="#5333" id="5333">5333</a>
+<a href="#5334" id="5334">5334</a>
+<a href="#5335" id="5335">5335</a>
+<a href="#5336" id="5336">5336</a>
+<a href="#5337" id="5337">5337</a>
+<a href="#5338" id="5338">5338</a>
+<a href="#5339" id="5339">5339</a>
+<a href="#5340" id="5340">5340</a>
+<a href="#5341" id="5341">5341</a>
+<a href="#5342" id="5342">5342</a>
+<a href="#5343" id="5343">5343</a>
+<a href="#5344" id="5344">5344</a>
+<a href="#5345" id="5345">5345</a>
+<a href="#5346" id="5346">5346</a>
+<a href="#5347" id="5347">5347</a>
+<a href="#5348" id="5348">5348</a>
+<a href="#5349" id="5349">5349</a>
+<a href="#5350" id="5350">5350</a>
+<a href="#5351" id="5351">5351</a>
+<a href="#5352" id="5352">5352</a>
+<a href="#5353" id="5353">5353</a>
+<a href="#5354" id="5354">5354</a>
+<a href="#5355" id="5355">5355</a>
+<a href="#5356" id="5356">5356</a>
+<a href="#5357" id="5357">5357</a>
+<a href="#5358" id="5358">5358</a>
+<a href="#5359" id="5359">5359</a>
+<a href="#5360" id="5360">5360</a>
+<a href="#5361" id="5361">5361</a>
+<a href="#5362" id="5362">5362</a>
+<a href="#5363" id="5363">5363</a>
+<a href="#5364" id="5364">5364</a>
+<a href="#5365" id="5365">5365</a>
+<a href="#5366" id="5366">5366</a>
+<a href="#5367" id="5367">5367</a>
+<a href="#5368" id="5368">5368</a>
+<a href="#5369" id="5369">5369</a>
+<a href="#5370" id="5370">5370</a>
+<a href="#5371" id="5371">5371</a>
+<a href="#5372" id="5372">5372</a>
+<a href="#5373" id="5373">5373</a>
+<a href="#5374" id="5374">5374</a>
+<a href="#5375" id="5375">5375</a>
+<a href="#5376" id="5376">5376</a>
+<a href="#5377" id="5377">5377</a>
+<a href="#5378" id="5378">5378</a>
+<a href="#5379" id="5379">5379</a>
+<a href="#5380" id="5380">5380</a>
+<a href="#5381" id="5381">5381</a>
+<a href="#5382" id="5382">5382</a>
+<a href="#5383" id="5383">5383</a>
+<a href="#5384" id="5384">5384</a>
+<a href="#5385" id="5385">5385</a>
+<a href="#5386" id="5386">5386</a>
+<a href="#5387" id="5387">5387</a>
+<a href="#5388" id="5388">5388</a>
+<a href="#5389" id="5389">5389</a>
+<a href="#5390" id="5390">5390</a>
+<a href="#5391" id="5391">5391</a>
+<a href="#5392" id="5392">5392</a>
+<a href="#5393" id="5393">5393</a>
+<a href="#5394" id="5394">5394</a>
+<a href="#5395" id="5395">5395</a>
+<a href="#5396" id="5396">5396</a>
+<a href="#5397" id="5397">5397</a>
+<a href="#5398" id="5398">5398</a>
+<a href="#5399" id="5399">5399</a>
+<a href="#5400" id="5400">5400</a>
+<a href="#5401" id="5401">5401</a>
+<a href="#5402" id="5402">5402</a>
+<a href="#5403" id="5403">5403</a>
+<a href="#5404" id="5404">5404</a>
+<a href="#5405" id="5405">5405</a>
+<a href="#5406" id="5406">5406</a>
+<a href="#5407" id="5407">5407</a>
+<a href="#5408" id="5408">5408</a>
+<a href="#5409" id="5409">5409</a>
+<a href="#5410" id="5410">5410</a>
+<a href="#5411" id="5411">5411</a>
+<a href="#5412" id="5412">5412</a>
+<a href="#5413" id="5413">5413</a>
+<a href="#5414" id="5414">5414</a>
+<a href="#5415" id="5415">5415</a>
+<a href="#5416" id="5416">5416</a>
+<a href="#5417" id="5417">5417</a>
+<a href="#5418" id="5418">5418</a>
+<a href="#5419" id="5419">5419</a>
+<a href="#5420" id="5420">5420</a>
+<a href="#5421" id="5421">5421</a>
+<a href="#5422" id="5422">5422</a>
+<a href="#5423" id="5423">5423</a>
+<a href="#5424" id="5424">5424</a>
+<a href="#5425" id="5425">5425</a>
+<a href="#5426" id="5426">5426</a>
+<a href="#5427" id="5427">5427</a>
+<a href="#5428" id="5428">5428</a>
+<a href="#5429" id="5429">5429</a>
+<a href="#5430" id="5430">5430</a>
+<a href="#5431" id="5431">5431</a>
+<a href="#5432" id="5432">5432</a>
+<a href="#5433" id="5433">5433</a>
+<a href="#5434" id="5434">5434</a>
+<a href="#5435" id="5435">5435</a>
+<a href="#5436" id="5436">5436</a>
+<a href="#5437" id="5437">5437</a>
+<a href="#5438" id="5438">5438</a>
+<a href="#5439" id="5439">5439</a>
+<a href="#5440" id="5440">5440</a>
+<a href="#5441" id="5441">5441</a>
+<a href="#5442" id="5442">5442</a>
+<a href="#5443" id="5443">5443</a>
+<a href="#5444" id="5444">5444</a>
+<a href="#5445" id="5445">5445</a>
+<a href="#5446" id="5446">5446</a>
+<a href="#5447" id="5447">5447</a>
+<a href="#5448" id="5448">5448</a>
+<a href="#5449" id="5449">5449</a>
+<a href="#5450" id="5450">5450</a>
+<a href="#5451" id="5451">5451</a>
+<a href="#5452" id="5452">5452</a>
+<a href="#5453" id="5453">5453</a>
+<a href="#5454" id="5454">5454</a>
+<a href="#5455" id="5455">5455</a>
+<a href="#5456" id="5456">5456</a>
+<a href="#5457" id="5457">5457</a>
+<a href="#5458" id="5458">5458</a>
+<a href="#5459" id="5459">5459</a>
+<a href="#5460" id="5460">5460</a>
+<a href="#5461" id="5461">5461</a>
+<a href="#5462" id="5462">5462</a>
+<a href="#5463" id="5463">5463</a>
+<a href="#5464" id="5464">5464</a>
+<a href="#5465" id="5465">5465</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// Jwk is a JSON Web Key as specified in RFC 7517.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Jwk {
+    <span class="doccomment">/// Key Type.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>kty: ::prost::alloc::string::String,
+    <span class="doccomment">/// Algorithm.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>alg: ::prost::alloc::string::String,
+    <span class="doccomment">/// Permitted uses for the public keys.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>r#use: ::prost::alloc::string::String,
+    <span class="doccomment">/// Key ID.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>kid: ::prost::alloc::string::String,
+    <span class="doccomment">/// Used for RSA keys.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>n: ::prost::alloc::string::String,
+    <span class="doccomment">/// Used for RSA keys.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>e: ::prost::alloc::string::String,
+    <span class="doccomment">/// Used for ECDSA keys.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>x: ::prost::alloc::string::String,
+    <span class="doccomment">/// Used for ECDSA keys.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>y: ::prost::alloc::string::String,
+    <span class="doccomment">/// Used for ECDSA keys.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>crv: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Workload Identity settings.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WorkloadIdentityConfig {
@@ -4787,6 +5726,66 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>enabled: bool,
 }
+<span class="doccomment">/// Configuration for Binary Authorization.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BinaryAuthorization {
+    <span class="doccomment">/// Mode of operation for binauthz policy evaluation. If unspecified, defaults
+    /// to DISABLED.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;binary_authorization::EvaluationMode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>evaluation_mode: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `BinaryAuthorization`.
+</span><span class="kw">pub mod </span>binary_authorization {
+    <span class="doccomment">/// Binary Authorization mode of operation.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>EvaluationMode {
+        <span class="doccomment">/// Default value
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Disable BinaryAuthorization
+        </span>Disabled = <span class="number">1</span>,
+        <span class="doccomment">/// Enforce Kubernetes admission requests with BinaryAuthorization using the
+        /// project&#39;s singleton policy.
+        </span>ProjectSingletonPolicyEnforce = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>EvaluationMode {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                EvaluationMode::Unspecified =&gt; <span class="string">&quot;EVALUATION_MODE_UNSPECIFIED&quot;</span>,
+                EvaluationMode::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                EvaluationMode::ProjectSingletonPolicyEnforce =&gt; {
+                    <span class="string">&quot;PROJECT_SINGLETON_POLICY_ENFORCE&quot;
+                </span>}
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;EVALUATION_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">&quot;PROJECT_SINGLETON_POLICY_ENFORCE&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectSingletonPolicyEnforce)
+                }
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
 <span class="doccomment">/// An Anthos cluster running on customer own infrastructure.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4816,7 +5815,7 @@
     </span><span class="kw">pub </span>platform_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Kubernetes distribution of the underlying attached cluster.
     ///
-    /// Supported values: \[&quot;eks&quot;, &quot;aks&quot;\].
+    /// Supported values: \[&quot;eks&quot;, &quot;aks&quot;, &quot;generic&quot;\].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
     </span><span class="kw">pub </span>distribution: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The region where this cluster runs.
@@ -4882,6 +5881,12 @@
     <span class="doccomment">/// Optional. Monitoring configuration for this cluster.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;23&quot;</span>)]
     </span><span class="kw">pub </span>monitoring_config: ::core::option::Option&lt;MonitoringConfig&gt;,
+    <span class="doccomment">/// Optional. Proxy configuration for outbound HTTP(S) traffic.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="kw">pub </span>proxy_config: ::core::option::Option&lt;AttachedProxyConfig&gt;,
+    <span class="doccomment">/// Optional. Binary Authorization configuration for this cluster.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="kw">pub </span>binary_authorization: ::core::option::Option&lt;BinaryAuthorization&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AttachedCluster`.
 </span><span class="kw">pub mod </span>attached_cluster {
@@ -4953,7 +5958,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AttachedClustersAuthorization {
-    <span class="doccomment">/// Required. Users that can perform operations as a cluster admin. A managed
+    <span class="doccomment">/// Optional. Users that can perform operations as a cluster admin. A managed
     /// ClusterRoleBinding will be created to grant the `cluster-admin` ClusterRole
     /// to the users. Up to ten admin users can be provided.
     ///
@@ -4961,6 +5966,14 @@
     /// &lt;https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles&gt;
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>admin_users: ::prost::alloc::vec::Vec&lt;AttachedClusterUser&gt;,
+    <span class="doccomment">/// Optional. Groups of users that can perform operations as a cluster admin. A
+    /// managed ClusterRoleBinding will be created to grant the `cluster-admin`
+    /// ClusterRole to the groups. Up to ten admin groups can be provided.
+    ///
+    /// For more info on RBAC, see
+    /// &lt;https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles&gt;
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>admin_groups: ::prost::alloc::vec::Vec&lt;AttachedClusterGroup&gt;,
 }
 <span class="doccomment">/// Identities of a user-type subject for Attached clusters.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4969,6 +5982,14 @@
     <span class="doccomment">/// Required. The name of the user, e.g. `my-gcp-id@gmail.com`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Identities of a group-type subject for Attached clusters.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AttachedClusterGroup {
+    <span class="doccomment">/// Required. The name of the group, e.g. `my-group@domain.com`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>group: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// OIDC discovery information of the target cluster.
 ///
@@ -5025,6 +6046,27 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
 }
+<span class="doccomment">/// Details of a proxy config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AttachedProxyConfig {
+    <span class="doccomment">/// The Kubernetes Secret resource that contains the HTTP(S) proxy
+    /// configuration. The secret must be a JSON encoded proxy configuration
+    /// as described in
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>kubernetes_secret: ::core::option::Option&lt;KubernetesSecret&gt;,
+}
+<span class="doccomment">/// Information about a Kubernetes Secret
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>KubernetesSecret {
+    <span class="doccomment">/// Name of the kubernetes secret.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Namespace in which the kubernetes secret is stored.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>namespace: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// Request message for `AttachedClusters.GenerateAttachedClusterInstallManifest`
 /// method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5064,6 +6106,9 @@
     /// [GetAttachedServerConfig][google.cloud.gkemulticloud.v1.AttachedClusters.GetAttachedServerConfig].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>platform_version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Proxy configuration for outbound HTTP(S) traffic.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>proxy_config: ::core::option::Option&lt;AttachedProxyConfig&gt;,
 }
 <span class="doccomment">/// Response message for
 /// `AttachedClusters.GenerateAttachedClusterInstallManifest` method.
@@ -5140,6 +6185,9 @@
     /// Supported values: \[&quot;eks&quot;, &quot;aks&quot;\].
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>distribution: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Proxy configuration for outbound HTTP(S) traffic.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>proxy_config: ::core::option::Option&lt;AttachedProxyConfig&gt;,
 }
 <span class="doccomment">/// Request message for `AttachedClusters.UpdateAttachedCluster` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5158,12 +6206,16 @@
     /// fields from
     /// [AttachedCluster][google.cloud.gkemulticloud.v1.AttachedCluster]:
     ///
-    ///   *   `description`.
     ///   *   `annotations`.
-    ///   *   `platform_version`.
+    ///   *   `authorization.admin_groups`.
     ///   *   `authorization.admin_users`.
+    ///   *   `binary_authorization.evaluation_mode`.
+    ///   *   `description`.
     ///   *   `logging_config.component_config.enable_components`.
     ///   *   `monitoring_config.managed_prometheus_config.enabled`.
+    ///   *   `platform_version`.
+    ///   *   `proxy_config.kubernetes_secret.name`.
+    ///   *   `proxy_config.kubernetes_secret.namespace`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
@@ -5282,6 +6334,47 @@
     /// for more details on Google Cloud resource names.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerateAttachedClusterAgentTokenRequest {
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>attached_cluster: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>subject_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>subject_token_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>grant_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>audience: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>scope: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>requested_token_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>options: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerateAttachedClusterAgentTokenResponse {
+    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>access_token: ::prost::alloc::string::String,
+    <span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>expires_in: i32,
+    <span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>token_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>attached_clusters_client {
@@ -5634,6 +6727,39 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+        <span class="doccomment">/// Generates an access token for a cluster agent.
+        </span><span class="kw">pub async fn </span>generate_attached_cluster_agent_token(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;
+                <span class="kw">super</span>::GenerateAttachedClusterAgentTokenRequest,
+            &gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::GenerateAttachedClusterAgentTokenResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.gkemulticloud.v1.AttachedClusters/GenerateAttachedClusterAgentToken&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.gkemulticloud.v1.AttachedClusters&quot;</span>,
+                        <span class="string">&quot;GenerateAttachedClusterAgentToken&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
     }
 }
 <span class="doccomment">/// An Anthos cluster running on AWS.
@@ -5727,6 +6853,9 @@
     <span class="doccomment">/// Optional. Monitoring configuration for this cluster.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;21&quot;</span>)]
     </span><span class="kw">pub </span>monitoring_config: ::core::option::Option&lt;MonitoringConfig&gt;,
+    <span class="doccomment">/// Optional. Binary Authorization configuration for this cluster.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>binary_authorization: ::core::option::Option&lt;BinaryAuthorization&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AwsCluster`.
 </span><span class="kw">pub mod </span>aws_cluster {
@@ -5895,7 +7024,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AwsAuthorization {
-    <span class="doccomment">/// Required. Users that can perform operations as a cluster admin. A managed
+    <span class="doccomment">/// Optional. Users that can perform operations as a cluster admin. A managed
     /// ClusterRoleBinding will be created to grant the `cluster-admin` ClusterRole
     /// to the users. Up to ten admin users can be provided.
     ///
@@ -5903,6 +7032,14 @@
     /// &lt;https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles&gt;
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>admin_users: ::prost::alloc::vec::Vec&lt;AwsClusterUser&gt;,
+    <span class="doccomment">/// Optional. Groups of users that can perform operations as a cluster admin. A
+    /// managed ClusterRoleBinding will be created to grant the `cluster-admin`
+    /// ClusterRole to the groups. Up to ten admin groups can be provided.
+    ///
+    /// For more info on RBAC, see
+    /// &lt;https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles&gt;
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>admin_groups: ::prost::alloc::vec::Vec&lt;AwsClusterGroup&gt;,
 }
 <span class="doccomment">/// Identities of a user-type subject for AWS clusters.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5911,6 +7048,14 @@
     <span class="doccomment">/// Required. The name of the user, e.g. `my-gcp-id@gmail.com`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Identities of a group-type subject for AWS clusters.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AwsClusterGroup {
+    <span class="doccomment">/// Required. The name of the group, e.g. `my-group@domain.com`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>group: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration related to application-layer secrets encryption.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5939,6 +7084,12 @@
     /// GP3 volume.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>iops: i32,
+    <span class="doccomment">/// Optional. The throughput that the volume supports, in MiB/s. Only valid if
+    /// volume_type is GP3.
+    ///
+    /// If the volume_type is GP3 and this is not speficied, it defaults to 125.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>throughput: i32,
     <span class="doccomment">/// Optional. The Amazon Resource Name (ARN) of the Customer Managed Key (CMK)
     /// used to encrypt AWS EBS volumes.
     ///
@@ -6023,6 +7174,13 @@
     </span><span class="kw">pub </span>service_address_cidr_blocks: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
+    <span class="doccomment">/// Optional. Disable the per node pool subnet security group rules on the
+    /// control plane security group. When set to true, you must also provide one
+    /// or more security groups that ensure node pools are able to send requests to
+    /// the control plane on TCP/443 and TCP/8132. Failure to do so may result in
+    /// unavailable node pools.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>per_node_pool_sg_rules_disabled: bool,
 }
 <span class="doccomment">/// An Anthos node pool running on AWS.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6098,6 +7256,12 @@
     <span class="doccomment">/// Output only. A set of errors found in the node pool.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;29&quot;</span>)]
     </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;AwsNodePoolError&gt;,
+    <span class="doccomment">/// Optional. The Management configuration for this node pool.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;30&quot;</span>)]
+    </span><span class="kw">pub </span>management: ::core::option::Option&lt;AwsNodeManagement&gt;,
+    <span class="doccomment">/// Optional. Update settings control the speed and disruption of the update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="kw">pub </span>update_settings: ::core::option::Option&lt;UpdateSettings&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AwsNodePool`.
 </span><span class="kw">pub mod </span>aws_node_pool {
@@ -6164,13 +7328,70 @@
         }
     }
 }
+<span class="doccomment">/// UpdateSettings control the level of parallelism and the level of
+/// disruption caused during the update of a node pool.
+///
+/// These settings are applicable when the node pool update requires replacing
+/// the existing node pool nodes with the updated ones.
+///
+/// UpdateSettings are optional. When UpdateSettings are not specified during the
+/// node pool creation, a default is chosen based on the parent cluster&#39;s
+/// version. For clusters with minor version 1.27 and later, a default
+/// surge_settings configuration with max_surge = 1 and max_unavailable = 0 is
+/// used. For clusters with older versions, node pool updates use the traditional
+/// rolling update mechanism of updating one node at a time in a
+/// &quot;terminate before create&quot; fashion and update_settings is not applicable.
+///
+/// Set the surge_settings parameter to use the Surge Update mechanism for
+/// the rolling update of node pool nodes.
+/// 1. max_surge controls the number of additional nodes that can be created
+/// beyond the current size of the node pool temporarily for the time of the
+/// update to increase the number of available nodes.
+/// 2. max_unavailable controls the number of nodes that can be simultaneously
+/// unavailable during the update.
+/// 3. (max_surge + max_unavailable) determines the level of parallelism (i.e.,
+/// the number of nodes being updated at the same time).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateSettings {
+    <span class="doccomment">/// Optional. Settings for surge update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>surge_settings: ::core::option::Option&lt;SurgeSettings&gt;,
+}
+<span class="doccomment">/// SurgeSettings contains the parameters for Surge update.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SurgeSettings {
+    <span class="doccomment">/// Optional. The maximum number of nodes that can be created beyond the
+    /// current size of the node pool during the update process.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>max_surge: i32,
+    <span class="doccomment">/// Optional. The maximum number of nodes that can be simultaneously
+    /// unavailable during the update process. A node is considered unavailable if
+    /// its status is not Ready.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>max_unavailable: i32,
+}
+<span class="doccomment">/// AwsNodeManagement defines the set of node management features turned on for
+/// an AWS node pool.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AwsNodeManagement {
+    <span class="doccomment">/// Optional. Whether or not the nodes will be automatically repaired. When set
+    /// to true, the nodes in this node pool will be monitored and if they fail
+    /// health checks consistently over a period of time, an automatic repair
+    /// action will be triggered to replace them with new nodes.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>auto_repair: bool,
+}
 <span class="doccomment">/// Parameters that describe the nodes in a cluster.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AwsNodeConfig {
-    <span class="doccomment">/// Optional. The AWS instance type.
+    <span class="doccomment">/// Optional. The EC2 instance type when creating on-Demand instances.
     ///
-    /// When unspecified, it uses a default based on the node pool&#39;s version.
+    /// If unspecified during node pool creation, a default will be chosen based on
+    /// the node pool version, and assigned to this field.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>instance_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Template for the root volume provisioned for node pool nodes.
@@ -6205,8 +7426,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>iam_instance_profile: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The OS image type to use on node pool instances.
-    /// Can have a value of `ubuntu`, or `windows` if the cluster enables
-    /// the Windows node pool preview feature.
+    /// Can be unspecified, or have a value of `ubuntu`.
     ///
     /// When unspecified, it defaults to `ubuntu`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
@@ -6237,6 +7457,13 @@
     </span><span class="kw">pub </span>autoscaling_metrics_collection: ::core::option::Option&lt;
         AwsAutoscalingGroupMetricsCollection,
     &gt;,
+    <span class="doccomment">/// Optional. Configuration for provisioning EC2 Spot instances
+    ///
+    /// When specified, the node pool will provision Spot instances from the set
+    /// of spot_config.instance_types.
+    /// This field is mutually exclusive with `instance_type`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>spot_config: ::core::option::Option&lt;SpotConfig&gt;,
 }
 <span class="doccomment">/// AwsNodePoolAutoscaling contains information required by cluster autoscaler
 /// to adjust the size of the node pool to the current cluster usage.
@@ -6252,6 +7479,48 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>max_node_count: i32,
 }
+<span class="doccomment">/// AwsOpenIdConfig is an OIDC discovery document for the cluster.
+/// See the OpenID Connect Discovery 1.0 specification for details.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AwsOpenIdConfig {
+    <span class="doccomment">/// OIDC Issuer.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>issuer: ::prost::alloc::string::String,
+    <span class="doccomment">/// JSON Web Key uri.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>jwks_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Supported response types.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>response_types_supported: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Supported subject types.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>subject_types_supported: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// supported ID Token signing Algorithms.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>id_token_signing_alg_values_supported: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Supported claims.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>claims_supported: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Supported grant types.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>grant_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// AwsJsonWebKeys is a valid JSON Web Key Set as specififed in RFC 7517.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AwsJsonWebKeys {
+    <span class="doccomment">/// The public component of the keys used by the cluster to sign token
+    /// requests.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;Jwk&gt;,
+}
 <span class="doccomment">/// AwsServerConfig is the configuration of GKE cluster on AWS.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -6259,7 +7528,10 @@
     <span class="doccomment">/// The resource name of the config.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// List of valid Kubernetes versions.
+    <span class="doccomment">/// List of all released Kubernetes versions, including ones which are end of
+    /// life and can no longer be used.  Filter by the `enabled`
+    /// property to limit to currently available versions.
+    /// Valid versions supported for both create and update operations
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>valid_versions: ::prost::alloc::vec::Vec&lt;AwsK8sVersionInfo&gt;,
     <span class="doccomment">/// The list of supported AWS regions.
@@ -6273,6 +7545,26 @@
     <span class="doccomment">/// Kubernetes version name.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. True if the version is available for cluster creation. If a
+    /// version is enabled for creation, it can be used to create new clusters.
+    /// Otherwise, cluster creation will fail. However, cluster upgrade operations
+    /// may succeed, even if the version is not enabled.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>enabled: bool,
+    <span class="doccomment">/// Optional. True if this cluster version belongs to a minor version that has
+    /// reached its end of life and is no longer in scope to receive security and
+    /// bug fixes.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>end_of_life: bool,
+    <span class="doccomment">/// Optional. The estimated date (in Pacific Time) when this cluster version
+    /// will reach its end of life. Or if this version is no longer supported (the
+    /// `end_of_life` field is true), this is the actual date (in Pacific time)
+    /// when the version reached its end of life.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>end_of_life_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
+    <span class="doccomment">/// Optional. The date (in Pacific Time) when the cluster version was released.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>release_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
 }
 <span class="doccomment">/// SSH configuration for AWS resources.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6385,6 +7677,14 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>metrics: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
+<span class="doccomment">/// SpotConfig has configuration info for Spot node.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SpotConfig {
+    <span class="doccomment">/// Required. A list of instance types for creating spot node pool.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instance_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
 <span class="doccomment">/// AwsClusterError describes errors found on AWS clusters.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -6453,6 +7753,8 @@
     ///   *   `annotations`.
     ///   *   `control_plane.version`.
     ///   *   `authorization.admin_users`.
+    ///   *   `authorization.admin_groups`.
+    ///   *   `binary_authorization.evaluation_mode`.
     ///   *   `control_plane.aws_services_authentication.role_arn`.
     ///   *   `control_plane.aws_services_authentication.role_session_name`.
     ///   *   `control_plane.config_encryption.kms_key_arn`.
@@ -6464,6 +7766,7 @@
     ///   *   `control_plane.root_volume.size_gib`.
     ///   *   `control_plane.root_volume.volume_type`.
     ///   *   `control_plane.root_volume.iops`.
+    ///   *   `control_plane.root_volume.throughput`.
     ///   *   `control_plane.root_volume.kms_key_arn`.
     ///   *   `control_plane.ssh_config`.
     ///   *   `control_plane.ssh_config.ec2_key_pair`.
@@ -6472,6 +7775,7 @@
     ///   *   `logging_config.component_config.enable_components`.
     ///   *   `control_plane.tags`.
     ///   *   `monitoring_config.managed_prometheus_config.enabled`.
+    ///   *   `networking.per_node_pool_sg_rules_disabled`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
@@ -6557,6 +7861,12 @@
     /// Useful for idempotent deletion.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
+    <span class="doccomment">/// Optional. If set to true, the deletion of
+    /// [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource will
+    /// succeed even if errors occur during deleting in cluster resources. Using
+    /// this parameter may result in orphaned resources in the cluster.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>ignore_errors: bool,
     <span class="doccomment">/// The current etag of the
     /// [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster].
     ///
@@ -6623,6 +7933,7 @@
     ///   *   `config.config_encryption.kms_key_arn`.
     ///   *   `config.security_group_ids`.
     ///   *   `config.root_volume.iops`.
+    ///   *   `config.root_volume.throughput`.
     ///   *   `config.root_volume.kms_key_arn`.
     ///   *   `config.root_volume.volume_type`.
     ///   *   `config.root_volume.size_gib`.
@@ -6638,8 +7949,35 @@
     ///   *   `config.autoscaling_metrics_collection`.
     ///   *   `config.autoscaling_metrics_collection.granularity`.
     ///   *   `config.autoscaling_metrics_collection.metrics`.
+    ///   *   `config.instance_type`.
+    ///   *   `management.auto_repair`.
+    ///   *   `management`.
+    ///   *   `update_settings`.
+    ///   *   `update_settings.surge_settings`.
+    ///   *   `update_settings.surge_settings.max_surge`.
+    ///   *   `update_settings.surge_settings.max_unavailable`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+}
+<span class="doccomment">/// Request message for `AwsClusters.RollbackAwsNodePoolUpdate` method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RollbackAwsNodePoolUpdateRequest {
+    <span class="doccomment">/// Required. The name of the
+    /// [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource to
+    /// rollback.
+    ///
+    /// `AwsNodePool` names are formatted as
+    /// `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;/awsNodePools/&lt;node-pool-id&gt;`.
+    ///
+    /// See [Resource Names](&lt;https://cloud.google.com/apis/design/resource_names&gt;)
+    /// for more details on Google Cloud resource names.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Option for rollback to ignore the PodDisruptionBudget when
+    /// draining the node pool nodes. Default value is false.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>respect_pdb: bool,
 }
 <span class="doccomment">/// Request message for `AwsClusters.GetAwsNodePool` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6725,6 +8063,12 @@
     /// Useful for idempotent deletion.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
+    <span class="doccomment">/// Optional. If set to true, the deletion of
+    /// [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource will
+    /// succeed even if errors occur during deleting in node pool resources. Using
+    /// this parameter may result in orphaned resources in the node pool.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>ignore_errors: bool,
     <span class="doccomment">/// The current ETag of the
     /// [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool].
     ///
@@ -6734,6 +8078,30 @@
     /// the request will fail and an ABORTED error will be returned.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// GetAwsOpenIdConfigRequest gets the OIDC discovery document for the
+/// cluster. See the OpenID Connect Discovery 1.0 specification for details.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetAwsOpenIdConfigRequest {
+    <span class="doccomment">/// Required. The AwsCluster, which owns the OIDC discovery document.
+    /// Format:
+    /// projects/{project}/locations/{location}/awsClusters/{cluster}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>aws_cluster: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// GetAwsJsonWebKeysRequest gets the public component of the keys used by the
+/// cluster to sign token requests. This will be the jwks_uri for the discover
+/// document returned by getOpenIDConfig. See the OpenID Connect
+/// Discovery 1.0 specification for details.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetAwsJsonWebKeysRequest {
+    <span class="doccomment">/// Required. The AwsCluster, which owns the JsonWebKeys.
+    /// Format:
+    /// projects/{project}/locations/{location}/awsClusters/{cluster}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>aws_cluster: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// GetAwsServerConfigRequest gets the server config of GKE cluster on AWS.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6777,6 +8145,50 @@
     <span class="doccomment">/// Output only. Timestamp at which the token will expire.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>expiration_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerateAwsClusterAgentTokenRequest {
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>aws_cluster: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>subject_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>subject_token_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>node_pool_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>grant_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>audience: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>scope: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>requested_token_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>options: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerateAwsClusterAgentTokenResponse {
+    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>access_token: ::prost::alloc::string::String,
+    <span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>expires_in: i32,
+    <span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>token_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>aws_clusters_client {
@@ -7021,6 +8433,37 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+        <span class="doccomment">/// Generates an access token for a cluster agent.
+        </span><span class="kw">pub async fn </span>generate_aws_cluster_agent_token(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GenerateAwsClusterAgentTokenRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::GenerateAwsClusterAgentTokenResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.gkemulticloud.v1.AwsClusters/GenerateAwsClusterAgentToken&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.gkemulticloud.v1.AwsClusters&quot;</span>,
+                        <span class="string">&quot;GenerateAwsClusterAgentToken&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
         <span class="doccomment">/// Generates a short-lived access token to authenticate to a given
         /// [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource.
         </span><span class="kw">pub async fn </span>generate_aws_access_token(
@@ -7116,6 +8559,42 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.gkemulticloud.v1.AwsClusters&quot;</span>,
                         <span class="string">&quot;UpdateAwsNodePool&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Rolls back a previously aborted or failed
+        /// [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] update request.
+        /// Makes no changes if the last update request successfully finished.
+        /// If an update request is in progress, you cannot rollback the update.
+        /// You must first cancel or let it finish unsuccessfully before you can
+        /// rollback.
+        </span><span class="kw">pub async fn </span>rollback_aws_node_pool_update(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::RollbackAwsNodePoolUpdateRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.gkemulticloud.v1.AwsClusters/RollbackAwsNodePoolUpdate&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.gkemulticloud.v1.AwsClusters&quot;</span>,
+                        <span class="string">&quot;RollbackAwsNodePoolUpdate&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -7218,6 +8697,70 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+        <span class="doccomment">/// Gets the OIDC discovery document for the cluster.
+        /// See the
+        /// [OpenID Connect Discovery 1.0
+        /// specification](https://openid.net/specs/openid-connect-discovery-1_0.html)
+        /// for details.
+        </span><span class="kw">pub async fn </span>get_aws_open_id_config(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetAwsOpenIdConfigRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::AwsOpenIdConfig&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.gkemulticloud.v1.AwsClusters/GetAwsOpenIdConfig&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.gkemulticloud.v1.AwsClusters&quot;</span>,
+                        <span class="string">&quot;GetAwsOpenIdConfig&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets the public component of the cluster signing keys in
+        /// JSON Web Key format.
+        </span><span class="kw">pub async fn </span>get_aws_json_web_keys(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetAwsJsonWebKeysRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::AwsJsonWebKeys&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.gkemulticloud.v1.AwsClusters/GetAwsJsonWebKeys&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.gkemulticloud.v1.AwsClusters&quot;</span>,
+                        <span class="string">&quot;GetAwsJsonWebKeys&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
         <span class="doccomment">/// Returns information, such as supported AWS regions and Kubernetes
         /// versions, on a given Google Cloud location.
         </span><span class="kw">pub async fn </span>get_aws_server_config(
@@ -7287,6 +8830,8 @@
     /// authentication configuration for how the Anthos Multi-Cloud API connects to
     /// Azure APIs.
     ///
+    /// Either azure_client or azure_services_authentication should be provided.
+    ///
     /// The `AzureClient` resource must reside on the same Google Cloud Platform
     /// project and region as the `AzureCluster`.
     ///
@@ -7307,6 +8852,8 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>authorization: ::core::option::Option&lt;AzureAuthorization&gt;,
     <span class="doccomment">/// Optional. Authentication configuration for management of Azure resources.
+    ///
+    /// Either azure_client or azure_services_authentication should be provided.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;22&quot;</span>)]
     </span><span class="kw">pub </span>azure_services_authentication: ::core::option::Option&lt;
         AzureServicesAuthentication,
@@ -7714,7 +9261,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AzureAuthorization {
-    <span class="doccomment">/// Required. Users that can perform operations as a cluster admin. A managed
+    <span class="doccomment">/// Optional. Users that can perform operations as a cluster admin. A managed
     /// ClusterRoleBinding will be created to grant the `cluster-admin` ClusterRole
     /// to the users. Up to ten admin users can be provided.
     ///
@@ -7722,6 +9269,14 @@
     /// &lt;https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles&gt;
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>admin_users: ::prost::alloc::vec::Vec&lt;AzureClusterUser&gt;,
+    <span class="doccomment">/// Optional. Groups of users that can perform operations as a cluster admin. A
+    /// managed ClusterRoleBinding will be created to grant the `cluster-admin`
+    /// ClusterRole to the groups. Up to ten admin groups can be provided.
+    ///
+    /// For more info on RBAC, see
+    /// &lt;https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles&gt;
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>admin_groups: ::prost::alloc::vec::Vec&lt;AzureClusterGroup&gt;,
 }
 <span class="doccomment">/// Authentication configuration for the management of Azure resources.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7741,6 +9296,14 @@
     <span class="doccomment">/// Required. The name of the user, e.g. `my-gcp-id@gmail.com`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Identities of a group-type subject for Azure clusters.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AzureClusterGroup {
+    <span class="doccomment">/// Required. The name of the group, e.g. `my-group@domain.com`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>group: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An Anthos node pool running on Azure.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7818,6 +9381,9 @@
     <span class="doccomment">/// Output only. A set of errors found in the node pool.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;29&quot;</span>)]
     </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;AzureNodePoolError&gt;,
+    <span class="doccomment">/// Optional. The Management configuration for this node pool.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;30&quot;</span>)]
+    </span><span class="kw">pub </span>management: ::core::option::Option&lt;AzureNodeManagement&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AzureNodePool`.
 </span><span class="kw">pub mod </span>azure_node_pool {
@@ -7884,6 +9450,18 @@
         }
     }
 }
+<span class="doccomment">/// AzureNodeManagement defines the set of node management features turned on for
+/// an Azure node pool.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AzureNodeManagement {
+    <span class="doccomment">/// Optional. Whether or not the nodes will be automatically repaired. When set
+    /// to true, the nodes in this node pool will be monitored and if they fail
+    /// health checks consistently over a period of time, an automatic repair
+    /// action will be triggered to replace them with new nodes.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>auto_repair: bool,
+}
 <span class="doccomment">/// Parameters that describe the configuration of all node machines
 /// on a given node pool.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7915,8 +9493,7 @@
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Optional. The OS image type to use on node pool instances.
-    /// Can have a value of `ubuntu`, or `windows` if the cluster enables
-    /// the Windows node pool preview feature.
+    /// Can be unspecified, or have a value of `ubuntu`.
     ///
     /// When unspecified, it defaults to `ubuntu`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
@@ -7958,6 +9535,48 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>max_node_count: i32,
 }
+<span class="doccomment">/// AzureOpenIdConfig is an OIDC discovery document for the cluster.
+/// See the OpenID Connect Discovery 1.0 specification for details.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AzureOpenIdConfig {
+    <span class="doccomment">/// OIDC Issuer.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>issuer: ::prost::alloc::string::String,
+    <span class="doccomment">/// JSON Web Key uri.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>jwks_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Supported response types.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>response_types_supported: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Supported subject types.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>subject_types_supported: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// supported ID Token signing Algorithms.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>id_token_signing_alg_values_supported: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Supported claims.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>claims_supported: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Supported grant types.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>grant_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// AzureJsonWebKeys is a valid JSON Web Key Set as specififed in RFC 7517.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AzureJsonWebKeys {
+    <span class="doccomment">/// The public component of the keys used by the cluster to sign token
+    /// requests.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;Jwk&gt;,
+}
 <span class="doccomment">/// AzureServerConfig contains information about a Google Cloud location, such as
 /// supported Azure regions and Kubernetes versions.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7972,7 +9591,10 @@
     /// for more details on Google Cloud Platform resource names.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// List of valid Kubernetes versions.
+    <span class="doccomment">/// List of all released Kubernetes versions, including ones which are end of
+    /// life and can no longer be used.  Filter by the `enabled`
+    /// property to limit to currently available versions.
+    /// Valid versions supported for both create and update operations
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>valid_versions: ::prost::alloc::vec::Vec&lt;AzureK8sVersionInfo&gt;,
     <span class="doccomment">/// The list of supported Azure regions.
@@ -7981,13 +9603,33 @@
         ::prost::alloc::string::String,
     &gt;,
 }
-<span class="doccomment">/// Information about a supported Kubernetes version.
+<span class="doccomment">/// Kubernetes version information of GKE cluster on Azure.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AzureK8sVersionInfo {
-    <span class="doccomment">/// A supported Kubernetes version (for example, `1.19.10-gke.1000`)
+    <span class="doccomment">/// Kubernetes version name (for example, `1.19.10-gke.1000`)
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. True if the version is available for cluster creation. If a
+    /// version is enabled for creation, it can be used to create new clusters.
+    /// Otherwise, cluster creation will fail. However, cluster upgrade operations
+    /// may succeed, even if the version is not enabled.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>enabled: bool,
+    <span class="doccomment">/// Optional. True if this cluster version belongs to a minor version that has
+    /// reached its end of life and is no longer in scope to receive security and
+    /// bug fixes.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>end_of_life: bool,
+    <span class="doccomment">/// Optional. The estimated date (in Pacific Time) when this cluster version
+    /// will reach its end of life. Or if this version is no longer supported (the
+    /// `end_of_life` field is true), this is the actual date (in Pacific time)
+    /// when the version reached its end of life.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>end_of_life_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
+    <span class="doccomment">/// Optional. The date (in Pacific Time) when the cluster version was released.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>release_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
 }
 <span class="doccomment">/// SSH configuration for Azure resources.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -8082,6 +9724,7 @@
     ///   *   `control_plane.vm_size`.
     ///   *   `annotations`.
     ///   *   `authorization.admin_users`.
+    ///   *   `authorization.admin_groups`.
     ///   *   `control_plane.root_volume.size_gib`.
     ///   *   `azure_services_authentication`.
     ///   *   `azure_services_authentication.tenant_id`.
@@ -8152,7 +9795,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request message for `Clusters.DeleteAzureCluster` method.
+<span class="doccomment">/// Request message for `AzureClusters.DeleteAzureCluster` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteAzureClusterRequest {
@@ -8194,7 +9837,8 @@
     <span class="doccomment">/// Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
     /// resource where this node pool will be created.
     ///
-    /// Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
+    /// `AzureCluster` names are formatted as
+    /// `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
     ///
     /// See [Resource Names](&lt;https://cloud.google.com/apis/design/resource_names&gt;)
     /// for more details on Google Cloud resource names.
@@ -8240,6 +9884,8 @@
     ///   *   `autoscaling.min_node_count`.
     ///   *   `autoscaling.max_node_count`.
     ///   *   `config.ssh_config.authorized_key`.
+    ///   *   `management.auto_repair`.
+    ///   *   `management`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
@@ -8301,7 +9947,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Delete message for `AzureClusters.DeleteAzureNodePool` method.
+<span class="doccomment">/// Request message for `AzureClusters.DeleteAzureNodePool` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteAzureNodePoolRequest {
@@ -8337,6 +9983,30 @@
     /// the request will fail and an ABORTED error will be returned.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// GetAzureOpenIdConfigRequest gets the OIDC discovery document for the
+/// cluster. See the OpenID Connect Discovery 1.0 specification for details.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetAzureOpenIdConfigRequest {
+    <span class="doccomment">/// Required. The AzureCluster, which owns the OIDC discovery document.
+    /// Format:
+    /// projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>azure_cluster: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// GetAzureJsonWebKeysRequest gets the public component of the keys used by the
+/// cluster to sign token requests. This will be the jwks_uri for the discover
+/// document returned by getOpenIDConfig. See the OpenID Connect
+/// Discovery 1.0 specification for details.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetAzureJsonWebKeysRequest {
+    <span class="doccomment">/// Required. The AzureCluster, which owns the JsonWebKeys.
+    /// Format:
+    /// projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>azure_cluster: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// GetAzureServerConfigRequest gets the server config of GKE cluster on Azure.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -8481,7 +10151,7 @@
     /// authenticate to.
     ///
     /// `AzureCluster` names are formatted as
-    /// `projects/&lt;project-id&gt;/locations/&lt;region&gt;/AzureClusters/&lt;cluster-id&gt;`.
+    /// `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
     ///
     /// See [Resource Names](&lt;https://cloud.google.com/apis/design/resource_names&gt;)
     /// for more details on Google Cloud resource names.
@@ -8498,6 +10168,50 @@
     <span class="doccomment">/// Output only. Timestamp at which the token will expire.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>expiration_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerateAzureClusterAgentTokenRequest {
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>azure_cluster: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>subject_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>subject_token_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>node_pool_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>grant_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>audience: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>scope: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>requested_token_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>options: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerateAzureClusterAgentTokenResponse {
+    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>access_token: ::prost::alloc::string::String,
+    <span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>expires_in: i32,
+    <span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>token_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>azure_clusters_client {
@@ -8882,6 +10596,39 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+        <span class="doccomment">/// Generates an access token for a cluster agent.
+        </span><span class="kw">pub async fn </span>generate_azure_cluster_agent_token(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;
+                <span class="kw">super</span>::GenerateAzureClusterAgentTokenRequest,
+            &gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::GenerateAzureClusterAgentTokenResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.gkemulticloud.v1.AzureClusters/GenerateAzureClusterAgentToken&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.gkemulticloud.v1.AzureClusters&quot;</span>,
+                        <span class="string">&quot;GenerateAzureClusterAgentToken&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
         <span class="doccomment">/// Generates a short-lived access token to authenticate to a given
         /// [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource.
         </span><span class="kw">pub async fn </span>generate_azure_access_token(
@@ -9076,6 +10823,73 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.gkemulticloud.v1.AzureClusters&quot;</span>,
                         <span class="string">&quot;DeleteAzureNodePool&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets the OIDC discovery document for the cluster.
+        /// See the
+        /// [OpenID Connect Discovery 1.0
+        /// specification](https://openid.net/specs/openid-connect-discovery-1_0.html)
+        /// for details.
+        </span><span class="kw">pub async fn </span>get_azure_open_id_config(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetAzureOpenIdConfigRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::AzureOpenIdConfig&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.gkemulticloud.v1.AzureClusters/GetAzureOpenIdConfig&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.gkemulticloud.v1.AzureClusters&quot;</span>,
+                        <span class="string">&quot;GetAzureOpenIdConfig&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets the public component of the cluster signing keys in
+        /// JSON Web Key format.
+        </span><span class="kw">pub async fn </span>get_azure_json_web_keys(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetAzureJsonWebKeysRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::AzureJsonWebKeys&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.gkemulticloud.v1.AzureClusters/GetAzureJsonWebKeys&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.gkemulticloud.v1.AzureClusters&quot;</span>,
+                        <span class="string">&quot;GetAzureJsonWebKeys&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
