@@ -279,6 +279,12 @@ pub struct Recording {
     /// Output only. Current state.
     #[prost(enumeration = "recording::State", tag = "3")]
     pub state: i32,
+    /// Output only. Timestamp when the recording started.
+    #[prost(message, optional, tag = "4")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when the recording ended.
+    #[prost(message, optional, tag = "5")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
     #[prost(oneof = "recording::Destination", tags = "6")]
     pub destination: ::core::option::Option<recording::Destination>,
 }
@@ -373,6 +379,12 @@ pub struct Transcript {
     /// Output only. Current state.
     #[prost(enumeration = "transcript::State", tag = "3")]
     pub state: i32,
+    /// Output only. Timestamp when the transcript started.
+    #[prost(message, optional, tag = "4")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when the transcript stopped.
+    #[prost(message, optional, tag = "5")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
     #[prost(oneof = "transcript::Destination", tags = "6")]
     pub destination: ::core::option::Option<transcript::Destination>,
 }
