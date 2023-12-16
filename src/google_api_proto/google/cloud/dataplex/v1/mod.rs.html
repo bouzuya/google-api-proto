@@ -10156,6 +10156,10 @@
 <a href="#10156" id="10156">10156</a>
 <a href="#10157" id="10157">10157</a>
 <a href="#10158" id="10158">10158</a>
+<a href="#10159" id="10159">10159</a>
+<a href="#10160" id="10160">10160</a>
+<a href="#10161" id="10161">10161</a>
+<a href="#10162" id="10162">10162</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// DataScan scheduling and trigger settings.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -17161,6 +17165,8 @@
         </span>GovernanceRuleSearchLimitExceeds = <span class="number">16</span>,
         <span class="doccomment">/// Rule processing errors.
         </span>GovernanceRuleErrors = <span class="number">17</span>,
+        <span class="doccomment">/// Governance rule prcoessing Event.
+        </span>GovernanceRuleProcessing = <span class="number">18</span>,
     }
     <span class="kw">impl </span>EventType {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -17191,6 +17197,7 @@
                     <span class="string">&quot;GOVERNANCE_RULE_SEARCH_LIMIT_EXCEEDS&quot;
                 </span>}
                 EventType::GovernanceRuleErrors =&gt; <span class="string">&quot;GOVERNANCE_RULE_ERRORS&quot;</span>,
+                EventType::GovernanceRuleProcessing =&gt; <span class="string">&quot;GOVERNANCE_RULE_PROCESSING&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -17218,6 +17225,7 @@
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::GovernanceRuleSearchLimitExceeds)
                 }
                 <span class="string">&quot;GOVERNANCE_RULE_ERRORS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GovernanceRuleErrors),
+                <span class="string">&quot;GOVERNANCE_RULE_PROCESSING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GovernanceRuleProcessing),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
