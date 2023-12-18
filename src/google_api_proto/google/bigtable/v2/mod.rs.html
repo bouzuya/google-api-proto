@@ -1903,6 +1903,14 @@
 <a href="#1903" id="1903">1903</a>
 <a href="#1904" id="1904">1904</a>
 <a href="#1905" id="1905">1905</a>
+<a href="#1906" id="1906">1906</a>
+<a href="#1907" id="1907">1907</a>
+<a href="#1908" id="1908">1908</a>
+<a href="#1909" id="1909">1909</a>
+<a href="#1910" id="1910">1910</a>
+<a href="#1911" id="1911">1911</a>
+<a href="#1912" id="1912">1912</a>
+<a href="#1913" id="1913">1913</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Feature flags supported or enabled by a client.
 /// This is intended to be sent as part of request metadata to assure the server
 /// that certain behaviors are safe to enable. This proto is meant to be
@@ -1932,6 +1940,14 @@
     /// in ReadRowsResponse for long-running scans.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>last_scanned_row_responses: bool,
+    <span class="doccomment">/// Notify the server that the client supports using encoded routing cookie
+    /// strings to retry requests with.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>routing_cookie: bool,
+    <span class="doccomment">/// Notify the server that the client supports using retry info back off
+    /// durations to retry requests with.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>retry_info: bool,
 }
 <span class="doccomment">/// Specifies the complete (requested) contents of a single row of a table.
 /// Rows which exceed 256MiB in size cannot be read in full.

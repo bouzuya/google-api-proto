@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["ClusterType","Source","State"],"struct":["NetworkConfig","PrimaryConfig","SecondaryConfig"]};
+window.SIDEBAR_ITEMS = {"enum":["ClusterType","Source","State"],"struct":["NetworkConfig","PrimaryConfig","PscConfig","SecondaryConfig"]};

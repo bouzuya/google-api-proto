@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["RolloutPolicy"],"mod":["standard_rollout_policy"],"struct":["StandardRolloutPolicy"]};
+window.SIDEBAR_ITEMS = {"enum":["RolloutPolicy"],"mod":["standard_rollout_policy"],"struct":["AutoscaledRolloutPolicy","StandardRolloutPolicy"]};

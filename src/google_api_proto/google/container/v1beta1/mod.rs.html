@@ -9094,6 +9094,14 @@
 <a href="#9094" id="9094">9094</a>
 <a href="#9095" id="9095">9095</a>
 <a href="#9096" id="9096">9096</a>
+<a href="#9097" id="9097">9097</a>
+<a href="#9098" id="9098">9098</a>
+<a href="#9099" id="9099">9099</a>
+<a href="#9100" id="9100">9100</a>
+<a href="#9101" id="9101">9101</a>
+<a href="#9102" id="9102">9102</a>
+<a href="#9103" id="9103">9103</a>
+<a href="#9104" id="9104">9104</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Parameters that can be configured on Linux nodes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -13504,7 +13512,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>node_pool_soak_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The rollout policy controls the general rollout progress of blue-green.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;blue_green_settings::RolloutPolicy&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;blue_green_settings::RolloutPolicy&quot;</span>, tags = <span class="string">&quot;1, 3&quot;</span>)]
     </span><span class="kw">pub </span>rollout_policy: ::core::option::Option&lt;blue_green_settings::RolloutPolicy&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `BlueGreenSettings`.
@@ -13537,6 +13545,11 @@
             </span>BatchNodeCount(i32),
         }
     }
+    <span class="doccomment">/// Autoscaled rollout policy uses cluster autoscaler during
+    /// blue-green upgrades to scale both the green and blue pools.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>AutoscaledRolloutPolicy {}
     <span class="doccomment">/// The rollout policy controls the general rollout progress of blue-green.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
@@ -13544,6 +13557,9 @@
         <span class="doccomment">/// Standard policy for the blue-green upgrade.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
         </span>StandardRolloutPolicy(StandardRolloutPolicy),
+        <span class="doccomment">/// Autoscaled policy for cluster autoscaler enabled blue-green upgrade.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>AutoscaledRolloutPolicy(AutoscaledRolloutPolicy),
     }
 }
 <span class="doccomment">/// NodePool contains the name and configuration for a cluster&#39;s node pool.

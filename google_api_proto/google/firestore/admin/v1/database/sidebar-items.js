@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["AppEngineIntegrationMode","ConcurrencyMode","DatabaseType","PointInTimeRecoveryEnablement"]};
+window.SIDEBAR_ITEMS = {"enum":["AppEngineIntegrationMode","ConcurrencyMode","DatabaseType","DeleteProtectionState","PointInTimeRecoveryEnablement"]};
