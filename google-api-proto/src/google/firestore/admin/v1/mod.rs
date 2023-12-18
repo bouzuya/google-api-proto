@@ -638,8 +638,6 @@ impl OperationState {
     }
 }
 /// A Cloud Firestore Database.
-/// Currently only one database is allowed per cloud project; this database
-/// must have a `database_id` of '(default)'.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Database {
@@ -647,6 +645,18 @@ pub struct Database {
     /// Format: `projects/{project}/databases/{database}`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+    /// Output only. The system-generated UUID4 for this Database.
+    #[prost(string, tag = "3")]
+    pub uid: ::prost::alloc::string::String,
+    /// Output only. The timestamp at which this database was created. Databases
+    /// created before 2016 do not populate create_time.
+    #[prost(message, optional, tag = "5")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp at which this database was most recently
+    /// updated. Note this only includes updates to the database resource and not
+    /// data contained by the database.
+    #[prost(message, optional, tag = "6")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
     /// The location of the database. Available locations are listed at
     /// <https://cloud.google.com/firestore/docs/locations.>
     #[prost(string, tag = "9")]
@@ -696,6 +706,9 @@ pub struct Database {
     /// is the project_id (eg: foo instead of v~foo).
     #[prost(string, tag = "20")]
     pub key_prefix: ::prost::alloc::string::String,
+    /// State of delete protection for the database.
+    #[prost(enumeration = "database::DeleteProtectionState", tag = "22")]
+    pub delete_protection_state: i32,
     /// This checksum is computed by the server based on the value of other
     /// fields, and may be sent on update and delete requests to ensure the
     /// client has an up-to-date value before proceeding.
@@ -923,6 +936,55 @@ pub mod database {
             }
         }
     }
+    /// The delete protection state of the database.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DeleteProtectionState {
+        /// The default value. Delete protection type is not specified
+        Unspecified = 0,
+        /// Delete protection is disabled
+        DeleteProtectionDisabled = 1,
+        /// Delete protection is enabled
+        DeleteProtectionEnabled = 2,
+    }
+    impl DeleteProtectionState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DeleteProtectionState::Unspecified => {
+                    "DELETE_PROTECTION_STATE_UNSPECIFIED"
+                }
+                DeleteProtectionState::DeleteProtectionDisabled => {
+                    "DELETE_PROTECTION_DISABLED"
+                }
+                DeleteProtectionState::DeleteProtectionEnabled => {
+                    "DELETE_PROTECTION_ENABLED"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DELETE_PROTECTION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DELETE_PROTECTION_DISABLED" => Some(Self::DeleteProtectionDisabled),
+                "DELETE_PROTECTION_ENABLED" => Some(Self::DeleteProtectionEnabled),
+                _ => None,
+            }
+        }
+    }
 }
 /// Represents a single field in the database.
 ///
@@ -1093,7 +1155,11 @@ pub struct CreateDatabaseRequest {
     /// Required. The ID to use for the database, which will become the final
     /// component of the database's resource name.
     ///
-    /// The value must be set to "(default)".
+    /// This value should be 4-63 characters. Valid characters are /[a-z][0-9]-/
+    /// with first character a letter and the last a letter or a number. Must not
+    /// be UUID-like /\[0-9a-f\]{8}(-\[0-9a-f\]{4}){3}-\[0-9a-f\]{12}/.
+    ///
+    /// "(default)" database id is also valid.
     #[prost(string, tag = "3")]
     pub database_id: ::prost::alloc::string::String,
 }
@@ -1108,6 +1174,17 @@ pub struct ListDatabasesResponse {
     /// The databases in the project.
     #[prost(message, repeated, tag = "1")]
     pub databases: ::prost::alloc::vec::Vec<Database>,
+    /// In the event that data about individual databases cannot be listed they
+    /// will be recorded here.
+    ///
+    /// An example entry might be: projects/some_project/locations/some_location
+    /// This can happen if the Cloud Region that the Database resides in is
+    /// currently unavailable.  In this case we can't fetch all the details about
+    /// the database. You may be able to get a more detailed error message
+    /// (or possibly fetch the resource) by sending a 'Get' request for the
+    /// resource or a 'List' request for the specific location.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// The request for
 /// [FirestoreAdmin.GetDatabase][google.firestore.admin.v1.FirestoreAdmin.GetDatabase].
@@ -1135,6 +1212,25 @@ pub struct UpdateDatabaseRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateDatabaseMetadata {}
+/// The request for
+/// [FirestoreAdmin.DeleteDatabase][google.firestore.admin.v1.FirestoreAdmin.DeleteDatabase].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteDatabaseRequest {
+    /// Required. A name of the form
+    /// `projects/{project_id}/databases/{database_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The current etag of the Database.
+    /// If an etag is provided and does not match the current etag of the database,
+    /// deletion will be blocked and a FAILED_PRECONDITION error will be returned.
+    #[prost(string, tag = "3")]
+    pub etag: ::prost::alloc::string::String,
+}
+/// Metadata related to the delete database operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteDatabaseMetadata {}
 /// The request for
 /// [FirestoreAdmin.CreateIndex][google.firestore.admin.v1.FirestoreAdmin.CreateIndex].
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1286,7 +1382,7 @@ pub struct ExportDocumentsRequest {
     /// generated based on the start time.
     #[prost(string, tag = "3")]
     pub output_uri_prefix: ::prost::alloc::string::String,
-    /// Unspecified means all namespaces. This is the preferred
+    /// An empty list represents all namespaces. This is the preferred
     /// usage for databases that don't use namespaces.
     ///
     /// An empty string element represents the default namespace. This should be
@@ -1324,7 +1420,7 @@ pub struct ImportDocumentsRequest {
     /// [google.firestore.admin.v1.ExportDocumentsResponse.output_uri_prefix][google.firestore.admin.v1.ExportDocumentsResponse.output_uri_prefix].
     #[prost(string, tag = "3")]
     pub input_uri_prefix: ::prost::alloc::string::String,
-    /// Unspecified means all namespaces. This is the preferred
+    /// An empty list represents all namespaces. This is the preferred
     /// usage for databases that don't use namespaces.
     ///
     /// An empty string element represents the default namespace. This should be
@@ -1638,7 +1734,8 @@ pub mod firestore_admin_client {
         /// only supports listing fields that have been explicitly overridden. To issue
         /// this query, call
         /// [FirestoreAdmin.ListFields][google.firestore.admin.v1.FirestoreAdmin.ListFields]
-        /// with the filter set to `indexConfig.usesAncestorConfig:false` .
+        /// with the filter set to `indexConfig.usesAncestorConfig:false or
+        /// `ttlConfig:*`.
         pub async fn list_fields(
             &mut self,
             request: impl tonic::IntoRequest<super::ListFieldsRequest>,
@@ -1862,6 +1959,37 @@ pub mod firestore_admin_client {
                     GrpcMethod::new(
                         "google.firestore.admin.v1.FirestoreAdmin",
                         "UpdateDatabase",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a database.
+        pub async fn delete_database(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteDatabaseRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.firestore.admin.v1.FirestoreAdmin/DeleteDatabase",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.firestore.admin.v1.FirestoreAdmin",
+                        "DeleteDatabase",
                     ),
                 );
             self.inner.unary(req, path, codec).await
