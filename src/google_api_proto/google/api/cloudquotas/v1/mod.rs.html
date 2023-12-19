@@ -837,10 +837,6 @@
 <a href="#837" id="837">837</a>
 <a href="#838" id="838">838</a>
 <a href="#839" id="839">839</a>
-<a href="#840" id="840">840</a>
-<a href="#841" id="841">841</a>
-<a href="#842" id="842">842</a>
-<a href="#843" id="843">843</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// QuotaInfo represents information about a particular quota for a given
 /// project, folder or organization.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1087,17 +1083,13 @@
     <span class="doccomment">/// The reason / justification for this quota preference.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>justification: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Input only. An optional email address that can be used for quota
-    /// related communication between the Google Cloud and the user in case the
-    /// Google Cloud needs further information to make a decision on whether the
-    /// user preferred quota can be granted.
+    <span class="doccomment">/// Required. Input only. An email address that can be used for quota related
+    /// communication between the Google Cloud and the user in case the Google
+    /// Cloud needs further information to make a decision on whether the user
+    /// preferred quota can be granted.
     ///
     /// The Google account for the email address must have quota update permission
     /// for the project, folder or organization this quota preference is for.
-    ///
-    /// If no contact email address is provided, or the provided email address does
-    /// not have the required quota update permission, the quota preference request
-    /// will be denied in case further information is required to make a decision.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>contact_email: ::prost::alloc::string::String,
 }
