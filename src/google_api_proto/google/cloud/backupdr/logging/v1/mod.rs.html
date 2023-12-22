@@ -238,10 +238,10 @@
     /// associated with this job.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
     </span><span class="kw">pub </span>backup_rule_policy_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The backup_template field displays the name of the backup template for
-    /// this application.
+    <span class="doccomment">/// The backup_plan_policy_template field displays the name of the backup plan
+    /// for this application.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
-    </span><span class="kw">pub </span>backup_template: ::prost::alloc::string::String,
+    </span><span class="kw">pub </span>backup_plan_policy_template: ::prost::alloc::string::String,
     <span class="doccomment">/// The backup_type field displays the type of backup taken: Log, Incremental
     /// or Full Copy.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;19&quot;</span>)]
@@ -249,8 +249,8 @@
     <span class="doccomment">/// The recovery_point field displays the timestamp of recovery point.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;20&quot;</span>)]
     </span><span class="kw">pub </span>recovery_point: ::prost::alloc::string::String,
-    <span class="doccomment">/// The backup_consistency field displays whether the backup is crash consistent
-    /// or application consistent.
+    <span class="doccomment">/// The backup_consistency field displays whether the backup is crash
+    /// consistent or application consistent.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;21&quot;</span>)]
     </span><span class="kw">pub </span>backup_consistency: ::prost::alloc::string::String,
     <span class="doccomment">/// The target_host_name field displays the target host name.
@@ -284,9 +284,9 @@
     /// backup to application size.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;30&quot;</span>)]
     </span><span class="kw">pub </span>data_change_rate: f64,
-    <span class="doccomment">/// The resource_volume_size_in_gib field displays the virtual size in Gib.
+    <span class="doccomment">/// The snapshot_disk_size_in_gib field displays the snapshot disk size in Gib.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;31&quot;</span>)]
-    </span><span class="kw">pub </span>resource_volume_size_in_gib: f64,
+    </span><span class="kw">pub </span>snapshot_disk_size_in_gib: f64,
     <span class="doccomment">/// The data_written_in_gib field displays the amount of
     /// remote data written in Gib.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;32&quot;</span>)]
