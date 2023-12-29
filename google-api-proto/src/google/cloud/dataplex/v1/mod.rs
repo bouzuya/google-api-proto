@@ -712,7 +712,12 @@ pub struct DataQualityRule {
     /// `ignore_null` is `true`. In that case, such `null` rows are trivially
     /// considered passing.
     ///
-    /// This field is only valid for row-level type rules.
+    /// This field is only valid for the following type of rules:
+    ///
+    /// * RangeExpectation
+    /// * RegexExpectation
+    /// * SetExpectation
+    /// * UniquenessExpectation
     #[prost(bool, tag = "501")]
     pub ignore_null: bool,
     /// Required. The dimension a rule belongs to. Results are also aggregated at
