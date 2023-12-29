@@ -10160,6 +10160,11 @@
 <a href="#10160" id="10160">10160</a>
 <a href="#10161" id="10161">10161</a>
 <a href="#10162" id="10162">10162</a>
+<a href="#10163" id="10163">10163</a>
+<a href="#10164" id="10164">10164</a>
+<a href="#10165" id="10165">10165</a>
+<a href="#10166" id="10166">10166</a>
+<a href="#10167" id="10167">10167</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// DataScan scheduling and trigger settings.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -10874,7 +10879,12 @@
     /// `ignore_null` is `true`. In that case, such `null` rows are trivially
     /// considered passing.
     ///
-    /// This field is only valid for row-level type rules.
+    /// This field is only valid for the following type of rules:
+    ///
+    /// * RangeExpectation
+    /// * RegexExpectation
+    /// * SetExpectation
+    /// * UniquenessExpectation
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;501&quot;</span>)]
     </span><span class="kw">pub </span>ignore_null: bool,
     <span class="doccomment">/// Required. The dimension a rule belongs to. Results are also aggregated at
