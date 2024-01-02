@@ -139,6 +139,39 @@ pub struct BackupRecoveryJobReportLog {
     #[prost(string, tag = "40")]
     pub target_appliance_id: ::prost::alloc::string::String,
 }
+/// This is a UnprotectedApplicationUsageLogReport published as part of GCBDR
+/// Reporting.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UnprotectedResource {
+    /// Required. Name of the host where the application/resource resides.
+    #[prost(string, tag = "1")]
+    pub host_name: ::prost::alloc::string::String,
+    /// Required. Name of the application/resource.
+    #[prost(string, tag = "2")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Required. Type of the application/resource.
+    #[prost(string, tag = "3")]
+    pub resource_type: ::prost::alloc::string::String,
+    /// Optional. Name of the database instance for instance members.
+    #[prost(string, tag = "4")]
+    pub instance_name: ::prost::alloc::string::String,
+    /// Required. Date when the Appliance was Discovered first.
+    #[prost(message, optional, tag = "5")]
+    pub discovered_on: ::core::option::Option<::prost_types::Timestamp>,
+    /// Required. Name of the appliance on which it was discovered.
+    #[prost(string, tag = "6")]
+    pub discovered_by: ::prost::alloc::string::String,
+    /// Required. Id of the Appliance
+    #[prost(string, tag = "7")]
+    pub appliance_id: ::prost::alloc::string::String,
+    /// Required. Id of the application/resource
+    #[prost(string, tag = "8")]
+    pub resource_id: ::prost::alloc::string::String,
+    /// Required. Id of the Host where the application/resource resides.
+    #[prost(string, tag = "9")]
+    pub host_id: ::prost::alloc::string::String,
+}
 /// This is an event
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
