@@ -695,6 +695,9 @@
 <a href="#695" id="695">695</a>
 <a href="#696" id="696">696</a>
 <a href="#697" id="697">697</a>
+<a href="#698" id="698">698</a>
+<a href="#699" id="699">699</a>
+<a href="#700" id="700">700</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The top-level message sent by the client for the `ListVoices` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -802,8 +805,8 @@
 }
 <span class="doccomment">/// Contains text input to be synthesized. Either `text` or `ssml` must be
 /// supplied. Supplying both or neither returns
-/// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]. The input size is limited to 5000
-/// bytes.
+/// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]. The
+/// input size is limited to 5000 bytes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SynthesisInput {
@@ -822,7 +825,8 @@
         </span>Text(::prost::alloc::string::String),
         <span class="doccomment">/// The SSML document to be synthesized. The SSML document must be valid
         /// and well-formed. Otherwise the RPC will fail and return
-        /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]. For more information, see
+        /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]. For
+        /// more information, see
         /// [SSML](&lt;https://cloud.google.com/text-to-speech/docs/ssml&gt;).
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span>Ssml(::prost::alloc::string::String),
@@ -832,9 +836,9 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VoiceSelectionParams {
-    <span class="doccomment">/// Required. The language (and potentially also the region) of the voice expressed as a
-    /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;) language tag, e.g.
-    /// &quot;en-US&quot;. This should not include a script tag (e.g. use
+    <span class="doccomment">/// Required. The language (and potentially also the region) of the voice
+    /// expressed as a [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;)
+    /// language tag, e.g. &quot;en-US&quot;. This should not include a script tag (e.g. use
     /// &quot;cmn-cn&quot; rather than &quot;cmn-Hant-cn&quot;), because the script will be inferred
     /// from the input provided in the SynthesisInput.  The TTS service
     /// will use this parameter to help choose an appropriate voice.  Note that
@@ -915,15 +919,15 @@
     <span class="doccomment">/// Required. The name of the AutoML model that synthesizes the custom voice.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The usage of the synthesized audio to be reported.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;custom_voice_params::ReportedUsage&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// Optional. Deprecated. The usage of the synthesized audio to be reported.
+    </span><span class="attr">#[deprecated]
+    #[prost(enumeration = <span class="string">&quot;custom_voice_params::ReportedUsage&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>reported_usage: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `CustomVoiceParams`.
 </span><span class="kw">pub mod </span>custom_voice_params {
-    <span class="doccomment">/// The usage of the synthesized audio. You must report your honest and
-    /// correct usage of the service as it&#39;s regulated by contract and will cause
-    /// significant difference in billing.
+    <span class="doccomment">/// Deprecated. The usage of the synthesized audio. Usage does not affect
+    /// billing.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -1048,7 +1052,8 @@
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>AudioEncoding {
-    <span class="doccomment">/// Not specified. Will return result [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
+    <span class="doccomment">/// Not specified. Will return result
+    /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// Uncompressed 16-bit signed little-endian samples (Linear PCM).
     /// Audio content returned as LINEAR16 also contains a WAV header.
@@ -1275,8 +1280,9 @@
     <span class="doccomment">/// Time when the request was received.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Time of the most recent processing update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Deprecated. Do not use.
+    </span><span class="attr">#[deprecated]
+    #[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>last_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The progress of the most recent processing update in percentage, ie. 70.0%.
     </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
