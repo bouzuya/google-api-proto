@@ -979,6 +979,77 @@ pub mod query_result_batch {
         }
     }
 }
+/// Plan for the query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPlan {
+    /// Planning phase information for the query. It will include:
+    ///
+    /// {
+    ///    "indexes_used": [
+    ///      {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"},
+    ///      {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"}
+    ///    ]
+    /// }
+    #[prost(message, optional, tag = "1")]
+    pub plan_info: ::core::option::Option<::prost_types::Struct>,
+}
+/// Planning and execution statistics for the query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResultSetStats {
+    /// Plan for the query.
+    #[prost(message, optional, tag = "1")]
+    pub query_plan: ::core::option::Option<QueryPlan>,
+    /// Aggregated statistics from the execution of the query.
+    ///
+    /// This will only be present when the request specifies `PROFILE` mode.
+    /// For example, a query will return the statistics including:
+    ///
+    /// {
+    ///    "results_returned": "20",
+    ///    "documents_scanned": "20",
+    ///    "indexes_entries_scanned": "10050",
+    ///    "total_execution_time": "100.7 msecs"
+    /// }
+    #[prost(message, optional, tag = "2")]
+    pub query_stats: ::core::option::Option<::prost_types::Struct>,
+}
+/// The mode in which the query request must be processed.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum QueryMode {
+    /// The default mode. Only the query results are returned.
+    Normal = 0,
+    /// This mode returns only the query plan, without any results or execution
+    /// statistics information.
+    Plan = 1,
+    /// This mode returns both the query plan and the execution statistics along
+    /// with the results.
+    Profile = 2,
+}
+impl QueryMode {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            QueryMode::Normal => "NORMAL",
+            QueryMode::Plan => "PLAN",
+            QueryMode::Profile => "PROFILE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "NORMAL" => Some(Self::Normal),
+            "PLAN" => Some(Self::Plan),
+            "PROFILE" => Some(Self::Profile),
+            _ => None,
+        }
+    }
+}
 /// The result of a single bucket from a Datastore aggregation query.
 ///
 /// The keys of `aggregate_properties` are the same for all results in an
@@ -1093,6 +1164,11 @@ pub struct RunQueryRequest {
     /// The options for this query.
     #[prost(message, optional, tag = "1")]
     pub read_options: ::core::option::Option<ReadOptions>,
+    /// Optional. The mode in which the query request is processed. This field is
+    /// optional, and when not provided, it defaults to `NORMAL` mode where no
+    /// additional statistics will be returned with the query results.
+    #[prost(enumeration = "QueryMode", tag = "11")]
+    pub mode: i32,
     /// The type of query.
     #[prost(oneof = "run_query_request::QueryType", tags = "3, 7")]
     pub query_type: ::core::option::Option<run_query_request::QueryType>,
@@ -1131,6 +1207,12 @@ pub struct RunQueryResponse {
     /// [RunQueryRequest.read_options][google.datastore.v1.RunQueryRequest.read_options].
     #[prost(bytes = "bytes", tag = "5")]
     pub transaction: ::prost::bytes::Bytes,
+    /// Query plan and execution statistics. Note that the returned stats are
+    /// subject to change as Firestore evolves.
+    ///
+    /// This is only present when the request specifies a mode other than `NORMAL`.
+    #[prost(message, optional, tag = "6")]
+    pub stats: ::core::option::Option<ResultSetStats>,
 }
 /// The request for
 /// [Datastore.RunAggregationQuery][google.datastore.v1.Datastore.RunAggregationQuery].
@@ -1155,6 +1237,11 @@ pub struct RunAggregationQueryRequest {
     /// The options for this query.
     #[prost(message, optional, tag = "1")]
     pub read_options: ::core::option::Option<ReadOptions>,
+    /// Optional. The mode in which the query request is processed. This field is
+    /// optional, and when not provided, it defaults to `NORMAL` mode where no
+    /// additional statistics will be returned with the query results.
+    #[prost(enumeration = "QueryMode", tag = "10")]
+    pub mode: i32,
     /// The type of query.
     #[prost(oneof = "run_aggregation_query_request::QueryType", tags = "3, 7")]
     pub query_type: ::core::option::Option<run_aggregation_query_request::QueryType>,
@@ -1193,6 +1280,12 @@ pub struct RunAggregationQueryResponse {
     /// [RunAggregationQueryRequest.read_options][google.datastore.v1.RunAggregationQueryRequest.read_options].
     #[prost(bytes = "bytes", tag = "5")]
     pub transaction: ::prost::bytes::Bytes,
+    /// Query plan and execution statistics. Note that the returned stats are
+    /// subject to change as Firestore evolves.
+    ///
+    /// This is only present when the request specifies a mode other than `NORMAL`.
+    #[prost(message, optional, tag = "6")]
+    pub stats: ::core::option::Option<ResultSetStats>,
 }
 /// The request for
 /// [Datastore.BeginTransaction][google.datastore.v1.Datastore.BeginTransaction].
