@@ -194,7 +194,7 @@ pub struct SystemTimestamps {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Taxonomy {
-    /// Output only. Resource name of this taxonomy, whose format is:
+    /// Identifier. Resource name of this taxonomy, whose format is:
     /// "projects/{project_number}/locations/{location_id}/taxonomies/{id}".
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
@@ -289,7 +289,7 @@ pub mod taxonomy {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PolicyTag {
-    /// Output only. Resource name of this policy tag, whose format is:
+    /// Identifier. Resource name of this policy tag, whose format is:
     /// "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}".
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
