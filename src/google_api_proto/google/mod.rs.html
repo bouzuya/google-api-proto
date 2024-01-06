@@ -606,6 +606,12 @@
 <a href="#606" id="606">606</a>
 <a href="#607" id="607">607</a>
 <a href="#608" id="608">608</a>
+<a href="#609" id="609">609</a>
+<a href="#610" id="610">610</a>
+<a href="#611" id="611">611</a>
+<a href="#612" id="612">612</a>
+<a href="#613" id="613">613</a>
+<a href="#614" id="614">614</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(
     any(
         feature = <span class="string">&quot;google-actions-sdk-v2&quot;</span>,
@@ -1201,7 +1207,13 @@
     )
 )]
 </span><span class="kw">pub mod </span>spanner;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-storage-v1&quot;</span>, feature = <span class="string">&quot;google-storage-v2&quot;</span>))]
+<span class="attr">#[cfg(
+    any(
+        feature = <span class="string">&quot;google-storage-control-v2&quot;</span>,
+        feature = <span class="string">&quot;google-storage-v1&quot;</span>,
+        feature = <span class="string">&quot;google-storage-v2&quot;</span>,
+    )
+)]
 </span><span class="kw">pub mod </span>storage;
 <span class="attr">#[cfg(
     any(

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["storage_control_client","storage_layout"],"struct":["CommonLongRunningOperationMetadata","CreateFolderRequest","DeleteFolderRequest","Folder","GetFolderRequest","GetStorageLayoutRequest","ListFoldersRequest","ListFoldersResponse","PendingRenameInfo","RenameFolderMetadata","RenameFolderRequest","StorageLayout"]};
