@@ -475,6 +475,7 @@ pub mod cloud;
         feature = "google-spanner-admin-instance-v1",
         feature = "google-spanner-executor-v1",
         feature = "google-spanner-v1",
+        feature = "google-storage-control-v2",
         feature = "google-storage-v1",
         feature = "google-storage-v2",
         feature = "google-storagetransfer-logging",
