@@ -350,11 +350,11 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;40&quot;</span>)]
     </span><span class="kw">pub </span>target_appliance_id: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// This is a UnprotectedApplicationUsageLogReport published as part of GCBDR
+<span class="doccomment">/// This is a UnprotectedResourceLogReport published as part of GCBDR
 /// Reporting.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UnprotectedResource {
+</span><span class="kw">pub struct </span>UnprotectedResourceReportLog {
     <span class="doccomment">/// Required. Name of the host where the application/resource resides.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>host_name: ::prost::alloc::string::String,
@@ -368,8 +368,8 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>instance_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Date when the Appliance was Discovered first.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>discovered_on: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>discovered_on: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name of the appliance on which it was discovered.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>discovered_by: ::prost::alloc::string::String,

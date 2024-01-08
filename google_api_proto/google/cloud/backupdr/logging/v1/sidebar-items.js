@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["BackupRecoveryJobReportLog","Event","UnprotectedResource"]};
+window.SIDEBAR_ITEMS = {"struct":["BackupRecoveryJobReportLog","Event","UnprotectedResourceReportLog"]};

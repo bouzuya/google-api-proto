@@ -5959,6 +5959,43 @@
 <a href="#5959" id="5959">5959</a>
 <a href="#5960" id="5960">5960</a>
 <a href="#5961" id="5961">5961</a>
+<a href="#5962" id="5962">5962</a>
+<a href="#5963" id="5963">5963</a>
+<a href="#5964" id="5964">5964</a>
+<a href="#5965" id="5965">5965</a>
+<a href="#5966" id="5966">5966</a>
+<a href="#5967" id="5967">5967</a>
+<a href="#5968" id="5968">5968</a>
+<a href="#5969" id="5969">5969</a>
+<a href="#5970" id="5970">5970</a>
+<a href="#5971" id="5971">5971</a>
+<a href="#5972" id="5972">5972</a>
+<a href="#5973" id="5973">5973</a>
+<a href="#5974" id="5974">5974</a>
+<a href="#5975" id="5975">5975</a>
+<a href="#5976" id="5976">5976</a>
+<a href="#5977" id="5977">5977</a>
+<a href="#5978" id="5978">5978</a>
+<a href="#5979" id="5979">5979</a>
+<a href="#5980" id="5980">5980</a>
+<a href="#5981" id="5981">5981</a>
+<a href="#5982" id="5982">5982</a>
+<a href="#5983" id="5983">5983</a>
+<a href="#5984" id="5984">5984</a>
+<a href="#5985" id="5985">5985</a>
+<a href="#5986" id="5986">5986</a>
+<a href="#5987" id="5987">5987</a>
+<a href="#5988" id="5988">5988</a>
+<a href="#5989" id="5989">5989</a>
+<a href="#5990" id="5990">5990</a>
+<a href="#5991" id="5991">5991</a>
+<a href="#5992" id="5992">5992</a>
+<a href="#5993" id="5993">5993</a>
+<a href="#5994" id="5994">5994</a>
+<a href="#5995" id="5995">5995</a>
+<a href="#5996" id="5996">5996</a>
+<a href="#5997" id="5997">5997</a>
+<a href="#5998" id="5998">5998</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Type indicates the type of the log entry and can be used as a filter.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -6030,9 +6067,15 @@
     <span class="doccomment">/// Unique identifier of the `Release`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>release_uid: ::prost::alloc::string::String,
+    <span class="doccomment">/// The name of the `Release`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>release: ::prost::alloc::string::String,
     <span class="doccomment">/// Unique identifier of the `Rollout`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>rollout_uid: ::prost::alloc::string::String,
+    <span class="doccomment">/// The name of the `Rollout`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>rollout: ::prost::alloc::string::String,
     <span class="doccomment">/// ID of the `Target`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>target_id: ::prost::alloc::string::String,
@@ -6045,27 +6088,32 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RolloutUpdateEvent {
+    <span class="doccomment">/// Debug message for when a rollout update event occurs.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
     <span class="doccomment">/// Unique identifier of the pipeline.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>pipeline_uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Unique identifier of the release.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>release_uid: ::prost::alloc::string::String,
+    <span class="doccomment">/// The name of the `Release`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>release: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the rollout.
+    /// rollout_uid is not in this log message because we write some of these log
+    /// messages at rollout creation time, before we&#39;ve generated the uid.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>rollout: ::prost::alloc::string::String,
     <span class="doccomment">/// ID of the target.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>target_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The type of the rollout update.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;rollout_update_event::RolloutUpdateType&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>rollout_update_type: i32,
-    <span class="doccomment">/// Debug message for when a rollout update event occurs.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
     <span class="doccomment">/// Type of this notification, e.g. for a rollout update event.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Type&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// The type of the rollout update.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;rollout_update_event::RolloutUpdateType&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>rollout_update_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `RolloutUpdateEvent`.
 </span><span class="kw">pub mod </span>rollout_update_event {
@@ -6166,6 +6214,12 @@
     <span class="doccomment">/// Debug message for when a notification fails to send.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
+    <span class="doccomment">/// Unique identifier of the `DeliveryPipeline`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>pipeline_uid: ::prost::alloc::string::String,
+    <span class="doccomment">/// Unique identifier of the `Release`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>release_uid: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the `Release`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>release: ::prost::alloc::string::String,
@@ -6480,6 +6534,12 @@
         /// no wait time.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>route_update_wait_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
+        <span class="doccomment">/// Optional. The amount of time to migrate traffic back from the canary
+        /// Service to the original Service during the stable phase deployment. If
+        /// specified, must be between 15s and 3600s. If unspecified, there is no
+        /// cutback time.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>stable_cutback_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
     <span class="doccomment">/// Information about the Kubernetes Service networking configuration.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6522,15 +6582,15 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>automatic_traffic_control: bool,
     <span class="doccomment">/// Optional. A list of tags that are added to the canary revision while the
-    /// canary deployment is in progress.
+    /// canary phase is in progress.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>canary_revision_tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. A list of tags that are added to the prior revision while the
-    /// canary deployment is in progress.
+    /// canary phase is in progress.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>prior_revision_tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Optional. A list of tags that are added to the final stable revision after
-    /// the canary deployment is completed.
+    <span class="doccomment">/// Optional. A list of tags that are added to the final stable revision when
+    /// the stable phase is applied.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>stable_revision_tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
@@ -6686,9 +6746,9 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>delivery_pipeline: ::core::option::Option&lt;DeliveryPipeline&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes since the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -6712,17 +6772,17 @@
     <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
     /// `DeliveryPipeline` resource by the update.
     /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
+    /// the full request. A field will be overwritten if it&#39;s in the mask. If the
+    /// user doesn&#39;t provide a mask then all fields are overwritten.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The `DeliveryPipeline` to update.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>delivery_pipeline: ::core::option::Option&lt;DeliveryPipeline&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes since the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -6752,9 +6812,9 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes after the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -7212,9 +7272,9 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;Target&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes since the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -7238,17 +7298,17 @@
     <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
     /// Target resource by the update.
     /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
+    /// the full request. A field will be overwritten if it&#39;s in the mask. If the
+    /// user doesn&#39;t provide a mask then all fields are overwritten.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The `Target` to update.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;Target&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes since the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -7278,9 +7338,9 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes after the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -7309,8 +7369,8 @@
 <span class="doccomment">/// A `CustomTargetType` resource in the Cloud Deploy API.
 ///
 /// A `CustomTargetType` defines a type of custom target that can be referenced
-/// in a `Target` in order to facilitate deploying to a runtime that does not
-/// have a 1P integration with Cloud Deploy.
+/// in a `Target` in order to facilitate deploying to other systems besides the
+/// supported runtimes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CustomTargetType {
@@ -7509,7 +7569,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateCustomTargetTypeRequest {
     <span class="doccomment">/// Required. The parent collection in which the `CustomTargetType` should be
-    /// created in. Format should be
+    /// created. Format should be
     /// `projects/{project_id}/locations/{location_name}`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
@@ -7520,9 +7580,9 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>custom_target_type: ::core::option::Option&lt;CustomTargetType&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes since the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -7546,17 +7606,17 @@
     <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
     /// `CustomTargetType` resource by the update.
     /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
+    /// the full request. A field will be overwritten if it&#39;s in the mask. If the
+    /// user doesn&#39;t provide a mask then all fields are overwritten.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The `CustomTargetType` to update.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>custom_target_type: ::core::option::Option&lt;CustomTargetType&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes since the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -7586,9 +7646,9 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes after the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -7614,10 +7674,7 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Contains criteria for selecting Targets. Attributes provided must match the
-/// target resource in order for policy restrictions to apply. E.g. if id &quot;prod&quot;
-/// and labels &quot;foo: bar&quot; are given the target resource must match both that id
-/// and have that label in order to be selected.
+<span class="doccomment">/// Contains criteria for selecting Targets.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TargetAttribute {
@@ -8093,7 +8150,7 @@
     <span class="doccomment">/// Output only. Metadata associated with rendering for Cloud Run.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>cloud_run: ::core::option::Option&lt;CloudRunRenderMetadata&gt;,
-    <span class="doccomment">/// Output only. Custom metadata provided by user defined render operation.
+    <span class="doccomment">/// Output only. Custom metadata provided by user-defined render operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>custom: ::core::option::Option&lt;CustomMetadata&gt;,
 }
@@ -8167,9 +8224,9 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>release: ::core::option::Option&lt;Release&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes since the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -8508,7 +8565,7 @@
     /// interactions between Automation service and this rollout.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>automation: ::core::option::Option&lt;AutomationRolloutMetadata&gt;,
-    <span class="doccomment">/// Output only. Custom metadata provided by user defined `Rollout` operations.
+    <span class="doccomment">/// Output only. Custom metadata provided by user-defined `Rollout` operations.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>custom: ::core::option::Option&lt;CustomMetadata&gt;,
 }
@@ -8524,7 +8581,7 @@
     <span class="doccomment">/// Output only. Custom Target metadata associated with a `DeployJobRun`.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>custom_target: ::core::option::Option&lt;CustomTargetDeployMetadata&gt;,
-    <span class="doccomment">/// Output only. Custom metadata provided by user defined deploy operation.
+    <span class="doccomment">/// Output only. Custom metadata provided by user-defined deploy operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>custom: ::core::option::Option&lt;CustomMetadata&gt;,
 }
@@ -8580,11 +8637,11 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>repair_automation_runs: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// CustomMetadata contains information from a user defined operation.
+<span class="doccomment">/// CustomMetadata contains information from a user-defined operation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CustomMetadata {
-    <span class="doccomment">/// Output only. Key-value pairs provided by the user defined operation.
+    <span class="doccomment">/// Output only. Key-value pairs provided by the user-defined operation.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>values: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
@@ -8927,9 +8984,9 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>rollout: ::core::option::Option&lt;Rollout&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes since the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -9944,9 +10001,9 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>automation: ::core::option::Option&lt;Automation&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes since the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -9970,17 +10027,17 @@
     <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
     /// `Automation` resource by the update.
     /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
+    /// the full request. A field will be overwritten if it&#39;s in the mask. If the
+    /// user doesn&#39;t provide a mask then all fields are overwritten.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The `Automation` to update.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>automation: ::core::option::Option&lt;Automation&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes since the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -10010,9 +10067,9 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
-    /// so that if you must retry your request, the server will know to ignore
-    /// the request if it has already been completed. The server will guarantee
-    /// that for at least 60 minutes after the first request.
+    /// so that if you must retry your request, the server knows to ignore the
+    /// request if it has already been completed. The server guarantees that for
+    /// at least 60 minutes after the first request.
     ///
     /// For example, consider a situation where you make an initial request and the
     /// request times out. If you make the request again with the same request ID,
@@ -11815,15 +11872,21 @@
     <span class="doccomment">/// Unique identifier of the `Release`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>release_uid: ::prost::alloc::string::String,
+    <span class="doccomment">/// The name of the `Release`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>release: ::prost::alloc::string::String,
+    <span class="doccomment">/// Unique identifier of the `Rollout`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>rollout_uid: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the `Rollout`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>rollout: ::prost::alloc::string::String,
-    <span class="doccomment">/// Type of this notification, e.g. for a Pub/Sub failure.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Type&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// ID of the `Target` that the rollout is deployed to.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>target_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Type of this notification, e.g. for a Pub/Sub failure.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Type&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
 }
 <span class="doccomment">/// Payload proto for &quot;clouddeploy.googleapis.com/automation_run&quot;
 /// Platform Log event that describes the AutomationRun related events.
@@ -11862,6 +11925,9 @@
     <span class="doccomment">/// Debug message for when a notification fails to send.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
+    <span class="doccomment">/// Unique identifier of the `DeliveryPipeline`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>pipeline_uid: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the `Delivery Pipeline`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>delivery_pipeline: ::prost::alloc::string::String,
@@ -11913,9 +11979,17 @@
     /// details as rendering progresses through render states.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
+    <span class="doccomment">/// Unique identifier of the `DeliveryPipeline`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>pipeline_uid: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the release.
+    /// release_uid is not in this log message because we write some of these log
+    /// messages at release creation time, before we&#39;ve generated the uid.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>release: ::prost::alloc::string::String,
+    <span class="doccomment">/// Type of this notification, e.g. for a release render state change event.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Type&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// The state of the release render.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;release::RenderState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>release_render_state: i32,
