@@ -545,6 +545,11 @@
 <a href="#545" id="545">545</a>
 <a href="#546" id="546">546</a>
 <a href="#547" id="547">547</a>
+<a href="#548" id="548">548</a>
+<a href="#549" id="549">549</a>
+<a href="#550" id="550">550</a>
+<a href="#551" id="551">551</a>
+<a href="#552" id="552">552</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The user profile information used for logging in to a virtual machine on
 /// Google Compute Engine.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -640,6 +645,11 @@
     <span class="doccomment">/// The view configures whether to retrieve security keys information.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LoginProfileView&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>view: i32,
+    <span class="doccomment">/// Optional. The regions to which to assert that the key was written.
+    /// If unspecified, defaults to all regions.
+    /// Regions are listed at &lt;https://cloud.google.com/about/locations#region.&gt;
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>regions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A response message for importing an SSH public key.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

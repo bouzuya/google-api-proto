@@ -7527,6 +7527,12 @@
 <a href="#7527" id="7527">7527</a>
 <a href="#7528" id="7528">7528</a>
 <a href="#7529" id="7529">7529</a>
+<a href="#7530" id="7530">7530</a>
+<a href="#7531" id="7531">7531</a>
+<a href="#7532" id="7532">7532</a>
+<a href="#7533" id="7533">7533</a>
+<a href="#7534" id="7534">7534</a>
+<a href="#7535" id="7535">7535</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>sql_iam_policies_service_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -9118,6 +9124,8 @@
         <span class="doccomment">/// This warning message indicates that Cloud SQL uses the maximum number of
         /// subscriptions to migrate data from the source to the destination.
         </span>SourceMaxSubscriptions = <span class="number">38</span>,
+        <span class="doccomment">/// Unable to verify definers on the source for MySQL.
+        </span>UnableToVerifyDefiners = <span class="number">39</span>,
     }
     <span class="kw">impl </span>SqlExternalSyncSettingErrorType {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -9233,6 +9241,9 @@
                 SqlExternalSyncSettingErrorType::SourceMaxSubscriptions =&gt; {
                     <span class="string">&quot;SOURCE_MAX_SUBSCRIPTIONS&quot;
                 </span>}
+                SqlExternalSyncSettingErrorType::UnableToVerifyDefiners =&gt; {
+                    <span class="string">&quot;UNABLE_TO_VERIFY_DEFINERS&quot;
+                </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -9297,6 +9308,7 @@
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncompatibleDatabaseMinorVersion)
                 }
                 <span class="string">&quot;SOURCE_MAX_SUBSCRIPTIONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SourceMaxSubscriptions),
+                <span class="string">&quot;UNABLE_TO_VERIFY_DEFINERS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnableToVerifyDefiners),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
