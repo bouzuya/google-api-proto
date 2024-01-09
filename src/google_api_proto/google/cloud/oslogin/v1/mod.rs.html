@@ -404,6 +404,11 @@
 <a href="#404" id="404">404</a>
 <a href="#405" id="405">405</a>
 <a href="#406" id="406">406</a>
+<a href="#407" id="407">407</a>
+<a href="#408" id="408">408</a>
+<a href="#409" id="409">409</a>
+<a href="#410" id="410">410</a>
+<a href="#411" id="411">411</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The user profile information used for logging in to a virtual machine on
 /// Google Compute Engine.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -490,6 +495,11 @@
     <span class="doccomment">/// The project ID of the Google Cloud Platform project.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The regions to which to assert that the key was written.
+    /// If unspecified, defaults to all regions.
+    /// Regions are listed at &lt;https://cloud.google.com/about/locations#region.&gt;
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>regions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A response message for importing an SSH public key.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
