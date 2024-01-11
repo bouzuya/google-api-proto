@@ -6062,6 +6062,8 @@ pub mod sql_external_sync_setting_error {
         /// This warning message indicates that Cloud SQL uses the maximum number of
         /// subscriptions to migrate data from the source to the destination.
         SourceMaxSubscriptions = 38,
+        /// Unable to verify definers on the source for MySQL.
+        UnableToVerifyDefiners = 39,
     }
     impl SqlExternalSyncSettingErrorType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -6177,6 +6179,9 @@ pub mod sql_external_sync_setting_error {
                 SqlExternalSyncSettingErrorType::SourceMaxSubscriptions => {
                     "SOURCE_MAX_SUBSCRIPTIONS"
                 }
+                SqlExternalSyncSettingErrorType::UnableToVerifyDefiners => {
+                    "UNABLE_TO_VERIFY_DEFINERS"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -6241,6 +6246,7 @@ pub mod sql_external_sync_setting_error {
                     Some(Self::IncompatibleDatabaseMinorVersion)
                 }
                 "SOURCE_MAX_SUBSCRIPTIONS" => Some(Self::SourceMaxSubscriptions),
+                "UNABLE_TO_VERIFY_DEFINERS" => Some(Self::UnableToVerifyDefiners),
                 _ => None,
             }
         }
