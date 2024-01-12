@@ -4334,8 +4334,9 @@ pub struct ExportDataRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ExportDataResponse {
     /// All of the files that are exported in this export operation. For custom
-    /// code training export, only three (training, validation and test) GCS paths
-    /// in wildcard format are populated (e.g., gs://.../training-*).
+    /// code training export, only three (training, validation and test)
+    /// Cloud Storage paths in wildcard format are populated
+    /// (for example, gs://.../training-*).
     #[prost(string, repeated, tag = "1")]
     pub exported_files: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// Only present for custom code training export use case. Records data stats,
@@ -10485,6 +10486,21 @@ pub struct CustomJobSpec {
     /// `projects/{project}/locations/{location}/metadataStores/{metadataStores}/contexts/{experiment-name}-{experiment-run-name}`
     #[prost(string, tag = "18")]
     pub experiment_run: ::prost::alloc::string::String,
+    /// Optional. The name of the Model resources for which to generate a mapping
+    /// to artifact URIs. Applicable only to some of the Google-provided custom
+    /// jobs. Format: `projects/{project}/locations/{location}/models/{model}`
+    ///
+    /// In order to retrieve a specific version of the model, also provide
+    /// the version ID or version alias.
+    ///    Example: `projects/{project}/locations/{location}/models/{model}@2`
+    ///               or
+    ///             `projects/{project}/locations/{location}/models/{model}@golden`
+    /// If no version ID or alias is specified, the "default" version will be
+    /// returned. The "default" version alias is created for the first version of
+    /// the model, and can be moved to other versions later on. There will be
+    /// exactly one default version.
+    #[prost(string, repeated, tag = "20")]
+    pub models: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Represents the spec of a worker pool in a job.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -10585,6 +10601,10 @@ pub struct Scheduling {
     /// `Scheduling.restart_job_on_worker_restart` to false.
     #[prost(bool, tag = "5")]
     pub disable_retries: bool,
+    /// Optional. This is the maximum time a user will wait in the QRM queue for
+    /// resources. Default is 1 day
+    #[prost(message, optional, tag = "6")]
+    pub max_wait_duration: ::core::option::Option<::prost_types::Duration>,
 }
 /// A message representing a Study.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -11872,7 +11892,7 @@ pub struct ModelEvaluation {
     /// The metadata of the ModelEvaluation.
     /// For the ModelEvaluation uploaded from Managed Pipeline, metadata contains a
     /// structured value with keys of "pipeline_job_id", "evaluation_dataset_type",
-    /// "evaluation_dataset_path".
+    /// "evaluation_dataset_path", "row_based_metrics_path".
     #[prost(message, optional, tag = "11")]
     pub metadata: ::core::option::Option<::prost_types::Value>,
 }
@@ -15419,7 +15439,7 @@ pub struct Feature {
         feature::MonitoringStatsAnomaly,
     >,
     /// Only applicable for Vertex AI Feature Store.
-    /// The name of the BigQuery Table/View columnn hosting data for this version.
+    /// The name of the BigQuery Table/View column hosting data for this version.
     /// If no value is provided, will use feature_id.
     #[prost(string, tag = "106")]
     pub version_column_name: ::prost::alloc::string::String,
@@ -30196,7 +30216,7 @@ pub mod model_garden_service_client {
 pub struct CreateFeatureOnlineStoreRequest {
     /// Required. The resource name of the Location to create FeatureOnlineStores.
     /// Format:
-    /// `projects/{project}/locations/{location}'`
+    /// `projects/{project}/locations/{location}`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Required. The FeatureOnlineStore to create.

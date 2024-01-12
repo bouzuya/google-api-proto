@@ -331,6 +331,7 @@ pub mod cloud;
         feature = "google-cloud-servicedirectory-v1",
         feature = "google-cloud-servicedirectory-v1beta1",
         feature = "google-cloud-servicehealth-logging-v1",
+        feature = "google-cloud-servicehealth-v1",
         feature = "google-cloud-shell-v1",
         feature = "google-cloud-speech-v1",
         feature = "google-cloud-speech-v1p1beta1",

@@ -572,7 +572,12 @@ pub mod sensitiveaction;
     )
 )]
 pub mod servicedirectory;
-#[cfg(any(feature = "google-cloud-servicehealth-logging-v1"))]
+#[cfg(
+    any(
+        feature = "google-cloud-servicehealth-logging-v1",
+        feature = "google-cloud-servicehealth-v1",
+    )
+)]
 pub mod servicehealth;
 #[cfg(any(feature = "google-cloud-shell-v1"))]
 pub mod shell;
