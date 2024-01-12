@@ -754,6 +754,11 @@
 <a href="#754" id="754">754</a>
 <a href="#755" id="755">755</a>
 <a href="#756" id="756">756</a>
+<a href="#757" id="757">757</a>
+<a href="#758" id="758">758</a>
+<a href="#759" id="759">759</a>
+<a href="#760" id="760">760</a>
+<a href="#761" id="761">761</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-accessapproval-v1&quot;</span>))]
 </span><span class="kw">pub mod </span>accessapproval;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-advisorynotifications-v1&quot;</span>))]
@@ -1328,7 +1333,12 @@
     )
 )]
 </span><span class="kw">pub mod </span>servicedirectory;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-servicehealth-logging-v1&quot;</span>))]
+<span class="attr">#[cfg(
+    any(
+        feature = <span class="string">&quot;google-cloud-servicehealth-logging-v1&quot;</span>,
+        feature = <span class="string">&quot;google-cloud-servicehealth-v1&quot;</span>,
+    )
+)]
 </span><span class="kw">pub mod </span>servicehealth;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-shell-v1&quot;</span>))]
 </span><span class="kw">pub mod </span>shell;

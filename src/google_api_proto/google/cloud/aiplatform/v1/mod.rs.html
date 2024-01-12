@@ -31081,6 +31081,26 @@
 <a href="#31081" id="31081">31081</a>
 <a href="#31082" id="31082">31082</a>
 <a href="#31083" id="31083">31083</a>
+<a href="#31084" id="31084">31084</a>
+<a href="#31085" id="31085">31085</a>
+<a href="#31086" id="31086">31086</a>
+<a href="#31087" id="31087">31087</a>
+<a href="#31088" id="31088">31088</a>
+<a href="#31089" id="31089">31089</a>
+<a href="#31090" id="31090">31090</a>
+<a href="#31091" id="31091">31091</a>
+<a href="#31092" id="31092">31092</a>
+<a href="#31093" id="31093">31093</a>
+<a href="#31094" id="31094">31094</a>
+<a href="#31095" id="31095">31095</a>
+<a href="#31096" id="31096">31096</a>
+<a href="#31097" id="31097">31097</a>
+<a href="#31098" id="31098">31098</a>
+<a href="#31099" id="31099">31099</a>
+<a href="#31100" id="31100">31100</a>
+<a href="#31101" id="31101">31101</a>
+<a href="#31102" id="31102">31102</a>
+<a href="#31103" id="31103">31103</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(
     any(
         feature = <span class="string">&quot;google-cloud-aiplatform-v1-schema-predict-instance&quot;</span>,
@@ -35417,8 +35437,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExportDataResponse {
     <span class="doccomment">/// All of the files that are exported in this export operation. For custom
-    /// code training export, only three (training, validation and test) GCS paths
-    /// in wildcard format are populated (e.g., gs://.../training-*).
+    /// code training export, only three (training, validation and test)
+    /// Cloud Storage paths in wildcard format are populated
+    /// (for example, gs://.../training-*).
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>exported_files: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Only present for custom code training export use case. Records data stats,
@@ -41568,6 +41589,21 @@
     /// `projects/{project}/locations/{location}/metadataStores/{metadataStores}/contexts/{experiment-name}-{experiment-run-name}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
     </span><span class="kw">pub </span>experiment_run: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The name of the Model resources for which to generate a mapping
+    /// to artifact URIs. Applicable only to some of the Google-provided custom
+    /// jobs. Format: `projects/{project}/locations/{location}/models/{model}`
+    ///
+    /// In order to retrieve a specific version of the model, also provide
+    /// the version ID or version alias.
+    ///    Example: `projects/{project}/locations/{location}/models/{model}@2`
+    ///               or
+    ///             `projects/{project}/locations/{location}/models/{model}@golden`
+    /// If no version ID or alias is specified, the &quot;default&quot; version will be
+    /// returned. The &quot;default&quot; version alias is created for the first version of
+    /// the model, and can be moved to other versions later on. There will be
+    /// exactly one default version.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>models: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Represents the spec of a worker pool in a job.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -41668,6 +41704,10 @@
     /// `Scheduling.restart_job_on_worker_restart` to false.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>disable_retries: bool,
+    <span class="doccomment">/// Optional. This is the maximum time a user will wait in the QRM queue for
+    /// resources. Default is 1 day
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>max_wait_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// A message representing a Study.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -42955,7 +42995,7 @@
     <span class="doccomment">/// The metadata of the ModelEvaluation.
     /// For the ModelEvaluation uploaded from Managed Pipeline, metadata contains a
     /// structured value with keys of &quot;pipeline_job_id&quot;, &quot;evaluation_dataset_type&quot;,
-    /// &quot;evaluation_dataset_path&quot;.
+    /// &quot;evaluation_dataset_path&quot;, &quot;row_based_metrics_path&quot;.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;::prost_types::Value&gt;,
 }
@@ -46502,7 +46542,7 @@
         feature::MonitoringStatsAnomaly,
     &gt;,
     <span class="doccomment">/// Only applicable for Vertex AI Feature Store.
-    /// The name of the BigQuery Table/View columnn hosting data for this version.
+    /// The name of the BigQuery Table/View column hosting data for this version.
     /// If no value is provided, will use feature_id.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;106&quot;</span>)]
     </span><span class="kw">pub </span>version_column_name: ::prost::alloc::string::String,
@@ -61279,7 +61319,7 @@
 </span><span class="kw">pub struct </span>CreateFeatureOnlineStoreRequest {
     <span class="doccomment">/// Required. The resource name of the Location to create FeatureOnlineStores.
     /// Format:
-    /// `projects/{project}/locations/{location}&#39;`
+    /// `projects/{project}/locations/{location}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The FeatureOnlineStore to create.
