@@ -2031,7 +2031,6 @@
 <a href="#2031" id="2031">2031</a>
 <a href="#2032" id="2032">2032</a>
 <a href="#2033" id="2033">2033</a>
-<a href="#2034" id="2034">2034</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An EffectiveSecurityHealthAnalyticsCustomModule is the representation of
 /// a Security Health Analytics custom module at a specified level of the
 /// resource hierarchy: organization, folder, or project. If a custom module is
@@ -2496,11 +2495,10 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateSecurityHealthAnalyticsCustomModuleRequest {
-    <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
-    /// SecurityHealthAnalyticsCustomModule resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
+    <span class="doccomment">/// Required. The list of fields to be updated. The only fields that can be
+    /// updated are `enablement_state` and `custom_config`. If empty or set to the
+    /// wildcard value `*`, both `enablement_state` and `custom_config` are
+    /// updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The resource being updated
