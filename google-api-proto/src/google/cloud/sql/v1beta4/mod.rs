@@ -1820,6 +1820,21 @@ pub struct IpConfiguration {
     /// such as BigQuery.
     #[prost(message, optional, tag = "7")]
     pub enable_private_path_for_google_cloud_services: ::core::option::Option<bool>,
+    /// Specify how SSL/TLS is enforced in database connections. MySQL and
+    /// PostgreSQL use the `ssl_mode` flag. If you must use the 'require_ssl' flag
+    /// for backward compatibility, then only the following value pairs are valid:
+    ///
+    /// * `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and `require_ssl=false`
+    /// * `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false`
+    /// * `ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED` and `require_ssl=true`
+    ///
+    /// The value of `ssl_mode` gets priority over the value of `require_ssl`. For
+    /// example, for the pair `ssl_mode=ENCRYPTED_ONLY, require_ssl=false`, the
+    /// ssl_mode=ENCRYPTED_ONLY` means "only accept SSL connections", while the
+    /// `require_ssl=false` means "accept both non-SSL and SSL connections". MySQL
+    /// and PostgreSQL databases respect `ssl_mode` in this case and accept only
+    /// SSL connections.
+    ///
     /// SQL Server uses the `require_ssl` flag. You can set the value for this flag
     /// to 'true' or 'false'.
     #[prost(enumeration = "ip_configuration::SslMode", tag = "8")]
@@ -7064,11 +7079,11 @@ pub mod user {
         CloudIamUser = 1,
         /// Cloud IAM service account.
         CloudIamServiceAccount = 2,
-        /// Cloud IAM Group non-login user.
+        /// Cloud IAM group non-login user.
         CloudIamGroup = 3,
-        /// Cloud IAM Group login user.
+        /// Cloud IAM group login user.
         CloudIamGroupUser = 4,
-        /// Cloud IAM Group service account.
+        /// Cloud IAM group service account.
         CloudIamGroupServiceAccount = 5,
     }
     impl SqlUserType {
