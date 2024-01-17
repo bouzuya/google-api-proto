@@ -267,6 +267,13 @@ pub struct Type {
     /// affect serialization) and clients can ignore it on the read path.
     #[prost(enumeration = "TypeAnnotationCode", tag = "4")]
     pub type_annotation: i32,
+    /// If [code][google.spanner.v1.Type.code] ==
+    /// [PROTO][google.spanner.v1.TypeCode.PROTO] or
+    /// [code][google.spanner.v1.Type.code] ==
+    /// [ENUM][google.spanner.v1.TypeCode.ENUM], then `proto_type_fqn` is the fully
+    /// qualified name of the proto type representing the proto/enum definition.
+    #[prost(string, tag = "5")]
+    pub proto_type_fqn: ::prost::alloc::string::String,
 }
 /// `StructType` defines the fields of a [STRUCT][google.spanner.v1.TypeCode.STRUCT] type.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -362,6 +369,11 @@ pub enum TypeCode {
     ///    preserved.
     /// - JSON array elements will have their order preserved.
     Json = 11,
+    /// Encoded as a base64-encoded `string`, as described in RFC 4648,
+    /// section 4.
+    Proto = 13,
+    /// Encoded as `string`, in decimal format.
+    Enum = 14,
 }
 impl TypeCode {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -382,6 +394,8 @@ impl TypeCode {
             TypeCode::Struct => "STRUCT",
             TypeCode::Numeric => "NUMERIC",
             TypeCode::Json => "JSON",
+            TypeCode::Proto => "PROTO",
+            TypeCode::Enum => "ENUM",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -399,6 +413,8 @@ impl TypeCode {
             "STRUCT" => Some(Self::Struct),
             "NUMERIC" => Some(Self::Numeric),
             "JSON" => Some(Self::Json),
+            "PROTO" => Some(Self::Proto),
+            "ENUM" => Some(Self::Enum),
             _ => None,
         }
     }
