@@ -3295,7 +3295,7 @@
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_verification_info::Result&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>latest_verification_result: i32,
     <span class="doccomment">/// Username of the account that is being verified. Deprecated. Customers
-    /// should now provide the hashed account ID field in Event.
+    /// should now provide the `account_id` field in `event.user_info`.
     </span><span class="attr">#[deprecated]
     #[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>username: ::prost::alloc::string::String,

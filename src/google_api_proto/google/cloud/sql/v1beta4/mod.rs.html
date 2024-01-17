@@ -7533,6 +7533,21 @@
 <a href="#7533" id="7533">7533</a>
 <a href="#7534" id="7534">7534</a>
 <a href="#7535" id="7535">7535</a>
+<a href="#7536" id="7536">7536</a>
+<a href="#7537" id="7537">7537</a>
+<a href="#7538" id="7538">7538</a>
+<a href="#7539" id="7539">7539</a>
+<a href="#7540" id="7540">7540</a>
+<a href="#7541" id="7541">7541</a>
+<a href="#7542" id="7542">7542</a>
+<a href="#7543" id="7543">7543</a>
+<a href="#7544" id="7544">7544</a>
+<a href="#7545" id="7545">7545</a>
+<a href="#7546" id="7546">7546</a>
+<a href="#7547" id="7547">7547</a>
+<a href="#7548" id="7548">7548</a>
+<a href="#7549" id="7549">7549</a>
+<a href="#7550" id="7550">7550</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>sql_iam_policies_service_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -9355,7 +9370,22 @@
     /// such as BigQuery.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>enable_private_path_for_google_cloud_services: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// SQL Server uses the `require_ssl` flag. You can set the value for this flag
+    <span class="doccomment">/// Specify how SSL/TLS is enforced in database connections. MySQL and
+    /// PostgreSQL use the `ssl_mode` flag. If you must use the &#39;require_ssl&#39; flag
+    /// for backward compatibility, then only the following value pairs are valid:
+    ///
+    /// * `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and `require_ssl=false`
+    /// * `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false`
+    /// * `ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED` and `require_ssl=true`
+    ///
+    /// The value of `ssl_mode` gets priority over the value of `require_ssl`. For
+    /// example, for the pair `ssl_mode=ENCRYPTED_ONLY, require_ssl=false`, the
+    /// ssl_mode=ENCRYPTED_ONLY` means &quot;only accept SSL connections&quot;, while the
+    /// `require_ssl=false` means &quot;accept both non-SSL and SSL connections&quot;. MySQL
+    /// and PostgreSQL databases respect `ssl_mode` in this case and accept only
+    /// SSL connections.
+    ///
+    /// SQL Server uses the `require_ssl` flag. You can set the value for this flag
     /// to &#39;true&#39; or &#39;false&#39;.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ip_configuration::SslMode&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>ssl_mode: i32,
@@ -14599,11 +14629,11 @@
         </span>CloudIamUser = <span class="number">1</span>,
         <span class="doccomment">/// Cloud IAM service account.
         </span>CloudIamServiceAccount = <span class="number">2</span>,
-        <span class="doccomment">/// Cloud IAM Group non-login user.
+        <span class="doccomment">/// Cloud IAM group non-login user.
         </span>CloudIamGroup = <span class="number">3</span>,
-        <span class="doccomment">/// Cloud IAM Group login user.
+        <span class="doccomment">/// Cloud IAM group login user.
         </span>CloudIamGroupUser = <span class="number">4</span>,
-        <span class="doccomment">/// Cloud IAM Group service account.
+        <span class="doccomment">/// Cloud IAM group service account.
         </span>CloudIamGroupServiceAccount = <span class="number">5</span>,
     }
     <span class="kw">impl </span>SqlUserType {
