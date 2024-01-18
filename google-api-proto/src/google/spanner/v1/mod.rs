@@ -2368,6 +2368,13 @@ pub struct CommitRequest {
     /// Default value is `false`.
     #[prost(bool, tag = "5")]
     pub return_commit_stats: bool,
+    /// Optional. The amount of latency this request is willing to incur in order
+    /// to improve throughput. If this field is not set, Spanner assumes requests
+    /// are relatively latency sensitive and automatically determines an
+    /// appropriate delay time. You can specify a batching delay value between 0
+    /// and 500 ms.
+    #[prost(message, optional, tag = "8")]
+    pub max_commit_delay: ::core::option::Option<::prost_types::Duration>,
     /// Common options for this request.
     #[prost(message, optional, tag = "6")]
     pub request_options: ::core::option::Option<RequestOptions>,

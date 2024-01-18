@@ -87,7 +87,7 @@ pub struct Tool {
     /// [FunctionCall][content.part.function_call] in the response. The next
     /// conversation turn may contain a
     /// [FunctionResponse][content.part.function_response]
-    /// with the \[conent.role\] "function" generation context for the next model
+    /// with the \[content.role\] "function" generation context for the next model
     /// turn.
     #[prost(message, repeated, tag = "1")]
     pub function_declarations: ::prost::alloc::vec::Vec<FunctionDeclaration>,
