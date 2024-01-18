@@ -563,6 +563,8 @@ pub mod security;
 pub mod securitycenter;
 #[cfg(any(feature = "google-cloud-securitycentermanagement-v1"))]
 pub mod securitycentermanagement;
+#[cfg(any(feature = "google-cloud-securityposture-v1"))]
+pub mod securityposture;
 #[cfg(any(feature = "google-cloud-sensitiveaction-logging-v1"))]
 pub mod sensitiveaction;
 #[cfg(
