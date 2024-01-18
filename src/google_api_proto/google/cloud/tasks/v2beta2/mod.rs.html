@@ -2988,79 +2988,6 @@
 <a href="#2988" id="2988">2988</a>
 <a href="#2989" id="2989">2989</a>
 <a href="#2990" id="2990">2990</a>
-<a href="#2991" id="2991">2991</a>
-<a href="#2992" id="2992">2992</a>
-<a href="#2993" id="2993">2993</a>
-<a href="#2994" id="2994">2994</a>
-<a href="#2995" id="2995">2995</a>
-<a href="#2996" id="2996">2996</a>
-<a href="#2997" id="2997">2997</a>
-<a href="#2998" id="2998">2998</a>
-<a href="#2999" id="2999">2999</a>
-<a href="#3000" id="3000">3000</a>
-<a href="#3001" id="3001">3001</a>
-<a href="#3002" id="3002">3002</a>
-<a href="#3003" id="3003">3003</a>
-<a href="#3004" id="3004">3004</a>
-<a href="#3005" id="3005">3005</a>
-<a href="#3006" id="3006">3006</a>
-<a href="#3007" id="3007">3007</a>
-<a href="#3008" id="3008">3008</a>
-<a href="#3009" id="3009">3009</a>
-<a href="#3010" id="3010">3010</a>
-<a href="#3011" id="3011">3011</a>
-<a href="#3012" id="3012">3012</a>
-<a href="#3013" id="3013">3013</a>
-<a href="#3014" id="3014">3014</a>
-<a href="#3015" id="3015">3015</a>
-<a href="#3016" id="3016">3016</a>
-<a href="#3017" id="3017">3017</a>
-<a href="#3018" id="3018">3018</a>
-<a href="#3019" id="3019">3019</a>
-<a href="#3020" id="3020">3020</a>
-<a href="#3021" id="3021">3021</a>
-<a href="#3022" id="3022">3022</a>
-<a href="#3023" id="3023">3023</a>
-<a href="#3024" id="3024">3024</a>
-<a href="#3025" id="3025">3025</a>
-<a href="#3026" id="3026">3026</a>
-<a href="#3027" id="3027">3027</a>
-<a href="#3028" id="3028">3028</a>
-<a href="#3029" id="3029">3029</a>
-<a href="#3030" id="3030">3030</a>
-<a href="#3031" id="3031">3031</a>
-<a href="#3032" id="3032">3032</a>
-<a href="#3033" id="3033">3033</a>
-<a href="#3034" id="3034">3034</a>
-<a href="#3035" id="3035">3035</a>
-<a href="#3036" id="3036">3036</a>
-<a href="#3037" id="3037">3037</a>
-<a href="#3038" id="3038">3038</a>
-<a href="#3039" id="3039">3039</a>
-<a href="#3040" id="3040">3040</a>
-<a href="#3041" id="3041">3041</a>
-<a href="#3042" id="3042">3042</a>
-<a href="#3043" id="3043">3043</a>
-<a href="#3044" id="3044">3044</a>
-<a href="#3045" id="3045">3045</a>
-<a href="#3046" id="3046">3046</a>
-<a href="#3047" id="3047">3047</a>
-<a href="#3048" id="3048">3048</a>
-<a href="#3049" id="3049">3049</a>
-<a href="#3050" id="3050">3050</a>
-<a href="#3051" id="3051">3051</a>
-<a href="#3052" id="3052">3052</a>
-<a href="#3053" id="3053">3053</a>
-<a href="#3054" id="3054">3054</a>
-<a href="#3055" id="3055">3055</a>
-<a href="#3056" id="3056">3056</a>
-<a href="#3057" id="3057">3057</a>
-<a href="#3058" id="3058">3058</a>
-<a href="#3059" id="3059">3059</a>
-<a href="#3060" id="3060">3060</a>
-<a href="#3061" id="3061">3061</a>
-<a href="#3062" id="3062">3062</a>
-<a href="#3063" id="3063">3063</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Pull target.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5183,38 +5110,6 @@
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::View&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>response_view: i32,
 }
-<span class="doccomment">/// LINT.IfChange
-/// Request message for
-/// [BufferTask][google.cloud.tasks.v2beta2.CloudTasks.BufferTask].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BufferTaskRequest {
-    <span class="doccomment">/// Required. The parent queue name. For example:
-    /// projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
-    ///
-    /// The queue must already exist.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>queue: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Task ID for the task being created. If not provided, a random
-    /// task ID is assigned to the task.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>task_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Body of the HTTP request.
-    ///
-    /// The body can take any generic value. The value is written to the
-    /// [HttpRequest][payload] of the \[Task\].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>body: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::api::HttpBody&gt;,
-}
-<span class="doccomment">/// Response message for
-/// [BufferTask][google.cloud.tasks.v2beta2.CloudTasks.BufferTask].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BufferTaskResponse {
-    <span class="doccomment">/// The created task.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>task: ::core::option::Option&lt;Task&gt;,
-}
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>cloud_tasks_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -6078,47 +5973,6 @@
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(<span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>, <span class="string">&quot;RunTask&quot;</span>),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Creates and buffers a new task without the need to explicitly define a Task
-        /// message. The queue must have [HTTP
-        /// target][google.cloud.tasks.v2beta2.HttpTarget]. To create the task with a
-        /// custom ID, use the following format and set TASK_ID to your desired ID:
-        /// projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID:buffer
-        /// To create the task with an automatically generated ID, use the following
-        /// format:
-        /// projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks:buffer.
-        /// Note: This feature is in its experimental stage. You must request access to
-        /// the API through the [Cloud Tasks BufferTask Experiment Signup
-        /// form](https://forms.gle/X8Zr5hiXH5tTGFqh8).
-        </span><span class="kw">pub async fn </span>buffer_task(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::BufferTaskRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::BufferTaskResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/BufferTask&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;BufferTask&quot;</span>,
-                    ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}

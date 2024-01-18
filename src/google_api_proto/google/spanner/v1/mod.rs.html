@@ -3061,6 +3061,13 @@
 <a href="#3061" id="3061">3061</a>
 <a href="#3062" id="3062">3062</a>
 <a href="#3063" id="3063">3063</a>
+<a href="#3064" id="3064">3064</a>
+<a href="#3065" id="3065">3065</a>
+<a href="#3066" id="3066">3066</a>
+<a href="#3067" id="3067">3067</a>
+<a href="#3068" id="3068">3068</a>
+<a href="#3069" id="3069">3069</a>
+<a href="#3070" id="3070">3070</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// KeyRange represents a range of rows in a table or index.
 ///
 /// A range has a start key and an end key. These keys can be open or
@@ -5431,6 +5438,13 @@
     /// Default value is `false`.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>return_commit_stats: bool,
+    <span class="doccomment">/// Optional. The amount of latency this request is willing to incur in order
+    /// to improve throughput. If this field is not set, Spanner assumes requests
+    /// are relatively latency sensitive and automatically determines an
+    /// appropriate delay time. You can specify a batching delay value between 0
+    /// and 500 ms.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>max_commit_delay: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Common options for this request.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>request_options: ::core::option::Option&lt;RequestOptions&gt;,
