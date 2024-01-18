@@ -209,6 +209,87 @@
 <a href="#209" id="209">209</a>
 <a href="#210" id="210">210</a>
 <a href="#211" id="211">211</a>
+<a href="#212" id="212">212</a>
+<a href="#213" id="213">213</a>
+<a href="#214" id="214">214</a>
+<a href="#215" id="215">215</a>
+<a href="#216" id="216">216</a>
+<a href="#217" id="217">217</a>
+<a href="#218" id="218">218</a>
+<a href="#219" id="219">219</a>
+<a href="#220" id="220">220</a>
+<a href="#221" id="221">221</a>
+<a href="#222" id="222">222</a>
+<a href="#223" id="223">223</a>
+<a href="#224" id="224">224</a>
+<a href="#225" id="225">225</a>
+<a href="#226" id="226">226</a>
+<a href="#227" id="227">227</a>
+<a href="#228" id="228">228</a>
+<a href="#229" id="229">229</a>
+<a href="#230" id="230">230</a>
+<a href="#231" id="231">231</a>
+<a href="#232" id="232">232</a>
+<a href="#233" id="233">233</a>
+<a href="#234" id="234">234</a>
+<a href="#235" id="235">235</a>
+<a href="#236" id="236">236</a>
+<a href="#237" id="237">237</a>
+<a href="#238" id="238">238</a>
+<a href="#239" id="239">239</a>
+<a href="#240" id="240">240</a>
+<a href="#241" id="241">241</a>
+<a href="#242" id="242">242</a>
+<a href="#243" id="243">243</a>
+<a href="#244" id="244">244</a>
+<a href="#245" id="245">245</a>
+<a href="#246" id="246">246</a>
+<a href="#247" id="247">247</a>
+<a href="#248" id="248">248</a>
+<a href="#249" id="249">249</a>
+<a href="#250" id="250">250</a>
+<a href="#251" id="251">251</a>
+<a href="#252" id="252">252</a>
+<a href="#253" id="253">253</a>
+<a href="#254" id="254">254</a>
+<a href="#255" id="255">255</a>
+<a href="#256" id="256">256</a>
+<a href="#257" id="257">257</a>
+<a href="#258" id="258">258</a>
+<a href="#259" id="259">259</a>
+<a href="#260" id="260">260</a>
+<a href="#261" id="261">261</a>
+<a href="#262" id="262">262</a>
+<a href="#263" id="263">263</a>
+<a href="#264" id="264">264</a>
+<a href="#265" id="265">265</a>
+<a href="#266" id="266">266</a>
+<a href="#267" id="267">267</a>
+<a href="#268" id="268">268</a>
+<a href="#269" id="269">269</a>
+<a href="#270" id="270">270</a>
+<a href="#271" id="271">271</a>
+<a href="#272" id="272">272</a>
+<a href="#273" id="273">273</a>
+<a href="#274" id="274">274</a>
+<a href="#275" id="275">275</a>
+<a href="#276" id="276">276</a>
+<a href="#277" id="277">277</a>
+<a href="#278" id="278">278</a>
+<a href="#279" id="279">279</a>
+<a href="#280" id="280">280</a>
+<a href="#281" id="281">281</a>
+<a href="#282" id="282">282</a>
+<a href="#283" id="283">283</a>
+<a href="#284" id="284">284</a>
+<a href="#285" id="285">285</a>
+<a href="#286" id="286">286</a>
+<a href="#287" id="287">287</a>
+<a href="#288" id="288">288</a>
+<a href="#289" id="289">289</a>
+<a href="#290" id="290">290</a>
+<a href="#291" id="291">291</a>
+<a href="#292" id="292">292</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// This is a BackupRecoveryJobReportLog published as part of GCBDR Reporting.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -382,6 +463,87 @@
     <span class="doccomment">/// Required. Id of the Host where the application/resource resides.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>host_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// This is a DailyScheduleComplianceReportLog published as part of GCBDR
+/// Reporting.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DailyScheduleComplianceReportLog {
+    <span class="doccomment">/// Required. Resource/App Name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Resource/App Type.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Policy Name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>backup_rule_policy_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Policy Template Name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>backup_plan_policy_template: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Name of the host where the app/resource resides.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>host_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Appliance Name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>appliance_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Date for which compliance is being reported.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>date: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Backup Window Start time.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>backup_window_start_time: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. JobType of the policy.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>job_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Compliance status for the policy.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>status: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Description for the status reason.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>comment: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Resource/App Id.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>resource_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Host Id.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>host_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Policy Template Id
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>backup_plan_policy_template_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Policy Id.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>backup_rule_policy_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Appliance Id.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>appliance_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// This is a BackupStorageUtilizationReportLog published as part of GCBDR
+/// Reporting.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BackupStorageUtilizationReportLog {
+    <span class="doccomment">/// Optional. The appliance name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>appliance_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The storage resource type.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>storage_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The storage pool name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>pool_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Total capacity of the pool in GiB.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>total_capacity_in_gib: f64,
+    <span class="doccomment">/// Required. Used capacity of the pool in GiB.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>used_capacity_in_gib: f64,
+    <span class="doccomment">/// Required. Utilization percentage of a storage pool.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>utilization_percentage: f64,
+    <span class="doccomment">/// Required. Appliance id.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>appliance_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// This is an event
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
