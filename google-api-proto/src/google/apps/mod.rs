@@ -1,5 +1,7 @@
 #[cfg(any(feature = "google-apps-alertcenter-v1beta1"))]
 pub mod alertcenter;
+#[cfg(any(feature = "google-apps-card-v1"))]
+pub mod card;
 #[cfg(
     any(
         feature = "google-apps-drive-activity-v2",

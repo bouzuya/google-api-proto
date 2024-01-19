@@ -80,6 +80,7 @@ pub mod appengine;
 #[cfg(
     any(
         feature = "google-apps-alertcenter-v1beta1",
+        feature = "google-apps-card-v1",
         feature = "google-apps-drive-activity-v2",
         feature = "google-apps-drive-labels-v2",
         feature = "google-apps-drive-labels-v2beta",
@@ -107,7 +108,7 @@ pub mod assistant;
 pub mod bigtable;
 #[cfg(any(feature = "google-bytestream"))]
 pub mod bytestream;
-#[cfg(any(feature = "google-chat-logging-v1"))]
+#[cfg(any(feature = "google-chat-logging-v1", feature = "google-chat-v1"))]
 pub mod chat;
 #[cfg(
     any(
