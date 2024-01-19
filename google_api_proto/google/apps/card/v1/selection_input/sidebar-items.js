@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["MultiSelectDataSource","SelectionType"],"mod":["platform_data_source"],"struct":["PlatformDataSource","SelectionItem"]};

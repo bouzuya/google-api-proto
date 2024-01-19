@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["HorizontalSizeStyle","VerticalAlignment"],"mod":["widgets"],"struct":["Widgets"]};

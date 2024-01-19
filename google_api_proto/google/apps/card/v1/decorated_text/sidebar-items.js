@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Control"],"mod":["switch_control"],"struct":["SwitchControl"]};

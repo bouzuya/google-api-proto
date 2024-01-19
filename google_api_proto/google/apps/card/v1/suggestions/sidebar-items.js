@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["suggestion_item"],"struct":["SuggestionItem"]};

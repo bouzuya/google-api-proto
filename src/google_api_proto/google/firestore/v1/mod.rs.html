@@ -3077,6 +3077,14 @@
 <a href="#3077" id="3077">3077</a>
 <a href="#3078" id="3078">3078</a>
 <a href="#3079" id="3079">3079</a>
+<a href="#3080" id="3080">3080</a>
+<a href="#3081" id="3081">3081</a>
+<a href="#3082" id="3082">3082</a>
+<a href="#3083" id="3083">3083</a>
+<a href="#3084" id="3084">3084</a>
+<a href="#3085" id="3085">3085</a>
+<a href="#3086" id="3086">3086</a>
+<a href="#3087" id="3087">3087</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A Firestore document.
 ///
 /// Must not exceed 1 MiB - 4 bytes.
@@ -3091,23 +3099,23 @@
     ///
     /// The map keys represent field names.
     ///
+    /// Field names matching the regular expression `__.*__` are reserved. Reserved
+    /// field names are forbidden except in certain documented contexts. The field
+    /// names, represented as UTF-8, must not exceed 1,500 bytes and cannot be
+    /// empty.
+    ///
+    /// Field paths may be used in other contexts to refer to structured fields
+    /// defined here. For `map_value`, the field path is represented by a
+    /// dot-delimited (`.`) string of segments. Each segment is either a simple
+    /// field name (defined below) or a quoted field name. For example, the
+    /// structured field `&quot;foo&quot; : { map_value: { &quot;x&amp;y&quot; : { string_value: &quot;hello&quot;
+    /// }}}` would be represented by the field path `` foo.`x&amp;y` ``.
+    ///
     /// A simple field name contains only characters `a` to `z`, `A` to `Z`,
     /// `0` to `9`, or `_`, and must not start with `0` to `9`. For example,
     /// `foo_bar_17`.
     ///
-    /// Field names matching the regular expression `__.*__` are reserved. Reserved
-    /// field names are forbidden except in certain documented contexts. The map
-    /// keys, represented as UTF-8, must not exceed 1,500 bytes and cannot be
-    /// empty.
-    ///
-    /// Field paths may be used in other contexts to refer to structured fields
-    /// defined here. For `map_value`, the field path is represented by the simple
-    /// or quoted field names of the containing fields, delimited by `.`. For
-    /// example, the structured field
-    /// `&quot;foo&quot; : { map_value: { &quot;x&amp;y&quot; : { string_value: &quot;hello&quot; }}}` would be
-    /// represented by the field path `foo.x&amp;y`.
-    ///
-    /// Within a field path, a quoted field name starts and ends with `` ` `` and
+    /// A quoted field name starts and ends with `` ` `` and
     /// may contain any character. Some characters, including `` ` ``, must be
     /// escaped using a `\`. For example, `` `x&amp;y` `` represents `x&amp;y` and
     /// `` `bak\`tik` `` represents `` bak`tik ``.
@@ -3219,6 +3227,14 @@
     &gt;,
 }
 <span class="doccomment">/// A Firestore query.
+///
+/// The query stages are executed in the following order:
+/// 1. from
+/// 2. where
+/// 3. select
+/// 4. order_by + start_at + end_at
+/// 5. offset
+/// 6. limit
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StructuredQuery {

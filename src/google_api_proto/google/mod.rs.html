@@ -614,6 +614,7 @@
 <a href="#614" id="614">614</a>
 <a href="#615" id="615">615</a>
 <a href="#616" id="616">616</a>
+<a href="#617" id="617">617</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(
     any(
         feature = <span class="string">&quot;google-actions-sdk-v2&quot;</span>,
@@ -696,6 +697,7 @@
 <span class="attr">#[cfg(
     any(
         feature = <span class="string">&quot;google-apps-alertcenter-v1beta1&quot;</span>,
+        feature = <span class="string">&quot;google-apps-card-v1&quot;</span>,
         feature = <span class="string">&quot;google-apps-drive-activity-v2&quot;</span>,
         feature = <span class="string">&quot;google-apps-drive-labels-v2&quot;</span>,
         feature = <span class="string">&quot;google-apps-drive-labels-v2beta&quot;</span>,
@@ -723,7 +725,7 @@
 </span><span class="kw">pub mod </span>bigtable;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-bytestream&quot;</span>))]
 </span><span class="kw">pub mod </span>bytestream;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-chat-logging-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-chat-logging-v1&quot;</span>, feature = <span class="string">&quot;google-chat-v1&quot;</span>))]
 </span><span class="kw">pub mod </span>chat;
 <span class="attr">#[cfg(
     any(

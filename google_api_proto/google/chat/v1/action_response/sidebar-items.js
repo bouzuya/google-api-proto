@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ResponseType"],"mod":["updated_widget"],"struct":["SelectionItems","UpdatedWidget"]};
