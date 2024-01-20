@@ -8046,6 +8046,52 @@
 <a href="#8046" id="8046">8046</a>
 <a href="#8047" id="8047">8047</a>
 <a href="#8048" id="8048">8048</a>
+<a href="#8049" id="8049">8049</a>
+<a href="#8050" id="8050">8050</a>
+<a href="#8051" id="8051">8051</a>
+<a href="#8052" id="8052">8052</a>
+<a href="#8053" id="8053">8053</a>
+<a href="#8054" id="8054">8054</a>
+<a href="#8055" id="8055">8055</a>
+<a href="#8056" id="8056">8056</a>
+<a href="#8057" id="8057">8057</a>
+<a href="#8058" id="8058">8058</a>
+<a href="#8059" id="8059">8059</a>
+<a href="#8060" id="8060">8060</a>
+<a href="#8061" id="8061">8061</a>
+<a href="#8062" id="8062">8062</a>
+<a href="#8063" id="8063">8063</a>
+<a href="#8064" id="8064">8064</a>
+<a href="#8065" id="8065">8065</a>
+<a href="#8066" id="8066">8066</a>
+<a href="#8067" id="8067">8067</a>
+<a href="#8068" id="8068">8068</a>
+<a href="#8069" id="8069">8069</a>
+<a href="#8070" id="8070">8070</a>
+<a href="#8071" id="8071">8071</a>
+<a href="#8072" id="8072">8072</a>
+<a href="#8073" id="8073">8073</a>
+<a href="#8074" id="8074">8074</a>
+<a href="#8075" id="8075">8075</a>
+<a href="#8076" id="8076">8076</a>
+<a href="#8077" id="8077">8077</a>
+<a href="#8078" id="8078">8078</a>
+<a href="#8079" id="8079">8079</a>
+<a href="#8080" id="8080">8080</a>
+<a href="#8081" id="8081">8081</a>
+<a href="#8082" id="8082">8082</a>
+<a href="#8083" id="8083">8083</a>
+<a href="#8084" id="8084">8084</a>
+<a href="#8085" id="8085">8085</a>
+<a href="#8086" id="8086">8086</a>
+<a href="#8087" id="8087">8087</a>
+<a href="#8088" id="8088">8088</a>
+<a href="#8089" id="8089">8089</a>
+<a href="#8090" id="8090">8090</a>
+<a href="#8091" id="8091">8091</a>
+<a href="#8092" id="8092">8092</a>
+<a href="#8093" id="8093">8093</a>
+<a href="#8094" id="8094">8094</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Parameters that can be configured on Linux nodes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -10433,6 +10479,9 @@
     </span><span class="kw">pub </span>desired_node_pool_auto_config_resource_manager_tags: ::core::option::Option&lt;
         ResourceManagerTags,
     &gt;,
+    <span class="doccomment">/// Specify the details of in-transit encryption.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;InTransitEncryptionConfig&quot;</span>, optional, tag = <span class="string">&quot;137&quot;</span>)]
+    </span><span class="kw">pub </span>desired_in_transit_encryption_config: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// AdditionalPodRangesConfig is the configuration for additional pod secondary
 /// ranges supporting the ClusterUpdate message.
@@ -13289,6 +13338,9 @@
     <span class="doccomment">/// Whether FQDN Network Policy is enabled on this cluster.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;19&quot;</span>)]
     </span><span class="kw">pub </span>enable_fqdn_network_policy: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Specify the details of in-transit encryption.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;InTransitEncryptionConfig&quot;</span>, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>in_transit_encryption_config: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `NetworkConfig`.
 </span><span class="kw">pub mod </span>network_config {
@@ -15033,6 +15085,48 @@
         }
     }
 }
+<span class="doccomment">/// Options for in-transit encryption.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>InTransitEncryptionConfig {
+    <span class="doccomment">/// Unspecified, will be inferred as default -
+    /// IN_TRANSIT_ENCRYPTION_UNSPECIFIED.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// In-transit encryption is disabled.
+    </span>InTransitEncryptionDisabled = <span class="number">1</span>,
+    <span class="doccomment">/// Data in-transit is encrypted using inter-node transparent encryption.
+    </span>InTransitEncryptionInterNodeTransparent = <span class="number">2</span>,
+}
+<span class="kw">impl </span>InTransitEncryptionConfig {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            InTransitEncryptionConfig::Unspecified =&gt; {
+                <span class="string">&quot;IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED&quot;
+            </span>}
+            InTransitEncryptionConfig::InTransitEncryptionDisabled =&gt; {
+                <span class="string">&quot;IN_TRANSIT_ENCRYPTION_DISABLED&quot;
+            </span>}
+            InTransitEncryptionConfig::InTransitEncryptionInterNodeTransparent =&gt; {
+                <span class="string">&quot;IN_TRANSIT_ENCRYPTION_INTER_NODE_TRANSPARENT&quot;
+            </span>}
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;IN_TRANSIT_ENCRYPTION_DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InTransitEncryptionDisabled),
+            <span class="string">&quot;IN_TRANSIT_ENCRYPTION_INTER_NODE_TRANSPARENT&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::InTransitEncryptionInterNodeTransparent)
+            }
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>cluster_manager_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -15604,8 +15698,6 @@
         </span>}
         <span class="doccomment">/// Gets the public component of the cluster signing keys in
         /// JSON Web Key format.
-        /// This API is not yet intended for general use, and is not available for all
-        /// clusters.
         </span><span class="kw">pub async fn </span>get_json_web_keys(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetJsonWebKeysRequest&gt;,

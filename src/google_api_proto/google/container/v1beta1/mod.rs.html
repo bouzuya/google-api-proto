@@ -9100,8 +9100,6 @@
 <a href="#9100" id="9100">9100</a>
 <a href="#9101" id="9101">9101</a>
 <a href="#9102" id="9102">9102</a>
-<a href="#9103" id="9103">9103</a>
-<a href="#9104" id="9104">9104</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Parameters that can be configured on Linux nodes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -17679,8 +17677,6 @@
         </span>}
         <span class="doccomment">/// Gets the public component of the cluster signing keys in
         /// JSON Web Key format.
-        /// This API is not yet intended for general use, and is not available for all
-        /// clusters.
         </span><span class="kw">pub async fn </span>get_json_web_keys(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetJsonWebKeysRequest&gt;,
