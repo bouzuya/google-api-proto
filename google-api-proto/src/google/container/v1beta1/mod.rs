@@ -8575,8 +8575,6 @@ pub mod cluster_manager_client {
         }
         /// Gets the public component of the cluster signing keys in
         /// JSON Web Key format.
-        /// This API is not yet intended for general use, and is not available for all
-        /// clusters.
         pub async fn get_json_web_keys(
             &mut self,
             request: impl tonic::IntoRequest<super::GetJsonWebKeysRequest>,
