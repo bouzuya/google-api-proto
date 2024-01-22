@@ -2205,6 +2205,55 @@
 <a href="#2205" id="2205">2205</a>
 <a href="#2206" id="2206">2206</a>
 <a href="#2207" id="2207">2207</a>
+<a href="#2208" id="2208">2208</a>
+<a href="#2209" id="2209">2209</a>
+<a href="#2210" id="2210">2210</a>
+<a href="#2211" id="2211">2211</a>
+<a href="#2212" id="2212">2212</a>
+<a href="#2213" id="2213">2213</a>
+<a href="#2214" id="2214">2214</a>
+<a href="#2215" id="2215">2215</a>
+<a href="#2216" id="2216">2216</a>
+<a href="#2217" id="2217">2217</a>
+<a href="#2218" id="2218">2218</a>
+<a href="#2219" id="2219">2219</a>
+<a href="#2220" id="2220">2220</a>
+<a href="#2221" id="2221">2221</a>
+<a href="#2222" id="2222">2222</a>
+<a href="#2223" id="2223">2223</a>
+<a href="#2224" id="2224">2224</a>
+<a href="#2225" id="2225">2225</a>
+<a href="#2226" id="2226">2226</a>
+<a href="#2227" id="2227">2227</a>
+<a href="#2228" id="2228">2228</a>
+<a href="#2229" id="2229">2229</a>
+<a href="#2230" id="2230">2230</a>
+<a href="#2231" id="2231">2231</a>
+<a href="#2232" id="2232">2232</a>
+<a href="#2233" id="2233">2233</a>
+<a href="#2234" id="2234">2234</a>
+<a href="#2235" id="2235">2235</a>
+<a href="#2236" id="2236">2236</a>
+<a href="#2237" id="2237">2237</a>
+<a href="#2238" id="2238">2238</a>
+<a href="#2239" id="2239">2239</a>
+<a href="#2240" id="2240">2240</a>
+<a href="#2241" id="2241">2241</a>
+<a href="#2242" id="2242">2242</a>
+<a href="#2243" id="2243">2243</a>
+<a href="#2244" id="2244">2244</a>
+<a href="#2245" id="2245">2245</a>
+<a href="#2246" id="2246">2246</a>
+<a href="#2247" id="2247">2247</a>
+<a href="#2248" id="2248">2248</a>
+<a href="#2249" id="2249">2249</a>
+<a href="#2250" id="2250">2250</a>
+<a href="#2251" id="2251">2251</a>
+<a href="#2252" id="2252">2252</a>
+<a href="#2253" id="2253">2253</a>
+<a href="#2254" id="2254">2254</a>
+<a href="#2255" id="2255">2255</a>
+<a href="#2256" id="2256">2256</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A Google Edge Cloud zone.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3490,6 +3539,55 @@
         <span class="doccomment">/// A list of status for the subnets under the current network.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>subnet_status: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::SubnetStatus&gt;,
+        <span class="doccomment">/// The MACsec status of internal links.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;network_status::MacsecStatus&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>macsec_status_internal_links: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `NetworkStatus`.
+    </span><span class="kw">pub mod </span>network_status {
+        <span class="doccomment">/// Denotes the status of MACsec sessions for the links of a zone.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>MacsecStatus {
+            <span class="doccomment">/// MACsec status not specified, likely due to missing metrics.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// All relevant links have at least one MACsec session up.
+            </span>Secure = <span class="number">1</span>,
+            <span class="doccomment">/// At least one relevant link does not have any MACsec sessions up.
+            </span>Unsecure = <span class="number">2</span>,
+        }
+        <span class="kw">impl </span>MacsecStatus {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    MacsecStatus::Unspecified =&gt; <span class="string">&quot;MACSEC_STATUS_UNSPECIFIED&quot;</span>,
+                    MacsecStatus::Secure =&gt; <span class="string">&quot;SECURE&quot;</span>,
+                    MacsecStatus::Unsecure =&gt; <span class="string">&quot;UNSECURE&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;MACSEC_STATUS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;SECURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Secure),
+                    <span class="string">&quot;UNSECURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unsecure),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
     }
 }
 <span class="doccomment">/// Message for requesting the diagnostics of an interconnect within a specific

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["NetworkStatus"]};
+window.SIDEBAR_ITEMS = {"mod":["network_status"],"struct":["NetworkStatus"]};
