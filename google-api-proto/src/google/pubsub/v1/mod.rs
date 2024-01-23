@@ -725,6 +725,120 @@ pub struct SchemaSettings {
     #[prost(string, tag = "4")]
     pub last_revision_id: ::prost::alloc::string::String,
 }
+/// Settings for an ingestion data source on a topic.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct IngestionDataSourceSettings {
+    /// Only one source type can have settings set.
+    #[prost(oneof = "ingestion_data_source_settings::Source", tags = "1")]
+    pub source: ::core::option::Option<ingestion_data_source_settings::Source>,
+}
+/// Nested message and enum types in `IngestionDataSourceSettings`.
+pub mod ingestion_data_source_settings {
+    /// Ingestion settings for Amazon Kinesis Data Streams.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AwsKinesis {
+        /// Output only. An output-only field that indicates the state of the Kinesis
+        /// ingestion source.
+        #[prost(enumeration = "aws_kinesis::State", tag = "1")]
+        pub state: i32,
+        /// Required. The Kinesis stream ARN to ingest data from.
+        #[prost(string, tag = "2")]
+        pub stream_arn: ::prost::alloc::string::String,
+        /// Required. The Kinesis consumer ARN to used for ingestion in Enhanced
+        /// Fan-Out mode. The consumer must be already created and ready to be used.
+        #[prost(string, tag = "3")]
+        pub consumer_arn: ::prost::alloc::string::String,
+        /// Required. AWS role ARN to be used for Federated Identity authentication
+        /// with Kinesis. Check the Pub/Sub docs for how to set up this role and the
+        /// required permissions that need to be attached to it.
+        #[prost(string, tag = "4")]
+        pub aws_role_arn: ::prost::alloc::string::String,
+        /// Required. The GCP service account to be used for Federated Identity
+        /// authentication with Kinesis (via a `AssumeRoleWithWebIdentity` call for
+        /// the provided role). The `aws_role_arn` must be set up with
+        /// `accounts.google.com:sub` equals to this service account number.
+        #[prost(string, tag = "5")]
+        pub gcp_service_account: ::prost::alloc::string::String,
+    }
+    /// Nested message and enum types in `AwsKinesis`.
+    pub mod aws_kinesis {
+        /// Possible states for managed ingestion from Amazon Kinesis Data Streams.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum State {
+            /// Default value. This value is unused.
+            Unspecified = 0,
+            /// Ingestion is active.
+            Active = 1,
+            /// Permission denied encountered while consuming data from Kinesis.
+            /// This can happen if:
+            ///    - The provided `aws_role_arn` does not exist or does not have the
+            ///      appropriate permissions attached.
+            ///    - The provided `aws_role_arn` is not set up properly for Identity
+            ///      Federation using `gcp_service_account`.
+            ///    - The Pub/Sub SA is not granted the
+            ///      `iam.serviceAccounts.getOpenIdToken` permission on
+            ///      `gcp_service_account`.
+            KinesisPermissionDenied = 2,
+            /// Permission denied encountered while publishing to the topic. This can
+            /// happen due to Pub/Sub SA has not been granted the [appropriate publish
+            /// permissions](<https://cloud.google.com/pubsub/docs/access-control#pubsub.publisher>)
+            PublishPermissionDenied = 3,
+            /// The Kinesis stream does not exist.
+            StreamNotFound = 4,
+            /// The Kinesis consumer does not exist.
+            ConsumerNotFound = 5,
+        }
+        impl State {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    State::Unspecified => "STATE_UNSPECIFIED",
+                    State::Active => "ACTIVE",
+                    State::KinesisPermissionDenied => "KINESIS_PERMISSION_DENIED",
+                    State::PublishPermissionDenied => "PUBLISH_PERMISSION_DENIED",
+                    State::StreamNotFound => "STREAM_NOT_FOUND",
+                    State::ConsumerNotFound => "CONSUMER_NOT_FOUND",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "ACTIVE" => Some(Self::Active),
+                    "KINESIS_PERMISSION_DENIED" => Some(Self::KinesisPermissionDenied),
+                    "PUBLISH_PERMISSION_DENIED" => Some(Self::PublishPermissionDenied),
+                    "STREAM_NOT_FOUND" => Some(Self::StreamNotFound),
+                    "CONSUMER_NOT_FOUND" => Some(Self::ConsumerNotFound),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// Only one source type can have settings set.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Source {
+        /// Optional. Amazon Kinesis Data Streams.
+        #[prost(message, tag = "1")]
+        AwsKinesis(AwsKinesis),
+    }
+}
 /// A topic resource.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -772,6 +886,63 @@ pub struct Topic {
     /// subscriptions. Cannot be more than 31 days or less than 10 minutes.
     #[prost(message, optional, tag = "8")]
     pub message_retention_duration: ::core::option::Option<::prost_types::Duration>,
+    /// Output only. An output-only field indicating the state of the topic.
+    #[prost(enumeration = "topic::State", tag = "9")]
+    pub state: i32,
+    /// Optional. Settings for managed ingestion from a data source into this
+    /// topic.
+    #[prost(message, optional, tag = "10")]
+    pub ingestion_data_source_settings: ::core::option::Option<
+        IngestionDataSourceSettings,
+    >,
+}
+/// Nested message and enum types in `Topic`.
+pub mod topic {
+    /// The state of the topic.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Default value. This value is unused.
+        Unspecified = 0,
+        /// The topic does not have any persistent errors.
+        Active = 1,
+        /// Ingestion from the data source has encountered a permanent error.
+        /// See the more detailed error state in the corresponding ingestion
+        /// source configuration.
+        IngestionResourceError = 2,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Active => "ACTIVE",
+                State::IngestionResourceError => "INGESTION_RESOURCE_ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ACTIVE" => Some(Self::Active),
+                "INGESTION_RESOURCE_ERROR" => Some(Self::IngestionResourceError),
+                _ => None,
+            }
+        }
+    }
 }
 /// A message that is published by publishers and consumed by subscribers. The
 /// message must contain either a non-empty data field or at least one attribute.
