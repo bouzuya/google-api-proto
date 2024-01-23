@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Source"],"mod":["aws_kinesis"],"struct":["AwsKinesis"]};
