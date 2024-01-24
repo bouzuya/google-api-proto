@@ -1393,6 +1393,27 @@
 <a href="#1393" id="1393">1393</a>
 <a href="#1394" id="1394">1394</a>
 <a href="#1395" id="1395">1395</a>
+<a href="#1396" id="1396">1396</a>
+<a href="#1397" id="1397">1397</a>
+<a href="#1398" id="1398">1398</a>
+<a href="#1399" id="1399">1399</a>
+<a href="#1400" id="1400">1400</a>
+<a href="#1401" id="1401">1401</a>
+<a href="#1402" id="1402">1402</a>
+<a href="#1403" id="1403">1403</a>
+<a href="#1404" id="1404">1404</a>
+<a href="#1405" id="1405">1405</a>
+<a href="#1406" id="1406">1406</a>
+<a href="#1407" id="1407">1407</a>
+<a href="#1408" id="1408">1408</a>
+<a href="#1409" id="1409">1409</a>
+<a href="#1410" id="1410">1410</a>
+<a href="#1411" id="1411">1411</a>
+<a href="#1412" id="1412">1412</a>
+<a href="#1413" id="1413">1413</a>
+<a href="#1414" id="1414">1414</a>
+<a href="#1415" id="1415">1415</a>
+<a href="#1416" id="1416">1416</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Metadata describing an [Operation][google.longrunning.Operation]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1466,7 +1487,7 @@
     }
 }
 <span class="doccomment">/// Describes a Cloud Function that contains user computation executed in
-/// response to an event. It encapsulates function and triggers configurations.
+/// response to an event. It encapsulate function and triggers configurations.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudFunction {
@@ -1480,12 +1501,9 @@
     <span class="doccomment">/// Output only. Status of the function deployment.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;CloudFunctionStatus&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// The name of the function (as defined in source code) that is executed.
-    /// Defaults to the resource name suffix, if not specified. For
-    /// backward compatibility, if function with given name is not found, the
-    /// system tries to use the function named &quot;function&quot;.
-    /// For Node.js, this is the name of a function exported by the module
-    /// as specified in `source_location`.
+    <span class="doccomment">/// The name of the function (as defined in source code) that will be
+    /// executed. Defaults to the resource name suffix (ID of the function), if not
+    /// specified.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>entry_point: ::prost::alloc::string::String,
     <span class="doccomment">/// The runtime in which to run the function. Required when deploying a new
@@ -1533,29 +1551,17 @@
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="doccomment">/// The Serverless VPC Access connector that this cloud function can connect
-    /// to. It can be either the fully qualified URI, or the short name of the
-    /// connector resource. If the connector name is used, the connector must
-    /// belong to the same project as the function. Otherwise, it must belong to a
-    /// project within the same organization. The format of this field is either
-    /// `projects/{project}/global/networks/{network}` or `{network}`, where
-    /// `{project}` is a project id where the network is defined, and `{network}`
-    /// is the short name of the network.
-    ///
-    /// This field is mutually exclusive with `vpc_connector` and will be replaced
-    /// by it.
-    ///
-    /// See [the VPC documentation](&lt;https://cloud.google.com/compute/docs/vpc&gt;) for
-    /// more information on connecting Cloud projects.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
+    <span class="doccomment">/// Deprecated: use vpc_connector
+    </span><span class="attr">#[deprecated]
+    #[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
-    <span class="doccomment">/// The limit on the maximum number of function instances that can coexist at a
+    <span class="doccomment">/// The limit on the maximum number of function instances that may coexist at a
     /// given time.
     ///
-    /// In some cases, such as rapid traffic surges, Cloud Functions can for a
-    /// short period of time create more instances than the specified max
+    /// In some cases, such as rapid traffic surges, Cloud Functions may, for a
+    /// short period of time, create more instances than the specified max
     /// instances limit. If your function cannot tolerate this temporary behavior,
-    /// you might want to factor in a safety margin and set a lower max instances
+    /// you may want to factor in a safety margin and set a lower max instances
     /// value than your function can tolerate.
     ///
     /// See the [Max
@@ -1563,12 +1569,12 @@
     /// more details.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;20&quot;</span>)]
     </span><span class="kw">pub </span>max_instances: i32,
-    <span class="doccomment">/// A lower bound for the number function instances that can coexist at a
+    <span class="doccomment">/// A lower bound for the number function instances that may coexist at a
     /// given time.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;32&quot;</span>)]
     </span><span class="kw">pub </span>min_instances: i32,
     <span class="doccomment">/// The VPC Network Connector that this cloud function can connect to. It can
-    /// be either the fully qualified URI, or the short name of the network
+    /// be either the fully-qualified URI, or the short name of the network
     /// connector resource. The format of this field is
     /// `projects/*/locations/*/connectors/*`
     ///
@@ -1655,7 +1661,7 @@
     /// Artifact Registry. If unspecified and the deployment is eligible to use
     /// Artifact Registry, GCF will create and use a repository named
     /// &#39;gcf-artifacts&#39; for every deployed region. This is the repository to which
-    /// the function docker image is pushed after it is built by Cloud Build.
+    /// the function docker image will be pushed after it is built by Cloud Build.
     ///
     /// It must match the pattern
     /// `projects/{project}/locations/{location}/repositories/{repository}`.
@@ -1667,10 +1673,9 @@
     </span><span class="kw">pub </span>docker_repository: ::prost::alloc::string::String,
     <span class="doccomment">/// Docker Registry to use for this deployment.
     ///
-    /// If `docker_repository` field is specified, this field is automatically
-    /// set as `ARTIFACT_REGISTRY`.
-    /// If unspecified, it currently defaults to `CONTAINER_REGISTRY`.
-    /// This field may be overridden by the backend for eligible deployments.
+    /// If unspecified, it defaults to `ARTIFACT_REGISTRY`.
+    /// If `docker_repository` field is specified, this field should either be left
+    /// unspecified or set to `ARTIFACT_REGISTRY`.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;cloud_function::DockerRegistry&quot;</span>, tag = <span class="string">&quot;35&quot;</span>)]
     </span><span class="kw">pub </span>docker_registry: i32,
     <span class="doccomment">/// The location of the function source code.
@@ -1679,13 +1684,32 @@
     <span class="doccomment">/// An event that triggers the function.
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;cloud_function::Trigger&quot;</span>, tags = <span class="string">&quot;5, 6&quot;</span>)]
     </span><span class="kw">pub </span>trigger: ::core::option::Option&lt;cloud_function::Trigger&gt;,
+    <span class="doccomment">/// Runtime update policy can be one of the following.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;cloud_function::RuntimeUpdatePolicy&quot;</span>, tags = <span class="string">&quot;40, 41&quot;</span>)]
+    </span><span class="kw">pub </span>runtime_update_policy: ::core::option::Option&lt;
+        cloud_function::RuntimeUpdatePolicy,
+    &gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CloudFunction`.
 </span><span class="kw">pub mod </span>cloud_function {
+    <span class="doccomment">/// Security patches are applied automatically to the runtime without requiring
+    /// the function to be redeployed.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>AutomaticUpdatePolicy {}
+    <span class="doccomment">/// Security patches are only applied when a function is redeployed.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>OnDeployUpdatePolicy {
+        <span class="doccomment">/// Output only. contains the runtime version which was used during latest
+        /// function deployment.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>runtime_version: ::prost::alloc::string::String,
+    }
     <span class="doccomment">/// Available egress settings.
     ///
-    /// This controls what traffic is diverted through the Serverless VPC Access
-    /// connector resource. By default, PRIVATE_RANGES_ONLY is used.
+    /// This controls what traffic is diverted through the VPC Access Connector
+    /// resource. By default PRIVATE_RANGES_ONLY will be used.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -1701,11 +1725,10 @@
     </span><span class="kw">pub enum </span>VpcConnectorEgressSettings {
         <span class="doccomment">/// Unspecified.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Use the Serverless VPC Access connector only for private IP space from
-        /// RFC1918.
+        <span class="doccomment">/// Use the VPC Access Connector only for private IP space from RFC1918.
         </span>PrivateRangesOnly = <span class="number">1</span>,
-        <span class="doccomment">/// Force the use of Serverless VPC Access connector for all egress traffic
-        /// from the function.
+        <span class="doccomment">/// Force the use of VPC Access Connector for all egress traffic from the
+        /// function.
         </span>AllTraffic = <span class="number">2</span>,
     }
     <span class="kw">impl </span>VpcConnectorEgressSettings {
@@ -1736,7 +1759,7 @@
     ///
     /// This controls what traffic can reach the function.
     ///
-    /// If unspecified, ALLOW_ALL is used.
+    /// If unspecified, ALLOW_ALL will be used.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -1799,14 +1822,14 @@
     </span><span class="kw">pub enum </span>DockerRegistry {
         <span class="doccomment">/// Unspecified.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Docker images are stored in multi-regional Container Registry
+        <span class="doccomment">/// Docker images will be stored in multi-regional Container Registry
         /// repositories named `gcf`.
         </span>ContainerRegistry = <span class="number">1</span>,
-        <span class="doccomment">/// Docker images are stored in regional Artifact Registry repositories.
-        /// By default, Cloud Functions creates and uses repositories named
-        /// `gcf-artifacts` in every region in which a function is deployed. But the
-        /// repository to use can also be specified by the user by using the
-        /// `docker_repository` field.
+        <span class="doccomment">/// Docker images will be stored in regional Artifact Registry repositories.
+        /// By default, GCF will create and use repositories named `gcf-artifacts`
+        /// in every region in which a function is deployed. But the repository to
+        /// use can also be specified by the user using the `docker_repository`
+        /// field.
         </span>ArtifactRegistry = <span class="number">2</span>,
     }
     <span class="kw">impl </span>DockerRegistry {
@@ -1844,7 +1867,7 @@
         /// The source repository where a function is hosted.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
         </span>SourceRepository(<span class="kw">super</span>::SourceRepository),
-        <span class="doccomment">/// The Google Cloud Storage-signed URL used for source uploading, generated
+        <span class="doccomment">/// The Google Cloud Storage signed URL used for source uploading, generated
         /// by calling \[google.cloud.functions.v1.GenerateUploadUrl\].
         ///
         /// The signature is validated on write methods (Create, Update)
@@ -1864,6 +1887,17 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
         </span>EventTrigger(<span class="kw">super</span>::EventTrigger),
     }
+    <span class="doccomment">/// Runtime update policy can be one of the following.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>RuntimeUpdatePolicy {
+        <span class="doccomment">/// See the comment next to this message for more details.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;40&quot;</span>)]
+        </span>AutomaticUpdatePolicy(AutomaticUpdatePolicy),
+        <span class="doccomment">/// See the comment next to this message for more details.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;41&quot;</span>)]
+        </span>OnDeployUpdatePolicy(OnDeployUpdatePolicy),
+    }
 }
 <span class="doccomment">/// Describes SourceRepository, used to represent parameters related to
 /// source repository where a function is hosted.
@@ -1882,7 +1916,7 @@
     /// To refer to a specific fixed alias (tag):
     /// `&lt;https://source.developers.google.com/projects/*/repos/*/fixed-aliases/*/paths/*`&gt;
     ///
-    /// You can omit `paths/*` if you want to use the main directory.
+    /// You may omit `paths/*` if you want to use the main directory.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The URL pointing to the hosted repository where the function
@@ -1904,11 +1938,11 @@
 }
 <span class="doccomment">/// Nested message and enum types in `HttpsTrigger`.
 </span><span class="kw">pub mod </span>https_trigger {
-    <span class="doccomment">/// Available security-level settings.
+    <span class="doccomment">/// Available security level settings.
     ///
     /// This controls the methods to enforce security (HTTPS) on a URL.
     ///
-    /// If unspecified, SECURE_OPTIONAL is used.
+    /// If unspecified, SECURE_OPTIONAL will be used.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -1956,7 +1990,7 @@
         }
     }
 }
-<span class="doccomment">/// Describes EventTrigger, used to request that events be sent from another
+<span class="doccomment">/// Describes EventTrigger, used to request events be sent from another
 /// service.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1974,7 +2008,7 @@
     ///     example, the Google Cloud Storage API includes the type `object`.
     /// 3. action: The action that generates the event. For example, action for
     ///     a Google Cloud Storage Object is &#39;change&#39;.
-    /// These parts are lowercase.
+    /// These parts are lower case.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>event_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The resource(s) from which to observe events, for example,
@@ -1992,7 +2026,7 @@
     ///     that matches Google Cloud Pub/Sub topics.
     ///
     /// Additionally, some services may support short names when creating an
-    /// `EventTrigger`. These are always returned in the normalized &quot;long&quot;
+    /// `EventTrigger`. These will always be returned in the normalized &quot;long&quot;
     /// format.
     ///
     /// See each *service&#39;s* documentation for supported formats.
@@ -2010,7 +2044,7 @@
     </span><span class="kw">pub </span>failure_policy: ::core::option::Option&lt;FailurePolicy&gt;,
 }
 <span class="doccomment">/// Describes the policy in case of function&#39;s execution failure.
-/// If empty, then defaults to ignoring failures (i.e., not retrying them).
+/// If empty, then defaults to ignoring failures (i.e. not retrying them).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FailurePolicy {
@@ -2021,8 +2055,8 @@
 <span class="doccomment">/// Nested message and enum types in `FailurePolicy`.
 </span><span class="kw">pub mod </span>failure_policy {
     <span class="doccomment">/// Describes the retry policy in case of function&#39;s execution failure.
-    /// A function execution is retried on any failure.
-    /// A failed execution is retried up to 7 days with an exponential backoff
+    /// A function execution will be retried on any failure.
+    /// A failed execution will be retried up to 7 days with an exponential backoff
     /// (capped at 10 seconds).
     /// Retried execution is charged as any other execution.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2032,13 +2066,13 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Action {
-        <span class="doccomment">/// If specified, the function is retried in case of a failure.
+        <span class="doccomment">/// If specified, then the function will be retried in case of a failure.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
         </span>Retry(Retry),
     }
 }
 <span class="doccomment">/// Configuration for a secret environment variable. It has the information
-/// necessary to fetch the secret value from Secret Manager and expose it as an
+/// necessary to fetch the secret value from secret manager and expose it as an
 /// environment variable.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2047,12 +2081,12 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
     <span class="doccomment">/// Project identifier (preferrably project number but can also be the project
-    /// ID) of the project that contains the secret. If not set, it is
-    /// populated with the function&#39;s project, assuming that the secret exists in
-    /// the same project as the function.
+    /// ID) of the project that contains the secret. If not set, it will be
+    /// populated with the function&#39;s project assuming that the secret exists in
+    /// the same project as of the function.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Name of the secret in Secret Manager (not the full resource name).
+    <span class="doccomment">/// Name of the secret in secret manager (not the full resource name).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>secret: ::prost::alloc::string::String,
     <span class="doccomment">/// Version of the secret (version number or the string &#39;latest&#39;). It is
@@ -2062,16 +2096,16 @@
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration for a secret volume. It has the information necessary to fetch
-/// the secret value from Secret Manager and make it available as files mounted
+/// the secret value from secret manager and make it available as files mounted
 /// at the requested paths within the application container. Secret value is not
-/// a part of the configuration. Every file system read operation performs a
-/// lookup in Secret Manager to retrieve the secret value.
+/// a part of the configuration. Every filesystem read operation performs a
+/// lookup in secret manager to retrieve the secret value.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SecretVolume {
     <span class="doccomment">/// The path within the container to mount the secret volume. For example,
-    /// setting the mount_path as `/etc/secrets` mounts the secret value files
-    /// under the `/etc/secrets` directory. This directory is also completely
+    /// setting the mount_path as `/etc/secrets` would mount the secret value files
+    /// under the `/etc/secrets` directory. This directory will also be completely
     /// shadowed and unavailable to mount any other secrets.
     ///
     /// Recommended mount paths: /etc/secrets
@@ -2079,16 +2113,16 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>mount_path: ::prost::alloc::string::String,
     <span class="doccomment">/// Project identifier (preferrably project number but can also be the project
-    /// ID) of the project that contains the secret. If not set, it is
-    /// populated with the function&#39;s project, assuming that the secret exists in
-    /// the same project as the function.
+    /// ID) of the project that contains the secret. If not set, it will be
+    /// populated with the function&#39;s project assuming that the secret exists in
+    /// the same project as of the function.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Name of the secret in Secret Manager (not the full resource name).
+    <span class="doccomment">/// Name of the secret in secret manager (not the full resource name).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>secret: ::prost::alloc::string::String,
     <span class="doccomment">/// List of secret versions to mount for this secret. If empty, the `latest`
-    /// version of the secret is made available in a file named after the
+    /// version of the secret will be made available in a file named after the
     /// secret under the mount point.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>versions: ::prost::alloc::vec::Vec&lt;secret_volume::SecretVersion&gt;,
@@ -2105,8 +2139,8 @@
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
         <span class="doccomment">/// Relative path of the file under the mount path where the secret value for
-        /// this version is fetched and made available. For example, setting the
-        /// mount_path as &#39;/etc/secrets&#39; and path as `/secret_foo` mounts the
+        /// this version will be fetched and made available. For example, setting the
+        /// mount_path as &#39;/etc/secrets&#39; and path as `/secret_foo` would mount the
         /// secret value file at `/etc/secrets/secret_foo`.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
@@ -2142,6 +2176,14 @@
     <span class="doccomment">/// Required. The name of the function which details should be obtained.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The optional version of the function whose details should be
+    /// obtained. The version of a 1st Gen function is an integer that starts from
+    /// 1 and gets incremented on redeployments. Each deployment creates a config
+    /// version of the underlying function. GCF may keep historical configs for old
+    /// versions. This field can be specified to fetch the historical configs.
+    /// Leave it blank or set to 0 to get the latest version of the function.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>version_id: i64,
 }
 <span class="doccomment">/// Request for the `ListFunctions` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2227,11 +2269,11 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Resource name of a KMS crypto key (managed by the user) used to
-    /// encrypt/decrypt function source code objects in staging Cloud Storage
+    /// encrypt/decrypt function source code objects in intermediate Cloud Storage
     /// buckets. When you generate an upload url and upload your source code, it
-    /// gets copied to a staging Cloud Storage bucket in an internal regional
-    /// project. The source code is then copied to a versioned directory in the
-    /// sources bucket in the consumer project during the function deployment.
+    /// gets copied to an intermediate Cloud Storage bucket. The source code is
+    /// then copied to a versioned directory in the sources bucket in the consumer
+    /// project during the function deployment.
     ///
     /// It must match the pattern
     /// `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
@@ -2459,7 +2501,7 @@
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates a new function. If a function with the given name already exists in
-        /// the specified project, the long running operation returns an
+        /// the specified project, the long running operation will return
         /// `ALREADY_EXISTS` error.
         </span><span class="kw">pub async fn </span>create_function(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -2523,7 +2565,7 @@
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Deletes a function with the given name from the specified project. If the
-        /// given function is used by some trigger, the trigger is updated to
+        /// given function is used by some trigger, the trigger will be updated to
         /// remove this function.
         </span><span class="kw">pub async fn </span>delete_function(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -2606,12 +2648,12 @@
         ///   attached, the identity from the credentials would be used, but that
         ///   identity does not have permissions to upload files to the URL.
         ///
-        /// When making an HTTP PUT request, these two headers must be specified:
+        /// When making a HTTP PUT request, these two headers need to be specified:
         ///
         /// * `content-type: application/zip`
         /// * `x-goog-content-length-range: 0,104857600`
         ///
-        /// And this header must NOT be specified:
+        /// And this header SHOULD NOT be specified:
         ///
         /// * `Authorization: Bearer YOUR_TOKEN`
         </span><span class="kw">pub async fn </span>generate_upload_url(
@@ -2645,9 +2687,9 @@
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Returns a signed URL for downloading deployed function source code.
-        /// The URL is only valid for a limited period and must be used within
+        /// The URL is only valid for a limited period and should be used within
         /// minutes after generation.
-        /// For more information about the signed URL usage, see:
+        /// For more information about the signed URL usage see:
         /// https://cloud.google.com/storage/docs/access-control/signed-urls
         </span><span class="kw">pub async fn </span>generate_download_url(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -2750,7 +2792,7 @@
         </span>}
         <span class="doccomment">/// Tests the specified permissions against the IAM access control policy
         /// for a function.
-        /// If the function does not exist, this returns an empty set of
+        /// If the function does not exist, this will return an empty set of
         /// permissions, not a NOT_FOUND error.
         </span><span class="kw">pub async fn </span>test_iam_permissions(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,

@@ -1209,6 +1209,9 @@
 <a href="#1209" id="1209">1209</a>
 <a href="#1210" id="1210">1210</a>
 <a href="#1211" id="1211">1211</a>
+<a href="#1212" id="1212">1212</a>
+<a href="#1213" id="1213">1213</a>
+<a href="#1214" id="1214">1214</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The base structured datatype containing multi-part content of a message.
 ///
 /// A `Content` includes a `role` field designating the producer of the `Content`
@@ -1805,6 +1808,9 @@
     </span><span class="kw">pub </span>task_type: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Optional. An optional title for the text. Only applicable when TaskType is
     /// `RETRIEVAL_DOCUMENT`.
+    ///
+    /// Note: Specifying a `title` for `RETRIEVAL_DOCUMENT` provides better quality
+    /// embeddings for retrieval.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>title: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }

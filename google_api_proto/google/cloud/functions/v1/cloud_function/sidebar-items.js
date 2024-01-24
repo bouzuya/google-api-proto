@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["DockerRegistry","IngressSettings","SourceCode","Trigger","VpcConnectorEgressSettings"]};
+window.SIDEBAR_ITEMS = {"enum":["DockerRegistry","IngressSettings","RuntimeUpdatePolicy","SourceCode","Trigger","VpcConnectorEgressSettings"],"struct":["AutomaticUpdatePolicy","OnDeployUpdatePolicy"]};
