@@ -327,6 +327,9 @@ pub enum TypeCode {
     /// Encoded as `number`, or the strings `"NaN"`, `"Infinity"`, or
     /// `"-Infinity"`.
     Float64 = 3,
+    /// Encoded as `number`, or the strings `"NaN"`, `"Infinity"`, or
+    /// `"-Infinity"`.
+    Float32 = 15,
     /// Encoded as `string` in RFC 3339 timestamp format. The time zone
     /// must be present, and must be `"Z"`.
     ///
@@ -386,6 +389,7 @@ impl TypeCode {
             TypeCode::Bool => "BOOL",
             TypeCode::Int64 => "INT64",
             TypeCode::Float64 => "FLOAT64",
+            TypeCode::Float32 => "FLOAT32",
             TypeCode::Timestamp => "TIMESTAMP",
             TypeCode::Date => "DATE",
             TypeCode::String => "STRING",
@@ -405,6 +409,7 @@ impl TypeCode {
             "BOOL" => Some(Self::Bool),
             "INT64" => Some(Self::Int64),
             "FLOAT64" => Some(Self::Float64),
+            "FLOAT32" => Some(Self::Float32),
             "TIMESTAMP" => Some(Self::Timestamp),
             "DATE" => Some(Self::Date),
             "STRING" => Some(Self::String),
