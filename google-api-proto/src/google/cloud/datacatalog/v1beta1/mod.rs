@@ -1,108 +1,3 @@
-/// Describes a BigQuery table.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BigQueryTableSpec {
-    /// Output only. The table source type.
-    #[prost(enumeration = "TableSourceType", tag = "1")]
-    pub table_source_type: i32,
-    /// Output only.
-    #[prost(oneof = "big_query_table_spec::TypeSpec", tags = "2, 3")]
-    pub type_spec: ::core::option::Option<big_query_table_spec::TypeSpec>,
-}
-/// Nested message and enum types in `BigQueryTableSpec`.
-pub mod big_query_table_spec {
-    /// Output only.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum TypeSpec {
-        /// Table view specification. This field should only be populated if
-        /// `table_source_type` is `BIGQUERY_VIEW`.
-        #[prost(message, tag = "2")]
-        ViewSpec(super::ViewSpec),
-        /// Spec of a BigQuery table. This field should only be populated if
-        /// `table_source_type` is `BIGQUERY_TABLE`.
-        #[prost(message, tag = "3")]
-        TableSpec(super::TableSpec),
-    }
-}
-/// Table view specification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ViewSpec {
-    /// Output only. The query that defines the table view.
-    #[prost(string, tag = "1")]
-    pub view_query: ::prost::alloc::string::String,
-}
-/// Normal BigQuery table spec.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TableSpec {
-    /// Output only. If the table is a dated shard, i.e., with name pattern
-    /// `\[prefix\]YYYYMMDD`, `grouped_entry` is the Data Catalog resource name of
-    /// the date sharded grouped entry, for example,
-    /// `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
-    /// Otherwise, `grouped_entry` is empty.
-    #[prost(string, tag = "1")]
-    pub grouped_entry: ::prost::alloc::string::String,
-}
-/// Spec for a group of BigQuery tables with name pattern `\[prefix\]YYYYMMDD`.
-/// Context:
-/// <https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BigQueryDateShardedSpec {
-    /// Output only. The Data Catalog resource name of the dataset entry the
-    /// current table belongs to, for example,
-    /// `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
-    #[prost(string, tag = "1")]
-    pub dataset: ::prost::alloc::string::String,
-    /// Output only. The table name prefix of the shards. The name of any given
-    /// shard is
-    /// `\[table_prefix\]YYYYMMDD`, for example, for shard `MyTable20180101`, the
-    /// `table_prefix` is `MyTable`.
-    #[prost(string, tag = "2")]
-    pub table_prefix: ::prost::alloc::string::String,
-    /// Output only. Total number of shards.
-    #[prost(int64, tag = "3")]
-    pub shard_count: i64,
-}
-/// Table source type.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum TableSourceType {
-    /// Default unknown type.
-    Unspecified = 0,
-    /// Table view.
-    BigqueryView = 2,
-    /// BigQuery native table.
-    BigqueryTable = 5,
-    /// BigQuery materialized view.
-    BigqueryMaterializedView = 7,
-}
-impl TableSourceType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            TableSourceType::Unspecified => "TABLE_SOURCE_TYPE_UNSPECIFIED",
-            TableSourceType::BigqueryView => "BIGQUERY_VIEW",
-            TableSourceType::BigqueryTable => "BIGQUERY_TABLE",
-            TableSourceType::BigqueryMaterializedView => "BIGQUERY_MATERIALIZED_VIEW",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "TABLE_SOURCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "BIGQUERY_VIEW" => Some(Self::BigqueryView),
-            "BIGQUERY_TABLE" => Some(Self::BigqueryTable),
-            "BIGQUERY_MATERIALIZED_VIEW" => Some(Self::BigqueryMaterializedView),
-            _ => None,
-        }
-    }
-}
 /// This enum describes all the possible systems that Data Catalog integrates
 /// with.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
@@ -946,76 +841,6 @@ pub mod policy_tag_manager_client {
         }
     }
 }
-/// A result that appears in the response of a search request. Each result
-/// captures details of one entry that matches the search.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchCatalogResult {
-    /// Type of the search result. This field can be used to determine which Get
-    /// method to call to fetch the full resource.
-    #[prost(enumeration = "SearchResultType", tag = "1")]
-    pub search_result_type: i32,
-    /// Sub-type of the search result. This is a dot-delimited description of the
-    /// resource's full type, and is the same as the value callers would provide in
-    /// the "type" search facet.  Examples: `entry.table`, `entry.dataStream`,
-    /// `tagTemplate`.
-    #[prost(string, tag = "2")]
-    pub search_result_subtype: ::prost::alloc::string::String,
-    /// The relative resource name of the resource in URL format.
-    /// Examples:
-    ///
-    ///   * `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}`
-    ///   * `projects/{project_id}/tagTemplates/{tag_template_id}`
-    #[prost(string, tag = "3")]
-    pub relative_resource_name: ::prost::alloc::string::String,
-    /// The full name of the cloud resource the entry belongs to. See:
-    /// <https://cloud.google.com/apis/design/resource_names#full_resource_name.>
-    /// Example:
-    ///
-    ///   * `//bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId`
-    #[prost(string, tag = "4")]
-    pub linked_resource: ::prost::alloc::string::String,
-    /// Last-modified timestamp of the entry from the managing system.
-    #[prost(message, optional, tag = "7")]
-    pub modify_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// The different types of resources that can be returned in search.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum SearchResultType {
-    /// Default unknown type.
-    Unspecified = 0,
-    /// An [Entry][google.cloud.datacatalog.v1beta1.Entry].
-    Entry = 1,
-    /// A [TagTemplate][google.cloud.datacatalog.v1beta1.TagTemplate].
-    TagTemplate = 2,
-    /// An [EntryGroup][google.cloud.datacatalog.v1beta1.EntryGroup].
-    EntryGroup = 3,
-}
-impl SearchResultType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            SearchResultType::Unspecified => "SEARCH_RESULT_TYPE_UNSPECIFIED",
-            SearchResultType::Entry => "ENTRY",
-            SearchResultType::TagTemplate => "TAG_TEMPLATE",
-            SearchResultType::EntryGroup => "ENTRY_GROUP",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "SEARCH_RESULT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "ENTRY" => Some(Self::Entry),
-            "TAG_TEMPLATE" => Some(Self::TagTemplate),
-            "ENTRY_GROUP" => Some(Self::EntryGroup),
-            _ => None,
-        }
-    }
-}
 /// Describes a Cloud Storage fileset entry.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1101,6 +926,181 @@ pub struct ColumnSchema {
     /// sub-columns.
     #[prost(message, repeated, tag = "7")]
     pub subcolumns: ::prost::alloc::vec::Vec<ColumnSchema>,
+}
+/// A result that appears in the response of a search request. Each result
+/// captures details of one entry that matches the search.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchCatalogResult {
+    /// Type of the search result. This field can be used to determine which Get
+    /// method to call to fetch the full resource.
+    #[prost(enumeration = "SearchResultType", tag = "1")]
+    pub search_result_type: i32,
+    /// Sub-type of the search result. This is a dot-delimited description of the
+    /// resource's full type, and is the same as the value callers would provide in
+    /// the "type" search facet.  Examples: `entry.table`, `entry.dataStream`,
+    /// `tagTemplate`.
+    #[prost(string, tag = "2")]
+    pub search_result_subtype: ::prost::alloc::string::String,
+    /// The relative resource name of the resource in URL format.
+    /// Examples:
+    ///
+    ///   * `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}`
+    ///   * `projects/{project_id}/tagTemplates/{tag_template_id}`
+    #[prost(string, tag = "3")]
+    pub relative_resource_name: ::prost::alloc::string::String,
+    /// The full name of the cloud resource the entry belongs to. See:
+    /// <https://cloud.google.com/apis/design/resource_names#full_resource_name.>
+    /// Example:
+    ///
+    ///   * `//bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId`
+    #[prost(string, tag = "4")]
+    pub linked_resource: ::prost::alloc::string::String,
+    /// Last-modified timestamp of the entry from the managing system.
+    #[prost(message, optional, tag = "7")]
+    pub modify_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// The different types of resources that can be returned in search.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum SearchResultType {
+    /// Default unknown type.
+    Unspecified = 0,
+    /// An [Entry][google.cloud.datacatalog.v1beta1.Entry].
+    Entry = 1,
+    /// A [TagTemplate][google.cloud.datacatalog.v1beta1.TagTemplate].
+    TagTemplate = 2,
+    /// An [EntryGroup][google.cloud.datacatalog.v1beta1.EntryGroup].
+    EntryGroup = 3,
+}
+impl SearchResultType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            SearchResultType::Unspecified => "SEARCH_RESULT_TYPE_UNSPECIFIED",
+            SearchResultType::Entry => "ENTRY",
+            SearchResultType::TagTemplate => "TAG_TEMPLATE",
+            SearchResultType::EntryGroup => "ENTRY_GROUP",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SEARCH_RESULT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "ENTRY" => Some(Self::Entry),
+            "TAG_TEMPLATE" => Some(Self::TagTemplate),
+            "ENTRY_GROUP" => Some(Self::EntryGroup),
+            _ => None,
+        }
+    }
+}
+/// Describes a BigQuery table.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BigQueryTableSpec {
+    /// Output only. The table source type.
+    #[prost(enumeration = "TableSourceType", tag = "1")]
+    pub table_source_type: i32,
+    /// Output only.
+    #[prost(oneof = "big_query_table_spec::TypeSpec", tags = "2, 3")]
+    pub type_spec: ::core::option::Option<big_query_table_spec::TypeSpec>,
+}
+/// Nested message and enum types in `BigQueryTableSpec`.
+pub mod big_query_table_spec {
+    /// Output only.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum TypeSpec {
+        /// Table view specification. This field should only be populated if
+        /// `table_source_type` is `BIGQUERY_VIEW`.
+        #[prost(message, tag = "2")]
+        ViewSpec(super::ViewSpec),
+        /// Spec of a BigQuery table. This field should only be populated if
+        /// `table_source_type` is `BIGQUERY_TABLE`.
+        #[prost(message, tag = "3")]
+        TableSpec(super::TableSpec),
+    }
+}
+/// Table view specification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ViewSpec {
+    /// Output only. The query that defines the table view.
+    #[prost(string, tag = "1")]
+    pub view_query: ::prost::alloc::string::String,
+}
+/// Normal BigQuery table spec.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TableSpec {
+    /// Output only. If the table is a dated shard, i.e., with name pattern
+    /// `\[prefix\]YYYYMMDD`, `grouped_entry` is the Data Catalog resource name of
+    /// the date sharded grouped entry, for example,
+    /// `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
+    /// Otherwise, `grouped_entry` is empty.
+    #[prost(string, tag = "1")]
+    pub grouped_entry: ::prost::alloc::string::String,
+}
+/// Spec for a group of BigQuery tables with name pattern `\[prefix\]YYYYMMDD`.
+/// Context:
+/// <https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BigQueryDateShardedSpec {
+    /// Output only. The Data Catalog resource name of the dataset entry the
+    /// current table belongs to, for example,
+    /// `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
+    #[prost(string, tag = "1")]
+    pub dataset: ::prost::alloc::string::String,
+    /// Output only. The table name prefix of the shards. The name of any given
+    /// shard is
+    /// `\[table_prefix\]YYYYMMDD`, for example, for shard `MyTable20180101`, the
+    /// `table_prefix` is `MyTable`.
+    #[prost(string, tag = "2")]
+    pub table_prefix: ::prost::alloc::string::String,
+    /// Output only. Total number of shards.
+    #[prost(int64, tag = "3")]
+    pub shard_count: i64,
+}
+/// Table source type.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum TableSourceType {
+    /// Default unknown type.
+    Unspecified = 0,
+    /// Table view.
+    BigqueryView = 2,
+    /// BigQuery native table.
+    BigqueryTable = 5,
+    /// BigQuery materialized view.
+    BigqueryMaterializedView = 7,
+}
+impl TableSourceType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            TableSourceType::Unspecified => "TABLE_SOURCE_TYPE_UNSPECIFIED",
+            TableSourceType::BigqueryView => "BIGQUERY_VIEW",
+            TableSourceType::BigqueryTable => "BIGQUERY_TABLE",
+            TableSourceType::BigqueryMaterializedView => "BIGQUERY_MATERIALIZED_VIEW",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "TABLE_SOURCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "BIGQUERY_VIEW" => Some(Self::BigqueryView),
+            "BIGQUERY_TABLE" => Some(Self::BigqueryTable),
+            "BIGQUERY_MATERIALIZED_VIEW" => Some(Self::BigqueryMaterializedView),
+            _ => None,
+        }
+    }
 }
 /// Tags are used to attach custom metadata to Data Catalog resources. Tags
 /// conform to the specifications within their tag template.

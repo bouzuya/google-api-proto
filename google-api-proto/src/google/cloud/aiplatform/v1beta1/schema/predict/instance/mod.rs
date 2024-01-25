@@ -1,7 +1,20 @@
-/// Prediction input format for Video Action Recognition.
+/// Prediction input format for Text Sentiment.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VideoActionRecognitionPredictionInstance {
+pub struct TextSentimentPredictionInstance {
+    /// The text snippet to make the predictions on.
+    #[prost(string, tag = "1")]
+    pub content: ::prost::alloc::string::String,
+    /// The MIME type of the text snippet. The supported MIME types are listed
+    /// below.
+    /// - text/plain
+    #[prost(string, tag = "2")]
+    pub mime_type: ::prost::alloc::string::String,
+}
+/// Prediction input format for Video Object Tracking.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VideoObjectTrackingPredictionInstance {
     /// The Google Cloud Storage location of the video on which to perform the
     /// prediction.
     #[prost(string, tag = "1")]
@@ -44,43 +57,22 @@ pub struct TextExtractionPredictionInstance {
     #[prost(string, tag = "3")]
     pub key: ::prost::alloc::string::String,
 }
-/// Prediction input format for Image Segmentation.
+/// Prediction input format for Image Object Detection.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageSegmentationPredictionInstance {
-    /// The image bytes to make the predictions on.
+pub struct ImageObjectDetectionPredictionInstance {
+    /// The image bytes or Cloud Storage URI to make the prediction on.
     #[prost(string, tag = "1")]
     pub content: ::prost::alloc::string::String,
     /// The MIME type of the content of the image. Only the images in below listed
     /// MIME types are supported.
     /// - image/jpeg
+    /// - image/gif
     /// - image/png
-    #[prost(string, tag = "2")]
-    pub mime_type: ::prost::alloc::string::String,
-}
-/// Prediction input format for Text Sentiment.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextSentimentPredictionInstance {
-    /// The text snippet to make the predictions on.
-    #[prost(string, tag = "1")]
-    pub content: ::prost::alloc::string::String,
-    /// The MIME type of the text snippet. The supported MIME types are listed
-    /// below.
-    /// - text/plain
-    #[prost(string, tag = "2")]
-    pub mime_type: ::prost::alloc::string::String,
-}
-/// Prediction input format for Text Classification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextClassificationPredictionInstance {
-    /// The text snippet to make the predictions on.
-    #[prost(string, tag = "1")]
-    pub content: ::prost::alloc::string::String,
-    /// The MIME type of the text snippet. The supported MIME types are listed
-    /// below.
-    /// - text/plain
+    /// - image/webp
+    /// - image/bmp
+    /// - image/tiff
+    /// - image/vnd.microsoft.icon
     #[prost(string, tag = "2")]
     pub mime_type: ::prost::alloc::string::String,
 }
@@ -103,10 +95,10 @@ pub struct ImageClassificationPredictionInstance {
     #[prost(string, tag = "2")]
     pub mime_type: ::prost::alloc::string::String,
 }
-/// Prediction input format for Video Object Tracking.
+/// Prediction input format for Video Action Recognition.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VideoObjectTrackingPredictionInstance {
+pub struct VideoActionRecognitionPredictionInstance {
     /// The Google Cloud Storage location of the video on which to perform the
     /// prediction.
     #[prost(string, tag = "1")]
@@ -155,22 +147,30 @@ pub struct VideoClassificationPredictionInstance {
     #[prost(string, tag = "4")]
     pub time_segment_end: ::prost::alloc::string::String,
 }
-/// Prediction input format for Image Object Detection.
+/// Prediction input format for Image Segmentation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageObjectDetectionPredictionInstance {
-    /// The image bytes or Cloud Storage URI to make the prediction on.
+pub struct ImageSegmentationPredictionInstance {
+    /// The image bytes to make the predictions on.
     #[prost(string, tag = "1")]
     pub content: ::prost::alloc::string::String,
     /// The MIME type of the content of the image. Only the images in below listed
     /// MIME types are supported.
     /// - image/jpeg
-    /// - image/gif
     /// - image/png
-    /// - image/webp
-    /// - image/bmp
-    /// - image/tiff
-    /// - image/vnd.microsoft.icon
+    #[prost(string, tag = "2")]
+    pub mime_type: ::prost::alloc::string::String,
+}
+/// Prediction input format for Text Classification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextClassificationPredictionInstance {
+    /// The text snippet to make the predictions on.
+    #[prost(string, tag = "1")]
+    pub content: ::prost::alloc::string::String,
+    /// The MIME type of the text snippet. The supported MIME types are listed
+    /// below.
+    /// - text/plain
     #[prost(string, tag = "2")]
     pub mime_type: ::prost::alloc::string::String,
 }

@@ -833,6 +833,26 @@ pub struct Cursor {
     #[prost(bool, tag = "2")]
     pub before: bool,
 }
+/// The result of a single bucket from a Firestore aggregation query.
+///
+/// The keys of `aggregate_fields` are the same for all results in an aggregation
+/// query, unlike document queries which can have different fields present for
+/// each result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AggregationResult {
+    /// The result of the aggregation functions, ex: `COUNT(*) AS total_docs`.
+    ///
+    /// The key is the
+    /// [alias][google.firestore.v1.StructuredAggregationQuery.Aggregation.alias]
+    /// assigned to the aggregation function on input and the size of this map
+    /// equals the number of aggregation functions in the query.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub aggregate_fields: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        Value,
+    >,
+}
 /// A set of field paths on a document.
 /// Used to restrict a get or update operation on a document to a subset of its
 /// fields.
@@ -1000,26 +1020,6 @@ impl QueryMode {
             _ => None,
         }
     }
-}
-/// The result of a single bucket from a Firestore aggregation query.
-///
-/// The keys of `aggregate_fields` are the same for all results in an aggregation
-/// query, unlike document queries which can have different fields present for
-/// each result.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AggregationResult {
-    /// The result of the aggregation functions, ex: `COUNT(*) AS total_docs`.
-    ///
-    /// The key is the
-    /// [alias][google.firestore.v1.StructuredAggregationQuery.Aggregation.alias]
-    /// assigned to the aggregation function on input and the size of this map
-    /// equals the number of aggregation functions in the query.
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub aggregate_fields: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        Value,
-    >,
 }
 /// A sequence of bits, encoded in a byte array.
 ///

@@ -1,3 +1,74 @@
+/// Plan for the query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPlan {
+    /// Planning phase information for the query. It will include:
+    ///
+    /// {
+    ///    "indexes_used": [
+    ///      {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"},
+    ///      {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"}
+    ///    ]
+    /// }
+    #[prost(message, optional, tag = "1")]
+    pub plan_info: ::core::option::Option<::prost_types::Struct>,
+}
+/// Planning and execution statistics for the query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResultSetStats {
+    /// Plan for the query.
+    #[prost(message, optional, tag = "1")]
+    pub query_plan: ::core::option::Option<QueryPlan>,
+    /// Aggregated statistics from the execution of the query.
+    ///
+    /// This will only be present when the request specifies `PROFILE` mode.
+    /// For example, a query will return the statistics including:
+    ///
+    /// {
+    ///    "results_returned": "20",
+    ///    "documents_scanned": "20",
+    ///    "indexes_entries_scanned": "10050",
+    ///    "total_execution_time": "100.7 msecs"
+    /// }
+    #[prost(message, optional, tag = "2")]
+    pub query_stats: ::core::option::Option<::prost_types::Struct>,
+}
+/// The mode in which the query request must be processed.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum QueryMode {
+    /// The default mode. Only the query results are returned.
+    Normal = 0,
+    /// This mode returns only the query plan, without any results or execution
+    /// statistics information.
+    Plan = 1,
+    /// This mode returns both the query plan and the execution statistics along
+    /// with the results.
+    Profile = 2,
+}
+impl QueryMode {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            QueryMode::Normal => "NORMAL",
+            QueryMode::Plan => "PLAN",
+            QueryMode::Profile => "PROFILE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "NORMAL" => Some(Self::Normal),
+            "PLAN" => Some(Self::Plan),
+            "PROFILE" => Some(Self::Profile),
+            _ => None,
+        }
+    }
+}
 /// A partition ID identifies a grouping of entities. The grouping is always
 /// by project and namespace, however the namespace ID may be empty.
 ///
@@ -976,77 +1047,6 @@ pub mod query_result_batch {
                 "NO_MORE_RESULTS" => Some(Self::NoMoreResults),
                 _ => None,
             }
-        }
-    }
-}
-/// Plan for the query.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct QueryPlan {
-    /// Planning phase information for the query. It will include:
-    ///
-    /// {
-    ///    "indexes_used": [
-    ///      {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"},
-    ///      {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"}
-    ///    ]
-    /// }
-    #[prost(message, optional, tag = "1")]
-    pub plan_info: ::core::option::Option<::prost_types::Struct>,
-}
-/// Planning and execution statistics for the query.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResultSetStats {
-    /// Plan for the query.
-    #[prost(message, optional, tag = "1")]
-    pub query_plan: ::core::option::Option<QueryPlan>,
-    /// Aggregated statistics from the execution of the query.
-    ///
-    /// This will only be present when the request specifies `PROFILE` mode.
-    /// For example, a query will return the statistics including:
-    ///
-    /// {
-    ///    "results_returned": "20",
-    ///    "documents_scanned": "20",
-    ///    "indexes_entries_scanned": "10050",
-    ///    "total_execution_time": "100.7 msecs"
-    /// }
-    #[prost(message, optional, tag = "2")]
-    pub query_stats: ::core::option::Option<::prost_types::Struct>,
-}
-/// The mode in which the query request must be processed.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum QueryMode {
-    /// The default mode. Only the query results are returned.
-    Normal = 0,
-    /// This mode returns only the query plan, without any results or execution
-    /// statistics information.
-    Plan = 1,
-    /// This mode returns both the query plan and the execution statistics along
-    /// with the results.
-    Profile = 2,
-}
-impl QueryMode {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            QueryMode::Normal => "NORMAL",
-            QueryMode::Plan => "PLAN",
-            QueryMode::Profile => "PROFILE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "NORMAL" => Some(Self::Normal),
-            "PLAN" => Some(Self::Plan),
-            "PROFILE" => Some(Self::Profile),
-            _ => None,
         }
     }
 }

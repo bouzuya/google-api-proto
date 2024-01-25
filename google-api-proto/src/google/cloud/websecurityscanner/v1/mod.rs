@@ -1,82 +1,3 @@
-/// Output only.
-/// Defines a warning trace message for ScanRun. Warning traces provide customers
-/// with useful information that helps make the scanning process more effective.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ScanRunWarningTrace {
-    /// Output only. Indicates the warning code.
-    #[prost(enumeration = "scan_run_warning_trace::Code", tag = "1")]
-    pub code: i32,
-}
-/// Nested message and enum types in `ScanRunWarningTrace`.
-pub mod scan_run_warning_trace {
-    /// Output only.
-    /// Defines a warning message code.
-    /// Next id: 6
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Code {
-        /// Default value is never used.
-        Unspecified = 0,
-        /// Indicates that a scan discovered an unexpectedly low number of URLs. This
-        /// is sometimes caused by complex navigation features or by using a single
-        /// URL for numerous pages.
-        InsufficientCrawlResults = 1,
-        /// Indicates that a scan discovered too many URLs to test, or excessive
-        /// redundant URLs.
-        TooManyCrawlResults = 2,
-        /// Indicates that too many tests have been generated for the scan. Customer
-        /// should try reducing the number of starting URLs, increasing the QPS rate,
-        /// or narrowing down the scope of the scan using the excluded patterns.
-        TooManyFuzzTasks = 3,
-        /// Indicates that a scan is blocked by IAP.
-        BlockedByIap = 4,
-        /// Indicates that no seeds is found for a scan
-        NoStartingUrlFoundForManagedScan = 5,
-    }
-    impl Code {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Code::Unspecified => "CODE_UNSPECIFIED",
-                Code::InsufficientCrawlResults => "INSUFFICIENT_CRAWL_RESULTS",
-                Code::TooManyCrawlResults => "TOO_MANY_CRAWL_RESULTS",
-                Code::TooManyFuzzTasks => "TOO_MANY_FUZZ_TASKS",
-                Code::BlockedByIap => "BLOCKED_BY_IAP",
-                Code::NoStartingUrlFoundForManagedScan => {
-                    "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "INSUFFICIENT_CRAWL_RESULTS" => Some(Self::InsufficientCrawlResults),
-                "TOO_MANY_CRAWL_RESULTS" => Some(Self::TooManyCrawlResults),
-                "TOO_MANY_FUZZ_TASKS" => Some(Self::TooManyFuzzTasks),
-                "BLOCKED_BY_IAP" => Some(Self::BlockedByIap),
-                "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN" => {
-                    Some(Self::NoStartingUrlFoundForManagedScan)
-                }
-                _ => None,
-            }
-        }
-    }
-}
 /// Defines a custom error message used by CreateScanConfig and UpdateScanConfig
 /// APIs when scan configuration validation fails. It is also reported as part of
 /// a ScanRunErrorTrace message if scan validation fails due to a scan
@@ -452,6 +373,630 @@ pub mod scan_run_error_trace {
         }
     }
 }
+/// Output only.
+/// Defines a warning trace message for ScanRun. Warning traces provide customers
+/// with useful information that helps make the scanning process more effective.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ScanRunWarningTrace {
+    /// Output only. Indicates the warning code.
+    #[prost(enumeration = "scan_run_warning_trace::Code", tag = "1")]
+    pub code: i32,
+}
+/// Nested message and enum types in `ScanRunWarningTrace`.
+pub mod scan_run_warning_trace {
+    /// Output only.
+    /// Defines a warning message code.
+    /// Next id: 6
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Code {
+        /// Default value is never used.
+        Unspecified = 0,
+        /// Indicates that a scan discovered an unexpectedly low number of URLs. This
+        /// is sometimes caused by complex navigation features or by using a single
+        /// URL for numerous pages.
+        InsufficientCrawlResults = 1,
+        /// Indicates that a scan discovered too many URLs to test, or excessive
+        /// redundant URLs.
+        TooManyCrawlResults = 2,
+        /// Indicates that too many tests have been generated for the scan. Customer
+        /// should try reducing the number of starting URLs, increasing the QPS rate,
+        /// or narrowing down the scope of the scan using the excluded patterns.
+        TooManyFuzzTasks = 3,
+        /// Indicates that a scan is blocked by IAP.
+        BlockedByIap = 4,
+        /// Indicates that no seeds is found for a scan
+        NoStartingUrlFoundForManagedScan = 5,
+    }
+    impl Code {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Code::Unspecified => "CODE_UNSPECIFIED",
+                Code::InsufficientCrawlResults => "INSUFFICIENT_CRAWL_RESULTS",
+                Code::TooManyCrawlResults => "TOO_MANY_CRAWL_RESULTS",
+                Code::TooManyFuzzTasks => "TOO_MANY_FUZZ_TASKS",
+                Code::BlockedByIap => "BLOCKED_BY_IAP",
+                Code::NoStartingUrlFoundForManagedScan => {
+                    "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "INSUFFICIENT_CRAWL_RESULTS" => Some(Self::InsufficientCrawlResults),
+                "TOO_MANY_CRAWL_RESULTS" => Some(Self::TooManyCrawlResults),
+                "TOO_MANY_FUZZ_TASKS" => Some(Self::TooManyFuzzTasks),
+                "BLOCKED_BY_IAP" => Some(Self::BlockedByIap),
+                "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN" => {
+                    Some(Self::NoStartingUrlFoundForManagedScan)
+                }
+                _ => None,
+            }
+        }
+    }
+}
+/// A ScanRun is a output-only resource representing an actual run of the scan.
+/// Next id: 12
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ScanRun {
+    /// Output only. The resource name of the ScanRun. The name follows the format of
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
+    /// The ScanRun IDs are generated by the system.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The execution state of the ScanRun.
+    #[prost(enumeration = "scan_run::ExecutionState", tag = "2")]
+    pub execution_state: i32,
+    /// Output only. The result state of the ScanRun. This field is only available after the
+    /// execution state reaches "FINISHED".
+    #[prost(enumeration = "scan_run::ResultState", tag = "3")]
+    pub result_state: i32,
+    /// Output only. The time at which the ScanRun started.
+    #[prost(message, optional, tag = "4")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time at which the ScanRun reached termination state - that the ScanRun
+    /// is either finished or stopped by user.
+    #[prost(message, optional, tag = "5")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The number of URLs crawled during this ScanRun. If the scan is in progress,
+    /// the value represents the number of URLs crawled up to now.
+    #[prost(int64, tag = "6")]
+    pub urls_crawled_count: i64,
+    /// Output only. The number of URLs tested during this ScanRun. If the scan is in progress,
+    /// the value represents the number of URLs tested up to now. The number of
+    /// URLs tested is usually larger than the number URLS crawled because
+    /// typically a crawled URL is tested with multiple test payloads.
+    #[prost(int64, tag = "7")]
+    pub urls_tested_count: i64,
+    /// Output only. Whether the scan run has found any vulnerabilities.
+    #[prost(bool, tag = "8")]
+    pub has_vulnerabilities: bool,
+    /// Output only. The percentage of total completion ranging from 0 to 100.
+    /// If the scan is in queue, the value is 0.
+    /// If the scan is running, the value ranges from 0 to 100.
+    /// If the scan is finished, the value is 100.
+    #[prost(int32, tag = "9")]
+    pub progress_percent: i32,
+    /// Output only. If result_state is an ERROR, this field provides the primary reason for
+    /// scan's termination and more details, if such are available.
+    #[prost(message, optional, tag = "10")]
+    pub error_trace: ::core::option::Option<ScanRunErrorTrace>,
+    /// Output only. A list of warnings, if such are encountered during this scan run.
+    #[prost(message, repeated, tag = "11")]
+    pub warning_traces: ::prost::alloc::vec::Vec<ScanRunWarningTrace>,
+}
+/// Nested message and enum types in `ScanRun`.
+pub mod scan_run {
+    /// Types of ScanRun execution state.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ExecutionState {
+        /// Represents an invalid state caused by internal server error. This value
+        /// should never be returned.
+        Unspecified = 0,
+        /// The scan is waiting in the queue.
+        Queued = 1,
+        /// The scan is in progress.
+        Scanning = 2,
+        /// The scan is either finished or stopped by user.
+        Finished = 3,
+    }
+    impl ExecutionState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ExecutionState::Unspecified => "EXECUTION_STATE_UNSPECIFIED",
+                ExecutionState::Queued => "QUEUED",
+                ExecutionState::Scanning => "SCANNING",
+                ExecutionState::Finished => "FINISHED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "EXECUTION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "QUEUED" => Some(Self::Queued),
+                "SCANNING" => Some(Self::Scanning),
+                "FINISHED" => Some(Self::Finished),
+                _ => None,
+            }
+        }
+    }
+    /// Types of ScanRun result state.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ResultState {
+        /// Default value. This value is returned when the ScanRun is not yet
+        /// finished.
+        Unspecified = 0,
+        /// The scan finished without errors.
+        Success = 1,
+        /// The scan finished with errors.
+        Error = 2,
+        /// The scan was terminated by user.
+        Killed = 3,
+    }
+    impl ResultState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ResultState::Unspecified => "RESULT_STATE_UNSPECIFIED",
+                ResultState::Success => "SUCCESS",
+                ResultState::Error => "ERROR",
+                ResultState::Killed => "KILLED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RESULT_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "SUCCESS" => Some(Self::Success),
+                "ERROR" => Some(Self::Error),
+                "KILLED" => Some(Self::Killed),
+                _ => None,
+            }
+        }
+    }
+}
+/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
+/// Security Scanner Service crawls the web applications, following all links
+/// within the scope of sites, to find the URLs to test against.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CrawledUrl {
+    /// Output only. The http method of the request that was used to visit the URL, in
+    /// uppercase.
+    #[prost(string, tag = "1")]
+    pub http_method: ::prost::alloc::string::String,
+    /// Output only. The URL that was crawled.
+    #[prost(string, tag = "2")]
+    pub url: ::prost::alloc::string::String,
+    /// Output only. The body of the request that was used to visit the URL.
+    #[prost(string, tag = "3")]
+    pub body: ::prost::alloc::string::String,
+}
+/// A FindingTypeStats resource represents stats regarding a specific FindingType
+/// of Findings under a given ScanRun.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FindingTypeStats {
+    /// Output only. The finding type associated with the stats.
+    #[prost(string, tag = "1")]
+    pub finding_type: ::prost::alloc::string::String,
+    /// Output only. The count of findings belonging to this finding type.
+    #[prost(int32, tag = "2")]
+    pub finding_count: i32,
+}
+/// ! Information about a vulnerability with an HTML.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Form {
+    /// ! The URI where to send the form when it's submitted.
+    #[prost(string, tag = "1")]
+    pub action_uri: ::prost::alloc::string::String,
+    /// ! The names of form fields related to the vulnerability.
+    #[prost(string, repeated, tag = "2")]
+    pub fields: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Information reported for an outdated library.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OutdatedLibrary {
+    /// The name of the outdated library.
+    #[prost(string, tag = "1")]
+    pub library_name: ::prost::alloc::string::String,
+    /// The version number.
+    #[prost(string, tag = "2")]
+    pub version: ::prost::alloc::string::String,
+    /// URLs to learn more information about the vulnerabilities in the library.
+    #[prost(string, repeated, tag = "3")]
+    pub learn_more_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Information regarding any resource causing the vulnerability such
+/// as JavaScript sources, image, audio files, etc.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ViolatingResource {
+    /// The MIME type of this resource.
+    #[prost(string, tag = "1")]
+    pub content_type: ::prost::alloc::string::String,
+    /// URL of this violating resource.
+    #[prost(string, tag = "2")]
+    pub resource_url: ::prost::alloc::string::String,
+}
+/// Information about vulnerable request parameters.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VulnerableParameters {
+    /// The vulnerable parameter names.
+    #[prost(string, repeated, tag = "1")]
+    pub parameter_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Information about vulnerable or missing HTTP Headers.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VulnerableHeaders {
+    /// List of vulnerable headers.
+    #[prost(message, repeated, tag = "1")]
+    pub headers: ::prost::alloc::vec::Vec<vulnerable_headers::Header>,
+    /// List of missing headers.
+    #[prost(message, repeated, tag = "2")]
+    pub missing_headers: ::prost::alloc::vec::Vec<vulnerable_headers::Header>,
+}
+/// Nested message and enum types in `VulnerableHeaders`.
+pub mod vulnerable_headers {
+    /// Describes a HTTP Header.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Header {
+        /// Header name.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        /// Header value.
+        #[prost(string, tag = "2")]
+        pub value: ::prost::alloc::string::String,
+    }
+}
+/// Information reported for an XSS.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Xss {
+    /// Stack traces leading to the point where the XSS occurred.
+    #[prost(string, repeated, tag = "1")]
+    pub stack_traces: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// An error message generated by a javascript breakage.
+    #[prost(string, tag = "2")]
+    pub error_message: ::prost::alloc::string::String,
+    /// The attack vector of the payload triggering this XSS.
+    #[prost(enumeration = "xss::AttackVector", tag = "3")]
+    pub attack_vector: i32,
+    /// The reproduction url for the seeding POST request of a Stored XSS.
+    #[prost(string, tag = "4")]
+    pub stored_xss_seeding_url: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Xss`.
+pub mod xss {
+    /// Types of XSS attack vector.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum AttackVector {
+        /// Unknown attack vector.
+        Unspecified = 0,
+        /// The attack comes from fuzzing the browser's localStorage.
+        LocalStorage = 1,
+        /// The attack comes from fuzzing the browser's sessionStorage.
+        SessionStorage = 2,
+        /// The attack comes from fuzzing the window's name property.
+        WindowName = 3,
+        /// The attack comes from fuzzing the referrer property.
+        Referrer = 4,
+        /// The attack comes from fuzzing an input element.
+        FormInput = 5,
+        /// The attack comes from fuzzing the browser's cookies.
+        Cookie = 6,
+        /// The attack comes from hijacking the post messaging mechanism.
+        PostMessage = 7,
+        /// The attack comes from fuzzing parameters in the url.
+        GetParameters = 8,
+        /// The attack comes from fuzzing the fragment in the url.
+        UrlFragment = 9,
+        /// The attack comes from fuzzing the HTML comments.
+        HtmlComment = 10,
+        /// The attack comes from fuzzing the POST parameters.
+        PostParameters = 11,
+        /// The attack comes from fuzzing the protocol.
+        Protocol = 12,
+        /// The attack comes from the server side and is stored.
+        StoredXss = 13,
+        /// The attack is a Same-Origin Method Execution attack via a GET parameter.
+        SameOrigin = 14,
+        /// The attack payload is received from a third-party host via a URL that is
+        /// user-controllable
+        UserControllableUrl = 15,
+    }
+    impl AttackVector {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                AttackVector::Unspecified => "ATTACK_VECTOR_UNSPECIFIED",
+                AttackVector::LocalStorage => "LOCAL_STORAGE",
+                AttackVector::SessionStorage => "SESSION_STORAGE",
+                AttackVector::WindowName => "WINDOW_NAME",
+                AttackVector::Referrer => "REFERRER",
+                AttackVector::FormInput => "FORM_INPUT",
+                AttackVector::Cookie => "COOKIE",
+                AttackVector::PostMessage => "POST_MESSAGE",
+                AttackVector::GetParameters => "GET_PARAMETERS",
+                AttackVector::UrlFragment => "URL_FRAGMENT",
+                AttackVector::HtmlComment => "HTML_COMMENT",
+                AttackVector::PostParameters => "POST_PARAMETERS",
+                AttackVector::Protocol => "PROTOCOL",
+                AttackVector::StoredXss => "STORED_XSS",
+                AttackVector::SameOrigin => "SAME_ORIGIN",
+                AttackVector::UserControllableUrl => "USER_CONTROLLABLE_URL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ATTACK_VECTOR_UNSPECIFIED" => Some(Self::Unspecified),
+                "LOCAL_STORAGE" => Some(Self::LocalStorage),
+                "SESSION_STORAGE" => Some(Self::SessionStorage),
+                "WINDOW_NAME" => Some(Self::WindowName),
+                "REFERRER" => Some(Self::Referrer),
+                "FORM_INPUT" => Some(Self::FormInput),
+                "COOKIE" => Some(Self::Cookie),
+                "POST_MESSAGE" => Some(Self::PostMessage),
+                "GET_PARAMETERS" => Some(Self::GetParameters),
+                "URL_FRAGMENT" => Some(Self::UrlFragment),
+                "HTML_COMMENT" => Some(Self::HtmlComment),
+                "POST_PARAMETERS" => Some(Self::PostParameters),
+                "PROTOCOL" => Some(Self::Protocol),
+                "STORED_XSS" => Some(Self::StoredXss),
+                "SAME_ORIGIN" => Some(Self::SameOrigin),
+                "USER_CONTROLLABLE_URL" => Some(Self::UserControllableUrl),
+                _ => None,
+            }
+        }
+    }
+}
+/// Information reported for an XXE.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Xxe {
+    /// The XML string that triggered the XXE vulnerability. Non-payload values
+    /// might be redacted.
+    #[prost(string, tag = "1")]
+    pub payload_value: ::prost::alloc::string::String,
+    /// Location within the request where the payload was placed.
+    #[prost(enumeration = "xxe::Location", tag = "2")]
+    pub payload_location: i32,
+}
+/// Nested message and enum types in `Xxe`.
+pub mod xxe {
+    /// Locations within a request where XML was substituted.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Location {
+        /// Unknown Location.
+        Unspecified = 0,
+        /// The XML payload replaced the complete request body.
+        CompleteRequestBody = 1,
+    }
+    impl Location {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Location::Unspecified => "LOCATION_UNSPECIFIED",
+                Location::CompleteRequestBody => "COMPLETE_REQUEST_BODY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "LOCATION_UNSPECIFIED" => Some(Self::Unspecified),
+                "COMPLETE_REQUEST_BODY" => Some(Self::CompleteRequestBody),
+                _ => None,
+            }
+        }
+    }
+}
+/// A Finding resource represents a vulnerability instance identified during a
+/// ScanRun.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Finding {
+    /// Output only. The resource name of the Finding. The name follows the format of
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanruns/{scanRunId}/findings/{findingId}'.
+    /// The finding IDs are generated by the system.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The type of the Finding.
+    /// Detailed and up-to-date information on findings can be found here:
+    /// <https://cloud.google.com/security-command-center/docs/how-to-remediate-web-security-scanner-findings>
+    #[prost(string, tag = "2")]
+    pub finding_type: ::prost::alloc::string::String,
+    /// Output only. The severity level of the reported vulnerability.
+    #[prost(enumeration = "finding::Severity", tag = "17")]
+    pub severity: i32,
+    /// Output only. The http method of the request that triggered the vulnerability, in
+    /// uppercase.
+    #[prost(string, tag = "3")]
+    pub http_method: ::prost::alloc::string::String,
+    /// Output only. The URL produced by the server-side fuzzer and used in the request that
+    /// triggered the vulnerability.
+    #[prost(string, tag = "4")]
+    pub fuzzed_url: ::prost::alloc::string::String,
+    /// Output only. The body of the request that triggered the vulnerability.
+    #[prost(string, tag = "5")]
+    pub body: ::prost::alloc::string::String,
+    /// Output only. The description of the vulnerability.
+    #[prost(string, tag = "6")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. The URL containing human-readable payload that user can leverage to
+    /// reproduce the vulnerability.
+    #[prost(string, tag = "7")]
+    pub reproduction_url: ::prost::alloc::string::String,
+    /// Output only. If the vulnerability was originated from nested IFrame, the immediate
+    /// parent IFrame is reported.
+    #[prost(string, tag = "8")]
+    pub frame_url: ::prost::alloc::string::String,
+    /// Output only. The URL where the browser lands when the vulnerability is detected.
+    #[prost(string, tag = "9")]
+    pub final_url: ::prost::alloc::string::String,
+    /// Output only. The tracking ID uniquely identifies a vulnerability instance across
+    /// multiple ScanRuns.
+    #[prost(string, tag = "10")]
+    pub tracking_id: ::prost::alloc::string::String,
+    /// Output only. An addon containing information reported for a vulnerability with an HTML
+    /// form, if any.
+    #[prost(message, optional, tag = "16")]
+    pub form: ::core::option::Option<Form>,
+    /// Output only. An addon containing information about outdated libraries.
+    #[prost(message, optional, tag = "11")]
+    pub outdated_library: ::core::option::Option<OutdatedLibrary>,
+    /// Output only. An addon containing detailed information regarding any resource causing the
+    /// vulnerability such as JavaScript sources, image, audio files, etc.
+    #[prost(message, optional, tag = "12")]
+    pub violating_resource: ::core::option::Option<ViolatingResource>,
+    /// Output only. An addon containing information about vulnerable or missing HTTP headers.
+    #[prost(message, optional, tag = "15")]
+    pub vulnerable_headers: ::core::option::Option<VulnerableHeaders>,
+    /// Output only. An addon containing information about request parameters which were found
+    /// to be vulnerable.
+    #[prost(message, optional, tag = "13")]
+    pub vulnerable_parameters: ::core::option::Option<VulnerableParameters>,
+    /// Output only. An addon containing information reported for an XSS, if any.
+    #[prost(message, optional, tag = "14")]
+    pub xss: ::core::option::Option<Xss>,
+    /// Output only. An addon containing information reported for an XXE, if any.
+    #[prost(message, optional, tag = "18")]
+    pub xxe: ::core::option::Option<Xxe>,
+}
+/// Nested message and enum types in `Finding`.
+pub mod finding {
+    /// The severity level of a vulnerability.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Severity {
+        /// No severity specified. The default value.
+        Unspecified = 0,
+        /// Critical severity.
+        Critical = 1,
+        /// High severity.
+        High = 2,
+        /// Medium severity.
+        Medium = 3,
+        /// Low severity.
+        Low = 4,
+    }
+    impl Severity {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Severity::Unspecified => "SEVERITY_UNSPECIFIED",
+                Severity::Critical => "CRITICAL",
+                Severity::High => "HIGH",
+                Severity::Medium => "MEDIUM",
+                Severity::Low => "LOW",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "SEVERITY_UNSPECIFIED" => Some(Self::Unspecified),
+                "CRITICAL" => Some(Self::Critical),
+                "HIGH" => Some(Self::High),
+                "MEDIUM" => Some(Self::Medium),
+                "LOW" => Some(Self::Low),
+                _ => None,
+            }
+        }
+    }
+}
 /// A ScanConfig resource contains the configurations to launch a scan.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -746,580 +1291,6 @@ pub mod scan_config {
             }
         }
     }
-}
-/// A ScanRun is a output-only resource representing an actual run of the scan.
-/// Next id: 12
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ScanRun {
-    /// Output only. The resource name of the ScanRun. The name follows the format of
-    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
-    /// The ScanRun IDs are generated by the system.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The execution state of the ScanRun.
-    #[prost(enumeration = "scan_run::ExecutionState", tag = "2")]
-    pub execution_state: i32,
-    /// Output only. The result state of the ScanRun. This field is only available after the
-    /// execution state reaches "FINISHED".
-    #[prost(enumeration = "scan_run::ResultState", tag = "3")]
-    pub result_state: i32,
-    /// Output only. The time at which the ScanRun started.
-    #[prost(message, optional, tag = "4")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time at which the ScanRun reached termination state - that the ScanRun
-    /// is either finished or stopped by user.
-    #[prost(message, optional, tag = "5")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The number of URLs crawled during this ScanRun. If the scan is in progress,
-    /// the value represents the number of URLs crawled up to now.
-    #[prost(int64, tag = "6")]
-    pub urls_crawled_count: i64,
-    /// Output only. The number of URLs tested during this ScanRun. If the scan is in progress,
-    /// the value represents the number of URLs tested up to now. The number of
-    /// URLs tested is usually larger than the number URLS crawled because
-    /// typically a crawled URL is tested with multiple test payloads.
-    #[prost(int64, tag = "7")]
-    pub urls_tested_count: i64,
-    /// Output only. Whether the scan run has found any vulnerabilities.
-    #[prost(bool, tag = "8")]
-    pub has_vulnerabilities: bool,
-    /// Output only. The percentage of total completion ranging from 0 to 100.
-    /// If the scan is in queue, the value is 0.
-    /// If the scan is running, the value ranges from 0 to 100.
-    /// If the scan is finished, the value is 100.
-    #[prost(int32, tag = "9")]
-    pub progress_percent: i32,
-    /// Output only. If result_state is an ERROR, this field provides the primary reason for
-    /// scan's termination and more details, if such are available.
-    #[prost(message, optional, tag = "10")]
-    pub error_trace: ::core::option::Option<ScanRunErrorTrace>,
-    /// Output only. A list of warnings, if such are encountered during this scan run.
-    #[prost(message, repeated, tag = "11")]
-    pub warning_traces: ::prost::alloc::vec::Vec<ScanRunWarningTrace>,
-}
-/// Nested message and enum types in `ScanRun`.
-pub mod scan_run {
-    /// Types of ScanRun execution state.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ExecutionState {
-        /// Represents an invalid state caused by internal server error. This value
-        /// should never be returned.
-        Unspecified = 0,
-        /// The scan is waiting in the queue.
-        Queued = 1,
-        /// The scan is in progress.
-        Scanning = 2,
-        /// The scan is either finished or stopped by user.
-        Finished = 3,
-    }
-    impl ExecutionState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ExecutionState::Unspecified => "EXECUTION_STATE_UNSPECIFIED",
-                ExecutionState::Queued => "QUEUED",
-                ExecutionState::Scanning => "SCANNING",
-                ExecutionState::Finished => "FINISHED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "EXECUTION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "QUEUED" => Some(Self::Queued),
-                "SCANNING" => Some(Self::Scanning),
-                "FINISHED" => Some(Self::Finished),
-                _ => None,
-            }
-        }
-    }
-    /// Types of ScanRun result state.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ResultState {
-        /// Default value. This value is returned when the ScanRun is not yet
-        /// finished.
-        Unspecified = 0,
-        /// The scan finished without errors.
-        Success = 1,
-        /// The scan finished with errors.
-        Error = 2,
-        /// The scan was terminated by user.
-        Killed = 3,
-    }
-    impl ResultState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ResultState::Unspecified => "RESULT_STATE_UNSPECIFIED",
-                ResultState::Success => "SUCCESS",
-                ResultState::Error => "ERROR",
-                ResultState::Killed => "KILLED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "RESULT_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "SUCCESS" => Some(Self::Success),
-                "ERROR" => Some(Self::Error),
-                "KILLED" => Some(Self::Killed),
-                _ => None,
-            }
-        }
-    }
-}
-/// ! Information about a vulnerability with an HTML.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Form {
-    /// ! The URI where to send the form when it's submitted.
-    #[prost(string, tag = "1")]
-    pub action_uri: ::prost::alloc::string::String,
-    /// ! The names of form fields related to the vulnerability.
-    #[prost(string, repeated, tag = "2")]
-    pub fields: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Information reported for an outdated library.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OutdatedLibrary {
-    /// The name of the outdated library.
-    #[prost(string, tag = "1")]
-    pub library_name: ::prost::alloc::string::String,
-    /// The version number.
-    #[prost(string, tag = "2")]
-    pub version: ::prost::alloc::string::String,
-    /// URLs to learn more information about the vulnerabilities in the library.
-    #[prost(string, repeated, tag = "3")]
-    pub learn_more_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Information regarding any resource causing the vulnerability such
-/// as JavaScript sources, image, audio files, etc.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ViolatingResource {
-    /// The MIME type of this resource.
-    #[prost(string, tag = "1")]
-    pub content_type: ::prost::alloc::string::String,
-    /// URL of this violating resource.
-    #[prost(string, tag = "2")]
-    pub resource_url: ::prost::alloc::string::String,
-}
-/// Information about vulnerable request parameters.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VulnerableParameters {
-    /// The vulnerable parameter names.
-    #[prost(string, repeated, tag = "1")]
-    pub parameter_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Information about vulnerable or missing HTTP Headers.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VulnerableHeaders {
-    /// List of vulnerable headers.
-    #[prost(message, repeated, tag = "1")]
-    pub headers: ::prost::alloc::vec::Vec<vulnerable_headers::Header>,
-    /// List of missing headers.
-    #[prost(message, repeated, tag = "2")]
-    pub missing_headers: ::prost::alloc::vec::Vec<vulnerable_headers::Header>,
-}
-/// Nested message and enum types in `VulnerableHeaders`.
-pub mod vulnerable_headers {
-    /// Describes a HTTP Header.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Header {
-        /// Header name.
-        #[prost(string, tag = "1")]
-        pub name: ::prost::alloc::string::String,
-        /// Header value.
-        #[prost(string, tag = "2")]
-        pub value: ::prost::alloc::string::String,
-    }
-}
-/// Information reported for an XSS.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Xss {
-    /// Stack traces leading to the point where the XSS occurred.
-    #[prost(string, repeated, tag = "1")]
-    pub stack_traces: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// An error message generated by a javascript breakage.
-    #[prost(string, tag = "2")]
-    pub error_message: ::prost::alloc::string::String,
-    /// The attack vector of the payload triggering this XSS.
-    #[prost(enumeration = "xss::AttackVector", tag = "3")]
-    pub attack_vector: i32,
-    /// The reproduction url for the seeding POST request of a Stored XSS.
-    #[prost(string, tag = "4")]
-    pub stored_xss_seeding_url: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Xss`.
-pub mod xss {
-    /// Types of XSS attack vector.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum AttackVector {
-        /// Unknown attack vector.
-        Unspecified = 0,
-        /// The attack comes from fuzzing the browser's localStorage.
-        LocalStorage = 1,
-        /// The attack comes from fuzzing the browser's sessionStorage.
-        SessionStorage = 2,
-        /// The attack comes from fuzzing the window's name property.
-        WindowName = 3,
-        /// The attack comes from fuzzing the referrer property.
-        Referrer = 4,
-        /// The attack comes from fuzzing an input element.
-        FormInput = 5,
-        /// The attack comes from fuzzing the browser's cookies.
-        Cookie = 6,
-        /// The attack comes from hijacking the post messaging mechanism.
-        PostMessage = 7,
-        /// The attack comes from fuzzing parameters in the url.
-        GetParameters = 8,
-        /// The attack comes from fuzzing the fragment in the url.
-        UrlFragment = 9,
-        /// The attack comes from fuzzing the HTML comments.
-        HtmlComment = 10,
-        /// The attack comes from fuzzing the POST parameters.
-        PostParameters = 11,
-        /// The attack comes from fuzzing the protocol.
-        Protocol = 12,
-        /// The attack comes from the server side and is stored.
-        StoredXss = 13,
-        /// The attack is a Same-Origin Method Execution attack via a GET parameter.
-        SameOrigin = 14,
-        /// The attack payload is received from a third-party host via a URL that is
-        /// user-controllable
-        UserControllableUrl = 15,
-    }
-    impl AttackVector {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                AttackVector::Unspecified => "ATTACK_VECTOR_UNSPECIFIED",
-                AttackVector::LocalStorage => "LOCAL_STORAGE",
-                AttackVector::SessionStorage => "SESSION_STORAGE",
-                AttackVector::WindowName => "WINDOW_NAME",
-                AttackVector::Referrer => "REFERRER",
-                AttackVector::FormInput => "FORM_INPUT",
-                AttackVector::Cookie => "COOKIE",
-                AttackVector::PostMessage => "POST_MESSAGE",
-                AttackVector::GetParameters => "GET_PARAMETERS",
-                AttackVector::UrlFragment => "URL_FRAGMENT",
-                AttackVector::HtmlComment => "HTML_COMMENT",
-                AttackVector::PostParameters => "POST_PARAMETERS",
-                AttackVector::Protocol => "PROTOCOL",
-                AttackVector::StoredXss => "STORED_XSS",
-                AttackVector::SameOrigin => "SAME_ORIGIN",
-                AttackVector::UserControllableUrl => "USER_CONTROLLABLE_URL",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ATTACK_VECTOR_UNSPECIFIED" => Some(Self::Unspecified),
-                "LOCAL_STORAGE" => Some(Self::LocalStorage),
-                "SESSION_STORAGE" => Some(Self::SessionStorage),
-                "WINDOW_NAME" => Some(Self::WindowName),
-                "REFERRER" => Some(Self::Referrer),
-                "FORM_INPUT" => Some(Self::FormInput),
-                "COOKIE" => Some(Self::Cookie),
-                "POST_MESSAGE" => Some(Self::PostMessage),
-                "GET_PARAMETERS" => Some(Self::GetParameters),
-                "URL_FRAGMENT" => Some(Self::UrlFragment),
-                "HTML_COMMENT" => Some(Self::HtmlComment),
-                "POST_PARAMETERS" => Some(Self::PostParameters),
-                "PROTOCOL" => Some(Self::Protocol),
-                "STORED_XSS" => Some(Self::StoredXss),
-                "SAME_ORIGIN" => Some(Self::SameOrigin),
-                "USER_CONTROLLABLE_URL" => Some(Self::UserControllableUrl),
-                _ => None,
-            }
-        }
-    }
-}
-/// Information reported for an XXE.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Xxe {
-    /// The XML string that triggered the XXE vulnerability. Non-payload values
-    /// might be redacted.
-    #[prost(string, tag = "1")]
-    pub payload_value: ::prost::alloc::string::String,
-    /// Location within the request where the payload was placed.
-    #[prost(enumeration = "xxe::Location", tag = "2")]
-    pub payload_location: i32,
-}
-/// Nested message and enum types in `Xxe`.
-pub mod xxe {
-    /// Locations within a request where XML was substituted.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Location {
-        /// Unknown Location.
-        Unspecified = 0,
-        /// The XML payload replaced the complete request body.
-        CompleteRequestBody = 1,
-    }
-    impl Location {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Location::Unspecified => "LOCATION_UNSPECIFIED",
-                Location::CompleteRequestBody => "COMPLETE_REQUEST_BODY",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "LOCATION_UNSPECIFIED" => Some(Self::Unspecified),
-                "COMPLETE_REQUEST_BODY" => Some(Self::CompleteRequestBody),
-                _ => None,
-            }
-        }
-    }
-}
-/// A ScanRunLog is an output-only proto used for Stackdriver customer logging.
-/// It is used for logs covering the start and end of scan pipelines.
-/// Other than an added summary, this is a subset of the ScanRun.
-/// Representation in logs is either a proto Struct, or converted to JSON.
-/// Next id: 9
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ScanRunLog {
-    /// Human friendly message about the event.
-    #[prost(string, tag = "1")]
-    pub summary: ::prost::alloc::string::String,
-    /// The resource name of the ScanRun being logged.
-    #[prost(string, tag = "2")]
-    pub name: ::prost::alloc::string::String,
-    /// The execution state of the ScanRun.
-    #[prost(enumeration = "scan_run::ExecutionState", tag = "3")]
-    pub execution_state: i32,
-    /// The result state of the ScanRun.
-    #[prost(enumeration = "scan_run::ResultState", tag = "4")]
-    pub result_state: i32,
-    #[prost(int64, tag = "5")]
-    pub urls_crawled_count: i64,
-    #[prost(int64, tag = "6")]
-    pub urls_tested_count: i64,
-    #[prost(bool, tag = "7")]
-    pub has_findings: bool,
-    #[prost(message, optional, tag = "8")]
-    pub error_trace: ::core::option::Option<ScanRunErrorTrace>,
-}
-/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
-/// Security Scanner Service crawls the web applications, following all links
-/// within the scope of sites, to find the URLs to test against.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CrawledUrl {
-    /// Output only. The http method of the request that was used to visit the URL, in
-    /// uppercase.
-    #[prost(string, tag = "1")]
-    pub http_method: ::prost::alloc::string::String,
-    /// Output only. The URL that was crawled.
-    #[prost(string, tag = "2")]
-    pub url: ::prost::alloc::string::String,
-    /// Output only. The body of the request that was used to visit the URL.
-    #[prost(string, tag = "3")]
-    pub body: ::prost::alloc::string::String,
-}
-/// A Finding resource represents a vulnerability instance identified during a
-/// ScanRun.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Finding {
-    /// Output only. The resource name of the Finding. The name follows the format of
-    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanruns/{scanRunId}/findings/{findingId}'.
-    /// The finding IDs are generated by the system.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The type of the Finding.
-    /// Detailed and up-to-date information on findings can be found here:
-    /// <https://cloud.google.com/security-command-center/docs/how-to-remediate-web-security-scanner-findings>
-    #[prost(string, tag = "2")]
-    pub finding_type: ::prost::alloc::string::String,
-    /// Output only. The severity level of the reported vulnerability.
-    #[prost(enumeration = "finding::Severity", tag = "17")]
-    pub severity: i32,
-    /// Output only. The http method of the request that triggered the vulnerability, in
-    /// uppercase.
-    #[prost(string, tag = "3")]
-    pub http_method: ::prost::alloc::string::String,
-    /// Output only. The URL produced by the server-side fuzzer and used in the request that
-    /// triggered the vulnerability.
-    #[prost(string, tag = "4")]
-    pub fuzzed_url: ::prost::alloc::string::String,
-    /// Output only. The body of the request that triggered the vulnerability.
-    #[prost(string, tag = "5")]
-    pub body: ::prost::alloc::string::String,
-    /// Output only. The description of the vulnerability.
-    #[prost(string, tag = "6")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. The URL containing human-readable payload that user can leverage to
-    /// reproduce the vulnerability.
-    #[prost(string, tag = "7")]
-    pub reproduction_url: ::prost::alloc::string::String,
-    /// Output only. If the vulnerability was originated from nested IFrame, the immediate
-    /// parent IFrame is reported.
-    #[prost(string, tag = "8")]
-    pub frame_url: ::prost::alloc::string::String,
-    /// Output only. The URL where the browser lands when the vulnerability is detected.
-    #[prost(string, tag = "9")]
-    pub final_url: ::prost::alloc::string::String,
-    /// Output only. The tracking ID uniquely identifies a vulnerability instance across
-    /// multiple ScanRuns.
-    #[prost(string, tag = "10")]
-    pub tracking_id: ::prost::alloc::string::String,
-    /// Output only. An addon containing information reported for a vulnerability with an HTML
-    /// form, if any.
-    #[prost(message, optional, tag = "16")]
-    pub form: ::core::option::Option<Form>,
-    /// Output only. An addon containing information about outdated libraries.
-    #[prost(message, optional, tag = "11")]
-    pub outdated_library: ::core::option::Option<OutdatedLibrary>,
-    /// Output only. An addon containing detailed information regarding any resource causing the
-    /// vulnerability such as JavaScript sources, image, audio files, etc.
-    #[prost(message, optional, tag = "12")]
-    pub violating_resource: ::core::option::Option<ViolatingResource>,
-    /// Output only. An addon containing information about vulnerable or missing HTTP headers.
-    #[prost(message, optional, tag = "15")]
-    pub vulnerable_headers: ::core::option::Option<VulnerableHeaders>,
-    /// Output only. An addon containing information about request parameters which were found
-    /// to be vulnerable.
-    #[prost(message, optional, tag = "13")]
-    pub vulnerable_parameters: ::core::option::Option<VulnerableParameters>,
-    /// Output only. An addon containing information reported for an XSS, if any.
-    #[prost(message, optional, tag = "14")]
-    pub xss: ::core::option::Option<Xss>,
-    /// Output only. An addon containing information reported for an XXE, if any.
-    #[prost(message, optional, tag = "18")]
-    pub xxe: ::core::option::Option<Xxe>,
-}
-/// Nested message and enum types in `Finding`.
-pub mod finding {
-    /// The severity level of a vulnerability.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Severity {
-        /// No severity specified. The default value.
-        Unspecified = 0,
-        /// Critical severity.
-        Critical = 1,
-        /// High severity.
-        High = 2,
-        /// Medium severity.
-        Medium = 3,
-        /// Low severity.
-        Low = 4,
-    }
-    impl Severity {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Severity::Unspecified => "SEVERITY_UNSPECIFIED",
-                Severity::Critical => "CRITICAL",
-                Severity::High => "HIGH",
-                Severity::Medium => "MEDIUM",
-                Severity::Low => "LOW",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "SEVERITY_UNSPECIFIED" => Some(Self::Unspecified),
-                "CRITICAL" => Some(Self::Critical),
-                "HIGH" => Some(Self::High),
-                "MEDIUM" => Some(Self::Medium),
-                "LOW" => Some(Self::Low),
-                _ => None,
-            }
-        }
-    }
-}
-/// A FindingTypeStats resource represents stats regarding a specific FindingType
-/// of Findings under a given ScanRun.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FindingTypeStats {
-    /// Output only. The finding type associated with the stats.
-    #[prost(string, tag = "1")]
-    pub finding_type: ::prost::alloc::string::String,
-    /// Output only. The count of findings belonging to this finding type.
-    #[prost(int32, tag = "2")]
-    pub finding_count: i32,
 }
 /// Request for the `CreateScanConfig` method.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2013,4 +1984,33 @@ pub mod web_security_scanner_client {
             self.inner.unary(req, path, codec).await
         }
     }
+}
+/// A ScanRunLog is an output-only proto used for Stackdriver customer logging.
+/// It is used for logs covering the start and end of scan pipelines.
+/// Other than an added summary, this is a subset of the ScanRun.
+/// Representation in logs is either a proto Struct, or converted to JSON.
+/// Next id: 9
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ScanRunLog {
+    /// Human friendly message about the event.
+    #[prost(string, tag = "1")]
+    pub summary: ::prost::alloc::string::String,
+    /// The resource name of the ScanRun being logged.
+    #[prost(string, tag = "2")]
+    pub name: ::prost::alloc::string::String,
+    /// The execution state of the ScanRun.
+    #[prost(enumeration = "scan_run::ExecutionState", tag = "3")]
+    pub execution_state: i32,
+    /// The result state of the ScanRun.
+    #[prost(enumeration = "scan_run::ResultState", tag = "4")]
+    pub result_state: i32,
+    #[prost(int64, tag = "5")]
+    pub urls_crawled_count: i64,
+    #[prost(int64, tag = "6")]
+    pub urls_tested_count: i64,
+    #[prost(bool, tag = "7")]
+    pub has_findings: bool,
+    #[prost(message, optional, tag = "8")]
+    pub error_trace: ::core::option::Option<ScanRunErrorTrace>,
 }
