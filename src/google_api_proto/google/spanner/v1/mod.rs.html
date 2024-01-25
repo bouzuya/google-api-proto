@@ -3068,6 +3068,11 @@
 <a href="#3068" id="3068">3068</a>
 <a href="#3069" id="3069">3069</a>
 <a href="#3070" id="3070">3070</a>
+<a href="#3071" id="3071">3071</a>
+<a href="#3072" id="3072">3072</a>
+<a href="#3073" id="3073">3073</a>
+<a href="#3074" id="3074">3074</a>
+<a href="#3075" id="3075">3075</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// KeyRange represents a range of rows in a table or index.
 ///
 /// A range has a start key and an end key. These keys can be open or
@@ -3397,6 +3402,9 @@
     <span class="doccomment">/// Encoded as `number`, or the strings `&quot;NaN&quot;`, `&quot;Infinity&quot;`, or
     /// `&quot;-Infinity&quot;`.
     </span>Float64 = <span class="number">3</span>,
+    <span class="doccomment">/// Encoded as `number`, or the strings `&quot;NaN&quot;`, `&quot;Infinity&quot;`, or
+    /// `&quot;-Infinity&quot;`.
+    </span>Float32 = <span class="number">15</span>,
     <span class="doccomment">/// Encoded as `string` in RFC 3339 timestamp format. The time zone
     /// must be present, and must be `&quot;Z&quot;`.
     ///
@@ -3456,6 +3464,7 @@
             TypeCode::Bool =&gt; <span class="string">&quot;BOOL&quot;</span>,
             TypeCode::Int64 =&gt; <span class="string">&quot;INT64&quot;</span>,
             TypeCode::Float64 =&gt; <span class="string">&quot;FLOAT64&quot;</span>,
+            TypeCode::Float32 =&gt; <span class="string">&quot;FLOAT32&quot;</span>,
             TypeCode::Timestamp =&gt; <span class="string">&quot;TIMESTAMP&quot;</span>,
             TypeCode::Date =&gt; <span class="string">&quot;DATE&quot;</span>,
             TypeCode::String =&gt; <span class="string">&quot;STRING&quot;</span>,
@@ -3475,6 +3484,7 @@
             <span class="string">&quot;BOOL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bool),
             <span class="string">&quot;INT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int64),
             <span class="string">&quot;FLOAT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Float64),
+            <span class="string">&quot;FLOAT32&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Float32),
             <span class="string">&quot;TIMESTAMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Timestamp),
             <span class="string">&quot;DATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
             <span class="string">&quot;STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
