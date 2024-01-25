@@ -2054,7 +2054,78 @@
 <a href="#2054" id="2054">2054</a>
 <a href="#2055" id="2055">2055</a>
 <a href="#2056" id="2056">2056</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A partition ID identifies a grouping of entities. The grouping is always
+</pre></div><pre class="rust"><code><span class="doccomment">/// Plan for the query.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>QueryPlan {
+    <span class="doccomment">/// Planning phase information for the query. It will include:
+    ///
+    /// {
+    ///    &quot;indexes_used&quot;: [
+    ///      {&quot;query_scope&quot;: &quot;Collection&quot;, &quot;properties&quot;: &quot;(foo ASC, __name__ ASC)&quot;},
+    ///      {&quot;query_scope&quot;: &quot;Collection&quot;, &quot;properties&quot;: &quot;(bar ASC, __name__ ASC)&quot;}
+    ///    ]
+    /// }
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>plan_info: ::core::option::Option&lt;::prost_types::Struct&gt;,
+}
+<span class="doccomment">/// Planning and execution statistics for the query.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ResultSetStats {
+    <span class="doccomment">/// Plan for the query.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>query_plan: ::core::option::Option&lt;QueryPlan&gt;,
+    <span class="doccomment">/// Aggregated statistics from the execution of the query.
+    ///
+    /// This will only be present when the request specifies `PROFILE` mode.
+    /// For example, a query will return the statistics including:
+    ///
+    /// {
+    ///    &quot;results_returned&quot;: &quot;20&quot;,
+    ///    &quot;documents_scanned&quot;: &quot;20&quot;,
+    ///    &quot;indexes_entries_scanned&quot;: &quot;10050&quot;,
+    ///    &quot;total_execution_time&quot;: &quot;100.7 msecs&quot;
+    /// }
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>query_stats: ::core::option::Option&lt;::prost_types::Struct&gt;,
+}
+<span class="doccomment">/// The mode in which the query request must be processed.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>QueryMode {
+    <span class="doccomment">/// The default mode. Only the query results are returned.
+    </span>Normal = <span class="number">0</span>,
+    <span class="doccomment">/// This mode returns only the query plan, without any results or execution
+    /// statistics information.
+    </span>Plan = <span class="number">1</span>,
+    <span class="doccomment">/// This mode returns both the query plan and the execution statistics along
+    /// with the results.
+    </span>Profile = <span class="number">2</span>,
+}
+<span class="kw">impl </span>QueryMode {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            QueryMode::Normal =&gt; <span class="string">&quot;NORMAL&quot;</span>,
+            QueryMode::Plan =&gt; <span class="string">&quot;PLAN&quot;</span>,
+            QueryMode::Profile =&gt; <span class="string">&quot;PROFILE&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;NORMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
+            <span class="string">&quot;PLAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Plan),
+            <span class="string">&quot;PROFILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Profile),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// A partition ID identifies a grouping of entities. The grouping is always
 /// by project and namespace, however the namespace ID may be empty.
 ///
 /// A partition ID contains several dimensions:
@@ -3032,77 +3103,6 @@
                 <span class="string">&quot;NO_MORE_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoMoreResults),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
-        }
-    }
-}
-<span class="doccomment">/// Plan for the query.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>QueryPlan {
-    <span class="doccomment">/// Planning phase information for the query. It will include:
-    ///
-    /// {
-    ///    &quot;indexes_used&quot;: [
-    ///      {&quot;query_scope&quot;: &quot;Collection&quot;, &quot;properties&quot;: &quot;(foo ASC, __name__ ASC)&quot;},
-    ///      {&quot;query_scope&quot;: &quot;Collection&quot;, &quot;properties&quot;: &quot;(bar ASC, __name__ ASC)&quot;}
-    ///    ]
-    /// }
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>plan_info: ::core::option::Option&lt;::prost_types::Struct&gt;,
-}
-<span class="doccomment">/// Planning and execution statistics for the query.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ResultSetStats {
-    <span class="doccomment">/// Plan for the query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>query_plan: ::core::option::Option&lt;QueryPlan&gt;,
-    <span class="doccomment">/// Aggregated statistics from the execution of the query.
-    ///
-    /// This will only be present when the request specifies `PROFILE` mode.
-    /// For example, a query will return the statistics including:
-    ///
-    /// {
-    ///    &quot;results_returned&quot;: &quot;20&quot;,
-    ///    &quot;documents_scanned&quot;: &quot;20&quot;,
-    ///    &quot;indexes_entries_scanned&quot;: &quot;10050&quot;,
-    ///    &quot;total_execution_time&quot;: &quot;100.7 msecs&quot;
-    /// }
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>query_stats: ::core::option::Option&lt;::prost_types::Struct&gt;,
-}
-<span class="doccomment">/// The mode in which the query request must be processed.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>QueryMode {
-    <span class="doccomment">/// The default mode. Only the query results are returned.
-    </span>Normal = <span class="number">0</span>,
-    <span class="doccomment">/// This mode returns only the query plan, without any results or execution
-    /// statistics information.
-    </span>Plan = <span class="number">1</span>,
-    <span class="doccomment">/// This mode returns both the query plan and the execution statistics along
-    /// with the results.
-    </span>Profile = <span class="number">2</span>,
-}
-<span class="kw">impl </span>QueryMode {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            QueryMode::Normal =&gt; <span class="string">&quot;NORMAL&quot;</span>,
-            QueryMode::Plan =&gt; <span class="string">&quot;PLAN&quot;</span>,
-            QueryMode::Profile =&gt; <span class="string">&quot;PROFILE&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;NORMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
-            <span class="string">&quot;PLAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Plan),
-            <span class="string">&quot;PROFILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Profile),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }

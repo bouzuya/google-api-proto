@@ -4012,6 +4012,371 @@
         }
     }
 }
+<span class="doccomment">/// Patch deployments are configurations that individual patch jobs use to
+/// complete a patch. These configurations include instance filter, package
+/// repository settings, and a schedule. For more information about creating and
+/// managing patch deployments, see [Scheduling patch
+/// jobs](&lt;https://cloud.google.com/compute/docs/os-patch-management/schedule-patch-jobs&gt;).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PatchDeployment {
+    <span class="doccomment">/// Unique name for the patch deployment resource in a project. The patch
+    /// deployment name is in the form:
+    /// `projects/{project_id}/patchDeployments/{patch_deployment_id}`.
+    /// This field is ignored when you create a new patch deployment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Description of the patch deployment. Length of the description is limited
+    /// to 1024 characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. VM instances to patch.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>instance_filter: ::core::option::Option&lt;PatchInstanceFilter&gt;,
+    <span class="doccomment">/// Optional. Patch configuration that is applied.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>patch_config: ::core::option::Option&lt;PatchConfig&gt;,
+    <span class="doccomment">/// Optional. Duration of the patch. After the duration ends, the patch times out.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    <span class="doccomment">/// Output only. Time the patch deployment was created. Timestamp is in
+    /// [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Time the patch deployment was last updated. Timestamp is in
+    /// [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The last time a patch job was started by this deployment.
+    /// Timestamp is in [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text
+    /// format.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>last_execute_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Optional. Rollout strategy of the patch job.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>rollout: ::core::option::Option&lt;PatchRollout&gt;,
+    <span class="doccomment">/// Output only. Current state of the patch deployment.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;patch_deployment::State&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Schedule for the patch.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;patch_deployment::Schedule&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
+    </span><span class="kw">pub </span>schedule: ::core::option::Option&lt;patch_deployment::Schedule&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `PatchDeployment`.
+</span><span class="kw">pub mod </span>patch_deployment {
+    <span class="doccomment">/// Represents state of patch peployment.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// The default value. This value is used if the state is omitted.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Active value means that patch deployment generates Patch Jobs.
+        </span>Active = <span class="number">1</span>,
+        <span class="doccomment">/// Paused value means that patch deployment does not generate
+        /// Patch jobs. Requires user action to move in and out from this state.
+        </span>Paused = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Schedule for the patch.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Schedule {
+        <span class="doccomment">/// Required. Schedule a one-time execution.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>OneTimeSchedule(<span class="kw">super</span>::OneTimeSchedule),
+        <span class="doccomment">/// Required. Schedule recurring executions.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>RecurringSchedule(<span class="kw">super</span>::RecurringSchedule),
+    }
+}
+<span class="doccomment">/// Sets the time for a one time patch deployment. Timestamp is in
+/// [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OneTimeSchedule {
+    <span class="doccomment">/// Required. The desired patch job execution time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>execute_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Sets the time for recurring patch deployments.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RecurringSchedule {
+    <span class="doccomment">/// Required. Defines the time zone that `time_of_day` is relative to.
+    /// The rules for daylight saving time are determined by the chosen time zone.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>time_zone: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::TimeZone&gt;,
+    <span class="doccomment">/// Optional. The time that the recurring schedule becomes effective.
+    /// Defaults to `create_time` of the patch deployment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Optional. The end time at which a recurring patch deployment schedule is no longer
+    /// active.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Required. Time of the day to run a recurring deployment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>time_of_day: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::TimeOfDay&gt;,
+    <span class="doccomment">/// Required. The frequency unit of this recurring schedule.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recurring_schedule::Frequency&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>frequency: i32,
+    <span class="doccomment">/// Output only. The time the last patch job ran successfully.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>last_execute_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time the next patch job is scheduled to run.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>next_execute_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Configurations for this recurring schedule.
+    /// Configurations must match frequency.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;recurring_schedule::ScheduleConfig&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
+    </span><span class="kw">pub </span>schedule_config: ::core::option::Option&lt;recurring_schedule::ScheduleConfig&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `RecurringSchedule`.
+</span><span class="kw">pub mod </span>recurring_schedule {
+    <span class="doccomment">/// Specifies the frequency of the recurring patch deployments.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Frequency {
+        <span class="doccomment">/// Invalid. A frequency must be specified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Indicates that the frequency of recurrence should be expressed in terms
+        /// of weeks.
+        </span>Weekly = <span class="number">1</span>,
+        <span class="doccomment">/// Indicates that the frequency of recurrence should be expressed in terms
+        /// of months.
+        </span>Monthly = <span class="number">2</span>,
+        <span class="doccomment">/// Indicates that the frequency of recurrence should be expressed in terms
+        /// of days.
+        </span>Daily = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>Frequency {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Frequency::Unspecified =&gt; <span class="string">&quot;FREQUENCY_UNSPECIFIED&quot;</span>,
+                Frequency::Weekly =&gt; <span class="string">&quot;WEEKLY&quot;</span>,
+                Frequency::Monthly =&gt; <span class="string">&quot;MONTHLY&quot;</span>,
+                Frequency::Daily =&gt; <span class="string">&quot;DAILY&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;FREQUENCY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;WEEKLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Weekly),
+                <span class="string">&quot;MONTHLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Monthly),
+                <span class="string">&quot;DAILY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Daily),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Configurations for this recurring schedule.
+    /// Configurations must match frequency.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>ScheduleConfig {
+        <span class="doccomment">/// Required. Schedule with weekly executions.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>Weekly(<span class="kw">super</span>::WeeklySchedule),
+        <span class="doccomment">/// Required. Schedule with monthly executions.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>Monthly(<span class="kw">super</span>::MonthlySchedule),
+    }
+}
+<span class="doccomment">/// Represents a weekly schedule.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WeeklySchedule {
+    <span class="doccomment">/// Required. Day of the week.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::super::r#type::DayOfWeek&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>day_of_week: i32,
+}
+<span class="doccomment">/// Represents a monthly schedule. An example of a valid monthly schedule is
+/// &quot;on the third Tuesday of the month&quot; or &quot;on the 15th of the month&quot;.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>MonthlySchedule {
+    <span class="doccomment">/// One day in a month.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;monthly_schedule::DayOfMonth&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>day_of_month: ::core::option::Option&lt;monthly_schedule::DayOfMonth&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `MonthlySchedule`.
+</span><span class="kw">pub mod </span>monthly_schedule {
+    <span class="doccomment">/// One day in a month.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>DayOfMonth {
+        <span class="doccomment">/// Required. Week day in a month.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>WeekDayOfMonth(<span class="kw">super</span>::WeekDayOfMonth),
+        <span class="doccomment">/// Required. One day of the month. 1-31 indicates the 1st to the 31st day. -1
+        /// indicates the last day of the month.
+        /// Months without the target day will be skipped. For example, a schedule to
+        /// run &quot;every month on the 31st&quot; will not run in February, April, June, etc.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>MonthDay(i32),
+    }
+}
+<span class="doccomment">/// Represents one week day in a month. An example is &quot;the 4th Sunday&quot;.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WeekDayOfMonth {
+    <span class="doccomment">/// Required. Week number in a month. 1-4 indicates the 1st to 4th week of the month. -1
+    /// indicates the last week of the month.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>week_ordinal: i32,
+    <span class="doccomment">/// Required. A day of the week.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::super::r#type::DayOfWeek&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>day_of_week: i32,
+    <span class="doccomment">/// Optional. Represents the number of days before or after the given week day of month
+    /// that the patch deployment is scheduled for. For example if `week_ordinal`
+    /// and `day_of_week` values point to the second day of the month and this
+    /// `day_offset` value is set to `3`, the patch deployment takes place three
+    /// days after the second Tuesday of the month. If this value is negative, for
+    /// example -5, the patches  are deployed five days before before the second
+    /// Tuesday of the month. Allowed values are in range `\[-30, 30\]`.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>day_offset: i32,
+}
+<span class="doccomment">/// A request message for creating a patch deployment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreatePatchDeploymentRequest {
+    <span class="doccomment">/// Required. The project to apply this patch deployment to in the form `projects/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. A name for the patch deployment in the project. When creating a name
+    /// the following rules apply:
+    /// * Must contain only lowercase letters, numbers, and hyphens.
+    /// * Must start with a letter.
+    /// * Must be between 1-63 characters.
+    /// * Must end with a number or a letter.
+    /// * Must be unique within the project.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>patch_deployment_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The patch deployment to create.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>patch_deployment: ::core::option::Option&lt;PatchDeployment&gt;,
+}
+<span class="doccomment">/// A request message for retrieving a patch deployment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetPatchDeploymentRequest {
+    <span class="doccomment">/// Required. The resource name of the patch deployment in the form
+    /// `projects/*/patchDeployments/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A request message for listing patch deployments.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListPatchDeploymentsRequest {
+    <span class="doccomment">/// Required. The resource name of the parent in the form `projects/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The maximum number of patch deployments to return. Default is 100.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// Optional. A pagination token returned from a previous call to ListPatchDeployments
+    /// that indicates where this listing should continue from.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A response message for listing patch deployments.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListPatchDeploymentsResponse {
+    <span class="doccomment">/// The list of patch deployments.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>patch_deployments: ::prost::alloc::vec::Vec&lt;PatchDeployment&gt;,
+    <span class="doccomment">/// A pagination token that can be used to get the next page of patch
+    /// deployments.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A request message for deleting a patch deployment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeletePatchDeploymentRequest {
+    <span class="doccomment">/// Required. The resource name of the patch deployment in the form
+    /// `projects/*/patchDeployments/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A request message for updating a patch deployment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdatePatchDeploymentRequest {
+    <span class="doccomment">/// Required. The patch deployment to Update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>patch_deployment: ::core::option::Option&lt;PatchDeployment&gt;,
+    <span class="doccomment">/// Optional. Field mask that controls which fields of the patch deployment should be
+    /// updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+}
+<span class="doccomment">/// A request message for pausing a patch deployment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PausePatchDeploymentRequest {
+    <span class="doccomment">/// Required. The resource name of the patch deployment in the form
+    /// `projects/*/patchDeployments/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A request message for resuming a patch deployment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ResumePatchDeploymentRequest {
+    <span class="doccomment">/// Required. The resource name of the patch deployment in the form
+    /// `projects/*/patchDeployments/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// An OS Config resource representing a guest configuration policy. These
 /// policies represent the desired state for VM instance guest environments
 /// including packages to install or remove, package repository configurations,
@@ -5011,371 +5376,6 @@
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
-}
-<span class="doccomment">/// Patch deployments are configurations that individual patch jobs use to
-/// complete a patch. These configurations include instance filter, package
-/// repository settings, and a schedule. For more information about creating and
-/// managing patch deployments, see [Scheduling patch
-/// jobs](&lt;https://cloud.google.com/compute/docs/os-patch-management/schedule-patch-jobs&gt;).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PatchDeployment {
-    <span class="doccomment">/// Unique name for the patch deployment resource in a project. The patch
-    /// deployment name is in the form:
-    /// `projects/{project_id}/patchDeployments/{patch_deployment_id}`.
-    /// This field is ignored when you create a new patch deployment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Description of the patch deployment. Length of the description is limited
-    /// to 1024 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. VM instances to patch.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>instance_filter: ::core::option::Option&lt;PatchInstanceFilter&gt;,
-    <span class="doccomment">/// Optional. Patch configuration that is applied.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>patch_config: ::core::option::Option&lt;PatchConfig&gt;,
-    <span class="doccomment">/// Optional. Duration of the patch. After the duration ends, the patch times out.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    <span class="doccomment">/// Output only. Time the patch deployment was created. Timestamp is in
-    /// [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time the patch deployment was last updated. Timestamp is in
-    /// [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The last time a patch job was started by this deployment.
-    /// Timestamp is in [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text
-    /// format.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>last_execute_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Optional. Rollout strategy of the patch job.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>rollout: ::core::option::Option&lt;PatchRollout&gt;,
-    <span class="doccomment">/// Output only. Current state of the patch deployment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;patch_deployment::State&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Schedule for the patch.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;patch_deployment::Schedule&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
-    </span><span class="kw">pub </span>schedule: ::core::option::Option&lt;patch_deployment::Schedule&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `PatchDeployment`.
-</span><span class="kw">pub mod </span>patch_deployment {
-    <span class="doccomment">/// Represents state of patch peployment.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// The default value. This value is used if the state is omitted.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Active value means that patch deployment generates Patch Jobs.
-        </span>Active = <span class="number">1</span>,
-        <span class="doccomment">/// Paused value means that patch deployment does not generate
-        /// Patch jobs. Requires user action to move in and out from this state.
-        </span>Paused = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Schedule for the patch.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Schedule {
-        <span class="doccomment">/// Required. Schedule a one-time execution.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>OneTimeSchedule(<span class="kw">super</span>::OneTimeSchedule),
-        <span class="doccomment">/// Required. Schedule recurring executions.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>RecurringSchedule(<span class="kw">super</span>::RecurringSchedule),
-    }
-}
-<span class="doccomment">/// Sets the time for a one time patch deployment. Timestamp is in
-/// [RFC3339](&lt;https://www.ietf.org/rfc/rfc3339.txt&gt;) text format.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OneTimeSchedule {
-    <span class="doccomment">/// Required. The desired patch job execution time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>execute_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Sets the time for recurring patch deployments.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RecurringSchedule {
-    <span class="doccomment">/// Required. Defines the time zone that `time_of_day` is relative to.
-    /// The rules for daylight saving time are determined by the chosen time zone.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>time_zone: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::TimeZone&gt;,
-    <span class="doccomment">/// Optional. The time that the recurring schedule becomes effective.
-    /// Defaults to `create_time` of the patch deployment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Optional. The end time at which a recurring patch deployment schedule is no longer
-    /// active.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Required. Time of the day to run a recurring deployment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>time_of_day: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::TimeOfDay&gt;,
-    <span class="doccomment">/// Required. The frequency unit of this recurring schedule.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recurring_schedule::Frequency&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>frequency: i32,
-    <span class="doccomment">/// Output only. The time the last patch job ran successfully.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>last_execute_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time the next patch job is scheduled to run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>next_execute_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Configurations for this recurring schedule.
-    /// Configurations must match frequency.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;recurring_schedule::ScheduleConfig&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
-    </span><span class="kw">pub </span>schedule_config: ::core::option::Option&lt;recurring_schedule::ScheduleConfig&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `RecurringSchedule`.
-</span><span class="kw">pub mod </span>recurring_schedule {
-    <span class="doccomment">/// Specifies the frequency of the recurring patch deployments.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Frequency {
-        <span class="doccomment">/// Invalid. A frequency must be specified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Indicates that the frequency of recurrence should be expressed in terms
-        /// of weeks.
-        </span>Weekly = <span class="number">1</span>,
-        <span class="doccomment">/// Indicates that the frequency of recurrence should be expressed in terms
-        /// of months.
-        </span>Monthly = <span class="number">2</span>,
-        <span class="doccomment">/// Indicates that the frequency of recurrence should be expressed in terms
-        /// of days.
-        </span>Daily = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>Frequency {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Frequency::Unspecified =&gt; <span class="string">&quot;FREQUENCY_UNSPECIFIED&quot;</span>,
-                Frequency::Weekly =&gt; <span class="string">&quot;WEEKLY&quot;</span>,
-                Frequency::Monthly =&gt; <span class="string">&quot;MONTHLY&quot;</span>,
-                Frequency::Daily =&gt; <span class="string">&quot;DAILY&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;FREQUENCY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;WEEKLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Weekly),
-                <span class="string">&quot;MONTHLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Monthly),
-                <span class="string">&quot;DAILY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Daily),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Configurations for this recurring schedule.
-    /// Configurations must match frequency.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>ScheduleConfig {
-        <span class="doccomment">/// Required. Schedule with weekly executions.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>Weekly(<span class="kw">super</span>::WeeklySchedule),
-        <span class="doccomment">/// Required. Schedule with monthly executions.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>Monthly(<span class="kw">super</span>::MonthlySchedule),
-    }
-}
-<span class="doccomment">/// Represents a weekly schedule.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WeeklySchedule {
-    <span class="doccomment">/// Required. Day of the week.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::super::r#type::DayOfWeek&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>day_of_week: i32,
-}
-<span class="doccomment">/// Represents a monthly schedule. An example of a valid monthly schedule is
-/// &quot;on the third Tuesday of the month&quot; or &quot;on the 15th of the month&quot;.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>MonthlySchedule {
-    <span class="doccomment">/// One day in a month.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;monthly_schedule::DayOfMonth&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-    </span><span class="kw">pub </span>day_of_month: ::core::option::Option&lt;monthly_schedule::DayOfMonth&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `MonthlySchedule`.
-</span><span class="kw">pub mod </span>monthly_schedule {
-    <span class="doccomment">/// One day in a month.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>DayOfMonth {
-        <span class="doccomment">/// Required. Week day in a month.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>WeekDayOfMonth(<span class="kw">super</span>::WeekDayOfMonth),
-        <span class="doccomment">/// Required. One day of the month. 1-31 indicates the 1st to the 31st day. -1
-        /// indicates the last day of the month.
-        /// Months without the target day will be skipped. For example, a schedule to
-        /// run &quot;every month on the 31st&quot; will not run in February, April, June, etc.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>MonthDay(i32),
-    }
-}
-<span class="doccomment">/// Represents one week day in a month. An example is &quot;the 4th Sunday&quot;.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WeekDayOfMonth {
-    <span class="doccomment">/// Required. Week number in a month. 1-4 indicates the 1st to 4th week of the month. -1
-    /// indicates the last week of the month.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>week_ordinal: i32,
-    <span class="doccomment">/// Required. A day of the week.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::super::r#type::DayOfWeek&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>day_of_week: i32,
-    <span class="doccomment">/// Optional. Represents the number of days before or after the given week day of month
-    /// that the patch deployment is scheduled for. For example if `week_ordinal`
-    /// and `day_of_week` values point to the second day of the month and this
-    /// `day_offset` value is set to `3`, the patch deployment takes place three
-    /// days after the second Tuesday of the month. If this value is negative, for
-    /// example -5, the patches  are deployed five days before before the second
-    /// Tuesday of the month. Allowed values are in range `\[-30, 30\]`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>day_offset: i32,
-}
-<span class="doccomment">/// A request message for creating a patch deployment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreatePatchDeploymentRequest {
-    <span class="doccomment">/// Required. The project to apply this patch deployment to in the form `projects/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. A name for the patch deployment in the project. When creating a name
-    /// the following rules apply:
-    /// * Must contain only lowercase letters, numbers, and hyphens.
-    /// * Must start with a letter.
-    /// * Must be between 1-63 characters.
-    /// * Must end with a number or a letter.
-    /// * Must be unique within the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>patch_deployment_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The patch deployment to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>patch_deployment: ::core::option::Option&lt;PatchDeployment&gt;,
-}
-<span class="doccomment">/// A request message for retrieving a patch deployment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetPatchDeploymentRequest {
-    <span class="doccomment">/// Required. The resource name of the patch deployment in the form
-    /// `projects/*/patchDeployments/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A request message for listing patch deployments.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListPatchDeploymentsRequest {
-    <span class="doccomment">/// Required. The resource name of the parent in the form `projects/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The maximum number of patch deployments to return. Default is 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Optional. A pagination token returned from a previous call to ListPatchDeployments
-    /// that indicates where this listing should continue from.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A response message for listing patch deployments.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListPatchDeploymentsResponse {
-    <span class="doccomment">/// The list of patch deployments.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>patch_deployments: ::prost::alloc::vec::Vec&lt;PatchDeployment&gt;,
-    <span class="doccomment">/// A pagination token that can be used to get the next page of patch
-    /// deployments.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A request message for deleting a patch deployment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeletePatchDeploymentRequest {
-    <span class="doccomment">/// Required. The resource name of the patch deployment in the form
-    /// `projects/*/patchDeployments/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A request message for updating a patch deployment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdatePatchDeploymentRequest {
-    <span class="doccomment">/// Required. The patch deployment to Update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>patch_deployment: ::core::option::Option&lt;PatchDeployment&gt;,
-    <span class="doccomment">/// Optional. Field mask that controls which fields of the patch deployment should be
-    /// updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-}
-<span class="doccomment">/// A request message for pausing a patch deployment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PausePatchDeploymentRequest {
-    <span class="doccomment">/// Required. The resource name of the patch deployment in the form
-    /// `projects/*/patchDeployments/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A request message for resuming a patch deployment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ResumePatchDeploymentRequest {
-    <span class="doccomment">/// Required. The resource name of the patch deployment in the form
-    /// `projects/*/patchDeployments/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>os_config_service_client {

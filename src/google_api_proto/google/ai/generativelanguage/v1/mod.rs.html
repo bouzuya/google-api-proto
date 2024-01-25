@@ -1212,7 +1212,38 @@
 <a href="#1212" id="1212">1212</a>
 <a href="#1213" id="1213">1213</a>
 <a href="#1214" id="1214">1214</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// The base structured datatype containing multi-part content of a message.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A collection of source attributions for a piece of content.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CitationMetadata {
+    <span class="doccomment">/// Citations to sources for a specific response.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>citation_sources: ::prost::alloc::vec::Vec&lt;CitationSource&gt;,
+}
+<span class="doccomment">/// A citation to a source for a portion of a specific response.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CitationSource {
+    <span class="doccomment">/// Optional. Start of segment of the response that is attributed to this
+    /// source.
+    ///
+    /// Index indicates the start of the segment, measured in bytes.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>start_index: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// Optional. End of the attributed segment, exclusive.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end_index: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// Optional. URI that is attributed as a source for a portion of the text.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>uri: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Optional. License for the GitHub project that is attributed as a source for
+    /// segment.
+    ///
+    /// License info is required for code citations.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>license: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// The base structured datatype containing multi-part content of a message.
 ///
 /// A `Content` includes a `role` field designating the producer of the `Content`
 /// and a `parts` field containing multi-part data that contains the content of
@@ -1271,37 +1302,6 @@
     <span class="doccomment">/// Raw bytes for media formats.
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>data: ::prost::bytes::Bytes,
-}
-<span class="doccomment">/// A collection of source attributions for a piece of content.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CitationMetadata {
-    <span class="doccomment">/// Citations to sources for a specific response.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>citation_sources: ::prost::alloc::vec::Vec&lt;CitationSource&gt;,
-}
-<span class="doccomment">/// A citation to a source for a portion of a specific response.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CitationSource {
-    <span class="doccomment">/// Optional. Start of segment of the response that is attributed to this
-    /// source.
-    ///
-    /// Index indicates the start of the segment, measured in bytes.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>start_index: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// Optional. End of the attributed segment, exclusive.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>end_index: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// Optional. URI that is attributed as a source for a portion of the text.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>uri: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Optional. License for the GitHub project that is attributed as a source for
-    /// segment.
-    ///
-    /// License info is required for code citations.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>license: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Safety rating for a piece of content.
 ///

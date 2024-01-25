@@ -5906,121 +5906,7 @@
 <a href="#5906" id="5906">5906</a>
 <a href="#5907" id="5907">5907</a>
 <a href="#5908" id="5908">5908</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Describes a BigQuery table.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BigQueryTableSpec {
-    <span class="doccomment">/// Output only. The table source type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TableSourceType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>table_source_type: i32,
-    <span class="doccomment">/// Output only.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;big_query_table_spec::TypeSpec&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>type_spec: ::core::option::Option&lt;big_query_table_spec::TypeSpec&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `BigQueryTableSpec`.
-</span><span class="kw">pub mod </span>big_query_table_spec {
-    <span class="doccomment">/// Output only.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>TypeSpec {
-        <span class="doccomment">/// Table view specification. Populated only if
-        /// the `table_source_type` is `BIGQUERY_VIEW`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>ViewSpec(<span class="kw">super</span>::ViewSpec),
-        <span class="doccomment">/// Specification of a BigQuery table. Populated only if
-        /// the `table_source_type` is `BIGQUERY_TABLE`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>TableSpec(<span class="kw">super</span>::TableSpec),
-    }
-}
-<span class="doccomment">/// Table view specification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ViewSpec {
-    <span class="doccomment">/// Output only. The query that defines the table view.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>view_query: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Normal BigQuery table specification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TableSpec {
-    <span class="doccomment">/// Output only. If the table is date-sharded, that is, it matches the
-    /// `\[prefix\]YYYYMMDD` name pattern, this field is the Data Catalog resource
-    /// name of the date-sharded grouped entry. For example:
-    ///
-    /// `projects/{PROJECT_ID}/locations/{LOCATION}/entrygroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`.
-    ///
-    /// Otherwise, `grouped_entry` is empty.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>grouped_entry: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Specification for a group of BigQuery tables with the `\[prefix\]YYYYMMDD` name
-/// pattern.
-///
-/// For more information, see \[Introduction to partitioned tables\]
-/// (&lt;https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding&gt;).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BigQueryDateShardedSpec {
-    <span class="doccomment">/// Output only. The Data Catalog resource name of the dataset entry the
-    /// current table belongs to. For example:
-    ///
-    /// `projects/{PROJECT_ID}/locations/{LOCATION}/entrygroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>dataset: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The table name prefix of the shards.
-    ///
-    /// The name of any given shard is `\[table_prefix\]YYYYMMDD`.
-    /// For example, for the `MyTable20180101` shard, the
-    /// `table_prefix` is `MyTable`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>table_prefix: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Total number of shards.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>shard_count: i64,
-    <span class="doccomment">/// Output only. BigQuery resource name of the latest shard.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>latest_shard_resource: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Table source type.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>TableSourceType {
-    <span class="doccomment">/// Default unknown type.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Table view.
-    </span>BigqueryView = <span class="number">2</span>,
-    <span class="doccomment">/// BigQuery native table.
-    </span>BigqueryTable = <span class="number">5</span>,
-    <span class="doccomment">/// BigQuery materialized view.
-    </span>BigqueryMaterializedView = <span class="number">7</span>,
-}
-<span class="kw">impl </span>TableSourceType {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            TableSourceType::Unspecified =&gt; <span class="string">&quot;TABLE_SOURCE_TYPE_UNSPECIFIED&quot;</span>,
-            TableSourceType::BigqueryView =&gt; <span class="string">&quot;BIGQUERY_VIEW&quot;</span>,
-            TableSourceType::BigqueryTable =&gt; <span class="string">&quot;BIGQUERY_TABLE&quot;</span>,
-            TableSourceType::BigqueryMaterializedView =&gt; <span class="string">&quot;BIGQUERY_MATERIALIZED_VIEW&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;TABLE_SOURCE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;BIGQUERY_VIEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BigqueryView),
-            <span class="string">&quot;BIGQUERY_TABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BigqueryTable),
-            <span class="string">&quot;BIGQUERY_MATERIALIZED_VIEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BigqueryMaterializedView),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Entry metadata relevant only to the user and private to them.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Entry metadata relevant only to the user and private to them.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PersonalDetails {
@@ -6962,128 +6848,141 @@
         </span>}
     }
 }
-<span class="doccomment">/// Result in the response to a search request.
-///
-/// Each result captures details of one entry that matches the search.
+<span class="doccomment">/// Specification for the BigQuery connection.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchCatalogResult {
-    <span class="doccomment">/// Type of the search result.
-    ///
-    /// You can use this field to determine which get method to call to fetch the
-    /// full resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SearchResultType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>search_result_type: i32,
-    <span class="doccomment">/// Sub-type of the search result.
-    ///
-    /// A dot-delimited full type of the resource. The same type you
-    /// specify in the `type` search predicate.
-    ///
-    /// Examples: `entry.table`, `entry.dataStream`, `tagTemplate`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>search_result_subtype: ::prost::alloc::string::String,
-    <span class="doccomment">/// The relative name of the resource in URL format.
-    ///
-    /// Examples:
-    ///
-    ///   * `projects/{PROJECT_ID}/locations/{LOCATION_ID}/entryGroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`
-    ///   * `projects/{PROJECT_ID}/tagTemplates/{TAG_TEMPLATE_ID}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>relative_resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The full name of the Google Cloud resource the entry belongs to.
-    ///
-    /// For more information, see \[Full Resource Name\]
-    /// (/apis/design/resource_names#full_resource_name).
-    ///
-    /// Example:
-    ///
-    /// `//bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>linked_resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// The last modification timestamp of the entry in the source system.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>modify_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Fully qualified name (FQN) of the resource.
-    ///
-    /// FQNs take two forms:
-    ///
-    /// * For non-regionalized resources:
-    ///
-    ///    `{SYSTEM}:{PROJECT}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}`
-    ///
-    /// * For regionalized resources:
-    ///
-    ///    `{SYSTEM}:{PROJECT}.{LOCATION_ID}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}`
-    ///
-    /// Example for a DPMS table:
-    ///
-    /// `dataproc_metastore:PROJECT_ID.LOCATION_ID.INSTANCE_ID.DATABASE_ID.TABLE_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>fully_qualified_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The display name of the result.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Entry description that can consist of several sentences or paragraphs that
-    /// describe entry contents.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// The source system of the entry. Applicable only when the
-    /// `search_result_type` is `ENTRY`.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;search_catalog_result::System&quot;</span>, tags = <span class="string">&quot;8, 9&quot;</span>)]
-    </span><span class="kw">pub </span>system: ::core::option::Option&lt;search_catalog_result::System&gt;,
+</span><span class="kw">pub struct </span>BigQueryConnectionSpec {
+    <span class="doccomment">/// The type of the BigQuery connection.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;big_query_connection_spec::ConnectionType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>connection_type: i32,
+    <span class="doccomment">/// True if there are credentials attached to the BigQuery connection; false
+    /// otherwise.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>has_credential: bool,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;big_query_connection_spec::ConnectionSpec&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>connection_spec: ::core::option::Option&lt;
+        big_query_connection_spec::ConnectionSpec,
+    &gt;,
 }
-<span class="doccomment">/// Nested message and enum types in `SearchCatalogResult`.
-</span><span class="kw">pub mod </span>search_catalog_result {
-    <span class="doccomment">/// The source system of the entry. Applicable only when the
-    /// `search_result_type` is `ENTRY`.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// Nested message and enum types in `BigQueryConnectionSpec`.
+</span><span class="kw">pub mod </span>big_query_connection_spec {
+    <span class="doccomment">/// The type of the BigQuery connection.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ConnectionType {
+        <span class="doccomment">/// Unspecified type.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Cloud SQL connection.
+        </span>CloudSql = <span class="number">1</span>,
+    }
+    <span class="kw">impl </span>ConnectionType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ConnectionType::Unspecified =&gt; <span class="string">&quot;CONNECTION_TYPE_UNSPECIFIED&quot;</span>,
+                ConnectionType::CloudSql =&gt; <span class="string">&quot;CLOUD_SQL&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;CONNECTION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CLOUD_SQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudSql),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>System {
-        <span class="doccomment">/// Output only. The source system that Data Catalog automatically integrates
-        /// with, such as BigQuery, Cloud Pub/Sub, or Dataproc Metastore.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::IntegratedSystem&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
-        </span>IntegratedSystem(i32),
-        <span class="doccomment">/// Custom source system that you can manually integrate Data Catalog with.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-        </span>UserSpecifiedSystem(::prost::alloc::string::String),
+    </span><span class="kw">pub enum </span>ConnectionSpec {
+        <span class="doccomment">/// Specification for the BigQuery connection to a Cloud SQL instance.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>CloudSql(<span class="kw">super</span>::CloudSqlBigQueryConnectionSpec),
     }
 }
-<span class="doccomment">/// The resource types that can be returned in search results.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>SearchResultType {
-    <span class="doccomment">/// Default unknown type.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// An [Entry][google.cloud.datacatalog.v1.Entry].
-    </span>Entry = <span class="number">1</span>,
-    <span class="doccomment">/// A [TagTemplate][google.cloud.datacatalog.v1.TagTemplate].
-    </span>TagTemplate = <span class="number">2</span>,
-    <span class="doccomment">/// An [EntryGroup][google.cloud.datacatalog.v1.EntryGroup].
-    </span>EntryGroup = <span class="number">3</span>,
+<span class="doccomment">/// Specification for the BigQuery connection to a Cloud SQL instance.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CloudSqlBigQueryConnectionSpec {
+    <span class="doccomment">/// Cloud SQL instance ID in the format of `project:location:instance`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Database name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
+    <span class="doccomment">/// Type of the Cloud SQL database.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;cloud_sql_big_query_connection_spec::DatabaseType&quot;</span>,
+        tag = <span class="string">&quot;3&quot;
+    </span>)]
+    </span><span class="kw">pub </span>r#type: i32,
 }
-<span class="kw">impl </span>SearchResultType {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            SearchResultType::Unspecified =&gt; <span class="string">&quot;SEARCH_RESULT_TYPE_UNSPECIFIED&quot;</span>,
-            SearchResultType::Entry =&gt; <span class="string">&quot;ENTRY&quot;</span>,
-            SearchResultType::TagTemplate =&gt; <span class="string">&quot;TAG_TEMPLATE&quot;</span>,
-            SearchResultType::EntryGroup =&gt; <span class="string">&quot;ENTRY_GROUP&quot;</span>,
+<span class="doccomment">/// Nested message and enum types in `CloudSqlBigQueryConnectionSpec`.
+</span><span class="kw">pub mod </span>cloud_sql_big_query_connection_spec {
+    <span class="doccomment">/// Supported Cloud SQL database types.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>DatabaseType {
+        <span class="doccomment">/// Unspecified database type.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Cloud SQL for PostgreSQL.
+        </span>Postgres = <span class="number">1</span>,
+        <span class="doccomment">/// Cloud SQL for MySQL.
+        </span>Mysql = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>DatabaseType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                DatabaseType::Unspecified =&gt; <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot;</span>,
+                DatabaseType::Postgres =&gt; <span class="string">&quot;POSTGRES&quot;</span>,
+                DatabaseType::Mysql =&gt; <span class="string">&quot;MYSQL&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;POSTGRES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Postgres),
+                <span class="string">&quot;MYSQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
         }
     }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;SEARCH_RESULT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;ENTRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Entry),
-            <span class="string">&quot;TAG_TEMPLATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TagTemplate),
-            <span class="string">&quot;ENTRY_GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EntryGroup),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
+}
+<span class="doccomment">/// Fields specific for BigQuery routines.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BigQueryRoutineSpec {
+    <span class="doccomment">/// Paths of the imported libraries.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>imported_libraries: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Physical location of an entry.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7323,142 +7222,6 @@
     <span class="doccomment">/// Name of the Data Catalog entry representing the external table.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>data_catalog_entry: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Specification for the BigQuery connection.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BigQueryConnectionSpec {
-    <span class="doccomment">/// The type of the BigQuery connection.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;big_query_connection_spec::ConnectionType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>connection_type: i32,
-    <span class="doccomment">/// True if there are credentials attached to the BigQuery connection; false
-    /// otherwise.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>has_credential: bool,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;big_query_connection_spec::ConnectionSpec&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>connection_spec: ::core::option::Option&lt;
-        big_query_connection_spec::ConnectionSpec,
-    &gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `BigQueryConnectionSpec`.
-</span><span class="kw">pub mod </span>big_query_connection_spec {
-    <span class="doccomment">/// The type of the BigQuery connection.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>ConnectionType {
-        <span class="doccomment">/// Unspecified type.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Cloud SQL connection.
-        </span>CloudSql = <span class="number">1</span>,
-    }
-    <span class="kw">impl </span>ConnectionType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                ConnectionType::Unspecified =&gt; <span class="string">&quot;CONNECTION_TYPE_UNSPECIFIED&quot;</span>,
-                ConnectionType::CloudSql =&gt; <span class="string">&quot;CLOUD_SQL&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;CONNECTION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CLOUD_SQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudSql),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>ConnectionSpec {
-        <span class="doccomment">/// Specification for the BigQuery connection to a Cloud SQL instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>CloudSql(<span class="kw">super</span>::CloudSqlBigQueryConnectionSpec),
-    }
-}
-<span class="doccomment">/// Specification for the BigQuery connection to a Cloud SQL instance.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CloudSqlBigQueryConnectionSpec {
-    <span class="doccomment">/// Cloud SQL instance ID in the format of `project:location:instance`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Database name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
-    <span class="doccomment">/// Type of the Cloud SQL database.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;cloud_sql_big_query_connection_spec::DatabaseType&quot;</span>,
-        tag = <span class="string">&quot;3&quot;
-    </span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `CloudSqlBigQueryConnectionSpec`.
-</span><span class="kw">pub mod </span>cloud_sql_big_query_connection_spec {
-    <span class="doccomment">/// Supported Cloud SQL database types.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>DatabaseType {
-        <span class="doccomment">/// Unspecified database type.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Cloud SQL for PostgreSQL.
-        </span>Postgres = <span class="number">1</span>,
-        <span class="doccomment">/// Cloud SQL for MySQL.
-        </span>Mysql = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>DatabaseType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                DatabaseType::Unspecified =&gt; <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot;</span>,
-                DatabaseType::Postgres =&gt; <span class="string">&quot;POSTGRES&quot;</span>,
-                DatabaseType::Mysql =&gt; <span class="string">&quot;MYSQL&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;POSTGRES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Postgres),
-                <span class="string">&quot;MYSQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Fields specific for BigQuery routines.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BigQueryRoutineSpec {
-    <span class="doccomment">/// Paths of the imported libraries.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>imported_libraries: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Describes a Cloud Storage fileset entry.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7702,6 +7465,243 @@
         <span class="doccomment">/// Looker specific column info of this column.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;18&quot;</span>)]
         </span>LookerColumnSpec(LookerColumnSpec),
+    }
+}
+<span class="doccomment">/// Result in the response to a search request.
+///
+/// Each result captures details of one entry that matches the search.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchCatalogResult {
+    <span class="doccomment">/// Type of the search result.
+    ///
+    /// You can use this field to determine which get method to call to fetch the
+    /// full resource.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SearchResultType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>search_result_type: i32,
+    <span class="doccomment">/// Sub-type of the search result.
+    ///
+    /// A dot-delimited full type of the resource. The same type you
+    /// specify in the `type` search predicate.
+    ///
+    /// Examples: `entry.table`, `entry.dataStream`, `tagTemplate`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>search_result_subtype: ::prost::alloc::string::String,
+    <span class="doccomment">/// The relative name of the resource in URL format.
+    ///
+    /// Examples:
+    ///
+    ///   * `projects/{PROJECT_ID}/locations/{LOCATION_ID}/entryGroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`
+    ///   * `projects/{PROJECT_ID}/tagTemplates/{TAG_TEMPLATE_ID}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>relative_resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The full name of the Google Cloud resource the entry belongs to.
+    ///
+    /// For more information, see \[Full Resource Name\]
+    /// (/apis/design/resource_names#full_resource_name).
+    ///
+    /// Example:
+    ///
+    /// `//bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>linked_resource: ::prost::alloc::string::String,
+    <span class="doccomment">/// The last modification timestamp of the entry in the source system.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>modify_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Fully qualified name (FQN) of the resource.
+    ///
+    /// FQNs take two forms:
+    ///
+    /// * For non-regionalized resources:
+    ///
+    ///    `{SYSTEM}:{PROJECT}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}`
+    ///
+    /// * For regionalized resources:
+    ///
+    ///    `{SYSTEM}:{PROJECT}.{LOCATION_ID}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}`
+    ///
+    /// Example for a DPMS table:
+    ///
+    /// `dataproc_metastore:PROJECT_ID.LOCATION_ID.INSTANCE_ID.DATABASE_ID.TABLE_ID`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>fully_qualified_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The display name of the result.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Entry description that can consist of several sentences or paragraphs that
+    /// describe entry contents.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// The source system of the entry. Applicable only when the
+    /// `search_result_type` is `ENTRY`.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;search_catalog_result::System&quot;</span>, tags = <span class="string">&quot;8, 9&quot;</span>)]
+    </span><span class="kw">pub </span>system: ::core::option::Option&lt;search_catalog_result::System&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `SearchCatalogResult`.
+</span><span class="kw">pub mod </span>search_catalog_result {
+    <span class="doccomment">/// The source system of the entry. Applicable only when the
+    /// `search_result_type` is `ENTRY`.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>System {
+        <span class="doccomment">/// Output only. The source system that Data Catalog automatically integrates
+        /// with, such as BigQuery, Cloud Pub/Sub, or Dataproc Metastore.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::IntegratedSystem&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+        </span>IntegratedSystem(i32),
+        <span class="doccomment">/// Custom source system that you can manually integrate Data Catalog with.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+        </span>UserSpecifiedSystem(::prost::alloc::string::String),
+    }
+}
+<span class="doccomment">/// The resource types that can be returned in search results.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>SearchResultType {
+    <span class="doccomment">/// Default unknown type.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// An [Entry][google.cloud.datacatalog.v1.Entry].
+    </span>Entry = <span class="number">1</span>,
+    <span class="doccomment">/// A [TagTemplate][google.cloud.datacatalog.v1.TagTemplate].
+    </span>TagTemplate = <span class="number">2</span>,
+    <span class="doccomment">/// An [EntryGroup][google.cloud.datacatalog.v1.EntryGroup].
+    </span>EntryGroup = <span class="number">3</span>,
+}
+<span class="kw">impl </span>SearchResultType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            SearchResultType::Unspecified =&gt; <span class="string">&quot;SEARCH_RESULT_TYPE_UNSPECIFIED&quot;</span>,
+            SearchResultType::Entry =&gt; <span class="string">&quot;ENTRY&quot;</span>,
+            SearchResultType::TagTemplate =&gt; <span class="string">&quot;TAG_TEMPLATE&quot;</span>,
+            SearchResultType::EntryGroup =&gt; <span class="string">&quot;ENTRY_GROUP&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;SEARCH_RESULT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;ENTRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Entry),
+            <span class="string">&quot;TAG_TEMPLATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TagTemplate),
+            <span class="string">&quot;ENTRY_GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EntryGroup),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Describes a BigQuery table.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BigQueryTableSpec {
+    <span class="doccomment">/// Output only. The table source type.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TableSourceType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>table_source_type: i32,
+    <span class="doccomment">/// Output only.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;big_query_table_spec::TypeSpec&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>type_spec: ::core::option::Option&lt;big_query_table_spec::TypeSpec&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `BigQueryTableSpec`.
+</span><span class="kw">pub mod </span>big_query_table_spec {
+    <span class="doccomment">/// Output only.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>TypeSpec {
+        <span class="doccomment">/// Table view specification. Populated only if
+        /// the `table_source_type` is `BIGQUERY_VIEW`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>ViewSpec(<span class="kw">super</span>::ViewSpec),
+        <span class="doccomment">/// Specification of a BigQuery table. Populated only if
+        /// the `table_source_type` is `BIGQUERY_TABLE`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>TableSpec(<span class="kw">super</span>::TableSpec),
+    }
+}
+<span class="doccomment">/// Table view specification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ViewSpec {
+    <span class="doccomment">/// Output only. The query that defines the table view.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>view_query: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Normal BigQuery table specification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TableSpec {
+    <span class="doccomment">/// Output only. If the table is date-sharded, that is, it matches the
+    /// `\[prefix\]YYYYMMDD` name pattern, this field is the Data Catalog resource
+    /// name of the date-sharded grouped entry. For example:
+    ///
+    /// `projects/{PROJECT_ID}/locations/{LOCATION}/entrygroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`.
+    ///
+    /// Otherwise, `grouped_entry` is empty.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>grouped_entry: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Specification for a group of BigQuery tables with the `\[prefix\]YYYYMMDD` name
+/// pattern.
+///
+/// For more information, see \[Introduction to partitioned tables\]
+/// (&lt;https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding&gt;).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BigQueryDateShardedSpec {
+    <span class="doccomment">/// Output only. The Data Catalog resource name of the dataset entry the
+    /// current table belongs to. For example:
+    ///
+    /// `projects/{PROJECT_ID}/locations/{LOCATION}/entrygroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>dataset: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The table name prefix of the shards.
+    ///
+    /// The name of any given shard is `\[table_prefix\]YYYYMMDD`.
+    /// For example, for the `MyTable20180101` shard, the
+    /// `table_prefix` is `MyTable`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>table_prefix: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Total number of shards.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>shard_count: i64,
+    <span class="doccomment">/// Output only. BigQuery resource name of the latest shard.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>latest_shard_resource: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Table source type.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>TableSourceType {
+    <span class="doccomment">/// Default unknown type.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Table view.
+    </span>BigqueryView = <span class="number">2</span>,
+    <span class="doccomment">/// BigQuery native table.
+    </span>BigqueryTable = <span class="number">5</span>,
+    <span class="doccomment">/// BigQuery materialized view.
+    </span>BigqueryMaterializedView = <span class="number">7</span>,
+}
+<span class="kw">impl </span>TableSourceType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            TableSourceType::Unspecified =&gt; <span class="string">&quot;TABLE_SOURCE_TYPE_UNSPECIFIED&quot;</span>,
+            TableSourceType::BigqueryView =&gt; <span class="string">&quot;BIGQUERY_VIEW&quot;</span>,
+            TableSourceType::BigqueryTable =&gt; <span class="string">&quot;BIGQUERY_TABLE&quot;</span>,
+            TableSourceType::BigqueryMaterializedView =&gt; <span class="string">&quot;BIGQUERY_MATERIALIZED_VIEW&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;TABLE_SOURCE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;BIGQUERY_VIEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BigqueryView),
+            <span class="string">&quot;BIGQUERY_TABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BigqueryTable),
+            <span class="string">&quot;BIGQUERY_MATERIALIZED_VIEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BigqueryMaterializedView),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
     }
 }
 <span class="doccomment">/// Tags contain custom metadata and are attached to Data Catalog resources. Tags

@@ -1430,6 +1430,18 @@
         }
     }
 }
+<span class="doccomment">/// Sink Settings for Security Command Center
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SinkSettings {
+    <span class="doccomment">/// The resource name of the project to send logs to. This project must be
+    /// part of the same organization where the Security Center API is
+    /// enabled. The format is `projects/{project}`. If it is empty, we do
+    /// not output logs. If a project ID is provided it will be normalized to a
+    /// project number.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>logging_sink_project: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// Billing settings
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1549,18 +1561,6 @@
     /// with PCI compliance.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>detector_labels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Sink Settings for Security Command Center
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SinkSettings {
-    <span class="doccomment">/// The resource name of the project to send logs to. This project must be
-    /// part of the same organization where the Security Center API is
-    /// enabled. The format is `projects/{project}`. If it is empty, we do
-    /// not output logs. If a project ID is provided it will be normalized to a
-    /// project number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>logging_sink_project: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Common configuration settings for all of Security Center.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

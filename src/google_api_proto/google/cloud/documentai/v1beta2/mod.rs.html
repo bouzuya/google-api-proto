@@ -1830,7 +1830,43 @@
 <a href="#1830" id="1830">1830</a>
 <a href="#1831" id="1831">1831</a>
 <a href="#1832" id="1832">1832</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Encodes the detailed information of a barcode.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A vertex represents a 2D point in the image.
+/// NOTE: the vertex coordinates are in the same scale as the original image.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Vertex {
+    <span class="doccomment">/// X coordinate.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>x: i32,
+    <span class="doccomment">/// Y coordinate (starts from the top of the image).
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>y: i32,
+}
+<span class="doccomment">/// A vertex represents a 2D point in the image.
+/// NOTE: the normalized vertex coordinates are relative to the original image
+/// and range from 0 to 1.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>NormalizedVertex {
+    <span class="doccomment">/// X coordinate.
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>x: f32,
+    <span class="doccomment">/// Y coordinate (starts from the top of the image).
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>y: f32,
+}
+<span class="doccomment">/// A bounding polygon for the detected image annotation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BoundingPoly {
+    <span class="doccomment">/// The bounding polygon vertices.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>vertices: ::prost::alloc::vec::Vec&lt;Vertex&gt;,
+    <span class="doccomment">/// The bounding polygon normalized vertices.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>normalized_vertices: ::prost::alloc::vec::Vec&lt;NormalizedVertex&gt;,
+}
+<span class="doccomment">/// Encodes the detailed information of a barcode.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Barcode {
@@ -1875,42 +1911,6 @@
     /// For example: `&#39;MEBKM:TITLE:Google;URL:&lt;https://www.google.com;;&#39;`.&gt;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>raw_value: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A vertex represents a 2D point in the image.
-/// NOTE: the vertex coordinates are in the same scale as the original image.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Vertex {
-    <span class="doccomment">/// X coordinate.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>x: i32,
-    <span class="doccomment">/// Y coordinate (starts from the top of the image).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>y: i32,
-}
-<span class="doccomment">/// A vertex represents a 2D point in the image.
-/// NOTE: the normalized vertex coordinates are relative to the original image
-/// and range from 0 to 1.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>NormalizedVertex {
-    <span class="doccomment">/// X coordinate.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>x: f32,
-    <span class="doccomment">/// Y coordinate (starts from the top of the image).
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>y: f32,
-}
-<span class="doccomment">/// A bounding polygon for the detected image annotation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BoundingPoly {
-    <span class="doccomment">/// The bounding polygon vertices.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>vertices: ::prost::alloc::vec::Vec&lt;Vertex&gt;,
-    <span class="doccomment">/// The bounding polygon normalized vertices.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>normalized_vertices: ::prost::alloc::vec::Vec&lt;NormalizedVertex&gt;,
 }
 <span class="doccomment">/// Document represents the canonical document resource in Document AI. It is an
 /// interchange format that provides insights into documents and allows for

@@ -3609,7 +3609,557 @@
 <a href="#3609" id="3609">3609</a>
 <a href="#3610" id="3610">3610</a>
 <a href="#3611" id="3611">3611</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// The history state for messages and spaces. Specifies how long messages and
+</pre></div><pre class="rust"><code><span class="doccomment">/// An attachment in Google Chat.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Attachment {
+    <span class="doccomment">/// Resource name of the attachment, in the form
+    /// `spaces/*/messages/*/attachments/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The original file name for the content, not the full path.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>content_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The content type (MIME type) of the file.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>content_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The thumbnail URL which should be used to preview the
+    /// attachment to a human user. Chat apps shouldn&#39;t use this URL to download
+    /// attachment content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>thumbnail_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The download URL which should be used to allow a human user to
+    /// download the attachment. Chat apps shouldn&#39;t use this URL to download
+    /// attachment content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>download_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The source of the attachment.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;attachment::Source&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>source: i32,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;attachment::DataRef&quot;</span>, tags = <span class="string">&quot;4, 7&quot;</span>)]
+    </span><span class="kw">pub </span>data_ref: ::core::option::Option&lt;attachment::DataRef&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Attachment`.
+</span><span class="kw">pub mod </span>attachment {
+    <span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Source {
+        Unspecified = <span class="number">0</span>,
+        DriveFile = <span class="number">1</span>,
+        UploadedContent = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>Source {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Source::Unspecified =&gt; <span class="string">&quot;SOURCE_UNSPECIFIED&quot;</span>,
+                Source::DriveFile =&gt; <span class="string">&quot;DRIVE_FILE&quot;</span>,
+                Source::UploadedContent =&gt; <span class="string">&quot;UPLOADED_CONTENT&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;SOURCE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;DRIVE_FILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DriveFile),
+                <span class="string">&quot;UPLOADED_CONTENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UploadedContent),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>DataRef {
+        <span class="doccomment">/// A reference to the attachment data. This field is used with the media API
+        /// to download the attachment data.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>AttachmentDataRef(<span class="kw">super</span>::AttachmentDataRef),
+        <span class="doccomment">/// Output only. A reference to the Google Drive attachment. This field is
+        /// used with the Google Drive API.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>DriveDataRef(<span class="kw">super</span>::DriveDataRef),
+    }
+}
+<span class="doccomment">/// A reference to the data of a drive attachment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DriveDataRef {
+    <span class="doccomment">/// The ID for the drive file. Use with the Drive API.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>drive_file_id: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AttachmentDataRef {
+    <span class="doccomment">/// The resource name of the attachment data. This field is used with the media
+    /// API to download the attachment data.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Opaque token containing a reference to an uploaded attachment. Treated by
+    /// clients as an opaque string and used to create or update Chat messages with
+    /// attachments.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>attachment_upload_token: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetAttachmentRequest {
+    <span class="doccomment">/// Required. Resource name of the attachment, in the form
+    /// `spaces/*/messages/*/attachments/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UploadAttachmentRequest {
+    <span class="doccomment">/// Required. Resource name of the Chat space in which the attachment is
+    /// uploaded. Format &quot;spaces/{space}&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The filename of the attachment, including the file extension.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>filename: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UploadAttachmentResponse {
+    <span class="doccomment">/// Reference to the uploaded attachment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>attachment_data_ref: ::core::option::Option&lt;AttachmentDataRef&gt;,
+}
+<span class="doccomment">/// A Google Group in Google Chat.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Group {
+    <span class="doccomment">/// Resource name for a Google Group.
+    ///
+    /// Represents a
+    /// [group](&lt;https://cloud.google.com/identity/docs/reference/rest/v1/groups&gt;) in
+    /// Cloud Identity Groups API.
+    ///
+    /// Format: groups/{group}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A user in Google Chat.
+/// When returned as an output from a request, if your Chat app [authenticates as
+/// a user](&lt;https://developers.google.com/chat/api/guides/auth/users&gt;), the output
+/// for a `User` resource only populates the user&#39;s `name` and `type`.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>User {
+    <span class="doccomment">/// Resource name for a Google Chat [user][google.chat.v1.User].
+    ///
+    /// Format: `users/{user}`. `users/app` can be used as an alias for the calling
+    /// app [bot][google.chat.v1.User.Type.BOT] user.
+    ///
+    /// For [human users][google.chat.v1.User.Type.HUMAN], `{user}` is the same
+    /// user identifier as:
+    ///
+    /// - the `id` for the
+    /// [Person](&lt;https://developers.google.com/people/api/rest/v1/people&gt;) in the
+    /// People API. For example, `users/123456789` in Chat API represents the same
+    /// person as the `123456789` Person profile ID in People API.
+    ///
+    /// - the `id` for a
+    /// [user](&lt;https://developers.google.com/admin-sdk/directory/reference/rest/v1/users&gt;)
+    /// in the Admin SDK Directory API.
+    ///
+    /// - the user&#39;s email address can be used as an alias for `{user}` in API
+    /// requests. For example, if the People API Person profile ID for
+    /// `user@example.com` is `123456789`, you can use `users/user@example.com` as
+    /// an alias to reference `users/123456789`. Only the canonical resource name
+    /// (for example `users/123456789`) will be returned from the API.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The user&#39;s display name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Unique identifier of the user&#39;s Google Workspace domain.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>domain_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// User type.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;user::Type&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// Output only. When `true`, the user is deleted or their profile is not
+    /// visible.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>is_anonymous: bool,
+}
+<span class="doccomment">/// Nested message and enum types in `User`.
+</span><span class="kw">pub mod </span>user {
+    <span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Type {
+        <span class="doccomment">/// Default value for the enum. DO NOT USE.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Human user.
+        </span>Human = <span class="number">1</span>,
+        <span class="doccomment">/// Chat app user.
+        </span>Bot = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>Type {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
+                Type::Human =&gt; <span class="string">&quot;HUMAN&quot;</span>,
+                Type::Bot =&gt; <span class="string">&quot;BOT&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;HUMAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Human),
+                <span class="string">&quot;BOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bot),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Represents a membership relation in Google Chat, such as whether a user or
+/// Chat app is invited to, part of, or absent from a space.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Membership {
+    <span class="doccomment">/// Resource name of the membership, assigned by the server.
+    ///
+    /// Format: `spaces/{space}/members/{member}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. State of the membership.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;membership::MembershipState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Optional. User&#39;s role within a Chat space, which determines their permitted
+    /// actions in the space.
+    ///
+    /// [Developer Preview](&lt;https://developers.google.com/workspace/preview&gt;):
+    /// This field can only be used as input in `UpdateMembership`.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;membership::MembershipRole&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>role: i32,
+    <span class="doccomment">/// Optional. Immutable. The creation time of the membership, such as when a
+    /// member joined or was invited to join a space. This field is output only,
+    /// except when used to import historical memberships in import mode spaces.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Optional. Immutable. The deletion time of the membership, such as when a
+    /// member left or was removed from a space. This field is output only, except
+    /// when used to import historical memberships in import mode spaces.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Member associated with this membership. Other member types might be
+    /// supported in the future.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;membership::MemberType&quot;</span>, tags = <span class="string">&quot;3, 5&quot;</span>)]
+    </span><span class="kw">pub </span>member_type: ::core::option::Option&lt;membership::MemberType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Membership`.
+</span><span class="kw">pub mod </span>membership {
+    <span class="doccomment">/// Specifies the member&#39;s relationship with a space. Other membership states
+    /// might be supported in the future.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>MembershipState {
+        <span class="doccomment">/// Default value. Don&#39;t use.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The user is added to the space, and can participate in the space.
+        </span>Joined = <span class="number">1</span>,
+        <span class="doccomment">/// The user is invited to join the space, but hasn&#39;t joined it.
+        </span>Invited = <span class="number">2</span>,
+        <span class="doccomment">/// The user doesn&#39;t belong to the space and doesn&#39;t have a pending
+        /// invitation to join the space.
+        </span>NotAMember = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>MembershipState {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                MembershipState::Unspecified =&gt; <span class="string">&quot;MEMBERSHIP_STATE_UNSPECIFIED&quot;</span>,
+                MembershipState::Joined =&gt; <span class="string">&quot;JOINED&quot;</span>,
+                MembershipState::Invited =&gt; <span class="string">&quot;INVITED&quot;</span>,
+                MembershipState::NotAMember =&gt; <span class="string">&quot;NOT_A_MEMBER&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;MEMBERSHIP_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;JOINED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Joined),
+                <span class="string">&quot;INVITED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Invited),
+                <span class="string">&quot;NOT_A_MEMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotAMember),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Represents a user&#39;s permitted actions in a Chat space. More enum values
+    /// might be added in the future.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>MembershipRole {
+        <span class="doccomment">/// Default value. For [users][google.chat.v1.Membership.member]: they
+        /// aren&#39;t a member of the space, but can be invited. For
+        /// [Google Groups][google.chat.v1.Membership.group_member]: they&#39;re always
+        ///   assigned this role (other enum values might be used in the future).
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// A member of the space. The user has basic permissions, like sending
+        /// messages to the space. In 1:1 and unnamed group conversations, everyone
+        /// has this role.
+        </span>RoleMember = <span class="number">1</span>,
+        <span class="doccomment">/// A space manager. The user has all basic permissions plus administrative
+        /// permissions that let them manage the space, like adding or removing
+        /// members. Only supported in
+        /// [SpaceType.SPACE][google.chat.v1.Space.SpaceType].
+        </span>RoleManager = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>MembershipRole {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                MembershipRole::Unspecified =&gt; <span class="string">&quot;MEMBERSHIP_ROLE_UNSPECIFIED&quot;</span>,
+                MembershipRole::RoleMember =&gt; <span class="string">&quot;ROLE_MEMBER&quot;</span>,
+                MembershipRole::RoleManager =&gt; <span class="string">&quot;ROLE_MANAGER&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;MEMBERSHIP_ROLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ROLE_MEMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RoleMember),
+                <span class="string">&quot;ROLE_MANAGER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RoleManager),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Member associated with this membership. Other member types might be
+    /// supported in the future.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>MemberType {
+        <span class="doccomment">/// The Google Chat user or app the membership corresponds to.
+        /// If your Chat app [authenticates as a
+        /// user](&lt;https://developers.google.com/chat/api/guides/auth/users&gt;), the
+        /// output populates the
+        /// [user](&lt;https://developers.google.com/chat/api/reference/rest/v1/User&gt;)
+        /// `name` and `type`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>Member(<span class="kw">super</span>::User),
+        <span class="doccomment">/// The Google Group the membership corresponds to.
+        /// Only supports read operations. Other operations, like creating or
+        /// updating a membership, aren&#39;t currently supported.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>GroupMember(<span class="kw">super</span>::Group),
+    }
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateMembershipRequest {
+    <span class="doccomment">/// Required. The resource name of the space for which to create the
+    /// membership.
+    ///
+    /// Format: spaces/{space}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The membership relation to create.
+    /// The `memberType` field must contain a user with the `user.name` and
+    /// `user.type` fields populated. The server will assign a resource name
+    /// and overwrite anything specified.
+    /// When a Chat app creates a membership relation for a human user, it must use
+    /// the `chat.memberships` scope, set `user.type` to `HUMAN`, and set
+    /// `user.name` with format `users/{user}`, where `{user}` can be the email
+    /// address for the user. For users in the same Workspace organization `{user}`
+    /// can also be the `id` of the
+    /// [person](&lt;https://developers.google.com/people/api/rest/v1/people&gt;) from the
+    /// People API, or the `id` for the user in the Directory API. For example, if
+    /// the People API Person profile ID for `user@example.com` is `123456789`, you
+    /// can add the user to the space by setting the `membership.member.name` to
+    /// `users/user@example.com` or `users/123456789`. When a Chat app creates a
+    /// membership relation for itself, it must use the `chat.memberships.app`
+    /// scope, set `user.type` to `BOT`, and set `user.name` to `users/app`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>membership: ::core::option::Option&lt;Membership&gt;,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListMembershipsRequest {
+    <span class="doccomment">/// Required. The resource name of the space for which to fetch a membership
+    /// list.
+    ///
+    /// Format: spaces/{space}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The maximum number of memberships to return. The service might
+    /// return fewer than this value.
+    ///
+    /// If unspecified, at most 100 memberships are returned.
+    ///
+    /// The maximum value is 1,000. If you use a value more than 1,000, it&#39;s
+    /// automatically changed to 1,000.
+    ///
+    /// Negative values return an `INVALID_ARGUMENT` error.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// Optional. A page token, received from a previous call to list memberships.
+    /// Provide this parameter to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided should match the call that
+    /// provided the page token. Passing different values to the other parameters
+    /// might lead to unexpected results.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A query filter.
+    ///
+    /// You can filter memberships by a member&#39;s role
+    /// ([`role`](&lt;https://developers.google.com/chat/api/reference/rest/v1/spaces.members#membershiprole&gt;))
+    /// and type
+    /// ([`member.type`](&lt;https://developers.google.com/chat/api/reference/rest/v1/User#type&gt;)).
+    ///
+    /// To filter by role, set `role` to `ROLE_MEMBER` or `ROLE_MANAGER`.
+    ///
+    /// To filter by type, set `member.type` to `HUMAN` or `BOT`.
+    ///
+    /// To filter by both role and type, use the `AND` operator. To filter by
+    /// either role or type, use the `OR` operator.
+    ///
+    /// For example, the following queries are valid:
+    ///
+    /// ```
+    /// role = &quot;ROLE_MANAGER&quot; OR role = &quot;ROLE_MEMBER&quot;
+    /// member.type = &quot;HUMAN&quot; AND role = &quot;ROLE_MANAGER&quot;
+    /// ```
+    ///
+    /// The following queries are invalid:
+    ///
+    /// ```
+    /// member.type = &quot;HUMAN&quot; AND member.type = &quot;BOT&quot;
+    /// role = &quot;ROLE_MANAGER&quot; AND role = &quot;ROLE_MEMBER&quot;
+    /// ```
+    ///
+    /// Invalid queries are rejected by the server with an `INVALID_ARGUMENT`
+    /// error.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. When `true`, also returns memberships associated with a
+    /// [Google Group][google.chat.v1.Membership.group_member], in
+    /// addition to other types of memberships. If a
+    /// [filter][google.chat.v1.ListMembershipsRequest.filter] is set,
+    /// [Google Group][google.chat.v1.Membership.group_member]
+    /// memberships that don&#39;t match the filter criteria aren&#39;t returned.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>show_groups: bool,
+    <span class="doccomment">/// Optional. When `true`, also returns memberships associated with
+    /// [invited][google.chat.v1.Membership.MembershipState.INVITED] members, in
+    /// addition to other types of memberships. If a
+    /// filter is set,
+    /// [invited][google.chat.v1.Membership.MembershipState.INVITED] memberships
+    /// that don&#39;t match the filter criteria aren&#39;t returned.
+    ///
+    /// Currently requires [user
+    /// authentication](&lt;https://developers.google.com/chat/api/guides/auth/users&gt;).
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>show_invited: bool,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListMembershipsResponse {
+    <span class="doccomment">/// Unordered list. List of memberships in the requested (or first) page.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>memberships: ::prost::alloc::vec::Vec&lt;Membership&gt;,
+    <span class="doccomment">/// A token that you can send as `pageToken` to retrieve the next page of
+    /// results. If empty, there are no subsequent pages.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetMembershipRequest {
+    <span class="doccomment">/// Required. Resource name of the membership to retrieve.
+    ///
+    /// To get the app&#39;s own membership, you can optionally use
+    /// `spaces/{space}/members/app`.
+    ///
+    /// Format: `spaces/{space}/members/{member}` or `spaces/{space}/members/app`
+    ///
+    /// When [authenticated as a
+    /// user](&lt;https://developers.google.com/chat/api/guides/auth/users&gt;), you can
+    /// use the user&#39;s email as an alias for `{member}`. For example,
+    /// `spaces/{space}/members/example@gmail.com` where `example@gmail.com` is the
+    /// email of the Google Chat user.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteMembershipRequest {
+    <span class="doccomment">/// Required. Resource name of the membership to delete. Chat apps can delete
+    /// human users&#39; or their own memberships. Chat apps can&#39;t delete other apps&#39;
+    /// memberships.
+    ///
+    /// When deleting a human membership, requires the `chat.memberships` scope and
+    /// `spaces/{space}/members/{member}` format. You can use the email as an
+    /// alias for `{member}`. For example,
+    /// `spaces/{space}/members/example@gmail.com` where `example@gmail.com` is the
+    /// email of the Google Chat user.
+    ///
+    /// When deleting an app membership, requires the `chat.memberships.app` scope
+    /// and `spaces/{space}/members/app` format.
+    ///
+    /// Format: `spaces/{space}/members/{member}` or `spaces/{space}/members/app`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The history state for messages and spaces. Specifies how long messages and
 /// conversation threads are kept after creation.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -4078,6 +4628,296 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>space: ::core::option::Option&lt;Space&gt;,
 }
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SetUpSpaceRequest {
+    <span class="doccomment">/// Required. The `Space.spaceType` field is required.
+    ///
+    /// To create a space, set `Space.spaceType` to `SPACE` and set
+    /// `Space.displayName`. If you receive the error message `ALREADY_EXISTS` when
+    /// setting up a space, try a different `displayName`. An existing space
+    /// within the Google Workspace organization might already use this display
+    /// name.
+    ///
+    /// To create a group chat, set `Space.spaceType` to
+    /// `GROUP_CHAT`. Don&#39;t set `Space.displayName`.
+    ///
+    /// To create a 1:1 conversation between humans,
+    /// set `Space.spaceType` to `DIRECT_MESSAGE` and set
+    /// `Space.singleUserBotDm` to `false`. Don&#39;t set `Space.displayName` or
+    /// `Space.spaceDetails`.
+    ///
+    /// To create an 1:1 conversation between a human and the calling Chat app, set
+    /// `Space.spaceType` to `DIRECT_MESSAGE` and
+    /// `Space.singleUserBotDm` to `true`. Don&#39;t set `Space.displayName` or
+    /// `Space.spaceDetails`.
+    ///
+    /// If a `DIRECT_MESSAGE` space already exists, that space is returned instead
+    /// of creating a new space.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>space: ::core::option::Option&lt;Space&gt;,
+    <span class="doccomment">/// Optional. A unique identifier for this request.
+    /// A random UUID is recommended.
+    /// Specifying an existing request ID returns the space created with that ID
+    /// instead of creating a new space.
+    /// Specifying an existing request ID from the same Chat app with a different
+    /// authenticated user returns an error.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The Google Chat users to invite to join the space. Omit the
+    /// calling user, as they are added automatically.
+    ///
+    /// The set currently allows up to 20 memberships (in addition to the caller).
+    ///
+    /// The `Membership.member` field must contain a `user` with `name` populated
+    /// (format: `users/{user}`) and `type` set to `User.Type.HUMAN`. You can only
+    /// add human users when setting up a space (adding Chat apps is only supported
+    /// for direct message setup with the calling app). You can also add members
+    /// using the user&#39;s email as an alias for {user}. For example, the `user.name`
+    /// can be `users/example@gmail.com`.&quot; To invite Gmail users or users from
+    /// external Google Workspace domains, user&#39;s email must be used for
+    /// `{user}`.
+    ///
+    /// Optional when setting `Space.spaceType` to `SPACE`.
+    ///
+    /// Required when setting `Space.spaceType` to `GROUP_CHAT`, along with at
+    /// least two memberships.
+    ///
+    /// Required when setting `Space.spaceType` to `DIRECT_MESSAGE` with a human
+    /// user, along with exactly one membership.
+    ///
+    /// Must be empty when creating a 1:1 conversation between a human and the
+    /// calling Chat app (when setting `Space.spaceType` to
+    /// `DIRECT_MESSAGE` and `Space.singleUserBotDm` to `true`).
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>memberships: ::prost::alloc::vec::Vec&lt;Membership&gt;,
+}
+<span class="doccomment">/// Represents the status for a request to either invoke or submit a
+/// [dialog](&lt;https://developers.google.com/chat/how-tos/dialogs&gt;).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ActionStatus {
+    <span class="doccomment">/// The status code.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::rpc::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>status_code: i32,
+    <span class="doccomment">/// The message to send users about the status of their request.
+    /// If unset, a generic message based on the `status_code` is sent.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>user_facing_message: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Output only. Annotations associated with the plain-text body of the message.
+/// To add basic formatting to a text message, see
+/// [Format text
+/// messages](&lt;https://developers.google.com/chat/format-messages&gt;).
+///
+/// Example plain-text message body:
+/// ```
+/// Hello @FooBot how are you!&quot;
+/// ```
+///
+/// The corresponding annotations metadata:
+/// ```
+/// &quot;annotations&quot;:[{
+///    &quot;type&quot;:&quot;USER_MENTION&quot;,
+///    &quot;startIndex&quot;:6,
+///    &quot;length&quot;:7,
+///    &quot;userMention&quot;: {
+///      &quot;user&quot;: {
+///        &quot;name&quot;:&quot;users/{user}&quot;,
+///        &quot;displayName&quot;:&quot;FooBot&quot;,
+///        &quot;avatarUrl&quot;:&quot;&lt;https://goo.gl/aeDtrS&quot;,&gt;
+///        &quot;type&quot;:&quot;BOT&quot;
+///      },
+///      &quot;type&quot;:&quot;MENTION&quot;
+///     }
+/// }]
+/// ```
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Annotation {
+    <span class="doccomment">/// The type of this annotation.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AnnotationType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// Start index (0-based, inclusive) in the plain-text message body this
+    /// annotation corresponds to.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>start_index: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// Length of the substring in the plain-text message body this annotation
+    /// corresponds to.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>length: i32,
+    <span class="doccomment">/// Additional metadata about the annotation.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;annotation::Metadata&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;annotation::Metadata&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Annotation`.
+</span><span class="kw">pub mod </span>annotation {
+    <span class="doccomment">/// Additional metadata about the annotation.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Metadata {
+        <span class="doccomment">/// The metadata of user mention.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>UserMention(<span class="kw">super</span>::UserMentionMetadata),
+        <span class="doccomment">/// The metadata for a slash command.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>SlashCommand(<span class="kw">super</span>::SlashCommandMetadata),
+    }
+}
+<span class="doccomment">/// Annotation metadata for user mentions (@).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UserMentionMetadata {
+    <span class="doccomment">/// The user mentioned.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>user: ::core::option::Option&lt;User&gt;,
+    <span class="doccomment">/// The type of user mention.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;user_mention_metadata::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `UserMentionMetadata`.
+</span><span class="kw">pub mod </span>user_mention_metadata {
+    <span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Type {
+        <span class="doccomment">/// Default value for the enum. Don&#39;t use.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Add user to space.
+        </span>Add = <span class="number">1</span>,
+        <span class="doccomment">/// Mention user in space.
+        </span>Mention = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>Type {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
+                Type::Add =&gt; <span class="string">&quot;ADD&quot;</span>,
+                Type::Mention =&gt; <span class="string">&quot;MENTION&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ADD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
+                <span class="string">&quot;MENTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mention),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Annotation metadata for slash commands (/).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SlashCommandMetadata {
+    <span class="doccomment">/// The Chat app whose command was invoked.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>bot: ::core::option::Option&lt;User&gt;,
+    <span class="doccomment">/// The type of slash command.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;slash_command_metadata::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// The name of the invoked slash command.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>command_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The command ID of the invoked slash command.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>command_id: i64,
+    <span class="doccomment">/// Indicates whether the slash command is for a dialog.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>triggers_dialog: bool,
+}
+<span class="doccomment">/// Nested message and enum types in `SlashCommandMetadata`.
+</span><span class="kw">pub mod </span>slash_command_metadata {
+    <span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Type {
+        <span class="doccomment">/// Default value for the enum. Don&#39;t use.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Add Chat app to space.
+        </span>Add = <span class="number">1</span>,
+        <span class="doccomment">/// Invoke slash command in space.
+        </span>Invoke = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>Type {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
+                Type::Add =&gt; <span class="string">&quot;ADD&quot;</span>,
+                Type::Invoke =&gt; <span class="string">&quot;INVOKE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ADD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
+                <span class="string">&quot;INVOKE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Invoke),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Type of the annotation.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>AnnotationType {
+    <span class="doccomment">/// Default value for the enum. Don&#39;t use.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// A user is mentioned.
+    </span>UserMention = <span class="number">1</span>,
+    <span class="doccomment">/// A slash command is invoked.
+    </span>SlashCommand = <span class="number">2</span>,
+}
+<span class="kw">impl </span>AnnotationType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            AnnotationType::Unspecified =&gt; <span class="string">&quot;ANNOTATION_TYPE_UNSPECIFIED&quot;</span>,
+            AnnotationType::UserMention =&gt; <span class="string">&quot;USER_MENTION&quot;</span>,
+            AnnotationType::SlashCommand =&gt; <span class="string">&quot;SLASH_COMMAND&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;ANNOTATION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;USER_MENTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserMention),
+            <span class="string">&quot;SLASH_COMMAND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SlashCommand),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
 <span class="doccomment">/// A widget is a UI element that presents text and images.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4459,1015 +5299,6 @@
         </span>KeyValue(KeyValue),
     }
 }
-<span class="doccomment">/// A user in Google Chat.
-/// When returned as an output from a request, if your Chat app [authenticates as
-/// a user](&lt;https://developers.google.com/chat/api/guides/auth/users&gt;), the output
-/// for a `User` resource only populates the user&#39;s `name` and `type`.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>User {
-    <span class="doccomment">/// Resource name for a Google Chat [user][google.chat.v1.User].
-    ///
-    /// Format: `users/{user}`. `users/app` can be used as an alias for the calling
-    /// app [bot][google.chat.v1.User.Type.BOT] user.
-    ///
-    /// For [human users][google.chat.v1.User.Type.HUMAN], `{user}` is the same
-    /// user identifier as:
-    ///
-    /// - the `id` for the
-    /// [Person](&lt;https://developers.google.com/people/api/rest/v1/people&gt;) in the
-    /// People API. For example, `users/123456789` in Chat API represents the same
-    /// person as the `123456789` Person profile ID in People API.
-    ///
-    /// - the `id` for a
-    /// [user](&lt;https://developers.google.com/admin-sdk/directory/reference/rest/v1/users&gt;)
-    /// in the Admin SDK Directory API.
-    ///
-    /// - the user&#39;s email address can be used as an alias for `{user}` in API
-    /// requests. For example, if the People API Person profile ID for
-    /// `user@example.com` is `123456789`, you can use `users/user@example.com` as
-    /// an alias to reference `users/123456789`. Only the canonical resource name
-    /// (for example `users/123456789`) will be returned from the API.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The user&#39;s display name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Unique identifier of the user&#39;s Google Workspace domain.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>domain_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// User type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;user::Type&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-    <span class="doccomment">/// Output only. When `true`, the user is deleted or their profile is not
-    /// visible.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>is_anonymous: bool,
-}
-<span class="doccomment">/// Nested message and enum types in `User`.
-</span><span class="kw">pub mod </span>user {
-    <span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Type {
-        <span class="doccomment">/// Default value for the enum. DO NOT USE.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Human user.
-        </span>Human = <span class="number">1</span>,
-        <span class="doccomment">/// Chat app user.
-        </span>Bot = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>Type {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Human =&gt; <span class="string">&quot;HUMAN&quot;</span>,
-                Type::Bot =&gt; <span class="string">&quot;BOT&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;HUMAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Human),
-                <span class="string">&quot;BOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bot),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// A reaction to a message.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Reaction {
-    <span class="doccomment">/// The resource name of the reaction.
-    ///
-    /// Format: `spaces/{space}/messages/{message}/reactions/{reaction}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The user who created the reaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>user: ::core::option::Option&lt;User&gt;,
-    <span class="doccomment">/// The emoji used in the reaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>emoji: ::core::option::Option&lt;Emoji&gt;,
-}
-<span class="doccomment">/// An emoji that is used as a reaction to a message.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Emoji {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;emoji::Content&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-    </span><span class="kw">pub </span>content: ::core::option::Option&lt;emoji::Content&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Emoji`.
-</span><span class="kw">pub mod </span>emoji {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Content {
-        <span class="doccomment">/// A basic emoji represented by a unicode string.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>Unicode(::prost::alloc::string::String),
-        <span class="doccomment">/// Output only. A custom emoji.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>CustomEmoji(<span class="kw">super</span>::CustomEmoji),
-    }
-}
-<span class="doccomment">/// Represents a custom emoji.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CustomEmoji {
-    <span class="doccomment">/// Unique key for the custom emoji resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The number of people who reacted to a message with a specific emoji.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EmojiReactionSummary {
-    <span class="doccomment">/// Emoji associated with the reactions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>emoji: ::core::option::Option&lt;Emoji&gt;,
-    <span class="doccomment">/// The total number of reactions using the associated emoji.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>reaction_count: ::core::option::Option&lt;i32&gt;,
-}
-<span class="doccomment">/// Creates a reaction to a message.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateReactionRequest {
-    <span class="doccomment">/// Required. The message where the reaction is created.
-    ///
-    /// Format: `spaces/{space}/messages/{message}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The reaction to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>reaction: ::core::option::Option&lt;Reaction&gt;,
-}
-<span class="doccomment">/// Lists reactions to a message.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListReactionsRequest {
-    <span class="doccomment">/// Required. The message users reacted to.
-    ///
-    /// Format: `spaces/{space}/messages/{message}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The maximum number of reactions returned. The service can return
-    /// fewer reactions than this value. If unspecified, the default value is 25.
-    /// The maximum value is 200; values above 200 are changed to 200.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Optional. (If resuming from a previous query.)
-    ///
-    /// A page token received from a previous list reactions call. Provide this
-    /// to retrieve the subsequent page.
-    ///
-    /// When paginating, the filter value should match the call that provided the
-    /// page token. Passing a different value might lead to unexpected results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A query filter.
-    ///
-    /// You can filter reactions by
-    /// [emoji](&lt;https://developers.google.com/chat/api/reference/rest/v1/Emoji&gt;)
-    /// (either `emoji.unicode` or `emoji.custom_emoji.uid`) and
-    /// [user](&lt;https://developers.google.com/chat/api/reference/rest/v1/User&gt;)
-    /// (`user.name`).
-    ///
-    /// To filter reactions for multiple emojis or users, join similar fields
-    /// with the `OR` operator, such as `emoji.unicode = &quot;🙂&quot; OR emoji.unicode =
-    /// &quot;👍&quot;` and `user.name = &quot;users/AAAAAA&quot; OR user.name = &quot;users/BBBBBB&quot;`.
-    ///
-    /// To filter reactions by emoji and user, use the `AND` operator, such as
-    /// `emoji.unicode = &quot;🙂&quot; AND user.name = &quot;users/AAAAAA&quot;`.
-    ///
-    /// If your query uses both `AND` and `OR`, group them with parentheses.
-    ///
-    /// For example, the following queries are valid:
-    ///
-    /// ```
-    /// user.name = &quot;users/{user}&quot;
-    /// emoji.unicode = &quot;🙂&quot;
-    /// emoji.custom_emoji.uid = &quot;{uid}&quot;
-    /// emoji.unicode = &quot;🙂&quot; OR emoji.unicode = &quot;👍&quot;
-    /// emoji.unicode = &quot;🙂&quot; OR emoji.custom_emoji.uid = &quot;{uid}&quot;
-    /// emoji.unicode = &quot;🙂&quot; AND user.name = &quot;users/{user}&quot;
-    /// (emoji.unicode = &quot;🙂&quot; OR emoji.custom_emoji.uid = &quot;{uid}&quot;)
-    /// AND user.name = &quot;users/{user}&quot;
-    /// ```
-    ///
-    /// The following queries are invalid:
-    ///
-    /// ```
-    /// emoji.unicode = &quot;🙂&quot; AND emoji.unicode = &quot;👍&quot;
-    /// emoji.unicode = &quot;🙂&quot; AND emoji.custom_emoji.uid = &quot;{uid}&quot;
-    /// emoji.unicode = &quot;🙂&quot; OR user.name = &quot;users/{user}&quot;
-    /// emoji.unicode = &quot;🙂&quot; OR emoji.custom_emoji.uid = &quot;{uid}&quot; OR
-    /// user.name = &quot;users/{user}&quot;
-    /// emoji.unicode = &quot;🙂&quot; OR emoji.custom_emoji.uid = &quot;{uid}&quot;
-    /// AND user.name = &quot;users/{user}&quot;
-    /// ```
-    ///
-    /// Invalid queries are rejected by the server with an `INVALID_ARGUMENT`
-    /// error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListReactionsResponse {
-    <span class="doccomment">/// List of reactions in the requested (or first) page.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>reactions: ::prost::alloc::vec::Vec&lt;Reaction&gt;,
-    <span class="doccomment">/// Continuation token to retrieve the next page of results. It&#39;s empty
-    /// for the last page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Deletes a reaction to a message.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteReactionRequest {
-    <span class="doccomment">/// Required. Name of the reaction to delete.
-    ///
-    /// Format: `spaces/{space}/messages/{message}/reactions/{reaction}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// An attachment in Google Chat.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Attachment {
-    <span class="doccomment">/// Resource name of the attachment, in the form
-    /// `spaces/*/messages/*/attachments/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The original file name for the content, not the full path.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>content_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The content type (MIME type) of the file.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>content_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The thumbnail URL which should be used to preview the
-    /// attachment to a human user. Chat apps shouldn&#39;t use this URL to download
-    /// attachment content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>thumbnail_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The download URL which should be used to allow a human user to
-    /// download the attachment. Chat apps shouldn&#39;t use this URL to download
-    /// attachment content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>download_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The source of the attachment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;attachment::Source&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>source: i32,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;attachment::DataRef&quot;</span>, tags = <span class="string">&quot;4, 7&quot;</span>)]
-    </span><span class="kw">pub </span>data_ref: ::core::option::Option&lt;attachment::DataRef&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Attachment`.
-</span><span class="kw">pub mod </span>attachment {
-    <span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Source {
-        Unspecified = <span class="number">0</span>,
-        DriveFile = <span class="number">1</span>,
-        UploadedContent = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>Source {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Source::Unspecified =&gt; <span class="string">&quot;SOURCE_UNSPECIFIED&quot;</span>,
-                Source::DriveFile =&gt; <span class="string">&quot;DRIVE_FILE&quot;</span>,
-                Source::UploadedContent =&gt; <span class="string">&quot;UPLOADED_CONTENT&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;SOURCE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DRIVE_FILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DriveFile),
-                <span class="string">&quot;UPLOADED_CONTENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UploadedContent),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>DataRef {
-        <span class="doccomment">/// A reference to the attachment data. This field is used with the media API
-        /// to download the attachment data.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>AttachmentDataRef(<span class="kw">super</span>::AttachmentDataRef),
-        <span class="doccomment">/// Output only. A reference to the Google Drive attachment. This field is
-        /// used with the Google Drive API.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>DriveDataRef(<span class="kw">super</span>::DriveDataRef),
-    }
-}
-<span class="doccomment">/// A reference to the data of a drive attachment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DriveDataRef {
-    <span class="doccomment">/// The ID for the drive file. Use with the Drive API.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>drive_file_id: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AttachmentDataRef {
-    <span class="doccomment">/// The resource name of the attachment data. This field is used with the media
-    /// API to download the attachment data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Opaque token containing a reference to an uploaded attachment. Treated by
-    /// clients as an opaque string and used to create or update Chat messages with
-    /// attachments.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>attachment_upload_token: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetAttachmentRequest {
-    <span class="doccomment">/// Required. Resource name of the attachment, in the form
-    /// `spaces/*/messages/*/attachments/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UploadAttachmentRequest {
-    <span class="doccomment">/// Required. Resource name of the Chat space in which the attachment is
-    /// uploaded. Format &quot;spaces/{space}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The filename of the attachment, including the file extension.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>filename: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UploadAttachmentResponse {
-    <span class="doccomment">/// Reference to the uploaded attachment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>attachment_data_ref: ::core::option::Option&lt;AttachmentDataRef&gt;,
-}
-<span class="doccomment">/// A Google Group in Google Chat.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Group {
-    <span class="doccomment">/// Resource name for a Google Group.
-    ///
-    /// Represents a
-    /// [group](&lt;https://cloud.google.com/identity/docs/reference/rest/v1/groups&gt;) in
-    /// Cloud Identity Groups API.
-    ///
-    /// Format: groups/{group}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Represents a membership relation in Google Chat, such as whether a user or
-/// Chat app is invited to, part of, or absent from a space.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Membership {
-    <span class="doccomment">/// Resource name of the membership, assigned by the server.
-    ///
-    /// Format: `spaces/{space}/members/{member}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. State of the membership.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;membership::MembershipState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Optional. User&#39;s role within a Chat space, which determines their permitted
-    /// actions in the space.
-    ///
-    /// [Developer Preview](&lt;https://developers.google.com/workspace/preview&gt;):
-    /// This field can only be used as input in `UpdateMembership`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;membership::MembershipRole&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>role: i32,
-    <span class="doccomment">/// Optional. Immutable. The creation time of the membership, such as when a
-    /// member joined or was invited to join a space. This field is output only,
-    /// except when used to import historical memberships in import mode spaces.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Optional. Immutable. The deletion time of the membership, such as when a
-    /// member left or was removed from a space. This field is output only, except
-    /// when used to import historical memberships in import mode spaces.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Member associated with this membership. Other member types might be
-    /// supported in the future.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;membership::MemberType&quot;</span>, tags = <span class="string">&quot;3, 5&quot;</span>)]
-    </span><span class="kw">pub </span>member_type: ::core::option::Option&lt;membership::MemberType&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Membership`.
-</span><span class="kw">pub mod </span>membership {
-    <span class="doccomment">/// Specifies the member&#39;s relationship with a space. Other membership states
-    /// might be supported in the future.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>MembershipState {
-        <span class="doccomment">/// Default value. Don&#39;t use.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The user is added to the space, and can participate in the space.
-        </span>Joined = <span class="number">1</span>,
-        <span class="doccomment">/// The user is invited to join the space, but hasn&#39;t joined it.
-        </span>Invited = <span class="number">2</span>,
-        <span class="doccomment">/// The user doesn&#39;t belong to the space and doesn&#39;t have a pending
-        /// invitation to join the space.
-        </span>NotAMember = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>MembershipState {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                MembershipState::Unspecified =&gt; <span class="string">&quot;MEMBERSHIP_STATE_UNSPECIFIED&quot;</span>,
-                MembershipState::Joined =&gt; <span class="string">&quot;JOINED&quot;</span>,
-                MembershipState::Invited =&gt; <span class="string">&quot;INVITED&quot;</span>,
-                MembershipState::NotAMember =&gt; <span class="string">&quot;NOT_A_MEMBER&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;MEMBERSHIP_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;JOINED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Joined),
-                <span class="string">&quot;INVITED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Invited),
-                <span class="string">&quot;NOT_A_MEMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotAMember),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Represents a user&#39;s permitted actions in a Chat space. More enum values
-    /// might be added in the future.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>MembershipRole {
-        <span class="doccomment">/// Default value. For [users][google.chat.v1.Membership.member]: they
-        /// aren&#39;t a member of the space, but can be invited. For
-        /// [Google Groups][google.chat.v1.Membership.group_member]: they&#39;re always
-        ///   assigned this role (other enum values might be used in the future).
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// A member of the space. The user has basic permissions, like sending
-        /// messages to the space. In 1:1 and unnamed group conversations, everyone
-        /// has this role.
-        </span>RoleMember = <span class="number">1</span>,
-        <span class="doccomment">/// A space manager. The user has all basic permissions plus administrative
-        /// permissions that let them manage the space, like adding or removing
-        /// members. Only supported in
-        /// [SpaceType.SPACE][google.chat.v1.Space.SpaceType].
-        </span>RoleManager = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>MembershipRole {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                MembershipRole::Unspecified =&gt; <span class="string">&quot;MEMBERSHIP_ROLE_UNSPECIFIED&quot;</span>,
-                MembershipRole::RoleMember =&gt; <span class="string">&quot;ROLE_MEMBER&quot;</span>,
-                MembershipRole::RoleManager =&gt; <span class="string">&quot;ROLE_MANAGER&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;MEMBERSHIP_ROLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ROLE_MEMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RoleMember),
-                <span class="string">&quot;ROLE_MANAGER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RoleManager),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Member associated with this membership. Other member types might be
-    /// supported in the future.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>MemberType {
-        <span class="doccomment">/// The Google Chat user or app the membership corresponds to.
-        /// If your Chat app [authenticates as a
-        /// user](&lt;https://developers.google.com/chat/api/guides/auth/users&gt;), the
-        /// output populates the
-        /// [user](&lt;https://developers.google.com/chat/api/reference/rest/v1/User&gt;)
-        /// `name` and `type`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>Member(<span class="kw">super</span>::User),
-        <span class="doccomment">/// The Google Group the membership corresponds to.
-        /// Only supports read operations. Other operations, like creating or
-        /// updating a membership, aren&#39;t currently supported.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
-        </span>GroupMember(<span class="kw">super</span>::Group),
-    }
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateMembershipRequest {
-    <span class="doccomment">/// Required. The resource name of the space for which to create the
-    /// membership.
-    ///
-    /// Format: spaces/{space}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The membership relation to create.
-    /// The `memberType` field must contain a user with the `user.name` and
-    /// `user.type` fields populated. The server will assign a resource name
-    /// and overwrite anything specified.
-    /// When a Chat app creates a membership relation for a human user, it must use
-    /// the `chat.memberships` scope, set `user.type` to `HUMAN`, and set
-    /// `user.name` with format `users/{user}`, where `{user}` can be the email
-    /// address for the user. For users in the same Workspace organization `{user}`
-    /// can also be the `id` of the
-    /// [person](&lt;https://developers.google.com/people/api/rest/v1/people&gt;) from the
-    /// People API, or the `id` for the user in the Directory API. For example, if
-    /// the People API Person profile ID for `user@example.com` is `123456789`, you
-    /// can add the user to the space by setting the `membership.member.name` to
-    /// `users/user@example.com` or `users/123456789`. When a Chat app creates a
-    /// membership relation for itself, it must use the `chat.memberships.app`
-    /// scope, set `user.type` to `BOT`, and set `user.name` to `users/app`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>membership: ::core::option::Option&lt;Membership&gt;,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListMembershipsRequest {
-    <span class="doccomment">/// Required. The resource name of the space for which to fetch a membership
-    /// list.
-    ///
-    /// Format: spaces/{space}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The maximum number of memberships to return. The service might
-    /// return fewer than this value.
-    ///
-    /// If unspecified, at most 100 memberships are returned.
-    ///
-    /// The maximum value is 1,000. If you use a value more than 1,000, it&#39;s
-    /// automatically changed to 1,000.
-    ///
-    /// Negative values return an `INVALID_ARGUMENT` error.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Optional. A page token, received from a previous call to list memberships.
-    /// Provide this parameter to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided should match the call that
-    /// provided the page token. Passing different values to the other parameters
-    /// might lead to unexpected results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A query filter.
-    ///
-    /// You can filter memberships by a member&#39;s role
-    /// ([`role`](&lt;https://developers.google.com/chat/api/reference/rest/v1/spaces.members#membershiprole&gt;))
-    /// and type
-    /// ([`member.type`](&lt;https://developers.google.com/chat/api/reference/rest/v1/User#type&gt;)).
-    ///
-    /// To filter by role, set `role` to `ROLE_MEMBER` or `ROLE_MANAGER`.
-    ///
-    /// To filter by type, set `member.type` to `HUMAN` or `BOT`.
-    ///
-    /// To filter by both role and type, use the `AND` operator. To filter by
-    /// either role or type, use the `OR` operator.
-    ///
-    /// For example, the following queries are valid:
-    ///
-    /// ```
-    /// role = &quot;ROLE_MANAGER&quot; OR role = &quot;ROLE_MEMBER&quot;
-    /// member.type = &quot;HUMAN&quot; AND role = &quot;ROLE_MANAGER&quot;
-    /// ```
-    ///
-    /// The following queries are invalid:
-    ///
-    /// ```
-    /// member.type = &quot;HUMAN&quot; AND member.type = &quot;BOT&quot;
-    /// role = &quot;ROLE_MANAGER&quot; AND role = &quot;ROLE_MEMBER&quot;
-    /// ```
-    ///
-    /// Invalid queries are rejected by the server with an `INVALID_ARGUMENT`
-    /// error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. When `true`, also returns memberships associated with a
-    /// [Google Group][google.chat.v1.Membership.group_member], in
-    /// addition to other types of memberships. If a
-    /// [filter][google.chat.v1.ListMembershipsRequest.filter] is set,
-    /// [Google Group][google.chat.v1.Membership.group_member]
-    /// memberships that don&#39;t match the filter criteria aren&#39;t returned.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>show_groups: bool,
-    <span class="doccomment">/// Optional. When `true`, also returns memberships associated with
-    /// [invited][google.chat.v1.Membership.MembershipState.INVITED] members, in
-    /// addition to other types of memberships. If a
-    /// filter is set,
-    /// [invited][google.chat.v1.Membership.MembershipState.INVITED] memberships
-    /// that don&#39;t match the filter criteria aren&#39;t returned.
-    ///
-    /// Currently requires [user
-    /// authentication](&lt;https://developers.google.com/chat/api/guides/auth/users&gt;).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>show_invited: bool,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListMembershipsResponse {
-    <span class="doccomment">/// Unordered list. List of memberships in the requested (or first) page.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>memberships: ::prost::alloc::vec::Vec&lt;Membership&gt;,
-    <span class="doccomment">/// A token that you can send as `pageToken` to retrieve the next page of
-    /// results. If empty, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetMembershipRequest {
-    <span class="doccomment">/// Required. Resource name of the membership to retrieve.
-    ///
-    /// To get the app&#39;s own membership, you can optionally use
-    /// `spaces/{space}/members/app`.
-    ///
-    /// Format: `spaces/{space}/members/{member}` or `spaces/{space}/members/app`
-    ///
-    /// When [authenticated as a
-    /// user](&lt;https://developers.google.com/chat/api/guides/auth/users&gt;), you can
-    /// use the user&#39;s email as an alias for `{member}`. For example,
-    /// `spaces/{space}/members/example@gmail.com` where `example@gmail.com` is the
-    /// email of the Google Chat user.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteMembershipRequest {
-    <span class="doccomment">/// Required. Resource name of the membership to delete. Chat apps can delete
-    /// human users&#39; or their own memberships. Chat apps can&#39;t delete other apps&#39;
-    /// memberships.
-    ///
-    /// When deleting a human membership, requires the `chat.memberships` scope and
-    /// `spaces/{space}/members/{member}` format. You can use the email as an
-    /// alias for `{member}`. For example,
-    /// `spaces/{space}/members/example@gmail.com` where `example@gmail.com` is the
-    /// email of the Google Chat user.
-    ///
-    /// When deleting an app membership, requires the `chat.memberships.app` scope
-    /// and `spaces/{space}/members/app` format.
-    ///
-    /// Format: `spaces/{space}/members/{member}` or `spaces/{space}/members/app`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SetUpSpaceRequest {
-    <span class="doccomment">/// Required. The `Space.spaceType` field is required.
-    ///
-    /// To create a space, set `Space.spaceType` to `SPACE` and set
-    /// `Space.displayName`. If you receive the error message `ALREADY_EXISTS` when
-    /// setting up a space, try a different `displayName`. An existing space
-    /// within the Google Workspace organization might already use this display
-    /// name.
-    ///
-    /// To create a group chat, set `Space.spaceType` to
-    /// `GROUP_CHAT`. Don&#39;t set `Space.displayName`.
-    ///
-    /// To create a 1:1 conversation between humans,
-    /// set `Space.spaceType` to `DIRECT_MESSAGE` and set
-    /// `Space.singleUserBotDm` to `false`. Don&#39;t set `Space.displayName` or
-    /// `Space.spaceDetails`.
-    ///
-    /// To create an 1:1 conversation between a human and the calling Chat app, set
-    /// `Space.spaceType` to `DIRECT_MESSAGE` and
-    /// `Space.singleUserBotDm` to `true`. Don&#39;t set `Space.displayName` or
-    /// `Space.spaceDetails`.
-    ///
-    /// If a `DIRECT_MESSAGE` space already exists, that space is returned instead
-    /// of creating a new space.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>space: ::core::option::Option&lt;Space&gt;,
-    <span class="doccomment">/// Optional. A unique identifier for this request.
-    /// A random UUID is recommended.
-    /// Specifying an existing request ID returns the space created with that ID
-    /// instead of creating a new space.
-    /// Specifying an existing request ID from the same Chat app with a different
-    /// authenticated user returns an error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The Google Chat users to invite to join the space. Omit the
-    /// calling user, as they are added automatically.
-    ///
-    /// The set currently allows up to 20 memberships (in addition to the caller).
-    ///
-    /// The `Membership.member` field must contain a `user` with `name` populated
-    /// (format: `users/{user}`) and `type` set to `User.Type.HUMAN`. You can only
-    /// add human users when setting up a space (adding Chat apps is only supported
-    /// for direct message setup with the calling app). You can also add members
-    /// using the user&#39;s email as an alias for {user}. For example, the `user.name`
-    /// can be `users/example@gmail.com`.&quot; To invite Gmail users or users from
-    /// external Google Workspace domains, user&#39;s email must be used for
-    /// `{user}`.
-    ///
-    /// Optional when setting `Space.spaceType` to `SPACE`.
-    ///
-    /// Required when setting `Space.spaceType` to `GROUP_CHAT`, along with at
-    /// least two memberships.
-    ///
-    /// Required when setting `Space.spaceType` to `DIRECT_MESSAGE` with a human
-    /// user, along with exactly one membership.
-    ///
-    /// Must be empty when creating a 1:1 conversation between a human and the
-    /// calling Chat app (when setting `Space.spaceType` to
-    /// `DIRECT_MESSAGE` and `Space.singleUserBotDm` to `true`).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>memberships: ::prost::alloc::vec::Vec&lt;Membership&gt;,
-}
-<span class="doccomment">/// Output only. Annotations associated with the plain-text body of the message.
-/// To add basic formatting to a text message, see
-/// [Format text
-/// messages](&lt;https://developers.google.com/chat/format-messages&gt;).
-///
-/// Example plain-text message body:
-/// ```
-/// Hello @FooBot how are you!&quot;
-/// ```
-///
-/// The corresponding annotations metadata:
-/// ```
-/// &quot;annotations&quot;:[{
-///    &quot;type&quot;:&quot;USER_MENTION&quot;,
-///    &quot;startIndex&quot;:6,
-///    &quot;length&quot;:7,
-///    &quot;userMention&quot;: {
-///      &quot;user&quot;: {
-///        &quot;name&quot;:&quot;users/{user}&quot;,
-///        &quot;displayName&quot;:&quot;FooBot&quot;,
-///        &quot;avatarUrl&quot;:&quot;&lt;https://goo.gl/aeDtrS&quot;,&gt;
-///        &quot;type&quot;:&quot;BOT&quot;
-///      },
-///      &quot;type&quot;:&quot;MENTION&quot;
-///     }
-/// }]
-/// ```
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Annotation {
-    <span class="doccomment">/// The type of this annotation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AnnotationType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-    <span class="doccomment">/// Start index (0-based, inclusive) in the plain-text message body this
-    /// annotation corresponds to.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>start_index: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// Length of the substring in the plain-text message body this annotation
-    /// corresponds to.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>length: i32,
-    <span class="doccomment">/// Additional metadata about the annotation.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;annotation::Metadata&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
-    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;annotation::Metadata&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Annotation`.
-</span><span class="kw">pub mod </span>annotation {
-    <span class="doccomment">/// Additional metadata about the annotation.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Metadata {
-        <span class="doccomment">/// The metadata of user mention.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>UserMention(<span class="kw">super</span>::UserMentionMetadata),
-        <span class="doccomment">/// The metadata for a slash command.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
-        </span>SlashCommand(<span class="kw">super</span>::SlashCommandMetadata),
-    }
-}
-<span class="doccomment">/// Annotation metadata for user mentions (@).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UserMentionMetadata {
-    <span class="doccomment">/// The user mentioned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>user: ::core::option::Option&lt;User&gt;,
-    <span class="doccomment">/// The type of user mention.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;user_mention_metadata::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `UserMentionMetadata`.
-</span><span class="kw">pub mod </span>user_mention_metadata {
-    <span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Type {
-        <span class="doccomment">/// Default value for the enum. Don&#39;t use.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Add user to space.
-        </span>Add = <span class="number">1</span>,
-        <span class="doccomment">/// Mention user in space.
-        </span>Mention = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>Type {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Add =&gt; <span class="string">&quot;ADD&quot;</span>,
-                Type::Mention =&gt; <span class="string">&quot;MENTION&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ADD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
-                <span class="string">&quot;MENTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mention),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Annotation metadata for slash commands (/).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SlashCommandMetadata {
-    <span class="doccomment">/// The Chat app whose command was invoked.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>bot: ::core::option::Option&lt;User&gt;,
-    <span class="doccomment">/// The type of slash command.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;slash_command_metadata::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-    <span class="doccomment">/// The name of the invoked slash command.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>command_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The command ID of the invoked slash command.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>command_id: i64,
-    <span class="doccomment">/// Indicates whether the slash command is for a dialog.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>triggers_dialog: bool,
-}
-<span class="doccomment">/// Nested message and enum types in `SlashCommandMetadata`.
-</span><span class="kw">pub mod </span>slash_command_metadata {
-    <span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Type {
-        <span class="doccomment">/// Default value for the enum. Don&#39;t use.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Add Chat app to space.
-        </span>Add = <span class="number">1</span>,
-        <span class="doccomment">/// Invoke slash command in space.
-        </span>Invoke = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>Type {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Add =&gt; <span class="string">&quot;ADD&quot;</span>,
-                Type::Invoke =&gt; <span class="string">&quot;INVOKE&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ADD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
-                <span class="string">&quot;INVOKE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Invoke),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Type of the annotation.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>AnnotationType {
-    <span class="doccomment">/// Default value for the enum. Don&#39;t use.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// A user is mentioned.
-    </span>UserMention = <span class="number">1</span>,
-    <span class="doccomment">/// A slash command is invoked.
-    </span>SlashCommand = <span class="number">2</span>,
-}
-<span class="kw">impl </span>AnnotationType {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            AnnotationType::Unspecified =&gt; <span class="string">&quot;ANNOTATION_TYPE_UNSPECIFIED&quot;</span>,
-            AnnotationType::UserMention =&gt; <span class="string">&quot;USER_MENTION&quot;</span>,
-            AnnotationType::SlashCommand =&gt; <span class="string">&quot;SLASH_COMMAND&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;ANNOTATION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;USER_MENTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserMention),
-            <span class="string">&quot;SLASH_COMMAND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SlashCommand),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// A matched URL in a Chat message. Chat apps can preview matched URLs. For more
-/// information, see [Preview
-/// links](&lt;https://developers.google.com/chat/how-tos/preview-links&gt;).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>MatchedUrl {
-    <span class="doccomment">/// Output only. The URL that was matched.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Represents the status for a request to either invoke or submit a
-/// [dialog](&lt;https://developers.google.com/chat/how-tos/dialogs&gt;).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ActionStatus {
-    <span class="doccomment">/// The status code.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::rpc::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>status_code: i32,
-    <span class="doccomment">/// The message to send users about the status of their request.
-    /// If unset, a generic message based on the `status_code` is sent.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>user_facing_message: ::prost::alloc::string::String,
-}
 <span class="doccomment">/// The markup for developers to specify the contents of a contextual AddOn.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5666,6 +5497,175 @@
             }
         }
     }
+}
+<span class="doccomment">/// A matched URL in a Chat message. Chat apps can preview matched URLs. For more
+/// information, see [Preview
+/// links](&lt;https://developers.google.com/chat/how-tos/preview-links&gt;).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>MatchedUrl {
+    <span class="doccomment">/// Output only. The URL that was matched.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A reaction to a message.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Reaction {
+    <span class="doccomment">/// The resource name of the reaction.
+    ///
+    /// Format: `spaces/{space}/messages/{message}/reactions/{reaction}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The user who created the reaction.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>user: ::core::option::Option&lt;User&gt;,
+    <span class="doccomment">/// The emoji used in the reaction.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>emoji: ::core::option::Option&lt;Emoji&gt;,
+}
+<span class="doccomment">/// An emoji that is used as a reaction to a message.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Emoji {
+    <span class="attr">#[prost(oneof = <span class="string">&quot;emoji::Content&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>content: ::core::option::Option&lt;emoji::Content&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Emoji`.
+</span><span class="kw">pub mod </span>emoji {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Content {
+        <span class="doccomment">/// A basic emoji represented by a unicode string.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>Unicode(::prost::alloc::string::String),
+        <span class="doccomment">/// Output only. A custom emoji.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>CustomEmoji(<span class="kw">super</span>::CustomEmoji),
+    }
+}
+<span class="doccomment">/// Represents a custom emoji.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CustomEmoji {
+    <span class="doccomment">/// Unique key for the custom emoji resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The number of people who reacted to a message with a specific emoji.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EmojiReactionSummary {
+    <span class="doccomment">/// Emoji associated with the reactions.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>emoji: ::core::option::Option&lt;Emoji&gt;,
+    <span class="doccomment">/// The total number of reactions using the associated emoji.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>reaction_count: ::core::option::Option&lt;i32&gt;,
+}
+<span class="doccomment">/// Creates a reaction to a message.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateReactionRequest {
+    <span class="doccomment">/// Required. The message where the reaction is created.
+    ///
+    /// Format: `spaces/{space}/messages/{message}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The reaction to create.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>reaction: ::core::option::Option&lt;Reaction&gt;,
+}
+<span class="doccomment">/// Lists reactions to a message.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListReactionsRequest {
+    <span class="doccomment">/// Required. The message users reacted to.
+    ///
+    /// Format: `spaces/{space}/messages/{message}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The maximum number of reactions returned. The service can return
+    /// fewer reactions than this value. If unspecified, the default value is 25.
+    /// The maximum value is 200; values above 200 are changed to 200.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// Optional. (If resuming from a previous query.)
+    ///
+    /// A page token received from a previous list reactions call. Provide this
+    /// to retrieve the subsequent page.
+    ///
+    /// When paginating, the filter value should match the call that provided the
+    /// page token. Passing a different value might lead to unexpected results.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A query filter.
+    ///
+    /// You can filter reactions by
+    /// [emoji](&lt;https://developers.google.com/chat/api/reference/rest/v1/Emoji&gt;)
+    /// (either `emoji.unicode` or `emoji.custom_emoji.uid`) and
+    /// [user](&lt;https://developers.google.com/chat/api/reference/rest/v1/User&gt;)
+    /// (`user.name`).
+    ///
+    /// To filter reactions for multiple emojis or users, join similar fields
+    /// with the `OR` operator, such as `emoji.unicode = &quot;🙂&quot; OR emoji.unicode =
+    /// &quot;👍&quot;` and `user.name = &quot;users/AAAAAA&quot; OR user.name = &quot;users/BBBBBB&quot;`.
+    ///
+    /// To filter reactions by emoji and user, use the `AND` operator, such as
+    /// `emoji.unicode = &quot;🙂&quot; AND user.name = &quot;users/AAAAAA&quot;`.
+    ///
+    /// If your query uses both `AND` and `OR`, group them with parentheses.
+    ///
+    /// For example, the following queries are valid:
+    ///
+    /// ```
+    /// user.name = &quot;users/{user}&quot;
+    /// emoji.unicode = &quot;🙂&quot;
+    /// emoji.custom_emoji.uid = &quot;{uid}&quot;
+    /// emoji.unicode = &quot;🙂&quot; OR emoji.unicode = &quot;👍&quot;
+    /// emoji.unicode = &quot;🙂&quot; OR emoji.custom_emoji.uid = &quot;{uid}&quot;
+    /// emoji.unicode = &quot;🙂&quot; AND user.name = &quot;users/{user}&quot;
+    /// (emoji.unicode = &quot;🙂&quot; OR emoji.custom_emoji.uid = &quot;{uid}&quot;)
+    /// AND user.name = &quot;users/{user}&quot;
+    /// ```
+    ///
+    /// The following queries are invalid:
+    ///
+    /// ```
+    /// emoji.unicode = &quot;🙂&quot; AND emoji.unicode = &quot;👍&quot;
+    /// emoji.unicode = &quot;🙂&quot; AND emoji.custom_emoji.uid = &quot;{uid}&quot;
+    /// emoji.unicode = &quot;🙂&quot; OR user.name = &quot;users/{user}&quot;
+    /// emoji.unicode = &quot;🙂&quot; OR emoji.custom_emoji.uid = &quot;{uid}&quot; OR
+    /// user.name = &quot;users/{user}&quot;
+    /// emoji.unicode = &quot;🙂&quot; OR emoji.custom_emoji.uid = &quot;{uid}&quot;
+    /// AND user.name = &quot;users/{user}&quot;
+    /// ```
+    ///
+    /// Invalid queries are rejected by the server with an `INVALID_ARGUMENT`
+    /// error.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListReactionsResponse {
+    <span class="doccomment">/// List of reactions in the requested (or first) page.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>reactions: ::prost::alloc::vec::Vec&lt;Reaction&gt;,
+    <span class="doccomment">/// Continuation token to retrieve the next page of results. It&#39;s empty
+    /// for the last page of results.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Deletes a reaction to a message.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteReactionRequest {
+    <span class="doccomment">/// Required. Name of the reaction to delete.
+    ///
+    /// Format: `spaces/{space}/messages/{message}/reactions/{reaction}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A [slash command](&lt;https://developers.google.com/chat/how-tos/slash-commands&gt;)
 /// in Google Chat.

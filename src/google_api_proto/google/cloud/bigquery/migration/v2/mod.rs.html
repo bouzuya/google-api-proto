@@ -1253,7 +1253,50 @@
 <a href="#1253" id="1253">1253</a>
 <a href="#1254" id="1254">1254</a>
 <a href="#1255" id="1255">1255</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// The metrics object for a SubTask.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Provides details for errors and the corresponding resources.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ResourceErrorDetail {
+    <span class="doccomment">/// Required. Information about the resource where the error is located.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_info: ::core::option::Option&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ResourceInfo,
+    &gt;,
+    <span class="doccomment">/// Required. The error details for the resource.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>error_details: ::prost::alloc::vec::Vec&lt;ErrorDetail&gt;,
+    <span class="doccomment">/// Required. How many errors there are in total for the resource. Truncation
+    /// can be indicated by having an `error_count` that is higher than the size of
+    /// `error_details`.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>error_count: i32,
+}
+<span class="doccomment">/// Provides details for errors, e.g. issues that where encountered when
+/// processing a subtask.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ErrorDetail {
+    <span class="doccomment">/// Optional. The exact location within the resource (if applicable).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>location: ::core::option::Option&lt;ErrorLocation&gt;,
+    <span class="doccomment">/// Required. Describes the cause of the error with structured detail.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>error_info: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ErrorInfo&gt;,
+}
+<span class="doccomment">/// Holds information about where the error is located.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ErrorLocation {
+    <span class="doccomment">/// Optional. If applicable, denotes the line where the error occurred. A zero
+    /// value means that there is no line information.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>line: i32,
+    <span class="doccomment">/// Optional. If applicable, denotes the column where the error occurred. A
+    /// zero value means that there is no columns information.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>column: i32,
+}
+<span class="doccomment">/// The metrics object for a SubTask.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimeSeries {
@@ -1730,49 +1773,6 @@
     /// translation engine will search through this list to find the value.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>schema_search_path: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Provides details for errors and the corresponding resources.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ResourceErrorDetail {
-    <span class="doccomment">/// Required. Information about the resource where the error is located.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_info: ::core::option::Option&lt;
-        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ResourceInfo,
-    &gt;,
-    <span class="doccomment">/// Required. The error details for the resource.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>error_details: ::prost::alloc::vec::Vec&lt;ErrorDetail&gt;,
-    <span class="doccomment">/// Required. How many errors there are in total for the resource. Truncation
-    /// can be indicated by having an `error_count` that is higher than the size of
-    /// `error_details`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>error_count: i32,
-}
-<span class="doccomment">/// Provides details for errors, e.g. issues that where encountered when
-/// processing a subtask.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ErrorDetail {
-    <span class="doccomment">/// Optional. The exact location within the resource (if applicable).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>location: ::core::option::Option&lt;ErrorLocation&gt;,
-    <span class="doccomment">/// Required. Describes the cause of the error with structured detail.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>error_info: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ErrorInfo&gt;,
-}
-<span class="doccomment">/// Holds information about where the error is located.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ErrorLocation {
-    <span class="doccomment">/// Optional. If applicable, denotes the line where the error occurred. A zero
-    /// value means that there is no line information.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>line: i32,
-    <span class="doccomment">/// Optional. If applicable, denotes the column where the error occurred. A
-    /// zero value means that there is no columns information.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>column: i32,
 }
 <span class="doccomment">/// A migration workflow which specifies what needs to be done for an EDW
 /// migration.
