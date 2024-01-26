@@ -1,3 +1,173 @@
+/// Represents the metadata of the long-running operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OperationMetadata {
+    /// Output only. The time the operation was created.
+    #[prost(message, optional, tag = "1")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time the operation finished running.
+    #[prost(message, optional, tag = "2")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Server-defined resource path for the target of the operation.
+    #[prost(string, tag = "3")]
+    pub target: ::prost::alloc::string::String,
+    /// Output only. Name of the verb executed by the operation.
+    #[prost(string, tag = "4")]
+    pub verb: ::prost::alloc::string::String,
+    /// Output only. Human-readable status of the operation, if any.
+    #[prost(string, tag = "5")]
+    pub status_message: ::prost::alloc::string::String,
+    /// Output only. Identifies whether the user has requested cancellation
+    /// of the operation. Operations that have successfully been cancelled
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+    /// `Code.CANCELLED`.
+    #[prost(bool, tag = "6")]
+    pub requested_cancellation: bool,
+    /// Output only. API version used to start the operation.
+    #[prost(string, tag = "7")]
+    pub api_version: ::prost::alloc::string::String,
+}
+/// Specification of a port-based selector.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TrafficPortSelector {
+    /// Optional. A list of ports. Can be port numbers or port range
+    /// (example, \[80-90\] specifies all ports from 80 to 90, including
+    /// 80 and 90) or named ports or * to specify all ports. If the
+    /// list is empty, all ports are selected.
+    #[prost(string, repeated, tag = "1")]
+    pub ports: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// A definition of a matcher that selects endpoints to which the policies
+/// should be applied.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EndpointMatcher {
+    /// Specifies type of the matcher used for this endpoint matcher.
+    #[prost(oneof = "endpoint_matcher::MatcherType", tags = "1")]
+    pub matcher_type: ::core::option::Option<endpoint_matcher::MatcherType>,
+}
+/// Nested message and enum types in `EndpointMatcher`.
+pub mod endpoint_matcher {
+    /// The matcher that is based on node metadata presented by xDS clients.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct MetadataLabelMatcher {
+        /// Specifies how matching should be done.
+        ///
+        /// Supported values are:
+        /// MATCH_ANY: At least one of the Labels specified in the
+        ///    matcher should match the metadata presented by xDS client.
+        /// MATCH_ALL: The metadata presented by the xDS client should
+        ///    contain all of the labels specified here.
+        ///
+        /// The selection is determined based on the best match. For
+        /// example, suppose there are three EndpointPolicy
+        /// resources P1, P2 and P3 and if P1 has a the matcher as
+        /// MATCH_ANY <A:1, B:1>, P2 has MATCH_ALL <A:1,B:1>, and P3 has
+        /// MATCH_ALL <A:1,B:1,C:1>.
+        ///
+        /// If a client with label <A:1> connects, the config from P1
+        /// will be selected.
+        ///
+        /// If a client with label <A:1,B:1> connects, the config from P2
+        /// will be selected.
+        ///
+        /// If a client with label <A:1,B:1,C:1> connects, the config
+        /// from P3 will be selected.
+        ///
+        /// If there is more than one best match, (for example, if a
+        /// config P4 with selector <A:1,D:1> exists and if a client with
+        /// label <A:1,B:1,D:1> connects), an error will be thrown.
+        #[prost(
+            enumeration = "metadata_label_matcher::MetadataLabelMatchCriteria",
+            tag = "1"
+        )]
+        pub metadata_label_match_criteria: i32,
+        /// The list of label value pairs that must match labels in the
+        /// provided metadata based on filterMatchCriteria This list can
+        /// have at most 64 entries. The list can be empty if the match
+        /// criteria is MATCH_ANY, to specify a wildcard match (i.e this
+        /// matches any client).
+        #[prost(message, repeated, tag = "2")]
+        pub metadata_labels: ::prost::alloc::vec::Vec<
+            metadata_label_matcher::MetadataLabels,
+        >,
+    }
+    /// Nested message and enum types in `MetadataLabelMatcher`.
+    pub mod metadata_label_matcher {
+        /// Defines a name-pair value for a single label.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct MetadataLabels {
+            /// Required. Label name presented as key in xDS Node Metadata.
+            #[prost(string, tag = "1")]
+            pub label_name: ::prost::alloc::string::String,
+            /// Required. Label value presented as value corresponding to the above
+            /// key, in xDS Node Metadata.
+            #[prost(string, tag = "2")]
+            pub label_value: ::prost::alloc::string::String,
+        }
+        /// Possible criteria values that define logic of how matching is made.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum MetadataLabelMatchCriteria {
+            /// Default value. Should not be used.
+            Unspecified = 0,
+            /// At least one of the Labels specified in the matcher should match the
+            /// metadata presented by xDS client.
+            MatchAny = 1,
+            /// The metadata presented by the xDS client should contain all of the
+            /// labels specified here.
+            MatchAll = 2,
+        }
+        impl MetadataLabelMatchCriteria {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    MetadataLabelMatchCriteria::Unspecified => {
+                        "METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED"
+                    }
+                    MetadataLabelMatchCriteria::MatchAny => "MATCH_ANY",
+                    MetadataLabelMatchCriteria::MatchAll => "MATCH_ALL",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED" => {
+                        Some(Self::Unspecified)
+                    }
+                    "MATCH_ANY" => Some(Self::MatchAny),
+                    "MATCH_ALL" => Some(Self::MatchAll),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// Specifies type of the matcher used for this endpoint matcher.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum MatcherType {
+        /// The matcher is based on node metadata presented by xDS clients.
+        #[prost(message, tag = "1")]
+        MetadataLabelMatcher(MetadataLabelMatcher),
+    }
+}
 /// A single extension chain wrapper that contains the match conditions and
 /// extensions to execute.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -30,6 +200,10 @@ pub mod extension_chain {
     pub struct MatchCondition {
         /// Required. A Common Expression Language (CEL) expression that is used to
         /// match requests for which the extension chain is executed.
+        ///
+        /// For more information, see
+        /// [CEL matcher language
+        /// reference](<https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference>).
         #[prost(string, tag = "1")]
         pub cel_expression: ::prost::alloc::string::String,
     }
@@ -50,8 +224,17 @@ pub mod extension_chain {
         #[prost(string, tag = "2")]
         pub authority: ::prost::alloc::string::String,
         /// Required. The reference to the service that runs the extension.
-        /// Must be a reference to a [backend
-        /// service](<https://cloud.google.com/compute/docs/reference/rest/v1/backendServices>).
+        ///
+        /// Currently only Callout extensions are supported here.
+        ///
+        /// To configure a Callout extension, `service` must be a fully-qualified
+        /// reference
+        /// to a [backend
+        /// service](<https://cloud.google.com/compute/docs/reference/rest/v1/backendServices>)
+        /// in the format:
+        /// `<https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}`>
+        /// or
+        /// `<https://www.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}`.>
         #[prost(string, tag = "3")]
         pub service: ::prost::alloc::string::String,
         /// Optional. A set of events during request or response processing for which
@@ -159,8 +342,8 @@ pub mod extension_chain {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct LbTrafficExtension {
-    /// Required. Name of the `LbTrafficExtension` resource in the following
-    /// format:
+    /// Required. Identifier. Name of the `LbTrafficExtension` resource in the
+    /// following format:
     /// `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
@@ -183,7 +366,7 @@ pub struct LbTrafficExtension {
         ::prost::alloc::string::String,
     >,
     /// Required. A list of references to the forwarding rules to which this
-    /// service extension is attach to. At least one forwarding rule is required.
+    /// service extension is attached to. At least one forwarding rule is required.
     /// There can be only one `LBTrafficExtension` resource per forwarding rule.
     #[prost(string, repeated, tag = "5")]
     pub forwarding_rules: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -341,7 +524,8 @@ pub struct DeleteLbTrafficExtensionRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct LbRouteExtension {
-    /// Required. Name of the `LbRouteExtension` resource in the following format:
+    /// Required. Identifier. Name of the `LbRouteExtension` resource in the
+    /// following format:
     /// `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
@@ -364,7 +548,7 @@ pub struct LbRouteExtension {
         ::prost::alloc::string::String,
     >,
     /// Required. A list of references to the forwarding rules to which this
-    /// service extension is attach to. At least one forwarding rule is required.
+    /// service extension is attached to. At least one forwarding rule is required.
     /// There can be only one `LbRouteExtension` resource per forwarding rule.
     #[prost(string, repeated, tag = "5")]
     pub forwarding_rules: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -378,7 +562,9 @@ pub struct LbRouteExtension {
     pub extension_chains: ::prost::alloc::vec::Vec<ExtensionChain>,
     /// Required. All backend services and forwarding rules referenced by this
     /// extension must share the same load balancing scheme. Supported values:
-    /// `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`.
+    /// `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
+    /// [Choosing a load
+    /// balancer](<https://cloud.google.com/load-balancing/docs/backend-service>).
     #[prost(enumeration = "LoadBalancingScheme", tag = "8")]
     pub load_balancing_scheme: i32,
 }
@@ -518,6 +704,8 @@ pub struct DeleteLbRouteExtensionRequest {
 /// Load balancing schemes supported by the `LbTrafficExtension` resource and
 /// `LbRouteExtension` resource. The valid values are: `INTERNAL_MANAGED`,
 /// `EXTERNAL_MANAGED`.
+/// For more information, refer to [Choosing a load
+/// balancer](<https://cloud.google.com/load-balancing/docs/backend-service>).
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum LoadBalancingScheme {
@@ -937,176 +1125,6 @@ pub mod dep_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-    }
-}
-/// Represents the metadata of the long-running operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OperationMetadata {
-    /// Output only. The time the operation was created.
-    #[prost(message, optional, tag = "1")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time the operation finished running.
-    #[prost(message, optional, tag = "2")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Server-defined resource path for the target of the operation.
-    #[prost(string, tag = "3")]
-    pub target: ::prost::alloc::string::String,
-    /// Output only. Name of the verb executed by the operation.
-    #[prost(string, tag = "4")]
-    pub verb: ::prost::alloc::string::String,
-    /// Output only. Human-readable status of the operation, if any.
-    #[prost(string, tag = "5")]
-    pub status_message: ::prost::alloc::string::String,
-    /// Output only. Identifies whether the user has requested cancellation
-    /// of the operation. Operations that have successfully been cancelled
-    /// have [Operation.error][] value with a
-    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`.
-    #[prost(bool, tag = "6")]
-    pub requested_cancellation: bool,
-    /// Output only. API version used to start the operation.
-    #[prost(string, tag = "7")]
-    pub api_version: ::prost::alloc::string::String,
-}
-/// Specification of a port-based selector.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TrafficPortSelector {
-    /// Optional. A list of ports. Can be port numbers or port range
-    /// (example, \[80-90\] specifies all ports from 80 to 90, including
-    /// 80 and 90) or named ports or * to specify all ports. If the
-    /// list is empty, all ports are selected.
-    #[prost(string, repeated, tag = "1")]
-    pub ports: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// A definition of a matcher that selects endpoints to which the policies
-/// should be applied.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EndpointMatcher {
-    /// Specifies type of the matcher used for this endpoint matcher.
-    #[prost(oneof = "endpoint_matcher::MatcherType", tags = "1")]
-    pub matcher_type: ::core::option::Option<endpoint_matcher::MatcherType>,
-}
-/// Nested message and enum types in `EndpointMatcher`.
-pub mod endpoint_matcher {
-    /// The matcher that is based on node metadata presented by xDS clients.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct MetadataLabelMatcher {
-        /// Specifies how matching should be done.
-        ///
-        /// Supported values are:
-        /// MATCH_ANY: At least one of the Labels specified in the
-        ///    matcher should match the metadata presented by xDS client.
-        /// MATCH_ALL: The metadata presented by the xDS client should
-        ///    contain all of the labels specified here.
-        ///
-        /// The selection is determined based on the best match. For
-        /// example, suppose there are three EndpointPolicy
-        /// resources P1, P2 and P3 and if P1 has a the matcher as
-        /// MATCH_ANY <A:1, B:1>, P2 has MATCH_ALL <A:1,B:1>, and P3 has
-        /// MATCH_ALL <A:1,B:1,C:1>.
-        ///
-        /// If a client with label <A:1> connects, the config from P1
-        /// will be selected.
-        ///
-        /// If a client with label <A:1,B:1> connects, the config from P2
-        /// will be selected.
-        ///
-        /// If a client with label <A:1,B:1,C:1> connects, the config
-        /// from P3 will be selected.
-        ///
-        /// If there is more than one best match, (for example, if a
-        /// config P4 with selector <A:1,D:1> exists and if a client with
-        /// label <A:1,B:1,D:1> connects), an error will be thrown.
-        #[prost(
-            enumeration = "metadata_label_matcher::MetadataLabelMatchCriteria",
-            tag = "1"
-        )]
-        pub metadata_label_match_criteria: i32,
-        /// The list of label value pairs that must match labels in the
-        /// provided metadata based on filterMatchCriteria This list can
-        /// have at most 64 entries. The list can be empty if the match
-        /// criteria is MATCH_ANY, to specify a wildcard match (i.e this
-        /// matches any client).
-        #[prost(message, repeated, tag = "2")]
-        pub metadata_labels: ::prost::alloc::vec::Vec<
-            metadata_label_matcher::MetadataLabels,
-        >,
-    }
-    /// Nested message and enum types in `MetadataLabelMatcher`.
-    pub mod metadata_label_matcher {
-        /// Defines a name-pair value for a single label.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct MetadataLabels {
-            /// Required. Label name presented as key in xDS Node Metadata.
-            #[prost(string, tag = "1")]
-            pub label_name: ::prost::alloc::string::String,
-            /// Required. Label value presented as value corresponding to the above
-            /// key, in xDS Node Metadata.
-            #[prost(string, tag = "2")]
-            pub label_value: ::prost::alloc::string::String,
-        }
-        /// Possible criteria values that define logic of how matching is made.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum MetadataLabelMatchCriteria {
-            /// Default value. Should not be used.
-            Unspecified = 0,
-            /// At least one of the Labels specified in the matcher should match the
-            /// metadata presented by xDS client.
-            MatchAny = 1,
-            /// The metadata presented by the xDS client should contain all of the
-            /// labels specified here.
-            MatchAll = 2,
-        }
-        impl MetadataLabelMatchCriteria {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    MetadataLabelMatchCriteria::Unspecified => {
-                        "METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED"
-                    }
-                    MetadataLabelMatchCriteria::MatchAny => "MATCH_ANY",
-                    MetadataLabelMatchCriteria::MatchAll => "MATCH_ALL",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED" => {
-                        Some(Self::Unspecified)
-                    }
-                    "MATCH_ANY" => Some(Self::MatchAny),
-                    "MATCH_ALL" => Some(Self::MatchAll),
-                    _ => None,
-                }
-            }
-        }
-    }
-    /// Specifies type of the matcher used for this endpoint matcher.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum MatcherType {
-        /// The matcher is based on node metadata presented by xDS clients.
-        #[prost(message, tag = "1")]
-        MetadataLabelMatcher(MetadataLabelMatcher),
     }
 }
 /// EndpointPolicy is a resource that helps apply desired configuration
