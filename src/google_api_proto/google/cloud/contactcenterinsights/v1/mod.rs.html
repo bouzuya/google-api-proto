@@ -4154,6 +4154,47 @@
 <a href="#4154" id="4154">4154</a>
 <a href="#4155" id="4155">4155</a>
 <a href="#4156" id="4156">4156</a>
+<a href="#4157" id="4157">4157</a>
+<a href="#4158" id="4158">4158</a>
+<a href="#4159" id="4159">4159</a>
+<a href="#4160" id="4160">4160</a>
+<a href="#4161" id="4161">4161</a>
+<a href="#4162" id="4162">4162</a>
+<a href="#4163" id="4163">4163</a>
+<a href="#4164" id="4164">4164</a>
+<a href="#4165" id="4165">4165</a>
+<a href="#4166" id="4166">4166</a>
+<a href="#4167" id="4167">4167</a>
+<a href="#4168" id="4168">4168</a>
+<a href="#4169" id="4169">4169</a>
+<a href="#4170" id="4170">4170</a>
+<a href="#4171" id="4171">4171</a>
+<a href="#4172" id="4172">4172</a>
+<a href="#4173" id="4173">4173</a>
+<a href="#4174" id="4174">4174</a>
+<a href="#4175" id="4175">4175</a>
+<a href="#4176" id="4176">4176</a>
+<a href="#4177" id="4177">4177</a>
+<a href="#4178" id="4178">4178</a>
+<a href="#4179" id="4179">4179</a>
+<a href="#4180" id="4180">4180</a>
+<a href="#4181" id="4181">4181</a>
+<a href="#4182" id="4182">4182</a>
+<a href="#4183" id="4183">4183</a>
+<a href="#4184" id="4184">4184</a>
+<a href="#4185" id="4185">4185</a>
+<a href="#4186" id="4186">4186</a>
+<a href="#4187" id="4187">4187</a>
+<a href="#4188" id="4188">4188</a>
+<a href="#4189" id="4189">4189</a>
+<a href="#4190" id="4190">4190</a>
+<a href="#4191" id="4191">4191</a>
+<a href="#4192" id="4192">4192</a>
+<a href="#4193" id="4193">4193</a>
+<a href="#4194" id="4194">4194</a>
+<a href="#4195" id="4195">4195</a>
+<a href="#4196" id="4196">4196</a>
+<a href="#4197" id="4197">4197</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The conversation resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4189,6 +4230,9 @@
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
+    <span class="doccomment">/// Conversation metadata related to quality management.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="kw">pub </span>quality_metadata: ::core::option::Option&lt;conversation::QualityMetadata&gt;,
     <span class="doccomment">/// Output only. The conversation transcript.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>transcript: ::core::option::Option&lt;conversation::Transcript&gt;,
@@ -4245,6 +4289,44 @@
         <span class="doccomment">/// The audio channel that contains the agent.
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>agent_channel: i32,
+    }
+    <span class="doccomment">/// Conversation metadata related to quality management.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>QualityMetadata {
+        <span class="doccomment">/// An arbitrary integer value indicating the customer&#39;s satisfaction rating.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>customer_satisfaction_rating: i32,
+        <span class="doccomment">/// The amount of time the customer waited to connect with an agent.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>wait_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
+        <span class="doccomment">/// An arbitrary string value specifying the menu path the customer took.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>menu_path: ::prost::alloc::string::String,
+        <span class="doccomment">/// Information about agents involved in the call.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>agent_info: ::prost::alloc::vec::Vec&lt;quality_metadata::AgentInfo&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `QualityMetadata`.
+    </span><span class="kw">pub mod </span>quality_metadata {
+        <span class="doccomment">/// Information about an agent involved in the conversation.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>AgentInfo {
+            <span class="doccomment">/// A user-specified string representing the agent.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>agent_id: ::prost::alloc::string::String,
+            <span class="doccomment">/// The agent&#39;s name.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+            <span class="doccomment">/// A user-specified string representing the agent&#39;s team.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="kw">pub </span>team: ::prost::alloc::string::String,
+            <span class="doccomment">/// A user-provided string indicating the outcome of the agent&#39;s segment of
+            /// the call.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="kw">pub </span>disposition_code: ::prost::alloc::string::String,
+        }
     }
     <span class="doccomment">/// A message representing the transcript of a conversation.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6321,14 +6403,14 @@
         /// the conversations.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>agent_id: ::prost::alloc::string::String,
-        <span class="doccomment">/// Optional. For audio conversations, this field indicates which of the
-        /// channels, 1 or 2, contains the agent. Note that this must be set for
-        /// audio conversations to be properly displayed and analyzed.
+        <span class="doccomment">/// Optional. Indicates which of the channels, 1 or 2, contains the agent.
+        /// Note that this must be set for conversations to be properly displayed and
+        /// analyzed.
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>agent_channel: i32,
-        <span class="doccomment">/// Optional. For audio conversations, this field indicates which of the
-        /// channels, 1 or 2, contains the customer. Note that this must be set for
-        /// audio conversations to be properly displayed and analyzed.
+        <span class="doccomment">/// Optional. Indicates which of the channels, 1 or 2, contains the agent.
+        /// Note that this must be set for conversations to be properly displayed and
+        /// analyzed.
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>customer_channel: i32,
     }

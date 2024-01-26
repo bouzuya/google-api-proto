@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Expiration","Medium","Metadata"],"mod":["transcript"],"struct":["CallMetadata","Transcript"]};
+window.SIDEBAR_ITEMS = {"enum":["Expiration","Medium","Metadata"],"mod":["quality_metadata","transcript"],"struct":["CallMetadata","QualityMetadata","Transcript"]};

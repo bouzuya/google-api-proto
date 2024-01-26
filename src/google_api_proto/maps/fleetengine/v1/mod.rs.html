@@ -3188,6 +3188,8 @@
 <a href="#3188" id="3188">3188</a>
 <a href="#3189" id="3189">3189</a>
 <a href="#3190" id="3190">3190</a>
+<a href="#3191" id="3191">3191</a>
+<a href="#3192" id="3192">3192</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Traffic density indicator on a contiguous segment of a path. Given a path
 /// with points P_0, P_1, ... , P_N (zero-based index), the SpeedReadingInterval
 /// defines an interval and describes its traffic using the following categories.
@@ -5872,7 +5874,9 @@
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>total_size: i64,
 }
-<span class="doccomment">/// Describes intermediate points along a route.
+<span class="doccomment">/// Describes intermediate points along a route for a `VehicleMatch` in a
+/// `SearchVehiclesResponse`. This concept is represented as a `TripWaypoint` in
+/// all other endpoints.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Waypoint {

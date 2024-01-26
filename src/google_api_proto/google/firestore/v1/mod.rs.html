@@ -2990,101 +2990,6 @@
 <a href="#2990" id="2990">2990</a>
 <a href="#2991" id="2991">2991</a>
 <a href="#2992" id="2992">2992</a>
-<a href="#2993" id="2993">2993</a>
-<a href="#2994" id="2994">2994</a>
-<a href="#2995" id="2995">2995</a>
-<a href="#2996" id="2996">2996</a>
-<a href="#2997" id="2997">2997</a>
-<a href="#2998" id="2998">2998</a>
-<a href="#2999" id="2999">2999</a>
-<a href="#3000" id="3000">3000</a>
-<a href="#3001" id="3001">3001</a>
-<a href="#3002" id="3002">3002</a>
-<a href="#3003" id="3003">3003</a>
-<a href="#3004" id="3004">3004</a>
-<a href="#3005" id="3005">3005</a>
-<a href="#3006" id="3006">3006</a>
-<a href="#3007" id="3007">3007</a>
-<a href="#3008" id="3008">3008</a>
-<a href="#3009" id="3009">3009</a>
-<a href="#3010" id="3010">3010</a>
-<a href="#3011" id="3011">3011</a>
-<a href="#3012" id="3012">3012</a>
-<a href="#3013" id="3013">3013</a>
-<a href="#3014" id="3014">3014</a>
-<a href="#3015" id="3015">3015</a>
-<a href="#3016" id="3016">3016</a>
-<a href="#3017" id="3017">3017</a>
-<a href="#3018" id="3018">3018</a>
-<a href="#3019" id="3019">3019</a>
-<a href="#3020" id="3020">3020</a>
-<a href="#3021" id="3021">3021</a>
-<a href="#3022" id="3022">3022</a>
-<a href="#3023" id="3023">3023</a>
-<a href="#3024" id="3024">3024</a>
-<a href="#3025" id="3025">3025</a>
-<a href="#3026" id="3026">3026</a>
-<a href="#3027" id="3027">3027</a>
-<a href="#3028" id="3028">3028</a>
-<a href="#3029" id="3029">3029</a>
-<a href="#3030" id="3030">3030</a>
-<a href="#3031" id="3031">3031</a>
-<a href="#3032" id="3032">3032</a>
-<a href="#3033" id="3033">3033</a>
-<a href="#3034" id="3034">3034</a>
-<a href="#3035" id="3035">3035</a>
-<a href="#3036" id="3036">3036</a>
-<a href="#3037" id="3037">3037</a>
-<a href="#3038" id="3038">3038</a>
-<a href="#3039" id="3039">3039</a>
-<a href="#3040" id="3040">3040</a>
-<a href="#3041" id="3041">3041</a>
-<a href="#3042" id="3042">3042</a>
-<a href="#3043" id="3043">3043</a>
-<a href="#3044" id="3044">3044</a>
-<a href="#3045" id="3045">3045</a>
-<a href="#3046" id="3046">3046</a>
-<a href="#3047" id="3047">3047</a>
-<a href="#3048" id="3048">3048</a>
-<a href="#3049" id="3049">3049</a>
-<a href="#3050" id="3050">3050</a>
-<a href="#3051" id="3051">3051</a>
-<a href="#3052" id="3052">3052</a>
-<a href="#3053" id="3053">3053</a>
-<a href="#3054" id="3054">3054</a>
-<a href="#3055" id="3055">3055</a>
-<a href="#3056" id="3056">3056</a>
-<a href="#3057" id="3057">3057</a>
-<a href="#3058" id="3058">3058</a>
-<a href="#3059" id="3059">3059</a>
-<a href="#3060" id="3060">3060</a>
-<a href="#3061" id="3061">3061</a>
-<a href="#3062" id="3062">3062</a>
-<a href="#3063" id="3063">3063</a>
-<a href="#3064" id="3064">3064</a>
-<a href="#3065" id="3065">3065</a>
-<a href="#3066" id="3066">3066</a>
-<a href="#3067" id="3067">3067</a>
-<a href="#3068" id="3068">3068</a>
-<a href="#3069" id="3069">3069</a>
-<a href="#3070" id="3070">3070</a>
-<a href="#3071" id="3071">3071</a>
-<a href="#3072" id="3072">3072</a>
-<a href="#3073" id="3073">3073</a>
-<a href="#3074" id="3074">3074</a>
-<a href="#3075" id="3075">3075</a>
-<a href="#3076" id="3076">3076</a>
-<a href="#3077" id="3077">3077</a>
-<a href="#3078" id="3078">3078</a>
-<a href="#3079" id="3079">3079</a>
-<a href="#3080" id="3080">3080</a>
-<a href="#3081" id="3081">3081</a>
-<a href="#3082" id="3082">3082</a>
-<a href="#3083" id="3083">3083</a>
-<a href="#3084" id="3084">3084</a>
-<a href="#3085" id="3085">3085</a>
-<a href="#3086" id="3086">3086</a>
-<a href="#3087" id="3087">3087</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A Firestore document.
 ///
 /// Must not exceed 1 MiB - 4 bytes.
@@ -4037,77 +3942,6 @@
         </span>ReadWrite(ReadWrite),
     }
 }
-<span class="doccomment">/// Plan for the query.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>QueryPlan {
-    <span class="doccomment">/// Planning phase information for the query. It will include:
-    ///
-    /// {
-    ///    &quot;indexes_used&quot;: [
-    ///      {&quot;query_scope&quot;: &quot;Collection&quot;, &quot;properties&quot;: &quot;(foo ASC, __name__ ASC)&quot;},
-    ///      {&quot;query_scope&quot;: &quot;Collection&quot;, &quot;properties&quot;: &quot;(bar ASC, __name__ ASC)&quot;}
-    ///    ]
-    /// }
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>plan_info: ::core::option::Option&lt;::prost_types::Struct&gt;,
-}
-<span class="doccomment">/// Planning and execution statistics for the query.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ResultSetStats {
-    <span class="doccomment">/// Plan for the query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>query_plan: ::core::option::Option&lt;QueryPlan&gt;,
-    <span class="doccomment">/// Aggregated statistics from the execution of the query.
-    ///
-    /// This will only be present when the request specifies `PROFILE` mode.
-    /// For example, a query will return the statistics including:
-    ///
-    /// {
-    ///    &quot;results_returned&quot;: &quot;20&quot;,
-    ///    &quot;documents_scanned&quot;: &quot;20&quot;,
-    ///    &quot;indexes_entries_scanned&quot;: &quot;10050&quot;,
-    ///    &quot;total_execution_time&quot;: &quot;100.7 msecs&quot;
-    /// }
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>query_stats: ::core::option::Option&lt;::prost_types::Struct&gt;,
-}
-<span class="doccomment">/// The mode in which the query request must be processed.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>QueryMode {
-    <span class="doccomment">/// The default mode. Only the query results are returned.
-    </span>Normal = <span class="number">0</span>,
-    <span class="doccomment">/// This mode returns only the query plan, without any results or execution
-    /// statistics information.
-    </span>Plan = <span class="number">1</span>,
-    <span class="doccomment">/// This mode returns both the query plan and the execution statistics along
-    /// with the results.
-    </span>Profile = <span class="number">2</span>,
-}
-<span class="kw">impl </span>QueryMode {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            QueryMode::Normal =&gt; <span class="string">&quot;NORMAL&quot;</span>,
-            QueryMode::Plan =&gt; <span class="string">&quot;PLAN&quot;</span>,
-            QueryMode::Profile =&gt; <span class="string">&quot;PROFILE&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;NORMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
-            <span class="string">&quot;PLAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Plan),
-            <span class="string">&quot;PROFILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Profile),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
 <span class="doccomment">/// A sequence of bits, encoded in a byte array.
 ///
 /// Each byte in the `bitmap` byte array stores 8 bits of the sequence. The only
@@ -4865,11 +4699,6 @@
     /// `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The mode in which the query request is processed. This field is
-    /// optional, and when not provided, it defaults to `NORMAL` mode where no
-    /// additional statistics will be returned with the query results.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QueryMode&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>mode: i32,
     <span class="doccomment">/// The query to run.
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;run_query_request::QueryType&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>query_type: ::core::option::Option&lt;run_query_request::QueryType&gt;,
@@ -4943,13 +4772,6 @@
     /// the last response and the current response.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>skipped_results: i32,
-    <span class="doccomment">/// Query plan and execution statistics. Note that the returned stats are
-    /// subject to change as Firestore evolves.
-    ///
-    /// This is only present when the request specifies a mode other than `NORMAL`
-    /// and is sent only once with the last response in the stream.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>stats: ::core::option::Option&lt;ResultSetStats&gt;,
     <span class="doccomment">/// The continuation mode for the query. If present, it indicates the current
     /// query response stream has finished. This can be set with or without a
     /// `document` present, but when set, no more results are returned.
@@ -4985,11 +4807,6 @@
     /// `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The mode in which the query request is processed. This field is
-    /// optional, and when not provided, it defaults to `NORMAL` mode where no
-    /// additional statistics will be returned with the query results.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QueryMode&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>mode: i32,
     <span class="doccomment">/// The query to run.
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;run_aggregation_query_request::QueryType&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>query_type: ::core::option::Option&lt;run_aggregation_query_request::QueryType&gt;,
@@ -5062,13 +4879,6 @@
     /// was run.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Query plan and execution statistics. Note that the returned stats are
-    /// subject to change as Firestore evolves.
-    ///
-    /// This is only present when the request specifies a mode other than `NORMAL`
-    /// and is sent only once with the last response in the stream.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>stats: ::core::option::Option&lt;ResultSetStats&gt;,
 }
 <span class="doccomment">/// The request for
 /// [Firestore.PartitionQuery][google.firestore.v1.Firestore.PartitionQuery].
