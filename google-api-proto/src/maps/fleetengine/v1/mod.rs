@@ -2682,7 +2682,9 @@ pub struct ListVehiclesResponse {
     #[prost(int64, tag = "3")]
     pub total_size: i64,
 }
-/// Describes intermediate points along a route.
+/// Describes intermediate points along a route for a `VehicleMatch` in a
+/// `SearchVehiclesResponse`. This concept is represented as a `TripWaypoint` in
+/// all other endpoints.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Waypoint {
