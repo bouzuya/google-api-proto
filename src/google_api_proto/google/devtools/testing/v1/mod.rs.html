@@ -3686,7 +3686,221 @@
 <a href="#3686" id="3686">3686</a>
 <a href="#3687" id="3687">3687</a>
 <a href="#3688" id="3688">3688</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A single device IP block
+</pre></div><pre class="rust"><code><span class="doccomment">/// A message returned from a device.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeviceMessage {
+    <span class="attr">#[prost(oneof = <span class="string">&quot;device_message::Contents&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>contents: ::core::option::Option&lt;device_message::Contents&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `DeviceMessage`.
+</span><span class="kw">pub mod </span>device_message {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Contents {
+        <span class="doccomment">/// Information about the device&#39;s state.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>StatusUpdate(<span class="kw">super</span>::StatusUpdate),
+        <span class="doccomment">/// The result of a device stream from ADB.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>StreamStatus(<span class="kw">super</span>::StreamStatus),
+        <span class="doccomment">/// Data from an open stream.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>StreamData(<span class="kw">super</span>::StreamData),
+    }
+}
+<span class="doccomment">/// A message to an ADB server.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AdbMessage {
+    <span class="attr">#[prost(oneof = <span class="string">&quot;adb_message::Contents&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>contents: ::core::option::Option&lt;adb_message::Contents&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `AdbMessage`.
+</span><span class="kw">pub mod </span>adb_message {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Contents {
+        <span class="doccomment">/// Open a new stream.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>Open(<span class="kw">super</span>::Open),
+        <span class="doccomment">/// Send data to a stream.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>StreamData(<span class="kw">super</span>::StreamData),
+    }
+}
+<span class="doccomment">/// A StatusUpdate message given over the ADB protocol for the device state.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>StatusUpdate {
+    <span class="doccomment">/// The device&#39;s state
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;status_update::DeviceState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// A map of properties with information about this device.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>properties: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// A comma-separated list of &quot;features&quot; that this device supports.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>features: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `StatusUpdate`.
+</span><span class="kw">pub mod </span>status_update {
+    <span class="doccomment">/// The state displayed with the ADB Device when running &quot;adb devices&quot;
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>DeviceState {
+        <span class="doccomment">/// The device state is unknown.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The ADB device is in the &quot;device&quot; status.
+        </span>Device = <span class="number">1</span>,
+        <span class="doccomment">/// The ADB device is in the &quot;recovery&quot; status.
+        </span>Recovery = <span class="number">2</span>,
+        <span class="doccomment">/// The ADB device is in the &quot;rescue&quot; status.
+        </span>Rescue = <span class="number">3</span>,
+        <span class="doccomment">/// The ADB device is in the &quot;sideload&quot; status.
+        </span>Sideload = <span class="number">4</span>,
+        <span class="doccomment">/// The ADB device is in the &quot;missing&quot; status.
+        </span>Missing = <span class="number">10</span>,
+        <span class="doccomment">/// The ADB device is in the &quot;offline&quot; status.
+        </span>Offline = <span class="number">11</span>,
+        <span class="doccomment">/// The ADB device is in the &quot;unauthorized&quot; status.
+        </span>Unauthorized = <span class="number">12</span>,
+        <span class="doccomment">/// The ADB device is in the &quot;authorizing&quot; status.
+        </span>Authorizing = <span class="number">13</span>,
+        <span class="doccomment">/// The ADB device is in the &quot;connecting&quot; status.
+        </span>Connecting = <span class="number">14</span>,
+    }
+    <span class="kw">impl </span>DeviceState {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                DeviceState::Unspecified =&gt; <span class="string">&quot;DEVICE_STATE_UNSPECIFIED&quot;</span>,
+                DeviceState::Device =&gt; <span class="string">&quot;DEVICE&quot;</span>,
+                DeviceState::Recovery =&gt; <span class="string">&quot;RECOVERY&quot;</span>,
+                DeviceState::Rescue =&gt; <span class="string">&quot;RESCUE&quot;</span>,
+                DeviceState::Sideload =&gt; <span class="string">&quot;SIDELOAD&quot;</span>,
+                DeviceState::Missing =&gt; <span class="string">&quot;MISSING&quot;</span>,
+                DeviceState::Offline =&gt; <span class="string">&quot;OFFLINE&quot;</span>,
+                DeviceState::Unauthorized =&gt; <span class="string">&quot;UNAUTHORIZED&quot;</span>,
+                DeviceState::Authorizing =&gt; <span class="string">&quot;AUTHORIZING&quot;</span>,
+                DeviceState::Connecting =&gt; <span class="string">&quot;CONNECTING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;DEVICE_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;DEVICE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Device),
+                <span class="string">&quot;RECOVERY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Recovery),
+                <span class="string">&quot;RESCUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rescue),
+                <span class="string">&quot;SIDELOAD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sideload),
+                <span class="string">&quot;MISSING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Missing),
+                <span class="string">&quot;OFFLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Offline),
+                <span class="string">&quot;UNAUTHORIZED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unauthorized),
+                <span class="string">&quot;AUTHORIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Authorizing),
+                <span class="string">&quot;CONNECTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Connecting),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// The result of a stream.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>StreamStatus {
+    <span class="doccomment">/// The unique ID of this stream, assigned by the client.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>stream_id: i32,
+    <span class="doccomment">/// The result of the stream. Either &quot;Okay&quot; for success or &quot;Fail&quot; for failure.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;stream_status::Status&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>status: ::core::option::Option&lt;stream_status::Status&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `StreamStatus`.
+</span><span class="kw">pub mod </span>stream_status {
+    <span class="doccomment">/// The result of the stream. Either &quot;Okay&quot; for success or &quot;Fail&quot; for failure.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Status {
+        <span class="doccomment">/// Okay for success.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>Okay(<span class="kw">super</span>::Okay),
+        <span class="doccomment">/// Fail for failure.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>Fail(<span class="kw">super</span>::Fail),
+    }
+}
+<span class="doccomment">/// Message for opening a new stream.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Open {
+    <span class="doccomment">/// The unique ID that will be used to talk to this stream. This should
+    /// probably just be a number that increments for each new Open request.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>stream_id: i32,
+    <span class="doccomment">/// An ADB service to use in the new stream.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Data for a stream.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>StreamData {
+    <span class="doccomment">/// The unique ID of this stream, assigned by the client.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>stream_id: i32,
+    <span class="doccomment">/// The data of the stream, either bytes or &quot;Close&quot;, indicating that the stream
+    /// is done.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;stream_data::Contents&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>contents: ::core::option::Option&lt;stream_data::Contents&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `StreamData`.
+</span><span class="kw">pub mod </span>stream_data {
+    <span class="doccomment">/// The data of the stream, either bytes or &quot;Close&quot;, indicating that the stream
+    /// is done.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Contents {
+        <span class="doccomment">/// Data in the stream.
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>Data(::prost::bytes::Bytes),
+        <span class="doccomment">/// The stream is closing. EOF.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>Close(<span class="kw">super</span>::Close),
+    }
+}
+<span class="doccomment">/// Message signifying that the stream is open
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Okay {}
+<span class="doccomment">/// Message signifying that the stream failed to open
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Fail {
+    <span class="doccomment">/// A user-displayable failure reason.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Message signifying that the stream closed.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Close {}
+<span class="doccomment">/// A single device IP block
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeviceIpBlock {
@@ -4495,220 +4709,6 @@
         </span>}
     }
 }
-<span class="doccomment">/// A message returned from a device.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeviceMessage {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;device_message::Contents&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>contents: ::core::option::Option&lt;device_message::Contents&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `DeviceMessage`.
-</span><span class="kw">pub mod </span>device_message {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Contents {
-        <span class="doccomment">/// Information about the device&#39;s state.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>StatusUpdate(<span class="kw">super</span>::StatusUpdate),
-        <span class="doccomment">/// The result of a device stream from ADB.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>StreamStatus(<span class="kw">super</span>::StreamStatus),
-        <span class="doccomment">/// Data from an open stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>StreamData(<span class="kw">super</span>::StreamData),
-    }
-}
-<span class="doccomment">/// A message to an ADB server.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AdbMessage {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;adb_message::Contents&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-    </span><span class="kw">pub </span>contents: ::core::option::Option&lt;adb_message::Contents&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `AdbMessage`.
-</span><span class="kw">pub mod </span>adb_message {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Contents {
-        <span class="doccomment">/// Open a new stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>Open(<span class="kw">super</span>::Open),
-        <span class="doccomment">/// Send data to a stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>StreamData(<span class="kw">super</span>::StreamData),
-    }
-}
-<span class="doccomment">/// A StatusUpdate message given over the ADB protocol for the device state.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>StatusUpdate {
-    <span class="doccomment">/// The device&#39;s state
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;status_update::DeviceState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// A map of properties with information about this device.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>properties: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// A comma-separated list of &quot;features&quot; that this device supports.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>features: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `StatusUpdate`.
-</span><span class="kw">pub mod </span>status_update {
-    <span class="doccomment">/// The state displayed with the ADB Device when running &quot;adb devices&quot;
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>DeviceState {
-        <span class="doccomment">/// The device state is unknown.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The ADB device is in the &quot;device&quot; status.
-        </span>Device = <span class="number">1</span>,
-        <span class="doccomment">/// The ADB device is in the &quot;recovery&quot; status.
-        </span>Recovery = <span class="number">2</span>,
-        <span class="doccomment">/// The ADB device is in the &quot;rescue&quot; status.
-        </span>Rescue = <span class="number">3</span>,
-        <span class="doccomment">/// The ADB device is in the &quot;sideload&quot; status.
-        </span>Sideload = <span class="number">4</span>,
-        <span class="doccomment">/// The ADB device is in the &quot;missing&quot; status.
-        </span>Missing = <span class="number">10</span>,
-        <span class="doccomment">/// The ADB device is in the &quot;offline&quot; status.
-        </span>Offline = <span class="number">11</span>,
-        <span class="doccomment">/// The ADB device is in the &quot;unauthorized&quot; status.
-        </span>Unauthorized = <span class="number">12</span>,
-        <span class="doccomment">/// The ADB device is in the &quot;authorizing&quot; status.
-        </span>Authorizing = <span class="number">13</span>,
-        <span class="doccomment">/// The ADB device is in the &quot;connecting&quot; status.
-        </span>Connecting = <span class="number">14</span>,
-    }
-    <span class="kw">impl </span>DeviceState {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                DeviceState::Unspecified =&gt; <span class="string">&quot;DEVICE_STATE_UNSPECIFIED&quot;</span>,
-                DeviceState::Device =&gt; <span class="string">&quot;DEVICE&quot;</span>,
-                DeviceState::Recovery =&gt; <span class="string">&quot;RECOVERY&quot;</span>,
-                DeviceState::Rescue =&gt; <span class="string">&quot;RESCUE&quot;</span>,
-                DeviceState::Sideload =&gt; <span class="string">&quot;SIDELOAD&quot;</span>,
-                DeviceState::Missing =&gt; <span class="string">&quot;MISSING&quot;</span>,
-                DeviceState::Offline =&gt; <span class="string">&quot;OFFLINE&quot;</span>,
-                DeviceState::Unauthorized =&gt; <span class="string">&quot;UNAUTHORIZED&quot;</span>,
-                DeviceState::Authorizing =&gt; <span class="string">&quot;AUTHORIZING&quot;</span>,
-                DeviceState::Connecting =&gt; <span class="string">&quot;CONNECTING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;DEVICE_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DEVICE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Device),
-                <span class="string">&quot;RECOVERY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Recovery),
-                <span class="string">&quot;RESCUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rescue),
-                <span class="string">&quot;SIDELOAD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sideload),
-                <span class="string">&quot;MISSING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Missing),
-                <span class="string">&quot;OFFLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Offline),
-                <span class="string">&quot;UNAUTHORIZED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unauthorized),
-                <span class="string">&quot;AUTHORIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Authorizing),
-                <span class="string">&quot;CONNECTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Connecting),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// The result of a stream.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>StreamStatus {
-    <span class="doccomment">/// The unique ID of this stream, assigned by the client.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>stream_id: i32,
-    <span class="doccomment">/// The result of the stream. Either &quot;Okay&quot; for success or &quot;Fail&quot; for failure.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;stream_status::Status&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>status: ::core::option::Option&lt;stream_status::Status&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `StreamStatus`.
-</span><span class="kw">pub mod </span>stream_status {
-    <span class="doccomment">/// The result of the stream. Either &quot;Okay&quot; for success or &quot;Fail&quot; for failure.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Status {
-        <span class="doccomment">/// Okay for success.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>Okay(<span class="kw">super</span>::Okay),
-        <span class="doccomment">/// Fail for failure.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>Fail(<span class="kw">super</span>::Fail),
-    }
-}
-<span class="doccomment">/// Message for opening a new stream.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Open {
-    <span class="doccomment">/// The unique ID that will be used to talk to this stream. This should
-    /// probably just be a number that increments for each new Open request.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>stream_id: i32,
-    <span class="doccomment">/// An ADB service to use in the new stream.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Data for a stream.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>StreamData {
-    <span class="doccomment">/// The unique ID of this stream, assigned by the client.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>stream_id: i32,
-    <span class="doccomment">/// The data of the stream, either bytes or &quot;Close&quot;, indicating that the stream
-    /// is done.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;stream_data::Contents&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>contents: ::core::option::Option&lt;stream_data::Contents&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `StreamData`.
-</span><span class="kw">pub mod </span>stream_data {
-    <span class="doccomment">/// The data of the stream, either bytes or &quot;Close&quot;, indicating that the stream
-    /// is done.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Contents {
-        <span class="doccomment">/// Data in the stream.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>Data(::prost::bytes::Bytes),
-        <span class="doccomment">/// The stream is closing. EOF.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>Close(<span class="kw">super</span>::Close),
-    }
-}
-<span class="doccomment">/// Message signifying that the stream is open
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Okay {}
-<span class="doccomment">/// Message signifying that the stream failed to open
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Fail {
-    <span class="doccomment">/// A user-displayable failure reason.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Message signifying that the stream closed.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Close {}
 <span class="doccomment">/// TestMatrix captures all details about a test. It contains the environment
 /// configuration, test specification, test executions and overall state and
 /// outcome.

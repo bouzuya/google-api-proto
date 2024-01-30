@@ -1417,30 +1417,7 @@
 <a href="#1417" id="1417">1417</a>
 <a href="#1418" id="1418">1418</a>
 <a href="#1419" id="1419">1419</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A GoogleChannelConfig is a resource that stores the custom settings
-/// respected by Eventarc first-party triggers in the matching region.
-/// Once configured, first-party event data will be protected
-/// using the specified custom managed encryption key instead of Google-managed
-/// encryption keys.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GoogleChannelConfig {
-    <span class="doccomment">/// Required. The resource name of the config. Must be in the format of,
-    /// `projects/{project}/locations/{location}/googleChannelConfig`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The last-modified time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Optional. Resource name of a KMS crypto key (managed by the user) used to
-    /// encrypt/decrypt their event data.
-    ///
-    /// It must match the pattern
-    /// `projects/*/locations/*/keyRings/*/cryptoKeys/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>crypto_key_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A representation of the Channel resource.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A representation of the Channel resource.
 /// A Channel is a resource on which event providers publish their events.
 /// The published events are delivered through the transport associated with the
 /// channel. Note that a channel is associated with exactly one event provider.
@@ -1558,6 +1535,38 @@
         </span>PubsubTopic(::prost::alloc::string::String),
     }
 }
+<span class="doccomment">/// A representation of the ChannelConnection resource.
+/// A ChannelConnection is a resource which event providers create during the
+/// activation process to establish a connection between the provider and the
+/// subscriber channel.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ChannelConnection {
+    <span class="doccomment">/// Required. The name of the connection.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Server assigned ID of the resource.
+    /// The server guarantees uniqueness and immutability until deleted.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The name of the connected subscriber Channel.
+    /// This is a weak reference to avoid cross project and cross accounts
+    /// references. This must be in
+    /// `projects/{project}/location/{location}/channels/{channel_id}` format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>channel: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The creation time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The last-modified time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Input only. Activation token for the channel. The token will be used
+    /// during the creation of ChannelConnection to bind the channel with the
+    /// provider project. This field will not be stored in the provider resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>activation_token: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// A representation of the Provider resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1618,37 +1627,28 @@
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>path_pattern_supported: bool,
 }
-<span class="doccomment">/// A representation of the ChannelConnection resource.
-/// A ChannelConnection is a resource which event providers create during the
-/// activation process to establish a connection between the provider and the
-/// subscriber channel.
+<span class="doccomment">/// A GoogleChannelConfig is a resource that stores the custom settings
+/// respected by Eventarc first-party triggers in the matching region.
+/// Once configured, first-party event data will be protected
+/// using the specified custom managed encryption key instead of Google-managed
+/// encryption keys.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ChannelConnection {
-    <span class="doccomment">/// Required. The name of the connection.
+</span><span class="kw">pub struct </span>GoogleChannelConfig {
+    <span class="doccomment">/// Required. The resource name of the config. Must be in the format of,
+    /// `projects/{project}/locations/{location}/googleChannelConfig`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Server assigned ID of the resource.
-    /// The server guarantees uniqueness and immutability until deleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The name of the connected subscriber Channel.
-    /// This is a weak reference to avoid cross project and cross accounts
-    /// references. This must be in
-    /// `projects/{project}/location/{location}/channels/{channel_id}` format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>channel: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The creation time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The last-modified time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Input only. Activation token for the channel. The token will be used
-    /// during the creation of ChannelConnection to bind the channel with the
-    /// provider project. This field will not be stored in the provider resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>activation_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Resource name of a KMS crypto key (managed by the user) used to
+    /// encrypt/decrypt their event data.
+    ///
+    /// It must match the pattern
+    /// `projects/*/locations/*/keyRings/*/cryptoKeys/*`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>crypto_key_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A representation of the trigger resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
