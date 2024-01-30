@@ -5346,6 +5346,7 @@ pub mod model_monitoring_objective_config {
         }
     }
 }
+/// The alert config for model monitoring.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ModelMonitoringAlertConfig {
@@ -30105,6 +30106,7 @@ pub mod feature_online_store_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
+    /// A service for fetching feature values from the online store.
     #[derive(Debug, Clone)]
     pub struct FeatureOnlineStoreServiceClient<T> {
         inner: tonic::client::Grpc<T>,
