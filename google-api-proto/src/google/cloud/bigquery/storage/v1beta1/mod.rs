@@ -18,25 +18,6 @@ pub struct AvroRows {
     #[prost(int64, tag = "2")]
     pub row_count: i64,
 }
-/// Arrow schema.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ArrowSchema {
-    /// IPC serialized Arrow schema.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub serialized_schema: ::prost::bytes::Bytes,
-}
-/// Arrow RecordBatch.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ArrowRecordBatch {
-    /// IPC serialized Arrow RecordBatch.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub serialized_record_batch: ::prost::bytes::Bytes,
-    /// The count of rows in the returning block.
-    #[prost(int64, tag = "2")]
-    pub row_count: i64,
-}
 /// Table reference that includes just the 3 strings needed to identify a table.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -58,6 +39,25 @@ pub struct TableModifiers {
     /// The snapshot time of the table. If not set, interpreted as now.
     #[prost(message, optional, tag = "1")]
     pub snapshot_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Arrow schema.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ArrowSchema {
+    /// IPC serialized Arrow schema.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub serialized_schema: ::prost::bytes::Bytes,
+}
+/// Arrow RecordBatch.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ArrowRecordBatch {
+    /// IPC serialized Arrow RecordBatch.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub serialized_record_batch: ::prost::bytes::Bytes,
+    /// The count of rows in the returning block.
+    #[prost(int64, tag = "2")]
+    pub row_count: i64,
 }
 /// Options dictating how we read a table.
 #[allow(clippy::derive_partial_eq_without_eq)]

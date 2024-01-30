@@ -327,163 +327,27 @@ pub struct AutoMlTablesMetadata {
     #[prost(int64, tag = "1")]
     pub train_cost_milli_node_hours: i64,
 }
-/// A TrainingJob that trains and uploads an AutoML Video Classification Model.
+/// A TrainingJob that trains and uploads an AutoML Text Sentiment Model.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoMlVideoClassification {
+pub struct AutoMlTextSentiment {
     /// The input parameters of this TrainingJob.
     #[prost(message, optional, tag = "1")]
-    pub inputs: ::core::option::Option<AutoMlVideoClassificationInputs>,
+    pub inputs: ::core::option::Option<AutoMlTextSentimentInputs>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoMlVideoClassificationInputs {
-    #[prost(enumeration = "auto_ml_video_classification_inputs::ModelType", tag = "1")]
-    pub model_type: i32,
+pub struct AutoMlTextSentimentInputs {
+    /// A sentiment is expressed as an integer ordinal, where higher value
+    /// means a more positive sentiment. The range of sentiments that will be used
+    /// is between 0 and sentimentMax (inclusive on both ends), and all the values
+    /// in the range must be represented in the dataset before a model can be
+    /// created.
+    /// Only the Annotations with this sentimentMax will be used for training.
+    /// sentimentMax value must be between 1 and 10 (inclusive).
+    #[prost(int32, tag = "1")]
+    pub sentiment_max: i32,
 }
-/// Nested message and enum types in `AutoMlVideoClassificationInputs`.
-pub mod auto_ml_video_classification_inputs {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ModelType {
-        /// Should not be set.
-        Unspecified = 0,
-        /// A model best tailored to be used within Google Cloud, and which cannot
-        /// be exported. Default.
-        Cloud = 1,
-        /// A model that, in addition to being available within Google Cloud, can
-        /// also be exported (see ModelService.ExportModel) as a TensorFlow or
-        /// TensorFlow Lite model and used on a mobile or edge device afterwards.
-        MobileVersatile1 = 2,
-        /// A model that, in addition to being available within Google Cloud, can
-        /// also be exported (see ModelService.ExportModel) to a Jetson device
-        /// afterwards.
-        MobileJetsonVersatile1 = 3,
-    }
-    impl ModelType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ModelType::Unspecified => "MODEL_TYPE_UNSPECIFIED",
-                ModelType::Cloud => "CLOUD",
-                ModelType::MobileVersatile1 => "MOBILE_VERSATILE_1",
-                ModelType::MobileJetsonVersatile1 => "MOBILE_JETSON_VERSATILE_1",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "MODEL_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CLOUD" => Some(Self::Cloud),
-                "MOBILE_VERSATILE_1" => Some(Self::MobileVersatile1),
-                "MOBILE_JETSON_VERSATILE_1" => Some(Self::MobileJetsonVersatile1),
-                _ => None,
-            }
-        }
-    }
-}
-/// A TrainingJob that trains and uploads an AutoML Video Action Recognition
-/// Model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoMlVideoActionRecognition {
-    /// The input parameters of this TrainingJob.
-    #[prost(message, optional, tag = "1")]
-    pub inputs: ::core::option::Option<AutoMlVideoActionRecognitionInputs>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoMlVideoActionRecognitionInputs {
-    #[prost(
-        enumeration = "auto_ml_video_action_recognition_inputs::ModelType",
-        tag = "1"
-    )]
-    pub model_type: i32,
-}
-/// Nested message and enum types in `AutoMlVideoActionRecognitionInputs`.
-pub mod auto_ml_video_action_recognition_inputs {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ModelType {
-        /// Should not be set.
-        Unspecified = 0,
-        /// A model best tailored to be used within Google Cloud, and which c annot
-        /// be exported. Default.
-        Cloud = 1,
-        /// A model that, in addition to being available within Google Cloud, can
-        /// also be exported (see ModelService.ExportModel) as a TensorFlow or
-        /// TensorFlow Lite model and used on a mobile or edge device afterwards.
-        MobileVersatile1 = 2,
-        /// A model that, in addition to being available within Google Cloud, can
-        /// also be exported (see ModelService.ExportModel) to a Jetson device
-        /// afterwards.
-        MobileJetsonVersatile1 = 3,
-        /// A model that, in addition to being available within Google Cloud, can
-        /// also be exported (see ModelService.ExportModel) as a TensorFlow or
-        /// TensorFlow Lite model and used on a Coral device afterwards.
-        MobileCoralVersatile1 = 4,
-    }
-    impl ModelType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ModelType::Unspecified => "MODEL_TYPE_UNSPECIFIED",
-                ModelType::Cloud => "CLOUD",
-                ModelType::MobileVersatile1 => "MOBILE_VERSATILE_1",
-                ModelType::MobileJetsonVersatile1 => "MOBILE_JETSON_VERSATILE_1",
-                ModelType::MobileCoralVersatile1 => "MOBILE_CORAL_VERSATILE_1",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "MODEL_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CLOUD" => Some(Self::Cloud),
-                "MOBILE_VERSATILE_1" => Some(Self::MobileVersatile1),
-                "MOBILE_JETSON_VERSATILE_1" => Some(Self::MobileJetsonVersatile1),
-                "MOBILE_CORAL_VERSATILE_1" => Some(Self::MobileCoralVersatile1),
-                _ => None,
-            }
-        }
-    }
-}
-/// A TrainingJob that trains and uploads an AutoML Text Extraction Model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoMlTextExtraction {
-    /// The input parameters of this TrainingJob.
-    #[prost(message, optional, tag = "1")]
-    pub inputs: ::core::option::Option<AutoMlTextExtractionInputs>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoMlTextExtractionInputs {}
 /// A TrainingJob that trains and uploads an AutoML Image Classification Model.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -664,27 +528,6 @@ pub mod auto_ml_image_classification_metadata {
         }
     }
 }
-/// A TrainingJob that trains and uploads an AutoML Text Sentiment Model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoMlTextSentiment {
-    /// The input parameters of this TrainingJob.
-    #[prost(message, optional, tag = "1")]
-    pub inputs: ::core::option::Option<AutoMlTextSentimentInputs>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoMlTextSentimentInputs {
-    /// A sentiment is expressed as an integer ordinal, where higher value
-    /// means a more positive sentiment. The range of sentiments that will be used
-    /// is between 0 and sentimentMax (inclusive on both ends), and all the values
-    /// in the range must be represented in the dataset before a model can be
-    /// created.
-    /// Only the Annotations with this sentimentMax will be used for training.
-    /// sentimentMax value must be between 1 and 10 (inclusive).
-    #[prost(int32, tag = "1")]
-    pub sentiment_max: i32,
-}
 /// A TrainingJob that trains and uploads an AutoML Image Object Detection Model.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -858,6 +701,95 @@ pub mod auto_ml_image_object_detection_metadata {
         }
     }
 }
+/// A TrainingJob that trains and uploads an AutoML Video Action Recognition
+/// Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutoMlVideoActionRecognition {
+    /// The input parameters of this TrainingJob.
+    #[prost(message, optional, tag = "1")]
+    pub inputs: ::core::option::Option<AutoMlVideoActionRecognitionInputs>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutoMlVideoActionRecognitionInputs {
+    #[prost(
+        enumeration = "auto_ml_video_action_recognition_inputs::ModelType",
+        tag = "1"
+    )]
+    pub model_type: i32,
+}
+/// Nested message and enum types in `AutoMlVideoActionRecognitionInputs`.
+pub mod auto_ml_video_action_recognition_inputs {
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ModelType {
+        /// Should not be set.
+        Unspecified = 0,
+        /// A model best tailored to be used within Google Cloud, and which c annot
+        /// be exported. Default.
+        Cloud = 1,
+        /// A model that, in addition to being available within Google Cloud, can
+        /// also be exported (see ModelService.ExportModel) as a TensorFlow or
+        /// TensorFlow Lite model and used on a mobile or edge device afterwards.
+        MobileVersatile1 = 2,
+        /// A model that, in addition to being available within Google Cloud, can
+        /// also be exported (see ModelService.ExportModel) to a Jetson device
+        /// afterwards.
+        MobileJetsonVersatile1 = 3,
+        /// A model that, in addition to being available within Google Cloud, can
+        /// also be exported (see ModelService.ExportModel) as a TensorFlow or
+        /// TensorFlow Lite model and used on a Coral device afterwards.
+        MobileCoralVersatile1 = 4,
+    }
+    impl ModelType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ModelType::Unspecified => "MODEL_TYPE_UNSPECIFIED",
+                ModelType::Cloud => "CLOUD",
+                ModelType::MobileVersatile1 => "MOBILE_VERSATILE_1",
+                ModelType::MobileJetsonVersatile1 => "MOBILE_JETSON_VERSATILE_1",
+                ModelType::MobileCoralVersatile1 => "MOBILE_CORAL_VERSATILE_1",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "MODEL_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CLOUD" => Some(Self::Cloud),
+                "MOBILE_VERSATILE_1" => Some(Self::MobileVersatile1),
+                "MOBILE_JETSON_VERSATILE_1" => Some(Self::MobileJetsonVersatile1),
+                "MOBILE_CORAL_VERSATILE_1" => Some(Self::MobileCoralVersatile1),
+                _ => None,
+            }
+        }
+    }
+}
+/// A TrainingJob that trains and uploads an AutoML Text Extraction Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutoMlTextExtraction {
+    /// The input parameters of this TrainingJob.
+    #[prost(message, optional, tag = "1")]
+    pub inputs: ::core::option::Option<AutoMlTextExtractionInputs>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutoMlTextExtractionInputs {}
 /// A TrainingJob that trains and uploads an AutoML Image Segmentation Model.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1014,20 +946,6 @@ pub mod auto_ml_image_segmentation_metadata {
             }
         }
     }
-}
-/// A TrainingJob that trains and uploads an AutoML Text Classification Model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoMlTextClassification {
-    /// The input parameters of this TrainingJob.
-    #[prost(message, optional, tag = "1")]
-    pub inputs: ::core::option::Option<AutoMlTextClassificationInputs>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoMlTextClassificationInputs {
-    #[prost(bool, tag = "1")]
-    pub multi_label: bool,
 }
 /// A TrainingJob that trains and uploads an AutoML Forecasting Model.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1411,6 +1329,88 @@ pub mod auto_ml_video_object_tracking_inputs {
                 "MOBILE_CORAL_LOW_LATENCY_1" => Some(Self::MobileCoralLowLatency1),
                 "MOBILE_JETSON_VERSATILE_1" => Some(Self::MobileJetsonVersatile1),
                 "MOBILE_JETSON_LOW_LATENCY_1" => Some(Self::MobileJetsonLowLatency1),
+                _ => None,
+            }
+        }
+    }
+}
+/// A TrainingJob that trains and uploads an AutoML Text Classification Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutoMlTextClassification {
+    /// The input parameters of this TrainingJob.
+    #[prost(message, optional, tag = "1")]
+    pub inputs: ::core::option::Option<AutoMlTextClassificationInputs>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutoMlTextClassificationInputs {
+    #[prost(bool, tag = "1")]
+    pub multi_label: bool,
+}
+/// A TrainingJob that trains and uploads an AutoML Video Classification Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutoMlVideoClassification {
+    /// The input parameters of this TrainingJob.
+    #[prost(message, optional, tag = "1")]
+    pub inputs: ::core::option::Option<AutoMlVideoClassificationInputs>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutoMlVideoClassificationInputs {
+    #[prost(enumeration = "auto_ml_video_classification_inputs::ModelType", tag = "1")]
+    pub model_type: i32,
+}
+/// Nested message and enum types in `AutoMlVideoClassificationInputs`.
+pub mod auto_ml_video_classification_inputs {
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ModelType {
+        /// Should not be set.
+        Unspecified = 0,
+        /// A model best tailored to be used within Google Cloud, and which cannot
+        /// be exported. Default.
+        Cloud = 1,
+        /// A model that, in addition to being available within Google Cloud, can
+        /// also be exported (see ModelService.ExportModel) as a TensorFlow or
+        /// TensorFlow Lite model and used on a mobile or edge device afterwards.
+        MobileVersatile1 = 2,
+        /// A model that, in addition to being available within Google Cloud, can
+        /// also be exported (see ModelService.ExportModel) to a Jetson device
+        /// afterwards.
+        MobileJetsonVersatile1 = 3,
+    }
+    impl ModelType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ModelType::Unspecified => "MODEL_TYPE_UNSPECIFIED",
+                ModelType::Cloud => "CLOUD",
+                ModelType::MobileVersatile1 => "MOBILE_VERSATILE_1",
+                ModelType::MobileJetsonVersatile1 => "MOBILE_JETSON_VERSATILE_1",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "MODEL_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CLOUD" => Some(Self::Cloud),
+                "MOBILE_VERSATILE_1" => Some(Self::MobileVersatile1),
+                "MOBILE_JETSON_VERSATILE_1" => Some(Self::MobileJetsonVersatile1),
                 _ => None,
             }
         }

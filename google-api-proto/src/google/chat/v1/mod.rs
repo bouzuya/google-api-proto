@@ -1,40 +1,3 @@
-/// The history state for messages and spaces. Specifies how long messages and
-/// conversation threads are kept after creation.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum HistoryState {
-    /// Default value. Do not use.
-    Unspecified = 0,
-    /// History off. [Messages and threads are kept for 24
-    /// hours](<https://support.google.com/chat/answer/7664687>).
-    HistoryOff = 1,
-    /// History on. The organization's [Vault retention
-    /// rules](<https://support.google.com/vault/answer/7657597>) specify for
-    /// how long messages and threads are kept.
-    HistoryOn = 2,
-}
-impl HistoryState {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            HistoryState::Unspecified => "HISTORY_STATE_UNSPECIFIED",
-            HistoryState::HistoryOff => "HISTORY_OFF",
-            HistoryState::HistoryOn => "HISTORY_ON",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "HISTORY_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-            "HISTORY_OFF" => Some(Self::HistoryOff),
-            "HISTORY_ON" => Some(Self::HistoryOn),
-            _ => None,
-        }
-    }
-}
 /// An attachment in Google Chat.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -584,6 +547,539 @@ pub struct DeleteMembershipRequest {
     /// Format: `spaces/{space}/members/{member}` or `spaces/{space}/members/app`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+}
+/// The history state for messages and spaces. Specifies how long messages and
+/// conversation threads are kept after creation.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum HistoryState {
+    /// Default value. Do not use.
+    Unspecified = 0,
+    /// History off. [Messages and threads are kept for 24
+    /// hours](<https://support.google.com/chat/answer/7664687>).
+    HistoryOff = 1,
+    /// History on. The organization's [Vault retention
+    /// rules](<https://support.google.com/vault/answer/7657597>) specify for
+    /// how long messages and threads are kept.
+    HistoryOn = 2,
+}
+impl HistoryState {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            HistoryState::Unspecified => "HISTORY_STATE_UNSPECIFIED",
+            HistoryState::HistoryOff => "HISTORY_OFF",
+            HistoryState::HistoryOn => "HISTORY_ON",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "HISTORY_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+            "HISTORY_OFF" => Some(Self::HistoryOff),
+            "HISTORY_ON" => Some(Self::HistoryOn),
+            _ => None,
+        }
+    }
+}
+/// A space in Google Chat. Spaces are conversations between two or more users
+/// or 1:1 messages between a user and a Chat app.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Space {
+    /// Resource name of the space.
+    ///
+    /// Format: `spaces/{space}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Deprecated: Use `space_type` instead.
+    /// The type of a space.
+    #[deprecated]
+    #[prost(enumeration = "space::Type", tag = "2")]
+    pub r#type: i32,
+    /// The type of space. Required when creating a space or updating the space
+    /// type of a space. Output only for other usage.
+    #[prost(enumeration = "space::SpaceType", tag = "10")]
+    pub space_type: i32,
+    /// Optional. Whether the space is a DM between a Chat app and a single
+    /// human.
+    #[prost(bool, tag = "4")]
+    pub single_user_bot_dm: bool,
+    /// Output only. Deprecated: Use `spaceThreadingState` instead.
+    /// Whether messages are threaded in this space.
+    #[deprecated]
+    #[prost(bool, tag = "5")]
+    pub threaded: bool,
+    /// The space's display name. Required when [creating a
+    /// space](<https://developers.google.com/chat/api/reference/rest/v1/spaces/create>).
+    /// If you receive the error message `ALREADY_EXISTS` when creating a space or
+    /// updating the `displayName`, try a different `displayName`. An
+    /// existing space within the Google Workspace organization might already use
+    /// this display name.
+    ///
+    /// For direct messages, this field might be empty.
+    ///
+    /// Supports up to 128 characters.
+    #[prost(string, tag = "3")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Immutable. Whether this space permits any Google Chat user as a member.
+    /// Input when creating a space in a Google Workspace organization. Omit this
+    /// field when creating spaces in the following conditions:
+    ///
+    ///    * The authenticated user uses a Google Account. By default,
+    ///      the space permits any Google Chat user.
+    ///
+    ///    * The space is used to \[import data to Google Chat\]
+    ///      (<https://developers.google.com/chat/api/guides/import-data-overview>).
+    ///      Import mode spaces must only permit members from the same Google
+    ///      Workspace organization.
+    ///
+    /// For existing spaces, this field is output only.
+    #[prost(bool, tag = "8")]
+    pub external_user_allowed: bool,
+    /// Output only. The threading state in the Chat space.
+    #[prost(enumeration = "space::SpaceThreadingState", tag = "9")]
+    pub space_threading_state: i32,
+    /// Details about the space including description and rules.
+    #[prost(message, optional, tag = "11")]
+    pub space_details: ::core::option::Option<space::SpaceDetails>,
+    /// The message history state for messages and threads in this space.
+    #[prost(enumeration = "HistoryState", tag = "13")]
+    pub space_history_state: i32,
+    /// Optional. Whether this space is created in `Import Mode` as part of a data
+    /// migration into Google Workspace. While spaces are being imported, they
+    /// aren't visible to users until the import is complete.
+    #[prost(bool, tag = "16")]
+    pub import_mode: bool,
+    /// Optional. Immutable. For spaces created in Chat, the time the space was
+    /// created. This field is output only, except when used in import mode spaces.
+    ///
+    /// For import mode spaces, set this field to the historical timestamp at which
+    /// the space was created in the source in order to preserve the original
+    /// creation time.
+    ///
+    /// Only populated in the output when `spaceType` is `GROUP_CHAT` or `SPACE`.
+    #[prost(message, optional, tag = "17")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Whether the Chat app was installed by a Google Workspace
+    /// administrator. Administrators can install a Chat app for their domain,
+    /// organizational unit, or a group of users.
+    ///
+    /// Administrators can only install Chat apps for direct messaging between
+    /// users and the app. To support admin install, your app must feature direct
+    /// messaging.
+    #[prost(bool, tag = "19")]
+    pub admin_installed: bool,
+}
+/// Nested message and enum types in `Space`.
+pub mod space {
+    /// Details about the space including description and rules.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SpaceDetails {
+        /// Optional. A description of the space. For example, describe the space's
+        /// discussion topic, functional purpose, or participants.
+        ///
+        /// Supports up to 150 characters.
+        #[prost(string, tag = "1")]
+        pub description: ::prost::alloc::string::String,
+        /// Optional. The space's rules, expectations, and etiquette.
+        ///
+        /// Supports up to 5,000 characters.
+        #[prost(string, tag = "2")]
+        pub guidelines: ::prost::alloc::string::String,
+    }
+    /// Deprecated: Use `SpaceType` instead.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Type {
+        Unspecified = 0,
+        /// Conversations between two or more humans.
+        Room = 1,
+        /// 1:1 Direct Message between a human and a Chat app, where all messages are
+        /// flat. Note that this doesn't include direct messages between two humans.
+        Dm = 2,
+    }
+    impl Type {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Type::Unspecified => "TYPE_UNSPECIFIED",
+                Type::Room => "ROOM",
+                Type::Dm => "DM",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ROOM" => Some(Self::Room),
+                "DM" => Some(Self::Dm),
+                _ => None,
+            }
+        }
+    }
+    /// The type of space. Required when creating or updating a space. Output only
+    /// for other usage.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum SpaceType {
+        /// Reserved.
+        Unspecified = 0,
+        /// A place where people send messages, share files, and collaborate.
+        /// A `SPACE` can include Chat apps.
+        Space = 1,
+        /// Group conversations between 3 or more people.
+        /// A `GROUP_CHAT` can include Chat apps.
+        GroupChat = 2,
+        /// 1:1 messages between two humans or a human and a Chat app.
+        DirectMessage = 3,
+    }
+    impl SpaceType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                SpaceType::Unspecified => "SPACE_TYPE_UNSPECIFIED",
+                SpaceType::Space => "SPACE",
+                SpaceType::GroupChat => "GROUP_CHAT",
+                SpaceType::DirectMessage => "DIRECT_MESSAGE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "SPACE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "SPACE" => Some(Self::Space),
+                "GROUP_CHAT" => Some(Self::GroupChat),
+                "DIRECT_MESSAGE" => Some(Self::DirectMessage),
+                _ => None,
+            }
+        }
+    }
+    /// Specifies the type of threading state in the Chat space.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum SpaceThreadingState {
+        /// Reserved.
+        Unspecified = 0,
+        /// Named spaces that support message threads. When users respond to a
+        /// message, they can reply in-thread, which keeps their response in the
+        /// context of the original message.
+        ThreadedMessages = 2,
+        /// Named spaces where the conversation is organized by topic. Topics and
+        /// their replies are grouped together.
+        GroupedMessages = 3,
+        /// Direct messages (DMs) between two people and group conversations between
+        /// 3 or more people.
+        UnthreadedMessages = 4,
+    }
+    impl SpaceThreadingState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                SpaceThreadingState::Unspecified => "SPACE_THREADING_STATE_UNSPECIFIED",
+                SpaceThreadingState::ThreadedMessages => "THREADED_MESSAGES",
+                SpaceThreadingState::GroupedMessages => "GROUPED_MESSAGES",
+                SpaceThreadingState::UnthreadedMessages => "UNTHREADED_MESSAGES",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "SPACE_THREADING_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "THREADED_MESSAGES" => Some(Self::ThreadedMessages),
+                "GROUPED_MESSAGES" => Some(Self::GroupedMessages),
+                "UNTHREADED_MESSAGES" => Some(Self::UnthreadedMessages),
+                _ => None,
+            }
+        }
+    }
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateSpaceRequest {
+    /// Required. The `displayName` and `spaceType` fields must be populated.  Only
+    /// `SpaceType.SPACE` is supported.
+    ///
+    /// If you receive the error message `ALREADY_EXISTS` when creating a space,
+    /// try a different `displayName`. An existing space within the Google
+    /// Workspace organization might already use this display name.
+    ///
+    /// The space `name` is assigned on the server so anything specified in this
+    /// field will be ignored.
+    #[prost(message, optional, tag = "1")]
+    pub space: ::core::option::Option<Space>,
+    /// Optional. A unique identifier for this request.
+    /// A random UUID is recommended.
+    /// Specifying an existing request ID returns the space created with that ID
+    /// instead of creating a new space.
+    /// Specifying an existing request ID from the same Chat app with a different
+    /// authenticated user returns an error.
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// A request to list the spaces the caller is a member of.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListSpacesRequest {
+    /// Optional. The maximum number of spaces to return. The service might return
+    /// fewer than this value.
+    ///
+    /// If unspecified, at most 100 spaces are returned.
+    ///
+    /// The maximum value is 1,000. If you use a value more than 1,000, it's
+    /// automatically changed to 1,000.
+    ///
+    /// Negative values return an `INVALID_ARGUMENT` error.
+    #[prost(int32, tag = "1")]
+    pub page_size: i32,
+    /// Optional. A page token, received from a previous list spaces call.
+    /// Provide this parameter to retrieve the subsequent page.
+    ///
+    /// When paginating, the filter value should match the call that provided the
+    /// page token. Passing a different value may lead to unexpected results.
+    #[prost(string, tag = "2")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. A query filter.
+    ///
+    /// You can filter spaces by the space type
+    /// ([`space_type`](<https://developers.google.com/chat/api/reference/rest/v1/spaces#spacetype>)).
+    ///
+    /// To filter by space type, you must specify valid enum value, such as
+    /// `SPACE` or `GROUP_CHAT` (the `space_type` can't be
+    /// `SPACE_TYPE_UNSPECIFIED`). To query for multiple space types, use the `OR`
+    /// operator.
+    ///
+    /// For example, the following queries are valid:
+    ///
+    /// ```
+    /// space_type = "SPACE"
+    /// spaceType = "GROUP_CHAT" OR spaceType = "DIRECT_MESSAGE"
+    /// ```
+    ///
+    /// Invalid queries are rejected by the server with an `INVALID_ARGUMENT`
+    /// error.
+    #[prost(string, tag = "3")]
+    pub filter: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListSpacesResponse {
+    /// List of spaces in the requested (or first) page.
+    #[prost(message, repeated, tag = "1")]
+    pub spaces: ::prost::alloc::vec::Vec<Space>,
+    /// You can send a token as `pageToken` to retrieve the next page of
+    /// results. If empty, there are no subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// A request to return a single space.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetSpaceRequest {
+    /// Required. Resource name of the space, in the form "spaces/*".
+    ///
+    /// Format: `spaces/{space}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// A request to get direct message space based on the user resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FindDirectMessageRequest {
+    /// Required. Resource name of the user to find direct message with.
+    ///
+    /// Format: `users/{user}`, where `{user}` is either the `id` for the
+    /// [person](<https://developers.google.com/people/api/rest/v1/people>) from the
+    /// People API, or the `id` for the
+    /// [user](<https://developers.google.com/admin-sdk/directory/reference/rest/v1/users>)
+    /// in the Directory API. For example, if the People API profile ID is
+    /// `123456789`, you can find a direct message with that person by using
+    /// `users/123456789` as the `name`. When [authenticated as a
+    /// user](<https://developers.google.com/chat/api/guides/auth/users>), you can
+    /// use the email as an alias for `{user}`. For example,
+    /// `users/example@gmail.com` where `example@gmail.com` is the email of the
+    /// Google Chat user.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// A request to update a single space.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateSpaceRequest {
+    /// Required. Space with fields to be updated. `Space.name` must be
+    /// populated in the form of `spaces/{space}`. Only fields
+    /// specified by `update_mask` are updated.
+    #[prost(message, optional, tag = "1")]
+    pub space: ::core::option::Option<Space>,
+    /// Required. The updated field paths, comma separated if there are
+    /// multiple.
+    ///
+    /// Currently supported field paths:
+    ///
+    /// - `display_name` (Only supports changing the display name of a space with
+    /// the `SPACE` type, or when also including the `space_type` mask to change a
+    /// `GROUP_CHAT` space type to `SPACE`. Trying to update the display name of a
+    /// `GROUP_CHAT` or a `DIRECT_MESSAGE` space results in an invalid argument
+    /// error. If you receive the error message `ALREADY_EXISTS` when updating the
+    /// `displayName`, try a different `displayName`. An existing space within the
+    /// Google Workspace organization might already use this display name.)
+    ///
+    /// - `space_type` (Only supports changing a `GROUP_CHAT` space type to
+    /// `SPACE`. Include `display_name` together with `space_type` in the update
+    /// mask and ensure that the specified space has a non-empty display name and
+    /// the `SPACE` space type. Including the `space_type` mask and the `SPACE`
+    /// type in the specified space when updating the display name is optional if
+    /// the existing space already has the `SPACE` type. Trying to update the
+    /// space type in other ways results in an invalid argument error).
+    ///
+    /// - `space_details`
+    ///
+    /// - `space_history_state` (Supports [turning history on or off for the
+    /// space](<https://support.google.com/chat/answer/7664687>) if [the organization
+    /// allows users to change their history
+    /// setting](<https://support.google.com/a/answer/7664184>).
+    /// Warning: mutually exclusive with all other field paths.)
+    /// - Developer Preview: `access_settings.audience` (Supports changing the
+    /// [access setting](<https://support.google.com/chat/answer/11971020>) of a
+    /// space. If no audience is specified in the access setting, the space's
+    /// access setting is updated to restricted. Warning: mutually exclusive with
+    /// all other field paths.)
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request for deleting a space.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteSpaceRequest {
+    /// Required. Resource name of the space to delete.
+    ///
+    /// Format: `spaces/{space}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for completing the import process for a space.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CompleteImportSpaceRequest {
+    /// Required. Resource name of the import mode space.
+    ///
+    /// Format: `spaces/{space}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CompleteImportSpaceResponse {
+    /// The import mode space.
+    #[prost(message, optional, tag = "1")]
+    pub space: ::core::option::Option<Space>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SetUpSpaceRequest {
+    /// Required. The `Space.spaceType` field is required.
+    ///
+    /// To create a space, set `Space.spaceType` to `SPACE` and set
+    /// `Space.displayName`. If you receive the error message `ALREADY_EXISTS` when
+    /// setting up a space, try a different `displayName`. An existing space
+    /// within the Google Workspace organization might already use this display
+    /// name.
+    ///
+    /// To create a group chat, set `Space.spaceType` to
+    /// `GROUP_CHAT`. Don't set `Space.displayName`.
+    ///
+    /// To create a 1:1 conversation between humans,
+    /// set `Space.spaceType` to `DIRECT_MESSAGE` and set
+    /// `Space.singleUserBotDm` to `false`. Don't set `Space.displayName` or
+    /// `Space.spaceDetails`.
+    ///
+    /// To create an 1:1 conversation between a human and the calling Chat app, set
+    /// `Space.spaceType` to `DIRECT_MESSAGE` and
+    /// `Space.singleUserBotDm` to `true`. Don't set `Space.displayName` or
+    /// `Space.spaceDetails`.
+    ///
+    /// If a `DIRECT_MESSAGE` space already exists, that space is returned instead
+    /// of creating a new space.
+    #[prost(message, optional, tag = "1")]
+    pub space: ::core::option::Option<Space>,
+    /// Optional. A unique identifier for this request.
+    /// A random UUID is recommended.
+    /// Specifying an existing request ID returns the space created with that ID
+    /// instead of creating a new space.
+    /// Specifying an existing request ID from the same Chat app with a different
+    /// authenticated user returns an error.
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Optional. The Google Chat users to invite to join the space. Omit the
+    /// calling user, as they are added automatically.
+    ///
+    /// The set currently allows up to 20 memberships (in addition to the caller).
+    ///
+    /// The `Membership.member` field must contain a `user` with `name` populated
+    /// (format: `users/{user}`) and `type` set to `User.Type.HUMAN`. You can only
+    /// add human users when setting up a space (adding Chat apps is only supported
+    /// for direct message setup with the calling app). You can also add members
+    /// using the user's email as an alias for {user}. For example, the `user.name`
+    /// can be `users/example@gmail.com`." To invite Gmail users or users from
+    /// external Google Workspace domains, user's email must be used for
+    /// `{user}`.
+    ///
+    /// Optional when setting `Space.spaceType` to `SPACE`.
+    ///
+    /// Required when setting `Space.spaceType` to `GROUP_CHAT`, along with at
+    /// least two memberships.
+    ///
+    /// Required when setting `Space.spaceType` to `DIRECT_MESSAGE` with a human
+    /// user, along with exactly one membership.
+    ///
+    /// Must be empty when creating a 1:1 conversation between a human and the
+    /// calling Chat app (when setting `Space.spaceType` to
+    /// `DIRECT_MESSAGE` and `Space.singleUserBotDm` to `true`).
+    #[prost(message, repeated, tag = "4")]
+    pub memberships: ::prost::alloc::vec::Vec<Membership>,
 }
 /// Represents the status for a request to either invoke or submit a
 /// [dialog](<https://developers.google.com/chat/how-tos/dialogs>).
@@ -1569,438 +2065,6 @@ pub struct SlashCommand {
     #[prost(int64, tag = "1")]
     pub command_id: i64,
 }
-/// A space in Google Chat. Spaces are conversations between two or more users
-/// or 1:1 messages between a user and a Chat app.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Space {
-    /// Resource name of the space.
-    ///
-    /// Format: `spaces/{space}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Deprecated: Use `space_type` instead.
-    /// The type of a space.
-    #[deprecated]
-    #[prost(enumeration = "space::Type", tag = "2")]
-    pub r#type: i32,
-    /// The type of space. Required when creating a space or updating the space
-    /// type of a space. Output only for other usage.
-    #[prost(enumeration = "space::SpaceType", tag = "10")]
-    pub space_type: i32,
-    /// Optional. Whether the space is a DM between a Chat app and a single
-    /// human.
-    #[prost(bool, tag = "4")]
-    pub single_user_bot_dm: bool,
-    /// Output only. Deprecated: Use `spaceThreadingState` instead.
-    /// Whether messages are threaded in this space.
-    #[deprecated]
-    #[prost(bool, tag = "5")]
-    pub threaded: bool,
-    /// The space's display name. Required when [creating a
-    /// space](<https://developers.google.com/chat/api/reference/rest/v1/spaces/create>).
-    /// If you receive the error message `ALREADY_EXISTS` when creating a space or
-    /// updating the `displayName`, try a different `displayName`. An
-    /// existing space within the Google Workspace organization might already use
-    /// this display name.
-    ///
-    /// For direct messages, this field might be empty.
-    ///
-    /// Supports up to 128 characters.
-    #[prost(string, tag = "3")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Immutable. Whether this space permits any Google Chat user as a member.
-    /// Input when creating a space in a Google Workspace organization. Omit this
-    /// field when creating spaces in the following conditions:
-    ///
-    ///    * The authenticated user uses a Google Account. By default,
-    ///      the space permits any Google Chat user.
-    ///
-    ///    * The space is used to \[import data to Google Chat\]
-    ///      (<https://developers.google.com/chat/api/guides/import-data-overview>).
-    ///      Import mode spaces must only permit members from the same Google
-    ///      Workspace organization.
-    ///
-    /// For existing spaces, this field is output only.
-    #[prost(bool, tag = "8")]
-    pub external_user_allowed: bool,
-    /// Output only. The threading state in the Chat space.
-    #[prost(enumeration = "space::SpaceThreadingState", tag = "9")]
-    pub space_threading_state: i32,
-    /// Details about the space including description and rules.
-    #[prost(message, optional, tag = "11")]
-    pub space_details: ::core::option::Option<space::SpaceDetails>,
-    /// The message history state for messages and threads in this space.
-    #[prost(enumeration = "HistoryState", tag = "13")]
-    pub space_history_state: i32,
-    /// Optional. Whether this space is created in `Import Mode` as part of a data
-    /// migration into Google Workspace. While spaces are being imported, they
-    /// aren't visible to users until the import is complete.
-    #[prost(bool, tag = "16")]
-    pub import_mode: bool,
-    /// Optional. Immutable. For spaces created in Chat, the time the space was
-    /// created. This field is output only, except when used in import mode spaces.
-    ///
-    /// For import mode spaces, set this field to the historical timestamp at which
-    /// the space was created in the source in order to preserve the original
-    /// creation time.
-    ///
-    /// Only populated in the output when `spaceType` is `GROUP_CHAT` or `SPACE`.
-    #[prost(message, optional, tag = "17")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Whether the Chat app was installed by a Google Workspace
-    /// administrator. Administrators can install a Chat app for their domain,
-    /// organizational unit, or a group of users.
-    ///
-    /// Administrators can only install Chat apps for direct messaging between
-    /// users and the app. To support admin install, your app must feature direct
-    /// messaging.
-    #[prost(bool, tag = "19")]
-    pub admin_installed: bool,
-}
-/// Nested message and enum types in `Space`.
-pub mod space {
-    /// Details about the space including description and rules.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SpaceDetails {
-        /// Optional. A description of the space. For example, describe the space's
-        /// discussion topic, functional purpose, or participants.
-        ///
-        /// Supports up to 150 characters.
-        #[prost(string, tag = "1")]
-        pub description: ::prost::alloc::string::String,
-        /// Optional. The space's rules, expectations, and etiquette.
-        ///
-        /// Supports up to 5,000 characters.
-        #[prost(string, tag = "2")]
-        pub guidelines: ::prost::alloc::string::String,
-    }
-    /// Deprecated: Use `SpaceType` instead.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Type {
-        Unspecified = 0,
-        /// Conversations between two or more humans.
-        Room = 1,
-        /// 1:1 Direct Message between a human and a Chat app, where all messages are
-        /// flat. Note that this doesn't include direct messages between two humans.
-        Dm = 2,
-    }
-    impl Type {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Type::Unspecified => "TYPE_UNSPECIFIED",
-                Type::Room => "ROOM",
-                Type::Dm => "DM",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ROOM" => Some(Self::Room),
-                "DM" => Some(Self::Dm),
-                _ => None,
-            }
-        }
-    }
-    /// The type of space. Required when creating or updating a space. Output only
-    /// for other usage.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum SpaceType {
-        /// Reserved.
-        Unspecified = 0,
-        /// A place where people send messages, share files, and collaborate.
-        /// A `SPACE` can include Chat apps.
-        Space = 1,
-        /// Group conversations between 3 or more people.
-        /// A `GROUP_CHAT` can include Chat apps.
-        GroupChat = 2,
-        /// 1:1 messages between two humans or a human and a Chat app.
-        DirectMessage = 3,
-    }
-    impl SpaceType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                SpaceType::Unspecified => "SPACE_TYPE_UNSPECIFIED",
-                SpaceType::Space => "SPACE",
-                SpaceType::GroupChat => "GROUP_CHAT",
-                SpaceType::DirectMessage => "DIRECT_MESSAGE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "SPACE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "SPACE" => Some(Self::Space),
-                "GROUP_CHAT" => Some(Self::GroupChat),
-                "DIRECT_MESSAGE" => Some(Self::DirectMessage),
-                _ => None,
-            }
-        }
-    }
-    /// Specifies the type of threading state in the Chat space.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum SpaceThreadingState {
-        /// Reserved.
-        Unspecified = 0,
-        /// Named spaces that support message threads. When users respond to a
-        /// message, they can reply in-thread, which keeps their response in the
-        /// context of the original message.
-        ThreadedMessages = 2,
-        /// Named spaces where the conversation is organized by topic. Topics and
-        /// their replies are grouped together.
-        GroupedMessages = 3,
-        /// Direct messages (DMs) between two people and group conversations between
-        /// 3 or more people.
-        UnthreadedMessages = 4,
-    }
-    impl SpaceThreadingState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                SpaceThreadingState::Unspecified => "SPACE_THREADING_STATE_UNSPECIFIED",
-                SpaceThreadingState::ThreadedMessages => "THREADED_MESSAGES",
-                SpaceThreadingState::GroupedMessages => "GROUPED_MESSAGES",
-                SpaceThreadingState::UnthreadedMessages => "UNTHREADED_MESSAGES",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "SPACE_THREADING_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "THREADED_MESSAGES" => Some(Self::ThreadedMessages),
-                "GROUPED_MESSAGES" => Some(Self::GroupedMessages),
-                "UNTHREADED_MESSAGES" => Some(Self::UnthreadedMessages),
-                _ => None,
-            }
-        }
-    }
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateSpaceRequest {
-    /// Required. The `displayName` and `spaceType` fields must be populated.  Only
-    /// `SpaceType.SPACE` is supported.
-    ///
-    /// If you receive the error message `ALREADY_EXISTS` when creating a space,
-    /// try a different `displayName`. An existing space within the Google
-    /// Workspace organization might already use this display name.
-    ///
-    /// The space `name` is assigned on the server so anything specified in this
-    /// field will be ignored.
-    #[prost(message, optional, tag = "1")]
-    pub space: ::core::option::Option<Space>,
-    /// Optional. A unique identifier for this request.
-    /// A random UUID is recommended.
-    /// Specifying an existing request ID returns the space created with that ID
-    /// instead of creating a new space.
-    /// Specifying an existing request ID from the same Chat app with a different
-    /// authenticated user returns an error.
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// A request to list the spaces the caller is a member of.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSpacesRequest {
-    /// Optional. The maximum number of spaces to return. The service might return
-    /// fewer than this value.
-    ///
-    /// If unspecified, at most 100 spaces are returned.
-    ///
-    /// The maximum value is 1,000. If you use a value more than 1,000, it's
-    /// automatically changed to 1,000.
-    ///
-    /// Negative values return an `INVALID_ARGUMENT` error.
-    #[prost(int32, tag = "1")]
-    pub page_size: i32,
-    /// Optional. A page token, received from a previous list spaces call.
-    /// Provide this parameter to retrieve the subsequent page.
-    ///
-    /// When paginating, the filter value should match the call that provided the
-    /// page token. Passing a different value may lead to unexpected results.
-    #[prost(string, tag = "2")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. A query filter.
-    ///
-    /// You can filter spaces by the space type
-    /// ([`space_type`](<https://developers.google.com/chat/api/reference/rest/v1/spaces#spacetype>)).
-    ///
-    /// To filter by space type, you must specify valid enum value, such as
-    /// `SPACE` or `GROUP_CHAT` (the `space_type` can't be
-    /// `SPACE_TYPE_UNSPECIFIED`). To query for multiple space types, use the `OR`
-    /// operator.
-    ///
-    /// For example, the following queries are valid:
-    ///
-    /// ```
-    /// space_type = "SPACE"
-    /// spaceType = "GROUP_CHAT" OR spaceType = "DIRECT_MESSAGE"
-    /// ```
-    ///
-    /// Invalid queries are rejected by the server with an `INVALID_ARGUMENT`
-    /// error.
-    #[prost(string, tag = "3")]
-    pub filter: ::prost::alloc::string::String,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSpacesResponse {
-    /// List of spaces in the requested (or first) page.
-    #[prost(message, repeated, tag = "1")]
-    pub spaces: ::prost::alloc::vec::Vec<Space>,
-    /// You can send a token as `pageToken` to retrieve the next page of
-    /// results. If empty, there are no subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// A request to return a single space.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetSpaceRequest {
-    /// Required. Resource name of the space, in the form "spaces/*".
-    ///
-    /// Format: `spaces/{space}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// A request to get direct message space based on the user resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FindDirectMessageRequest {
-    /// Required. Resource name of the user to find direct message with.
-    ///
-    /// Format: `users/{user}`, where `{user}` is either the `id` for the
-    /// [person](<https://developers.google.com/people/api/rest/v1/people>) from the
-    /// People API, or the `id` for the
-    /// [user](<https://developers.google.com/admin-sdk/directory/reference/rest/v1/users>)
-    /// in the Directory API. For example, if the People API profile ID is
-    /// `123456789`, you can find a direct message with that person by using
-    /// `users/123456789` as the `name`. When [authenticated as a
-    /// user](<https://developers.google.com/chat/api/guides/auth/users>), you can
-    /// use the email as an alias for `{user}`. For example,
-    /// `users/example@gmail.com` where `example@gmail.com` is the email of the
-    /// Google Chat user.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// A request to update a single space.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateSpaceRequest {
-    /// Required. Space with fields to be updated. `Space.name` must be
-    /// populated in the form of `spaces/{space}`. Only fields
-    /// specified by `update_mask` are updated.
-    #[prost(message, optional, tag = "1")]
-    pub space: ::core::option::Option<Space>,
-    /// Required. The updated field paths, comma separated if there are
-    /// multiple.
-    ///
-    /// Currently supported field paths:
-    ///
-    /// - `display_name` (Only supports changing the display name of a space with
-    /// the `SPACE` type, or when also including the `space_type` mask to change a
-    /// `GROUP_CHAT` space type to `SPACE`. Trying to update the display name of a
-    /// `GROUP_CHAT` or a `DIRECT_MESSAGE` space results in an invalid argument
-    /// error. If you receive the error message `ALREADY_EXISTS` when updating the
-    /// `displayName`, try a different `displayName`. An existing space within the
-    /// Google Workspace organization might already use this display name.)
-    ///
-    /// - `space_type` (Only supports changing a `GROUP_CHAT` space type to
-    /// `SPACE`. Include `display_name` together with `space_type` in the update
-    /// mask and ensure that the specified space has a non-empty display name and
-    /// the `SPACE` space type. Including the `space_type` mask and the `SPACE`
-    /// type in the specified space when updating the display name is optional if
-    /// the existing space already has the `SPACE` type. Trying to update the
-    /// space type in other ways results in an invalid argument error).
-    ///
-    /// - `space_details`
-    ///
-    /// - `space_history_state` (Supports [turning history on or off for the
-    /// space](<https://support.google.com/chat/answer/7664687>) if [the organization
-    /// allows users to change their history
-    /// setting](<https://support.google.com/a/answer/7664184>).
-    /// Warning: mutually exclusive with all other field paths.)
-    /// - Developer Preview: `access_settings.audience` (Supports changing the
-    /// [access setting](<https://support.google.com/chat/answer/11971020>) of a
-    /// space. If no audience is specified in the access setting, the space's
-    /// access setting is updated to restricted. Warning: mutually exclusive with
-    /// all other field paths.)
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Request for deleting a space.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteSpaceRequest {
-    /// Required. Resource name of the space to delete.
-    ///
-    /// Format: `spaces/{space}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for completing the import process for a space.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CompleteImportSpaceRequest {
-    /// Required. Resource name of the import mode space.
-    ///
-    /// Format: `spaces/{space}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CompleteImportSpaceResponse {
-    /// The import mode space.
-    #[prost(message, optional, tag = "1")]
-    pub space: ::core::option::Option<Space>,
-}
 /// A message in a Google Chat space.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2682,70 +2746,6 @@ pub struct CardWithId {
     /// A card. Maximum size is 32 KB.
     #[prost(message, optional, tag = "2")]
     pub card: ::core::option::Option<super::super::apps::card::v1::Card>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SetUpSpaceRequest {
-    /// Required. The `Space.spaceType` field is required.
-    ///
-    /// To create a space, set `Space.spaceType` to `SPACE` and set
-    /// `Space.displayName`. If you receive the error message `ALREADY_EXISTS` when
-    /// setting up a space, try a different `displayName`. An existing space
-    /// within the Google Workspace organization might already use this display
-    /// name.
-    ///
-    /// To create a group chat, set `Space.spaceType` to
-    /// `GROUP_CHAT`. Don't set `Space.displayName`.
-    ///
-    /// To create a 1:1 conversation between humans,
-    /// set `Space.spaceType` to `DIRECT_MESSAGE` and set
-    /// `Space.singleUserBotDm` to `false`. Don't set `Space.displayName` or
-    /// `Space.spaceDetails`.
-    ///
-    /// To create an 1:1 conversation between a human and the calling Chat app, set
-    /// `Space.spaceType` to `DIRECT_MESSAGE` and
-    /// `Space.singleUserBotDm` to `true`. Don't set `Space.displayName` or
-    /// `Space.spaceDetails`.
-    ///
-    /// If a `DIRECT_MESSAGE` space already exists, that space is returned instead
-    /// of creating a new space.
-    #[prost(message, optional, tag = "1")]
-    pub space: ::core::option::Option<Space>,
-    /// Optional. A unique identifier for this request.
-    /// A random UUID is recommended.
-    /// Specifying an existing request ID returns the space created with that ID
-    /// instead of creating a new space.
-    /// Specifying an existing request ID from the same Chat app with a different
-    /// authenticated user returns an error.
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Optional. The Google Chat users to invite to join the space. Omit the
-    /// calling user, as they are added automatically.
-    ///
-    /// The set currently allows up to 20 memberships (in addition to the caller).
-    ///
-    /// The `Membership.member` field must contain a `user` with `name` populated
-    /// (format: `users/{user}`) and `type` set to `User.Type.HUMAN`. You can only
-    /// add human users when setting up a space (adding Chat apps is only supported
-    /// for direct message setup with the calling app). You can also add members
-    /// using the user's email as an alias for {user}. For example, the `user.name`
-    /// can be `users/example@gmail.com`." To invite Gmail users or users from
-    /// external Google Workspace domains, user's email must be used for
-    /// `{user}`.
-    ///
-    /// Optional when setting `Space.spaceType` to `SPACE`.
-    ///
-    /// Required when setting `Space.spaceType` to `GROUP_CHAT`, along with at
-    /// least two memberships.
-    ///
-    /// Required when setting `Space.spaceType` to `DIRECT_MESSAGE` with a human
-    /// user, along with exactly one membership.
-    ///
-    /// Must be empty when creating a 1:1 conversation between a human and the
-    /// calling Chat app (when setting `Space.spaceType` to
-    /// `DIRECT_MESSAGE` and `Space.singleUserBotDm` to `true`).
-    #[prost(message, repeated, tag = "4")]
-    pub memberships: ::prost::alloc::vec::Vec<Membership>,
 }
 /// Generated client implementations.
 pub mod chat_service_client {

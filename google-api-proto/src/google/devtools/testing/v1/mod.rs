@@ -1,217 +1,3 @@
-/// A message returned from a device.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeviceMessage {
-    #[prost(oneof = "device_message::Contents", tags = "1, 2, 3")]
-    pub contents: ::core::option::Option<device_message::Contents>,
-}
-/// Nested message and enum types in `DeviceMessage`.
-pub mod device_message {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Contents {
-        /// Information about the device's state.
-        #[prost(message, tag = "1")]
-        StatusUpdate(super::StatusUpdate),
-        /// The result of a device stream from ADB.
-        #[prost(message, tag = "2")]
-        StreamStatus(super::StreamStatus),
-        /// Data from an open stream.
-        #[prost(message, tag = "3")]
-        StreamData(super::StreamData),
-    }
-}
-/// A message to an ADB server.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdbMessage {
-    #[prost(oneof = "adb_message::Contents", tags = "1, 2")]
-    pub contents: ::core::option::Option<adb_message::Contents>,
-}
-/// Nested message and enum types in `AdbMessage`.
-pub mod adb_message {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Contents {
-        /// Open a new stream.
-        #[prost(message, tag = "1")]
-        Open(super::Open),
-        /// Send data to a stream.
-        #[prost(message, tag = "2")]
-        StreamData(super::StreamData),
-    }
-}
-/// A StatusUpdate message given over the ADB protocol for the device state.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StatusUpdate {
-    /// The device's state
-    #[prost(enumeration = "status_update::DeviceState", tag = "1")]
-    pub state: i32,
-    /// A map of properties with information about this device.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub properties: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// A comma-separated list of "features" that this device supports.
-    #[prost(string, tag = "3")]
-    pub features: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `StatusUpdate`.
-pub mod status_update {
-    /// The state displayed with the ADB Device when running "adb devices"
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum DeviceState {
-        /// The device state is unknown.
-        Unspecified = 0,
-        /// The ADB device is in the "device" status.
-        Device = 1,
-        /// The ADB device is in the "recovery" status.
-        Recovery = 2,
-        /// The ADB device is in the "rescue" status.
-        Rescue = 3,
-        /// The ADB device is in the "sideload" status.
-        Sideload = 4,
-        /// The ADB device is in the "missing" status.
-        Missing = 10,
-        /// The ADB device is in the "offline" status.
-        Offline = 11,
-        /// The ADB device is in the "unauthorized" status.
-        Unauthorized = 12,
-        /// The ADB device is in the "authorizing" status.
-        Authorizing = 13,
-        /// The ADB device is in the "connecting" status.
-        Connecting = 14,
-    }
-    impl DeviceState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                DeviceState::Unspecified => "DEVICE_STATE_UNSPECIFIED",
-                DeviceState::Device => "DEVICE",
-                DeviceState::Recovery => "RECOVERY",
-                DeviceState::Rescue => "RESCUE",
-                DeviceState::Sideload => "SIDELOAD",
-                DeviceState::Missing => "MISSING",
-                DeviceState::Offline => "OFFLINE",
-                DeviceState::Unauthorized => "UNAUTHORIZED",
-                DeviceState::Authorizing => "AUTHORIZING",
-                DeviceState::Connecting => "CONNECTING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "DEVICE_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "DEVICE" => Some(Self::Device),
-                "RECOVERY" => Some(Self::Recovery),
-                "RESCUE" => Some(Self::Rescue),
-                "SIDELOAD" => Some(Self::Sideload),
-                "MISSING" => Some(Self::Missing),
-                "OFFLINE" => Some(Self::Offline),
-                "UNAUTHORIZED" => Some(Self::Unauthorized),
-                "AUTHORIZING" => Some(Self::Authorizing),
-                "CONNECTING" => Some(Self::Connecting),
-                _ => None,
-            }
-        }
-    }
-}
-/// The result of a stream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamStatus {
-    /// The unique ID of this stream, assigned by the client.
-    #[prost(int32, tag = "1")]
-    pub stream_id: i32,
-    /// The result of the stream. Either "Okay" for success or "Fail" for failure.
-    #[prost(oneof = "stream_status::Status", tags = "2, 3")]
-    pub status: ::core::option::Option<stream_status::Status>,
-}
-/// Nested message and enum types in `StreamStatus`.
-pub mod stream_status {
-    /// The result of the stream. Either "Okay" for success or "Fail" for failure.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Status {
-        /// Okay for success.
-        #[prost(message, tag = "2")]
-        Okay(super::Okay),
-        /// Fail for failure.
-        #[prost(message, tag = "3")]
-        Fail(super::Fail),
-    }
-}
-/// Message for opening a new stream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Open {
-    /// The unique ID that will be used to talk to this stream. This should
-    /// probably just be a number that increments for each new Open request.
-    #[prost(int32, tag = "1")]
-    pub stream_id: i32,
-    /// An ADB service to use in the new stream.
-    #[prost(string, tag = "2")]
-    pub service: ::prost::alloc::string::String,
-}
-/// Data for a stream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamData {
-    /// The unique ID of this stream, assigned by the client.
-    #[prost(int32, tag = "1")]
-    pub stream_id: i32,
-    /// The data of the stream, either bytes or "Close", indicating that the stream
-    /// is done.
-    #[prost(oneof = "stream_data::Contents", tags = "2, 3")]
-    pub contents: ::core::option::Option<stream_data::Contents>,
-}
-/// Nested message and enum types in `StreamData`.
-pub mod stream_data {
-    /// The data of the stream, either bytes or "Close", indicating that the stream
-    /// is done.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Contents {
-        /// Data in the stream.
-        #[prost(bytes, tag = "2")]
-        Data(::prost::bytes::Bytes),
-        /// The stream is closing. EOF.
-        #[prost(message, tag = "3")]
-        Close(super::Close),
-    }
-}
-/// Message signifying that the stream is open
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Okay {}
-/// Message signifying that the stream failed to open
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Fail {
-    /// A user-displayable failure reason.
-    #[prost(string, tag = "1")]
-    pub reason: ::prost::alloc::string::String,
-}
-/// Message signifying that the stream closed.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Close {}
 /// A single device IP block
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1021,6 +807,220 @@ pub mod test_environment_discovery_service_client {
         }
     }
 }
+/// A message returned from a device.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeviceMessage {
+    #[prost(oneof = "device_message::Contents", tags = "1, 2, 3")]
+    pub contents: ::core::option::Option<device_message::Contents>,
+}
+/// Nested message and enum types in `DeviceMessage`.
+pub mod device_message {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Contents {
+        /// Information about the device's state.
+        #[prost(message, tag = "1")]
+        StatusUpdate(super::StatusUpdate),
+        /// The result of a device stream from ADB.
+        #[prost(message, tag = "2")]
+        StreamStatus(super::StreamStatus),
+        /// Data from an open stream.
+        #[prost(message, tag = "3")]
+        StreamData(super::StreamData),
+    }
+}
+/// A message to an ADB server.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdbMessage {
+    #[prost(oneof = "adb_message::Contents", tags = "1, 2")]
+    pub contents: ::core::option::Option<adb_message::Contents>,
+}
+/// Nested message and enum types in `AdbMessage`.
+pub mod adb_message {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Contents {
+        /// Open a new stream.
+        #[prost(message, tag = "1")]
+        Open(super::Open),
+        /// Send data to a stream.
+        #[prost(message, tag = "2")]
+        StreamData(super::StreamData),
+    }
+}
+/// A StatusUpdate message given over the ADB protocol for the device state.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StatusUpdate {
+    /// The device's state
+    #[prost(enumeration = "status_update::DeviceState", tag = "1")]
+    pub state: i32,
+    /// A map of properties with information about this device.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub properties: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// A comma-separated list of "features" that this device supports.
+    #[prost(string, tag = "3")]
+    pub features: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `StatusUpdate`.
+pub mod status_update {
+    /// The state displayed with the ADB Device when running "adb devices"
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DeviceState {
+        /// The device state is unknown.
+        Unspecified = 0,
+        /// The ADB device is in the "device" status.
+        Device = 1,
+        /// The ADB device is in the "recovery" status.
+        Recovery = 2,
+        /// The ADB device is in the "rescue" status.
+        Rescue = 3,
+        /// The ADB device is in the "sideload" status.
+        Sideload = 4,
+        /// The ADB device is in the "missing" status.
+        Missing = 10,
+        /// The ADB device is in the "offline" status.
+        Offline = 11,
+        /// The ADB device is in the "unauthorized" status.
+        Unauthorized = 12,
+        /// The ADB device is in the "authorizing" status.
+        Authorizing = 13,
+        /// The ADB device is in the "connecting" status.
+        Connecting = 14,
+    }
+    impl DeviceState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DeviceState::Unspecified => "DEVICE_STATE_UNSPECIFIED",
+                DeviceState::Device => "DEVICE",
+                DeviceState::Recovery => "RECOVERY",
+                DeviceState::Rescue => "RESCUE",
+                DeviceState::Sideload => "SIDELOAD",
+                DeviceState::Missing => "MISSING",
+                DeviceState::Offline => "OFFLINE",
+                DeviceState::Unauthorized => "UNAUTHORIZED",
+                DeviceState::Authorizing => "AUTHORIZING",
+                DeviceState::Connecting => "CONNECTING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DEVICE_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DEVICE" => Some(Self::Device),
+                "RECOVERY" => Some(Self::Recovery),
+                "RESCUE" => Some(Self::Rescue),
+                "SIDELOAD" => Some(Self::Sideload),
+                "MISSING" => Some(Self::Missing),
+                "OFFLINE" => Some(Self::Offline),
+                "UNAUTHORIZED" => Some(Self::Unauthorized),
+                "AUTHORIZING" => Some(Self::Authorizing),
+                "CONNECTING" => Some(Self::Connecting),
+                _ => None,
+            }
+        }
+    }
+}
+/// The result of a stream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamStatus {
+    /// The unique ID of this stream, assigned by the client.
+    #[prost(int32, tag = "1")]
+    pub stream_id: i32,
+    /// The result of the stream. Either "Okay" for success or "Fail" for failure.
+    #[prost(oneof = "stream_status::Status", tags = "2, 3")]
+    pub status: ::core::option::Option<stream_status::Status>,
+}
+/// Nested message and enum types in `StreamStatus`.
+pub mod stream_status {
+    /// The result of the stream. Either "Okay" for success or "Fail" for failure.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Status {
+        /// Okay for success.
+        #[prost(message, tag = "2")]
+        Okay(super::Okay),
+        /// Fail for failure.
+        #[prost(message, tag = "3")]
+        Fail(super::Fail),
+    }
+}
+/// Message for opening a new stream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Open {
+    /// The unique ID that will be used to talk to this stream. This should
+    /// probably just be a number that increments for each new Open request.
+    #[prost(int32, tag = "1")]
+    pub stream_id: i32,
+    /// An ADB service to use in the new stream.
+    #[prost(string, tag = "2")]
+    pub service: ::prost::alloc::string::String,
+}
+/// Data for a stream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamData {
+    /// The unique ID of this stream, assigned by the client.
+    #[prost(int32, tag = "1")]
+    pub stream_id: i32,
+    /// The data of the stream, either bytes or "Close", indicating that the stream
+    /// is done.
+    #[prost(oneof = "stream_data::Contents", tags = "2, 3")]
+    pub contents: ::core::option::Option<stream_data::Contents>,
+}
+/// Nested message and enum types in `StreamData`.
+pub mod stream_data {
+    /// The data of the stream, either bytes or "Close", indicating that the stream
+    /// is done.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Contents {
+        /// Data in the stream.
+        #[prost(bytes, tag = "2")]
+        Data(::prost::bytes::Bytes),
+        /// The stream is closing. EOF.
+        #[prost(message, tag = "3")]
+        Close(super::Close),
+    }
+}
+/// Message signifying that the stream is open
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Okay {}
+/// Message signifying that the stream failed to open
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Fail {
+    /// A user-displayable failure reason.
+    #[prost(string, tag = "1")]
+    pub reason: ::prost::alloc::string::String,
+}
+/// Message signifying that the stream closed.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Close {}
 /// TestMatrix captures all details about a test. It contains the environment
 /// configuration, test specification, test executions and overall state and
 /// outcome.

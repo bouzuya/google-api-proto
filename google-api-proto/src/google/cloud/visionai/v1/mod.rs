@@ -1,3 +1,132 @@
+/// Message describing the Cluster object.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Cluster {
+    /// Output only. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The create timestamp.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The update timestamp.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Labels as key value pairs
+    #[prost(btree_map = "string, string", tag = "4")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Annotations to allow clients to store small amounts of arbitrary data.
+    #[prost(btree_map = "string, string", tag = "5")]
+    pub annotations: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The DNS name of the data plane service
+    #[prost(string, tag = "6")]
+    pub dataplane_service_endpoint: ::prost::alloc::string::String,
+    /// Output only. The current state of the cluster.
+    #[prost(enumeration = "cluster::State", tag = "7")]
+    pub state: i32,
+    /// Output only. The private service connection service target name.
+    #[prost(string, tag = "8")]
+    pub psc_target: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Cluster`.
+pub mod cluster {
+    /// The current state of the cluster.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Not set.
+        Unspecified = 0,
+        /// The PROVISIONING state indicates the cluster is being created.
+        Provisioning = 1,
+        /// The RUNNING state indicates the cluster has been created and is fully
+        /// usable.
+        Running = 2,
+        /// The STOPPING state indicates the cluster is being deleted.
+        Stopping = 3,
+        /// The ERROR state indicates the cluster is unusable. It will be
+        /// automatically deleted.
+        Error = 4,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Provisioning => "PROVISIONING",
+                State::Running => "RUNNING",
+                State::Stopping => "STOPPING",
+                State::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PROVISIONING" => Some(Self::Provisioning),
+                "RUNNING" => Some(Self::Running),
+                "STOPPING" => Some(Self::Stopping),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+}
+/// Represents the metadata of the long-running operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OperationMetadata {
+    /// Output only. The time the operation was created.
+    #[prost(message, optional, tag = "1")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time the operation finished running.
+    #[prost(message, optional, tag = "2")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Server-defined resource path for the target of the operation.
+    #[prost(string, tag = "3")]
+    pub target: ::prost::alloc::string::String,
+    /// Output only. Name of the verb executed by the operation.
+    #[prost(string, tag = "4")]
+    pub verb: ::prost::alloc::string::String,
+    /// Output only. Human-readable status of the operation, if any.
+    #[prost(string, tag = "5")]
+    pub status_message: ::prost::alloc::string::String,
+    /// Output only. Identifies whether the user has requested cancellation
+    /// of the operation. Operations that have successfully been cancelled
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+    /// `Code.CANCELLED`.
+    #[prost(bool, tag = "6")]
+    pub requested_cancellation: bool,
+    /// Output only. API version used to start the operation.
+    #[prost(string, tag = "7")]
+    pub api_version: ::prost::alloc::string::String,
+}
+/// The Google Cloud Storage location for the input content.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsSource {
+    /// Required. References to a Google Cloud Storage paths.
+    #[prost(string, repeated, tag = "1")]
+    pub uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
 /// Defines the interface of an Operator.
 ///
 /// Arguments to an operator are input/output streams that are getting
@@ -369,1125 +498,11 @@ impl RunMode {
         }
     }
 }
-/// HealthCheckRequest is the request message for Check.
+/// Message describing the Operator object.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HealthCheckRequest {
-    /// The parent of the resource.
-    #[prost(string, tag = "1")]
-    pub cluster: ::prost::alloc::string::String,
-}
-/// HealthCheckResponse is the response message for Check.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HealthCheckResponse {
-    /// Indicates whether the cluster is in healthy state or not.
-    #[prost(bool, tag = "1")]
-    pub healthy: bool,
-    /// Reason of why the cluster is in unhealthy state.
-    #[prost(string, tag = "2")]
-    pub reason: ::prost::alloc::string::String,
-    /// Other information of the cluster client may be interested.
-    #[prost(message, optional, tag = "3")]
-    pub cluster_info: ::core::option::Option<ClusterInfo>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ClusterInfo {
-    /// The number of active streams in the cluster.
-    #[prost(int32, tag = "1")]
-    pub streams_count: i32,
-    /// The number of active processes in the cluster.
-    #[prost(int32, tag = "2")]
-    pub processes_count: i32,
-}
-/// Generated client implementations.
-pub mod health_check_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// HealthCheckService provides an interface for Vertex AI Vision Cluster Health
-    /// Check.
-    #[derive(Debug, Clone)]
-    pub struct HealthCheckServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> HealthCheckServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> HealthCheckServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            HealthCheckServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// HealthCheck method checks the health status of the cluster.
-        pub async fn health_check(
-            &mut self,
-            request: impl tonic::IntoRequest<super::HealthCheckRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::HealthCheckResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.HealthCheckService/HealthCheck",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.HealthCheckService",
-                        "HealthCheck",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// The descriptor for a gstreamer buffer payload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GstreamerBufferDescriptor {
-    /// The caps string of the payload.
-    #[prost(string, tag = "1")]
-    pub caps_string: ::prost::alloc::string::String,
-    /// Whether the buffer is a key frame.
-    #[prost(bool, tag = "2")]
-    pub is_key_frame: bool,
-    /// PTS of the frame.
-    #[prost(message, optional, tag = "3")]
-    pub pts_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// DTS of the frame.
-    #[prost(message, optional, tag = "4")]
-    pub dts_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Duration of the frame.
-    #[prost(message, optional, tag = "5")]
-    pub duration: ::core::option::Option<::prost_types::Duration>,
-}
-/// The descriptor for a raw image.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RawImageDescriptor {
-    /// Raw image format. Its possible values are: "srgb".
-    #[prost(string, tag = "1")]
-    pub format: ::prost::alloc::string::String,
-    /// The height of the image.
-    #[prost(int32, tag = "2")]
-    pub height: i32,
-    /// The width of the image.
-    #[prost(int32, tag = "3")]
-    pub width: i32,
-}
-/// The message that represents the data type of a packet.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PacketType {
-    /// The type class of the packet. Its possible values are:
-    /// "gst", "protobuf", and "string".
-    #[prost(string, tag = "1")]
-    pub type_class: ::prost::alloc::string::String,
-    /// The type descriptor.
-    #[prost(message, optional, tag = "2")]
-    pub type_descriptor: ::core::option::Option<packet_type::TypeDescriptor>,
-}
-/// Nested message and enum types in `PacketType`.
-pub mod packet_type {
-    /// The message that fully specifies the type of the packet.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TypeDescriptor {
-        /// The type of the packet. Its possible values is codec dependent.
-        ///
-        /// The fully qualified type name is always the concatenation of the
-        /// value in `type_class` together with the value in `type`, separated by a
-        /// '/'.
-        ///
-        /// Note that specific codecs can define their own type hierarchy, and so the
-        /// type string here can in fact be separated by multiple '/'s of its own.
-        ///
-        /// Please see the open source SDK for specific codec documentation.
-        #[prost(string, tag = "1")]
-        pub r#type: ::prost::alloc::string::String,
-        /// Detailed information about the type.
-        ///
-        /// It is non-empty only for specific type class codecs. Needed only when the
-        /// type string alone is not enough to disambiguate the specific type.
-        #[prost(oneof = "type_descriptor::TypeDetails", tags = "2, 3")]
-        pub type_details: ::core::option::Option<type_descriptor::TypeDetails>,
-    }
-    /// Nested message and enum types in `TypeDescriptor`.
-    pub mod type_descriptor {
-        /// Detailed information about the type.
-        ///
-        /// It is non-empty only for specific type class codecs. Needed only when the
-        /// type string alone is not enough to disambiguate the specific type.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum TypeDetails {
-            /// GstreamerBufferDescriptor is the descriptor for gstreamer buffer type.
-            #[prost(message, tag = "2")]
-            GstreamerBufferDescriptor(super::super::GstreamerBufferDescriptor),
-            /// RawImageDescriptor is the descriptor for the raw image type.
-            #[prost(message, tag = "3")]
-            RawImageDescriptor(super::super::RawImageDescriptor),
-        }
-    }
-}
-/// The message that represents server metadata.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ServerMetadata {
-    /// The offset position for the packet in its stream.
-    #[prost(int64, tag = "1")]
-    pub offset: i64,
-    /// The timestamp at which the stream server receives this packet. This is
-    /// based on the local clock of on the server side. It is guaranteed to be
-    /// monotonically increasing for the packets within each session; however
-    /// this timestamp is not comparable across packets sent to the same stream
-    /// different sessions. Session here refers to one individual gRPC streaming
-    /// request to the stream server.
-    #[prost(message, optional, tag = "2")]
-    pub ingest_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// The message that represents series metadata.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SeriesMetadata {
-    /// Series name. It's in the format of
-    /// "projects/{project}/locations/{location}/clusters/{cluster}/series/{stream}".
-    #[prost(string, tag = "1")]
-    pub series: ::prost::alloc::string::String,
-}
-/// The message that represents packet header.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PacketHeader {
-    /// Input only. The capture time of the packet.
-    #[prost(message, optional, tag = "1")]
-    pub capture_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Input only. Immutable. The type of the payload.
-    #[prost(message, optional, tag = "2")]
-    pub r#type: ::core::option::Option<PacketType>,
-    /// Input only. This field is for users to attach user managed metadata.
-    #[prost(message, optional, tag = "3")]
-    pub metadata: ::core::option::Option<::prost_types::Struct>,
-    /// Output only. Metadata that the server appends to each packet before sending
-    /// it to receivers. You don't need to set a value for this field when sending
-    /// packets.
-    #[prost(message, optional, tag = "4")]
-    pub server_metadata: ::core::option::Option<ServerMetadata>,
-    /// Input only. Immutable. Metadata that the server needs to know where to
-    /// write the packets to. It's only required for the first packet.
-    #[prost(message, optional, tag = "5")]
-    pub series_metadata: ::core::option::Option<SeriesMetadata>,
-    /// Immutable. Packet flag set. SDK will set the flag automatically.
-    #[prost(int32, tag = "6")]
-    pub flags: i32,
-    /// Immutable. Header string for tracing across services. It should be set when
-    /// the packet is first arrived in the stream server.
-    ///
-    /// The input format is a lowercase hex string:
-    ///    - version_id: 1 byte, currently must be zero - hex encoded (2 characters)
-    ///    - trace_id: 16 bytes (opaque blob) - hex encoded (32 characters)
-    ///    - span_id: 8 bytes (opaque blob) - hex encoded (16 characters)
-    ///    - trace_options: 1 byte (LSB means tracing enabled) - hex encoded (2
-    ///    characters)
-    /// Example: "00-404142434445464748494a4b4c4d4e4f-6162636465666768-01"
-    ///            v  trace_id                         span_id          options
-    #[prost(string, tag = "7")]
-    pub trace_context: ::prost::alloc::string::String,
-}
-/// The quanta of datum that the series accepts.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Packet {
-    /// The packet header.
-    #[prost(message, optional, tag = "1")]
-    pub header: ::core::option::Option<PacketHeader>,
-    /// The payload of the packet.
-    #[prost(bytes = "bytes", tag = "2")]
-    pub payload: ::prost::bytes::Bytes,
-}
-/// Output format for Personal Protective Equipment Detection Operator.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PersonalProtectiveEquipmentDetectionOutput {
-    /// Current timestamp.
-    #[prost(message, optional, tag = "1")]
-    pub current_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// A list of DetectedPersons.
-    #[prost(message, repeated, tag = "2")]
-    pub detected_persons: ::prost::alloc::vec::Vec<
-        personal_protective_equipment_detection_output::DetectedPerson,
-    >,
-}
-/// Nested message and enum types in `PersonalProtectiveEquipmentDetectionOutput`.
-pub mod personal_protective_equipment_detection_output {
-    /// The entity info for annotations from person detection prediction result.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PersonEntity {
-        /// Entity id.
-        #[prost(int64, tag = "1")]
-        pub person_entity_id: i64,
-    }
-    /// The entity info for annotations from PPE detection prediction result.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PpeEntity {
-        /// Label id.
-        #[prost(int64, tag = "1")]
-        pub ppe_label_id: i64,
-        /// Human readable string of the label (Examples: helmet, glove, mask).
-        #[prost(string, tag = "2")]
-        pub ppe_label_string: ::prost::alloc::string::String,
-        /// Human readable string of the super category label (Examples: head_cover,
-        /// hands_cover, face_cover).
-        #[prost(string, tag = "3")]
-        pub ppe_supercategory_label_string: ::prost::alloc::string::String,
-        /// Entity id.
-        #[prost(int64, tag = "4")]
-        pub ppe_entity_id: i64,
-    }
-    /// Bounding Box in the normalized coordinates.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct NormalizedBoundingBox {
-        /// Min in x coordinate.
-        #[prost(float, tag = "1")]
-        pub xmin: f32,
-        /// Min in y coordinate.
-        #[prost(float, tag = "2")]
-        pub ymin: f32,
-        /// Width of the bounding box.
-        #[prost(float, tag = "3")]
-        pub width: f32,
-        /// Height of the bounding box.
-        #[prost(float, tag = "4")]
-        pub height: f32,
-    }
-    /// PersonIdentified box contains the location and the entity info of the
-    /// person.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PersonIdentifiedBox {
-        /// An unique id for this box.
-        #[prost(int64, tag = "1")]
-        pub box_id: i64,
-        /// Bounding Box in the normalized coordinates.
-        #[prost(message, optional, tag = "2")]
-        pub normalized_bounding_box: ::core::option::Option<NormalizedBoundingBox>,
-        /// Confidence score associated with this box.
-        #[prost(float, tag = "3")]
-        pub confidence_score: f32,
-        /// Person entity info.
-        #[prost(message, optional, tag = "4")]
-        pub person_entity: ::core::option::Option<PersonEntity>,
-    }
-    /// PPEIdentified box contains the location and the entity info of the PPE.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PpeIdentifiedBox {
-        /// An unique id for this box.
-        #[prost(int64, tag = "1")]
-        pub box_id: i64,
-        /// Bounding Box in the normalized coordinates.
-        #[prost(message, optional, tag = "2")]
-        pub normalized_bounding_box: ::core::option::Option<NormalizedBoundingBox>,
-        /// Confidence score associated with this box.
-        #[prost(float, tag = "3")]
-        pub confidence_score: f32,
-        /// PPE entity info.
-        #[prost(message, optional, tag = "4")]
-        pub ppe_entity: ::core::option::Option<PpeEntity>,
-    }
-    /// Detected Person contains the detected person and their associated
-    /// ppes and their protecting information.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DetectedPerson {
-        /// The id of detected person.
-        #[prost(int64, tag = "1")]
-        pub person_id: i64,
-        /// The info of detected person identified box.
-        #[prost(message, optional, tag = "2")]
-        pub detected_person_identified_box: ::core::option::Option<PersonIdentifiedBox>,
-        /// The info of detected person associated ppe identified boxes.
-        #[prost(message, repeated, tag = "3")]
-        pub detected_ppe_identified_boxes: ::prost::alloc::vec::Vec<PpeIdentifiedBox>,
-        /// Coverage score for each body part.
-        /// Coverage score for face.
-        #[prost(float, optional, tag = "4")]
-        pub face_coverage_score: ::core::option::Option<f32>,
-        /// Coverage score for eyes.
-        #[prost(float, optional, tag = "5")]
-        pub eyes_coverage_score: ::core::option::Option<f32>,
-        /// Coverage score for head.
-        #[prost(float, optional, tag = "6")]
-        pub head_coverage_score: ::core::option::Option<f32>,
-        /// Coverage score for hands.
-        #[prost(float, optional, tag = "7")]
-        pub hands_coverage_score: ::core::option::Option<f32>,
-        /// Coverage score for body.
-        #[prost(float, optional, tag = "8")]
-        pub body_coverage_score: ::core::option::Option<f32>,
-        /// Coverage score for feet.
-        #[prost(float, optional, tag = "9")]
-        pub feet_coverage_score: ::core::option::Option<f32>,
-    }
-}
-/// Prediction output format for Generic Object Detection.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ObjectDetectionPredictionResult {
-    /// Current timestamp.
-    #[prost(message, optional, tag = "1")]
-    pub current_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// A list of identified boxes.
-    #[prost(message, repeated, tag = "2")]
-    pub identified_boxes: ::prost::alloc::vec::Vec<
-        object_detection_prediction_result::IdentifiedBox,
-    >,
-}
-/// Nested message and enum types in `ObjectDetectionPredictionResult`.
-pub mod object_detection_prediction_result {
-    /// The entity info for annotations from object detection prediction result.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Entity {
-        /// Label id.
-        #[prost(int64, tag = "1")]
-        pub label_id: i64,
-        /// Human readable string of the label.
-        #[prost(string, tag = "2")]
-        pub label_string: ::prost::alloc::string::String,
-    }
-    /// Identified box contains location and the entity of the object.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IdentifiedBox {
-        /// An unique id for this box.
-        #[prost(int64, tag = "1")]
-        pub box_id: i64,
-        /// Bounding Box in the normalized coordinates.
-        #[prost(message, optional, tag = "2")]
-        pub normalized_bounding_box: ::core::option::Option<
-            identified_box::NormalizedBoundingBox,
-        >,
-        /// Confidence score associated with this box.
-        #[prost(float, tag = "3")]
-        pub confidence_score: f32,
-        /// Entity of this box.
-        #[prost(message, optional, tag = "4")]
-        pub entity: ::core::option::Option<Entity>,
-    }
-    /// Nested message and enum types in `IdentifiedBox`.
-    pub mod identified_box {
-        /// Bounding Box in the normalized coordinates.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct NormalizedBoundingBox {
-            /// Min in x coordinate.
-            #[prost(float, tag = "1")]
-            pub xmin: f32,
-            /// Min in y coordinate.
-            #[prost(float, tag = "2")]
-            pub ymin: f32,
-            /// Width of the bounding box.
-            #[prost(float, tag = "3")]
-            pub width: f32,
-            /// Height of the bounding box.
-            #[prost(float, tag = "4")]
-            pub height: f32,
-        }
-    }
-}
-/// Prediction output format for Image Object Detection.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageObjectDetectionPredictionResult {
-    /// The resource IDs of the AnnotationSpecs that had been identified, ordered
-    /// by the confidence score descendingly. It is the id segment instead of full
-    /// resource name.
-    #[prost(int64, repeated, tag = "1")]
-    pub ids: ::prost::alloc::vec::Vec<i64>,
-    /// The display names of the AnnotationSpecs that had been identified, order
-    /// matches the IDs.
-    #[prost(string, repeated, tag = "2")]
-    pub display_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The Model's confidences in correctness of the predicted IDs, higher value
-    /// means higher confidence. Order matches the Ids.
-    #[prost(float, repeated, tag = "3")]
-    pub confidences: ::prost::alloc::vec::Vec<f32>,
-    /// Bounding boxes, i.e. the rectangles over the image, that pinpoint
-    /// the found AnnotationSpecs. Given in order that matches the IDs. Each
-    /// bounding box is an array of 4 numbers `xMin`, `xMax`, `yMin`, and
-    /// `yMax`, which represent the extremal coordinates of the box. They are
-    /// relative to the image size, and the point 0,0 is in the top left
-    /// of the image.
-    #[prost(message, repeated, tag = "4")]
-    pub bboxes: ::prost::alloc::vec::Vec<::prost_types::ListValue>,
-}
-/// Prediction output format for Image and Text Classification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ClassificationPredictionResult {
-    /// The resource IDs of the AnnotationSpecs that had been identified.
-    #[prost(int64, repeated, tag = "1")]
-    pub ids: ::prost::alloc::vec::Vec<i64>,
-    /// The display names of the AnnotationSpecs that had been identified, order
-    /// matches the IDs.
-    #[prost(string, repeated, tag = "2")]
-    pub display_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The Model's confidences in correctness of the predicted IDs, higher value
-    /// means higher confidence. Order matches the Ids.
-    #[prost(float, repeated, tag = "3")]
-    pub confidences: ::prost::alloc::vec::Vec<f32>,
-}
-/// Prediction output format for Image Segmentation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageSegmentationPredictionResult {
-    /// A PNG image where each pixel in the mask represents the category in which
-    /// the pixel in the original image was predicted to belong to. The size of
-    /// this image will be the same as the original image. The mapping between the
-    /// AnntoationSpec and the color can be found in model's metadata. The model
-    /// will choose the most likely category and if none of the categories reach
-    /// the confidence threshold, the pixel will be marked as background.
-    #[prost(string, tag = "1")]
-    pub category_mask: ::prost::alloc::string::String,
-    /// A one channel image which is encoded as an 8bit lossless PNG. The size of
-    /// the image will be the same as the original image. For a specific pixel,
-    /// darker color means less confidence in correctness of the cateogry in the
-    /// categoryMask for the corresponding pixel. Black means no confidence and
-    /// white means complete confidence.
-    #[prost(string, tag = "2")]
-    pub confidence_mask: ::prost::alloc::string::String,
-}
-/// Prediction output format for Video Action Recognition.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VideoActionRecognitionPredictionResult {
-    /// The beginning, inclusive, of the video's time segment in which the
-    /// actions have been identified.
-    #[prost(message, optional, tag = "1")]
-    pub segment_start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The end, inclusive, of the video's time segment in which the actions have
-    /// been identified. Particularly, if the end is the same as the start, it
-    /// means the identification happens on a specific video frame.
-    #[prost(message, optional, tag = "2")]
-    pub segment_end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// All of the actions identified in the time range.
-    #[prost(message, repeated, tag = "3")]
-    pub actions: ::prost::alloc::vec::Vec<
-        video_action_recognition_prediction_result::IdentifiedAction,
-    >,
-}
-/// Nested message and enum types in `VideoActionRecognitionPredictionResult`.
-pub mod video_action_recognition_prediction_result {
-    /// Each IdentifiedAction is one particular identification of an action
-    /// specified with the AnnotationSpec id, display_name and the associated
-    /// confidence score.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IdentifiedAction {
-        /// The resource ID of the AnnotationSpec that had been identified.
-        #[prost(string, tag = "1")]
-        pub id: ::prost::alloc::string::String,
-        /// The display name of the AnnotationSpec that had been identified.
-        #[prost(string, tag = "2")]
-        pub display_name: ::prost::alloc::string::String,
-        /// The Model's confidence in correction of this identification, higher
-        /// value means higher confidence.
-        #[prost(float, tag = "3")]
-        pub confidence: f32,
-    }
-}
-/// Prediction output format for Video Object Tracking.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VideoObjectTrackingPredictionResult {
-    /// The beginning, inclusive, of the video's time segment in which the
-    /// current identifications happens.
-    #[prost(message, optional, tag = "1")]
-    pub segment_start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The end, inclusive, of the video's time segment in which the current
-    /// identifications happen. Particularly, if the end is the same as the start,
-    /// it means the identifications happen on a specific video frame.
-    #[prost(message, optional, tag = "2")]
-    pub segment_end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// All of the objects detected in the specified time range.
-    #[prost(message, repeated, tag = "3")]
-    pub objects: ::prost::alloc::vec::Vec<
-        video_object_tracking_prediction_result::DetectedObject,
-    >,
-}
-/// Nested message and enum types in `VideoObjectTrackingPredictionResult`.
-pub mod video_object_tracking_prediction_result {
-    /// Boundingbox for detected object. I.e. the rectangle over the video frame
-    /// pinpointing the found AnnotationSpec. The coordinates are relative to the
-    /// frame size, and the point 0,0 is in the top left of the frame.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct BoundingBox {
-        /// The leftmost coordinate of the bounding box.
-        #[prost(float, tag = "1")]
-        pub x_min: f32,
-        /// The rightmost coordinate of the bounding box.
-        #[prost(float, tag = "2")]
-        pub x_max: f32,
-        /// The topmost coordinate of the bounding box.
-        #[prost(float, tag = "3")]
-        pub y_min: f32,
-        /// The bottommost coordinate of the bounding box.
-        #[prost(float, tag = "4")]
-        pub y_max: f32,
-    }
-    /// Each DetectedObject is one particular identification of an object
-    /// specified with the AnnotationSpec id and display_name, the bounding box,
-    /// the associated confidence score and the corresponding track_id.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DetectedObject {
-        /// The resource ID of the AnnotationSpec that had been identified.
-        #[prost(string, tag = "1")]
-        pub id: ::prost::alloc::string::String,
-        /// The display name of the AnnotationSpec that had been identified.
-        #[prost(string, tag = "2")]
-        pub display_name: ::prost::alloc::string::String,
-        /// Boundingbox.
-        #[prost(message, optional, tag = "3")]
-        pub bounding_box: ::core::option::Option<BoundingBox>,
-        /// The Model's confidence in correction of this identification, higher
-        /// value means higher confidence.
-        #[prost(float, tag = "4")]
-        pub confidence: f32,
-        /// The same object may be identified on muitiple frames which are typical
-        /// adjacent. The set of frames where a particular object has been detected
-        /// form a track. This track_id can be used to trace down all frames for an
-        /// detected object.
-        #[prost(int64, tag = "5")]
-        pub track_id: i64,
-    }
-}
-/// Prediction output format for Video Classification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VideoClassificationPredictionResult {
-    /// The beginning, inclusive, of the video's time segment in which the
-    /// classifications have been identified.
-    #[prost(message, optional, tag = "1")]
-    pub segment_start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The end, inclusive, of the video's time segment in which the
-    /// classifications have been identified. Particularly, if the end is the same
-    /// as the start, it means the identification happens on a specific video
-    /// frame.
-    #[prost(message, optional, tag = "2")]
-    pub segment_end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// All of the classifications identified in the time range.
-    #[prost(message, repeated, tag = "3")]
-    pub classifications: ::prost::alloc::vec::Vec<
-        video_classification_prediction_result::IdentifiedClassification,
-    >,
-}
-/// Nested message and enum types in `VideoClassificationPredictionResult`.
-pub mod video_classification_prediction_result {
-    /// Each IdentifiedClassification is one particular identification of an
-    /// classification specified with the AnnotationSpec id and display_name,
-    /// and the associated confidence score.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IdentifiedClassification {
-        /// The resource ID of the AnnotationSpec that had been identified.
-        #[prost(string, tag = "1")]
-        pub id: ::prost::alloc::string::String,
-        /// The display name of the AnnotationSpec that had been identified.
-        #[prost(string, tag = "2")]
-        pub display_name: ::prost::alloc::string::String,
-        /// The Model's confidence in correction of this identification, higher
-        /// value means higher confidence.
-        #[prost(float, tag = "3")]
-        pub confidence: f32,
-    }
-}
-/// The prediction result proto for occupancy counting.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OccupancyCountingPredictionResult {
-    /// Current timestamp.
-    #[prost(message, optional, tag = "1")]
-    pub current_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// A list of identified boxes.
-    #[prost(message, repeated, tag = "2")]
-    pub identified_boxes: ::prost::alloc::vec::Vec<
-        occupancy_counting_prediction_result::IdentifiedBox,
-    >,
-    /// Detection statistics.
-    #[prost(message, optional, tag = "3")]
-    pub stats: ::core::option::Option<occupancy_counting_prediction_result::Stats>,
-    /// Track related information. All the tracks that are live at this timestamp.
-    /// It only exists if tracking is enabled.
-    #[prost(message, repeated, tag = "4")]
-    pub track_info: ::prost::alloc::vec::Vec<
-        occupancy_counting_prediction_result::TrackInfo,
-    >,
-    /// Dwell time related information. All the tracks that are live in a given
-    /// zone with a start and end dwell time timestamp
-    #[prost(message, repeated, tag = "5")]
-    pub dwell_time_info: ::prost::alloc::vec::Vec<
-        occupancy_counting_prediction_result::DwellTimeInfo,
-    >,
-    /// The presentation timestamp of the frame.
-    #[prost(int64, optional, tag = "6")]
-    pub pts: ::core::option::Option<i64>,
-}
-/// Nested message and enum types in `OccupancyCountingPredictionResult`.
-pub mod occupancy_counting_prediction_result {
-    /// The entity info for annotations from occupancy counting operator.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Entity {
-        /// Label id.
-        #[prost(int64, tag = "1")]
-        pub label_id: i64,
-        /// Human readable string of the label.
-        #[prost(string, tag = "2")]
-        pub label_string: ::prost::alloc::string::String,
-    }
-    /// Identified box contains location and the entity of the object.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IdentifiedBox {
-        /// An unique id for this box.
-        #[prost(int64, tag = "1")]
-        pub box_id: i64,
-        /// Bounding Box in the normalized coordinates.
-        #[prost(message, optional, tag = "2")]
-        pub normalized_bounding_box: ::core::option::Option<
-            identified_box::NormalizedBoundingBox,
-        >,
-        /// Confidence score associated with this box.
-        #[prost(float, tag = "3")]
-        pub score: f32,
-        /// Entity of this box.
-        #[prost(message, optional, tag = "4")]
-        pub entity: ::core::option::Option<Entity>,
-        /// An unique id to identify a track. It should be consistent across frames.
-        /// It only exists if tracking is enabled.
-        #[prost(int64, tag = "5")]
-        pub track_id: i64,
-    }
-    /// Nested message and enum types in `IdentifiedBox`.
-    pub mod identified_box {
-        /// Bounding Box in the normalized coordinates.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct NormalizedBoundingBox {
-            /// Min in x coordinate.
-            #[prost(float, tag = "1")]
-            pub xmin: f32,
-            /// Min in y coordinate.
-            #[prost(float, tag = "2")]
-            pub ymin: f32,
-            /// Width of the bounding box.
-            #[prost(float, tag = "3")]
-            pub width: f32,
-            /// Height of the bounding box.
-            #[prost(float, tag = "4")]
-            pub height: f32,
-        }
-    }
-    /// The statistics info for annotations from occupancy counting operator.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Stats {
-        /// Counts of the full frame.
-        #[prost(message, repeated, tag = "1")]
-        pub full_frame_count: ::prost::alloc::vec::Vec<stats::ObjectCount>,
-        /// Crossing line counts.
-        #[prost(message, repeated, tag = "2")]
-        pub crossing_line_counts: ::prost::alloc::vec::Vec<stats::CrossingLineCount>,
-        /// Active zone counts.
-        #[prost(message, repeated, tag = "3")]
-        pub active_zone_counts: ::prost::alloc::vec::Vec<stats::ActiveZoneCount>,
-    }
-    /// Nested message and enum types in `Stats`.
-    pub mod stats {
-        /// The object info and instant count for annotations from occupancy counting
-        /// operator.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct ObjectCount {
-            /// Entity of this object.
-            #[prost(message, optional, tag = "1")]
-            pub entity: ::core::option::Option<super::Entity>,
-            /// Count of the object.
-            #[prost(int32, tag = "2")]
-            pub count: i32,
-        }
-        /// The object info and accumulated count for annotations from occupancy
-        /// counting operator.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct AccumulatedObjectCount {
-            /// The start time of the accumulated count.
-            #[prost(message, optional, tag = "1")]
-            pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-            /// The object count for the accumulated count.
-            #[prost(message, optional, tag = "2")]
-            pub object_count: ::core::option::Option<ObjectCount>,
-        }
-        /// Message for Crossing line count.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct CrossingLineCount {
-            /// Line annotation from the user.
-            #[prost(message, optional, tag = "1")]
-            pub annotation: ::core::option::Option<super::super::StreamAnnotation>,
-            /// The direction that follows the right hand rule.
-            #[prost(message, repeated, tag = "2")]
-            pub positive_direction_counts: ::prost::alloc::vec::Vec<ObjectCount>,
-            /// The direction that is opposite to the right hand rule.
-            #[prost(message, repeated, tag = "3")]
-            pub negative_direction_counts: ::prost::alloc::vec::Vec<ObjectCount>,
-            /// The accumulated positive count.
-            #[prost(message, repeated, tag = "4")]
-            pub accumulated_positive_direction_counts: ::prost::alloc::vec::Vec<
-                AccumulatedObjectCount,
-            >,
-            /// The accumulated negative count.
-            #[prost(message, repeated, tag = "5")]
-            pub accumulated_negative_direction_counts: ::prost::alloc::vec::Vec<
-                AccumulatedObjectCount,
-            >,
-        }
-        /// Message for the active zone count.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct ActiveZoneCount {
-            /// Active zone annotation from the user.
-            #[prost(message, optional, tag = "1")]
-            pub annotation: ::core::option::Option<super::super::StreamAnnotation>,
-            /// Counts in the zone.
-            #[prost(message, repeated, tag = "2")]
-            pub counts: ::prost::alloc::vec::Vec<ObjectCount>,
-        }
-    }
-    /// The track info for annotations from occupancy counting operator.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TrackInfo {
-        /// An unique id to identify a track. It should be consistent across frames.
-        #[prost(string, tag = "1")]
-        pub track_id: ::prost::alloc::string::String,
-        /// Start timestamp of this track.
-        #[prost(message, optional, tag = "2")]
-        pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    }
-    /// The dwell time info for annotations from occupancy counting operator.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DwellTimeInfo {
-        /// An unique id to identify a track. It should be consistent across frames.
-        #[prost(string, tag = "1")]
-        pub track_id: ::prost::alloc::string::String,
-        /// The unique id for the zone in which the object is dwelling/waiting.
-        #[prost(string, tag = "2")]
-        pub zone_id: ::prost::alloc::string::String,
-        /// The beginning time when a dwelling object has been identified in a zone.
-        #[prost(message, optional, tag = "3")]
-        pub dwell_start_time: ::core::option::Option<::prost_types::Timestamp>,
-        /// The end time when a dwelling object has exited in a zone.
-        #[prost(message, optional, tag = "4")]
-        pub dwell_end_time: ::core::option::Option<::prost_types::Timestamp>,
-    }
-}
-/// message about annotations about Vision AI stream resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamAnnotation {
-    /// ID of the annotation. It must be unique when used in the certain context.
-    /// For example, all the annotations to one input streams of a Vision AI
-    /// application.
-    #[prost(string, tag = "1")]
-    pub id: ::prost::alloc::string::String,
-    /// User-friendly name for the annotation.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The Vision AI stream resource name.
-    #[prost(string, tag = "3")]
-    pub source_stream: ::prost::alloc::string::String,
-    /// The actual type of Annotation.
-    #[prost(enumeration = "StreamAnnotationType", tag = "4")]
-    pub r#type: i32,
-    #[prost(oneof = "stream_annotation::AnnotationPayload", tags = "5, 6")]
-    pub annotation_payload: ::core::option::Option<stream_annotation::AnnotationPayload>,
-}
-/// Nested message and enum types in `StreamAnnotation`.
-pub mod stream_annotation {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum AnnotationPayload {
-        /// Annotation for type ACTIVE_ZONE
-        #[prost(message, tag = "5")]
-        ActiveZone(super::NormalizedPolygon),
-        /// Annotation for type CROSSING_LINE
-        #[prost(message, tag = "6")]
-        CrossingLine(super::NormalizedPolyline),
-    }
-}
-/// A wrapper of repeated StreamAnnotation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamAnnotations {
-    /// Multiple annotations.
-    #[prost(message, repeated, tag = "1")]
-    pub stream_annotations: ::prost::alloc::vec::Vec<StreamAnnotation>,
-}
-/// Normalized Polygon.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NormalizedPolygon {
-    /// The bounding polygon normalized vertices. Top left corner of the image
-    /// will be \[0, 0\].
-    #[prost(message, repeated, tag = "1")]
-    pub normalized_vertices: ::prost::alloc::vec::Vec<NormalizedVertex>,
-}
-/// Normalized Pplyline, which represents a curve consisting of connected
-/// straight-line segments.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NormalizedPolyline {
-    /// A sequence of vertices connected by straight lines.
-    #[prost(message, repeated, tag = "1")]
-    pub normalized_vertices: ::prost::alloc::vec::Vec<NormalizedVertex>,
-}
-/// A vertex represents a 2D point in the image.
-/// NOTE: the normalized vertex coordinates are relative to the original image
-/// and range from 0 to 1.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NormalizedVertex {
-    /// X coordinate.
-    #[prost(float, tag = "1")]
-    pub x: f32,
-    /// Y coordinate.
-    #[prost(float, tag = "2")]
-    pub y: f32,
-}
-/// Message of essential metadata of App Platform.
-/// This message is usually attached to a certain processor output annotation for
-/// customer to identify the source of the data.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AppPlatformMetadata {
-    /// The application resource name.
-    #[prost(string, tag = "1")]
-    pub application: ::prost::alloc::string::String,
-    /// The instance resource id. Instance is the nested resource of application
-    /// under collection 'instances'.
-    #[prost(string, tag = "2")]
-    pub instance_id: ::prost::alloc::string::String,
-    /// The node name of the application graph.
-    #[prost(string, tag = "3")]
-    pub node: ::prost::alloc::string::String,
-    /// The referred processor resource name of the application node.
-    #[prost(string, tag = "4")]
-    pub processor: ::prost::alloc::string::String,
-}
-/// For any cloud function based customer processing logic, customer's cloud
-/// function is expected to receive AppPlatformCloudFunctionRequest as request
-/// and send back AppPlatformCloudFunctionResponse as response.
-/// Message of request from AppPlatform to Cloud Function.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AppPlatformCloudFunctionRequest {
-    /// The metadata of the AppPlatform for customer to identify the source of the
-    /// payload.
-    #[prost(message, optional, tag = "1")]
-    pub app_platform_metadata: ::core::option::Option<AppPlatformMetadata>,
-    /// The actual annotations to be processed by the customized Cloud Function.
-    #[prost(message, repeated, tag = "2")]
-    pub annotations: ::prost::alloc::vec::Vec<
-        app_platform_cloud_function_request::StructedInputAnnotation,
-    >,
-}
-/// Nested message and enum types in `AppPlatformCloudFunctionRequest`.
-pub mod app_platform_cloud_function_request {
-    /// A general annotation message that uses struct format to represent different
-    /// concrete annotation protobufs.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct StructedInputAnnotation {
-        /// The ingestion time of the current annotation.
-        #[prost(int64, tag = "1")]
-        pub ingestion_time_micros: i64,
-        /// The struct format of the actual annotation.
-        #[prost(message, optional, tag = "2")]
-        pub annotation: ::core::option::Option<::prost_types::Struct>,
-    }
-}
-/// Message of the response from customer's Cloud Function to AppPlatform.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AppPlatformCloudFunctionResponse {
-    /// The modified annotations that is returned back to AppPlatform.
-    /// If the annotations fields are empty, then those annotations will be dropped
-    /// by AppPlatform.
-    #[prost(message, repeated, tag = "2")]
-    pub annotations: ::prost::alloc::vec::Vec<
-        app_platform_cloud_function_response::StructedOutputAnnotation,
-    >,
-    /// If set to true, AppPlatform will use original annotations instead of
-    /// dropping them, even if it is empty in the annotations filed.
-    #[prost(bool, tag = "3")]
-    pub annotation_passthrough: bool,
-    /// The event notifications that is returned back to AppPlatform. Typically it
-    /// will then be configured to be consumed/forwared to a operator that handles
-    /// events, such as Pub/Sub operator.
-    #[prost(message, repeated, tag = "4")]
-    pub events: ::prost::alloc::vec::Vec<AppPlatformEventBody>,
-}
-/// Nested message and enum types in `AppPlatformCloudFunctionResponse`.
-pub mod app_platform_cloud_function_response {
-    /// A general annotation message that uses struct format to represent different
-    /// concrete annotation protobufs.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct StructedOutputAnnotation {
-        /// The struct format of the actual annotation.
-        #[prost(message, optional, tag = "1")]
-        pub annotation: ::core::option::Option<::prost_types::Struct>,
-    }
-}
-/// Message of content of appPlatform event
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AppPlatformEventBody {
-    /// Human readable string of the event like "There are more than 6 people in
-    /// the scene". or "Shelf is empty!".
-    #[prost(string, tag = "1")]
-    pub event_message: ::prost::alloc::string::String,
-    /// For the case of Pub/Sub, it will be stored in the message attributes.
-    /// ​​pubsub.proto
-    #[prost(message, optional, tag = "2")]
-    pub payload: ::core::option::Option<::prost_types::Struct>,
-    /// User defined Event Id, used to classify event, within a delivery interval,
-    /// events from the same application instance with the same id will be
-    /// de-duplicated & only first one will be sent out. Empty event_id will be
-    /// treated as "".
-    #[prost(string, tag = "3")]
-    pub event_id: ::prost::alloc::string::String,
-}
-/// Enum describing all possible types of a stream annotation.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum StreamAnnotationType {
-    /// Type UNSPECIFIED.
-    Unspecified = 0,
-    /// active_zone annotation defines a polygon on top of the content from an
-    /// image/video based stream, following processing will only focus on the
-    /// content inside the active zone.
-    ActiveZone = 1,
-    /// crossing_line annotation defines a polyline on top of the content from an
-    /// image/video based Vision AI stream, events happening across the line will
-    /// be captured. For example, the counts of people who goes acroos the line
-    /// in Occupancy Analytic Processor.
-    CrossingLine = 2,
-}
-impl StreamAnnotationType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            StreamAnnotationType::Unspecified => "STREAM_ANNOTATION_TYPE_UNSPECIFIED",
-            StreamAnnotationType::ActiveZone => "STREAM_ANNOTATION_TYPE_ACTIVE_ZONE",
-            StreamAnnotationType::CrossingLine => "STREAM_ANNOTATION_TYPE_CROSSING_LINE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "STREAM_ANNOTATION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "STREAM_ANNOTATION_TYPE_ACTIVE_ZONE" => Some(Self::ActiveZone),
-            "STREAM_ANNOTATION_TYPE_CROSSING_LINE" => Some(Self::CrossingLine),
-            _ => None,
-        }
-    }
-}
-/// Message describing the Cluster object.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Cluster {
-    /// Output only. Name of the resource.
+pub struct Operator {
+    /// Name of the resource.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. The create timestamp.
@@ -1496,1482 +511,30 @@ pub struct Cluster {
     /// Output only. The update timestamp.
     #[prost(message, optional, tag = "3")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Labels as key value pairs
+    /// Labels as key value pairs.
     #[prost(btree_map = "string, string", tag = "4")]
     pub labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// Annotations to allow clients to store small amounts of arbitrary data.
-    #[prost(btree_map = "string, string", tag = "5")]
-    pub annotations: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The DNS name of the data plane service
+    /// The definition of the operator.
+    #[prost(message, optional, tag = "5")]
+    pub operator_definition: ::core::option::Option<OperatorDefinition>,
+    /// The link to the docker image of the operator.
     #[prost(string, tag = "6")]
-    pub dataplane_service_endpoint: ::prost::alloc::string::String,
-    /// Output only. The current state of the cluster.
-    #[prost(enumeration = "cluster::State", tag = "7")]
-    pub state: i32,
-    /// Output only. The private service connection service target name.
-    #[prost(string, tag = "8")]
-    pub psc_target: ::prost::alloc::string::String,
+    pub docker_image: ::prost::alloc::string::String,
 }
-/// Nested message and enum types in `Cluster`.
-pub mod cluster {
-    /// The current state of the cluster.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Not set.
-        Unspecified = 0,
-        /// The PROVISIONING state indicates the cluster is being created.
-        Provisioning = 1,
-        /// The RUNNING state indicates the cluster has been created and is fully
-        /// usable.
-        Running = 2,
-        /// The STOPPING state indicates the cluster is being deleted.
-        Stopping = 3,
-        /// The ERROR state indicates the cluster is unusable. It will be
-        /// automatically deleted.
-        Error = 4,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Provisioning => "PROVISIONING",
-                State::Running => "RUNNING",
-                State::Stopping => "STOPPING",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "PROVISIONING" => Some(Self::Provisioning),
-                "RUNNING" => Some(Self::Running),
-                "STOPPING" => Some(Self::Stopping),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
-}
-/// Represents the metadata of the long-running operation.
+/// Message describing the Analysis object.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OperationMetadata {
-    /// Output only. The time the operation was created.
-    #[prost(message, optional, tag = "1")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time the operation finished running.
-    #[prost(message, optional, tag = "2")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Server-defined resource path for the target of the operation.
-    #[prost(string, tag = "3")]
-    pub target: ::prost::alloc::string::String,
-    /// Output only. Name of the verb executed by the operation.
-    #[prost(string, tag = "4")]
-    pub verb: ::prost::alloc::string::String,
-    /// Output only. Human-readable status of the operation, if any.
-    #[prost(string, tag = "5")]
-    pub status_message: ::prost::alloc::string::String,
-    /// Output only. Identifies whether the user has requested cancellation
-    /// of the operation. Operations that have successfully been cancelled
-    /// have [Operation.error][] value with a
-    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`.
-    #[prost(bool, tag = "6")]
-    pub requested_cancellation: bool,
-    /// Output only. API version used to start the operation.
-    #[prost(string, tag = "7")]
-    pub api_version: ::prost::alloc::string::String,
-}
-/// The Google Cloud Storage location for the input content.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsSource {
-    /// Required. References to a Google Cloud Storage paths.
-    #[prost(string, repeated, tag = "1")]
-    pub uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Message for DeleteApplicationInstance Response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteApplicationInstancesResponse {}
-/// Message for CreateApplicationInstance Response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateApplicationInstancesResponse {}
-/// Message for UpdateApplicationInstances Response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateApplicationInstancesResponse {}
-/// Message for adding stream input to an Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateApplicationInstancesRequest {
-    /// Required. the name of the application to retrieve.
-    /// Format:
-    /// "projects/{project}/locations/{location}/applications/{application}"
+pub struct Analysis {
+    /// The name of resource.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Required. The resources being created.
-    #[prost(message, repeated, tag = "2")]
-    pub application_instances: ::prost::alloc::vec::Vec<ApplicationInstance>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "4")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for removing stream input from an Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteApplicationInstancesRequest {
-    /// Required. the name of the application to retrieve.
-    /// Format:
-    /// "projects/{project}/locations/{location}/applications/{application}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Id of the requesting object.
-    #[prost(string, repeated, tag = "2")]
-    pub instance_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// RPC Request Messages.
-/// Message for DeployApplication Response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeployApplicationResponse {}
-/// Message for UndeployApplication Response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UndeployApplicationResponse {}
-/// Message for RemoveApplicationStreamInput Response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RemoveApplicationStreamInputResponse {}
-/// Message for AddApplicationStreamInput Response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AddApplicationStreamInputResponse {}
-/// Message for AddApplicationStreamInput Response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateApplicationStreamInputResponse {}
-/// Message for requesting list of Applications.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListApplicationsRequest {
-    /// Required. Parent value for ListApplicationsRequest.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// Message for response to listing Applications.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListApplicationsResponse {
-    /// The list of Application.
-    #[prost(message, repeated, tag = "1")]
-    pub applications: ::prost::alloc::vec::Vec<Application>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Message for getting a Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetApplicationRequest {
-    /// Required. Name of the resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Message for creating a Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateApplicationRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting object.
-    #[prost(string, tag = "2")]
-    pub application_id: ::prost::alloc::string::String,
-    /// Required. The resource being created.
-    #[prost(message, optional, tag = "3")]
-    pub application: ::core::option::Option<Application>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "4")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for updating an Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateApplicationRequest {
-    /// Optional. Field mask is used to specify the fields to be overwritten in the
-    /// Application resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The resource being updated.
-    #[prost(message, optional, tag = "2")]
-    pub application: ::core::option::Option<Application>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for deleting an Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteApplicationRequest {
-    /// Required. Name of the resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes after the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Optional. If set to true, any instances and drafts from this application
-    /// will also be deleted. (Otherwise, the request will only work if the
-    /// application has no instances and drafts.)
-    #[prost(bool, tag = "3")]
-    pub force: bool,
-}
-/// Message for deploying an Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeployApplicationRequest {
-    /// Required. the name of the application to retrieve.
-    /// Format:
-    /// "projects/{project}/locations/{location}/applications/{application}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// If set, validate the request and preview the application graph, but do not
-    /// actually deploy it.
-    #[prost(bool, tag = "2")]
-    pub validate_only: bool,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Optional. Whether or not to enable monitoring for the application on
-    /// deployment.
-    #[prost(bool, tag = "4")]
-    pub enable_monitoring: bool,
-}
-/// Message for undeploying an Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UndeployApplicationRequest {
-    /// Required. the name of the application to retrieve.
-    /// Format:
-    /// "projects/{project}/locations/{location}/applications/{application}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message about a single stream input config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApplicationStreamInput {
-    #[prost(message, optional, tag = "1")]
-    pub stream_with_annotation: ::core::option::Option<StreamWithAnnotation>,
-}
-/// Message for adding stream input to an Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AddApplicationStreamInputRequest {
-    /// Required. the name of the application to retrieve.
-    /// Format:
-    /// "projects/{project}/locations/{location}/applications/{application}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The stream inputs to add, the stream resource name is the key of each
-    /// StreamInput, and it must be unique within each application.
-    #[prost(message, repeated, tag = "2")]
-    pub application_stream_inputs: ::prost::alloc::vec::Vec<ApplicationStreamInput>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for updating stream input to an Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateApplicationStreamInputRequest {
-    /// Required. the name of the application to retrieve.
-    /// Format:
-    /// "projects/{project}/locations/{location}/applications/{application}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The stream inputs to update, the stream resource name is the key of each
-    /// StreamInput, and it must be unique within each application.
-    #[prost(message, repeated, tag = "2")]
-    pub application_stream_inputs: ::prost::alloc::vec::Vec<ApplicationStreamInput>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-    /// If true, UpdateApplicationStreamInput will insert stream input to
-    /// application even if the target stream is not included in the application.
-    #[prost(bool, tag = "4")]
-    pub allow_missing: bool,
-}
-/// Message for removing stream input from an Application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RemoveApplicationStreamInputRequest {
-    /// Required. the name of the application to retrieve.
-    /// Format:
-    /// "projects/{project}/locations/{location}/applications/{application}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The target stream to remove.
-    #[prost(message, repeated, tag = "2")]
-    pub target_stream_inputs: ::prost::alloc::vec::Vec<
-        remove_application_stream_input_request::TargetStreamInput,
-    >,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `RemoveApplicationStreamInputRequest`.
-pub mod remove_application_stream_input_request {
-    /// Message about target streamInput to remove.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TargetStreamInput {
-        #[prost(string, tag = "1")]
-        pub stream: ::prost::alloc::string::String,
-    }
-}
-/// Message for requesting list of Instances.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListInstancesRequest {
-    /// Required. Parent value for ListInstancesRequest.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// Message for response to listing Instances.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListInstancesResponse {
-    /// The list of Instance.
-    #[prost(message, repeated, tag = "1")]
-    pub instances: ::prost::alloc::vec::Vec<Instance>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Message for getting a Instance.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetInstanceRequest {
-    /// Required. Name of the resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Message for requesting list of Drafts.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListDraftsRequest {
-    /// Required. Parent value for ListDraftsRequest.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// Message for response to listing Drafts.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListDraftsResponse {
-    /// The list of Draft.
-    #[prost(message, repeated, tag = "1")]
-    pub drafts: ::prost::alloc::vec::Vec<Draft>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Message for getting a Draft.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetDraftRequest {
-    /// Required. Name of the resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Message for creating a Draft.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateDraftRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting object.
-    #[prost(string, tag = "2")]
-    pub draft_id: ::prost::alloc::string::String,
-    /// Required. The resource being created.
-    #[prost(message, optional, tag = "3")]
-    pub draft: ::core::option::Option<Draft>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "4")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for updating a Draft.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateDraftRequest {
-    /// Optional. Field mask is used to specify the fields to be overwritten in the
-    /// Draft resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The resource being updated.
-    #[prost(message, optional, tag = "2")]
-    pub draft: ::core::option::Option<Draft>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-    /// If true, UpdateDraftRequest will create one resource if the target resource
-    /// doesn't exist, this time, the field_mask will be ignored.
-    #[prost(bool, tag = "4")]
-    pub allow_missing: bool,
-}
-/// Message for updating an ApplicationInstance.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateApplicationInstancesRequest {
-    /// Required. the name of the application to retrieve.
-    /// Format:
-    /// "projects/{project}/locations/{location}/applications/{application}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    #[prost(message, repeated, tag = "2")]
-    pub application_instances: ::prost::alloc::vec::Vec<
-        update_application_instances_request::UpdateApplicationInstance,
-    >,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-    /// If true, Update Request will create one resource if the target resource
-    /// doesn't exist, this time, the field_mask will be ignored.
-    #[prost(bool, tag = "4")]
-    pub allow_missing: bool,
-}
-/// Nested message and enum types in `UpdateApplicationInstancesRequest`.
-pub mod update_application_instances_request {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct UpdateApplicationInstance {
-        /// Optional. Field mask is used to specify the fields to be overwritten in
-        /// the Draft resource by the update. The fields specified in the update_mask
-        /// are relative to the resource, not the full request. A field will be
-        /// overwritten if it is in the mask. If the user does not provide a mask
-        /// then all fields will be overwritten.
-        #[prost(message, optional, tag = "1")]
-        pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-        /// Required. The resource being updated.
-        #[prost(message, optional, tag = "2")]
-        pub instance: ::core::option::Option<super::Instance>,
-        /// Required. The id of the instance.
-        #[prost(string, tag = "3")]
-        pub instance_id: ::prost::alloc::string::String,
-    }
-}
-/// Message for deleting a Draft.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteDraftRequest {
-    /// Required. Name of the resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes after the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for requesting list of Processors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListProcessorsRequest {
-    /// Required. Parent value for ListProcessorsRequest.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// Message for response to listing Processors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListProcessorsResponse {
-    /// The list of Processor.
-    #[prost(message, repeated, tag = "1")]
-    pub processors: ::prost::alloc::vec::Vec<Processor>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Request Message for listing Prebuilt Processors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPrebuiltProcessorsRequest {
-    /// Required. Parent path.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-}
-/// Response Message for listing Prebuilt Processors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPrebuiltProcessorsResponse {
-    /// The list of Processor.
-    #[prost(message, repeated, tag = "1")]
-    pub processors: ::prost::alloc::vec::Vec<Processor>,
-}
-/// Message for getting a Processor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetProcessorRequest {
-    /// Required. Name of the resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Message for creating a Processor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateProcessorRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting object.
-    #[prost(string, tag = "2")]
-    pub processor_id: ::prost::alloc::string::String,
-    /// Required. The resource being created.
-    #[prost(message, optional, tag = "3")]
-    pub processor: ::core::option::Option<Processor>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "4")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for updating a Processor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateProcessorRequest {
-    /// Optional. Field mask is used to specify the fields to be overwritten in the
-    /// Processor resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The resource being updated.
-    #[prost(message, optional, tag = "2")]
-    pub processor: ::core::option::Option<Processor>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for deleting a Processor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteProcessorRequest {
-    /// Required. Name of the resource
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes after the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and
-    /// the request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, will ignore the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message describing Application object
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Application {
-    /// name of resource
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. \[Output only\] Create timestamp
+    /// Output only. The create timestamp.
     #[prost(message, optional, tag = "2")]
     pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. \[Output only\] Update timestamp
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Labels as key value pairs
-    #[prost(btree_map = "string, string", tag = "4")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Required. A user friendly display name for the solution.
-    #[prost(string, tag = "5")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A description for this application.
-    #[prost(string, tag = "6")]
-    pub description: ::prost::alloc::string::String,
-    /// Application graph configuration.
-    #[prost(message, optional, tag = "7")]
-    pub application_configs: ::core::option::Option<ApplicationConfigs>,
-    /// Output only. Application graph runtime info. Only exists when application
-    /// state equals to DEPLOYED.
-    #[prost(message, optional, tag = "8")]
-    pub runtime_info: ::core::option::Option<application::ApplicationRuntimeInfo>,
-    /// Output only. State of the application.
-    #[prost(enumeration = "application::State", tag = "9")]
-    pub state: i32,
-    /// Billing mode of the application.
-    #[prost(enumeration = "application::BillingMode", tag = "12")]
-    pub billing_mode: i32,
-}
-/// Nested message and enum types in `Application`.
-pub mod application {
-    /// Message storing the runtime information of the application.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ApplicationRuntimeInfo {
-        /// Timestamp when the engine be deployed
-        #[prost(message, optional, tag = "1")]
-        pub deploy_time: ::core::option::Option<::prost_types::Timestamp>,
-        /// Globally created resources like warehouse dataschemas.
-        #[prost(message, repeated, tag = "3")]
-        pub global_output_resources: ::prost::alloc::vec::Vec<
-            application_runtime_info::GlobalOutputResource,
-        >,
-        /// Monitoring-related configuration for this application.
-        #[prost(message, optional, tag = "4")]
-        pub monitoring_config: ::core::option::Option<
-            application_runtime_info::MonitoringConfig,
-        >,
-    }
-    /// Nested message and enum types in `ApplicationRuntimeInfo`.
-    pub mod application_runtime_info {
-        /// Message about output resources from application.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct GlobalOutputResource {
-            /// The full resource name of the outputted resources.
-            #[prost(string, tag = "1")]
-            pub output_resource: ::prost::alloc::string::String,
-            /// The name of graph node who produces the output resource name.
-            /// For example:
-            /// output_resource:
-            /// /projects/123/locations/us-central1/corpora/my-corpus/dataSchemas/my-schema
-            /// producer_node: occupancy-count
-            #[prost(string, tag = "2")]
-            pub producer_node: ::prost::alloc::string::String,
-            /// The key of the output resource, it has to be unique within the same
-            /// producer node. One producer node can output several output resources,
-            /// the key can be used to match corresponding output resources.
-            #[prost(string, tag = "3")]
-            pub key: ::prost::alloc::string::String,
-        }
-        /// Monitoring-related configuration for an application.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct MonitoringConfig {
-            /// Whether this application has monitoring enabled.
-            #[prost(bool, tag = "1")]
-            pub enabled: bool,
-        }
-    }
-    /// State of the Application
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The default value. This value is used if the state is omitted.
-        Unspecified = 0,
-        /// State CREATED.
-        Created = 1,
-        /// State DEPLOYING.
-        Deploying = 2,
-        /// State DEPLOYED.
-        Deployed = 3,
-        /// State UNDEPLOYING.
-        Undeploying = 4,
-        /// State DELETED.
-        Deleted = 5,
-        /// State ERROR.
-        Error = 6,
-        /// State CREATING.
-        Creating = 7,
-        /// State Updating.
-        Updating = 8,
-        /// State Deleting.
-        Deleting = 9,
-        /// State Fixing.
-        Fixing = 10,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Created => "CREATED",
-                State::Deploying => "DEPLOYING",
-                State::Deployed => "DEPLOYED",
-                State::Undeploying => "UNDEPLOYING",
-                State::Deleted => "DELETED",
-                State::Error => "ERROR",
-                State::Creating => "CREATING",
-                State::Updating => "UPDATING",
-                State::Deleting => "DELETING",
-                State::Fixing => "FIXING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATED" => Some(Self::Created),
-                "DEPLOYING" => Some(Self::Deploying),
-                "DEPLOYED" => Some(Self::Deployed),
-                "UNDEPLOYING" => Some(Self::Undeploying),
-                "DELETED" => Some(Self::Deleted),
-                "ERROR" => Some(Self::Error),
-                "CREATING" => Some(Self::Creating),
-                "UPDATING" => Some(Self::Updating),
-                "DELETING" => Some(Self::Deleting),
-                "FIXING" => Some(Self::Fixing),
-                _ => None,
-            }
-        }
-    }
-    /// Billing mode of the Application
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum BillingMode {
-        /// The default value.
-        Unspecified = 0,
-        /// Pay as you go billing mode.
-        Payg = 1,
-        /// Monthly billing mode.
-        Monthly = 2,
-    }
-    impl BillingMode {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                BillingMode::Unspecified => "BILLING_MODE_UNSPECIFIED",
-                BillingMode::Payg => "PAYG",
-                BillingMode::Monthly => "MONTHLY",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "BILLING_MODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "PAYG" => Some(Self::Payg),
-                "MONTHLY" => Some(Self::Monthly),
-                _ => None,
-            }
-        }
-    }
-}
-/// Message storing the graph of the application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApplicationConfigs {
-    /// A list of nodes  in the application graph.
-    #[prost(message, repeated, tag = "1")]
-    pub nodes: ::prost::alloc::vec::Vec<Node>,
-    /// Event-related configuration for this application.
-    #[prost(message, optional, tag = "3")]
-    pub event_delivery_config: ::core::option::Option<
-        application_configs::EventDeliveryConfig,
-    >,
-}
-/// Nested message and enum types in `ApplicationConfigs`.
-pub mod application_configs {
-    /// message storing the config for event delivery
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct EventDeliveryConfig {
-        /// The delivery channel for the event notification, only pub/sub topic is
-        /// supported now.
-        /// Example channel:
-        /// \[//pubsub.googleapis.com/projects/visionai-testing-stable/topics/test-topic\]
-        #[prost(string, tag = "1")]
-        pub channel: ::prost::alloc::string::String,
-        /// The expected delivery interval for the same event. The same event won't
-        /// be notified multiple times during this internal event that it is
-        /// happening multiple times during the period of time.The same event is
-        /// identified by <event_id, app_platform_metadata>.
-        #[prost(message, optional, tag = "2")]
-        pub minimal_delivery_interval: ::core::option::Option<::prost_types::Duration>,
-    }
-}
-/// Message describing node object.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Node {
-    /// Required. A unique name for the node.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// A user friendly display name for the node.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Node config.
-    #[prost(message, optional, tag = "3")]
-    pub node_config: ::core::option::Option<ProcessorConfig>,
-    /// Processor name refer to the chosen processor resource.
-    #[prost(string, tag = "4")]
-    pub processor: ::prost::alloc::string::String,
-    /// Parent node. Input node should not have parent node. For V1 Alpha1/Beta
-    /// only media warehouse node can have multiple parents, other types of nodes
-    /// will only have one parent.
-    #[prost(message, repeated, tag = "5")]
-    pub parents: ::prost::alloc::vec::Vec<node::InputEdge>,
-    #[prost(oneof = "node::StreamOutputConfig", tags = "6")]
-    pub stream_output_config: ::core::option::Option<node::StreamOutputConfig>,
-}
-/// Nested message and enum types in `Node`.
-pub mod node {
-    /// Message describing one edge pointing into a node.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct InputEdge {
-        /// The name of the parent node.
-        #[prost(string, tag = "1")]
-        pub parent_node: ::prost::alloc::string::String,
-        /// The connected output artifact of the parent node.
-        /// It can be omitted if target processor only has 1 output artifact.
-        #[prost(string, tag = "2")]
-        pub parent_output_channel: ::prost::alloc::string::String,
-        /// The connected input channel of the current node's processor.
-        /// It can be omitted if target processor only has 1 input channel.
-        #[prost(string, tag = "3")]
-        pub connected_input_channel: ::prost::alloc::string::String,
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum StreamOutputConfig {
-        /// By default, the output of the node will only be available to downstream
-        /// nodes. To consume the direct output from the application node, the output
-        /// must be sent to Vision AI Streams at first.
-        ///
-        /// By setting output_all_output_channels_to_stream to true, App Platform
-        /// will automatically send all the outputs of the current node to Vision AI
-        /// Stream resources (one stream per output channel). The output stream
-        /// resource will be created by App Platform automatically during deployment
-        /// and deleted after application un-deployment.
-        /// Note that this config applies to all the Application Instances.
-        ///
-        /// The output stream can be override at instance level by
-        /// configuring the `output_resources` section of Instance resource.
-        /// `producer_node` should be current node, `output_resource_binding` should
-        /// be the output channel name (or leave it blank if there is only 1 output
-        /// channel of the processor) and `output_resource` should be the target
-        /// output stream.
-        #[prost(bool, tag = "6")]
-        OutputAllOutputChannelsToStream(bool),
-    }
-}
-/// Message describing Draft object
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Draft {
-    /// name of resource
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. \[Output only\] Create timestamp
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. \[Output only\] Create timestamp
-    #[prost(message, optional, tag = "7")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Labels as key value pairs
-    #[prost(btree_map = "string, string", tag = "3")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Required. A user friendly display name for the solution.
-    #[prost(string, tag = "4")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A description for this application.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// The draft application configs which haven't been updated to an application.
-    #[prost(message, optional, tag = "6")]
-    pub draft_application_configs: ::core::option::Option<ApplicationConfigs>,
-}
-/// Message describing Instance object
-/// Next ID: 12
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Instance {
-    /// Output only. name of resource
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. \[Output only\] Create timestamp
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. \[Output only\] Update timestamp
-    #[prost(message, optional, tag = "8")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Labels as key value pairs
-    #[prost(btree_map = "string, string", tag = "3")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Required. A user friendly display name for the solution.
-    #[prost(string, tag = "4")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A description for this instance.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// The instance type for the current instance.
-    #[prost(enumeration = "instance::InstanceType", tag = "10")]
-    pub instance_type: i32,
-    /// The input resources for the current application instance.
-    /// For example:
-    /// input_resources:
-    /// visionai.googleapis.com/v1/projects/123/locations/us-central1/clusters/456/streams/stream-a
-    #[prost(message, repeated, tag = "6")]
-    pub input_resources: ::prost::alloc::vec::Vec<instance::InputResource>,
-    /// All the output resources associated to one application instance.
-    #[prost(message, repeated, tag = "7")]
-    pub output_resources: ::prost::alloc::vec::Vec<instance::OutputResource>,
-    /// State of the instance.
-    #[prost(enumeration = "instance::State", tag = "9")]
-    pub state: i32,
-}
-/// Nested message and enum types in `Instance`.
-pub mod instance {
-    /// Message of input resource used in one application instance.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct InputResource {
-        /// Data type for the current input resource.
-        #[prost(enumeration = "super::DataType", tag = "6")]
-        pub data_type: i32,
-        /// The name of graph node who receives the input resource.
-        /// For example:
-        /// input_resource:
-        /// visionai.googleapis.com/v1/projects/123/locations/us-central1/clusters/456/streams/input-stream-a
-        /// consumer_node: stream-input
-        #[prost(string, tag = "2")]
-        pub consumer_node: ::prost::alloc::string::String,
-        /// The specific input resource binding which will consume the current Input
-        /// Resource, can be ignored is there is only 1 input binding.
-        #[prost(string, tag = "3")]
-        pub input_resource_binding: ::prost::alloc::string::String,
-        /// Contains resource annotations.
-        #[prost(message, optional, tag = "5")]
-        pub annotations: ::core::option::Option<super::ResourceAnnotations>,
-        /// Required. Specify the input to the application instance.
-        #[prost(oneof = "input_resource::InputResourceInformation", tags = "1, 4")]
-        pub input_resource_information: ::core::option::Option<
-            input_resource::InputResourceInformation,
-        >,
-    }
-    /// Nested message and enum types in `InputResource`.
-    pub mod input_resource {
-        /// Required. Specify the input to the application instance.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum InputResourceInformation {
-            /// The direct input resource name.
-            /// If the instance type is STREAMING_PREDICTION, the input resource is in
-            /// format of
-            /// "projects/123/locations/us-central1/clusters/456/streams/stream-a".
-            /// If the instance type is BATCH_PREDICTION from Cloud Storage input
-            /// container, the input resource is in format of "gs://bucket-a".
-            #[prost(string, tag = "1")]
-            InputResource(::prost::alloc::string::String),
-            /// If the input resource is VisionAI Stream, the associated annotations
-            /// can be specified using annotated_stream instead.
-            #[prost(message, tag = "4")]
-            AnnotatedStream(super::super::StreamWithAnnotation),
-        }
-    }
-    /// Message of output resource used in one application instance.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct OutputResource {
-        /// The output resource name for the current application instance.
-        #[prost(string, tag = "1")]
-        pub output_resource: ::prost::alloc::string::String,
-        /// The name of graph node who produces the output resource name.
-        /// For example:
-        /// output_resource:
-        /// /projects/123/locations/us-central1/clusters/456/streams/output-application-789-stream-a-occupancy-counting
-        /// producer_node: occupancy-counting
-        #[prost(string, tag = "2")]
-        pub producer_node: ::prost::alloc::string::String,
-        /// The specific output resource binding which produces the current
-        /// OutputResource.
-        #[prost(string, tag = "4")]
-        pub output_resource_binding: ::prost::alloc::string::String,
-        /// Output only. Whether the output resource is temporary which means the
-        /// resource is generated during the deployment of the application. Temporary
-        /// resource will be deleted during the undeployment of the application.
-        #[prost(bool, tag = "3")]
-        pub is_temporary: bool,
-        /// Output only. Whether the output resource is created automatically by the
-        /// Vision AI App Platform.
-        #[prost(bool, tag = "5")]
-        pub autogen: bool,
-    }
-    /// All the supported instance types.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum InstanceType {
-        /// Unspecified instance type.
-        /// If the instance type is not specified, the default one is
-        /// STREAMING_PREDICTION.
-        Unspecified = 0,
-        /// Instance type for streaming prediction.
-        StreamingPrediction = 1,
-        /// Instance type for batch prediction.
-        BatchPrediction = 2,
-        /// Instance type for online prediction.
-        OnlinePrediction = 3,
-    }
-    impl InstanceType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                InstanceType::Unspecified => "INSTANCE_TYPE_UNSPECIFIED",
-                InstanceType::StreamingPrediction => "STREAMING_PREDICTION",
-                InstanceType::BatchPrediction => "BATCH_PREDICTION",
-                InstanceType::OnlinePrediction => "ONLINE_PREDICTION",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "INSTANCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "STREAMING_PREDICTION" => Some(Self::StreamingPrediction),
-                "BATCH_PREDICTION" => Some(Self::BatchPrediction),
-                "ONLINE_PREDICTION" => Some(Self::OnlinePrediction),
-                _ => None,
-            }
-        }
-    }
-    /// State of the Instance
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The default value. This value is used if the state is omitted.
-        Unspecified = 0,
-        /// State CREATING.
-        Creating = 1,
-        /// State CREATED.
-        Created = 2,
-        /// State DEPLOYING.
-        Deploying = 3,
-        /// State DEPLOYED.
-        Deployed = 4,
-        /// State UNDEPLOYING.
-        Undeploying = 5,
-        /// State DELETED.
-        Deleted = 6,
-        /// State ERROR.
-        Error = 7,
-        /// State Updating
-        Updating = 8,
-        /// State Deleting.
-        Deleting = 9,
-        /// State Fixing.
-        Fixing = 10,
-        /// State Finished.
-        Finished = 11,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Created => "CREATED",
-                State::Deploying => "DEPLOYING",
-                State::Deployed => "DEPLOYED",
-                State::Undeploying => "UNDEPLOYING",
-                State::Deleted => "DELETED",
-                State::Error => "ERROR",
-                State::Updating => "UPDATING",
-                State::Deleting => "DELETING",
-                State::Fixing => "FIXING",
-                State::Finished => "FINISHED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "CREATED" => Some(Self::Created),
-                "DEPLOYING" => Some(Self::Deploying),
-                "DEPLOYED" => Some(Self::Deployed),
-                "UNDEPLOYING" => Some(Self::Undeploying),
-                "DELETED" => Some(Self::Deleted),
-                "ERROR" => Some(Self::Error),
-                "UPDATING" => Some(Self::Updating),
-                "DELETING" => Some(Self::Deleting),
-                "FIXING" => Some(Self::Fixing),
-                "FINISHED" => Some(Self::Finished),
-                _ => None,
-            }
-        }
-    }
-}
-/// Message for creating a Instance.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApplicationInstance {
-    /// Required. Id of the requesting object.
-    #[prost(string, tag = "1")]
-    pub instance_id: ::prost::alloc::string::String,
-    /// Required. The resource being created.
-    #[prost(message, optional, tag = "2")]
-    pub instance: ::core::option::Option<Instance>,
-}
-/// Message describing Processor object.
-/// Next ID: 19
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Processor {
-    /// name of resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. \[Output only\] Create timestamp.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. \[Output only\] Update timestamp.
+    /// Output only. The update timestamp.
     #[prost(message, optional, tag = "3")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
     /// Labels as key value pairs.
@@ -2980,1229 +543,604 @@ pub struct Processor {
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// Required. A user friendly display name for the processor.
-    #[prost(string, tag = "5")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Illustrative sentences for describing the functionality of the processor.
-    #[prost(string, tag = "10")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Processor Type.
-    #[prost(enumeration = "processor::ProcessorType", tag = "6")]
-    pub processor_type: i32,
-    /// Model Type.
-    #[prost(enumeration = "ModelType", tag = "13")]
-    pub model_type: i32,
-    /// Source info for customer created processor.
-    #[prost(message, optional, tag = "7")]
-    pub custom_processor_source_info: ::core::option::Option<CustomProcessorSourceInfo>,
-    /// Output only. State of the Processor.
-    #[prost(enumeration = "processor::ProcessorState", tag = "8")]
-    pub state: i32,
-    /// Output only. \[Output only\] The input / output specifications of a
-    /// processor, each type of processor has fixed input / output specs which
-    /// cannot be altered by customer.
-    #[prost(message, optional, tag = "11")]
-    pub processor_io_spec: ::core::option::Option<ProcessorIoSpec>,
-    /// Output only. The corresponding configuration can be used in the Application
-    /// to customize the behavior of the processor.
-    #[prost(string, tag = "14")]
-    pub configuration_typeurl: ::prost::alloc::string::String,
-    #[prost(
-        enumeration = "StreamAnnotationType",
-        repeated,
-        packed = "false",
-        tag = "15"
-    )]
-    pub supported_annotation_types: ::prost::alloc::vec::Vec<i32>,
-    /// Indicates if the processor supports post processing.
-    #[prost(bool, tag = "17")]
-    pub supports_post_processing: bool,
-    /// Which instance types this processor supports; if empty, this default to
-    /// STREAMING_PREDICTION.
-    #[prost(enumeration = "instance::InstanceType", repeated, tag = "18")]
-    pub supported_instance_types: ::prost::alloc::vec::Vec<i32>,
-}
-/// Nested message and enum types in `Processor`.
-pub mod processor {
-    /// Type
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ProcessorType {
-        /// Processor Type UNSPECIFIED.
-        Unspecified = 0,
-        /// Processor Type PRETRAINED.
-        /// Pretrained processor is developed by Vision AI App Platform with
-        /// state-of-the-art vision data processing functionality, like occupancy
-        /// counting or person blur. Pretrained processor is usually publicly
-        /// available.
-        Pretrained = 1,
-        /// Processor Type CUSTOM.
-        /// Custom processors are specialized processors which are either uploaded by
-        /// customers or imported from other GCP platform (for example Vertex AI).
-        /// Custom processor is only visible to the creator.
-        Custom = 2,
-        /// Processor Type CONNECTOR.
-        /// Connector processors are special processors which perform I/O for the
-        /// application, they do not processing the data but either deliver the data
-        /// to other processors or receive data from other processors.
-        Connector = 3,
-    }
-    impl ProcessorType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ProcessorType::Unspecified => "PROCESSOR_TYPE_UNSPECIFIED",
-                ProcessorType::Pretrained => "PRETRAINED",
-                ProcessorType::Custom => "CUSTOM",
-                ProcessorType::Connector => "CONNECTOR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "PROCESSOR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "PRETRAINED" => Some(Self::Pretrained),
-                "CUSTOM" => Some(Self::Custom),
-                "CONNECTOR" => Some(Self::Connector),
-                _ => None,
-            }
-        }
-    }
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ProcessorState {
-        /// Unspecified Processor state.
-        Unspecified = 0,
-        /// Processor is being created (not ready for use).
-        Creating = 1,
-        /// Processor is and ready for use.
-        Active = 2,
-        /// Processor is being deleted (not ready for use).
-        Deleting = 3,
-        /// Processor deleted or creation failed .
-        Failed = 4,
-    }
-    impl ProcessorState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ProcessorState::Unspecified => "PROCESSOR_STATE_UNSPECIFIED",
-                ProcessorState::Creating => "CREATING",
-                ProcessorState::Active => "ACTIVE",
-                ProcessorState::Deleting => "DELETING",
-                ProcessorState::Failed => "FAILED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "PROCESSOR_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "ACTIVE" => Some(Self::Active),
-                "DELETING" => Some(Self::Deleting),
-                "FAILED" => Some(Self::Failed),
-                _ => None,
-            }
-        }
-    }
-}
-/// Message describing the input / output specifications of a processor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProcessorIoSpec {
-    /// For processors with input_channel_specs, the processor must be explicitly
-    /// connected to another processor.
-    #[prost(message, repeated, tag = "3")]
-    pub graph_input_channel_specs: ::prost::alloc::vec::Vec<
-        processor_io_spec::GraphInputChannelSpec,
-    >,
-    /// The output artifact specifications for the current processor.
-    #[prost(message, repeated, tag = "4")]
-    pub graph_output_channel_specs: ::prost::alloc::vec::Vec<
-        processor_io_spec::GraphOutputChannelSpec,
-    >,
-    /// The input resource that needs to be fed from the application instance.
-    #[prost(message, repeated, tag = "5")]
-    pub instance_resource_input_binding_specs: ::prost::alloc::vec::Vec<
-        processor_io_spec::InstanceResourceInputBindingSpec,
-    >,
-    /// The output resource that the processor will generate per instance.
-    /// Other than the explicitly listed output bindings here, all the processors'
-    /// GraphOutputChannels can be binded to stream resource. The bind name then is
-    /// the same as the GraphOutputChannel's name.
-    #[prost(message, repeated, tag = "6")]
-    pub instance_resource_output_binding_specs: ::prost::alloc::vec::Vec<
-        processor_io_spec::InstanceResourceOutputBindingSpec,
-    >,
-}
-/// Nested message and enum types in `ProcessorIOSpec`.
-pub mod processor_io_spec {
-    /// Message for input channel specification.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GraphInputChannelSpec {
-        /// The name of the current input channel.
-        #[prost(string, tag = "1")]
-        pub name: ::prost::alloc::string::String,
-        /// The data types of the current input channel.
-        /// When this field has more than 1 value, it means this input channel can be
-        /// connected to either of these different data types.
-        #[prost(enumeration = "super::DataType", tag = "2")]
-        pub data_type: i32,
-        /// If specified, only those detailed data types can be connected to the
-        /// processor. For example, jpeg stream for MEDIA, or PredictionResult proto
-        /// for PROTO type. If unspecified, then any proto is accepted.
-        #[prost(string, repeated, tag = "5")]
-        pub accepted_data_type_uris: ::prost::alloc::vec::Vec<
-            ::prost::alloc::string::String,
-        >,
-        /// Whether the current input channel is required by the processor.
-        /// For example, for a processor with required video input and optional audio
-        /// input, if video input is missing, the application will be rejected while
-        /// the audio input can be missing as long as the video input exists.
-        #[prost(bool, tag = "3")]
-        pub required: bool,
-        /// How many input edges can be connected to this input channel. 0 means
-        /// unlimited.
-        #[prost(int64, tag = "4")]
-        pub max_connection_allowed: i64,
-    }
-    /// Message for output channel specification.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GraphOutputChannelSpec {
-        /// The name of the current output channel.
-        #[prost(string, tag = "1")]
-        pub name: ::prost::alloc::string::String,
-        /// The data type of the current output channel.
-        #[prost(enumeration = "super::DataType", tag = "2")]
-        pub data_type: i32,
-        #[prost(string, tag = "3")]
-        pub data_type_uri: ::prost::alloc::string::String,
-    }
-    /// Message for instance resource channel specification.
-    /// External resources are virtual nodes which are not expressed in the
-    /// application graph. Each processor expresses its out-graph spec, so customer
-    /// is able to override the external source or destinations to the
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct InstanceResourceInputBindingSpec {
-        /// Name of the input binding, unique within the processor.
-        #[prost(string, tag = "1")]
-        pub name: ::prost::alloc::string::String,
-        #[prost(
-            oneof = "instance_resource_input_binding_spec::ResourceType",
-            tags = "2, 3"
-        )]
-        pub resource_type: ::core::option::Option<
-            instance_resource_input_binding_spec::ResourceType,
-        >,
-    }
-    /// Nested message and enum types in `InstanceResourceInputBindingSpec`.
-    pub mod instance_resource_input_binding_spec {
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum ResourceType {
-            /// The configuration proto that includes the Googleapis resources. I.e.
-            /// type.googleapis.com/google.cloud.vision.v1.StreamWithAnnotation
-            #[prost(string, tag = "2")]
-            ConfigTypeUri(::prost::alloc::string::String),
-            /// The direct type url of Googleapis resource. i.e.
-            /// type.googleapis.com/google.cloud.vision.v1.Asset
-            #[prost(string, tag = "3")]
-            ResourceTypeUri(::prost::alloc::string::String),
-        }
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct InstanceResourceOutputBindingSpec {
-        /// Name of the output binding, unique within the processor.
-        #[prost(string, tag = "1")]
-        pub name: ::prost::alloc::string::String,
-        /// The resource type uri of the acceptable output resource.
-        #[prost(string, tag = "2")]
-        pub resource_type_uri: ::prost::alloc::string::String,
-        /// Whether the output resource needs to be explicitly set in the instance.
-        /// If it is false, the processor will automatically generate it if required.
-        #[prost(bool, tag = "3")]
-        pub explicit: bool,
-    }
-}
-/// Describes the source info for a custom processor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomProcessorSourceInfo {
-    /// The original product which holds the custom processor's functionality.
-    #[prost(enumeration = "custom_processor_source_info::SourceType", tag = "1")]
-    pub source_type: i32,
-    /// Output only. Additional info related to the imported custom processor.
-    /// Data is filled in by app platform during the processor creation.
-    #[prost(btree_map = "string, string", tag = "4")]
-    pub additional_info: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Model schema files which specifies the signature of the model.
-    /// For VERTEX_CUSTOM models, instances schema is required.
-    /// If instances schema is not specified during the processor creation,
-    /// VisionAI Platform will try to get it from Vertex, if it doesn't exist, the
-    /// creation will fail.
+    /// The definition of the analysis.
     #[prost(message, optional, tag = "5")]
-    pub model_schema: ::core::option::Option<custom_processor_source_info::ModelSchema>,
-    /// The path where App Platform loads the artifacts for the custom processor.
-    #[prost(oneof = "custom_processor_source_info::ArtifactPath", tags = "2, 3")]
-    pub artifact_path: ::core::option::Option<
-        custom_processor_source_info::ArtifactPath,
+    pub analysis_definition: ::core::option::Option<AnalysisDefinition>,
+    /// Map from the input parameter in the definition to the real stream.
+    /// E.g., suppose you had a stream source operator named "input-0" and you try
+    /// to receive from the real stream "stream-0". You can add the following
+    /// mapping: \[input-0: stream-0\].
+    #[prost(btree_map = "string, string", tag = "6")]
+    pub input_streams_mapping: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
     >,
-}
-/// Nested message and enum types in `CustomProcessorSourceInfo`.
-pub mod custom_processor_source_info {
-    /// Message describes product recognizer artifact.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProductRecognizerArtifact {
-        /// Required. Resource name of RetailProductRecognitionIndex.
-        /// Format is
-        /// 'projects/*/locations/*/retailCatalogs/*/retailProductRecognitionIndexes/*'
-        #[prost(string, tag = "1")]
-        pub retail_product_recognition_index: ::prost::alloc::string::String,
-        /// Optional. The resource name of embedding model hosted in Vertex AI
-        /// Platform.
-        #[prost(string, tag = "2")]
-        pub vertex_model: ::prost::alloc::string::String,
-    }
-    /// The schema is defined as an OpenAPI 3.0.2 [Schema
-    /// Object](<https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject>).
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ModelSchema {
-        /// Cloud Storage location to a YAML file that defines the format of a single
-        /// instance used in prediction and explanation requests.
-        #[prost(message, optional, tag = "1")]
-        pub instances_schema: ::core::option::Option<super::GcsSource>,
-        /// Cloud Storage location to a YAML file that defines the prediction and
-        /// explanation parameters.
-        #[prost(message, optional, tag = "2")]
-        pub parameters_schema: ::core::option::Option<super::GcsSource>,
-        /// Cloud Storage location to a YAML file that defines the format of a single
-        /// prediction or explanation.
-        #[prost(message, optional, tag = "3")]
-        pub predictions_schema: ::core::option::Option<super::GcsSource>,
-    }
-    /// Source type of the imported custom processor.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum SourceType {
-        /// Source type unspecified.
-        Unspecified = 0,
-        /// Custom processors coming from Vertex AutoML product.
-        VertexAutoml = 1,
-        /// Custom processors coming from general custom models from Vertex.
-        VertexCustom = 2,
-        /// Source for Product Recognizer.
-        ProductRecognizer = 3,
-    }
-    impl SourceType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                SourceType::Unspecified => "SOURCE_TYPE_UNSPECIFIED",
-                SourceType::VertexAutoml => "VERTEX_AUTOML",
-                SourceType::VertexCustom => "VERTEX_CUSTOM",
-                SourceType::ProductRecognizer => "PRODUCT_RECOGNIZER",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "SOURCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "VERTEX_AUTOML" => Some(Self::VertexAutoml),
-                "VERTEX_CUSTOM" => Some(Self::VertexCustom),
-                "PRODUCT_RECOGNIZER" => Some(Self::ProductRecognizer),
-                _ => None,
-            }
-        }
-    }
-    /// The path where App Platform loads the artifacts for the custom processor.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum ArtifactPath {
-        /// The resource name original model hosted in the vertex AI platform.
-        #[prost(string, tag = "2")]
-        VertexModel(::prost::alloc::string::String),
-        /// Artifact for product recognizer.
-        #[prost(message, tag = "3")]
-        ProductRecognizerArtifact(ProductRecognizerArtifact),
-    }
-}
-/// Next ID: 35
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProcessorConfig {
-    /// Experimental configurations. Structured object containing not-yet-stable
-    /// processor parameters.
-    #[prost(message, optional, tag = "26")]
-    pub experimental_config: ::core::option::Option<::prost_types::Struct>,
-    #[prost(
-        oneof = "processor_config::ProcessorConfig",
-        tags = "9, 20, 10, 11, 12, 15, 13, 14, 17, 18, 19, 27, 21, 22, 25, 28"
-    )]
-    pub processor_config: ::core::option::Option<processor_config::ProcessorConfig>,
-}
-/// Nested message and enum types in `ProcessorConfig`.
-pub mod processor_config {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum ProcessorConfig {
-        /// Configs of stream input processor.
-        #[prost(message, tag = "9")]
-        VideoStreamInputConfig(super::VideoStreamInputConfig),
-        /// Config of AI-enabled input devices.
-        #[prost(message, tag = "20")]
-        AiEnabledDevicesInputConfig(super::AiEnabledDevicesInputConfig),
-        /// Configs of media warehouse processor.
-        #[prost(message, tag = "10")]
-        MediaWarehouseConfig(super::MediaWarehouseConfig),
-        /// Configs of person blur processor.
-        #[prost(message, tag = "11")]
-        PersonBlurConfig(super::PersonBlurConfig),
-        /// Configs of occupancy count processor.
-        #[prost(message, tag = "12")]
-        OccupancyCountConfig(super::OccupancyCountConfig),
-        /// Configs of Person Vehicle Detection processor.
-        #[prost(message, tag = "15")]
-        PersonVehicleDetectionConfig(super::PersonVehicleDetectionConfig),
-        /// Configs of Vertex AutoML vision processor.
-        #[prost(message, tag = "13")]
-        VertexAutomlVisionConfig(super::VertexAutoMlVisionConfig),
-        /// Configs of Vertex AutoML video processor.
-        #[prost(message, tag = "14")]
-        VertexAutomlVideoConfig(super::VertexAutoMlVideoConfig),
-        /// Configs of Vertex Custom processor.
-        #[prost(message, tag = "17")]
-        VertexCustomConfig(super::VertexCustomConfig),
-        /// Configs of General Object Detection processor.
-        #[prost(message, tag = "18")]
-        GeneralObjectDetectionConfig(super::GeneralObjectDetectionConfig),
-        /// Configs of BigQuery processor.
-        #[prost(message, tag = "19")]
-        BigQueryConfig(super::BigQueryConfig),
-        /// Configs of Cloud Storage output processor.
-        #[prost(message, tag = "27")]
-        GcsOutputConfig(super::GcsOutputConfig),
-        /// Runtime configs of Product Recognizer processor.
-        #[prost(message, tag = "21")]
-        ProductRecognizerConfig(super::ProductRecognizerConfig),
-        /// Configs of personal_protective_equipment_detection_config
-        #[prost(message, tag = "22")]
-        PersonalProtectiveEquipmentDetectionConfig(
-            super::PersonalProtectiveEquipmentDetectionConfig,
-        ),
-        /// Runtime configs of Tag Recognizer processor.
-        #[prost(message, tag = "25")]
-        TagRecognizerConfig(super::TagRecognizerConfig),
-        /// Runtime configs of UniversalInput processor.
-        #[prost(message, tag = "28")]
-        UniversalInputConfig(super::UniversalInputConfig),
-    }
-}
-/// Message describing Vision AI stream with application specific annotations.
-/// All the StreamAnnotation object inside this message MUST have unique id.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamWithAnnotation {
-    /// Vision AI Stream resource name.
-    #[prost(string, tag = "1")]
-    pub stream: ::prost::alloc::string::String,
-    /// Annotations that will be applied to the whole application.
-    #[prost(message, repeated, tag = "2")]
-    pub application_annotations: ::prost::alloc::vec::Vec<StreamAnnotation>,
-    /// Annotations that will be applied to the specific node of the application.
-    /// If the same type of the annotations is applied to both application and
-    /// node, the node annotation will be added in addition to the global
-    /// application one.
-    /// For example, if there is one active zone annotation for the whole
-    /// application and one active zone annotation for the Occupancy Analytic
-    /// processor, then the Occupancy Analytic processor will have two active zones
-    /// defined.
-    #[prost(message, repeated, tag = "3")]
-    pub node_annotations: ::prost::alloc::vec::Vec<
-        stream_with_annotation::NodeAnnotation,
+    /// Map from the output parameter in the definition to the real stream.
+    /// E.g., suppose you had a stream sink operator named "output-0" and you try
+    /// to send to the real stream "stream-0". You can add the following
+    /// mapping: \[output-0: stream-0\].
+    #[prost(btree_map = "string, string", tag = "7")]
+    pub output_streams_mapping: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
     >,
+    /// Boolean flag to indicate whether you would like to disable the ability
+    /// to automatically start a Process when new event happening in the input
+    /// Stream. If you would like to start a Process manually, the field needs
+    /// to be set to true.
+    #[prost(bool, tag = "8")]
+    pub disable_event_watch: bool,
 }
-/// Nested message and enum types in `StreamWithAnnotation`.
-pub mod stream_with_annotation {
-    /// Message describing annotations specific to application node.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct NodeAnnotation {
-        /// The node name of the application graph.
-        #[prost(string, tag = "1")]
-        pub node: ::prost::alloc::string::String,
-        /// The node specific stream annotations.
-        #[prost(message, repeated, tag = "2")]
-        pub annotations: ::prost::alloc::vec::Vec<super::StreamAnnotation>,
-    }
-}
-/// Message describing annotations specific to application node.
-/// This message is a duplication of StreamWithAnnotation.NodeAnnotation.
+/// Message describing the Process object.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApplicationNodeAnnotation {
-    /// The node name of the application graph.
+pub struct Process {
+    /// The name of resource.
     #[prost(string, tag = "1")]
-    pub node: ::prost::alloc::string::String,
-    /// The node specific stream annotations.
-    #[prost(message, repeated, tag = "2")]
-    pub annotations: ::prost::alloc::vec::Vec<StreamAnnotation>,
-}
-/// Message describing general annotation for resources.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResourceAnnotations {
-    /// Annotations that will be applied to the whole application.
-    #[prost(message, repeated, tag = "1")]
-    pub application_annotations: ::prost::alloc::vec::Vec<StreamAnnotation>,
-    /// Annotations that will be applied to the specific node of the application.
-    /// If the same type of the annotations is applied to both application and
-    /// node, the node annotation will be added in addition to the global
-    /// application one.
-    /// For example, if there is one active zone annotation for the whole
-    /// application and one active zone annotation for the Occupancy Analytic
-    /// processor, then the Occupancy Analytic processor will have two active zones
-    /// defined.
-    #[prost(message, repeated, tag = "2")]
-    pub node_annotations: ::prost::alloc::vec::Vec<ApplicationNodeAnnotation>,
-}
-/// Message describing Video Stream Input Config.
-/// This message should only be used as a placeholder for builtin:stream-input
-/// processor, actual stream binding should be specified using corresponding
-/// API.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VideoStreamInputConfig {
-    #[deprecated]
-    #[prost(string, repeated, tag = "1")]
-    pub streams: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    #[deprecated]
-    #[prost(message, repeated, tag = "2")]
-    pub streams_with_annotation: ::prost::alloc::vec::Vec<StreamWithAnnotation>,
-}
-/// Message describing AI-enabled Devices Input Config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AiEnabledDevicesInputConfig {}
-/// Message describing MediaWarehouseConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MediaWarehouseConfig {
-    /// Resource name of the Media Warehouse corpus.
-    /// Format:
-    /// projects/${project_id}/locations/${location_id}/corpora/${corpus_id}
-    #[prost(string, tag = "1")]
-    pub corpus: ::prost::alloc::string::String,
-    /// Deprecated.
-    #[deprecated]
-    #[prost(string, tag = "2")]
-    pub region: ::prost::alloc::string::String,
-    /// The duration for which all media assets, associated metadata, and search
-    /// documents can exist.
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The create timestamp.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The update timestamp.
     #[prost(message, optional, tag = "3")]
-    pub ttl: ::core::option::Option<::prost_types::Duration>,
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Required. Reference to an existing Analysis resource.
+    #[prost(string, tag = "4")]
+    pub analysis: ::prost::alloc::string::String,
+    /// Optional. Attribute overrides of the Analyzers.
+    /// Format for each single override item:
+    /// "{analyzer_name}:{attribute_key}={value}"
+    #[prost(string, repeated, tag = "5")]
+    pub attribute_overrides: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. Status of the Process.
+    #[prost(message, optional, tag = "6")]
+    pub run_status: ::core::option::Option<RunStatus>,
+    /// Optional. Run mode of the Process.
+    #[prost(enumeration = "RunMode", tag = "7")]
+    pub run_mode: i32,
+    /// Optional. Event ID of the input/output streams.
+    /// This is useful when you have a StreamSource/StreamSink operator in the
+    /// Analysis, and you want to manually specify the Event to read from/write to.
+    #[prost(string, tag = "8")]
+    pub event_id: ::prost::alloc::string::String,
+    /// Optional. Optional: Batch ID of the Process.
+    #[prost(string, tag = "9")]
+    pub batch_id: ::prost::alloc::string::String,
+    /// Optional. Optional: The number of retries for a process in submission mode
+    /// the system should try before declaring failure. By default, no retry will
+    /// be performed.
+    #[prost(int32, tag = "10")]
+    pub retry_count: i32,
 }
-/// Message describing FaceBlurConfig.
+/// Message for requesting list of Operators.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PersonBlurConfig {
-    /// Person blur type.
-    #[prost(enumeration = "person_blur_config::PersonBlurType", tag = "1")]
-    pub person_blur_type: i32,
-    /// Whether only blur faces other than the whole object in the processor.
-    #[prost(bool, tag = "2")]
-    pub faces_only: bool,
-}
-/// Nested message and enum types in `PersonBlurConfig`.
-pub mod person_blur_config {
-    /// Type of Person Blur
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum PersonBlurType {
-        /// PersonBlur Type UNSPECIFIED.
-        Unspecified = 0,
-        /// FaceBlur Type full occlusion.
-        FullOcculusion = 1,
-        /// FaceBlur Type blur filter.
-        BlurFilter = 2,
-    }
-    impl PersonBlurType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                PersonBlurType::Unspecified => "PERSON_BLUR_TYPE_UNSPECIFIED",
-                PersonBlurType::FullOcculusion => "FULL_OCCULUSION",
-                PersonBlurType::BlurFilter => "BLUR_FILTER",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "PERSON_BLUR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "FULL_OCCULUSION" => Some(Self::FullOcculusion),
-                "BLUR_FILTER" => Some(Self::BlurFilter),
-                _ => None,
-            }
-        }
-    }
-}
-/// Message describing OccupancyCountConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OccupancyCountConfig {
-    /// Whether to count the appearances of people, output counts have 'people' as
-    /// the key.
-    #[prost(bool, tag = "1")]
-    pub enable_people_counting: bool,
-    /// Whether to count the appearances of vehicles, output counts will have
-    /// 'vehicle' as the key.
-    #[prost(bool, tag = "2")]
-    pub enable_vehicle_counting: bool,
-    /// Whether to track each invidual object's loitering time inside the scene or
-    /// specific zone.
-    #[prost(bool, tag = "3")]
-    pub enable_dwelling_time_tracking: bool,
-}
-/// Message describing PersonVehicleDetectionConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PersonVehicleDetectionConfig {
-    /// At least one of enable_people_counting and enable_vehicle_counting fields
-    /// must be set to true.
-    /// Whether to count the appearances of people, output counts have 'people' as
-    /// the key.
-    #[prost(bool, tag = "1")]
-    pub enable_people_counting: bool,
-    /// Whether to count the appearances of vehicles, output counts will have
-    /// 'vehicle' as the key.
-    #[prost(bool, tag = "2")]
-    pub enable_vehicle_counting: bool,
-}
-/// Message describing PersonalProtectiveEquipmentDetectionConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PersonalProtectiveEquipmentDetectionConfig {
-    /// Whether to enable face coverage detection.
-    #[prost(bool, tag = "1")]
-    pub enable_face_coverage_detection: bool,
-    /// Whether to enable head coverage detection.
-    #[prost(bool, tag = "2")]
-    pub enable_head_coverage_detection: bool,
-    /// Whether to enable hands coverage detection.
-    #[prost(bool, tag = "3")]
-    pub enable_hands_coverage_detection: bool,
-}
-/// Message of configurations for General Object Detection processor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GeneralObjectDetectionConfig {}
-/// Message of configurations for BigQuery processor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BigQueryConfig {
-    /// BigQuery table resource for Vision AI Platform to ingest annotations to.
+pub struct ListOperatorsRequest {
+    /// Required. Parent value for ListOperatorsRequest.
     #[prost(string, tag = "1")]
-    pub table: ::prost::alloc::string::String,
-    /// Data Schema
-    /// By default, Vision AI Application will try to write annotations to the
-    /// target BigQuery table using the following schema:
-    ///
-    /// ingestion_time: TIMESTAMP, the ingestion time of the original data.
-    ///
-    /// application: STRING, name of the application which produces the annotation.
-    ///
-    /// instance: STRING, Id of the instance which produces the annotation.
-    ///
-    /// node: STRING, name of the application graph node which produces the
-    /// annotation.
-    ///
-    /// annotation: STRING or JSON, the actual annotation protobuf will be
-    /// converted to json string with bytes field as 64 encoded string. It can be
-    /// written to both String or Json type column.
-    ///
-    /// To forward annotation data to an existing BigQuery table, customer needs to
-    /// make sure the compatibility of the schema.
-    /// The map maps application node name to its corresponding cloud function
-    /// endpoint to transform the annotations directly to the
-    /// google.cloud.bigquery.storage.v1.AppendRowsRequest (only avro_rows or
-    /// proto_rows should be set). If configured, annotations produced by
-    /// corresponding application node will sent to the Cloud Function at first
-    /// before be forwarded to BigQuery.
-    ///
-    /// If the default table schema doesn't fit, customer is able to transform the
-    /// annotation output from Vision AI Application to arbitrary BigQuery table
-    /// schema with CloudFunction.
-    /// * The cloud function will receive AppPlatformCloudFunctionRequest where
-    /// the annotations field will be the json format of Vision AI annotation.
-    /// * The cloud function should return AppPlatformCloudFunctionResponse with
-    /// AppendRowsRequest stored in the annotations field.
-    /// * To drop the annotation, simply clear the annotations field in the
-    /// returned AppPlatformCloudFunctionResponse.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub cloud_function_mapping: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// If true, App Platform will create the BigQuery DataSet and the
-    /// BigQuery Table with default schema if the specified table doesn't exist.
-    /// This doesn't work if any cloud function customized schema is specified
-    /// since the system doesn't know your desired schema.
-    /// JSON column will be used in the default table created by App Platform.
-    #[prost(bool, tag = "3")]
-    pub create_default_table_if_not_exists: bool,
-}
-/// Message of configurations of Vertex AutoML Vision Processors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VertexAutoMlVisionConfig {
-    /// Only entities with higher score than the threshold will be returned.
-    /// Value 0.0 means to return all the detected entities.
-    #[prost(float, tag = "1")]
-    pub confidence_threshold: f32,
-    /// At most this many predictions will be returned per output frame.
-    /// Value 0 means to return all the detected entities.
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, server will pick an appropriate default.
     #[prost(int32, tag = "2")]
-    pub max_predictions: i32,
-}
-/// Message describing VertexAutoMLVideoConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VertexAutoMlVideoConfig {
-    /// Only entities with higher score than the threshold will be returned.
-    /// Value 0.0 means returns all the detected entities.
-    #[prost(float, tag = "1")]
-    pub confidence_threshold: f32,
-    /// Labels specified in this field won't be returned.
-    #[prost(string, repeated, tag = "2")]
-    pub blocked_labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// At most this many predictions will be returned per output frame.
-    /// Value 0 means to return all the detected entities.
-    #[prost(int32, tag = "3")]
-    pub max_predictions: i32,
-    /// Only Bounding Box whose size is larger than this limit will be returned.
-    /// Object Tracking only.
-    /// Value 0.0 means to return all the detected entities.
-    #[prost(float, tag = "4")]
-    pub bounding_box_size_limit: f32,
-}
-/// Message describing VertexCustomConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VertexCustomConfig {
-    /// The max prediction frame per second. This attribute sets how fast the
-    /// operator sends prediction requests to Vertex AI endpoint. Default value is
-    /// 0, which means there is no max prediction fps limit. The operator sends
-    /// prediction requests at input fps.
-    #[prost(int32, tag = "1")]
-    pub max_prediction_fps: i32,
-    /// A description of resources that are dedicated to the DeployedModel, and
-    /// that need a higher degree of manual configuration.
-    #[prost(message, optional, tag = "2")]
-    pub dedicated_resources: ::core::option::Option<DedicatedResources>,
-    /// If not empty, the prediction result will be sent to the specified cloud
-    /// function for post processing.
-    /// * The cloud function will receive AppPlatformCloudFunctionRequest where
-    /// the annotations field will be the json format of proto PredictResponse.
-    /// * The cloud function should return AppPlatformCloudFunctionResponse with
-    /// PredictResponse stored in the annotations field.
-    /// * To drop the prediction output, simply clear the payload field in the
-    /// returned AppPlatformCloudFunctionResponse.
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
     #[prost(string, tag = "3")]
-    pub post_processing_cloud_function: ::prost::alloc::string::String,
-    /// If true, the prediction request received by custom model will also contain
-    /// metadata with the following schema:
-    /// 'appPlatformMetadata': {
-    ///        'ingestionTime': DOUBLE; (UNIX timestamp)
-    ///        'application': STRING;
-    ///        'instanceId': STRING;
-    ///        'node': STRING;
-    ///        'processor': STRING;
-    ///   }
-    #[prost(bool, tag = "4")]
-    pub attach_application_metadata: bool,
-    /// Optional. By setting the configuration_input_topic, processor will
-    /// subscribe to given topic, only pub/sub topic is supported now. Example
-    /// channel:
-    /// //pubsub.googleapis.com/projects/visionai-testing-stable/topics/test-topic
-    /// message schema should be:
-    /// message Message {
-    /// // The ID of the stream that associates with the application instance.
-    /// string stream_id = 1;
-    /// // The target fps. By default, the custom processor will *not* send any
-    /// data to the Vertex Prediction container. Note that once the
-    /// dynamic_config_input_topic is set, max_prediction_fps will not work and be
-    /// preceded by the fps set inside the topic.
-    /// int32 fps = 2;
-    /// }
-    #[prost(string, optional, tag = "6")]
-    pub dynamic_config_input_topic: ::core::option::Option<
-        ::prost::alloc::string::String,
-    >,
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
 }
-/// Message describing GcsOutputConfig.
+/// Message for response to listing Operators.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsOutputConfig {
-    /// The Cloud Storage path for Vision AI Platform to ingest annotations to.
-    #[prost(string, tag = "1")]
-    pub gcs_path: ::prost::alloc::string::String,
-}
-/// Message describing UniversalInputConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UniversalInputConfig {}
-/// Specification of a single machine.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MachineSpec {
-    /// Immutable. The type of the machine.
-    ///
-    /// See the [list of machine types supported for
-    /// prediction](<https://cloud.google.com/vertex-ai/docs/predictions/configure-compute#machine-types>)
-    ///
-    /// See the [list of machine types supported for custom
-    /// training](<https://cloud.google.com/vertex-ai/docs/training/configure-compute#machine-types>).
-    ///
-    /// For [DeployedModel][] this field is optional, and the default
-    /// value is `n1-standard-2`. For [BatchPredictionJob][] or as part of
-    /// [WorkerPoolSpec][] this field is required.
-    #[prost(string, tag = "1")]
-    pub machine_type: ::prost::alloc::string::String,
-    /// Immutable. The type of accelerator(s) that may be attached to the machine
-    /// as per
-    /// [accelerator_count][google.cloud.visionai.v1.MachineSpec.accelerator_count].
-    #[prost(enumeration = "AcceleratorType", tag = "2")]
-    pub accelerator_type: i32,
-    /// The number of accelerators to attach to the machine.
-    #[prost(int32, tag = "3")]
-    pub accelerator_count: i32,
-}
-/// The metric specification that defines the target resource utilization
-/// (CPU utilization, accelerator's duty cycle, and so on) for calculating the
-/// desired replica count.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoscalingMetricSpec {
-    /// Required. The resource metric name.
-    /// Supported metrics:
-    ///
-    /// * For Online Prediction:
-    /// * `aiplatform.googleapis.com/prediction/online/accelerator/duty_cycle`
-    /// * `aiplatform.googleapis.com/prediction/online/cpu/utilization`
-    #[prost(string, tag = "1")]
-    pub metric_name: ::prost::alloc::string::String,
-    /// The target resource utilization in percentage (1% - 100%) for the given
-    /// metric; once the real usage deviates from the target by a certain
-    /// percentage, the machine replicas change. The default value is 60
-    /// (representing 60%) if not provided.
-    #[prost(int32, tag = "2")]
-    pub target: i32,
-}
-/// A description of resources that are dedicated to a DeployedModel, and
-/// that need a higher degree of manual configuration.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DedicatedResources {
-    /// Required. Immutable. The specification of a single machine used by the
-    /// prediction.
-    #[prost(message, optional, tag = "1")]
-    pub machine_spec: ::core::option::Option<MachineSpec>,
-    /// Required. Immutable. The minimum number of machine replicas this
-    /// DeployedModel will be always deployed on. This value must be greater than
-    /// or equal to 1.
-    ///
-    /// If traffic against the DeployedModel increases, it may dynamically be
-    /// deployed onto more replicas, and as traffic decreases, some of these extra
-    /// replicas may be freed.
-    #[prost(int32, tag = "2")]
-    pub min_replica_count: i32,
-    /// Immutable. The maximum number of replicas this DeployedModel may be
-    /// deployed on when the traffic against it increases. If the requested value
-    /// is too large, the deployment will error, but if deployment succeeds then
-    /// the ability to scale the model to that many replicas is guaranteed (barring
-    /// service outages). If traffic against the DeployedModel increases beyond
-    /// what its replicas at maximum may handle, a portion of the traffic will be
-    /// dropped. If this value is not provided, will use
-    /// [min_replica_count][google.cloud.visionai.v1.DedicatedResources.min_replica_count]
-    /// as the default value.
-    ///
-    /// The value of this field impacts the charge against Vertex CPU and GPU
-    /// quotas. Specifically, you will be charged for max_replica_count *
-    /// number of cores in the selected machine type) and (max_replica_count *
-    /// number of GPUs per replica in the selected machine type).
-    #[prost(int32, tag = "3")]
-    pub max_replica_count: i32,
-    /// Immutable. The metric specifications that overrides a resource
-    /// utilization metric (CPU utilization, accelerator's duty cycle, and so on)
-    /// target value (default to 60 if not set). At most one entry is allowed per
-    /// metric.
-    ///
-    /// If
-    /// [machine_spec.accelerator_count][google.cloud.visionai.v1.MachineSpec.accelerator_count]
-    /// is above 0, the autoscaling will be based on both CPU utilization and
-    /// accelerator's duty cycle metrics and scale up when either metrics exceeds
-    /// its target value while scale down if both metrics are under their target
-    /// value. The default target value is 60 for both metrics.
-    ///
-    /// If
-    /// [machine_spec.accelerator_count][google.cloud.visionai.v1.MachineSpec.accelerator_count]
-    /// is 0, the autoscaling will be based on CPU utilization metric only with
-    /// default target value 60 if not explicitly set.
-    ///
-    /// For example, in the case of Online Prediction, if you want to override
-    /// target CPU utilization to 80, you should set
-    /// [autoscaling_metric_specs.metric_name][google.cloud.visionai.v1.AutoscalingMetricSpec.metric_name]
-    /// to `aiplatform.googleapis.com/prediction/online/cpu/utilization` and
-    /// [autoscaling_metric_specs.target][google.cloud.visionai.v1.AutoscalingMetricSpec.target]
-    /// to `80`.
-    #[prost(message, repeated, tag = "4")]
-    pub autoscaling_metric_specs: ::prost::alloc::vec::Vec<AutoscalingMetricSpec>,
-}
-/// Message describing ProductRecognizerConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProductRecognizerConfig {
-    /// The resource name of retail endpoint to use.
-    #[prost(string, tag = "1")]
-    pub retail_endpoint: ::prost::alloc::string::String,
-    /// Confidence threshold to filter detection results. If not set, a system
-    /// default value will be used.
-    #[prost(float, tag = "2")]
-    pub recognition_confidence_threshold: f32,
-}
-/// Message describing TagRecognizerConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TagRecognizerConfig {
-    /// Confidence threshold to filter detection results. If not set, a system
-    /// default value will be used.
-    #[prost(float, tag = "1")]
-    pub entity_detection_confidence_threshold: f32,
-    /// Configuration to customize how tags are parsed.
-    #[prost(message, optional, tag = "2")]
-    pub tag_parsing_config: ::core::option::Option<TagParsingConfig>,
-}
-/// Configuration for tag parsing.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TagParsingConfig {
-    /// Each tag entity class may have an optional EntityParsingConfig which is
-    /// used to help parse the entities of the class.
+pub struct ListOperatorsResponse {
+    /// The list of Operator
     #[prost(message, repeated, tag = "1")]
-    pub entity_parsing_configs: ::prost::alloc::vec::Vec<
-        tag_parsing_config::EntityParsingConfig,
-    >,
+    pub operators: ::prost::alloc::vec::Vec<Operator>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// Nested message and enum types in `TagParsingConfig`.
-pub mod tag_parsing_config {
-    /// Configuration for parsing a tag entity class.
+/// Message for getting a Operator.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetOperatorRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Message for creating a Operator.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateOperatorRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting object.
+    #[prost(string, tag = "2")]
+    pub operator_id: ::prost::alloc::string::String,
+    /// Required. The resource being created.
+    #[prost(message, optional, tag = "3")]
+    pub operator: ::core::option::Option<Operator>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request ID,
+    /// the server can check if original operation with the same request ID was
+    /// received, and if so, will ignore the second request. This prevents clients
+    /// from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "4")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for updating a Operator.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateOperatorRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Operator resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The resource being updated
+    #[prost(message, optional, tag = "2")]
+    pub operator: ::core::option::Option<Operator>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request ID,
+    /// the server can check if original operation with the same request ID was
+    /// received, and if so, will ignore the second request. This prevents clients
+    /// from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for deleting a Operator
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteOperatorRequest {
+    /// Required. Name of the resource
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes after the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request ID,
+    /// the server can check if original operation with the same request ID was
+    /// received, and if so, will ignore the second request. This prevents clients
+    /// from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for requesting list of Analyses
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListAnalysesRequest {
+    /// Required. Parent value for ListAnalysesRequest
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Message for response to listing Analyses
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListAnalysesResponse {
+    /// The list of Analysis
+    #[prost(message, repeated, tag = "1")]
+    pub analyses: ::prost::alloc::vec::Vec<Analysis>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Message for getting an Analysis.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetAnalysisRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Message for creating an Analysis.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateAnalysisRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting object.
+    #[prost(string, tag = "2")]
+    pub analysis_id: ::prost::alloc::string::String,
+    /// Required. The resource being created.
+    #[prost(message, optional, tag = "3")]
+    pub analysis: ::core::option::Option<Analysis>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request ID,
+    /// the server can check if original operation with the same request ID was
+    /// received, and if so, will ignore the second request. This prevents clients
+    /// from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "4")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for updating an Analysis.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateAnalysisRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Analysis resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The resource being updated.
+    #[prost(message, optional, tag = "2")]
+    pub analysis: ::core::option::Option<Analysis>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request ID,
+    /// the server can check if original operation with the same request ID was
+    /// received, and if so, will ignore the second request. This prevents clients
+    /// from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for deleting an Analysis.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteAnalysisRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes after the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request ID,
+    /// the server can check if original operation with the same request ID was
+    /// received, and if so, will ignore the second request. This prevents clients
+    /// from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for requesting list of Processes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListProcessesRequest {
+    /// Required. Parent value for ListProcessesRequest.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Message for response to listing Processes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListProcessesResponse {
+    /// The list of Processes.
+    #[prost(message, repeated, tag = "1")]
+    pub processes: ::prost::alloc::vec::Vec<Process>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Message for getting a Process.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetProcessRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Message for creating a Process.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateProcessRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting object.
+    #[prost(string, tag = "2")]
+    pub process_id: ::prost::alloc::string::String,
+    /// Required. The resource being created.
+    #[prost(message, optional, tag = "3")]
+    pub process: ::core::option::Option<Process>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request ID,
+    /// the server can check if original operation with the same request ID was
+    /// received, and if so, will ignore the second request. This prevents clients
+    /// from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "4")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for updating a Process.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateProcessRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Process resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The resource being updated.
+    #[prost(message, optional, tag = "2")]
+    pub process: ::core::option::Option<Process>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request ID,
+    /// the server can check if original operation with the same request ID was
+    /// received, and if so, will ignore the second request. This prevents clients
+    /// from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for deleting a Process.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteProcessRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes after the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request ID,
+    /// the server can check if original operation with the same request ID was
+    /// received, and if so, will ignore the second request. This prevents clients
+    /// from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Request message for running the processes in a batch.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchRunProcessRequest {
+    /// Required. The parent resource shared by all processes being created.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The create process requests.
+    #[prost(message, repeated, tag = "2")]
+    pub requests: ::prost::alloc::vec::Vec<CreateProcessRequest>,
+    /// Optional. Options for batch processes.
+    #[prost(message, optional, tag = "3")]
+    pub options: ::core::option::Option<
+        batch_run_process_request::BatchRunProcessOptions,
+    >,
+    /// Output only. The batch ID.
+    #[prost(string, tag = "4")]
+    pub batch_id: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `BatchRunProcessRequest`.
+pub mod batch_run_process_request {
+    /// Options for batch processes.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct EntityParsingConfig {
-        /// Required. The tag entity class name. This should match the class name
-        /// produced by the tag entity detection model.
-        #[prost(string, tag = "1")]
-        pub entity_class: ::prost::alloc::string::String,
-        /// Optional. An regular expression hint.
-        #[prost(string, tag = "2")]
-        pub regex: ::prost::alloc::string::String,
-        /// Optional. Entity matching strategy.
-        #[prost(
-            enumeration = "entity_parsing_config::EntityMatchingStrategy",
-            tag = "3"
-        )]
-        pub entity_matching_strategy: i32,
-    }
-    /// Nested message and enum types in `EntityParsingConfig`.
-    pub mod entity_parsing_config {
-        /// Type of entity matching strategy.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum EntityMatchingStrategy {
-            /// If unspecified, multi-line matching will be used by default.
-            Unspecified = 0,
-            /// Matches multiple lines of text.
-            MultiLineMatching = 1,
-            /// Matches the line with the maximum overlap area with entity bounding
-            /// box.
-            MaxOverlapArea = 2,
-        }
-        impl EntityMatchingStrategy {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    EntityMatchingStrategy::Unspecified => {
-                        "ENTITY_MATCHING_STRATEGY_UNSPECIFIED"
-                    }
-                    EntityMatchingStrategy::MultiLineMatching => "MULTI_LINE_MATCHING",
-                    EntityMatchingStrategy::MaxOverlapArea => "MAX_OVERLAP_AREA",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "ENTITY_MATCHING_STRATEGY_UNSPECIFIED" => Some(Self::Unspecified),
-                    "MULTI_LINE_MATCHING" => Some(Self::MultiLineMatching),
-                    "MAX_OVERLAP_AREA" => Some(Self::MaxOverlapArea),
-                    _ => None,
-                }
-            }
-        }
+    pub struct BatchRunProcessOptions {
+        /// The retry counts per process. Default: 3.
+        #[prost(int32, tag = "1")]
+        pub retry_count: i32,
+        /// The batch size. Default: 5, maximum: 100.
+        #[prost(int32, tag = "2")]
+        pub batch_size: i32,
     }
 }
-/// All the supported model types in Vision AI App Platform.
+/// Response message for running the processes in a batch.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchRunProcessResponse {
+    /// The batch ID.
+    #[prost(string, tag = "1")]
+    pub batch_id: ::prost::alloc::string::String,
+    /// Processes created.
+    #[prost(message, repeated, tag = "2")]
+    pub processes: ::prost::alloc::vec::Vec<Process>,
+}
+/// Request message for querying operator info.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResolveOperatorInfoRequest {
+    /// Required. Parent value for ResolveOperatorInfoRequest.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The operator queries.
+    #[prost(message, repeated, tag = "2")]
+    pub queries: ::prost::alloc::vec::Vec<OperatorQuery>,
+}
+/// OperatorQuery represents one query to a Operator.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OperatorQuery {
+    /// Required. The canonical Name of the operator. e.g. OccupancyCounting.
+    #[prost(string, tag = "1")]
+    pub operator: ::prost::alloc::string::String,
+    /// Optional. Tag of the operator.
+    #[prost(string, tag = "2")]
+    pub tag: ::prost::alloc::string::String,
+    /// Optional. Registry of the operator.
+    #[prost(enumeration = "Registry", tag = "3")]
+    pub registry: i32,
+}
+/// Response message of ResolveOperatorInfo API.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResolveOperatorInfoResponse {
+    /// Operators with detailed information.
+    #[prost(message, repeated, tag = "1")]
+    pub operators: ::prost::alloc::vec::Vec<Operator>,
+}
+/// Request message of ListPublicOperatorsRequest API.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPublicOperatorsRequest {
+    /// Required. Parent value for ListPublicOperatorsRequest.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Response message of ListPublicOperators API.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPublicOperatorsResponse {
+    /// The list of Operator
+    #[prost(message, repeated, tag = "1")]
+    pub operators: ::prost::alloc::vec::Vec<Operator>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The enum of the types of the Registry.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
-pub enum ModelType {
-    /// Processor Type UNSPECIFIED.
+pub enum Registry {
+    /// Registry is unspecified.
     Unspecified = 0,
-    /// Model Type Image Classification.
-    ImageClassification = 1,
-    /// Model Type Object Detection.
-    ObjectDetection = 2,
-    /// Model Type Video Classification.
-    VideoClassification = 3,
-    /// Model Type Object Tracking.
-    VideoObjectTracking = 4,
-    /// Model Type Action Recognition.
-    VideoActionRecognition = 5,
-    /// Model Type Occupancy Counting.
-    OccupancyCounting = 6,
-    /// Model Type Person Blur.
-    PersonBlur = 7,
-    /// Model Type Vertex Custom.
-    VertexCustom = 8,
-    /// Model Type Product Recognizer.
-    ProductRecognizer = 9,
-    /// Model Type Tag Recognizer.
-    TagRecognizer = 10,
-    /// Model Type SynthID.
-    SynthId = 15,
+    /// Public Registry containing the public Operators released by Google.
+    Public = 1,
+    /// Private Registry containing the local registered operators.
+    Private = 2,
 }
-impl ModelType {
+impl Registry {
     /// String value of the enum field names used in the ProtoBuf definition.
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            ModelType::Unspecified => "MODEL_TYPE_UNSPECIFIED",
-            ModelType::ImageClassification => "IMAGE_CLASSIFICATION",
-            ModelType::ObjectDetection => "OBJECT_DETECTION",
-            ModelType::VideoClassification => "VIDEO_CLASSIFICATION",
-            ModelType::VideoObjectTracking => "VIDEO_OBJECT_TRACKING",
-            ModelType::VideoActionRecognition => "VIDEO_ACTION_RECOGNITION",
-            ModelType::OccupancyCounting => "OCCUPANCY_COUNTING",
-            ModelType::PersonBlur => "PERSON_BLUR",
-            ModelType::VertexCustom => "VERTEX_CUSTOM",
-            ModelType::ProductRecognizer => "PRODUCT_RECOGNIZER",
-            ModelType::TagRecognizer => "TAG_RECOGNIZER",
-            ModelType::SynthId => "SYNTH_ID",
+            Registry::Unspecified => "REGISTRY_UNSPECIFIED",
+            Registry::Public => "PUBLIC",
+            Registry::Private => "PRIVATE",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
     pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
         match value {
-            "MODEL_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "IMAGE_CLASSIFICATION" => Some(Self::ImageClassification),
-            "OBJECT_DETECTION" => Some(Self::ObjectDetection),
-            "VIDEO_CLASSIFICATION" => Some(Self::VideoClassification),
-            "VIDEO_OBJECT_TRACKING" => Some(Self::VideoObjectTracking),
-            "VIDEO_ACTION_RECOGNITION" => Some(Self::VideoActionRecognition),
-            "OCCUPANCY_COUNTING" => Some(Self::OccupancyCounting),
-            "PERSON_BLUR" => Some(Self::PersonBlur),
-            "VERTEX_CUSTOM" => Some(Self::VertexCustom),
-            "PRODUCT_RECOGNIZER" => Some(Self::ProductRecognizer),
-            "TAG_RECOGNIZER" => Some(Self::TagRecognizer),
-            "SYNTH_ID" => Some(Self::SynthId),
-            _ => None,
-        }
-    }
-}
-/// Represents a hardware accelerator type.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum AcceleratorType {
-    /// Unspecified accelerator type, which means no accelerator.
-    Unspecified = 0,
-    /// Nvidia Tesla K80 GPU.
-    NvidiaTeslaK80 = 1,
-    /// Nvidia Tesla P100 GPU.
-    NvidiaTeslaP100 = 2,
-    /// Nvidia Tesla V100 GPU.
-    NvidiaTeslaV100 = 3,
-    /// Nvidia Tesla P4 GPU.
-    NvidiaTeslaP4 = 4,
-    /// Nvidia Tesla T4 GPU.
-    NvidiaTeslaT4 = 5,
-    /// Nvidia Tesla A100 GPU.
-    NvidiaTeslaA100 = 8,
-    /// TPU v2.
-    TpuV2 = 6,
-    /// TPU v3.
-    TpuV3 = 7,
-}
-impl AcceleratorType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            AcceleratorType::Unspecified => "ACCELERATOR_TYPE_UNSPECIFIED",
-            AcceleratorType::NvidiaTeslaK80 => "NVIDIA_TESLA_K80",
-            AcceleratorType::NvidiaTeslaP100 => "NVIDIA_TESLA_P100",
-            AcceleratorType::NvidiaTeslaV100 => "NVIDIA_TESLA_V100",
-            AcceleratorType::NvidiaTeslaP4 => "NVIDIA_TESLA_P4",
-            AcceleratorType::NvidiaTeslaT4 => "NVIDIA_TESLA_T4",
-            AcceleratorType::NvidiaTeslaA100 => "NVIDIA_TESLA_A100",
-            AcceleratorType::TpuV2 => "TPU_V2",
-            AcceleratorType::TpuV3 => "TPU_V3",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "ACCELERATOR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "NVIDIA_TESLA_K80" => Some(Self::NvidiaTeslaK80),
-            "NVIDIA_TESLA_P100" => Some(Self::NvidiaTeslaP100),
-            "NVIDIA_TESLA_V100" => Some(Self::NvidiaTeslaV100),
-            "NVIDIA_TESLA_P4" => Some(Self::NvidiaTeslaP4),
-            "NVIDIA_TESLA_T4" => Some(Self::NvidiaTeslaT4),
-            "NVIDIA_TESLA_A100" => Some(Self::NvidiaTeslaA100),
-            "TPU_V2" => Some(Self::TpuV2),
-            "TPU_V3" => Some(Self::TpuV3),
-            _ => None,
-        }
-    }
-}
-/// All supported data types.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum DataType {
-    /// The default value of DataType.
-    Unspecified = 0,
-    /// Video data type like H264.
-    Video = 1,
-    /// Image data type.
-    Image = 3,
-    /// Protobuf data type, usually used for general data blob.
-    Proto = 2,
-    /// A placeholder data type, applicable for the universal input processor which
-    /// supports any data type. This will be instantiated and replaced by a
-    /// concrete underlying `DataType` during instance deployment.
-    Placeholder = 4,
-}
-impl DataType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            DataType::Unspecified => "DATA_TYPE_UNSPECIFIED",
-            DataType::Video => "VIDEO",
-            DataType::Image => "IMAGE",
-            DataType::Proto => "PROTO",
-            DataType::Placeholder => "PLACEHOLDER",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "DATA_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "VIDEO" => Some(Self::Video),
-            "IMAGE" => Some(Self::Image),
-            "PROTO" => Some(Self::Proto),
-            "PLACEHOLDER" => Some(Self::Placeholder),
+            "REGISTRY_UNSPECIFIED" => Some(Self::Unspecified),
+            "PUBLIC" => Some(Self::Public),
+            "PRIVATE" => Some(Self::Private),
             _ => None,
         }
     }
 }
 /// Generated client implementations.
-pub mod app_platform_client {
+pub mod live_video_analytics_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
-    /// Service describing handlers for resources
+    /// Service describing handlers for resources. The service enables clients to run
+    /// Live Video Analytics (LVA) on the streaming inputs.
     #[derive(Debug, Clone)]
-    pub struct AppPlatformClient<T> {
+    pub struct LiveVideoAnalyticsClient<T> {
         inner: tonic::client::Grpc<T>,
     }
-    impl<T> AppPlatformClient<T>
+    impl<T> LiveVideoAnalyticsClient<T>
     where
         T: tonic::client::GrpcService<tonic::body::BoxBody>,
         T::Error: Into<StdError>,
@@ -4220,7 +1158,7 @@ pub mod app_platform_client {
         pub fn with_interceptor<F>(
             inner: T,
             interceptor: F,
-        ) -> AppPlatformClient<InterceptedService<T, F>>
+        ) -> LiveVideoAnalyticsClient<InterceptedService<T, F>>
         where
             F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -4234,7 +1172,7 @@ pub mod app_platform_client {
                 http::Request<tonic::body::BoxBody>,
             >>::Error: Into<StdError> + Send + Sync,
         {
-            AppPlatformClient::new(InterceptedService::new(inner, interceptor))
+            LiveVideoAnalyticsClient::new(InterceptedService::new(inner, interceptor))
         }
         /// Compress requests with the given encoding.
         ///
@@ -4267,12 +1205,12 @@ pub mod app_platform_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /// Lists Applications in a given project and location.
-        pub async fn list_applications(
+        /// ListPublicOperators returns all the operators in public registry.
+        pub async fn list_public_operators(
             &mut self,
-            request: impl tonic::IntoRequest<super::ListApplicationsRequest>,
+            request: impl tonic::IntoRequest<super::ListPublicOperatorsRequest>,
         ) -> std::result::Result<
-            tonic::Response<super::ListApplicationsResponse>,
+            tonic::Response<super::ListPublicOperatorsResponse>,
             tonic::Status,
         > {
             self.inner
@@ -4286,52 +1224,24 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/ListApplications",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/ListPublicOperators",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "ListApplications",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "ListPublicOperators",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Gets details of a single Application.
-        pub async fn get_application(
+        /// ResolveOperatorInfo returns the operator information based on the request.
+        pub async fn resolve_operator_info(
             &mut self,
-            request: impl tonic::IntoRequest<super::GetApplicationRequest>,
-        ) -> std::result::Result<tonic::Response<super::Application>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/GetApplication",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "GetApplication",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new Application in a given project and location.
-        pub async fn create_application(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateApplicationRequest>,
+            request: impl tonic::IntoRequest<super::ResolveOperatorInfoRequest>,
         ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Response<super::ResolveOperatorInfoResponse>,
             tonic::Status,
         > {
             self.inner
@@ -4345,24 +1255,24 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/CreateApplication",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/ResolveOperatorInfo",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "CreateApplication",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "ResolveOperatorInfo",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Updates the parameters of a single Application.
-        pub async fn update_application(
+        /// Lists Operators in a given project and location.
+        pub async fn list_operators(
             &mut self,
-            request: impl tonic::IntoRequest<super::UpdateApplicationRequest>,
+            request: impl tonic::IntoRequest<super::ListOperatorsRequest>,
         ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Response<super::ListOperatorsResponse>,
             tonic::Status,
         > {
             self.inner
@@ -4376,26 +1286,23 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/UpdateApplication",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/ListOperators",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "UpdateApplication",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "ListOperators",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Deletes a single Application.
-        pub async fn delete_application(
+        /// Gets details of a single Operator.
+        pub async fn get_operator(
             &mut self,
-            request: impl tonic::IntoRequest<super::DeleteApplicationRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
+            request: impl tonic::IntoRequest<super::GetOperatorRequest>,
+        ) -> std::result::Result<tonic::Response<super::Operator>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4407,22 +1314,22 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/DeleteApplication",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/GetOperator",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "DeleteApplication",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "GetOperator",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Deploys a single Application.
-        pub async fn deploy_application(
+        /// Creates a new Operator in a given project and location.
+        pub async fn create_operator(
             &mut self,
-            request: impl tonic::IntoRequest<super::DeployApplicationRequest>,
+            request: impl tonic::IntoRequest<super::CreateOperatorRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -4438,22 +1345,22 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/DeployApplication",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/CreateOperator",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "DeployApplication",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "CreateOperator",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Undeploys a single Application.
-        pub async fn undeploy_application(
+        /// Updates the parameters of a single Operator.
+        pub async fn update_operator(
             &mut self,
-            request: impl tonic::IntoRequest<super::UndeployApplicationRequest>,
+            request: impl tonic::IntoRequest<super::UpdateOperatorRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -4469,25 +1376,22 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/UndeployApplication",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/UpdateOperator",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "UndeployApplication",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "UpdateOperator",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Adds target stream input to the Application.
-        /// If the Application is deployed, the corresponding new Application instance
-        /// will be created. If the stream has already been in the Application, the RPC
-        /// will fail.
-        pub async fn add_application_stream_input(
+        /// Deletes a single Operator.
+        pub async fn delete_operator(
             &mut self,
-            request: impl tonic::IntoRequest<super::AddApplicationStreamInputRequest>,
+            request: impl tonic::IntoRequest<super::DeleteOperatorRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -4503,24 +1407,81 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/AddApplicationStreamInput",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/DeleteOperator",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "AddApplicationStreamInput",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "DeleteOperator",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Remove target stream input to the Application, if the Application is
-        /// deployed, the corresponding instance based will be deleted. If the stream
-        /// is not in the Application, the RPC will fail.
-        pub async fn remove_application_stream_input(
+        /// Lists Analyses in a given project and location.
+        pub async fn list_analyses(
             &mut self,
-            request: impl tonic::IntoRequest<super::RemoveApplicationStreamInputRequest>,
+            request: impl tonic::IntoRequest<super::ListAnalysesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListAnalysesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/ListAnalyses",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "ListAnalyses",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single Analysis.
+        pub async fn get_analysis(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetAnalysisRequest>,
+        ) -> std::result::Result<tonic::Response<super::Analysis>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/GetAnalysis",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "GetAnalysis",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new Analysis in a given project and location.
+        pub async fn create_analysis(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateAnalysisRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -4536,24 +1497,22 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/RemoveApplicationStreamInput",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/CreateAnalysis",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "RemoveApplicationStreamInput",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "CreateAnalysis",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Update target stream input to the Application, if the Application is
-        /// deployed, the corresponding instance based will be deployed. For
-        /// CreateOrUpdate behavior, set allow_missing to true.
-        pub async fn update_application_stream_input(
+        /// Updates the parameters of a single Analysis.
+        pub async fn update_analysis(
             &mut self,
-            request: impl tonic::IntoRequest<super::UpdateApplicationStreamInputRequest>,
+            request: impl tonic::IntoRequest<super::UpdateAnalysisRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -4569,84 +1528,22 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/UpdateApplicationStreamInput",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/UpdateAnalysis",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "UpdateApplicationStreamInput",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "UpdateAnalysis",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Lists Instances in a given project and location.
-        pub async fn list_instances(
+        /// Deletes a single Analysis.
+        pub async fn delete_analysis(
             &mut self,
-            request: impl tonic::IntoRequest<super::ListInstancesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListInstancesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/ListInstances",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "ListInstances",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of a single Instance.
-        pub async fn get_instance(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetInstanceRequest>,
-        ) -> std::result::Result<tonic::Response<super::Instance>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/GetInstance",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "GetInstance",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Adds target stream input to the Application.
-        /// If the Application is deployed, the corresponding new Application instance
-        /// will be created. If the stream has already been in the Application, the RPC
-        /// will fail.
-        pub async fn create_application_instances(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateApplicationInstancesRequest>,
+            request: impl tonic::IntoRequest<super::DeleteAnalysisRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -4662,24 +1559,81 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/CreateApplicationInstances",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/DeleteAnalysis",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "CreateApplicationInstances",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "DeleteAnalysis",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Remove target stream input to the Application, if the Application is
-        /// deployed, the corresponding instance based will be deleted. If the stream
-        /// is not in the Application, the RPC will fail.
-        pub async fn delete_application_instances(
+        /// Lists Processes in a given project and location.
+        pub async fn list_processes(
             &mut self,
-            request: impl tonic::IntoRequest<super::DeleteApplicationInstancesRequest>,
+            request: impl tonic::IntoRequest<super::ListProcessesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListProcessesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/ListProcesses",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "ListProcesses",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single Process.
+        pub async fn get_process(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetProcessRequest>,
+        ) -> std::result::Result<tonic::Response<super::Process>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/GetProcess",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "GetProcess",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new Process in a given project and location.
+        pub async fn create_process(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateProcessRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -4695,25 +1649,22 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/DeleteApplicationInstances",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/CreateProcess",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "DeleteApplicationInstances",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "CreateProcess",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Adds target stream input to the Application.
-        /// If the Application is deployed, the corresponding new Application instance
-        /// will be created. If the stream has already been in the Application, the RPC
-        /// will fail.
-        pub async fn update_application_instances(
+        /// Updates the parameters of a single Process.
+        pub async fn update_process(
             &mut self,
-            request: impl tonic::IntoRequest<super::UpdateApplicationInstancesRequest>,
+            request: impl tonic::IntoRequest<super::UpdateProcessRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -4729,75 +1680,22 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/UpdateApplicationInstances",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/UpdateProcess",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "UpdateApplicationInstances",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "UpdateProcess",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Lists Drafts in a given project and location.
-        pub async fn list_drafts(
+        /// Deletes a single Process.
+        pub async fn delete_process(
             &mut self,
-            request: impl tonic::IntoRequest<super::ListDraftsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListDraftsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/ListDrafts",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.visionai.v1.AppPlatform", "ListDrafts"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of a single Draft.
-        pub async fn get_draft(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetDraftRequest>,
-        ) -> std::result::Result<tonic::Response<super::Draft>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/GetDraft",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.visionai.v1.AppPlatform", "GetDraft"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new Draft in a given project and location.
-        pub async fn create_draft(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateDraftRequest>,
+            request: impl tonic::IntoRequest<super::DeleteProcessRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -4813,22 +1711,23 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/CreateDraft",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/DeleteProcess",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "CreateDraft",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "DeleteProcess",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Updates the parameters of a single Draft.
-        pub async fn update_draft(
+        /// Run all of the processes to "completion". Max time for each process is
+        /// the LRO time limit.
+        pub async fn batch_run_process(
             &mut self,
-            request: impl tonic::IntoRequest<super::UpdateDraftRequest>,
+            request: impl tonic::IntoRequest<super::BatchRunProcessRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -4844,229 +1743,14 @@ pub mod app_platform_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/UpdateDraft",
+                "/google.cloud.visionai.v1.LiveVideoAnalytics/BatchRunProcess",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "UpdateDraft",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a single Draft.
-        pub async fn delete_draft(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteDraftRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/DeleteDraft",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "DeleteDraft",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists Processors in a given project and location.
-        pub async fn list_processors(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListProcessorsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListProcessorsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/ListProcessors",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "ListProcessors",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// ListPrebuiltProcessors is a custom pass-through verb that Lists Prebuilt
-        /// Processors.
-        pub async fn list_prebuilt_processors(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListPrebuiltProcessorsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListPrebuiltProcessorsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/ListPrebuiltProcessors",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "ListPrebuiltProcessors",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of a single Processor.
-        pub async fn get_processor(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetProcessorRequest>,
-        ) -> std::result::Result<tonic::Response<super::Processor>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/GetProcessor",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "GetProcessor",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new Processor in a given project and location.
-        pub async fn create_processor(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateProcessorRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/CreateProcessor",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "CreateProcessor",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the parameters of a single Processor.
-        pub async fn update_processor(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateProcessorRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/UpdateProcessor",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "UpdateProcessor",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a single Processor.
-        pub async fn delete_processor(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteProcessorRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.AppPlatform/DeleteProcessor",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.AppPlatform",
-                        "DeleteProcessor",
+                        "google.cloud.visionai.v1.LiveVideoAnalytics",
+                        "BatchRunProcess",
                     ),
                 );
             self.inner.unary(req, path, codec).await
@@ -6627,1264 +3311,169 @@ pub mod streams_service_client {
         }
     }
 }
-/// Message describing the Operator object.
+/// The descriptor for a gstreamer buffer payload.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Operator {
-    /// Name of the resource.
+pub struct GstreamerBufferDescriptor {
+    /// The caps string of the payload.
     #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The create timestamp.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The update timestamp.
+    pub caps_string: ::prost::alloc::string::String,
+    /// Whether the buffer is a key frame.
+    #[prost(bool, tag = "2")]
+    pub is_key_frame: bool,
+    /// PTS of the frame.
     #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Labels as key value pairs.
-    #[prost(btree_map = "string, string", tag = "4")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// The definition of the operator.
+    pub pts_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// DTS of the frame.
+    #[prost(message, optional, tag = "4")]
+    pub dts_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Duration of the frame.
     #[prost(message, optional, tag = "5")]
-    pub operator_definition: ::core::option::Option<OperatorDefinition>,
-    /// The link to the docker image of the operator.
-    #[prost(string, tag = "6")]
-    pub docker_image: ::prost::alloc::string::String,
+    pub duration: ::core::option::Option<::prost_types::Duration>,
 }
-/// Message describing the Analysis object.
+/// The descriptor for a raw image.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Analysis {
-    /// The name of resource.
+pub struct RawImageDescriptor {
+    /// Raw image format. Its possible values are: "srgb".
     #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The create timestamp.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The update timestamp.
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Labels as key value pairs.
-    #[prost(btree_map = "string, string", tag = "4")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// The definition of the analysis.
-    #[prost(message, optional, tag = "5")]
-    pub analysis_definition: ::core::option::Option<AnalysisDefinition>,
-    /// Map from the input parameter in the definition to the real stream.
-    /// E.g., suppose you had a stream source operator named "input-0" and you try
-    /// to receive from the real stream "stream-0". You can add the following
-    /// mapping: \[input-0: stream-0\].
-    #[prost(btree_map = "string, string", tag = "6")]
-    pub input_streams_mapping: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Map from the output parameter in the definition to the real stream.
-    /// E.g., suppose you had a stream sink operator named "output-0" and you try
-    /// to send to the real stream "stream-0". You can add the following
-    /// mapping: \[output-0: stream-0\].
-    #[prost(btree_map = "string, string", tag = "7")]
-    pub output_streams_mapping: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Boolean flag to indicate whether you would like to disable the ability
-    /// to automatically start a Process when new event happening in the input
-    /// Stream. If you would like to start a Process manually, the field needs
-    /// to be set to true.
-    #[prost(bool, tag = "8")]
-    pub disable_event_watch: bool,
-}
-/// Message describing the Process object.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Process {
-    /// The name of resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The create timestamp.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The update timestamp.
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Required. Reference to an existing Analysis resource.
-    #[prost(string, tag = "4")]
-    pub analysis: ::prost::alloc::string::String,
-    /// Optional. Attribute overrides of the Analyzers.
-    /// Format for each single override item:
-    /// "{analyzer_name}:{attribute_key}={value}"
-    #[prost(string, repeated, tag = "5")]
-    pub attribute_overrides: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. Status of the Process.
-    #[prost(message, optional, tag = "6")]
-    pub run_status: ::core::option::Option<RunStatus>,
-    /// Optional. Run mode of the Process.
-    #[prost(enumeration = "RunMode", tag = "7")]
-    pub run_mode: i32,
-    /// Optional. Event ID of the input/output streams.
-    /// This is useful when you have a StreamSource/StreamSink operator in the
-    /// Analysis, and you want to manually specify the Event to read from/write to.
-    #[prost(string, tag = "8")]
-    pub event_id: ::prost::alloc::string::String,
-    /// Optional. Optional: Batch ID of the Process.
-    #[prost(string, tag = "9")]
-    pub batch_id: ::prost::alloc::string::String,
-    /// Optional. Optional: The number of retries for a process in submission mode
-    /// the system should try before declaring failure. By default, no retry will
-    /// be performed.
-    #[prost(int32, tag = "10")]
-    pub retry_count: i32,
-}
-/// Message for requesting list of Operators.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListOperatorsRequest {
-    /// Required. Parent value for ListOperatorsRequest.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, server will pick an appropriate default.
+    pub format: ::prost::alloc::string::String,
+    /// The height of the image.
     #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
+    pub height: i32,
+    /// The width of the image.
+    #[prost(int32, tag = "3")]
+    pub width: i32,
 }
-/// Message for response to listing Operators.
+/// The message that represents the data type of a packet.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListOperatorsResponse {
-    /// The list of Operator
-    #[prost(message, repeated, tag = "1")]
-    pub operators: ::prost::alloc::vec::Vec<Operator>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Message for getting a Operator.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetOperatorRequest {
-    /// Required. Name of the resource.
+pub struct PacketType {
+    /// The type class of the packet. Its possible values are:
+    /// "gst", "protobuf", and "string".
     #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Message for creating a Operator.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateOperatorRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting object.
-    #[prost(string, tag = "2")]
-    pub operator_id: ::prost::alloc::string::String,
-    /// Required. The resource being created.
-    #[prost(message, optional, tag = "3")]
-    pub operator: ::core::option::Option<Operator>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request ID,
-    /// the server can check if original operation with the same request ID was
-    /// received, and if so, will ignore the second request. This prevents clients
-    /// from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "4")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for updating a Operator.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateOperatorRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Operator resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The resource being updated
+    pub type_class: ::prost::alloc::string::String,
+    /// The type descriptor.
     #[prost(message, optional, tag = "2")]
-    pub operator: ::core::option::Option<Operator>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request ID,
-    /// the server can check if original operation with the same request ID was
-    /// received, and if so, will ignore the second request. This prevents clients
-    /// from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
+    pub type_descriptor: ::core::option::Option<packet_type::TypeDescriptor>,
 }
-/// Message for deleting a Operator
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteOperatorRequest {
-    /// Required. Name of the resource
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes after the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request ID,
-    /// the server can check if original operation with the same request ID was
-    /// received, and if so, will ignore the second request. This prevents clients
-    /// from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for requesting list of Analyses
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListAnalysesRequest {
-    /// Required. Parent value for ListAnalysesRequest
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// Message for response to listing Analyses
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListAnalysesResponse {
-    /// The list of Analysis
-    #[prost(message, repeated, tag = "1")]
-    pub analyses: ::prost::alloc::vec::Vec<Analysis>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Message for getting an Analysis.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetAnalysisRequest {
-    /// Required. Name of the resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Message for creating an Analysis.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateAnalysisRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting object.
-    #[prost(string, tag = "2")]
-    pub analysis_id: ::prost::alloc::string::String,
-    /// Required. The resource being created.
-    #[prost(message, optional, tag = "3")]
-    pub analysis: ::core::option::Option<Analysis>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request ID,
-    /// the server can check if original operation with the same request ID was
-    /// received, and if so, will ignore the second request. This prevents clients
-    /// from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "4")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for updating an Analysis.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateAnalysisRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Analysis resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The resource being updated.
-    #[prost(message, optional, tag = "2")]
-    pub analysis: ::core::option::Option<Analysis>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request ID,
-    /// the server can check if original operation with the same request ID was
-    /// received, and if so, will ignore the second request. This prevents clients
-    /// from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for deleting an Analysis.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteAnalysisRequest {
-    /// Required. Name of the resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes after the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request ID,
-    /// the server can check if original operation with the same request ID was
-    /// received, and if so, will ignore the second request. This prevents clients
-    /// from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for requesting list of Processes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListProcessesRequest {
-    /// Required. Parent value for ListProcessesRequest.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// Message for response to listing Processes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListProcessesResponse {
-    /// The list of Processes.
-    #[prost(message, repeated, tag = "1")]
-    pub processes: ::prost::alloc::vec::Vec<Process>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Message for getting a Process.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetProcessRequest {
-    /// Required. Name of the resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Message for creating a Process.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateProcessRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting object.
-    #[prost(string, tag = "2")]
-    pub process_id: ::prost::alloc::string::String,
-    /// Required. The resource being created.
-    #[prost(message, optional, tag = "3")]
-    pub process: ::core::option::Option<Process>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request ID,
-    /// the server can check if original operation with the same request ID was
-    /// received, and if so, will ignore the second request. This prevents clients
-    /// from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "4")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for updating a Process.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateProcessRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Process resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The resource being updated.
-    #[prost(message, optional, tag = "2")]
-    pub process: ::core::option::Option<Process>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request ID,
-    /// the server can check if original operation with the same request ID was
-    /// received, and if so, will ignore the second request. This prevents clients
-    /// from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for deleting a Process.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteProcessRequest {
-    /// Required. Name of the resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server will know to
-    /// ignore the request if it has already been completed. The server will
-    /// guarantee that for at least 60 minutes after the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request ID,
-    /// the server can check if original operation with the same request ID was
-    /// received, and if so, will ignore the second request. This prevents clients
-    /// from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Request message for running the processes in a batch.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchRunProcessRequest {
-    /// Required. The parent resource shared by all processes being created.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The create process requests.
-    #[prost(message, repeated, tag = "2")]
-    pub requests: ::prost::alloc::vec::Vec<CreateProcessRequest>,
-    /// Optional. Options for batch processes.
-    #[prost(message, optional, tag = "3")]
-    pub options: ::core::option::Option<
-        batch_run_process_request::BatchRunProcessOptions,
-    >,
-    /// Output only. The batch ID.
-    #[prost(string, tag = "4")]
-    pub batch_id: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `BatchRunProcessRequest`.
-pub mod batch_run_process_request {
-    /// Options for batch processes.
+/// Nested message and enum types in `PacketType`.
+pub mod packet_type {
+    /// The message that fully specifies the type of the packet.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct BatchRunProcessOptions {
-        /// The retry counts per process. Default: 3.
-        #[prost(int32, tag = "1")]
-        pub retry_count: i32,
-        /// The batch size. Default: 5, maximum: 100.
-        #[prost(int32, tag = "2")]
-        pub batch_size: i32,
+    pub struct TypeDescriptor {
+        /// The type of the packet. Its possible values is codec dependent.
+        ///
+        /// The fully qualified type name is always the concatenation of the
+        /// value in `type_class` together with the value in `type`, separated by a
+        /// '/'.
+        ///
+        /// Note that specific codecs can define their own type hierarchy, and so the
+        /// type string here can in fact be separated by multiple '/'s of its own.
+        ///
+        /// Please see the open source SDK for specific codec documentation.
+        #[prost(string, tag = "1")]
+        pub r#type: ::prost::alloc::string::String,
+        /// Detailed information about the type.
+        ///
+        /// It is non-empty only for specific type class codecs. Needed only when the
+        /// type string alone is not enough to disambiguate the specific type.
+        #[prost(oneof = "type_descriptor::TypeDetails", tags = "2, 3")]
+        pub type_details: ::core::option::Option<type_descriptor::TypeDetails>,
+    }
+    /// Nested message and enum types in `TypeDescriptor`.
+    pub mod type_descriptor {
+        /// Detailed information about the type.
+        ///
+        /// It is non-empty only for specific type class codecs. Needed only when the
+        /// type string alone is not enough to disambiguate the specific type.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum TypeDetails {
+            /// GstreamerBufferDescriptor is the descriptor for gstreamer buffer type.
+            #[prost(message, tag = "2")]
+            GstreamerBufferDescriptor(super::super::GstreamerBufferDescriptor),
+            /// RawImageDescriptor is the descriptor for the raw image type.
+            #[prost(message, tag = "3")]
+            RawImageDescriptor(super::super::RawImageDescriptor),
+        }
     }
 }
-/// Response message for running the processes in a batch.
+/// The message that represents server metadata.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchRunProcessResponse {
-    /// The batch ID.
+pub struct ServerMetadata {
+    /// The offset position for the packet in its stream.
+    #[prost(int64, tag = "1")]
+    pub offset: i64,
+    /// The timestamp at which the stream server receives this packet. This is
+    /// based on the local clock of on the server side. It is guaranteed to be
+    /// monotonically increasing for the packets within each session; however
+    /// this timestamp is not comparable across packets sent to the same stream
+    /// different sessions. Session here refers to one individual gRPC streaming
+    /// request to the stream server.
+    #[prost(message, optional, tag = "2")]
+    pub ingest_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// The message that represents series metadata.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SeriesMetadata {
+    /// Series name. It's in the format of
+    /// "projects/{project}/locations/{location}/clusters/{cluster}/series/{stream}".
     #[prost(string, tag = "1")]
-    pub batch_id: ::prost::alloc::string::String,
-    /// Processes created.
-    #[prost(message, repeated, tag = "2")]
-    pub processes: ::prost::alloc::vec::Vec<Process>,
+    pub series: ::prost::alloc::string::String,
 }
-/// Request message for querying operator info.
+/// The message that represents packet header.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResolveOperatorInfoRequest {
-    /// Required. Parent value for ResolveOperatorInfoRequest.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The operator queries.
-    #[prost(message, repeated, tag = "2")]
-    pub queries: ::prost::alloc::vec::Vec<OperatorQuery>,
-}
-/// OperatorQuery represents one query to a Operator.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OperatorQuery {
-    /// Required. The canonical Name of the operator. e.g. OccupancyCounting.
-    #[prost(string, tag = "1")]
-    pub operator: ::prost::alloc::string::String,
-    /// Optional. Tag of the operator.
-    #[prost(string, tag = "2")]
-    pub tag: ::prost::alloc::string::String,
-    /// Optional. Registry of the operator.
-    #[prost(enumeration = "Registry", tag = "3")]
-    pub registry: i32,
-}
-/// Response message of ResolveOperatorInfo API.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResolveOperatorInfoResponse {
-    /// Operators with detailed information.
-    #[prost(message, repeated, tag = "1")]
-    pub operators: ::prost::alloc::vec::Vec<Operator>,
-}
-/// Request message of ListPublicOperatorsRequest API.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPublicOperatorsRequest {
-    /// Required. Parent value for ListPublicOperatorsRequest.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// Response message of ListPublicOperators API.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPublicOperatorsResponse {
-    /// The list of Operator
-    #[prost(message, repeated, tag = "1")]
-    pub operators: ::prost::alloc::vec::Vec<Operator>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// The enum of the types of the Registry.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum Registry {
-    /// Registry is unspecified.
-    Unspecified = 0,
-    /// Public Registry containing the public Operators released by Google.
-    Public = 1,
-    /// Private Registry containing the local registered operators.
-    Private = 2,
-}
-impl Registry {
-    /// String value of the enum field names used in the ProtoBuf definition.
+pub struct PacketHeader {
+    /// Input only. The capture time of the packet.
+    #[prost(message, optional, tag = "1")]
+    pub capture_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Input only. Immutable. The type of the payload.
+    #[prost(message, optional, tag = "2")]
+    pub r#type: ::core::option::Option<PacketType>,
+    /// Input only. This field is for users to attach user managed metadata.
+    #[prost(message, optional, tag = "3")]
+    pub metadata: ::core::option::Option<::prost_types::Struct>,
+    /// Output only. Metadata that the server appends to each packet before sending
+    /// it to receivers. You don't need to set a value for this field when sending
+    /// packets.
+    #[prost(message, optional, tag = "4")]
+    pub server_metadata: ::core::option::Option<ServerMetadata>,
+    /// Input only. Immutable. Metadata that the server needs to know where to
+    /// write the packets to. It's only required for the first packet.
+    #[prost(message, optional, tag = "5")]
+    pub series_metadata: ::core::option::Option<SeriesMetadata>,
+    /// Immutable. Packet flag set. SDK will set the flag automatically.
+    #[prost(int32, tag = "6")]
+    pub flags: i32,
+    /// Immutable. Header string for tracing across services. It should be set when
+    /// the packet is first arrived in the stream server.
     ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            Registry::Unspecified => "REGISTRY_UNSPECIFIED",
-            Registry::Public => "PUBLIC",
-            Registry::Private => "PRIVATE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "REGISTRY_UNSPECIFIED" => Some(Self::Unspecified),
-            "PUBLIC" => Some(Self::Public),
-            "PRIVATE" => Some(Self::Private),
-            _ => None,
-        }
-    }
+    /// The input format is a lowercase hex string:
+    ///    - version_id: 1 byte, currently must be zero - hex encoded (2 characters)
+    ///    - trace_id: 16 bytes (opaque blob) - hex encoded (32 characters)
+    ///    - span_id: 8 bytes (opaque blob) - hex encoded (16 characters)
+    ///    - trace_options: 1 byte (LSB means tracing enabled) - hex encoded (2
+    ///    characters)
+    /// Example: "00-404142434445464748494a4b4c4d4e4f-6162636465666768-01"
+    ///            v  trace_id                         span_id          options
+    #[prost(string, tag = "7")]
+    pub trace_context: ::prost::alloc::string::String,
 }
-/// Generated client implementations.
-pub mod live_video_analytics_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service describing handlers for resources. The service enables clients to run
-    /// Live Video Analytics (LVA) on the streaming inputs.
-    #[derive(Debug, Clone)]
-    pub struct LiveVideoAnalyticsClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> LiveVideoAnalyticsClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> LiveVideoAnalyticsClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            LiveVideoAnalyticsClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// ListPublicOperators returns all the operators in public registry.
-        pub async fn list_public_operators(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListPublicOperatorsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListPublicOperatorsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/ListPublicOperators",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "ListPublicOperators",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// ResolveOperatorInfo returns the operator information based on the request.
-        pub async fn resolve_operator_info(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ResolveOperatorInfoRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ResolveOperatorInfoResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/ResolveOperatorInfo",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "ResolveOperatorInfo",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists Operators in a given project and location.
-        pub async fn list_operators(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListOperatorsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListOperatorsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/ListOperators",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "ListOperators",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of a single Operator.
-        pub async fn get_operator(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetOperatorRequest>,
-        ) -> std::result::Result<tonic::Response<super::Operator>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/GetOperator",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "GetOperator",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new Operator in a given project and location.
-        pub async fn create_operator(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateOperatorRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/CreateOperator",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "CreateOperator",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the parameters of a single Operator.
-        pub async fn update_operator(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateOperatorRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/UpdateOperator",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "UpdateOperator",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a single Operator.
-        pub async fn delete_operator(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteOperatorRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/DeleteOperator",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "DeleteOperator",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists Analyses in a given project and location.
-        pub async fn list_analyses(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListAnalysesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListAnalysesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/ListAnalyses",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "ListAnalyses",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of a single Analysis.
-        pub async fn get_analysis(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetAnalysisRequest>,
-        ) -> std::result::Result<tonic::Response<super::Analysis>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/GetAnalysis",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "GetAnalysis",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new Analysis in a given project and location.
-        pub async fn create_analysis(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateAnalysisRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/CreateAnalysis",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "CreateAnalysis",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the parameters of a single Analysis.
-        pub async fn update_analysis(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateAnalysisRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/UpdateAnalysis",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "UpdateAnalysis",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a single Analysis.
-        pub async fn delete_analysis(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteAnalysisRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/DeleteAnalysis",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "DeleteAnalysis",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists Processes in a given project and location.
-        pub async fn list_processes(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListProcessesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListProcessesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/ListProcesses",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "ListProcesses",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of a single Process.
-        pub async fn get_process(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetProcessRequest>,
-        ) -> std::result::Result<tonic::Response<super::Process>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/GetProcess",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "GetProcess",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new Process in a given project and location.
-        pub async fn create_process(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateProcessRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/CreateProcess",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "CreateProcess",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the parameters of a single Process.
-        pub async fn update_process(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateProcessRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/UpdateProcess",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "UpdateProcess",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a single Process.
-        pub async fn delete_process(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteProcessRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/DeleteProcess",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "DeleteProcess",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Run all of the processes to "completion". Max time for each process is
-        /// the LRO time limit.
-        pub async fn batch_run_process(
-            &mut self,
-            request: impl tonic::IntoRequest<super::BatchRunProcessRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.visionai.v1.LiveVideoAnalytics/BatchRunProcess",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.visionai.v1.LiveVideoAnalytics",
-                        "BatchRunProcess",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
+/// The quanta of datum that the series accepts.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Packet {
+    /// The packet header.
+    #[prost(message, optional, tag = "1")]
+    pub header: ::core::option::Option<PacketHeader>,
+    /// The payload of the packet.
+    #[prost(bytes = "bytes", tag = "2")]
+    pub payload: ::prost::bytes::Bytes,
 }
 /// Request message for ReceiveEvents.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -8606,6 +4195,815 @@ pub mod streaming_service_client {
                     ),
                 );
             self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Output format for Personal Protective Equipment Detection Operator.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PersonalProtectiveEquipmentDetectionOutput {
+    /// Current timestamp.
+    #[prost(message, optional, tag = "1")]
+    pub current_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// A list of DetectedPersons.
+    #[prost(message, repeated, tag = "2")]
+    pub detected_persons: ::prost::alloc::vec::Vec<
+        personal_protective_equipment_detection_output::DetectedPerson,
+    >,
+}
+/// Nested message and enum types in `PersonalProtectiveEquipmentDetectionOutput`.
+pub mod personal_protective_equipment_detection_output {
+    /// The entity info for annotations from person detection prediction result.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PersonEntity {
+        /// Entity id.
+        #[prost(int64, tag = "1")]
+        pub person_entity_id: i64,
+    }
+    /// The entity info for annotations from PPE detection prediction result.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PpeEntity {
+        /// Label id.
+        #[prost(int64, tag = "1")]
+        pub ppe_label_id: i64,
+        /// Human readable string of the label (Examples: helmet, glove, mask).
+        #[prost(string, tag = "2")]
+        pub ppe_label_string: ::prost::alloc::string::String,
+        /// Human readable string of the super category label (Examples: head_cover,
+        /// hands_cover, face_cover).
+        #[prost(string, tag = "3")]
+        pub ppe_supercategory_label_string: ::prost::alloc::string::String,
+        /// Entity id.
+        #[prost(int64, tag = "4")]
+        pub ppe_entity_id: i64,
+    }
+    /// Bounding Box in the normalized coordinates.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct NormalizedBoundingBox {
+        /// Min in x coordinate.
+        #[prost(float, tag = "1")]
+        pub xmin: f32,
+        /// Min in y coordinate.
+        #[prost(float, tag = "2")]
+        pub ymin: f32,
+        /// Width of the bounding box.
+        #[prost(float, tag = "3")]
+        pub width: f32,
+        /// Height of the bounding box.
+        #[prost(float, tag = "4")]
+        pub height: f32,
+    }
+    /// PersonIdentified box contains the location and the entity info of the
+    /// person.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PersonIdentifiedBox {
+        /// An unique id for this box.
+        #[prost(int64, tag = "1")]
+        pub box_id: i64,
+        /// Bounding Box in the normalized coordinates.
+        #[prost(message, optional, tag = "2")]
+        pub normalized_bounding_box: ::core::option::Option<NormalizedBoundingBox>,
+        /// Confidence score associated with this box.
+        #[prost(float, tag = "3")]
+        pub confidence_score: f32,
+        /// Person entity info.
+        #[prost(message, optional, tag = "4")]
+        pub person_entity: ::core::option::Option<PersonEntity>,
+    }
+    /// PPEIdentified box contains the location and the entity info of the PPE.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PpeIdentifiedBox {
+        /// An unique id for this box.
+        #[prost(int64, tag = "1")]
+        pub box_id: i64,
+        /// Bounding Box in the normalized coordinates.
+        #[prost(message, optional, tag = "2")]
+        pub normalized_bounding_box: ::core::option::Option<NormalizedBoundingBox>,
+        /// Confidence score associated with this box.
+        #[prost(float, tag = "3")]
+        pub confidence_score: f32,
+        /// PPE entity info.
+        #[prost(message, optional, tag = "4")]
+        pub ppe_entity: ::core::option::Option<PpeEntity>,
+    }
+    /// Detected Person contains the detected person and their associated
+    /// ppes and their protecting information.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DetectedPerson {
+        /// The id of detected person.
+        #[prost(int64, tag = "1")]
+        pub person_id: i64,
+        /// The info of detected person identified box.
+        #[prost(message, optional, tag = "2")]
+        pub detected_person_identified_box: ::core::option::Option<PersonIdentifiedBox>,
+        /// The info of detected person associated ppe identified boxes.
+        #[prost(message, repeated, tag = "3")]
+        pub detected_ppe_identified_boxes: ::prost::alloc::vec::Vec<PpeIdentifiedBox>,
+        /// Coverage score for each body part.
+        /// Coverage score for face.
+        #[prost(float, optional, tag = "4")]
+        pub face_coverage_score: ::core::option::Option<f32>,
+        /// Coverage score for eyes.
+        #[prost(float, optional, tag = "5")]
+        pub eyes_coverage_score: ::core::option::Option<f32>,
+        /// Coverage score for head.
+        #[prost(float, optional, tag = "6")]
+        pub head_coverage_score: ::core::option::Option<f32>,
+        /// Coverage score for hands.
+        #[prost(float, optional, tag = "7")]
+        pub hands_coverage_score: ::core::option::Option<f32>,
+        /// Coverage score for body.
+        #[prost(float, optional, tag = "8")]
+        pub body_coverage_score: ::core::option::Option<f32>,
+        /// Coverage score for feet.
+        #[prost(float, optional, tag = "9")]
+        pub feet_coverage_score: ::core::option::Option<f32>,
+    }
+}
+/// Prediction output format for Generic Object Detection.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ObjectDetectionPredictionResult {
+    /// Current timestamp.
+    #[prost(message, optional, tag = "1")]
+    pub current_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// A list of identified boxes.
+    #[prost(message, repeated, tag = "2")]
+    pub identified_boxes: ::prost::alloc::vec::Vec<
+        object_detection_prediction_result::IdentifiedBox,
+    >,
+}
+/// Nested message and enum types in `ObjectDetectionPredictionResult`.
+pub mod object_detection_prediction_result {
+    /// The entity info for annotations from object detection prediction result.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Entity {
+        /// Label id.
+        #[prost(int64, tag = "1")]
+        pub label_id: i64,
+        /// Human readable string of the label.
+        #[prost(string, tag = "2")]
+        pub label_string: ::prost::alloc::string::String,
+    }
+    /// Identified box contains location and the entity of the object.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IdentifiedBox {
+        /// An unique id for this box.
+        #[prost(int64, tag = "1")]
+        pub box_id: i64,
+        /// Bounding Box in the normalized coordinates.
+        #[prost(message, optional, tag = "2")]
+        pub normalized_bounding_box: ::core::option::Option<
+            identified_box::NormalizedBoundingBox,
+        >,
+        /// Confidence score associated with this box.
+        #[prost(float, tag = "3")]
+        pub confidence_score: f32,
+        /// Entity of this box.
+        #[prost(message, optional, tag = "4")]
+        pub entity: ::core::option::Option<Entity>,
+    }
+    /// Nested message and enum types in `IdentifiedBox`.
+    pub mod identified_box {
+        /// Bounding Box in the normalized coordinates.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct NormalizedBoundingBox {
+            /// Min in x coordinate.
+            #[prost(float, tag = "1")]
+            pub xmin: f32,
+            /// Min in y coordinate.
+            #[prost(float, tag = "2")]
+            pub ymin: f32,
+            /// Width of the bounding box.
+            #[prost(float, tag = "3")]
+            pub width: f32,
+            /// Height of the bounding box.
+            #[prost(float, tag = "4")]
+            pub height: f32,
+        }
+    }
+}
+/// Prediction output format for Image Object Detection.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImageObjectDetectionPredictionResult {
+    /// The resource IDs of the AnnotationSpecs that had been identified, ordered
+    /// by the confidence score descendingly. It is the id segment instead of full
+    /// resource name.
+    #[prost(int64, repeated, tag = "1")]
+    pub ids: ::prost::alloc::vec::Vec<i64>,
+    /// The display names of the AnnotationSpecs that had been identified, order
+    /// matches the IDs.
+    #[prost(string, repeated, tag = "2")]
+    pub display_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The Model's confidences in correctness of the predicted IDs, higher value
+    /// means higher confidence. Order matches the Ids.
+    #[prost(float, repeated, tag = "3")]
+    pub confidences: ::prost::alloc::vec::Vec<f32>,
+    /// Bounding boxes, i.e. the rectangles over the image, that pinpoint
+    /// the found AnnotationSpecs. Given in order that matches the IDs. Each
+    /// bounding box is an array of 4 numbers `xMin`, `xMax`, `yMin`, and
+    /// `yMax`, which represent the extremal coordinates of the box. They are
+    /// relative to the image size, and the point 0,0 is in the top left
+    /// of the image.
+    #[prost(message, repeated, tag = "4")]
+    pub bboxes: ::prost::alloc::vec::Vec<::prost_types::ListValue>,
+}
+/// Prediction output format for Image and Text Classification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ClassificationPredictionResult {
+    /// The resource IDs of the AnnotationSpecs that had been identified.
+    #[prost(int64, repeated, tag = "1")]
+    pub ids: ::prost::alloc::vec::Vec<i64>,
+    /// The display names of the AnnotationSpecs that had been identified, order
+    /// matches the IDs.
+    #[prost(string, repeated, tag = "2")]
+    pub display_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The Model's confidences in correctness of the predicted IDs, higher value
+    /// means higher confidence. Order matches the Ids.
+    #[prost(float, repeated, tag = "3")]
+    pub confidences: ::prost::alloc::vec::Vec<f32>,
+}
+/// Prediction output format for Image Segmentation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImageSegmentationPredictionResult {
+    /// A PNG image where each pixel in the mask represents the category in which
+    /// the pixel in the original image was predicted to belong to. The size of
+    /// this image will be the same as the original image. The mapping between the
+    /// AnntoationSpec and the color can be found in model's metadata. The model
+    /// will choose the most likely category and if none of the categories reach
+    /// the confidence threshold, the pixel will be marked as background.
+    #[prost(string, tag = "1")]
+    pub category_mask: ::prost::alloc::string::String,
+    /// A one channel image which is encoded as an 8bit lossless PNG. The size of
+    /// the image will be the same as the original image. For a specific pixel,
+    /// darker color means less confidence in correctness of the cateogry in the
+    /// categoryMask for the corresponding pixel. Black means no confidence and
+    /// white means complete confidence.
+    #[prost(string, tag = "2")]
+    pub confidence_mask: ::prost::alloc::string::String,
+}
+/// Prediction output format for Video Action Recognition.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VideoActionRecognitionPredictionResult {
+    /// The beginning, inclusive, of the video's time segment in which the
+    /// actions have been identified.
+    #[prost(message, optional, tag = "1")]
+    pub segment_start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The end, inclusive, of the video's time segment in which the actions have
+    /// been identified. Particularly, if the end is the same as the start, it
+    /// means the identification happens on a specific video frame.
+    #[prost(message, optional, tag = "2")]
+    pub segment_end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// All of the actions identified in the time range.
+    #[prost(message, repeated, tag = "3")]
+    pub actions: ::prost::alloc::vec::Vec<
+        video_action_recognition_prediction_result::IdentifiedAction,
+    >,
+}
+/// Nested message and enum types in `VideoActionRecognitionPredictionResult`.
+pub mod video_action_recognition_prediction_result {
+    /// Each IdentifiedAction is one particular identification of an action
+    /// specified with the AnnotationSpec id, display_name and the associated
+    /// confidence score.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IdentifiedAction {
+        /// The resource ID of the AnnotationSpec that had been identified.
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+        /// The display name of the AnnotationSpec that had been identified.
+        #[prost(string, tag = "2")]
+        pub display_name: ::prost::alloc::string::String,
+        /// The Model's confidence in correction of this identification, higher
+        /// value means higher confidence.
+        #[prost(float, tag = "3")]
+        pub confidence: f32,
+    }
+}
+/// Prediction output format for Video Object Tracking.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VideoObjectTrackingPredictionResult {
+    /// The beginning, inclusive, of the video's time segment in which the
+    /// current identifications happens.
+    #[prost(message, optional, tag = "1")]
+    pub segment_start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The end, inclusive, of the video's time segment in which the current
+    /// identifications happen. Particularly, if the end is the same as the start,
+    /// it means the identifications happen on a specific video frame.
+    #[prost(message, optional, tag = "2")]
+    pub segment_end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// All of the objects detected in the specified time range.
+    #[prost(message, repeated, tag = "3")]
+    pub objects: ::prost::alloc::vec::Vec<
+        video_object_tracking_prediction_result::DetectedObject,
+    >,
+}
+/// Nested message and enum types in `VideoObjectTrackingPredictionResult`.
+pub mod video_object_tracking_prediction_result {
+    /// Boundingbox for detected object. I.e. the rectangle over the video frame
+    /// pinpointing the found AnnotationSpec. The coordinates are relative to the
+    /// frame size, and the point 0,0 is in the top left of the frame.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BoundingBox {
+        /// The leftmost coordinate of the bounding box.
+        #[prost(float, tag = "1")]
+        pub x_min: f32,
+        /// The rightmost coordinate of the bounding box.
+        #[prost(float, tag = "2")]
+        pub x_max: f32,
+        /// The topmost coordinate of the bounding box.
+        #[prost(float, tag = "3")]
+        pub y_min: f32,
+        /// The bottommost coordinate of the bounding box.
+        #[prost(float, tag = "4")]
+        pub y_max: f32,
+    }
+    /// Each DetectedObject is one particular identification of an object
+    /// specified with the AnnotationSpec id and display_name, the bounding box,
+    /// the associated confidence score and the corresponding track_id.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DetectedObject {
+        /// The resource ID of the AnnotationSpec that had been identified.
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+        /// The display name of the AnnotationSpec that had been identified.
+        #[prost(string, tag = "2")]
+        pub display_name: ::prost::alloc::string::String,
+        /// Boundingbox.
+        #[prost(message, optional, tag = "3")]
+        pub bounding_box: ::core::option::Option<BoundingBox>,
+        /// The Model's confidence in correction of this identification, higher
+        /// value means higher confidence.
+        #[prost(float, tag = "4")]
+        pub confidence: f32,
+        /// The same object may be identified on muitiple frames which are typical
+        /// adjacent. The set of frames where a particular object has been detected
+        /// form a track. This track_id can be used to trace down all frames for an
+        /// detected object.
+        #[prost(int64, tag = "5")]
+        pub track_id: i64,
+    }
+}
+/// Prediction output format for Video Classification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VideoClassificationPredictionResult {
+    /// The beginning, inclusive, of the video's time segment in which the
+    /// classifications have been identified.
+    #[prost(message, optional, tag = "1")]
+    pub segment_start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The end, inclusive, of the video's time segment in which the
+    /// classifications have been identified. Particularly, if the end is the same
+    /// as the start, it means the identification happens on a specific video
+    /// frame.
+    #[prost(message, optional, tag = "2")]
+    pub segment_end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// All of the classifications identified in the time range.
+    #[prost(message, repeated, tag = "3")]
+    pub classifications: ::prost::alloc::vec::Vec<
+        video_classification_prediction_result::IdentifiedClassification,
+    >,
+}
+/// Nested message and enum types in `VideoClassificationPredictionResult`.
+pub mod video_classification_prediction_result {
+    /// Each IdentifiedClassification is one particular identification of an
+    /// classification specified with the AnnotationSpec id and display_name,
+    /// and the associated confidence score.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IdentifiedClassification {
+        /// The resource ID of the AnnotationSpec that had been identified.
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+        /// The display name of the AnnotationSpec that had been identified.
+        #[prost(string, tag = "2")]
+        pub display_name: ::prost::alloc::string::String,
+        /// The Model's confidence in correction of this identification, higher
+        /// value means higher confidence.
+        #[prost(float, tag = "3")]
+        pub confidence: f32,
+    }
+}
+/// The prediction result proto for occupancy counting.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OccupancyCountingPredictionResult {
+    /// Current timestamp.
+    #[prost(message, optional, tag = "1")]
+    pub current_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// A list of identified boxes.
+    #[prost(message, repeated, tag = "2")]
+    pub identified_boxes: ::prost::alloc::vec::Vec<
+        occupancy_counting_prediction_result::IdentifiedBox,
+    >,
+    /// Detection statistics.
+    #[prost(message, optional, tag = "3")]
+    pub stats: ::core::option::Option<occupancy_counting_prediction_result::Stats>,
+    /// Track related information. All the tracks that are live at this timestamp.
+    /// It only exists if tracking is enabled.
+    #[prost(message, repeated, tag = "4")]
+    pub track_info: ::prost::alloc::vec::Vec<
+        occupancy_counting_prediction_result::TrackInfo,
+    >,
+    /// Dwell time related information. All the tracks that are live in a given
+    /// zone with a start and end dwell time timestamp
+    #[prost(message, repeated, tag = "5")]
+    pub dwell_time_info: ::prost::alloc::vec::Vec<
+        occupancy_counting_prediction_result::DwellTimeInfo,
+    >,
+    /// The presentation timestamp of the frame.
+    #[prost(int64, optional, tag = "6")]
+    pub pts: ::core::option::Option<i64>,
+}
+/// Nested message and enum types in `OccupancyCountingPredictionResult`.
+pub mod occupancy_counting_prediction_result {
+    /// The entity info for annotations from occupancy counting operator.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Entity {
+        /// Label id.
+        #[prost(int64, tag = "1")]
+        pub label_id: i64,
+        /// Human readable string of the label.
+        #[prost(string, tag = "2")]
+        pub label_string: ::prost::alloc::string::String,
+    }
+    /// Identified box contains location and the entity of the object.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IdentifiedBox {
+        /// An unique id for this box.
+        #[prost(int64, tag = "1")]
+        pub box_id: i64,
+        /// Bounding Box in the normalized coordinates.
+        #[prost(message, optional, tag = "2")]
+        pub normalized_bounding_box: ::core::option::Option<
+            identified_box::NormalizedBoundingBox,
+        >,
+        /// Confidence score associated with this box.
+        #[prost(float, tag = "3")]
+        pub score: f32,
+        /// Entity of this box.
+        #[prost(message, optional, tag = "4")]
+        pub entity: ::core::option::Option<Entity>,
+        /// An unique id to identify a track. It should be consistent across frames.
+        /// It only exists if tracking is enabled.
+        #[prost(int64, tag = "5")]
+        pub track_id: i64,
+    }
+    /// Nested message and enum types in `IdentifiedBox`.
+    pub mod identified_box {
+        /// Bounding Box in the normalized coordinates.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct NormalizedBoundingBox {
+            /// Min in x coordinate.
+            #[prost(float, tag = "1")]
+            pub xmin: f32,
+            /// Min in y coordinate.
+            #[prost(float, tag = "2")]
+            pub ymin: f32,
+            /// Width of the bounding box.
+            #[prost(float, tag = "3")]
+            pub width: f32,
+            /// Height of the bounding box.
+            #[prost(float, tag = "4")]
+            pub height: f32,
+        }
+    }
+    /// The statistics info for annotations from occupancy counting operator.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Stats {
+        /// Counts of the full frame.
+        #[prost(message, repeated, tag = "1")]
+        pub full_frame_count: ::prost::alloc::vec::Vec<stats::ObjectCount>,
+        /// Crossing line counts.
+        #[prost(message, repeated, tag = "2")]
+        pub crossing_line_counts: ::prost::alloc::vec::Vec<stats::CrossingLineCount>,
+        /// Active zone counts.
+        #[prost(message, repeated, tag = "3")]
+        pub active_zone_counts: ::prost::alloc::vec::Vec<stats::ActiveZoneCount>,
+    }
+    /// Nested message and enum types in `Stats`.
+    pub mod stats {
+        /// The object info and instant count for annotations from occupancy counting
+        /// operator.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ObjectCount {
+            /// Entity of this object.
+            #[prost(message, optional, tag = "1")]
+            pub entity: ::core::option::Option<super::Entity>,
+            /// Count of the object.
+            #[prost(int32, tag = "2")]
+            pub count: i32,
+        }
+        /// The object info and accumulated count for annotations from occupancy
+        /// counting operator.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct AccumulatedObjectCount {
+            /// The start time of the accumulated count.
+            #[prost(message, optional, tag = "1")]
+            pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+            /// The object count for the accumulated count.
+            #[prost(message, optional, tag = "2")]
+            pub object_count: ::core::option::Option<ObjectCount>,
+        }
+        /// Message for Crossing line count.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct CrossingLineCount {
+            /// Line annotation from the user.
+            #[prost(message, optional, tag = "1")]
+            pub annotation: ::core::option::Option<super::super::StreamAnnotation>,
+            /// The direction that follows the right hand rule.
+            #[prost(message, repeated, tag = "2")]
+            pub positive_direction_counts: ::prost::alloc::vec::Vec<ObjectCount>,
+            /// The direction that is opposite to the right hand rule.
+            #[prost(message, repeated, tag = "3")]
+            pub negative_direction_counts: ::prost::alloc::vec::Vec<ObjectCount>,
+            /// The accumulated positive count.
+            #[prost(message, repeated, tag = "4")]
+            pub accumulated_positive_direction_counts: ::prost::alloc::vec::Vec<
+                AccumulatedObjectCount,
+            >,
+            /// The accumulated negative count.
+            #[prost(message, repeated, tag = "5")]
+            pub accumulated_negative_direction_counts: ::prost::alloc::vec::Vec<
+                AccumulatedObjectCount,
+            >,
+        }
+        /// Message for the active zone count.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ActiveZoneCount {
+            /// Active zone annotation from the user.
+            #[prost(message, optional, tag = "1")]
+            pub annotation: ::core::option::Option<super::super::StreamAnnotation>,
+            /// Counts in the zone.
+            #[prost(message, repeated, tag = "2")]
+            pub counts: ::prost::alloc::vec::Vec<ObjectCount>,
+        }
+    }
+    /// The track info for annotations from occupancy counting operator.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TrackInfo {
+        /// An unique id to identify a track. It should be consistent across frames.
+        #[prost(string, tag = "1")]
+        pub track_id: ::prost::alloc::string::String,
+        /// Start timestamp of this track.
+        #[prost(message, optional, tag = "2")]
+        pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    }
+    /// The dwell time info for annotations from occupancy counting operator.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DwellTimeInfo {
+        /// An unique id to identify a track. It should be consistent across frames.
+        #[prost(string, tag = "1")]
+        pub track_id: ::prost::alloc::string::String,
+        /// The unique id for the zone in which the object is dwelling/waiting.
+        #[prost(string, tag = "2")]
+        pub zone_id: ::prost::alloc::string::String,
+        /// The beginning time when a dwelling object has been identified in a zone.
+        #[prost(message, optional, tag = "3")]
+        pub dwell_start_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// The end time when a dwelling object has exited in a zone.
+        #[prost(message, optional, tag = "4")]
+        pub dwell_end_time: ::core::option::Option<::prost_types::Timestamp>,
+    }
+}
+/// message about annotations about Vision AI stream resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamAnnotation {
+    /// ID of the annotation. It must be unique when used in the certain context.
+    /// For example, all the annotations to one input streams of a Vision AI
+    /// application.
+    #[prost(string, tag = "1")]
+    pub id: ::prost::alloc::string::String,
+    /// User-friendly name for the annotation.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The Vision AI stream resource name.
+    #[prost(string, tag = "3")]
+    pub source_stream: ::prost::alloc::string::String,
+    /// The actual type of Annotation.
+    #[prost(enumeration = "StreamAnnotationType", tag = "4")]
+    pub r#type: i32,
+    #[prost(oneof = "stream_annotation::AnnotationPayload", tags = "5, 6")]
+    pub annotation_payload: ::core::option::Option<stream_annotation::AnnotationPayload>,
+}
+/// Nested message and enum types in `StreamAnnotation`.
+pub mod stream_annotation {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum AnnotationPayload {
+        /// Annotation for type ACTIVE_ZONE
+        #[prost(message, tag = "5")]
+        ActiveZone(super::NormalizedPolygon),
+        /// Annotation for type CROSSING_LINE
+        #[prost(message, tag = "6")]
+        CrossingLine(super::NormalizedPolyline),
+    }
+}
+/// A wrapper of repeated StreamAnnotation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamAnnotations {
+    /// Multiple annotations.
+    #[prost(message, repeated, tag = "1")]
+    pub stream_annotations: ::prost::alloc::vec::Vec<StreamAnnotation>,
+}
+/// Normalized Polygon.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NormalizedPolygon {
+    /// The bounding polygon normalized vertices. Top left corner of the image
+    /// will be \[0, 0\].
+    #[prost(message, repeated, tag = "1")]
+    pub normalized_vertices: ::prost::alloc::vec::Vec<NormalizedVertex>,
+}
+/// Normalized Pplyline, which represents a curve consisting of connected
+/// straight-line segments.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NormalizedPolyline {
+    /// A sequence of vertices connected by straight lines.
+    #[prost(message, repeated, tag = "1")]
+    pub normalized_vertices: ::prost::alloc::vec::Vec<NormalizedVertex>,
+}
+/// A vertex represents a 2D point in the image.
+/// NOTE: the normalized vertex coordinates are relative to the original image
+/// and range from 0 to 1.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NormalizedVertex {
+    /// X coordinate.
+    #[prost(float, tag = "1")]
+    pub x: f32,
+    /// Y coordinate.
+    #[prost(float, tag = "2")]
+    pub y: f32,
+}
+/// Message of essential metadata of App Platform.
+/// This message is usually attached to a certain processor output annotation for
+/// customer to identify the source of the data.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AppPlatformMetadata {
+    /// The application resource name.
+    #[prost(string, tag = "1")]
+    pub application: ::prost::alloc::string::String,
+    /// The instance resource id. Instance is the nested resource of application
+    /// under collection 'instances'.
+    #[prost(string, tag = "2")]
+    pub instance_id: ::prost::alloc::string::String,
+    /// The node name of the application graph.
+    #[prost(string, tag = "3")]
+    pub node: ::prost::alloc::string::String,
+    /// The referred processor resource name of the application node.
+    #[prost(string, tag = "4")]
+    pub processor: ::prost::alloc::string::String,
+}
+/// For any cloud function based customer processing logic, customer's cloud
+/// function is expected to receive AppPlatformCloudFunctionRequest as request
+/// and send back AppPlatformCloudFunctionResponse as response.
+/// Message of request from AppPlatform to Cloud Function.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AppPlatformCloudFunctionRequest {
+    /// The metadata of the AppPlatform for customer to identify the source of the
+    /// payload.
+    #[prost(message, optional, tag = "1")]
+    pub app_platform_metadata: ::core::option::Option<AppPlatformMetadata>,
+    /// The actual annotations to be processed by the customized Cloud Function.
+    #[prost(message, repeated, tag = "2")]
+    pub annotations: ::prost::alloc::vec::Vec<
+        app_platform_cloud_function_request::StructedInputAnnotation,
+    >,
+}
+/// Nested message and enum types in `AppPlatformCloudFunctionRequest`.
+pub mod app_platform_cloud_function_request {
+    /// A general annotation message that uses struct format to represent different
+    /// concrete annotation protobufs.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct StructedInputAnnotation {
+        /// The ingestion time of the current annotation.
+        #[prost(int64, tag = "1")]
+        pub ingestion_time_micros: i64,
+        /// The struct format of the actual annotation.
+        #[prost(message, optional, tag = "2")]
+        pub annotation: ::core::option::Option<::prost_types::Struct>,
+    }
+}
+/// Message of the response from customer's Cloud Function to AppPlatform.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AppPlatformCloudFunctionResponse {
+    /// The modified annotations that is returned back to AppPlatform.
+    /// If the annotations fields are empty, then those annotations will be dropped
+    /// by AppPlatform.
+    #[prost(message, repeated, tag = "2")]
+    pub annotations: ::prost::alloc::vec::Vec<
+        app_platform_cloud_function_response::StructedOutputAnnotation,
+    >,
+    /// If set to true, AppPlatform will use original annotations instead of
+    /// dropping them, even if it is empty in the annotations filed.
+    #[prost(bool, tag = "3")]
+    pub annotation_passthrough: bool,
+    /// The event notifications that is returned back to AppPlatform. Typically it
+    /// will then be configured to be consumed/forwared to a operator that handles
+    /// events, such as Pub/Sub operator.
+    #[prost(message, repeated, tag = "4")]
+    pub events: ::prost::alloc::vec::Vec<AppPlatformEventBody>,
+}
+/// Nested message and enum types in `AppPlatformCloudFunctionResponse`.
+pub mod app_platform_cloud_function_response {
+    /// A general annotation message that uses struct format to represent different
+    /// concrete annotation protobufs.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct StructedOutputAnnotation {
+        /// The struct format of the actual annotation.
+        #[prost(message, optional, tag = "1")]
+        pub annotation: ::core::option::Option<::prost_types::Struct>,
+    }
+}
+/// Message of content of appPlatform event
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AppPlatformEventBody {
+    /// Human readable string of the event like "There are more than 6 people in
+    /// the scene". or "Shelf is empty!".
+    #[prost(string, tag = "1")]
+    pub event_message: ::prost::alloc::string::String,
+    /// For the case of Pub/Sub, it will be stored in the message attributes.
+    /// ​​pubsub.proto
+    #[prost(message, optional, tag = "2")]
+    pub payload: ::core::option::Option<::prost_types::Struct>,
+    /// User defined Event Id, used to classify event, within a delivery interval,
+    /// events from the same application instance with the same id will be
+    /// de-duplicated & only first one will be sent out. Empty event_id will be
+    /// treated as "".
+    #[prost(string, tag = "3")]
+    pub event_id: ::prost::alloc::string::String,
+}
+/// Enum describing all possible types of a stream annotation.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum StreamAnnotationType {
+    /// Type UNSPECIFIED.
+    Unspecified = 0,
+    /// active_zone annotation defines a polygon on top of the content from an
+    /// image/video based stream, following processing will only focus on the
+    /// content inside the active zone.
+    ActiveZone = 1,
+    /// crossing_line annotation defines a polyline on top of the content from an
+    /// image/video based Vision AI stream, events happening across the line will
+    /// be captured. For example, the counts of people who goes acroos the line
+    /// in Occupancy Analytic Processor.
+    CrossingLine = 2,
+}
+impl StreamAnnotationType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            StreamAnnotationType::Unspecified => "STREAM_ANNOTATION_TYPE_UNSPECIFIED",
+            StreamAnnotationType::ActiveZone => "STREAM_ANNOTATION_TYPE_ACTIVE_ZONE",
+            StreamAnnotationType::CrossingLine => "STREAM_ANNOTATION_TYPE_CROSSING_LINE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "STREAM_ANNOTATION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "STREAM_ANNOTATION_TYPE_ACTIVE_ZONE" => Some(Self::ActiveZone),
+            "STREAM_ANNOTATION_TYPE_CROSSING_LINE" => Some(Self::CrossingLine),
+            _ => None,
         }
     }
 }
@@ -13959,6 +10357,3608 @@ pub mod warehouse_client {
                     GrpcMethod::new(
                         "google.cloud.visionai.v1.Warehouse",
                         "ViewCollectionItems",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// HealthCheckRequest is the request message for Check.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HealthCheckRequest {
+    /// The parent of the resource.
+    #[prost(string, tag = "1")]
+    pub cluster: ::prost::alloc::string::String,
+}
+/// HealthCheckResponse is the response message for Check.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HealthCheckResponse {
+    /// Indicates whether the cluster is in healthy state or not.
+    #[prost(bool, tag = "1")]
+    pub healthy: bool,
+    /// Reason of why the cluster is in unhealthy state.
+    #[prost(string, tag = "2")]
+    pub reason: ::prost::alloc::string::String,
+    /// Other information of the cluster client may be interested.
+    #[prost(message, optional, tag = "3")]
+    pub cluster_info: ::core::option::Option<ClusterInfo>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ClusterInfo {
+    /// The number of active streams in the cluster.
+    #[prost(int32, tag = "1")]
+    pub streams_count: i32,
+    /// The number of active processes in the cluster.
+    #[prost(int32, tag = "2")]
+    pub processes_count: i32,
+}
+/// Generated client implementations.
+pub mod health_check_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// HealthCheckService provides an interface for Vertex AI Vision Cluster Health
+    /// Check.
+    #[derive(Debug, Clone)]
+    pub struct HealthCheckServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> HealthCheckServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> HealthCheckServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            HealthCheckServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// HealthCheck method checks the health status of the cluster.
+        pub async fn health_check(
+            &mut self,
+            request: impl tonic::IntoRequest<super::HealthCheckRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::HealthCheckResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.HealthCheckService/HealthCheck",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.HealthCheckService",
+                        "HealthCheck",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Message for DeleteApplicationInstance Response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteApplicationInstancesResponse {}
+/// Message for CreateApplicationInstance Response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateApplicationInstancesResponse {}
+/// Message for UpdateApplicationInstances Response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateApplicationInstancesResponse {}
+/// Message for adding stream input to an Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateApplicationInstancesRequest {
+    /// Required. the name of the application to retrieve.
+    /// Format:
+    /// "projects/{project}/locations/{location}/applications/{application}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The resources being created.
+    #[prost(message, repeated, tag = "2")]
+    pub application_instances: ::prost::alloc::vec::Vec<ApplicationInstance>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "4")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for removing stream input from an Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteApplicationInstancesRequest {
+    /// Required. the name of the application to retrieve.
+    /// Format:
+    /// "projects/{project}/locations/{location}/applications/{application}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Id of the requesting object.
+    #[prost(string, repeated, tag = "2")]
+    pub instance_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// RPC Request Messages.
+/// Message for DeployApplication Response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeployApplicationResponse {}
+/// Message for UndeployApplication Response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UndeployApplicationResponse {}
+/// Message for RemoveApplicationStreamInput Response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RemoveApplicationStreamInputResponse {}
+/// Message for AddApplicationStreamInput Response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AddApplicationStreamInputResponse {}
+/// Message for AddApplicationStreamInput Response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateApplicationStreamInputResponse {}
+/// Message for requesting list of Applications.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListApplicationsRequest {
+    /// Required. Parent value for ListApplicationsRequest.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Message for response to listing Applications.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListApplicationsResponse {
+    /// The list of Application.
+    #[prost(message, repeated, tag = "1")]
+    pub applications: ::prost::alloc::vec::Vec<Application>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Message for getting a Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetApplicationRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Message for creating a Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateApplicationRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting object.
+    #[prost(string, tag = "2")]
+    pub application_id: ::prost::alloc::string::String,
+    /// Required. The resource being created.
+    #[prost(message, optional, tag = "3")]
+    pub application: ::core::option::Option<Application>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "4")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for updating an Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateApplicationRequest {
+    /// Optional. Field mask is used to specify the fields to be overwritten in the
+    /// Application resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The resource being updated.
+    #[prost(message, optional, tag = "2")]
+    pub application: ::core::option::Option<Application>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for deleting an Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteApplicationRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes after the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Optional. If set to true, any instances and drafts from this application
+    /// will also be deleted. (Otherwise, the request will only work if the
+    /// application has no instances and drafts.)
+    #[prost(bool, tag = "3")]
+    pub force: bool,
+}
+/// Message for deploying an Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeployApplicationRequest {
+    /// Required. the name of the application to retrieve.
+    /// Format:
+    /// "projects/{project}/locations/{location}/applications/{application}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// If set, validate the request and preview the application graph, but do not
+    /// actually deploy it.
+    #[prost(bool, tag = "2")]
+    pub validate_only: bool,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Optional. Whether or not to enable monitoring for the application on
+    /// deployment.
+    #[prost(bool, tag = "4")]
+    pub enable_monitoring: bool,
+}
+/// Message for undeploying an Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UndeployApplicationRequest {
+    /// Required. the name of the application to retrieve.
+    /// Format:
+    /// "projects/{project}/locations/{location}/applications/{application}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message about a single stream input config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApplicationStreamInput {
+    #[prost(message, optional, tag = "1")]
+    pub stream_with_annotation: ::core::option::Option<StreamWithAnnotation>,
+}
+/// Message for adding stream input to an Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AddApplicationStreamInputRequest {
+    /// Required. the name of the application to retrieve.
+    /// Format:
+    /// "projects/{project}/locations/{location}/applications/{application}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The stream inputs to add, the stream resource name is the key of each
+    /// StreamInput, and it must be unique within each application.
+    #[prost(message, repeated, tag = "2")]
+    pub application_stream_inputs: ::prost::alloc::vec::Vec<ApplicationStreamInput>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for updating stream input to an Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateApplicationStreamInputRequest {
+    /// Required. the name of the application to retrieve.
+    /// Format:
+    /// "projects/{project}/locations/{location}/applications/{application}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The stream inputs to update, the stream resource name is the key of each
+    /// StreamInput, and it must be unique within each application.
+    #[prost(message, repeated, tag = "2")]
+    pub application_stream_inputs: ::prost::alloc::vec::Vec<ApplicationStreamInput>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+    /// If true, UpdateApplicationStreamInput will insert stream input to
+    /// application even if the target stream is not included in the application.
+    #[prost(bool, tag = "4")]
+    pub allow_missing: bool,
+}
+/// Message for removing stream input from an Application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RemoveApplicationStreamInputRequest {
+    /// Required. the name of the application to retrieve.
+    /// Format:
+    /// "projects/{project}/locations/{location}/applications/{application}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The target stream to remove.
+    #[prost(message, repeated, tag = "2")]
+    pub target_stream_inputs: ::prost::alloc::vec::Vec<
+        remove_application_stream_input_request::TargetStreamInput,
+    >,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `RemoveApplicationStreamInputRequest`.
+pub mod remove_application_stream_input_request {
+    /// Message about target streamInput to remove.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TargetStreamInput {
+        #[prost(string, tag = "1")]
+        pub stream: ::prost::alloc::string::String,
+    }
+}
+/// Message for requesting list of Instances.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListInstancesRequest {
+    /// Required. Parent value for ListInstancesRequest.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Message for response to listing Instances.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListInstancesResponse {
+    /// The list of Instance.
+    #[prost(message, repeated, tag = "1")]
+    pub instances: ::prost::alloc::vec::Vec<Instance>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Message for getting a Instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetInstanceRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Message for requesting list of Drafts.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDraftsRequest {
+    /// Required. Parent value for ListDraftsRequest.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Message for response to listing Drafts.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDraftsResponse {
+    /// The list of Draft.
+    #[prost(message, repeated, tag = "1")]
+    pub drafts: ::prost::alloc::vec::Vec<Draft>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Message for getting a Draft.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDraftRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Message for creating a Draft.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateDraftRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting object.
+    #[prost(string, tag = "2")]
+    pub draft_id: ::prost::alloc::string::String,
+    /// Required. The resource being created.
+    #[prost(message, optional, tag = "3")]
+    pub draft: ::core::option::Option<Draft>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "4")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for updating a Draft.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateDraftRequest {
+    /// Optional. Field mask is used to specify the fields to be overwritten in the
+    /// Draft resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The resource being updated.
+    #[prost(message, optional, tag = "2")]
+    pub draft: ::core::option::Option<Draft>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+    /// If true, UpdateDraftRequest will create one resource if the target resource
+    /// doesn't exist, this time, the field_mask will be ignored.
+    #[prost(bool, tag = "4")]
+    pub allow_missing: bool,
+}
+/// Message for updating an ApplicationInstance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateApplicationInstancesRequest {
+    /// Required. the name of the application to retrieve.
+    /// Format:
+    /// "projects/{project}/locations/{location}/applications/{application}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    #[prost(message, repeated, tag = "2")]
+    pub application_instances: ::prost::alloc::vec::Vec<
+        update_application_instances_request::UpdateApplicationInstance,
+    >,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+    /// If true, Update Request will create one resource if the target resource
+    /// doesn't exist, this time, the field_mask will be ignored.
+    #[prost(bool, tag = "4")]
+    pub allow_missing: bool,
+}
+/// Nested message and enum types in `UpdateApplicationInstancesRequest`.
+pub mod update_application_instances_request {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct UpdateApplicationInstance {
+        /// Optional. Field mask is used to specify the fields to be overwritten in
+        /// the Draft resource by the update. The fields specified in the update_mask
+        /// are relative to the resource, not the full request. A field will be
+        /// overwritten if it is in the mask. If the user does not provide a mask
+        /// then all fields will be overwritten.
+        #[prost(message, optional, tag = "1")]
+        pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+        /// Required. The resource being updated.
+        #[prost(message, optional, tag = "2")]
+        pub instance: ::core::option::Option<super::Instance>,
+        /// Required. The id of the instance.
+        #[prost(string, tag = "3")]
+        pub instance_id: ::prost::alloc::string::String,
+    }
+}
+/// Message for deleting a Draft.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteDraftRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes after the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for requesting list of Processors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListProcessorsRequest {
+    /// Required. Parent value for ListProcessorsRequest.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Message for response to listing Processors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListProcessorsResponse {
+    /// The list of Processor.
+    #[prost(message, repeated, tag = "1")]
+    pub processors: ::prost::alloc::vec::Vec<Processor>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Request Message for listing Prebuilt Processors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPrebuiltProcessorsRequest {
+    /// Required. Parent path.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+}
+/// Response Message for listing Prebuilt Processors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPrebuiltProcessorsResponse {
+    /// The list of Processor.
+    #[prost(message, repeated, tag = "1")]
+    pub processors: ::prost::alloc::vec::Vec<Processor>,
+}
+/// Message for getting a Processor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetProcessorRequest {
+    /// Required. Name of the resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Message for creating a Processor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateProcessorRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting object.
+    #[prost(string, tag = "2")]
+    pub processor_id: ::prost::alloc::string::String,
+    /// Required. The resource being created.
+    #[prost(message, optional, tag = "3")]
+    pub processor: ::core::option::Option<Processor>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "4")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for updating a Processor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateProcessorRequest {
+    /// Optional. Field mask is used to specify the fields to be overwritten in the
+    /// Processor resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The resource being updated.
+    #[prost(message, optional, tag = "2")]
+    pub processor: ::core::option::Option<Processor>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for deleting a Processor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteProcessorRequest {
+    /// Required. Name of the resource
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes after the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message describing Application object
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Application {
+    /// name of resource
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. \[Output only\] Create timestamp
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. \[Output only\] Update timestamp
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Labels as key value pairs
+    #[prost(btree_map = "string, string", tag = "4")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Required. A user friendly display name for the solution.
+    #[prost(string, tag = "5")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A description for this application.
+    #[prost(string, tag = "6")]
+    pub description: ::prost::alloc::string::String,
+    /// Application graph configuration.
+    #[prost(message, optional, tag = "7")]
+    pub application_configs: ::core::option::Option<ApplicationConfigs>,
+    /// Output only. Application graph runtime info. Only exists when application
+    /// state equals to DEPLOYED.
+    #[prost(message, optional, tag = "8")]
+    pub runtime_info: ::core::option::Option<application::ApplicationRuntimeInfo>,
+    /// Output only. State of the application.
+    #[prost(enumeration = "application::State", tag = "9")]
+    pub state: i32,
+    /// Billing mode of the application.
+    #[prost(enumeration = "application::BillingMode", tag = "12")]
+    pub billing_mode: i32,
+}
+/// Nested message and enum types in `Application`.
+pub mod application {
+    /// Message storing the runtime information of the application.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ApplicationRuntimeInfo {
+        /// Timestamp when the engine be deployed
+        #[prost(message, optional, tag = "1")]
+        pub deploy_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// Globally created resources like warehouse dataschemas.
+        #[prost(message, repeated, tag = "3")]
+        pub global_output_resources: ::prost::alloc::vec::Vec<
+            application_runtime_info::GlobalOutputResource,
+        >,
+        /// Monitoring-related configuration for this application.
+        #[prost(message, optional, tag = "4")]
+        pub monitoring_config: ::core::option::Option<
+            application_runtime_info::MonitoringConfig,
+        >,
+    }
+    /// Nested message and enum types in `ApplicationRuntimeInfo`.
+    pub mod application_runtime_info {
+        /// Message about output resources from application.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct GlobalOutputResource {
+            /// The full resource name of the outputted resources.
+            #[prost(string, tag = "1")]
+            pub output_resource: ::prost::alloc::string::String,
+            /// The name of graph node who produces the output resource name.
+            /// For example:
+            /// output_resource:
+            /// /projects/123/locations/us-central1/corpora/my-corpus/dataSchemas/my-schema
+            /// producer_node: occupancy-count
+            #[prost(string, tag = "2")]
+            pub producer_node: ::prost::alloc::string::String,
+            /// The key of the output resource, it has to be unique within the same
+            /// producer node. One producer node can output several output resources,
+            /// the key can be used to match corresponding output resources.
+            #[prost(string, tag = "3")]
+            pub key: ::prost::alloc::string::String,
+        }
+        /// Monitoring-related configuration for an application.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct MonitoringConfig {
+            /// Whether this application has monitoring enabled.
+            #[prost(bool, tag = "1")]
+            pub enabled: bool,
+        }
+    }
+    /// State of the Application
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The default value. This value is used if the state is omitted.
+        Unspecified = 0,
+        /// State CREATED.
+        Created = 1,
+        /// State DEPLOYING.
+        Deploying = 2,
+        /// State DEPLOYED.
+        Deployed = 3,
+        /// State UNDEPLOYING.
+        Undeploying = 4,
+        /// State DELETED.
+        Deleted = 5,
+        /// State ERROR.
+        Error = 6,
+        /// State CREATING.
+        Creating = 7,
+        /// State Updating.
+        Updating = 8,
+        /// State Deleting.
+        Deleting = 9,
+        /// State Fixing.
+        Fixing = 10,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Created => "CREATED",
+                State::Deploying => "DEPLOYING",
+                State::Deployed => "DEPLOYED",
+                State::Undeploying => "UNDEPLOYING",
+                State::Deleted => "DELETED",
+                State::Error => "ERROR",
+                State::Creating => "CREATING",
+                State::Updating => "UPDATING",
+                State::Deleting => "DELETING",
+                State::Fixing => "FIXING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATED" => Some(Self::Created),
+                "DEPLOYING" => Some(Self::Deploying),
+                "DEPLOYED" => Some(Self::Deployed),
+                "UNDEPLOYING" => Some(Self::Undeploying),
+                "DELETED" => Some(Self::Deleted),
+                "ERROR" => Some(Self::Error),
+                "CREATING" => Some(Self::Creating),
+                "UPDATING" => Some(Self::Updating),
+                "DELETING" => Some(Self::Deleting),
+                "FIXING" => Some(Self::Fixing),
+                _ => None,
+            }
+        }
+    }
+    /// Billing mode of the Application
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum BillingMode {
+        /// The default value.
+        Unspecified = 0,
+        /// Pay as you go billing mode.
+        Payg = 1,
+        /// Monthly billing mode.
+        Monthly = 2,
+    }
+    impl BillingMode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                BillingMode::Unspecified => "BILLING_MODE_UNSPECIFIED",
+                BillingMode::Payg => "PAYG",
+                BillingMode::Monthly => "MONTHLY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "BILLING_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PAYG" => Some(Self::Payg),
+                "MONTHLY" => Some(Self::Monthly),
+                _ => None,
+            }
+        }
+    }
+}
+/// Message storing the graph of the application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApplicationConfigs {
+    /// A list of nodes  in the application graph.
+    #[prost(message, repeated, tag = "1")]
+    pub nodes: ::prost::alloc::vec::Vec<Node>,
+    /// Event-related configuration for this application.
+    #[prost(message, optional, tag = "3")]
+    pub event_delivery_config: ::core::option::Option<
+        application_configs::EventDeliveryConfig,
+    >,
+}
+/// Nested message and enum types in `ApplicationConfigs`.
+pub mod application_configs {
+    /// message storing the config for event delivery
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct EventDeliveryConfig {
+        /// The delivery channel for the event notification, only pub/sub topic is
+        /// supported now.
+        /// Example channel:
+        /// \[//pubsub.googleapis.com/projects/visionai-testing-stable/topics/test-topic\]
+        #[prost(string, tag = "1")]
+        pub channel: ::prost::alloc::string::String,
+        /// The expected delivery interval for the same event. The same event won't
+        /// be notified multiple times during this internal event that it is
+        /// happening multiple times during the period of time.The same event is
+        /// identified by <event_id, app_platform_metadata>.
+        #[prost(message, optional, tag = "2")]
+        pub minimal_delivery_interval: ::core::option::Option<::prost_types::Duration>,
+    }
+}
+/// Message describing node object.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Node {
+    /// Required. A unique name for the node.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// A user friendly display name for the node.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Node config.
+    #[prost(message, optional, tag = "3")]
+    pub node_config: ::core::option::Option<ProcessorConfig>,
+    /// Processor name refer to the chosen processor resource.
+    #[prost(string, tag = "4")]
+    pub processor: ::prost::alloc::string::String,
+    /// Parent node. Input node should not have parent node. For V1 Alpha1/Beta
+    /// only media warehouse node can have multiple parents, other types of nodes
+    /// will only have one parent.
+    #[prost(message, repeated, tag = "5")]
+    pub parents: ::prost::alloc::vec::Vec<node::InputEdge>,
+    #[prost(oneof = "node::StreamOutputConfig", tags = "6")]
+    pub stream_output_config: ::core::option::Option<node::StreamOutputConfig>,
+}
+/// Nested message and enum types in `Node`.
+pub mod node {
+    /// Message describing one edge pointing into a node.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct InputEdge {
+        /// The name of the parent node.
+        #[prost(string, tag = "1")]
+        pub parent_node: ::prost::alloc::string::String,
+        /// The connected output artifact of the parent node.
+        /// It can be omitted if target processor only has 1 output artifact.
+        #[prost(string, tag = "2")]
+        pub parent_output_channel: ::prost::alloc::string::String,
+        /// The connected input channel of the current node's processor.
+        /// It can be omitted if target processor only has 1 input channel.
+        #[prost(string, tag = "3")]
+        pub connected_input_channel: ::prost::alloc::string::String,
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum StreamOutputConfig {
+        /// By default, the output of the node will only be available to downstream
+        /// nodes. To consume the direct output from the application node, the output
+        /// must be sent to Vision AI Streams at first.
+        ///
+        /// By setting output_all_output_channels_to_stream to true, App Platform
+        /// will automatically send all the outputs of the current node to Vision AI
+        /// Stream resources (one stream per output channel). The output stream
+        /// resource will be created by App Platform automatically during deployment
+        /// and deleted after application un-deployment.
+        /// Note that this config applies to all the Application Instances.
+        ///
+        /// The output stream can be override at instance level by
+        /// configuring the `output_resources` section of Instance resource.
+        /// `producer_node` should be current node, `output_resource_binding` should
+        /// be the output channel name (or leave it blank if there is only 1 output
+        /// channel of the processor) and `output_resource` should be the target
+        /// output stream.
+        #[prost(bool, tag = "6")]
+        OutputAllOutputChannelsToStream(bool),
+    }
+}
+/// Message describing Draft object
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Draft {
+    /// name of resource
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. \[Output only\] Create timestamp
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. \[Output only\] Create timestamp
+    #[prost(message, optional, tag = "7")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Labels as key value pairs
+    #[prost(btree_map = "string, string", tag = "3")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Required. A user friendly display name for the solution.
+    #[prost(string, tag = "4")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A description for this application.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// The draft application configs which haven't been updated to an application.
+    #[prost(message, optional, tag = "6")]
+    pub draft_application_configs: ::core::option::Option<ApplicationConfigs>,
+}
+/// Message describing Instance object
+/// Next ID: 12
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Instance {
+    /// Output only. name of resource
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. \[Output only\] Create timestamp
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. \[Output only\] Update timestamp
+    #[prost(message, optional, tag = "8")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Labels as key value pairs
+    #[prost(btree_map = "string, string", tag = "3")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Required. A user friendly display name for the solution.
+    #[prost(string, tag = "4")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A description for this instance.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// The instance type for the current instance.
+    #[prost(enumeration = "instance::InstanceType", tag = "10")]
+    pub instance_type: i32,
+    /// The input resources for the current application instance.
+    /// For example:
+    /// input_resources:
+    /// visionai.googleapis.com/v1/projects/123/locations/us-central1/clusters/456/streams/stream-a
+    #[prost(message, repeated, tag = "6")]
+    pub input_resources: ::prost::alloc::vec::Vec<instance::InputResource>,
+    /// All the output resources associated to one application instance.
+    #[prost(message, repeated, tag = "7")]
+    pub output_resources: ::prost::alloc::vec::Vec<instance::OutputResource>,
+    /// State of the instance.
+    #[prost(enumeration = "instance::State", tag = "9")]
+    pub state: i32,
+}
+/// Nested message and enum types in `Instance`.
+pub mod instance {
+    /// Message of input resource used in one application instance.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct InputResource {
+        /// Data type for the current input resource.
+        #[prost(enumeration = "super::DataType", tag = "6")]
+        pub data_type: i32,
+        /// The name of graph node who receives the input resource.
+        /// For example:
+        /// input_resource:
+        /// visionai.googleapis.com/v1/projects/123/locations/us-central1/clusters/456/streams/input-stream-a
+        /// consumer_node: stream-input
+        #[prost(string, tag = "2")]
+        pub consumer_node: ::prost::alloc::string::String,
+        /// The specific input resource binding which will consume the current Input
+        /// Resource, can be ignored is there is only 1 input binding.
+        #[prost(string, tag = "3")]
+        pub input_resource_binding: ::prost::alloc::string::String,
+        /// Contains resource annotations.
+        #[prost(message, optional, tag = "5")]
+        pub annotations: ::core::option::Option<super::ResourceAnnotations>,
+        /// Required. Specify the input to the application instance.
+        #[prost(oneof = "input_resource::InputResourceInformation", tags = "1, 4")]
+        pub input_resource_information: ::core::option::Option<
+            input_resource::InputResourceInformation,
+        >,
+    }
+    /// Nested message and enum types in `InputResource`.
+    pub mod input_resource {
+        /// Required. Specify the input to the application instance.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum InputResourceInformation {
+            /// The direct input resource name.
+            /// If the instance type is STREAMING_PREDICTION, the input resource is in
+            /// format of
+            /// "projects/123/locations/us-central1/clusters/456/streams/stream-a".
+            /// If the instance type is BATCH_PREDICTION from Cloud Storage input
+            /// container, the input resource is in format of "gs://bucket-a".
+            #[prost(string, tag = "1")]
+            InputResource(::prost::alloc::string::String),
+            /// If the input resource is VisionAI Stream, the associated annotations
+            /// can be specified using annotated_stream instead.
+            #[prost(message, tag = "4")]
+            AnnotatedStream(super::super::StreamWithAnnotation),
+        }
+    }
+    /// Message of output resource used in one application instance.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct OutputResource {
+        /// The output resource name for the current application instance.
+        #[prost(string, tag = "1")]
+        pub output_resource: ::prost::alloc::string::String,
+        /// The name of graph node who produces the output resource name.
+        /// For example:
+        /// output_resource:
+        /// /projects/123/locations/us-central1/clusters/456/streams/output-application-789-stream-a-occupancy-counting
+        /// producer_node: occupancy-counting
+        #[prost(string, tag = "2")]
+        pub producer_node: ::prost::alloc::string::String,
+        /// The specific output resource binding which produces the current
+        /// OutputResource.
+        #[prost(string, tag = "4")]
+        pub output_resource_binding: ::prost::alloc::string::String,
+        /// Output only. Whether the output resource is temporary which means the
+        /// resource is generated during the deployment of the application. Temporary
+        /// resource will be deleted during the undeployment of the application.
+        #[prost(bool, tag = "3")]
+        pub is_temporary: bool,
+        /// Output only. Whether the output resource is created automatically by the
+        /// Vision AI App Platform.
+        #[prost(bool, tag = "5")]
+        pub autogen: bool,
+    }
+    /// All the supported instance types.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum InstanceType {
+        /// Unspecified instance type.
+        /// If the instance type is not specified, the default one is
+        /// STREAMING_PREDICTION.
+        Unspecified = 0,
+        /// Instance type for streaming prediction.
+        StreamingPrediction = 1,
+        /// Instance type for batch prediction.
+        BatchPrediction = 2,
+        /// Instance type for online prediction.
+        OnlinePrediction = 3,
+    }
+    impl InstanceType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                InstanceType::Unspecified => "INSTANCE_TYPE_UNSPECIFIED",
+                InstanceType::StreamingPrediction => "STREAMING_PREDICTION",
+                InstanceType::BatchPrediction => "BATCH_PREDICTION",
+                InstanceType::OnlinePrediction => "ONLINE_PREDICTION",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "INSTANCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "STREAMING_PREDICTION" => Some(Self::StreamingPrediction),
+                "BATCH_PREDICTION" => Some(Self::BatchPrediction),
+                "ONLINE_PREDICTION" => Some(Self::OnlinePrediction),
+                _ => None,
+            }
+        }
+    }
+    /// State of the Instance
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The default value. This value is used if the state is omitted.
+        Unspecified = 0,
+        /// State CREATING.
+        Creating = 1,
+        /// State CREATED.
+        Created = 2,
+        /// State DEPLOYING.
+        Deploying = 3,
+        /// State DEPLOYED.
+        Deployed = 4,
+        /// State UNDEPLOYING.
+        Undeploying = 5,
+        /// State DELETED.
+        Deleted = 6,
+        /// State ERROR.
+        Error = 7,
+        /// State Updating
+        Updating = 8,
+        /// State Deleting.
+        Deleting = 9,
+        /// State Fixing.
+        Fixing = 10,
+        /// State Finished.
+        Finished = 11,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Created => "CREATED",
+                State::Deploying => "DEPLOYING",
+                State::Deployed => "DEPLOYED",
+                State::Undeploying => "UNDEPLOYING",
+                State::Deleted => "DELETED",
+                State::Error => "ERROR",
+                State::Updating => "UPDATING",
+                State::Deleting => "DELETING",
+                State::Fixing => "FIXING",
+                State::Finished => "FINISHED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "CREATED" => Some(Self::Created),
+                "DEPLOYING" => Some(Self::Deploying),
+                "DEPLOYED" => Some(Self::Deployed),
+                "UNDEPLOYING" => Some(Self::Undeploying),
+                "DELETED" => Some(Self::Deleted),
+                "ERROR" => Some(Self::Error),
+                "UPDATING" => Some(Self::Updating),
+                "DELETING" => Some(Self::Deleting),
+                "FIXING" => Some(Self::Fixing),
+                "FINISHED" => Some(Self::Finished),
+                _ => None,
+            }
+        }
+    }
+}
+/// Message for creating a Instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApplicationInstance {
+    /// Required. Id of the requesting object.
+    #[prost(string, tag = "1")]
+    pub instance_id: ::prost::alloc::string::String,
+    /// Required. The resource being created.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<Instance>,
+}
+/// Message describing Processor object.
+/// Next ID: 19
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Processor {
+    /// name of resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. \[Output only\] Create timestamp.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. \[Output only\] Update timestamp.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Labels as key value pairs.
+    #[prost(btree_map = "string, string", tag = "4")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Required. A user friendly display name for the processor.
+    #[prost(string, tag = "5")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Illustrative sentences for describing the functionality of the processor.
+    #[prost(string, tag = "10")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. Processor Type.
+    #[prost(enumeration = "processor::ProcessorType", tag = "6")]
+    pub processor_type: i32,
+    /// Model Type.
+    #[prost(enumeration = "ModelType", tag = "13")]
+    pub model_type: i32,
+    /// Source info for customer created processor.
+    #[prost(message, optional, tag = "7")]
+    pub custom_processor_source_info: ::core::option::Option<CustomProcessorSourceInfo>,
+    /// Output only. State of the Processor.
+    #[prost(enumeration = "processor::ProcessorState", tag = "8")]
+    pub state: i32,
+    /// Output only. \[Output only\] The input / output specifications of a
+    /// processor, each type of processor has fixed input / output specs which
+    /// cannot be altered by customer.
+    #[prost(message, optional, tag = "11")]
+    pub processor_io_spec: ::core::option::Option<ProcessorIoSpec>,
+    /// Output only. The corresponding configuration can be used in the Application
+    /// to customize the behavior of the processor.
+    #[prost(string, tag = "14")]
+    pub configuration_typeurl: ::prost::alloc::string::String,
+    #[prost(
+        enumeration = "StreamAnnotationType",
+        repeated,
+        packed = "false",
+        tag = "15"
+    )]
+    pub supported_annotation_types: ::prost::alloc::vec::Vec<i32>,
+    /// Indicates if the processor supports post processing.
+    #[prost(bool, tag = "17")]
+    pub supports_post_processing: bool,
+    /// Which instance types this processor supports; if empty, this default to
+    /// STREAMING_PREDICTION.
+    #[prost(enumeration = "instance::InstanceType", repeated, tag = "18")]
+    pub supported_instance_types: ::prost::alloc::vec::Vec<i32>,
+}
+/// Nested message and enum types in `Processor`.
+pub mod processor {
+    /// Type
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ProcessorType {
+        /// Processor Type UNSPECIFIED.
+        Unspecified = 0,
+        /// Processor Type PRETRAINED.
+        /// Pretrained processor is developed by Vision AI App Platform with
+        /// state-of-the-art vision data processing functionality, like occupancy
+        /// counting or person blur. Pretrained processor is usually publicly
+        /// available.
+        Pretrained = 1,
+        /// Processor Type CUSTOM.
+        /// Custom processors are specialized processors which are either uploaded by
+        /// customers or imported from other GCP platform (for example Vertex AI).
+        /// Custom processor is only visible to the creator.
+        Custom = 2,
+        /// Processor Type CONNECTOR.
+        /// Connector processors are special processors which perform I/O for the
+        /// application, they do not processing the data but either deliver the data
+        /// to other processors or receive data from other processors.
+        Connector = 3,
+    }
+    impl ProcessorType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ProcessorType::Unspecified => "PROCESSOR_TYPE_UNSPECIFIED",
+                ProcessorType::Pretrained => "PRETRAINED",
+                ProcessorType::Custom => "CUSTOM",
+                ProcessorType::Connector => "CONNECTOR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "PROCESSOR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PRETRAINED" => Some(Self::Pretrained),
+                "CUSTOM" => Some(Self::Custom),
+                "CONNECTOR" => Some(Self::Connector),
+                _ => None,
+            }
+        }
+    }
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ProcessorState {
+        /// Unspecified Processor state.
+        Unspecified = 0,
+        /// Processor is being created (not ready for use).
+        Creating = 1,
+        /// Processor is and ready for use.
+        Active = 2,
+        /// Processor is being deleted (not ready for use).
+        Deleting = 3,
+        /// Processor deleted or creation failed .
+        Failed = 4,
+    }
+    impl ProcessorState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ProcessorState::Unspecified => "PROCESSOR_STATE_UNSPECIFIED",
+                ProcessorState::Creating => "CREATING",
+                ProcessorState::Active => "ACTIVE",
+                ProcessorState::Deleting => "DELETING",
+                ProcessorState::Failed => "FAILED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "PROCESSOR_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "ACTIVE" => Some(Self::Active),
+                "DELETING" => Some(Self::Deleting),
+                "FAILED" => Some(Self::Failed),
+                _ => None,
+            }
+        }
+    }
+}
+/// Message describing the input / output specifications of a processor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessorIoSpec {
+    /// For processors with input_channel_specs, the processor must be explicitly
+    /// connected to another processor.
+    #[prost(message, repeated, tag = "3")]
+    pub graph_input_channel_specs: ::prost::alloc::vec::Vec<
+        processor_io_spec::GraphInputChannelSpec,
+    >,
+    /// The output artifact specifications for the current processor.
+    #[prost(message, repeated, tag = "4")]
+    pub graph_output_channel_specs: ::prost::alloc::vec::Vec<
+        processor_io_spec::GraphOutputChannelSpec,
+    >,
+    /// The input resource that needs to be fed from the application instance.
+    #[prost(message, repeated, tag = "5")]
+    pub instance_resource_input_binding_specs: ::prost::alloc::vec::Vec<
+        processor_io_spec::InstanceResourceInputBindingSpec,
+    >,
+    /// The output resource that the processor will generate per instance.
+    /// Other than the explicitly listed output bindings here, all the processors'
+    /// GraphOutputChannels can be binded to stream resource. The bind name then is
+    /// the same as the GraphOutputChannel's name.
+    #[prost(message, repeated, tag = "6")]
+    pub instance_resource_output_binding_specs: ::prost::alloc::vec::Vec<
+        processor_io_spec::InstanceResourceOutputBindingSpec,
+    >,
+}
+/// Nested message and enum types in `ProcessorIOSpec`.
+pub mod processor_io_spec {
+    /// Message for input channel specification.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GraphInputChannelSpec {
+        /// The name of the current input channel.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        /// The data types of the current input channel.
+        /// When this field has more than 1 value, it means this input channel can be
+        /// connected to either of these different data types.
+        #[prost(enumeration = "super::DataType", tag = "2")]
+        pub data_type: i32,
+        /// If specified, only those detailed data types can be connected to the
+        /// processor. For example, jpeg stream for MEDIA, or PredictionResult proto
+        /// for PROTO type. If unspecified, then any proto is accepted.
+        #[prost(string, repeated, tag = "5")]
+        pub accepted_data_type_uris: ::prost::alloc::vec::Vec<
+            ::prost::alloc::string::String,
+        >,
+        /// Whether the current input channel is required by the processor.
+        /// For example, for a processor with required video input and optional audio
+        /// input, if video input is missing, the application will be rejected while
+        /// the audio input can be missing as long as the video input exists.
+        #[prost(bool, tag = "3")]
+        pub required: bool,
+        /// How many input edges can be connected to this input channel. 0 means
+        /// unlimited.
+        #[prost(int64, tag = "4")]
+        pub max_connection_allowed: i64,
+    }
+    /// Message for output channel specification.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GraphOutputChannelSpec {
+        /// The name of the current output channel.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        /// The data type of the current output channel.
+        #[prost(enumeration = "super::DataType", tag = "2")]
+        pub data_type: i32,
+        #[prost(string, tag = "3")]
+        pub data_type_uri: ::prost::alloc::string::String,
+    }
+    /// Message for instance resource channel specification.
+    /// External resources are virtual nodes which are not expressed in the
+    /// application graph. Each processor expresses its out-graph spec, so customer
+    /// is able to override the external source or destinations to the
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct InstanceResourceInputBindingSpec {
+        /// Name of the input binding, unique within the processor.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        #[prost(
+            oneof = "instance_resource_input_binding_spec::ResourceType",
+            tags = "2, 3"
+        )]
+        pub resource_type: ::core::option::Option<
+            instance_resource_input_binding_spec::ResourceType,
+        >,
+    }
+    /// Nested message and enum types in `InstanceResourceInputBindingSpec`.
+    pub mod instance_resource_input_binding_spec {
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum ResourceType {
+            /// The configuration proto that includes the Googleapis resources. I.e.
+            /// type.googleapis.com/google.cloud.vision.v1.StreamWithAnnotation
+            #[prost(string, tag = "2")]
+            ConfigTypeUri(::prost::alloc::string::String),
+            /// The direct type url of Googleapis resource. i.e.
+            /// type.googleapis.com/google.cloud.vision.v1.Asset
+            #[prost(string, tag = "3")]
+            ResourceTypeUri(::prost::alloc::string::String),
+        }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct InstanceResourceOutputBindingSpec {
+        /// Name of the output binding, unique within the processor.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        /// The resource type uri of the acceptable output resource.
+        #[prost(string, tag = "2")]
+        pub resource_type_uri: ::prost::alloc::string::String,
+        /// Whether the output resource needs to be explicitly set in the instance.
+        /// If it is false, the processor will automatically generate it if required.
+        #[prost(bool, tag = "3")]
+        pub explicit: bool,
+    }
+}
+/// Describes the source info for a custom processor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomProcessorSourceInfo {
+    /// The original product which holds the custom processor's functionality.
+    #[prost(enumeration = "custom_processor_source_info::SourceType", tag = "1")]
+    pub source_type: i32,
+    /// Output only. Additional info related to the imported custom processor.
+    /// Data is filled in by app platform during the processor creation.
+    #[prost(btree_map = "string, string", tag = "4")]
+    pub additional_info: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Model schema files which specifies the signature of the model.
+    /// For VERTEX_CUSTOM models, instances schema is required.
+    /// If instances schema is not specified during the processor creation,
+    /// VisionAI Platform will try to get it from Vertex, if it doesn't exist, the
+    /// creation will fail.
+    #[prost(message, optional, tag = "5")]
+    pub model_schema: ::core::option::Option<custom_processor_source_info::ModelSchema>,
+    /// The path where App Platform loads the artifacts for the custom processor.
+    #[prost(oneof = "custom_processor_source_info::ArtifactPath", tags = "2, 3")]
+    pub artifact_path: ::core::option::Option<
+        custom_processor_source_info::ArtifactPath,
+    >,
+}
+/// Nested message and enum types in `CustomProcessorSourceInfo`.
+pub mod custom_processor_source_info {
+    /// Message describes product recognizer artifact.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProductRecognizerArtifact {
+        /// Required. Resource name of RetailProductRecognitionIndex.
+        /// Format is
+        /// 'projects/*/locations/*/retailCatalogs/*/retailProductRecognitionIndexes/*'
+        #[prost(string, tag = "1")]
+        pub retail_product_recognition_index: ::prost::alloc::string::String,
+        /// Optional. The resource name of embedding model hosted in Vertex AI
+        /// Platform.
+        #[prost(string, tag = "2")]
+        pub vertex_model: ::prost::alloc::string::String,
+    }
+    /// The schema is defined as an OpenAPI 3.0.2 [Schema
+    /// Object](<https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject>).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ModelSchema {
+        /// Cloud Storage location to a YAML file that defines the format of a single
+        /// instance used in prediction and explanation requests.
+        #[prost(message, optional, tag = "1")]
+        pub instances_schema: ::core::option::Option<super::GcsSource>,
+        /// Cloud Storage location to a YAML file that defines the prediction and
+        /// explanation parameters.
+        #[prost(message, optional, tag = "2")]
+        pub parameters_schema: ::core::option::Option<super::GcsSource>,
+        /// Cloud Storage location to a YAML file that defines the format of a single
+        /// prediction or explanation.
+        #[prost(message, optional, tag = "3")]
+        pub predictions_schema: ::core::option::Option<super::GcsSource>,
+    }
+    /// Source type of the imported custom processor.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum SourceType {
+        /// Source type unspecified.
+        Unspecified = 0,
+        /// Custom processors coming from Vertex AutoML product.
+        VertexAutoml = 1,
+        /// Custom processors coming from general custom models from Vertex.
+        VertexCustom = 2,
+        /// Source for Product Recognizer.
+        ProductRecognizer = 3,
+    }
+    impl SourceType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                SourceType::Unspecified => "SOURCE_TYPE_UNSPECIFIED",
+                SourceType::VertexAutoml => "VERTEX_AUTOML",
+                SourceType::VertexCustom => "VERTEX_CUSTOM",
+                SourceType::ProductRecognizer => "PRODUCT_RECOGNIZER",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "SOURCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "VERTEX_AUTOML" => Some(Self::VertexAutoml),
+                "VERTEX_CUSTOM" => Some(Self::VertexCustom),
+                "PRODUCT_RECOGNIZER" => Some(Self::ProductRecognizer),
+                _ => None,
+            }
+        }
+    }
+    /// The path where App Platform loads the artifacts for the custom processor.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ArtifactPath {
+        /// The resource name original model hosted in the vertex AI platform.
+        #[prost(string, tag = "2")]
+        VertexModel(::prost::alloc::string::String),
+        /// Artifact for product recognizer.
+        #[prost(message, tag = "3")]
+        ProductRecognizerArtifact(ProductRecognizerArtifact),
+    }
+}
+/// Next ID: 35
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessorConfig {
+    /// Experimental configurations. Structured object containing not-yet-stable
+    /// processor parameters.
+    #[prost(message, optional, tag = "26")]
+    pub experimental_config: ::core::option::Option<::prost_types::Struct>,
+    #[prost(
+        oneof = "processor_config::ProcessorConfig",
+        tags = "9, 20, 10, 11, 12, 15, 13, 14, 17, 18, 19, 27, 21, 22, 25, 28"
+    )]
+    pub processor_config: ::core::option::Option<processor_config::ProcessorConfig>,
+}
+/// Nested message and enum types in `ProcessorConfig`.
+pub mod processor_config {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ProcessorConfig {
+        /// Configs of stream input processor.
+        #[prost(message, tag = "9")]
+        VideoStreamInputConfig(super::VideoStreamInputConfig),
+        /// Config of AI-enabled input devices.
+        #[prost(message, tag = "20")]
+        AiEnabledDevicesInputConfig(super::AiEnabledDevicesInputConfig),
+        /// Configs of media warehouse processor.
+        #[prost(message, tag = "10")]
+        MediaWarehouseConfig(super::MediaWarehouseConfig),
+        /// Configs of person blur processor.
+        #[prost(message, tag = "11")]
+        PersonBlurConfig(super::PersonBlurConfig),
+        /// Configs of occupancy count processor.
+        #[prost(message, tag = "12")]
+        OccupancyCountConfig(super::OccupancyCountConfig),
+        /// Configs of Person Vehicle Detection processor.
+        #[prost(message, tag = "15")]
+        PersonVehicleDetectionConfig(super::PersonVehicleDetectionConfig),
+        /// Configs of Vertex AutoML vision processor.
+        #[prost(message, tag = "13")]
+        VertexAutomlVisionConfig(super::VertexAutoMlVisionConfig),
+        /// Configs of Vertex AutoML video processor.
+        #[prost(message, tag = "14")]
+        VertexAutomlVideoConfig(super::VertexAutoMlVideoConfig),
+        /// Configs of Vertex Custom processor.
+        #[prost(message, tag = "17")]
+        VertexCustomConfig(super::VertexCustomConfig),
+        /// Configs of General Object Detection processor.
+        #[prost(message, tag = "18")]
+        GeneralObjectDetectionConfig(super::GeneralObjectDetectionConfig),
+        /// Configs of BigQuery processor.
+        #[prost(message, tag = "19")]
+        BigQueryConfig(super::BigQueryConfig),
+        /// Configs of Cloud Storage output processor.
+        #[prost(message, tag = "27")]
+        GcsOutputConfig(super::GcsOutputConfig),
+        /// Runtime configs of Product Recognizer processor.
+        #[prost(message, tag = "21")]
+        ProductRecognizerConfig(super::ProductRecognizerConfig),
+        /// Configs of personal_protective_equipment_detection_config
+        #[prost(message, tag = "22")]
+        PersonalProtectiveEquipmentDetectionConfig(
+            super::PersonalProtectiveEquipmentDetectionConfig,
+        ),
+        /// Runtime configs of Tag Recognizer processor.
+        #[prost(message, tag = "25")]
+        TagRecognizerConfig(super::TagRecognizerConfig),
+        /// Runtime configs of UniversalInput processor.
+        #[prost(message, tag = "28")]
+        UniversalInputConfig(super::UniversalInputConfig),
+    }
+}
+/// Message describing Vision AI stream with application specific annotations.
+/// All the StreamAnnotation object inside this message MUST have unique id.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamWithAnnotation {
+    /// Vision AI Stream resource name.
+    #[prost(string, tag = "1")]
+    pub stream: ::prost::alloc::string::String,
+    /// Annotations that will be applied to the whole application.
+    #[prost(message, repeated, tag = "2")]
+    pub application_annotations: ::prost::alloc::vec::Vec<StreamAnnotation>,
+    /// Annotations that will be applied to the specific node of the application.
+    /// If the same type of the annotations is applied to both application and
+    /// node, the node annotation will be added in addition to the global
+    /// application one.
+    /// For example, if there is one active zone annotation for the whole
+    /// application and one active zone annotation for the Occupancy Analytic
+    /// processor, then the Occupancy Analytic processor will have two active zones
+    /// defined.
+    #[prost(message, repeated, tag = "3")]
+    pub node_annotations: ::prost::alloc::vec::Vec<
+        stream_with_annotation::NodeAnnotation,
+    >,
+}
+/// Nested message and enum types in `StreamWithAnnotation`.
+pub mod stream_with_annotation {
+    /// Message describing annotations specific to application node.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct NodeAnnotation {
+        /// The node name of the application graph.
+        #[prost(string, tag = "1")]
+        pub node: ::prost::alloc::string::String,
+        /// The node specific stream annotations.
+        #[prost(message, repeated, tag = "2")]
+        pub annotations: ::prost::alloc::vec::Vec<super::StreamAnnotation>,
+    }
+}
+/// Message describing annotations specific to application node.
+/// This message is a duplication of StreamWithAnnotation.NodeAnnotation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApplicationNodeAnnotation {
+    /// The node name of the application graph.
+    #[prost(string, tag = "1")]
+    pub node: ::prost::alloc::string::String,
+    /// The node specific stream annotations.
+    #[prost(message, repeated, tag = "2")]
+    pub annotations: ::prost::alloc::vec::Vec<StreamAnnotation>,
+}
+/// Message describing general annotation for resources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResourceAnnotations {
+    /// Annotations that will be applied to the whole application.
+    #[prost(message, repeated, tag = "1")]
+    pub application_annotations: ::prost::alloc::vec::Vec<StreamAnnotation>,
+    /// Annotations that will be applied to the specific node of the application.
+    /// If the same type of the annotations is applied to both application and
+    /// node, the node annotation will be added in addition to the global
+    /// application one.
+    /// For example, if there is one active zone annotation for the whole
+    /// application and one active zone annotation for the Occupancy Analytic
+    /// processor, then the Occupancy Analytic processor will have two active zones
+    /// defined.
+    #[prost(message, repeated, tag = "2")]
+    pub node_annotations: ::prost::alloc::vec::Vec<ApplicationNodeAnnotation>,
+}
+/// Message describing Video Stream Input Config.
+/// This message should only be used as a placeholder for builtin:stream-input
+/// processor, actual stream binding should be specified using corresponding
+/// API.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VideoStreamInputConfig {
+    #[deprecated]
+    #[prost(string, repeated, tag = "1")]
+    pub streams: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    #[deprecated]
+    #[prost(message, repeated, tag = "2")]
+    pub streams_with_annotation: ::prost::alloc::vec::Vec<StreamWithAnnotation>,
+}
+/// Message describing AI-enabled Devices Input Config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AiEnabledDevicesInputConfig {}
+/// Message describing MediaWarehouseConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MediaWarehouseConfig {
+    /// Resource name of the Media Warehouse corpus.
+    /// Format:
+    /// projects/${project_id}/locations/${location_id}/corpora/${corpus_id}
+    #[prost(string, tag = "1")]
+    pub corpus: ::prost::alloc::string::String,
+    /// Deprecated.
+    #[deprecated]
+    #[prost(string, tag = "2")]
+    pub region: ::prost::alloc::string::String,
+    /// The duration for which all media assets, associated metadata, and search
+    /// documents can exist.
+    #[prost(message, optional, tag = "3")]
+    pub ttl: ::core::option::Option<::prost_types::Duration>,
+}
+/// Message describing FaceBlurConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PersonBlurConfig {
+    /// Person blur type.
+    #[prost(enumeration = "person_blur_config::PersonBlurType", tag = "1")]
+    pub person_blur_type: i32,
+    /// Whether only blur faces other than the whole object in the processor.
+    #[prost(bool, tag = "2")]
+    pub faces_only: bool,
+}
+/// Nested message and enum types in `PersonBlurConfig`.
+pub mod person_blur_config {
+    /// Type of Person Blur
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum PersonBlurType {
+        /// PersonBlur Type UNSPECIFIED.
+        Unspecified = 0,
+        /// FaceBlur Type full occlusion.
+        FullOcculusion = 1,
+        /// FaceBlur Type blur filter.
+        BlurFilter = 2,
+    }
+    impl PersonBlurType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                PersonBlurType::Unspecified => "PERSON_BLUR_TYPE_UNSPECIFIED",
+                PersonBlurType::FullOcculusion => "FULL_OCCULUSION",
+                PersonBlurType::BlurFilter => "BLUR_FILTER",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "PERSON_BLUR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "FULL_OCCULUSION" => Some(Self::FullOcculusion),
+                "BLUR_FILTER" => Some(Self::BlurFilter),
+                _ => None,
+            }
+        }
+    }
+}
+/// Message describing OccupancyCountConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OccupancyCountConfig {
+    /// Whether to count the appearances of people, output counts have 'people' as
+    /// the key.
+    #[prost(bool, tag = "1")]
+    pub enable_people_counting: bool,
+    /// Whether to count the appearances of vehicles, output counts will have
+    /// 'vehicle' as the key.
+    #[prost(bool, tag = "2")]
+    pub enable_vehicle_counting: bool,
+    /// Whether to track each invidual object's loitering time inside the scene or
+    /// specific zone.
+    #[prost(bool, tag = "3")]
+    pub enable_dwelling_time_tracking: bool,
+}
+/// Message describing PersonVehicleDetectionConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PersonVehicleDetectionConfig {
+    /// At least one of enable_people_counting and enable_vehicle_counting fields
+    /// must be set to true.
+    /// Whether to count the appearances of people, output counts have 'people' as
+    /// the key.
+    #[prost(bool, tag = "1")]
+    pub enable_people_counting: bool,
+    /// Whether to count the appearances of vehicles, output counts will have
+    /// 'vehicle' as the key.
+    #[prost(bool, tag = "2")]
+    pub enable_vehicle_counting: bool,
+}
+/// Message describing PersonalProtectiveEquipmentDetectionConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PersonalProtectiveEquipmentDetectionConfig {
+    /// Whether to enable face coverage detection.
+    #[prost(bool, tag = "1")]
+    pub enable_face_coverage_detection: bool,
+    /// Whether to enable head coverage detection.
+    #[prost(bool, tag = "2")]
+    pub enable_head_coverage_detection: bool,
+    /// Whether to enable hands coverage detection.
+    #[prost(bool, tag = "3")]
+    pub enable_hands_coverage_detection: bool,
+}
+/// Message of configurations for General Object Detection processor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GeneralObjectDetectionConfig {}
+/// Message of configurations for BigQuery processor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BigQueryConfig {
+    /// BigQuery table resource for Vision AI Platform to ingest annotations to.
+    #[prost(string, tag = "1")]
+    pub table: ::prost::alloc::string::String,
+    /// Data Schema
+    /// By default, Vision AI Application will try to write annotations to the
+    /// target BigQuery table using the following schema:
+    ///
+    /// ingestion_time: TIMESTAMP, the ingestion time of the original data.
+    ///
+    /// application: STRING, name of the application which produces the annotation.
+    ///
+    /// instance: STRING, Id of the instance which produces the annotation.
+    ///
+    /// node: STRING, name of the application graph node which produces the
+    /// annotation.
+    ///
+    /// annotation: STRING or JSON, the actual annotation protobuf will be
+    /// converted to json string with bytes field as 64 encoded string. It can be
+    /// written to both String or Json type column.
+    ///
+    /// To forward annotation data to an existing BigQuery table, customer needs to
+    /// make sure the compatibility of the schema.
+    /// The map maps application node name to its corresponding cloud function
+    /// endpoint to transform the annotations directly to the
+    /// google.cloud.bigquery.storage.v1.AppendRowsRequest (only avro_rows or
+    /// proto_rows should be set). If configured, annotations produced by
+    /// corresponding application node will sent to the Cloud Function at first
+    /// before be forwarded to BigQuery.
+    ///
+    /// If the default table schema doesn't fit, customer is able to transform the
+    /// annotation output from Vision AI Application to arbitrary BigQuery table
+    /// schema with CloudFunction.
+    /// * The cloud function will receive AppPlatformCloudFunctionRequest where
+    /// the annotations field will be the json format of Vision AI annotation.
+    /// * The cloud function should return AppPlatformCloudFunctionResponse with
+    /// AppendRowsRequest stored in the annotations field.
+    /// * To drop the annotation, simply clear the annotations field in the
+    /// returned AppPlatformCloudFunctionResponse.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub cloud_function_mapping: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// If true, App Platform will create the BigQuery DataSet and the
+    /// BigQuery Table with default schema if the specified table doesn't exist.
+    /// This doesn't work if any cloud function customized schema is specified
+    /// since the system doesn't know your desired schema.
+    /// JSON column will be used in the default table created by App Platform.
+    #[prost(bool, tag = "3")]
+    pub create_default_table_if_not_exists: bool,
+}
+/// Message of configurations of Vertex AutoML Vision Processors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VertexAutoMlVisionConfig {
+    /// Only entities with higher score than the threshold will be returned.
+    /// Value 0.0 means to return all the detected entities.
+    #[prost(float, tag = "1")]
+    pub confidence_threshold: f32,
+    /// At most this many predictions will be returned per output frame.
+    /// Value 0 means to return all the detected entities.
+    #[prost(int32, tag = "2")]
+    pub max_predictions: i32,
+}
+/// Message describing VertexAutoMLVideoConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VertexAutoMlVideoConfig {
+    /// Only entities with higher score than the threshold will be returned.
+    /// Value 0.0 means returns all the detected entities.
+    #[prost(float, tag = "1")]
+    pub confidence_threshold: f32,
+    /// Labels specified in this field won't be returned.
+    #[prost(string, repeated, tag = "2")]
+    pub blocked_labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// At most this many predictions will be returned per output frame.
+    /// Value 0 means to return all the detected entities.
+    #[prost(int32, tag = "3")]
+    pub max_predictions: i32,
+    /// Only Bounding Box whose size is larger than this limit will be returned.
+    /// Object Tracking only.
+    /// Value 0.0 means to return all the detected entities.
+    #[prost(float, tag = "4")]
+    pub bounding_box_size_limit: f32,
+}
+/// Message describing VertexCustomConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VertexCustomConfig {
+    /// The max prediction frame per second. This attribute sets how fast the
+    /// operator sends prediction requests to Vertex AI endpoint. Default value is
+    /// 0, which means there is no max prediction fps limit. The operator sends
+    /// prediction requests at input fps.
+    #[prost(int32, tag = "1")]
+    pub max_prediction_fps: i32,
+    /// A description of resources that are dedicated to the DeployedModel, and
+    /// that need a higher degree of manual configuration.
+    #[prost(message, optional, tag = "2")]
+    pub dedicated_resources: ::core::option::Option<DedicatedResources>,
+    /// If not empty, the prediction result will be sent to the specified cloud
+    /// function for post processing.
+    /// * The cloud function will receive AppPlatformCloudFunctionRequest where
+    /// the annotations field will be the json format of proto PredictResponse.
+    /// * The cloud function should return AppPlatformCloudFunctionResponse with
+    /// PredictResponse stored in the annotations field.
+    /// * To drop the prediction output, simply clear the payload field in the
+    /// returned AppPlatformCloudFunctionResponse.
+    #[prost(string, tag = "3")]
+    pub post_processing_cloud_function: ::prost::alloc::string::String,
+    /// If true, the prediction request received by custom model will also contain
+    /// metadata with the following schema:
+    /// 'appPlatformMetadata': {
+    ///        'ingestionTime': DOUBLE; (UNIX timestamp)
+    ///        'application': STRING;
+    ///        'instanceId': STRING;
+    ///        'node': STRING;
+    ///        'processor': STRING;
+    ///   }
+    #[prost(bool, tag = "4")]
+    pub attach_application_metadata: bool,
+    /// Optional. By setting the configuration_input_topic, processor will
+    /// subscribe to given topic, only pub/sub topic is supported now. Example
+    /// channel:
+    /// //pubsub.googleapis.com/projects/visionai-testing-stable/topics/test-topic
+    /// message schema should be:
+    /// message Message {
+    /// // The ID of the stream that associates with the application instance.
+    /// string stream_id = 1;
+    /// // The target fps. By default, the custom processor will *not* send any
+    /// data to the Vertex Prediction container. Note that once the
+    /// dynamic_config_input_topic is set, max_prediction_fps will not work and be
+    /// preceded by the fps set inside the topic.
+    /// int32 fps = 2;
+    /// }
+    #[prost(string, optional, tag = "6")]
+    pub dynamic_config_input_topic: ::core::option::Option<
+        ::prost::alloc::string::String,
+    >,
+}
+/// Message describing GcsOutputConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsOutputConfig {
+    /// The Cloud Storage path for Vision AI Platform to ingest annotations to.
+    #[prost(string, tag = "1")]
+    pub gcs_path: ::prost::alloc::string::String,
+}
+/// Message describing UniversalInputConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UniversalInputConfig {}
+/// Specification of a single machine.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MachineSpec {
+    /// Immutable. The type of the machine.
+    ///
+    /// See the [list of machine types supported for
+    /// prediction](<https://cloud.google.com/vertex-ai/docs/predictions/configure-compute#machine-types>)
+    ///
+    /// See the [list of machine types supported for custom
+    /// training](<https://cloud.google.com/vertex-ai/docs/training/configure-compute#machine-types>).
+    ///
+    /// For [DeployedModel][] this field is optional, and the default
+    /// value is `n1-standard-2`. For [BatchPredictionJob][] or as part of
+    /// [WorkerPoolSpec][] this field is required.
+    #[prost(string, tag = "1")]
+    pub machine_type: ::prost::alloc::string::String,
+    /// Immutable. The type of accelerator(s) that may be attached to the machine
+    /// as per
+    /// [accelerator_count][google.cloud.visionai.v1.MachineSpec.accelerator_count].
+    #[prost(enumeration = "AcceleratorType", tag = "2")]
+    pub accelerator_type: i32,
+    /// The number of accelerators to attach to the machine.
+    #[prost(int32, tag = "3")]
+    pub accelerator_count: i32,
+}
+/// The metric specification that defines the target resource utilization
+/// (CPU utilization, accelerator's duty cycle, and so on) for calculating the
+/// desired replica count.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutoscalingMetricSpec {
+    /// Required. The resource metric name.
+    /// Supported metrics:
+    ///
+    /// * For Online Prediction:
+    /// * `aiplatform.googleapis.com/prediction/online/accelerator/duty_cycle`
+    /// * `aiplatform.googleapis.com/prediction/online/cpu/utilization`
+    #[prost(string, tag = "1")]
+    pub metric_name: ::prost::alloc::string::String,
+    /// The target resource utilization in percentage (1% - 100%) for the given
+    /// metric; once the real usage deviates from the target by a certain
+    /// percentage, the machine replicas change. The default value is 60
+    /// (representing 60%) if not provided.
+    #[prost(int32, tag = "2")]
+    pub target: i32,
+}
+/// A description of resources that are dedicated to a DeployedModel, and
+/// that need a higher degree of manual configuration.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DedicatedResources {
+    /// Required. Immutable. The specification of a single machine used by the
+    /// prediction.
+    #[prost(message, optional, tag = "1")]
+    pub machine_spec: ::core::option::Option<MachineSpec>,
+    /// Required. Immutable. The minimum number of machine replicas this
+    /// DeployedModel will be always deployed on. This value must be greater than
+    /// or equal to 1.
+    ///
+    /// If traffic against the DeployedModel increases, it may dynamically be
+    /// deployed onto more replicas, and as traffic decreases, some of these extra
+    /// replicas may be freed.
+    #[prost(int32, tag = "2")]
+    pub min_replica_count: i32,
+    /// Immutable. The maximum number of replicas this DeployedModel may be
+    /// deployed on when the traffic against it increases. If the requested value
+    /// is too large, the deployment will error, but if deployment succeeds then
+    /// the ability to scale the model to that many replicas is guaranteed (barring
+    /// service outages). If traffic against the DeployedModel increases beyond
+    /// what its replicas at maximum may handle, a portion of the traffic will be
+    /// dropped. If this value is not provided, will use
+    /// [min_replica_count][google.cloud.visionai.v1.DedicatedResources.min_replica_count]
+    /// as the default value.
+    ///
+    /// The value of this field impacts the charge against Vertex CPU and GPU
+    /// quotas. Specifically, you will be charged for max_replica_count *
+    /// number of cores in the selected machine type) and (max_replica_count *
+    /// number of GPUs per replica in the selected machine type).
+    #[prost(int32, tag = "3")]
+    pub max_replica_count: i32,
+    /// Immutable. The metric specifications that overrides a resource
+    /// utilization metric (CPU utilization, accelerator's duty cycle, and so on)
+    /// target value (default to 60 if not set). At most one entry is allowed per
+    /// metric.
+    ///
+    /// If
+    /// [machine_spec.accelerator_count][google.cloud.visionai.v1.MachineSpec.accelerator_count]
+    /// is above 0, the autoscaling will be based on both CPU utilization and
+    /// accelerator's duty cycle metrics and scale up when either metrics exceeds
+    /// its target value while scale down if both metrics are under their target
+    /// value. The default target value is 60 for both metrics.
+    ///
+    /// If
+    /// [machine_spec.accelerator_count][google.cloud.visionai.v1.MachineSpec.accelerator_count]
+    /// is 0, the autoscaling will be based on CPU utilization metric only with
+    /// default target value 60 if not explicitly set.
+    ///
+    /// For example, in the case of Online Prediction, if you want to override
+    /// target CPU utilization to 80, you should set
+    /// [autoscaling_metric_specs.metric_name][google.cloud.visionai.v1.AutoscalingMetricSpec.metric_name]
+    /// to `aiplatform.googleapis.com/prediction/online/cpu/utilization` and
+    /// [autoscaling_metric_specs.target][google.cloud.visionai.v1.AutoscalingMetricSpec.target]
+    /// to `80`.
+    #[prost(message, repeated, tag = "4")]
+    pub autoscaling_metric_specs: ::prost::alloc::vec::Vec<AutoscalingMetricSpec>,
+}
+/// Message describing ProductRecognizerConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProductRecognizerConfig {
+    /// The resource name of retail endpoint to use.
+    #[prost(string, tag = "1")]
+    pub retail_endpoint: ::prost::alloc::string::String,
+    /// Confidence threshold to filter detection results. If not set, a system
+    /// default value will be used.
+    #[prost(float, tag = "2")]
+    pub recognition_confidence_threshold: f32,
+}
+/// Message describing TagRecognizerConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TagRecognizerConfig {
+    /// Confidence threshold to filter detection results. If not set, a system
+    /// default value will be used.
+    #[prost(float, tag = "1")]
+    pub entity_detection_confidence_threshold: f32,
+    /// Configuration to customize how tags are parsed.
+    #[prost(message, optional, tag = "2")]
+    pub tag_parsing_config: ::core::option::Option<TagParsingConfig>,
+}
+/// Configuration for tag parsing.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TagParsingConfig {
+    /// Each tag entity class may have an optional EntityParsingConfig which is
+    /// used to help parse the entities of the class.
+    #[prost(message, repeated, tag = "1")]
+    pub entity_parsing_configs: ::prost::alloc::vec::Vec<
+        tag_parsing_config::EntityParsingConfig,
+    >,
+}
+/// Nested message and enum types in `TagParsingConfig`.
+pub mod tag_parsing_config {
+    /// Configuration for parsing a tag entity class.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct EntityParsingConfig {
+        /// Required. The tag entity class name. This should match the class name
+        /// produced by the tag entity detection model.
+        #[prost(string, tag = "1")]
+        pub entity_class: ::prost::alloc::string::String,
+        /// Optional. An regular expression hint.
+        #[prost(string, tag = "2")]
+        pub regex: ::prost::alloc::string::String,
+        /// Optional. Entity matching strategy.
+        #[prost(
+            enumeration = "entity_parsing_config::EntityMatchingStrategy",
+            tag = "3"
+        )]
+        pub entity_matching_strategy: i32,
+    }
+    /// Nested message and enum types in `EntityParsingConfig`.
+    pub mod entity_parsing_config {
+        /// Type of entity matching strategy.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum EntityMatchingStrategy {
+            /// If unspecified, multi-line matching will be used by default.
+            Unspecified = 0,
+            /// Matches multiple lines of text.
+            MultiLineMatching = 1,
+            /// Matches the line with the maximum overlap area with entity bounding
+            /// box.
+            MaxOverlapArea = 2,
+        }
+        impl EntityMatchingStrategy {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    EntityMatchingStrategy::Unspecified => {
+                        "ENTITY_MATCHING_STRATEGY_UNSPECIFIED"
+                    }
+                    EntityMatchingStrategy::MultiLineMatching => "MULTI_LINE_MATCHING",
+                    EntityMatchingStrategy::MaxOverlapArea => "MAX_OVERLAP_AREA",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "ENTITY_MATCHING_STRATEGY_UNSPECIFIED" => Some(Self::Unspecified),
+                    "MULTI_LINE_MATCHING" => Some(Self::MultiLineMatching),
+                    "MAX_OVERLAP_AREA" => Some(Self::MaxOverlapArea),
+                    _ => None,
+                }
+            }
+        }
+    }
+}
+/// All the supported model types in Vision AI App Platform.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ModelType {
+    /// Processor Type UNSPECIFIED.
+    Unspecified = 0,
+    /// Model Type Image Classification.
+    ImageClassification = 1,
+    /// Model Type Object Detection.
+    ObjectDetection = 2,
+    /// Model Type Video Classification.
+    VideoClassification = 3,
+    /// Model Type Object Tracking.
+    VideoObjectTracking = 4,
+    /// Model Type Action Recognition.
+    VideoActionRecognition = 5,
+    /// Model Type Occupancy Counting.
+    OccupancyCounting = 6,
+    /// Model Type Person Blur.
+    PersonBlur = 7,
+    /// Model Type Vertex Custom.
+    VertexCustom = 8,
+    /// Model Type Product Recognizer.
+    ProductRecognizer = 9,
+    /// Model Type Tag Recognizer.
+    TagRecognizer = 10,
+    /// Model Type SynthID.
+    SynthId = 15,
+}
+impl ModelType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ModelType::Unspecified => "MODEL_TYPE_UNSPECIFIED",
+            ModelType::ImageClassification => "IMAGE_CLASSIFICATION",
+            ModelType::ObjectDetection => "OBJECT_DETECTION",
+            ModelType::VideoClassification => "VIDEO_CLASSIFICATION",
+            ModelType::VideoObjectTracking => "VIDEO_OBJECT_TRACKING",
+            ModelType::VideoActionRecognition => "VIDEO_ACTION_RECOGNITION",
+            ModelType::OccupancyCounting => "OCCUPANCY_COUNTING",
+            ModelType::PersonBlur => "PERSON_BLUR",
+            ModelType::VertexCustom => "VERTEX_CUSTOM",
+            ModelType::ProductRecognizer => "PRODUCT_RECOGNIZER",
+            ModelType::TagRecognizer => "TAG_RECOGNIZER",
+            ModelType::SynthId => "SYNTH_ID",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "MODEL_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "IMAGE_CLASSIFICATION" => Some(Self::ImageClassification),
+            "OBJECT_DETECTION" => Some(Self::ObjectDetection),
+            "VIDEO_CLASSIFICATION" => Some(Self::VideoClassification),
+            "VIDEO_OBJECT_TRACKING" => Some(Self::VideoObjectTracking),
+            "VIDEO_ACTION_RECOGNITION" => Some(Self::VideoActionRecognition),
+            "OCCUPANCY_COUNTING" => Some(Self::OccupancyCounting),
+            "PERSON_BLUR" => Some(Self::PersonBlur),
+            "VERTEX_CUSTOM" => Some(Self::VertexCustom),
+            "PRODUCT_RECOGNIZER" => Some(Self::ProductRecognizer),
+            "TAG_RECOGNIZER" => Some(Self::TagRecognizer),
+            "SYNTH_ID" => Some(Self::SynthId),
+            _ => None,
+        }
+    }
+}
+/// Represents a hardware accelerator type.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum AcceleratorType {
+    /// Unspecified accelerator type, which means no accelerator.
+    Unspecified = 0,
+    /// Nvidia Tesla K80 GPU.
+    NvidiaTeslaK80 = 1,
+    /// Nvidia Tesla P100 GPU.
+    NvidiaTeslaP100 = 2,
+    /// Nvidia Tesla V100 GPU.
+    NvidiaTeslaV100 = 3,
+    /// Nvidia Tesla P4 GPU.
+    NvidiaTeslaP4 = 4,
+    /// Nvidia Tesla T4 GPU.
+    NvidiaTeslaT4 = 5,
+    /// Nvidia Tesla A100 GPU.
+    NvidiaTeslaA100 = 8,
+    /// TPU v2.
+    TpuV2 = 6,
+    /// TPU v3.
+    TpuV3 = 7,
+}
+impl AcceleratorType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            AcceleratorType::Unspecified => "ACCELERATOR_TYPE_UNSPECIFIED",
+            AcceleratorType::NvidiaTeslaK80 => "NVIDIA_TESLA_K80",
+            AcceleratorType::NvidiaTeslaP100 => "NVIDIA_TESLA_P100",
+            AcceleratorType::NvidiaTeslaV100 => "NVIDIA_TESLA_V100",
+            AcceleratorType::NvidiaTeslaP4 => "NVIDIA_TESLA_P4",
+            AcceleratorType::NvidiaTeslaT4 => "NVIDIA_TESLA_T4",
+            AcceleratorType::NvidiaTeslaA100 => "NVIDIA_TESLA_A100",
+            AcceleratorType::TpuV2 => "TPU_V2",
+            AcceleratorType::TpuV3 => "TPU_V3",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "ACCELERATOR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "NVIDIA_TESLA_K80" => Some(Self::NvidiaTeslaK80),
+            "NVIDIA_TESLA_P100" => Some(Self::NvidiaTeslaP100),
+            "NVIDIA_TESLA_V100" => Some(Self::NvidiaTeslaV100),
+            "NVIDIA_TESLA_P4" => Some(Self::NvidiaTeslaP4),
+            "NVIDIA_TESLA_T4" => Some(Self::NvidiaTeslaT4),
+            "NVIDIA_TESLA_A100" => Some(Self::NvidiaTeslaA100),
+            "TPU_V2" => Some(Self::TpuV2),
+            "TPU_V3" => Some(Self::TpuV3),
+            _ => None,
+        }
+    }
+}
+/// All supported data types.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum DataType {
+    /// The default value of DataType.
+    Unspecified = 0,
+    /// Video data type like H264.
+    Video = 1,
+    /// Image data type.
+    Image = 3,
+    /// Protobuf data type, usually used for general data blob.
+    Proto = 2,
+    /// A placeholder data type, applicable for the universal input processor which
+    /// supports any data type. This will be instantiated and replaced by a
+    /// concrete underlying `DataType` during instance deployment.
+    Placeholder = 4,
+}
+impl DataType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            DataType::Unspecified => "DATA_TYPE_UNSPECIFIED",
+            DataType::Video => "VIDEO",
+            DataType::Image => "IMAGE",
+            DataType::Proto => "PROTO",
+            DataType::Placeholder => "PLACEHOLDER",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "DATA_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "VIDEO" => Some(Self::Video),
+            "IMAGE" => Some(Self::Image),
+            "PROTO" => Some(Self::Proto),
+            "PLACEHOLDER" => Some(Self::Placeholder),
+            _ => None,
+        }
+    }
+}
+/// Generated client implementations.
+pub mod app_platform_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service describing handlers for resources
+    #[derive(Debug, Clone)]
+    pub struct AppPlatformClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> AppPlatformClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> AppPlatformClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            AppPlatformClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Lists Applications in a given project and location.
+        pub async fn list_applications(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListApplicationsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListApplicationsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/ListApplications",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "ListApplications",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single Application.
+        pub async fn get_application(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetApplicationRequest>,
+        ) -> std::result::Result<tonic::Response<super::Application>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/GetApplication",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "GetApplication",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new Application in a given project and location.
+        pub async fn create_application(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateApplicationRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/CreateApplication",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "CreateApplication",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of a single Application.
+        pub async fn update_application(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateApplicationRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/UpdateApplication",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "UpdateApplication",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a single Application.
+        pub async fn delete_application(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteApplicationRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/DeleteApplication",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "DeleteApplication",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deploys a single Application.
+        pub async fn deploy_application(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeployApplicationRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/DeployApplication",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "DeployApplication",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Undeploys a single Application.
+        pub async fn undeploy_application(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UndeployApplicationRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/UndeployApplication",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "UndeployApplication",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Adds target stream input to the Application.
+        /// If the Application is deployed, the corresponding new Application instance
+        /// will be created. If the stream has already been in the Application, the RPC
+        /// will fail.
+        pub async fn add_application_stream_input(
+            &mut self,
+            request: impl tonic::IntoRequest<super::AddApplicationStreamInputRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/AddApplicationStreamInput",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "AddApplicationStreamInput",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Remove target stream input to the Application, if the Application is
+        /// deployed, the corresponding instance based will be deleted. If the stream
+        /// is not in the Application, the RPC will fail.
+        pub async fn remove_application_stream_input(
+            &mut self,
+            request: impl tonic::IntoRequest<super::RemoveApplicationStreamInputRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/RemoveApplicationStreamInput",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "RemoveApplicationStreamInput",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Update target stream input to the Application, if the Application is
+        /// deployed, the corresponding instance based will be deployed. For
+        /// CreateOrUpdate behavior, set allow_missing to true.
+        pub async fn update_application_stream_input(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateApplicationStreamInputRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/UpdateApplicationStreamInput",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "UpdateApplicationStreamInput",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists Instances in a given project and location.
+        pub async fn list_instances(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListInstancesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListInstancesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/ListInstances",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "ListInstances",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single Instance.
+        pub async fn get_instance(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetInstanceRequest>,
+        ) -> std::result::Result<tonic::Response<super::Instance>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/GetInstance",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "GetInstance",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Adds target stream input to the Application.
+        /// If the Application is deployed, the corresponding new Application instance
+        /// will be created. If the stream has already been in the Application, the RPC
+        /// will fail.
+        pub async fn create_application_instances(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateApplicationInstancesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/CreateApplicationInstances",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "CreateApplicationInstances",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Remove target stream input to the Application, if the Application is
+        /// deployed, the corresponding instance based will be deleted. If the stream
+        /// is not in the Application, the RPC will fail.
+        pub async fn delete_application_instances(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteApplicationInstancesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/DeleteApplicationInstances",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "DeleteApplicationInstances",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Adds target stream input to the Application.
+        /// If the Application is deployed, the corresponding new Application instance
+        /// will be created. If the stream has already been in the Application, the RPC
+        /// will fail.
+        pub async fn update_application_instances(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateApplicationInstancesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/UpdateApplicationInstances",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "UpdateApplicationInstances",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists Drafts in a given project and location.
+        pub async fn list_drafts(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListDraftsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListDraftsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/ListDrafts",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.visionai.v1.AppPlatform", "ListDrafts"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single Draft.
+        pub async fn get_draft(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetDraftRequest>,
+        ) -> std::result::Result<tonic::Response<super::Draft>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/GetDraft",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.visionai.v1.AppPlatform", "GetDraft"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new Draft in a given project and location.
+        pub async fn create_draft(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateDraftRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/CreateDraft",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "CreateDraft",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of a single Draft.
+        pub async fn update_draft(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateDraftRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/UpdateDraft",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "UpdateDraft",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a single Draft.
+        pub async fn delete_draft(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteDraftRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/DeleteDraft",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "DeleteDraft",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists Processors in a given project and location.
+        pub async fn list_processors(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListProcessorsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListProcessorsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/ListProcessors",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "ListProcessors",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// ListPrebuiltProcessors is a custom pass-through verb that Lists Prebuilt
+        /// Processors.
+        pub async fn list_prebuilt_processors(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListPrebuiltProcessorsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListPrebuiltProcessorsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/ListPrebuiltProcessors",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "ListPrebuiltProcessors",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single Processor.
+        pub async fn get_processor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetProcessorRequest>,
+        ) -> std::result::Result<tonic::Response<super::Processor>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/GetProcessor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "GetProcessor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new Processor in a given project and location.
+        pub async fn create_processor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateProcessorRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/CreateProcessor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "CreateProcessor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of a single Processor.
+        pub async fn update_processor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateProcessorRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/UpdateProcessor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "UpdateProcessor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a single Processor.
+        pub async fn delete_processor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteProcessorRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.visionai.v1.AppPlatform/DeleteProcessor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.visionai.v1.AppPlatform",
+                        "DeleteProcessor",
                     ),
                 );
             self.inner.unary(req, path, codec).await
