@@ -2740,7 +2740,38 @@
 <a href="#2740" id="2740">2740</a>
 <a href="#2741" id="2741">2741</a>
 <a href="#2742" id="2742">2742</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Information related to how and why a fallback result was used. If this field
+</pre></div><pre class="rust"><code><span class="doccomment">/// Encapsulates toll information on a [Route][google.maps.routing.v2.Route] or
+/// on a [RouteLeg][google.maps.routing.v2.RouteLeg].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TollInfo {
+    <span class="doccomment">/// The monetary amount of tolls for the corresponding
+    /// [Route][google.maps.routing.v2.Route] or
+    /// [RouteLeg][google.maps.routing.v2.RouteLeg]. This list contains a money
+    /// amount for each currency that is expected to be charged by the toll
+    /// stations. Typically this list will contain only one item for routes with
+    /// tolls in one currency. For international trips, this list may contain
+    /// multiple items to reflect tolls in different currencies.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>estimated_price: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
+}
+<span class="doccomment">/// Encapsulates a location (a geographic point, and an optional heading).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Location {
+    <span class="doccomment">/// The waypoint&#39;s geographic coordinates.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>lat_lng: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
+    <span class="doccomment">/// The compass heading associated with the direction of the flow of traffic.
+    /// This value specifies the side of the road for pickup and drop-off. Heading
+    /// values can be from 0 to 360, where 0 specifies a heading of due North, 90
+    /// specifies a heading of due East, and so on. You can use this field only for
+    /// `DRIVE` and `TWO_WHEELER`
+    /// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>heading: ::core::option::Option&lt;i32&gt;,
+}
+<span class="doccomment">/// Information related to how and why a fallback result was used. If this field
 /// is set, then it means the server used a different routing mode from your
 /// preferred mode as fallback.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2986,22 +3017,6 @@
     /// &quot;America/New_York&quot;.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Encapsulates a location (a geographic point, and an optional heading).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Location {
-    <span class="doccomment">/// The waypoint&#39;s geographic coordinates.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>lat_lng: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
-    <span class="doccomment">/// The compass heading associated with the direction of the flow of traffic.
-    /// This value specifies the side of the road for pickup and drop-off. Heading
-    /// values can be from 0 to 360, where 0 specifies a heading of due North, 90
-    /// specifies a heading of due East, and so on. You can use this field only for
-    /// `DRIVE` and `TWO_WHEELER`
-    /// [RouteTravelMode][google.maps.routing.v2.RouteTravelMode].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>heading: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// A set of values that specify the navigation action to take for the current
 /// step (e.g., turn left, merge, straight, etc.).
@@ -3286,21 +3301,6 @@
         </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Speed&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
         </span>Speed(i32),
     }
-}
-<span class="doccomment">/// Encapsulates toll information on a [Route][google.maps.routing.v2.Route] or
-/// on a [RouteLeg][google.maps.routing.v2.RouteLeg].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TollInfo {
-    <span class="doccomment">/// The monetary amount of tolls for the corresponding
-    /// [Route][google.maps.routing.v2.Route] or
-    /// [RouteLeg][google.maps.routing.v2.RouteLeg]. This list contains a money
-    /// amount for each currency that is expected to be charged by the toll
-    /// stations. Typically this list will contain only one item for routes with
-    /// tolls in one currency. For international trips, this list may contain
-    /// multiple items to reflect tolls in different currencies.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>estimated_price: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
 }
 <span class="doccomment">/// A transit agency that operates a transit line.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

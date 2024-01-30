@@ -4460,305 +4460,7 @@
 <a href="#4460" id="4460">4460</a>
 <a href="#4461" id="4461">4461</a>
 <a href="#4462" id="4462">4462</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Performance tier of the Volume.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>VolumePerformanceTier {
-    <span class="doccomment">/// Value is not specified.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Regular volumes, shared aggregates.
-    </span>Shared = <span class="number">1</span>,
-    <span class="doccomment">/// Assigned aggregates.
-    </span>Assigned = <span class="number">2</span>,
-    <span class="doccomment">/// High throughput aggregates.
-    </span>Ht = <span class="number">3</span>,
-}
-<span class="kw">impl </span>VolumePerformanceTier {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            VolumePerformanceTier::Unspecified =&gt; <span class="string">&quot;VOLUME_PERFORMANCE_TIER_UNSPECIFIED&quot;</span>,
-            VolumePerformanceTier::Shared =&gt; <span class="string">&quot;VOLUME_PERFORMANCE_TIER_SHARED&quot;</span>,
-            VolumePerformanceTier::Assigned =&gt; <span class="string">&quot;VOLUME_PERFORMANCE_TIER_ASSIGNED&quot;</span>,
-            VolumePerformanceTier::Ht =&gt; <span class="string">&quot;VOLUME_PERFORMANCE_TIER_HT&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;VOLUME_PERFORMANCE_TIER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;VOLUME_PERFORMANCE_TIER_SHARED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shared),
-            <span class="string">&quot;VOLUME_PERFORMANCE_TIER_ASSIGNED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Assigned),
-            <span class="string">&quot;VOLUME_PERFORMANCE_TIER_HT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ht),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// The possible values for a workload profile.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>WorkloadProfile {
-    <span class="doccomment">/// The workload profile is in an unknown state.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// The workload profile is generic.
-    </span>Generic = <span class="number">1</span>,
-    <span class="doccomment">/// The workload profile is hana.
-    </span>Hana = <span class="number">2</span>,
-}
-<span class="kw">impl </span>WorkloadProfile {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            WorkloadProfile::Unspecified =&gt; <span class="string">&quot;WORKLOAD_PROFILE_UNSPECIFIED&quot;</span>,
-            WorkloadProfile::Generic =&gt; <span class="string">&quot;WORKLOAD_PROFILE_GENERIC&quot;</span>,
-            WorkloadProfile::Hana =&gt; <span class="string">&quot;WORKLOAD_PROFILE_HANA&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;WORKLOAD_PROFILE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;WORKLOAD_PROFILE_GENERIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Generic),
-            <span class="string">&quot;WORKLOAD_PROFILE_HANA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hana),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// A storage volume logical unit number (LUN).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Lun {
-    <span class="doccomment">/// Output only. The name of the LUN.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// An identifier for the LUN, generated by the backend.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The state of this storage volume.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;lun::State&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// The size of this LUN, in gigabytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>size_gb: i64,
-    <span class="doccomment">/// The LUN multiprotocol type ensures the characteristics of the LUN are
-    /// optimized for each operating system.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;lun::MultiprotocolType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>multiprotocol_type: i32,
-    <span class="doccomment">/// Display the storage volume for this LUN.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>storage_volume: ::prost::alloc::string::String,
-    <span class="doccomment">/// Display if this LUN can be shared between multiple physical servers.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>shareable: bool,
-    <span class="doccomment">/// Display if this LUN is a boot LUN.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>boot_lun: bool,
-    <span class="doccomment">/// The storage type for this LUN.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;lun::StorageType&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>storage_type: i32,
-    <span class="doccomment">/// The WWID for this LUN.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>wwid: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Time after which LUN will be fully deleted.
-    /// It is filled only for LUNs in COOL_OFF state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Instances this Lun is attached to.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>instances: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Lun`.
-</span><span class="kw">pub mod </span>lun {
-    <span class="doccomment">/// The possible states for the LUN.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// The LUN is in an unknown state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The LUN is being created.
-        </span>Creating = <span class="number">1</span>,
-        <span class="doccomment">/// The LUN is being updated.
-        </span>Updating = <span class="number">2</span>,
-        <span class="doccomment">/// The LUN is ready for use.
-        </span>Ready = <span class="number">3</span>,
-        <span class="doccomment">/// The LUN has been requested to be deleted.
-        </span>Deleting = <span class="number">4</span>,
-        <span class="doccomment">/// The LUN is in cool off state. It will be deleted after `expire_time`.
-        </span>CoolOff = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::CoolOff =&gt; <span class="string">&quot;COOL_OFF&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;COOL_OFF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CoolOff),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Display the operating systems present for the LUN multiprotocol type.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>MultiprotocolType {
-        <span class="doccomment">/// Server has no OS specified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Server with Linux OS.
-        </span>Linux = <span class="number">1</span>,
-    }
-    <span class="kw">impl </span>MultiprotocolType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                MultiprotocolType::Unspecified =&gt; <span class="string">&quot;MULTIPROTOCOL_TYPE_UNSPECIFIED&quot;</span>,
-                MultiprotocolType::Linux =&gt; <span class="string">&quot;LINUX&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;MULTIPROTOCOL_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LINUX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linux),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The storage types for a LUN.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>StorageType {
-        <span class="doccomment">/// The storage type for this LUN is unknown.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// This storage type for this LUN is SSD.
-        </span>Ssd = <span class="number">1</span>,
-        <span class="doccomment">/// This storage type for this LUN is HDD.
-        </span>Hdd = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>StorageType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                StorageType::Unspecified =&gt; <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot;</span>,
-                StorageType::Ssd =&gt; <span class="string">&quot;SSD&quot;</span>,
-                StorageType::Hdd =&gt; <span class="string">&quot;HDD&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ssd),
-                <span class="string">&quot;HDD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hdd),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Message for requesting storage lun information.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetLunRequest {
-    <span class="doccomment">/// Required. Name of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Message for requesting a list of storage volume luns.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLunsRequest {
-    <span class="doccomment">/// Required. Parent value for ListLunsRequest.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Requested page size. The server might return fewer items than requested.
-    /// If unspecified, server will pick an appropriate default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A token identifying a page of results from the server.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Response message containing the list of storage volume luns.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLunsResponse {
-    <span class="doccomment">/// The list of luns.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>luns: ::prost::alloc::vec::Vec&lt;Lun&gt;,
-    <span class="doccomment">/// A token identifying a page of results from the server.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Request for skip lun cooloff and delete it.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EvictLunRequest {
-    <span class="doccomment">/// Required. The name of the lun.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A Network.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A Network.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Network {
@@ -5194,6 +4896,304 @@
     <span class="doccomment">/// Required. The new `id` of the network.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>new_network_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A storage volume logical unit number (LUN).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Lun {
+    <span class="doccomment">/// Output only. The name of the LUN.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// An identifier for the LUN, generated by the backend.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The state of this storage volume.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;lun::State&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// The size of this LUN, in gigabytes.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>size_gb: i64,
+    <span class="doccomment">/// The LUN multiprotocol type ensures the characteristics of the LUN are
+    /// optimized for each operating system.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;lun::MultiprotocolType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>multiprotocol_type: i32,
+    <span class="doccomment">/// Display the storage volume for this LUN.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>storage_volume: ::prost::alloc::string::String,
+    <span class="doccomment">/// Display if this LUN can be shared between multiple physical servers.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>shareable: bool,
+    <span class="doccomment">/// Display if this LUN is a boot LUN.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>boot_lun: bool,
+    <span class="doccomment">/// The storage type for this LUN.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;lun::StorageType&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>storage_type: i32,
+    <span class="doccomment">/// The WWID for this LUN.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>wwid: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Time after which LUN will be fully deleted.
+    /// It is filled only for LUNs in COOL_OFF state.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Instances this Lun is attached to.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>instances: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Lun`.
+</span><span class="kw">pub mod </span>lun {
+    <span class="doccomment">/// The possible states for the LUN.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// The LUN is in an unknown state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The LUN is being created.
+        </span>Creating = <span class="number">1</span>,
+        <span class="doccomment">/// The LUN is being updated.
+        </span>Updating = <span class="number">2</span>,
+        <span class="doccomment">/// The LUN is ready for use.
+        </span>Ready = <span class="number">3</span>,
+        <span class="doccomment">/// The LUN has been requested to be deleted.
+        </span>Deleting = <span class="number">4</span>,
+        <span class="doccomment">/// The LUN is in cool off state. It will be deleted after `expire_time`.
+        </span>CoolOff = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
+                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::CoolOff =&gt; <span class="string">&quot;COOL_OFF&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">&quot;COOL_OFF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CoolOff),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Display the operating systems present for the LUN multiprotocol type.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>MultiprotocolType {
+        <span class="doccomment">/// Server has no OS specified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Server with Linux OS.
+        </span>Linux = <span class="number">1</span>,
+    }
+    <span class="kw">impl </span>MultiprotocolType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                MultiprotocolType::Unspecified =&gt; <span class="string">&quot;MULTIPROTOCOL_TYPE_UNSPECIFIED&quot;</span>,
+                MultiprotocolType::Linux =&gt; <span class="string">&quot;LINUX&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;MULTIPROTOCOL_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;LINUX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linux),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The storage types for a LUN.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>StorageType {
+        <span class="doccomment">/// The storage type for this LUN is unknown.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// This storage type for this LUN is SSD.
+        </span>Ssd = <span class="number">1</span>,
+        <span class="doccomment">/// This storage type for this LUN is HDD.
+        </span>Hdd = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>StorageType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                StorageType::Unspecified =&gt; <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot;</span>,
+                StorageType::Ssd =&gt; <span class="string">&quot;SSD&quot;</span>,
+                StorageType::Hdd =&gt; <span class="string">&quot;HDD&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ssd),
+                <span class="string">&quot;HDD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hdd),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Message for requesting storage lun information.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetLunRequest {
+    <span class="doccomment">/// Required. Name of the resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Message for requesting a list of storage volume luns.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListLunsRequest {
+    <span class="doccomment">/// Required. Parent value for ListLunsRequest.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Requested page size. The server might return fewer items than requested.
+    /// If unspecified, server will pick an appropriate default.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A token identifying a page of results from the server.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Response message containing the list of storage volume luns.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListLunsResponse {
+    <span class="doccomment">/// The list of luns.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>luns: ::prost::alloc::vec::Vec&lt;Lun&gt;,
+    <span class="doccomment">/// A token identifying a page of results from the server.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Locations that could not be reached.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Request for skip lun cooloff and delete it.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EvictLunRequest {
+    <span class="doccomment">/// Required. The name of the lun.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Performance tier of the Volume.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>VolumePerformanceTier {
+    <span class="doccomment">/// Value is not specified.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Regular volumes, shared aggregates.
+    </span>Shared = <span class="number">1</span>,
+    <span class="doccomment">/// Assigned aggregates.
+    </span>Assigned = <span class="number">2</span>,
+    <span class="doccomment">/// High throughput aggregates.
+    </span>Ht = <span class="number">3</span>,
+}
+<span class="kw">impl </span>VolumePerformanceTier {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            VolumePerformanceTier::Unspecified =&gt; <span class="string">&quot;VOLUME_PERFORMANCE_TIER_UNSPECIFIED&quot;</span>,
+            VolumePerformanceTier::Shared =&gt; <span class="string">&quot;VOLUME_PERFORMANCE_TIER_SHARED&quot;</span>,
+            VolumePerformanceTier::Assigned =&gt; <span class="string">&quot;VOLUME_PERFORMANCE_TIER_ASSIGNED&quot;</span>,
+            VolumePerformanceTier::Ht =&gt; <span class="string">&quot;VOLUME_PERFORMANCE_TIER_HT&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;VOLUME_PERFORMANCE_TIER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;VOLUME_PERFORMANCE_TIER_SHARED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shared),
+            <span class="string">&quot;VOLUME_PERFORMANCE_TIER_ASSIGNED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Assigned),
+            <span class="string">&quot;VOLUME_PERFORMANCE_TIER_HT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ht),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// The possible values for a workload profile.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>WorkloadProfile {
+    <span class="doccomment">/// The workload profile is in an unknown state.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// The workload profile is generic.
+    </span>Generic = <span class="number">1</span>,
+    <span class="doccomment">/// The workload profile is hana.
+    </span>Hana = <span class="number">2</span>,
+}
+<span class="kw">impl </span>WorkloadProfile {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            WorkloadProfile::Unspecified =&gt; <span class="string">&quot;WORKLOAD_PROFILE_UNSPECIFIED&quot;</span>,
+            WorkloadProfile::Generic =&gt; <span class="string">&quot;WORKLOAD_PROFILE_GENERIC&quot;</span>,
+            WorkloadProfile::Hana =&gt; <span class="string">&quot;WORKLOAD_PROFILE_HANA&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;WORKLOAD_PROFILE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;WORKLOAD_PROFILE_GENERIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Generic),
+            <span class="string">&quot;WORKLOAD_PROFILE_HANA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hana),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
 }
 <span class="doccomment">/// A storage volume.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6380,6 +6380,207 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
+<span class="doccomment">/// An SSH key, used for authorizing with the interactive serial console feature.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SshKey {
+    <span class="doccomment">/// Output only. The name of this SSH key.
+    /// Currently, the only valid value for the location is &quot;global&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The public SSH key. This must be in OpenSSH .authorized_keys format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>public_key: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Message for listing the public SSH keys in a project.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListSshKeysRequest {
+    <span class="doccomment">/// Required. The parent containing the SSH keys.
+    /// Currently, the only valid value for the location is &quot;global&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of items to return.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Message for response of ListSSHKeys.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListSshKeysResponse {
+    <span class="doccomment">/// The SSH keys registered in the project.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>ssh_keys: ::prost::alloc::vec::Vec&lt;SshKey&gt;,
+    <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
+    /// results in the list.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;90&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Message for registering a public SSH key in a project.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateSshKeyRequest {
+    <span class="doccomment">/// Required. The parent containing the SSH keys.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The SSH key to register.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>ssh_key: ::core::option::Option&lt;SshKey&gt;,
+    <span class="doccomment">/// Required. The ID to use for the key, which will become the final component
+    /// of the key&#39;s resource name.
+    ///
+    /// This value must match the regex:
+    ///    \[a-zA-Z0-9@.\-_\]{1,64}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>ssh_key_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Message for deleting an SSH key from a project.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteSshKeyRequest {
+    <span class="doccomment">/// Required. The name of the SSH key to delete.
+    /// Currently, the only valid value for the location is &quot;global&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A snapshot of a volume. Only boot volumes can have snapshots.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VolumeSnapshot {
+    <span class="doccomment">/// The name of the snapshot.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. An identifier for the snapshot, generated by the backend.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The description of the snapshot.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The creation time of the snapshot.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The name of the volume which this snapshot belongs to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>storage_volume: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The type of the snapshot which indicates whether it was
+    /// scheduled or manual/ad-hoc.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;volume_snapshot::SnapshotType&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `VolumeSnapshot`.
+</span><span class="kw">pub mod </span>volume_snapshot {
+    <span class="doccomment">/// Represents the type of a snapshot.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>SnapshotType {
+        <span class="doccomment">/// Type is not specified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Snapshot was taken manually by user.
+        </span>AdHoc = <span class="number">1</span>,
+        <span class="doccomment">/// Snapshot was taken automatically as a part of a snapshot schedule.
+        </span>Scheduled = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>SnapshotType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                SnapshotType::Unspecified =&gt; <span class="string">&quot;SNAPSHOT_TYPE_UNSPECIFIED&quot;</span>,
+                SnapshotType::AdHoc =&gt; <span class="string">&quot;AD_HOC&quot;</span>,
+                SnapshotType::Scheduled =&gt; <span class="string">&quot;SCHEDULED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;SNAPSHOT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;AD_HOC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdHoc),
+                <span class="string">&quot;SCHEDULED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scheduled),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Message for requesting volume snapshot information.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetVolumeSnapshotRequest {
+    <span class="doccomment">/// Required. The name of the snapshot.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Message for requesting a list of volume snapshots.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListVolumeSnapshotsRequest {
+    <span class="doccomment">/// Required. Parent value for ListVolumesRequest.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Requested page size. The server might return fewer items than requested.
+    /// If unspecified, server will pick an appropriate default.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A token identifying a page of results from the server.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Response message containing the list of volume snapshots.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListVolumeSnapshotsResponse {
+    <span class="doccomment">/// The list of snapshots.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>volume_snapshots: ::prost::alloc::vec::Vec&lt;VolumeSnapshot&gt;,
+    <span class="doccomment">/// A token identifying a page of results from the server.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Locations that could not be reached.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Message for deleting named Volume snapshot.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteVolumeSnapshotRequest {
+    <span class="doccomment">/// Required. The name of the snapshot to delete.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Message for creating a volume snapshot.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateVolumeSnapshotRequest {
+    <span class="doccomment">/// Required. The volume to snapshot.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The snapshot to create.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>volume_snapshot: ::core::option::Option&lt;VolumeSnapshot&gt;,
+}
+<span class="doccomment">/// Message for restoring a volume snapshot.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RestoreVolumeSnapshotRequest {
+    <span class="doccomment">/// Required. Name of the snapshot which will be used to restore its parent
+    /// volume.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>volume_snapshot: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// A provisioning configuration.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -7260,207 +7461,6 @@
     /// to.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// An SSH key, used for authorizing with the interactive serial console feature.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SshKey {
-    <span class="doccomment">/// Output only. The name of this SSH key.
-    /// Currently, the only valid value for the location is &quot;global&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The public SSH key. This must be in OpenSSH .authorized_keys format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>public_key: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Message for listing the public SSH keys in a project.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListSshKeysRequest {
-    <span class="doccomment">/// Required. The parent containing the SSH keys.
-    /// Currently, the only valid value for the location is &quot;global&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Message for response of ListSSHKeys.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListSshKeysResponse {
-    <span class="doccomment">/// The SSH keys registered in the project.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>ssh_keys: ::prost::alloc::vec::Vec&lt;SshKey&gt;,
-    <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
-    /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;90&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Message for registering a public SSH key in a project.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateSshKeyRequest {
-    <span class="doccomment">/// Required. The parent containing the SSH keys.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The SSH key to register.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>ssh_key: ::core::option::Option&lt;SshKey&gt;,
-    <span class="doccomment">/// Required. The ID to use for the key, which will become the final component
-    /// of the key&#39;s resource name.
-    ///
-    /// This value must match the regex:
-    ///    \[a-zA-Z0-9@.\-_\]{1,64}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>ssh_key_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Message for deleting an SSH key from a project.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteSshKeyRequest {
-    <span class="doccomment">/// Required. The name of the SSH key to delete.
-    /// Currently, the only valid value for the location is &quot;global&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A snapshot of a volume. Only boot volumes can have snapshots.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VolumeSnapshot {
-    <span class="doccomment">/// The name of the snapshot.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. An identifier for the snapshot, generated by the backend.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The description of the snapshot.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The creation time of the snapshot.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The name of the volume which this snapshot belongs to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>storage_volume: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The type of the snapshot which indicates whether it was
-    /// scheduled or manual/ad-hoc.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;volume_snapshot::SnapshotType&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `VolumeSnapshot`.
-</span><span class="kw">pub mod </span>volume_snapshot {
-    <span class="doccomment">/// Represents the type of a snapshot.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>SnapshotType {
-        <span class="doccomment">/// Type is not specified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Snapshot was taken manually by user.
-        </span>AdHoc = <span class="number">1</span>,
-        <span class="doccomment">/// Snapshot was taken automatically as a part of a snapshot schedule.
-        </span>Scheduled = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>SnapshotType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                SnapshotType::Unspecified =&gt; <span class="string">&quot;SNAPSHOT_TYPE_UNSPECIFIED&quot;</span>,
-                SnapshotType::AdHoc =&gt; <span class="string">&quot;AD_HOC&quot;</span>,
-                SnapshotType::Scheduled =&gt; <span class="string">&quot;SCHEDULED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;SNAPSHOT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AD_HOC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdHoc),
-                <span class="string">&quot;SCHEDULED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scheduled),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Message for requesting volume snapshot information.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetVolumeSnapshotRequest {
-    <span class="doccomment">/// Required. The name of the snapshot.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Message for requesting a list of volume snapshots.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListVolumeSnapshotsRequest {
-    <span class="doccomment">/// Required. Parent value for ListVolumesRequest.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Requested page size. The server might return fewer items than requested.
-    /// If unspecified, server will pick an appropriate default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A token identifying a page of results from the server.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Response message containing the list of volume snapshots.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListVolumeSnapshotsResponse {
-    <span class="doccomment">/// The list of snapshots.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>volume_snapshots: ::prost::alloc::vec::Vec&lt;VolumeSnapshot&gt;,
-    <span class="doccomment">/// A token identifying a page of results from the server.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Message for deleting named Volume snapshot.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteVolumeSnapshotRequest {
-    <span class="doccomment">/// Required. The name of the snapshot to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Message for creating a volume snapshot.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateVolumeSnapshotRequest {
-    <span class="doccomment">/// Required. The volume to snapshot.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The snapshot to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>volume_snapshot: ::core::option::Option&lt;VolumeSnapshot&gt;,
-}
-<span class="doccomment">/// Message for restoring a volume snapshot.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RestoreVolumeSnapshotRequest {
-    <span class="doccomment">/// Required. Name of the snapshot which will be used to restore its parent
-    /// volume.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>volume_snapshot: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the metadata from a long-running operation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

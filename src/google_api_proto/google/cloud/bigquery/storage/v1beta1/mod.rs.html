@@ -793,25 +793,6 @@
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>row_count: i64,
 }
-<span class="doccomment">/// Arrow schema.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ArrowSchema {
-    <span class="doccomment">/// IPC serialized Arrow schema.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>serialized_schema: ::prost::bytes::Bytes,
-}
-<span class="doccomment">/// Arrow RecordBatch.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ArrowRecordBatch {
-    <span class="doccomment">/// IPC serialized Arrow RecordBatch.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>serialized_record_batch: ::prost::bytes::Bytes,
-    <span class="doccomment">/// The count of rows in the returning block.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>row_count: i64,
-}
 <span class="doccomment">/// Table reference that includes just the 3 strings needed to identify a table.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -833,6 +814,25 @@
     <span class="doccomment">/// The snapshot time of the table. If not set, interpreted as now.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>snapshot_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Arrow schema.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ArrowSchema {
+    <span class="doccomment">/// IPC serialized Arrow schema.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>serialized_schema: ::prost::bytes::Bytes,
+}
+<span class="doccomment">/// Arrow RecordBatch.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ArrowRecordBatch {
+    <span class="doccomment">/// IPC serialized Arrow RecordBatch.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>serialized_record_batch: ::prost::bytes::Bytes,
+    <span class="doccomment">/// The count of rows in the returning block.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>row_count: i64,
 }
 <span class="doccomment">/// Options dictating how we read a table.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
