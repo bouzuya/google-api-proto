@@ -32383,6 +32383,8 @@
 <a href="#32383" id="32383">32383</a>
 <a href="#32384" id="32384">32384</a>
 <a href="#32385" id="32385">32385</a>
+<a href="#32386" id="32386">32386</a>
+<a href="#32387" id="32387">32387</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(
     any(
         feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema&quot;</span>,
@@ -38046,7 +38048,8 @@
         }
     }
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// The alert config for model monitoring.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ModelMonitoringAlertConfig {
     <span class="doccomment">/// Dump the anomalies to Cloud Logging. The anomalies will be put to json
@@ -63739,7 +63742,8 @@
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="attr">#[derive(Debug, Clone)]
+    <span class="doccomment">/// A service for fetching feature values from the online store.
+    </span><span class="attr">#[derive(Debug, Clone)]
     </span><span class="kw">pub struct </span>FeatureOnlineStoreServiceClient&lt;T&gt; {
         inner: tonic::client::Grpc&lt;T&gt;,
     }
