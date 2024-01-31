@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["NextTasksExecutionPolicy","TaskExecutionStrategy"]};
+window.SIDEBAR_ITEMS = {"enum":["ExternalTaskType","NextTasksExecutionPolicy","TaskExecutionStrategy"]};

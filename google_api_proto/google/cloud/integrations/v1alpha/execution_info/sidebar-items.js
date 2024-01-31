@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["PostMethod"]};
+window.SIDEBAR_ITEMS = {"enum":["ExecutionMethod"]};
