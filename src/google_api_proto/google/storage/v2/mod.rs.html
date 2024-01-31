@@ -3307,6 +3307,7 @@
 <a href="#3307" id="3307">3307</a>
 <a href="#3308" id="3308">3308</a>
 <a href="#3309" id="3309">3309</a>
+<a href="#3310" id="3310">3310</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Request message for DeleteBucket.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3991,13 +3992,16 @@
     /// covers all the bytes the server has persisted thus far and can be used to
     /// decide what data is safe for the client to drop. Note that the object&#39;s
     /// current size reported by the BidiWriteObjectResponse may lag behind the
-    /// number of bytes written by the client.
+    /// number of bytes written by the client. This field is ignored if
+    /// `finish_write` is set to true.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>state_lookup: bool,
     <span class="doccomment">/// Persists data written on the stream, up to and including the current
     /// message, to permanent storage. This option should be used sparingly as it
     /// may reduce performance. Ongoing writes will periodically be persisted on
-    /// the server even when `flush` is not set.
+    /// the server even when `flush` is not set. This field is ignored if
+    /// `finish_write` is set to true since there&#39;s no need to checkpoint or flush
+    /// if this message completes the write.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>flush: bool,
     <span class="doccomment">/// If `true`, this indicates that the write is complete. Sending any
@@ -5560,10 +5564,10 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ContentRange {
-    <span class="doccomment">/// The starting offset of the object data.
+    <span class="doccomment">/// The starting offset of the object data. This value is inclusive.
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>start: i64,
-    <span class="doccomment">/// The ending offset of the object data.
+    <span class="doccomment">/// The ending offset of the object data. This value is exclusive.
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>end: i64,
     <span class="doccomment">/// The complete length of the object data.
@@ -5788,10 +5792,9 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Gets the IAM policy for a specified bucket or object.
+        <span class="doccomment">/// Gets the IAM policy for a specified bucket.
         /// The `resource` field in the request should be
-        /// `projects/_/buckets/{bucket}` for a bucket or
-        /// `projects/_/buckets/{bucket}/objects/{object}` for an object.
+        /// `projects/_/buckets/{bucket}`.
         </span><span class="kw">pub async fn </span>get_iam_policy(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;
@@ -5819,10 +5822,9 @@
                 .insert(GrpcMethod::new(<span class="string">&quot;google.storage.v2.Storage&quot;</span>, <span class="string">&quot;GetIamPolicy&quot;</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Updates an IAM policy for the specified bucket or object.
+        <span class="doccomment">/// Updates an IAM policy for the specified bucket.
         /// The `resource` field in the request should be
-        /// `projects/_/buckets/{bucket}` for a bucket or
-        /// `projects/_/buckets/{bucket}/objects/{object}` for an object.
+        /// `projects/_/buckets/{bucket}`.
         </span><span class="kw">pub async fn </span>set_iam_policy(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;
