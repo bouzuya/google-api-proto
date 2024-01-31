@@ -4009,286 +4009,665 @@
 <a href="#4009" id="4009">4009</a>
 <a href="#4010" id="4010">4010</a>
 <a href="#4011" id="4011">4011</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Describes a logs-based metric. The value of the metric is the number of log
-/// entries that match a logs filter in a given time interval.
-///
-/// Logs-based metrics can also be used to extract values from logs and create a
-/// distribution of the values. The distribution records the statistics of the
-/// extracted values along with an optional histogram of the values as specified
-/// by the bucket options.
+</pre></div><pre class="rust"><code><span class="doccomment">/// An individual entry in a log.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LogMetric {
-    <span class="doccomment">/// Required. The client-assigned metric identifier.
-    /// Examples: `&quot;error_count&quot;`, `&quot;nginx/requests&quot;`.
+</span><span class="kw">pub struct </span>LogEntry {
+    <span class="doccomment">/// Required. The resource name of the log to which this log entry belongs:
     ///
-    /// Metric identifiers are limited to 100 characters and can include only the
-    /// following characters: `A-Z`, `a-z`, `0-9`, and the special characters
-    /// `_-.,+!*&#39;,()%/`. The forward-slash character (`/`) denotes a hierarchy of
-    /// name pieces, and it cannot be the first character of the name.
+    ///      &quot;projects/\[PROJECT_ID\]/logs/\[LOG_ID\]&quot;
+    ///      &quot;organizations/\[ORGANIZATION_ID\]/logs/\[LOG_ID\]&quot;
+    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/logs/\[LOG_ID\]&quot;
+    ///      &quot;folders/\[FOLDER_ID\]/logs/\[LOG_ID\]&quot;
     ///
-    /// This field is the `\[METRIC_ID\]` part of a metric resource name in the
-    /// format &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;. Example: If the
-    /// resource name of a metric is
-    /// `&quot;projects/my-project/metrics/nginx%2Frequests&quot;`, this field&#39;s value is
-    /// `&quot;nginx/requests&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A description of this metric, which is used in documentation.
-    /// The maximum length of the description is 8000 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. An [advanced logs
-    /// filter](&lt;https://cloud.google.com/logging/docs/view/advanced_filters&gt;) which
-    /// is used to match log entries. Example:
+    /// A project number may be used in place of PROJECT_ID. The project number is
+    /// translated to its corresponding PROJECT_ID internally and the `log_name`
+    /// field will contain PROJECT_ID in queries and exports.
     ///
-    ///      &quot;resource.type=gae_app AND severity&gt;=ERROR&quot;
+    /// `\[LOG_ID\]` must be URL-encoded within `log_name`. Example:
+    /// `&quot;organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity&quot;`.
     ///
-    /// The maximum length of the filter is 20000 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The resource name of the Log Bucket that owns the Log Metric.
-    /// Only Log Buckets in projects are supported. The bucket has to be in the
-    /// same project as the metric.
+    /// `\[LOG_ID\]` must be less than 512 characters long and can only include the
+    /// following characters: upper and lower case alphanumeric characters,
+    /// forward-slash, underscore, hyphen, and period.
     ///
-    /// For example:
+    /// For backward compatibility, if `log_name` begins with a forward-slash, such
+    /// as `/projects/...`, then the log entry is ingested as usual, but the
+    /// forward-slash is removed. Listing the log entry will not show the leading
+    /// slash and filtering for a log name with a leading slash will never return
+    /// any results.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>log_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The monitored resource that produced this log entry.
     ///
-    ///    `projects/my-project/locations/global/buckets/my-bucket`
-    ///
-    /// If empty, then the Log Metric is considered a non-Bucket Log Metric.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>bucket_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. If set to True, then this metric is disabled and it does not
-    /// generate any points.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>disabled: bool,
-    <span class="doccomment">/// Optional. The metric descriptor associated with the logs-based metric.
-    /// If unspecified, it uses a default metric descriptor with a DELTA metric
-    /// kind, INT64 value type, with no labels and a unit of &quot;1&quot;. Such a metric
-    /// counts the number of log entries matching the `filter` expression.
-    ///
-    /// The `name`, `type`, and `description` fields in the `metric_descriptor`
-    /// are output only, and is constructed using the `name` and `description`
-    /// field in the LogMetric.
-    ///
-    /// To create a logs-based metric that records a distribution of log values, a
-    /// DELTA metric kind with a DISTRIBUTION value type must be used along with
-    /// a `value_extractor` expression in the LogMetric.
-    ///
-    /// Each label in the metric descriptor must have a matching label
-    /// name as the key and an extractor expression as the value in the
-    /// `label_extractors` map.
-    ///
-    /// The `metric_kind` and `value_type` fields in the `metric_descriptor` cannot
-    /// be updated once initially configured. New labels can be added in the
-    /// `metric_descriptor`, but existing labels cannot be modified except for
-    /// their description.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>metric_descriptor: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::api::MetricDescriptor&gt;,
-    <span class="doccomment">/// Optional. A `value_extractor` is required when using a distribution
-    /// logs-based metric to extract the values to record from a log entry.
-    /// Two functions are supported for value extraction: `EXTRACT(field)` or
-    /// `REGEXP_EXTRACT(field, regex)`. The arguments are:
-    ///
-    ///    1. field: The name of the log entry field from which the value is to be
-    ///       extracted.
-    ///    2. regex: A regular expression using the Google RE2 syntax
-    ///       (&lt;https://github.com/google/re2/wiki/Syntax&gt;) with a single capture
-    ///       group to extract data from the specified log entry field. The value
-    ///       of the field is converted to a string before applying the regex.
-    ///       It is an error to specify a regex that does not include exactly one
-    ///       capture group.
-    ///
-    /// The result of the extraction must be convertible to a double type, as the
-    /// distribution always records double values. If either the extraction or
-    /// the conversion to double fails, then those values are not recorded in the
-    /// distribution.
-    ///
-    /// Example: `REGEXP_EXTRACT(jsonPayload.request, &quot;.*quantity=(\d+).*&quot;)`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>value_extractor: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A map from a label key string to an extractor expression which is
-    /// used to extract data from a log entry field and assign as the label value.
-    /// Each label key specified in the LabelDescriptor must have an associated
-    /// extractor expression in this map. The syntax of the extractor expression
-    /// is the same as for the `value_extractor` field.
-    ///
-    /// The extracted value is converted to the type defined in the label
-    /// descriptor. If either the extraction or the type conversion fails,
-    /// the label will have a default value. The default value for a string
-    /// label is an empty string, for an integer label its 0, and for a boolean
-    /// label its `false`.
-    ///
-    /// Note that there are upper bounds on the maximum number of labels and the
-    /// number of active time series that are allowed in a project.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>label_extractors: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Optional. The `bucket_options` are required when the logs-based metric is
-    /// using a DISTRIBUTION value type and it describes the bucket boundaries
-    /// used to create a histogram of the extracted values.
+    /// Example: a log entry that reports a database error would be associated with
+    /// the monitored resource designating the particular database that reported
+    /// the error.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>bucket_options: ::core::option::Option&lt;
-        <span class="kw">super</span>::<span class="kw">super</span>::api::distribution::BucketOptions,
-    &gt;,
-    <span class="doccomment">/// Output only. The creation timestamp of the metric.
+    </span><span class="kw">pub </span>resource: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::api::MonitoredResource&gt;,
+    <span class="doccomment">/// Optional. The time the event described by the log entry occurred. This time
+    /// is used to compute the log entry&#39;s age and to enforce the logs retention
+    /// period. If this field is omitted in a new log entry, then Logging assigns
+    /// it the current time. Timestamps have nanosecond accuracy, but trailing
+    /// zeros in the fractional seconds might be omitted when the timestamp is
+    /// displayed.
     ///
-    /// This field may not be present for older metrics.
+    /// Incoming log entries must have timestamps that don&#39;t exceed the
+    /// [logs retention
+    /// period](&lt;https://cloud.google.com/logging/quotas#logs_retention_periods&gt;) in
+    /// the past, and that don&#39;t exceed 24 hours in the future. Log entries outside
+    /// those time boundaries aren&#39;t ingested by Logging.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The last update timestamp of the metric.
+    </span><span class="kw">pub </span>timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time the log entry was received by Logging.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="kw">pub </span>receive_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Optional. The severity of the log entry. The default value is
+    /// `LogSeverity.DEFAULT`.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::r#type::LogSeverity&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>severity: i32,
+    <span class="doccomment">/// Optional. A unique identifier for the log entry. If you provide a value,
+    /// then Logging considers other log entries in the same project, with the same
+    /// `timestamp`, and with the same `insert_id` to be duplicates which are
+    /// removed in a single query result. However, there are no guarantees of
+    /// de-duplication in the export of logs.
     ///
-    /// This field may not be present for older metrics.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Deprecated. The API version that created or updated this metric.
-    /// The v2 format is used by default and cannot be changed.
-    </span><span class="attr">#[deprecated]
-    #[prost(enumeration = <span class="string">&quot;log_metric::ApiVersion&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>version: i32,
+    /// If the `insert_id` is omitted when writing a log entry, the Logging API
+    /// assigns its own unique identifier in this field.
+    ///
+    /// In queries, the `insert_id` is also used to order log entries that have
+    /// the same `log_name` and `timestamp` values.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>insert_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Information about the HTTP request associated with this log
+    /// entry, if applicable.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>http_request: ::core::option::Option&lt;<span class="kw">super</span>::r#type::HttpRequest&gt;,
+    <span class="doccomment">/// Optional. A map of key, value pairs that provides additional information
+    /// about the log entry. The labels can be user-defined or system-defined.
+    ///
+    /// User-defined labels are arbitrary key, value pairs that you can use to
+    /// classify logs.
+    ///
+    /// System-defined labels are defined by GCP services for platform logs.
+    /// They have two components - a service namespace component and the
+    /// attribute name. For example: `compute.googleapis.com/resource_name`.
+    ///
+    /// Cloud Logging truncates label keys that exceed 512 B and label
+    /// values that exceed 64 KB upon their associated log entry being
+    /// written. The truncation is indicated by an ellipsis at the
+    /// end of the character string.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Optional. Information about an operation associated with the log entry, if
+    /// applicable.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>operation: ::core::option::Option&lt;LogEntryOperation&gt;,
+    <span class="doccomment">/// Optional. The REST resource name of the trace being written to
+    /// [Cloud Trace](&lt;https://cloud.google.com/trace&gt;) in
+    /// association with this log entry. For example, if your trace data is stored
+    /// in the Cloud project &quot;my-trace-project&quot; and if the service that is creating
+    /// the log entry receives a trace header that includes the trace ID &quot;12345&quot;,
+    /// then the service should use &quot;projects/my-tracing-project/traces/12345&quot;.
+    ///
+    /// The `trace` field provides the link between logs and traces. By using
+    /// this field, you can navigate from a log entry to a trace.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>trace: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The ID of the [Cloud Trace](&lt;https://cloud.google.com/trace&gt;) span
+    /// associated with the current operation in which the log is being written.
+    /// For example, if a span has the REST resource name of
+    /// &quot;projects/some-project/traces/some-trace/spans/some-span-id&quot;, then the
+    /// `span_id` field is &quot;some-span-id&quot;.
+    ///
+    /// A
+    /// [Span](&lt;https://cloud.google.com/trace/docs/reference/v2/rest/v2/projects.traces/batchWrite#Span&gt;)
+    /// represents a single operation within a trace. Whereas a trace may involve
+    /// multiple different microservices running on multiple different machines,
+    /// a span generally corresponds to a single logical operation being performed
+    /// in a single instance of a microservice on one specific machine. Spans
+    /// are the nodes within the tree that is a trace.
+    ///
+    /// Applications that are [instrumented for
+    /// tracing](&lt;https://cloud.google.com/trace/docs/setup&gt;) will generally assign a
+    /// new, unique span ID on each incoming request. It is also common to create
+    /// and record additional spans corresponding to internal processing elements
+    /// as well as issuing requests to dependencies.
+    ///
+    /// The span ID is expected to be a 16-character, hexadecimal encoding of an
+    /// 8-byte array and should not be zero. It should be unique within the trace
+    /// and should, ideally, be generated in a manner that is uniformly random.
+    ///
+    /// Example values:
+    ///
+    ///    - `000000000000004a`
+    ///    - `7a2190356c3fc94b`
+    ///    - `0000f00300090021`
+    ///    - `d39223e101960076`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="kw">pub </span>span_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The sampling decision of the trace associated with the log entry.
+    ///
+    /// True means that the trace resource name in the `trace` field was sampled
+    /// for storage in a trace backend. False means that the trace was not sampled
+    /// for storage when this log entry was written, or the sampling decision was
+    /// unknown at the time. A non-sampled `trace` value is still useful as a
+    /// request correlation identifier. The default is False.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;30&quot;</span>)]
+    </span><span class="kw">pub </span>trace_sampled: bool,
+    <span class="doccomment">/// Optional. Source code location information associated with the log entry,
+    /// if any.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>source_location: ::core::option::Option&lt;LogEntrySourceLocation&gt;,
+    <span class="doccomment">/// Optional. Information indicating this LogEntry is part of a sequence of
+    /// multiple log entries split from a single LogEntry.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;35&quot;</span>)]
+    </span><span class="kw">pub </span>split: ::core::option::Option&lt;LogSplit&gt;,
+    <span class="doccomment">/// The log entry payload, which can be one of multiple types.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;log_entry::Payload&quot;</span>, tags = <span class="string">&quot;2, 3, 6&quot;</span>)]
+    </span><span class="kw">pub </span>payload: ::core::option::Option&lt;log_entry::Payload&gt;,
 }
-<span class="doccomment">/// Nested message and enum types in `LogMetric`.
-</span><span class="kw">pub mod </span>log_metric {
-    <span class="doccomment">/// Logging API version.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>ApiVersion {
-        <span class="doccomment">/// Logging API v2.
-        </span>V2 = <span class="number">0</span>,
-        <span class="doccomment">/// Logging API v1.
-        </span>V1 = <span class="number">1</span>,
-    }
-    <span class="kw">impl </span>ApiVersion {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+<span class="doccomment">/// Nested message and enum types in `LogEntry`.
+</span><span class="kw">pub mod </span>log_entry {
+    <span class="doccomment">/// The log entry payload, which can be one of multiple types.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Payload {
+        <span class="doccomment">/// The log entry payload, represented as a protocol buffer. Some Google
+        /// Cloud Platform services use this field for their log entry payloads.
         ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                ApiVersion::V2 =&gt; <span class="string">&quot;V2&quot;</span>,
-                ApiVersion::V1 =&gt; <span class="string">&quot;V1&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;V2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2),
-                <span class="string">&quot;V1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V1),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
+        /// The following protocol buffer types are supported; user-defined types
+        /// are not supported:
+        ///
+        ///    &quot;type.googleapis.com/google.cloud.audit.AuditLog&quot;
+        ///    &quot;type.googleapis.com/google.appengine.logging.v1.RequestLog&quot;
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>ProtoPayload(::prost_types::Any),
+        <span class="doccomment">/// The log entry payload, represented as a Unicode string (UTF-8).
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>TextPayload(::prost::alloc::string::String),
+        <span class="doccomment">/// The log entry payload, represented as a structure that is
+        /// expressed as a JSON object.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>JsonPayload(::prost_types::Struct),
     }
 }
-<span class="doccomment">/// The parameters to ListLogMetrics.
+<span class="doccomment">/// Additional information about a potentially long-running operation with which
+/// a log entry is associated.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLogMetricsRequest {
-    <span class="doccomment">/// Required. The name of the project containing the metrics:
-    ///
-    ///      &quot;projects/\[PROJECT_ID\]&quot;
+</span><span class="kw">pub struct </span>LogEntryOperation {
+    <span class="doccomment">/// Optional. An arbitrary operation identifier. Log entries with the same
+    /// identifier are assumed to be part of the same operation.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. An arbitrary producer identifier. The combination of `id` and
+    /// `producer` must be globally unique. Examples for `producer`:
+    /// `&quot;MyDivision.MyBigCompany.com&quot;`, `&quot;github.com/MyProject/MyApplication&quot;`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>producer: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Set this to True if this is the first log entry in the operation.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>first: bool,
+    <span class="doccomment">/// Optional. Set this to True if this is the last log entry in the operation.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>last: bool,
+}
+<span class="doccomment">/// Additional information about the source code location that produced the log
+/// entry.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LogEntrySourceLocation {
+    <span class="doccomment">/// Optional. Source file name. Depending on the runtime environment, this
+    /// might be a simple name or a fully-qualified name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>file: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Line within the source file. 1-based; 0 indicates no line number
+    /// available.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>line: i64,
+    <span class="doccomment">/// Optional. Human-readable name of the function or method being invoked, with
+    /// optional context such as the class or package name. This information may be
+    /// used in contexts such as the logs viewer, where a file and line number are
+    /// less meaningful. The format can vary by language. For example:
+    /// `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
+    /// (Python).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>function: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Additional information used to correlate multiple log entries. Used when a
+/// single LogEntry would exceed the Google Cloud Logging size limit and is
+/// split across multiple log entries.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LogSplit {
+    <span class="doccomment">/// A globally unique identifier for all log entries in a sequence of split log
+    /// entries. All log entries with the same |LogSplit.uid| are assumed to be
+    /// part of the same sequence of split log entries.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
+    <span class="doccomment">/// The index of this LogEntry in the sequence of split log entries. Log
+    /// entries are given |index| values 0, 1, ..., n-1 for a sequence of n log
+    /// entries.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>index: i32,
+    <span class="doccomment">/// The total number of log entries that the original LogEntry was split into.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>total_splits: i32,
+}
+<span class="doccomment">/// The parameters to DeleteLog.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteLogRequest {
+    <span class="doccomment">/// Required. The resource name of the log to delete:
+    ///
+    /// * `projects/\[PROJECT_ID\]/logs/\[LOG_ID\]`
+    /// * `organizations/\[ORGANIZATION_ID\]/logs/\[LOG_ID\]`
+    /// * `billingAccounts/\[BILLING_ACCOUNT_ID\]/logs/\[LOG_ID\]`
+    /// * `folders/\[FOLDER_ID\]/logs/\[LOG_ID\]`
+    ///
+    /// `\[LOG_ID\]` must be URL-encoded. For example,
+    /// `&quot;projects/my-project-id/logs/syslog&quot;`,
+    /// `&quot;organizations/123/logs/cloudaudit.googleapis.com%2Factivity&quot;`.
+    ///
+    /// For more information about log names, see
+    /// [LogEntry][google.logging.v2.LogEntry].
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>log_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The parameters to WriteLogEntries.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WriteLogEntriesRequest {
+    <span class="doccomment">/// Optional. A default log resource name that is assigned to all log entries
+    /// in `entries` that do not specify a value for `log_name`:
+    ///
+    /// * `projects/\[PROJECT_ID\]/logs/\[LOG_ID\]`
+    /// * `organizations/\[ORGANIZATION_ID\]/logs/\[LOG_ID\]`
+    /// * `billingAccounts/\[BILLING_ACCOUNT_ID\]/logs/\[LOG_ID\]`
+    /// * `folders/\[FOLDER_ID\]/logs/\[LOG_ID\]`
+    ///
+    /// `\[LOG_ID\]` must be URL-encoded. For example:
+    ///
+    ///      &quot;projects/my-project-id/logs/syslog&quot;
+    ///      &quot;organizations/123/logs/cloudaudit.googleapis.com%2Factivity&quot;
+    ///
+    /// The permission `logging.logEntries.create` is needed on each project,
+    /// organization, billing account, or folder that is receiving new log
+    /// entries, whether the resource is specified in `logName` or in an
+    /// individual log entry.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>log_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A default monitored resource object that is assigned to all log
+    /// entries in `entries` that do not specify a value for `resource`. Example:
+    ///
+    ///      { &quot;type&quot;: &quot;gce_instance&quot;,
+    ///        &quot;labels&quot;: {
+    ///          &quot;zone&quot;: &quot;us-central1-a&quot;, &quot;instance_id&quot;: &quot;00000000000000000000&quot; }}
+    ///
+    /// See [LogEntry][google.logging.v2.LogEntry].
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>resource: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::api::MonitoredResource&gt;,
+    <span class="doccomment">/// Optional. Default labels that are added to the `labels` field of all log
+    /// entries in `entries`. If a log entry already has a label with the same key
+    /// as a label in this parameter, then the log entry&#39;s label is not changed.
+    /// See [LogEntry][google.logging.v2.LogEntry].
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Required. The log entries to send to Logging. The order of log
+    /// entries in this list does not matter. Values supplied in this method&#39;s
+    /// `log_name`, `resource`, and `labels` fields are copied into those log
+    /// entries in this list that do not include values for their corresponding
+    /// fields. For more information, see the
+    /// [LogEntry][google.logging.v2.LogEntry] type.
+    ///
+    /// If the `timestamp` or `insert_id` fields are missing in log entries, then
+    /// this method supplies the current time or a unique identifier, respectively.
+    /// The supplied values are chosen so that, among the log entries that did not
+    /// supply their own values, the entries earlier in the list will sort before
+    /// the entries later in the list. See the `entries.list` method.
+    ///
+    /// Log entries with timestamps that are more than the
+    /// [logs retention period](&lt;https://cloud.google.com/logging/quotas&gt;) in
+    /// the past or more than 24 hours in the future will not be available when
+    /// calling `entries.list`. However, those log entries can still be [exported
+    /// with
+    /// LogSinks](&lt;https://cloud.google.com/logging/docs/api/tasks/exporting-logs&gt;).
+    ///
+    /// To improve throughput and to avoid exceeding the
+    /// [quota limit](&lt;https://cloud.google.com/logging/quotas&gt;) for calls to
+    /// `entries.write`, you should try to include several log entries in this
+    /// list, rather than calling this method for each individual log entry.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>entries: ::prost::alloc::vec::Vec&lt;LogEntry&gt;,
+    <span class="doccomment">/// Optional. Whether a batch&#39;s valid entries should be written even if some
+    /// other entry failed due to a permanent error such as INVALID_ARGUMENT or
+    /// PERMISSION_DENIED. If any entry failed, then the response status is the
+    /// response status of one of the failed entries. The response will include
+    /// error details in `WriteLogEntriesPartialErrors.log_entry_errors` keyed by
+    /// the entries&#39; zero-based index in the `entries`. Failed requests for which
+    /// no entries are written will not include per-entry errors.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>partial_success: bool,
+    <span class="doccomment">/// Optional. If true, the request should expect normal response, but the
+    /// entries won&#39;t be persisted nor exported. Useful for checking whether the
+    /// logging API endpoints are working properly before sending valuable data.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>dry_run: bool,
+}
+<span class="doccomment">/// Result returned from WriteLogEntries.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WriteLogEntriesResponse {}
+<span class="doccomment">/// Error details for WriteLogEntries with partial success.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WriteLogEntriesPartialErrors {
+    <span class="doccomment">/// When `WriteLogEntriesRequest.partial_success` is true, records the error
+    /// status for entries that were not written due to a permanent error, keyed
+    /// by the entry&#39;s zero-based index in `WriteLogEntriesRequest.entries`.
+    ///
+    /// Failed requests for which no entries are written will not include
+    /// per-entry errors.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;int32, message&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>log_entry_errors: ::prost::alloc::collections::BTreeMap&lt;
+        i32,
+        <span class="kw">super</span>::<span class="kw">super</span>::rpc::Status,
+    &gt;,
+}
+<span class="doccomment">/// The parameters to `ListLogEntries`.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListLogEntriesRequest {
+    <span class="doccomment">/// Required. Names of one or more parent resources from which to
+    /// retrieve log entries:
+    ///
+    /// *  `projects/\[PROJECT_ID\]`
+    /// *  `organizations/\[ORGANIZATION_ID\]`
+    /// *  `billingAccounts/\[BILLING_ACCOUNT_ID\]`
+    /// *  `folders/\[FOLDER_ID\]`
+    ///
+    /// May alternatively be one or more views:
+    ///
+    ///   * `projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///
+    /// Projects listed in the `project_ids` field are added to this list.
+    /// A maximum of 100 resources may be specified in a single request.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>resource_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Optional. Only log entries that match the filter are returned.  An empty
+    /// filter matches all log entries in the resources listed in `resource_names`.
+    /// Referencing a parent resource that is not listed in `resource_names` will
+    /// cause the filter to return no results. The maximum length of a filter is
+    /// 20,000 characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. How the results should be sorted.  Presently, the only permitted
+    /// values are `&quot;timestamp asc&quot;` (default) and `&quot;timestamp desc&quot;`. The first
+    /// option returns entries in order of increasing values of
+    /// `LogEntry.timestamp` (oldest first), and the second option returns entries
+    /// in order of decreasing timestamps (newest first).  Entries with equal
+    /// timestamps are returned in order of their `insert_id` values.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The maximum number of results to return from this request.
+    /// Default is 50. If the value is negative or exceeds 1000, the request is
+    /// rejected. The presence of `next_page_token` in the response indicates that
+    /// more results might be available.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. If present, then retrieve the next batch of results from the
-    /// preceding call to this method. `pageToken` must be the value of
-    /// `nextPageToken` from the previous response. The values of other method
+    /// preceding call to this method.  `page_token` must be the value of
+    /// `next_page_token` from the previous response.  The values of other method
+    /// parameters should be identical to those in the previous call.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Result returned from `ListLogEntries`.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListLogEntriesResponse {
+    <span class="doccomment">/// A list of log entries.  If `entries` is empty, `nextPageToken` may still be
+    /// returned, indicating that more entries may exist.  See `nextPageToken` for
+    /// more information.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>entries: ::prost::alloc::vec::Vec&lt;LogEntry&gt;,
+    <span class="doccomment">/// If there might be more results than those appearing in this response, then
+    /// `nextPageToken` is included.  To get the next set of results, call this
+    /// method again using the value of `nextPageToken` as `pageToken`.
+    ///
+    /// If a value for `next_page_token` appears and the `entries` field is empty,
+    /// it means that the search found no log entries so far but it did not have
+    /// time to search all the possible log entries.  Retry the method with this
+    /// value for `page_token` to continue the search.  Alternatively, consider
+    /// speeding up the search by changing your filter to specify a single log name
+    /// or resource type, or to narrow the time range of the search.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The parameters to ListMonitoredResourceDescriptors
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListMonitoredResourceDescriptorsRequest {
+    <span class="doccomment">/// Optional. The maximum number of results to return from this request.
+    /// Non-positive values are ignored.  The presence of `nextPageToken` in the
+    /// response indicates that more results might be available.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// Optional. If present, then retrieve the next batch of results from the
+    /// preceding call to this method.  `pageToken` must be the value of
+    /// `nextPageToken` from the previous response.  The values of other method
     /// parameters should be identical to those in the previous call.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The maximum number of results to return from this request.
-    /// Non-positive values are ignored. The presence of `nextPageToken` in the
-    /// response indicates that more results might be available.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
 }
-<span class="doccomment">/// Result returned from ListLogMetrics.
+<span class="doccomment">/// Result returned from ListMonitoredResourceDescriptors.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLogMetricsResponse {
-    <span class="doccomment">/// A list of logs-based metrics.
+</span><span class="kw">pub struct </span>ListMonitoredResourceDescriptorsResponse {
+    <span class="doccomment">/// A list of resource descriptors.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>metrics: ::prost::alloc::vec::Vec&lt;LogMetric&gt;,
-    <span class="doccomment">/// If there might be more results than appear in this response, then
-    /// `nextPageToken` is included. To get the next set of results, call this
+    </span><span class="kw">pub </span>resource_descriptors: ::prost::alloc::vec::Vec&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::api::MonitoredResourceDescriptor,
+    &gt;,
+    <span class="doccomment">/// If there might be more results than those appearing in this response, then
+    /// `nextPageToken` is included.  To get the next set of results, call this
     /// method again using the value of `nextPageToken` as `pageToken`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The parameters to GetLogMetric.
+<span class="doccomment">/// The parameters to ListLogs.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetLogMetricRequest {
-    <span class="doccomment">/// Required. The resource name of the desired metric:
+</span><span class="kw">pub struct </span>ListLogsRequest {
+    <span class="doccomment">/// Required. The resource name to list logs for:
     ///
-    ///      &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The parameters to CreateLogMetric.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateLogMetricRequest {
-    <span class="doccomment">/// Required. The resource name of the project in which to create the metric:
-    ///
-    ///      &quot;projects/\[PROJECT_ID\]&quot;
-    ///
-    /// The new metric must be provided in the request.
+    /// *  `projects/\[PROJECT_ID\]`
+    /// *  `organizations/\[ORGANIZATION_ID\]`
+    /// *  `billingAccounts/\[BILLING_ACCOUNT_ID\]`
+    /// *  `folders/\[FOLDER_ID\]`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The new logs-based metric, which must not have an identifier that
-    /// already exists.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>metric: ::core::option::Option&lt;LogMetric&gt;,
+    <span class="doccomment">/// Optional. List of resource names to list logs for:
+    ///
+    ///   * `projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///
+    /// To support legacy queries, it could also be:
+    ///
+    /// *  `projects/\[PROJECT_ID\]`
+    /// *  `organizations/\[ORGANIZATION_ID\]`
+    /// *  `billingAccounts/\[BILLING_ACCOUNT_ID\]`
+    /// *  `folders/\[FOLDER_ID\]`
+    ///
+    /// The resource name in the `parent` field is added to this list.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>resource_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Optional. The maximum number of results to return from this request.
+    /// Non-positive values are ignored.  The presence of `nextPageToken` in the
+    /// response indicates that more results might be available.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// Optional. If present, then retrieve the next batch of results from the
+    /// preceding call to this method.  `pageToken` must be the value of
+    /// `nextPageToken` from the previous response.  The values of other method
+    /// parameters should be identical to those in the previous call.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The parameters to UpdateLogMetric.
+<span class="doccomment">/// Result returned from ListLogs.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateLogMetricRequest {
-    <span class="doccomment">/// Required. The resource name of the metric to update:
-    ///
-    ///      &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;
-    ///
-    /// The updated metric must be provided in the request and it&#39;s
-    /// `name` field must be the same as `\[METRIC_ID\]` If the metric
-    /// does not exist in `\[PROJECT_ID\]`, then a new metric is created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The updated metric.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>metric: ::core::option::Option&lt;LogMetric&gt;,
+</span><span class="kw">pub struct </span>ListLogsResponse {
+    <span class="doccomment">/// A list of log names. For example,
+    /// `&quot;projects/my-project/logs/syslog&quot;` or
+    /// `&quot;organizations/123/logs/cloudresourcemanager.googleapis.com%2Factivity&quot;`.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>log_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// If there might be more results than those appearing in this response, then
+    /// `nextPageToken` is included.  To get the next set of results, call this
+    /// method again using the value of `nextPageToken` as `pageToken`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The parameters to DeleteLogMetric.
+<span class="doccomment">/// The parameters to `TailLogEntries`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteLogMetricRequest {
-    <span class="doccomment">/// Required. The resource name of the metric to delete:
+</span><span class="kw">pub struct </span>TailLogEntriesRequest {
+    <span class="doccomment">/// Required. Name of a parent resource from which to retrieve log entries:
     ///
-    ///      &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
+    /// *  `projects/\[PROJECT_ID\]`
+    /// *  `organizations/\[ORGANIZATION_ID\]`
+    /// *  `billingAccounts/\[BILLING_ACCOUNT_ID\]`
+    /// *  `folders/\[FOLDER_ID\]`
+    ///
+    /// May alternatively be one or more views:
+    ///
+    ///   * `projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    ///   * `folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Optional. Only log entries that match the filter are returned.  An empty
+    /// filter matches all log entries in the resources listed in `resource_names`.
+    /// Referencing a parent resource that is not listed in `resource_names` will
+    /// cause the filter to return no results. The maximum length of a filter is
+    /// 20,000 characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The amount of time to buffer log entries at the server before
+    /// being returned to prevent out of order results due to late arriving log
+    /// entries. Valid values are between 0-60000 milliseconds. Defaults to 2000
+    /// milliseconds.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>buffer_window: ::core::option::Option&lt;::prost_types::Duration&gt;,
+}
+<span class="doccomment">/// Result returned from `TailLogEntries`.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TailLogEntriesResponse {
+    <span class="doccomment">/// A list of log entries. Each response in the stream will order entries with
+    /// increasing values of `LogEntry.timestamp`. Ordering is not guaranteed
+    /// between separate responses.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>entries: ::prost::alloc::vec::Vec&lt;LogEntry&gt;,
+    <span class="doccomment">/// If entries that otherwise would have been included in the session were not
+    /// sent back to the client, counts of relevant entries omitted from the
+    /// session with the reason that they were not included. There will be at most
+    /// one of each reason per response. The counts represent the number of
+    /// suppressed entries since the last streamed response.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>suppression_info: ::prost::alloc::vec::Vec&lt;
+        tail_log_entries_response::SuppressionInfo,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `TailLogEntriesResponse`.
+</span><span class="kw">pub mod </span>tail_log_entries_response {
+    <span class="doccomment">/// Information about entries that were omitted from the session.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SuppressionInfo {
+        <span class="doccomment">/// The reason that entries were omitted from the session.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;suppression_info::Reason&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>reason: i32,
+        <span class="doccomment">/// A lower bound on the count of entries omitted due to `reason`.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>suppressed_count: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `SuppressionInfo`.
+    </span><span class="kw">pub mod </span>suppression_info {
+        <span class="doccomment">/// An indicator of why entries were omitted.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>Reason {
+            <span class="doccomment">/// Unexpected default.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// Indicates suppression occurred due to relevant entries being
+            /// received in excess of rate limits. For quotas and limits, see
+            /// [Logging API quotas and
+            /// limits](&lt;https://cloud.google.com/logging/quotas#api-limits&gt;).
+            </span>RateLimit = <span class="number">1</span>,
+            <span class="doccomment">/// Indicates suppression occurred due to the client not consuming
+            /// responses quickly enough.
+            </span>NotConsumed = <span class="number">2</span>,
+        }
+        <span class="kw">impl </span>Reason {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    Reason::Unspecified =&gt; <span class="string">&quot;REASON_UNSPECIFIED&quot;</span>,
+                    Reason::RateLimit =&gt; <span class="string">&quot;RATE_LIMIT&quot;</span>,
+                    Reason::NotConsumed =&gt; <span class="string">&quot;NOT_CONSUMED&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;RATE_LIMIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RateLimit),
+                    <span class="string">&quot;NOT_CONSUMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotConsumed),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
 }
 <span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>metrics_service_v2_client {
+</span><span class="kw">pub mod </span>logging_service_v2_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Service for configuring logs-based metrics.
+    <span class="doccomment">/// Service for ingesting and querying logs.
     </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>MetricsServiceV2Client&lt;T&gt; {
+    </span><span class="kw">pub struct </span>LoggingServiceV2Client&lt;T&gt; {
         inner: tonic::client::Grpc&lt;T&gt;,
     }
-    <span class="kw">impl</span>&lt;T&gt; MetricsServiceV2Client&lt;T&gt;
+    <span class="kw">impl</span>&lt;T&gt; LoggingServiceV2Client&lt;T&gt;
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
@@ -4306,7 +4685,7 @@
         <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
             inner: T,
             interceptor: F,
-        ) -&gt; MetricsServiceV2Client&lt;InterceptedService&lt;T, F&gt;&gt;
+        ) -&gt; LoggingServiceV2Client&lt;InterceptedService&lt;T, F&gt;&gt;
         <span class="kw">where
             </span>F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -4320,7 +4699,7 @@
                 http::Request&lt;tonic::body::BoxBody&gt;,
             &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
         {
-            MetricsServiceV2Client::new(InterceptedService::new(inner, interceptor))
+            LoggingServiceV2Client::new(InterceptedService::new(inner, interceptor))
         }
         <span class="doccomment">/// Compress requests with the given encoding.
         ///
@@ -4353,12 +4732,46 @@
             <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
             <span class="self">self
         </span>}
-        <span class="doccomment">/// Lists logs-based metrics.
-        </span><span class="kw">pub async fn </span>list_log_metrics(
+        <span class="doccomment">/// Deletes all the log entries in a log for the _Default Log Bucket. The log
+        /// reappears if it receives new entries. Log entries written shortly before
+        /// the delete operation might not be deleted. Entries received after the
+        /// delete operation with a timestamp before the operation will be deleted.
+        </span><span class="kw">pub async fn </span>delete_log(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLogMetricsRequest&gt;,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteLogRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/DeleteLog&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(<span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>, <span class="string">&quot;DeleteLog&quot;</span>),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Writes log entries to Logging. This API method is the
+        /// only way to send log entries to Logging. This method
+        /// is used, directly or indirectly, by the Logging agent
+        /// (fluentd) and all logging libraries configured to use Logging.
+        /// A single request may contain log entries for a maximum of 1000
+        /// different resources (projects, organizations, billing accounts or
+        /// folders)
+        </span><span class="kw">pub async fn </span>write_log_entries(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::WriteLogEntriesRequest&gt;,
         ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListLogMetricsResponse&gt;,
+            tonic::Response&lt;<span class="kw">super</span>::WriteLogEntriesResponse&gt;,
             tonic::Status,
         &gt; {
             <span class="self">self</span>.inner
@@ -4372,23 +4785,29 @@
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.MetricsServiceV2/ListLogMetrics&quot;</span>,
+                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/WriteLogEntries&quot;</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.logging.v2.MetricsServiceV2&quot;</span>,
-                        <span class="string">&quot;ListLogMetrics&quot;</span>,
+                        <span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>,
+                        <span class="string">&quot;WriteLogEntries&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Gets a logs-based metric.
-        </span><span class="kw">pub async fn </span>get_log_metric(
+        <span class="doccomment">/// Lists log entries.  Use this method to retrieve log entries that originated
+        /// from a project/folder/organization/billing account.  For ways to export log
+        /// entries, see [Exporting
+        /// Logs](https://cloud.google.com/logging/docs/export).
+        </span><span class="kw">pub async fn </span>list_log_entries(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetLogMetricRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::LogMetric&gt;, tonic::Status&gt; {
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLogEntriesRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListLogEntriesResponse&gt;,
+            tonic::Status,
+        &gt; {
             <span class="self">self</span>.inner
                 .ready()
                 .<span class="kw">await
@@ -4400,20 +4819,28 @@
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.MetricsServiceV2/GetLogMetric&quot;</span>,
+                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/ListLogEntries&quot;</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.logging.v2.MetricsServiceV2&quot;</span>, <span class="string">&quot;GetLogMetric&quot;</span>),
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>,
+                        <span class="string">&quot;ListLogEntries&quot;</span>,
+                    ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Creates a logs-based metric.
-        </span><span class="kw">pub async fn </span>create_log_metric(
+        <span class="doccomment">/// Lists the descriptors for monitored resource types used by Logging.
+        </span><span class="kw">pub async fn </span>list_monitored_resource_descriptors(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateLogMetricRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::LogMetric&gt;, tonic::Status&gt; {
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;
+                <span class="kw">super</span>::ListMonitoredResourceDescriptorsRequest,
+            &gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListMonitoredResourceDescriptorsResponse&gt;,
+            tonic::Status,
+        &gt; {
             <span class="self">self</span>.inner
                 .ready()
                 .<span class="kw">await
@@ -4425,23 +4852,27 @@
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.MetricsServiceV2/CreateLogMetric&quot;</span>,
+                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/ListMonitoredResourceDescriptors&quot;</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.logging.v2.MetricsServiceV2&quot;</span>,
-                        <span class="string">&quot;CreateLogMetric&quot;</span>,
+                        <span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>,
+                        <span class="string">&quot;ListMonitoredResourceDescriptors&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Creates or updates a logs-based metric.
-        </span><span class="kw">pub async fn </span>update_log_metric(
+        <span class="doccomment">/// Lists the logs in projects, organizations, folders, or billing accounts.
+        /// Only logs that have entries are listed.
+        </span><span class="kw">pub async fn </span>list_logs(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateLogMetricRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::LogMetric&gt;, tonic::Status&gt; {
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLogsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListLogsResponse&gt;,
+            tonic::Status,
+        &gt; {
             <span class="self">self</span>.inner
                 .ready()
                 .<span class="kw">await
@@ -4453,23 +4884,26 @@
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.MetricsServiceV2/UpdateLogMetric&quot;</span>,
+                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/ListLogs&quot;</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.logging.v2.MetricsServiceV2&quot;</span>,
-                        <span class="string">&quot;UpdateLogMetric&quot;</span>,
-                    ),
+                    GrpcMethod::new(<span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>, <span class="string">&quot;ListLogs&quot;</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Deletes a logs-based metric.
-        </span><span class="kw">pub async fn </span>delete_log_metric(
+        <span class="doccomment">/// Streaming read of log entries as they are ingested. Until the stream is
+        /// terminated, it will continue reading logs.
+        </span><span class="kw">pub async fn </span>tail_log_entries(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteLogMetricRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
+            request: <span class="kw">impl </span>tonic::IntoStreamingRequest&lt;
+                Message = <span class="kw">super</span>::TailLogEntriesRequest,
+            &gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;tonic::codec::Streaming&lt;<span class="kw">super</span>::TailLogEntriesResponse&gt;&gt;,
+            tonic::Status,
+        &gt; {
             <span class="self">self</span>.inner
                 .ready()
                 .<span class="kw">await
@@ -4481,17 +4915,17 @@
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.MetricsServiceV2/DeleteLogMetric&quot;</span>,
+                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/TailLogEntries&quot;</span>,
             );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.logging.v2.MetricsServiceV2&quot;</span>,
-                        <span class="string">&quot;DeleteLogMetric&quot;</span>,
+                        <span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>,
+                        <span class="string">&quot;TailLogEntries&quot;</span>,
                     ),
                 );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+            <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await
         </span>}
     }
 }
@@ -7100,665 +7534,286 @@
         </span>}
     }
 }
-<span class="doccomment">/// An individual entry in a log.
+<span class="doccomment">/// Describes a logs-based metric. The value of the metric is the number of log
+/// entries that match a logs filter in a given time interval.
+///
+/// Logs-based metrics can also be used to extract values from logs and create a
+/// distribution of the values. The distribution records the statistics of the
+/// extracted values along with an optional histogram of the values as specified
+/// by the bucket options.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LogEntry {
-    <span class="doccomment">/// Required. The resource name of the log to which this log entry belongs:
+</span><span class="kw">pub struct </span>LogMetric {
+    <span class="doccomment">/// Required. The client-assigned metric identifier.
+    /// Examples: `&quot;error_count&quot;`, `&quot;nginx/requests&quot;`.
     ///
-    ///      &quot;projects/\[PROJECT_ID\]/logs/\[LOG_ID\]&quot;
-    ///      &quot;organizations/\[ORGANIZATION_ID\]/logs/\[LOG_ID\]&quot;
-    ///      &quot;billingAccounts/\[BILLING_ACCOUNT_ID\]/logs/\[LOG_ID\]&quot;
-    ///      &quot;folders/\[FOLDER_ID\]/logs/\[LOG_ID\]&quot;
+    /// Metric identifiers are limited to 100 characters and can include only the
+    /// following characters: `A-Z`, `a-z`, `0-9`, and the special characters
+    /// `_-.,+!*&#39;,()%/`. The forward-slash character (`/`) denotes a hierarchy of
+    /// name pieces, and it cannot be the first character of the name.
     ///
-    /// A project number may be used in place of PROJECT_ID. The project number is
-    /// translated to its corresponding PROJECT_ID internally and the `log_name`
-    /// field will contain PROJECT_ID in queries and exports.
+    /// This field is the `\[METRIC_ID\]` part of a metric resource name in the
+    /// format &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;. Example: If the
+    /// resource name of a metric is
+    /// `&quot;projects/my-project/metrics/nginx%2Frequests&quot;`, this field&#39;s value is
+    /// `&quot;nginx/requests&quot;`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A description of this metric, which is used in documentation.
+    /// The maximum length of the description is 8000 characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. An [advanced logs
+    /// filter](&lt;https://cloud.google.com/logging/docs/view/advanced_filters&gt;) which
+    /// is used to match log entries. Example:
     ///
-    /// `\[LOG_ID\]` must be URL-encoded within `log_name`. Example:
-    /// `&quot;organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity&quot;`.
+    ///      &quot;resource.type=gae_app AND severity&gt;=ERROR&quot;
     ///
-    /// `\[LOG_ID\]` must be less than 512 characters long and can only include the
-    /// following characters: upper and lower case alphanumeric characters,
-    /// forward-slash, underscore, hyphen, and period.
+    /// The maximum length of the filter is 20000 characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The resource name of the Log Bucket that owns the Log Metric.
+    /// Only Log Buckets in projects are supported. The bucket has to be in the
+    /// same project as the metric.
     ///
-    /// For backward compatibility, if `log_name` begins with a forward-slash, such
-    /// as `/projects/...`, then the log entry is ingested as usual, but the
-    /// forward-slash is removed. Listing the log entry will not show the leading
-    /// slash and filtering for a log name with a leading slash will never return
-    /// any results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>log_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The monitored resource that produced this log entry.
+    /// For example:
     ///
-    /// Example: a log entry that reports a database error would be associated with
-    /// the monitored resource designating the particular database that reported
-    /// the error.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>resource: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::api::MonitoredResource&gt;,
-    <span class="doccomment">/// Optional. The time the event described by the log entry occurred. This time
-    /// is used to compute the log entry&#39;s age and to enforce the logs retention
-    /// period. If this field is omitted in a new log entry, then Logging assigns
-    /// it the current time. Timestamps have nanosecond accuracy, but trailing
-    /// zeros in the fractional seconds might be omitted when the timestamp is
-    /// displayed.
+    ///    `projects/my-project/locations/global/buckets/my-bucket`
     ///
-    /// Incoming log entries must have timestamps that don&#39;t exceed the
-    /// [logs retention
-    /// period](&lt;https://cloud.google.com/logging/quotas#logs_retention_periods&gt;) in
-    /// the past, and that don&#39;t exceed 24 hours in the future. Log entries outside
-    /// those time boundaries aren&#39;t ingested by Logging.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time the log entry was received by Logging.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
-    </span><span class="kw">pub </span>receive_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Optional. The severity of the log entry. The default value is
-    /// `LogSeverity.DEFAULT`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::r#type::LogSeverity&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>severity: i32,
-    <span class="doccomment">/// Optional. A unique identifier for the log entry. If you provide a value,
-    /// then Logging considers other log entries in the same project, with the same
-    /// `timestamp`, and with the same `insert_id` to be duplicates which are
-    /// removed in a single query result. However, there are no guarantees of
-    /// de-duplication in the export of logs.
+    /// If empty, then the Log Metric is considered a non-Bucket Log Metric.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>bucket_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. If set to True, then this metric is disabled and it does not
+    /// generate any points.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>disabled: bool,
+    <span class="doccomment">/// Optional. The metric descriptor associated with the logs-based metric.
+    /// If unspecified, it uses a default metric descriptor with a DELTA metric
+    /// kind, INT64 value type, with no labels and a unit of &quot;1&quot;. Such a metric
+    /// counts the number of log entries matching the `filter` expression.
     ///
-    /// If the `insert_id` is omitted when writing a log entry, the Logging API
-    /// assigns its own unique identifier in this field.
+    /// The `name`, `type`, and `description` fields in the `metric_descriptor`
+    /// are output only, and is constructed using the `name` and `description`
+    /// field in the LogMetric.
     ///
-    /// In queries, the `insert_id` is also used to order log entries that have
-    /// the same `log_name` and `timestamp` values.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>insert_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Information about the HTTP request associated with this log
-    /// entry, if applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>http_request: ::core::option::Option&lt;<span class="kw">super</span>::r#type::HttpRequest&gt;,
-    <span class="doccomment">/// Optional. A map of key, value pairs that provides additional information
-    /// about the log entry. The labels can be user-defined or system-defined.
+    /// To create a logs-based metric that records a distribution of log values, a
+    /// DELTA metric kind with a DISTRIBUTION value type must be used along with
+    /// a `value_extractor` expression in the LogMetric.
     ///
-    /// User-defined labels are arbitrary key, value pairs that you can use to
-    /// classify logs.
+    /// Each label in the metric descriptor must have a matching label
+    /// name as the key and an extractor expression as the value in the
+    /// `label_extractors` map.
     ///
-    /// System-defined labels are defined by GCP services for platform logs.
-    /// They have two components - a service namespace component and the
-    /// attribute name. For example: `compute.googleapis.com/resource_name`.
+    /// The `metric_kind` and `value_type` fields in the `metric_descriptor` cannot
+    /// be updated once initially configured. New labels can be added in the
+    /// `metric_descriptor`, but existing labels cannot be modified except for
+    /// their description.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>metric_descriptor: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::api::MetricDescriptor&gt;,
+    <span class="doccomment">/// Optional. A `value_extractor` is required when using a distribution
+    /// logs-based metric to extract the values to record from a log entry.
+    /// Two functions are supported for value extraction: `EXTRACT(field)` or
+    /// `REGEXP_EXTRACT(field, regex)`. The arguments are:
     ///
-    /// Cloud Logging truncates label keys that exceed 512 B and label
-    /// values that exceed 64 KB upon their associated log entry being
-    /// written. The truncation is indicated by an ellipsis at the
-    /// end of the character string.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+    ///    1. field: The name of the log entry field from which the value is to be
+    ///       extracted.
+    ///    2. regex: A regular expression using the Google RE2 syntax
+    ///       (&lt;https://github.com/google/re2/wiki/Syntax&gt;) with a single capture
+    ///       group to extract data from the specified log entry field. The value
+    ///       of the field is converted to a string before applying the regex.
+    ///       It is an error to specify a regex that does not include exactly one
+    ///       capture group.
+    ///
+    /// The result of the extraction must be convertible to a double type, as the
+    /// distribution always records double values. If either the extraction or
+    /// the conversion to double fails, then those values are not recorded in the
+    /// distribution.
+    ///
+    /// Example: `REGEXP_EXTRACT(jsonPayload.request, &quot;.*quantity=(\d+).*&quot;)`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>value_extractor: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A map from a label key string to an extractor expression which is
+    /// used to extract data from a log entry field and assign as the label value.
+    /// Each label key specified in the LabelDescriptor must have an associated
+    /// extractor expression in this map. The syntax of the extractor expression
+    /// is the same as for the `value_extractor` field.
+    ///
+    /// The extracted value is converted to the type defined in the label
+    /// descriptor. If either the extraction or the type conversion fails,
+    /// the label will have a default value. The default value for a string
+    /// label is an empty string, for an integer label its 0, and for a boolean
+    /// label its `false`.
+    ///
+    /// Note that there are upper bounds on the maximum number of labels and the
+    /// number of active time series that are allowed in a project.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>label_extractors: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="doccomment">/// Optional. Information about an operation associated with the log entry, if
-    /// applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>operation: ::core::option::Option&lt;LogEntryOperation&gt;,
-    <span class="doccomment">/// Optional. The REST resource name of the trace being written to
-    /// [Cloud Trace](&lt;https://cloud.google.com/trace&gt;) in
-    /// association with this log entry. For example, if your trace data is stored
-    /// in the Cloud project &quot;my-trace-project&quot; and if the service that is creating
-    /// the log entry receives a trace header that includes the trace ID &quot;12345&quot;,
-    /// then the service should use &quot;projects/my-tracing-project/traces/12345&quot;.
+    <span class="doccomment">/// Optional. The `bucket_options` are required when the logs-based metric is
+    /// using a DISTRIBUTION value type and it describes the bucket boundaries
+    /// used to create a histogram of the extracted values.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>bucket_options: ::core::option::Option&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::api::distribution::BucketOptions,
+    &gt;,
+    <span class="doccomment">/// Output only. The creation timestamp of the metric.
     ///
-    /// The `trace` field provides the link between logs and traces. By using
-    /// this field, you can navigate from a log entry to a trace.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;22&quot;</span>)]
-    </span><span class="kw">pub </span>trace: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The ID of the [Cloud Trace](&lt;https://cloud.google.com/trace&gt;) span
-    /// associated with the current operation in which the log is being written.
-    /// For example, if a span has the REST resource name of
-    /// &quot;projects/some-project/traces/some-trace/spans/some-span-id&quot;, then the
-    /// `span_id` field is &quot;some-span-id&quot;.
+    /// This field may not be present for older metrics.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The last update timestamp of the metric.
     ///
-    /// A
-    /// [Span](&lt;https://cloud.google.com/trace/docs/reference/v2/rest/v2/projects.traces/batchWrite#Span&gt;)
-    /// represents a single operation within a trace. Whereas a trace may involve
-    /// multiple different microservices running on multiple different machines,
-    /// a span generally corresponds to a single logical operation being performed
-    /// in a single instance of a microservice on one specific machine. Spans
-    /// are the nodes within the tree that is a trace.
-    ///
-    /// Applications that are [instrumented for
-    /// tracing](&lt;https://cloud.google.com/trace/docs/setup&gt;) will generally assign a
-    /// new, unique span ID on each incoming request. It is also common to create
-    /// and record additional spans corresponding to internal processing elements
-    /// as well as issuing requests to dependencies.
-    ///
-    /// The span ID is expected to be a 16-character, hexadecimal encoding of an
-    /// 8-byte array and should not be zero. It should be unique within the trace
-    /// and should, ideally, be generated in a manner that is uniformly random.
-    ///
-    /// Example values:
-    ///
-    ///    - `000000000000004a`
-    ///    - `7a2190356c3fc94b`
-    ///    - `0000f00300090021`
-    ///    - `d39223e101960076`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;27&quot;</span>)]
-    </span><span class="kw">pub </span>span_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The sampling decision of the trace associated with the log entry.
-    ///
-    /// True means that the trace resource name in the `trace` field was sampled
-    /// for storage in a trace backend. False means that the trace was not sampled
-    /// for storage when this log entry was written, or the sampling decision was
-    /// unknown at the time. A non-sampled `trace` value is still useful as a
-    /// request correlation identifier. The default is False.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;30&quot;</span>)]
-    </span><span class="kw">pub </span>trace_sampled: bool,
-    <span class="doccomment">/// Optional. Source code location information associated with the log entry,
-    /// if any.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;23&quot;</span>)]
-    </span><span class="kw">pub </span>source_location: ::core::option::Option&lt;LogEntrySourceLocation&gt;,
-    <span class="doccomment">/// Optional. Information indicating this LogEntry is part of a sequence of
-    /// multiple log entries split from a single LogEntry.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;35&quot;</span>)]
-    </span><span class="kw">pub </span>split: ::core::option::Option&lt;LogSplit&gt;,
-    <span class="doccomment">/// The log entry payload, which can be one of multiple types.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;log_entry::Payload&quot;</span>, tags = <span class="string">&quot;2, 3, 6&quot;</span>)]
-    </span><span class="kw">pub </span>payload: ::core::option::Option&lt;log_entry::Payload&gt;,
+    /// This field may not be present for older metrics.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Deprecated. The API version that created or updated this metric.
+    /// The v2 format is used by default and cannot be changed.
+    </span><span class="attr">#[deprecated]
+    #[prost(enumeration = <span class="string">&quot;log_metric::ApiVersion&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>version: i32,
 }
-<span class="doccomment">/// Nested message and enum types in `LogEntry`.
-</span><span class="kw">pub mod </span>log_entry {
-    <span class="doccomment">/// The log entry payload, which can be one of multiple types.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Payload {
-        <span class="doccomment">/// The log entry payload, represented as a protocol buffer. Some Google
-        /// Cloud Platform services use this field for their log entry payloads.
+<span class="doccomment">/// Nested message and enum types in `LogMetric`.
+</span><span class="kw">pub mod </span>log_metric {
+    <span class="doccomment">/// Logging API version.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ApiVersion {
+        <span class="doccomment">/// Logging API v2.
+        </span>V2 = <span class="number">0</span>,
+        <span class="doccomment">/// Logging API v1.
+        </span>V1 = <span class="number">1</span>,
+    }
+    <span class="kw">impl </span>ApiVersion {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
         ///
-        /// The following protocol buffer types are supported; user-defined types
-        /// are not supported:
-        ///
-        ///    &quot;type.googleapis.com/google.cloud.audit.AuditLog&quot;
-        ///    &quot;type.googleapis.com/google.appengine.logging.v1.RequestLog&quot;
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>ProtoPayload(::prost_types::Any),
-        <span class="doccomment">/// The log entry payload, represented as a Unicode string (UTF-8).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>TextPayload(::prost::alloc::string::String),
-        <span class="doccomment">/// The log entry payload, represented as a structure that is
-        /// expressed as a JSON object.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>JsonPayload(::prost_types::Struct),
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ApiVersion::V2 =&gt; <span class="string">&quot;V2&quot;</span>,
+                ApiVersion::V1 =&gt; <span class="string">&quot;V1&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;V2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2),
+                <span class="string">&quot;V1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V1),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
     }
 }
-<span class="doccomment">/// Additional information about a potentially long-running operation with which
-/// a log entry is associated.
+<span class="doccomment">/// The parameters to ListLogMetrics.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LogEntryOperation {
-    <span class="doccomment">/// Optional. An arbitrary operation identifier. Log entries with the same
-    /// identifier are assumed to be part of the same operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. An arbitrary producer identifier. The combination of `id` and
-    /// `producer` must be globally unique. Examples for `producer`:
-    /// `&quot;MyDivision.MyBigCompany.com&quot;`, `&quot;github.com/MyProject/MyApplication&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>producer: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Set this to True if this is the first log entry in the operation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>first: bool,
-    <span class="doccomment">/// Optional. Set this to True if this is the last log entry in the operation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>last: bool,
-}
-<span class="doccomment">/// Additional information about the source code location that produced the log
-/// entry.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LogEntrySourceLocation {
-    <span class="doccomment">/// Optional. Source file name. Depending on the runtime environment, this
-    /// might be a simple name or a fully-qualified name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>file: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Line within the source file. 1-based; 0 indicates no line number
-    /// available.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>line: i64,
-    <span class="doccomment">/// Optional. Human-readable name of the function or method being invoked, with
-    /// optional context such as the class or package name. This information may be
-    /// used in contexts such as the logs viewer, where a file and line number are
-    /// less meaningful. The format can vary by language. For example:
-    /// `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
-    /// (Python).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>function: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Additional information used to correlate multiple log entries. Used when a
-/// single LogEntry would exceed the Google Cloud Logging size limit and is
-/// split across multiple log entries.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LogSplit {
-    <span class="doccomment">/// A globally unique identifier for all log entries in a sequence of split log
-    /// entries. All log entries with the same |LogSplit.uid| are assumed to be
-    /// part of the same sequence of split log entries.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
-    <span class="doccomment">/// The index of this LogEntry in the sequence of split log entries. Log
-    /// entries are given |index| values 0, 1, ..., n-1 for a sequence of n log
-    /// entries.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>index: i32,
-    <span class="doccomment">/// The total number of log entries that the original LogEntry was split into.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>total_splits: i32,
-}
-<span class="doccomment">/// The parameters to DeleteLog.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteLogRequest {
-    <span class="doccomment">/// Required. The resource name of the log to delete:
+</span><span class="kw">pub struct </span>ListLogMetricsRequest {
+    <span class="doccomment">/// Required. The name of the project containing the metrics:
     ///
-    /// * `projects/\[PROJECT_ID\]/logs/\[LOG_ID\]`
-    /// * `organizations/\[ORGANIZATION_ID\]/logs/\[LOG_ID\]`
-    /// * `billingAccounts/\[BILLING_ACCOUNT_ID\]/logs/\[LOG_ID\]`
-    /// * `folders/\[FOLDER_ID\]/logs/\[LOG_ID\]`
-    ///
-    /// `\[LOG_ID\]` must be URL-encoded. For example,
-    /// `&quot;projects/my-project-id/logs/syslog&quot;`,
-    /// `&quot;organizations/123/logs/cloudaudit.googleapis.com%2Factivity&quot;`.
-    ///
-    /// For more information about log names, see
-    /// [LogEntry][google.logging.v2.LogEntry].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>log_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The parameters to WriteLogEntries.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WriteLogEntriesRequest {
-    <span class="doccomment">/// Optional. A default log resource name that is assigned to all log entries
-    /// in `entries` that do not specify a value for `log_name`:
-    ///
-    /// * `projects/\[PROJECT_ID\]/logs/\[LOG_ID\]`
-    /// * `organizations/\[ORGANIZATION_ID\]/logs/\[LOG_ID\]`
-    /// * `billingAccounts/\[BILLING_ACCOUNT_ID\]/logs/\[LOG_ID\]`
-    /// * `folders/\[FOLDER_ID\]/logs/\[LOG_ID\]`
-    ///
-    /// `\[LOG_ID\]` must be URL-encoded. For example:
-    ///
-    ///      &quot;projects/my-project-id/logs/syslog&quot;
-    ///      &quot;organizations/123/logs/cloudaudit.googleapis.com%2Factivity&quot;
-    ///
-    /// The permission `logging.logEntries.create` is needed on each project,
-    /// organization, billing account, or folder that is receiving new log
-    /// entries, whether the resource is specified in `logName` or in an
-    /// individual log entry.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>log_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A default monitored resource object that is assigned to all log
-    /// entries in `entries` that do not specify a value for `resource`. Example:
-    ///
-    ///      { &quot;type&quot;: &quot;gce_instance&quot;,
-    ///        &quot;labels&quot;: {
-    ///          &quot;zone&quot;: &quot;us-central1-a&quot;, &quot;instance_id&quot;: &quot;00000000000000000000&quot; }}
-    ///
-    /// See [LogEntry][google.logging.v2.LogEntry].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>resource: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::api::MonitoredResource&gt;,
-    <span class="doccomment">/// Optional. Default labels that are added to the `labels` field of all log
-    /// entries in `entries`. If a log entry already has a label with the same key
-    /// as a label in this parameter, then the log entry&#39;s label is not changed.
-    /// See [LogEntry][google.logging.v2.LogEntry].
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Required. The log entries to send to Logging. The order of log
-    /// entries in this list does not matter. Values supplied in this method&#39;s
-    /// `log_name`, `resource`, and `labels` fields are copied into those log
-    /// entries in this list that do not include values for their corresponding
-    /// fields. For more information, see the
-    /// [LogEntry][google.logging.v2.LogEntry] type.
-    ///
-    /// If the `timestamp` or `insert_id` fields are missing in log entries, then
-    /// this method supplies the current time or a unique identifier, respectively.
-    /// The supplied values are chosen so that, among the log entries that did not
-    /// supply their own values, the entries earlier in the list will sort before
-    /// the entries later in the list. See the `entries.list` method.
-    ///
-    /// Log entries with timestamps that are more than the
-    /// [logs retention period](&lt;https://cloud.google.com/logging/quotas&gt;) in
-    /// the past or more than 24 hours in the future will not be available when
-    /// calling `entries.list`. However, those log entries can still be [exported
-    /// with
-    /// LogSinks](&lt;https://cloud.google.com/logging/docs/api/tasks/exporting-logs&gt;).
-    ///
-    /// To improve throughput and to avoid exceeding the
-    /// [quota limit](&lt;https://cloud.google.com/logging/quotas&gt;) for calls to
-    /// `entries.write`, you should try to include several log entries in this
-    /// list, rather than calling this method for each individual log entry.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>entries: ::prost::alloc::vec::Vec&lt;LogEntry&gt;,
-    <span class="doccomment">/// Optional. Whether a batch&#39;s valid entries should be written even if some
-    /// other entry failed due to a permanent error such as INVALID_ARGUMENT or
-    /// PERMISSION_DENIED. If any entry failed, then the response status is the
-    /// response status of one of the failed entries. The response will include
-    /// error details in `WriteLogEntriesPartialErrors.log_entry_errors` keyed by
-    /// the entries&#39; zero-based index in the `entries`. Failed requests for which
-    /// no entries are written will not include per-entry errors.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>partial_success: bool,
-    <span class="doccomment">/// Optional. If true, the request should expect normal response, but the
-    /// entries won&#39;t be persisted nor exported. Useful for checking whether the
-    /// logging API endpoints are working properly before sending valuable data.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>dry_run: bool,
-}
-<span class="doccomment">/// Result returned from WriteLogEntries.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WriteLogEntriesResponse {}
-<span class="doccomment">/// Error details for WriteLogEntries with partial success.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WriteLogEntriesPartialErrors {
-    <span class="doccomment">/// When `WriteLogEntriesRequest.partial_success` is true, records the error
-    /// status for entries that were not written due to a permanent error, keyed
-    /// by the entry&#39;s zero-based index in `WriteLogEntriesRequest.entries`.
-    ///
-    /// Failed requests for which no entries are written will not include
-    /// per-entry errors.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;int32, message&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>log_entry_errors: ::prost::alloc::collections::BTreeMap&lt;
-        i32,
-        <span class="kw">super</span>::<span class="kw">super</span>::rpc::Status,
-    &gt;,
-}
-<span class="doccomment">/// The parameters to `ListLogEntries`.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLogEntriesRequest {
-    <span class="doccomment">/// Required. Names of one or more parent resources from which to
-    /// retrieve log entries:
-    ///
-    /// *  `projects/\[PROJECT_ID\]`
-    /// *  `organizations/\[ORGANIZATION_ID\]`
-    /// *  `billingAccounts/\[BILLING_ACCOUNT_ID\]`
-    /// *  `folders/\[FOLDER_ID\]`
-    ///
-    /// May alternatively be one or more views:
-    ///
-    ///   * `projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///   * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///   * `folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///
-    /// Projects listed in the `project_ids` field are added to this list.
-    /// A maximum of 100 resources may be specified in a single request.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>resource_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Optional. Only log entries that match the filter are returned.  An empty
-    /// filter matches all log entries in the resources listed in `resource_names`.
-    /// Referencing a parent resource that is not listed in `resource_names` will
-    /// cause the filter to return no results. The maximum length of a filter is
-    /// 20,000 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. How the results should be sorted.  Presently, the only permitted
-    /// values are `&quot;timestamp asc&quot;` (default) and `&quot;timestamp desc&quot;`. The first
-    /// option returns entries in order of increasing values of
-    /// `LogEntry.timestamp` (oldest first), and the second option returns entries
-    /// in order of decreasing timestamps (newest first).  Entries with equal
-    /// timestamps are returned in order of their `insert_id` values.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The maximum number of results to return from this request.
-    /// Default is 50. If the value is negative or exceeds 1000, the request is
-    /// rejected. The presence of `next_page_token` in the response indicates that
-    /// more results might be available.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Optional. If present, then retrieve the next batch of results from the
-    /// preceding call to this method.  `page_token` must be the value of
-    /// `next_page_token` from the previous response.  The values of other method
-    /// parameters should be identical to those in the previous call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Result returned from `ListLogEntries`.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLogEntriesResponse {
-    <span class="doccomment">/// A list of log entries.  If `entries` is empty, `nextPageToken` may still be
-    /// returned, indicating that more entries may exist.  See `nextPageToken` for
-    /// more information.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>entries: ::prost::alloc::vec::Vec&lt;LogEntry&gt;,
-    <span class="doccomment">/// If there might be more results than those appearing in this response, then
-    /// `nextPageToken` is included.  To get the next set of results, call this
-    /// method again using the value of `nextPageToken` as `pageToken`.
-    ///
-    /// If a value for `next_page_token` appears and the `entries` field is empty,
-    /// it means that the search found no log entries so far but it did not have
-    /// time to search all the possible log entries.  Retry the method with this
-    /// value for `page_token` to continue the search.  Alternatively, consider
-    /// speeding up the search by changing your filter to specify a single log name
-    /// or resource type, or to narrow the time range of the search.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The parameters to ListMonitoredResourceDescriptors
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListMonitoredResourceDescriptorsRequest {
-    <span class="doccomment">/// Optional. The maximum number of results to return from this request.
-    /// Non-positive values are ignored.  The presence of `nextPageToken` in the
-    /// response indicates that more results might be available.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Optional. If present, then retrieve the next batch of results from the
-    /// preceding call to this method.  `pageToken` must be the value of
-    /// `nextPageToken` from the previous response.  The values of other method
-    /// parameters should be identical to those in the previous call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Result returned from ListMonitoredResourceDescriptors.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListMonitoredResourceDescriptorsResponse {
-    <span class="doccomment">/// A list of resource descriptors.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_descriptors: ::prost::alloc::vec::Vec&lt;
-        <span class="kw">super</span>::<span class="kw">super</span>::api::MonitoredResourceDescriptor,
-    &gt;,
-    <span class="doccomment">/// If there might be more results than those appearing in this response, then
-    /// `nextPageToken` is included.  To get the next set of results, call this
-    /// method again using the value of `nextPageToken` as `pageToken`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The parameters to ListLogs.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLogsRequest {
-    <span class="doccomment">/// Required. The resource name to list logs for:
-    ///
-    /// *  `projects/\[PROJECT_ID\]`
-    /// *  `organizations/\[ORGANIZATION_ID\]`
-    /// *  `billingAccounts/\[BILLING_ACCOUNT_ID\]`
-    /// *  `folders/\[FOLDER_ID\]`
+    ///      &quot;projects/\[PROJECT_ID\]&quot;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. List of resource names to list logs for:
-    ///
-    ///   * `projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///   * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///   * `folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///
-    /// To support legacy queries, it could also be:
-    ///
-    /// *  `projects/\[PROJECT_ID\]`
-    /// *  `organizations/\[ORGANIZATION_ID\]`
-    /// *  `billingAccounts/\[BILLING_ACCOUNT_ID\]`
-    /// *  `folders/\[FOLDER_ID\]`
-    ///
-    /// The resource name in the `parent` field is added to this list.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>resource_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Optional. The maximum number of results to return from this request.
-    /// Non-positive values are ignored.  The presence of `nextPageToken` in the
-    /// response indicates that more results might be available.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. If present, then retrieve the next batch of results from the
-    /// preceding call to this method.  `pageToken` must be the value of
-    /// `nextPageToken` from the previous response.  The values of other method
+    /// preceding call to this method. `pageToken` must be the value of
+    /// `nextPageToken` from the previous response. The values of other method
     /// parameters should be identical to those in the previous call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The maximum number of results to return from this request.
+    /// Non-positive values are ignored. The presence of `nextPageToken` in the
+    /// response indicates that more results might be available.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
 }
-<span class="doccomment">/// Result returned from ListLogs.
+<span class="doccomment">/// Result returned from ListLogMetrics.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLogsResponse {
-    <span class="doccomment">/// A list of log names. For example,
-    /// `&quot;projects/my-project/logs/syslog&quot;` or
-    /// `&quot;organizations/123/logs/cloudresourcemanager.googleapis.com%2Factivity&quot;`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>log_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// If there might be more results than those appearing in this response, then
-    /// `nextPageToken` is included.  To get the next set of results, call this
+</span><span class="kw">pub struct </span>ListLogMetricsResponse {
+    <span class="doccomment">/// A list of logs-based metrics.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>metrics: ::prost::alloc::vec::Vec&lt;LogMetric&gt;,
+    <span class="doccomment">/// If there might be more results than appear in this response, then
+    /// `nextPageToken` is included. To get the next set of results, call this
     /// method again using the value of `nextPageToken` as `pageToken`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The parameters to `TailLogEntries`.
+<span class="doccomment">/// The parameters to GetLogMetric.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TailLogEntriesRequest {
-    <span class="doccomment">/// Required. Name of a parent resource from which to retrieve log entries:
+</span><span class="kw">pub struct </span>GetLogMetricRequest {
+    <span class="doccomment">/// Required. The resource name of the desired metric:
     ///
-    /// *  `projects/\[PROJECT_ID\]`
-    /// *  `organizations/\[ORGANIZATION_ID\]`
-    /// *  `billingAccounts/\[BILLING_ACCOUNT_ID\]`
-    /// *  `folders/\[FOLDER_ID\]`
-    ///
-    /// May alternatively be one or more views:
-    ///
-    ///   * `projects/\[PROJECT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///   * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///   * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    ///   * `folders/\[FOLDER_ID\]/locations/\[LOCATION_ID\]/buckets/\[BUCKET_ID\]/views/\[VIEW_ID\]`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Optional. Only log entries that match the filter are returned.  An empty
-    /// filter matches all log entries in the resources listed in `resource_names`.
-    /// Referencing a parent resource that is not listed in `resource_names` will
-    /// cause the filter to return no results. The maximum length of a filter is
-    /// 20,000 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The amount of time to buffer log entries at the server before
-    /// being returned to prevent out of order results due to late arriving log
-    /// entries. Valid values are between 0-60000 milliseconds. Defaults to 2000
-    /// milliseconds.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>buffer_window: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    ///      &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Result returned from `TailLogEntries`.
+<span class="doccomment">/// The parameters to CreateLogMetric.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TailLogEntriesResponse {
-    <span class="doccomment">/// A list of log entries. Each response in the stream will order entries with
-    /// increasing values of `LogEntry.timestamp`. Ordering is not guaranteed
-    /// between separate responses.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>entries: ::prost::alloc::vec::Vec&lt;LogEntry&gt;,
-    <span class="doccomment">/// If entries that otherwise would have been included in the session were not
-    /// sent back to the client, counts of relevant entries omitted from the
-    /// session with the reason that they were not included. There will be at most
-    /// one of each reason per response. The counts represent the number of
-    /// suppressed entries since the last streamed response.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>suppression_info: ::prost::alloc::vec::Vec&lt;
-        tail_log_entries_response::SuppressionInfo,
-    &gt;,
+</span><span class="kw">pub struct </span>CreateLogMetricRequest {
+    <span class="doccomment">/// Required. The resource name of the project in which to create the metric:
+    ///
+    ///      &quot;projects/\[PROJECT_ID\]&quot;
+    ///
+    /// The new metric must be provided in the request.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The new logs-based metric, which must not have an identifier that
+    /// already exists.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>metric: ::core::option::Option&lt;LogMetric&gt;,
 }
-<span class="doccomment">/// Nested message and enum types in `TailLogEntriesResponse`.
-</span><span class="kw">pub mod </span>tail_log_entries_response {
-    <span class="doccomment">/// Information about entries that were omitted from the session.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SuppressionInfo {
-        <span class="doccomment">/// The reason that entries were omitted from the session.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;suppression_info::Reason&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>reason: i32,
-        <span class="doccomment">/// A lower bound on the count of entries omitted due to `reason`.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>suppressed_count: i32,
-    }
-    <span class="doccomment">/// Nested message and enum types in `SuppressionInfo`.
-    </span><span class="kw">pub mod </span>suppression_info {
-        <span class="doccomment">/// An indicator of why entries were omitted.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>Reason {
-            <span class="doccomment">/// Unexpected default.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// Indicates suppression occurred due to relevant entries being
-            /// received in excess of rate limits. For quotas and limits, see
-            /// [Logging API quotas and
-            /// limits](&lt;https://cloud.google.com/logging/quotas#api-limits&gt;).
-            </span>RateLimit = <span class="number">1</span>,
-            <span class="doccomment">/// Indicates suppression occurred due to the client not consuming
-            /// responses quickly enough.
-            </span>NotConsumed = <span class="number">2</span>,
-        }
-        <span class="kw">impl </span>Reason {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    Reason::Unspecified =&gt; <span class="string">&quot;REASON_UNSPECIFIED&quot;</span>,
-                    Reason::RateLimit =&gt; <span class="string">&quot;RATE_LIMIT&quot;</span>,
-                    Reason::NotConsumed =&gt; <span class="string">&quot;NOT_CONSUMED&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;RATE_LIMIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RateLimit),
-                    <span class="string">&quot;NOT_CONSUMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotConsumed),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
+<span class="doccomment">/// The parameters to UpdateLogMetric.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateLogMetricRequest {
+    <span class="doccomment">/// Required. The resource name of the metric to update:
+    ///
+    ///      &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;
+    ///
+    /// The updated metric must be provided in the request and it&#39;s
+    /// `name` field must be the same as `\[METRIC_ID\]` If the metric
+    /// does not exist in `\[PROJECT_ID\]`, then a new metric is created.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The updated metric.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>metric: ::core::option::Option&lt;LogMetric&gt;,
+}
+<span class="doccomment">/// The parameters to DeleteLogMetric.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteLogMetricRequest {
+    <span class="doccomment">/// Required. The resource name of the metric to delete:
+    ///
+    ///      &quot;projects/\[PROJECT_ID\]/metrics/\[METRIC_ID\]&quot;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>logging_service_v2_client {
+</span><span class="kw">pub mod </span>metrics_service_v2_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Service for ingesting and querying logs.
+    <span class="doccomment">/// Service for configuring logs-based metrics.
     </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>LoggingServiceV2Client&lt;T&gt; {
+    </span><span class="kw">pub struct </span>MetricsServiceV2Client&lt;T&gt; {
         inner: tonic::client::Grpc&lt;T&gt;,
     }
-    <span class="kw">impl</span>&lt;T&gt; LoggingServiceV2Client&lt;T&gt;
+    <span class="kw">impl</span>&lt;T&gt; MetricsServiceV2Client&lt;T&gt;
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
@@ -7776,7 +7831,7 @@
         <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
             inner: T,
             interceptor: F,
-        ) -&gt; LoggingServiceV2Client&lt;InterceptedService&lt;T, F&gt;&gt;
+        ) -&gt; MetricsServiceV2Client&lt;InterceptedService&lt;T, F&gt;&gt;
         <span class="kw">where
             </span>F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -7790,7 +7845,7 @@
                 http::Request&lt;tonic::body::BoxBody&gt;,
             &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
         {
-            LoggingServiceV2Client::new(InterceptedService::new(inner, interceptor))
+            MetricsServiceV2Client::new(InterceptedService::new(inner, interceptor))
         }
         <span class="doccomment">/// Compress requests with the given encoding.
         ///
@@ -7823,13 +7878,122 @@
             <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
             <span class="self">self
         </span>}
-        <span class="doccomment">/// Deletes all the log entries in a log for the _Default Log Bucket. The log
-        /// reappears if it receives new entries. Log entries written shortly before
-        /// the delete operation might not be deleted. Entries received after the
-        /// delete operation with a timestamp before the operation will be deleted.
-        </span><span class="kw">pub async fn </span>delete_log(
+        <span class="doccomment">/// Lists logs-based metrics.
+        </span><span class="kw">pub async fn </span>list_log_metrics(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteLogRequest&gt;,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLogMetricsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListLogMetricsResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.logging.v2.MetricsServiceV2/ListLogMetrics&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.logging.v2.MetricsServiceV2&quot;</span>,
+                        <span class="string">&quot;ListLogMetrics&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets a logs-based metric.
+        </span><span class="kw">pub async fn </span>get_log_metric(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetLogMetricRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::LogMetric&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.logging.v2.MetricsServiceV2/GetLogMetric&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(<span class="string">&quot;google.logging.v2.MetricsServiceV2&quot;</span>, <span class="string">&quot;GetLogMetric&quot;</span>),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Creates a logs-based metric.
+        </span><span class="kw">pub async fn </span>create_log_metric(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateLogMetricRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::LogMetric&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.logging.v2.MetricsServiceV2/CreateLogMetric&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.logging.v2.MetricsServiceV2&quot;</span>,
+                        <span class="string">&quot;CreateLogMetric&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Creates or updates a logs-based metric.
+        </span><span class="kw">pub async fn </span>update_log_metric(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateLogMetricRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::LogMetric&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.logging.v2.MetricsServiceV2/UpdateLogMetric&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.logging.v2.MetricsServiceV2&quot;</span>,
+                        <span class="string">&quot;UpdateLogMetric&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Deletes a logs-based metric.
+        </span><span class="kw">pub async fn </span>delete_log_metric(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteLogMetricRequest&gt;,
         ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
             <span class="self">self</span>.inner
                 .ready()
@@ -7842,181 +8006,17 @@
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/DeleteLog&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>, <span class="string">&quot;DeleteLog&quot;</span>),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Writes log entries to Logging. This API method is the
-        /// only way to send log entries to Logging. This method
-        /// is used, directly or indirectly, by the Logging agent
-        /// (fluentd) and all logging libraries configured to use Logging.
-        /// A single request may contain log entries for a maximum of 1000
-        /// different resources (projects, organizations, billing accounts or
-        /// folders)
-        </span><span class="kw">pub async fn </span>write_log_entries(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::WriteLogEntriesRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::WriteLogEntriesResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/WriteLogEntries&quot;</span>,
+                <span class="string">&quot;/google.logging.v2.MetricsServiceV2/DeleteLogMetric&quot;</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>,
-                        <span class="string">&quot;WriteLogEntries&quot;</span>,
+                        <span class="string">&quot;google.logging.v2.MetricsServiceV2&quot;</span>,
+                        <span class="string">&quot;DeleteLogMetric&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Lists log entries.  Use this method to retrieve log entries that originated
-        /// from a project/folder/organization/billing account.  For ways to export log
-        /// entries, see [Exporting
-        /// Logs](https://cloud.google.com/logging/docs/export).
-        </span><span class="kw">pub async fn </span>list_log_entries(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLogEntriesRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListLogEntriesResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/ListLogEntries&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>,
-                        <span class="string">&quot;ListLogEntries&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Lists the descriptors for monitored resource types used by Logging.
-        </span><span class="kw">pub async fn </span>list_monitored_resource_descriptors(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;
-                <span class="kw">super</span>::ListMonitoredResourceDescriptorsRequest,
-            &gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListMonitoredResourceDescriptorsResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/ListMonitoredResourceDescriptors&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>,
-                        <span class="string">&quot;ListMonitoredResourceDescriptors&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Lists the logs in projects, organizations, folders, or billing accounts.
-        /// Only logs that have entries are listed.
-        </span><span class="kw">pub async fn </span>list_logs(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLogsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListLogsResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/ListLogs&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>, <span class="string">&quot;ListLogs&quot;</span>),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Streaming read of log entries as they are ingested. Until the stream is
-        /// terminated, it will continue reading logs.
-        </span><span class="kw">pub async fn </span>tail_log_entries(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoStreamingRequest&lt;
-                Message = <span class="kw">super</span>::TailLogEntriesRequest,
-            &gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;tonic::codec::Streaming&lt;<span class="kw">super</span>::TailLogEntriesResponse&gt;&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.logging.v2.LoggingServiceV2/TailLogEntries&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.logging.v2.LoggingServiceV2&quot;</span>,
-                        <span class="string">&quot;TailLogEntries&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await
         </span>}
     }
 }

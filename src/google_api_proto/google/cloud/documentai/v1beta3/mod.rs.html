@@ -5449,7 +5449,476 @@
 <a href="#5449" id="5449">5449</a>
 <a href="#5450" id="5450">5450</a>
 <a href="#5451" id="5451">5451</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Encodes the detailed information of a barcode.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Payload message of raw document content (bytes).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RawDocument {
+    <span class="doccomment">/// Inline document content.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>content: ::prost::bytes::Bytes,
+    <span class="doccomment">/// An IANA MIME type (RFC6838) indicating the nature and format of the
+    /// [content][google.cloud.documentai.v1beta3.RawDocument.content].
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// The display name of the document, it supports all Unicode characters except
+    /// the following:
+    /// `*`, `?`, `\[`, `\]`, `%`, `{`, `}`,`&#39;`, `\&quot;`, `,`
+    /// `~`, `=` and `:` are reserved.
+    /// If not specified, a default ID is generated.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Specifies a document stored on Cloud Storage.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsDocument {
+    <span class="doccomment">/// The Cloud Storage object uri.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// An IANA MIME type (RFC6838) of the content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Specifies a set of documents on Cloud Storage.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsDocuments {
+    <span class="doccomment">/// The list of documents.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>documents: ::prost::alloc::vec::Vec&lt;GcsDocument&gt;,
+}
+<span class="doccomment">/// Specifies all documents on Cloud Storage with a common prefix.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsPrefix {
+    <span class="doccomment">/// The URI prefix.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>gcs_uri_prefix: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The common config to specify a set of documents used as input.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BatchDocumentsInputConfig {
+    <span class="doccomment">/// The source.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;batch_documents_input_config::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>source: ::core::option::Option&lt;batch_documents_input_config::Source&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `BatchDocumentsInputConfig`.
+</span><span class="kw">pub mod </span>batch_documents_input_config {
+    <span class="doccomment">/// The source.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Source {
+        <span class="doccomment">/// The set of documents that match the specified Cloud Storage `gcs_prefix`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>GcsPrefix(<span class="kw">super</span>::GcsPrefix),
+        <span class="doccomment">/// The set of documents individually specified on Cloud Storage.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>GcsDocuments(<span class="kw">super</span>::GcsDocuments),
+    }
+}
+<span class="doccomment">/// Config that controls the output of documents. All documents will be written
+/// as a JSON file.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DocumentOutputConfig {
+    <span class="doccomment">/// The destination of the results.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;document_output_config::Destination&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;document_output_config::Destination&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `DocumentOutputConfig`.
+</span><span class="kw">pub mod </span>document_output_config {
+    <span class="doccomment">/// The configuration used when outputting documents.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>GcsOutputConfig {
+        <span class="doccomment">/// The Cloud Storage uri (a directory) of the output.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
+        <span class="doccomment">/// Specifies which fields to include in the output documents.
+        /// Only supports top level document and pages field so it must be in the
+        /// form of `{document_field_name}` or `pages.{page_field_name}`.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>field_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+        <span class="doccomment">/// Specifies the sharding config for the output document.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>sharding_config: ::core::option::Option&lt;gcs_output_config::ShardingConfig&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `GcsOutputConfig`.
+    </span><span class="kw">pub mod </span>gcs_output_config {
+        <span class="doccomment">/// The sharding config for the output document.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>ShardingConfig {
+            <span class="doccomment">/// The number of pages per shard.
+            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>pages_per_shard: i32,
+            <span class="doccomment">/// The number of overlapping pages between consecutive shards.
+            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="kw">pub </span>pages_overlap: i32,
+        }
+    }
+    <span class="doccomment">/// The destination of the results.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Destination {
+        <span class="doccomment">/// Output config to write the results to Cloud Storage.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>GcsOutputConfig(GcsOutputConfig),
+    }
+}
+<span class="doccomment">/// Config for Document OCR.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OcrConfig {
+    <span class="doccomment">/// Hints for the OCR model.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>hints: ::core::option::Option&lt;ocr_config::Hints&gt;,
+    <span class="doccomment">/// Enables special handling for PDFs with existing text information. Results
+    /// in better text extraction quality in such PDF inputs.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>enable_native_pdf_parsing: bool,
+    <span class="doccomment">/// Enables intelligent document quality scores after OCR. Can help with
+    /// diagnosing why OCR responses are of poor quality for a given input.
+    /// Adds additional latency comparable to regular OCR to the process call.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>enable_image_quality_scores: bool,
+    <span class="doccomment">/// A list of advanced OCR options to further fine-tune OCR behavior. Current
+    /// valid values are:
+    ///
+    /// - `legacy_layout`: a heuristics layout detection algorithm, which serves as
+    /// an alternative to the current ML-based layout detection algorithm.
+    /// Customers can choose the best suitable layout algorithm based on their
+    /// situation.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>advanced_ocr_options: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Includes symbol level OCR information if set to true.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>enable_symbol: bool,
+    <span class="doccomment">/// Turn on font identification model and return font style information.
+    /// Deprecated, use
+    /// [PremiumFeatures.compute_style_info][google.cloud.documentai.v1beta3.OcrConfig.PremiumFeatures.compute_style_info]
+    /// instead.
+    </span><span class="attr">#[deprecated]
+    #[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>compute_style_info: bool,
+    <span class="doccomment">/// Turn off character box detector in OCR engine. Character box detection is
+    /// enabled by default in OCR 2.0 (and later) processors.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>disable_character_boxes_detection: bool,
+    <span class="doccomment">/// Configurations for premium OCR features.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>premium_features: ::core::option::Option&lt;ocr_config::PremiumFeatures&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `OcrConfig`.
+</span><span class="kw">pub mod </span>ocr_config {
+    <span class="doccomment">/// Hints for OCR Engine
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Hints {
+        <span class="doccomment">/// List of BCP-47 language codes to use for OCR. In most cases, not
+        /// specifying it yields the best results since it enables automatic language
+        /// detection. For languages based on the Latin alphabet, setting hints is
+        /// not needed. In rare cases, when the language of the text in the
+        /// image is known, setting a hint will help get better results (although it
+        /// will be a significant hindrance if the hint is wrong).
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>language_hints: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    }
+    <span class="doccomment">/// Configurations for premium OCR features.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>PremiumFeatures {
+        <span class="doccomment">/// Turn on selection mark detector in OCR engine. Only available in OCR 2.0
+        /// (and later) processors.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>enable_selection_mark_detection: bool,
+        <span class="doccomment">/// Turn on font identification model and return font style information.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>compute_style_info: bool,
+        <span class="doccomment">/// Turn on the model that can extract LaTeX math formulas.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>enable_math_ocr: bool,
+    }
+}
+<span class="doccomment">/// The common metadata for long running operations.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CommonOperationMetadata {
+    <span class="doccomment">/// The state of the operation.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;common_operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// A message providing more details about the current state of processing.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>state_message: ::prost::alloc::string::String,
+    <span class="doccomment">/// A related resource to this operation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
+    <span class="doccomment">/// The creation time of the operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The last update time of the operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `CommonOperationMetadata`.
+</span><span class="kw">pub mod </span>common_operation_metadata {
+    <span class="doccomment">/// State of the longrunning operation.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Operation is still running.
+        </span>Running = <span class="number">1</span>,
+        <span class="doccomment">/// Operation is being cancelled.
+        </span>Cancelling = <span class="number">2</span>,
+        <span class="doccomment">/// Operation succeeded.
+        </span>Succeeded = <span class="number">3</span>,
+        <span class="doccomment">/// Operation failed.
+        </span>Failed = <span class="number">4</span>,
+        <span class="doccomment">/// Operation is cancelled.
+        </span>Cancelled = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
+                State::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
+                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
+                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Gives a short summary of an evaluation, and links to the evaluation itself.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EvaluationReference {
+    <span class="doccomment">/// The resource name of the Long Running Operation for the evaluation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
+    <span class="doccomment">/// The resource name of the evaluation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>evaluation: ::prost::alloc::string::String,
+    <span class="doccomment">/// An aggregate of the statistics for the evaluation with fuzzy matching on.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>aggregate_metrics: ::core::option::Option&lt;evaluation::Metrics&gt;,
+    <span class="doccomment">/// An aggregate of the statistics for the evaluation with fuzzy matching off.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>aggregate_metrics_exact: ::core::option::Option&lt;evaluation::Metrics&gt;,
+}
+<span class="doccomment">/// An evaluation of a ProcessorVersion&#39;s performance.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Evaluation {
+    <span class="doccomment">/// The resource name of the evaluation.
+    /// Format:
+    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}/evaluations/{evaluation}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The time that the evaluation was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Counters for the documents used in the evaluation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>document_counters: ::core::option::Option&lt;evaluation::Counters&gt;,
+    <span class="doccomment">/// Metrics for all the entities in aggregate.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>all_entities_metrics: ::core::option::Option&lt;evaluation::MultiConfidenceMetrics&gt;,
+    <span class="doccomment">/// Metrics across confidence levels, for different entities.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>entity_metrics: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        evaluation::MultiConfidenceMetrics,
+    &gt;,
+    <span class="doccomment">/// The KMS key name used for encryption.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The KMS key version with which data is encrypted.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>kms_key_version_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `Evaluation`.
+</span><span class="kw">pub mod </span>evaluation {
+    <span class="doccomment">/// Evaluation counters for the documents that were used.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Counters {
+        <span class="doccomment">/// How many documents were sent for evaluation.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>input_documents_count: i32,
+        <span class="doccomment">/// How many documents were not included in the evaluation as they didn&#39;t
+        /// pass validation.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>invalid_documents_count: i32,
+        <span class="doccomment">/// How many documents were not included in the evaluation as Document AI
+        /// failed to process them.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>failed_documents_count: i32,
+        <span class="doccomment">/// How many documents were used in the evaluation.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>evaluated_documents_count: i32,
+    }
+    <span class="doccomment">/// Evaluation metrics, either in aggregate or about a specific entity.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Metrics {
+        <span class="doccomment">/// The calculated precision.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>precision: f32,
+        <span class="doccomment">/// The calculated recall.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>recall: f32,
+        <span class="doccomment">/// The calculated f1 score.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>f1_score: f32,
+        <span class="doccomment">/// The amount of occurrences in predicted documents.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>predicted_occurrences_count: i32,
+        <span class="doccomment">/// The amount of occurrences in ground truth documents.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>ground_truth_occurrences_count: i32,
+        <span class="doccomment">/// The amount of documents with a predicted occurrence.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="kw">pub </span>predicted_document_count: i32,
+        <span class="doccomment">/// The amount of documents with a ground truth occurrence.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="kw">pub </span>ground_truth_document_count: i32,
+        <span class="doccomment">/// The amount of true positives.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="kw">pub </span>true_positives_count: i32,
+        <span class="doccomment">/// The amount of false positives.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="kw">pub </span>false_positives_count: i32,
+        <span class="doccomment">/// The amount of false negatives.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="kw">pub </span>false_negatives_count: i32,
+        <span class="doccomment">/// The amount of documents that had an occurrence of this label.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="kw">pub </span>total_documents_count: i32,
+    }
+    <span class="doccomment">/// Evaluations metrics, at a specific confidence level.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ConfidenceLevelMetrics {
+        <span class="doccomment">/// The confidence level.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>confidence_level: f32,
+        <span class="doccomment">/// The metrics at the specific confidence level.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>metrics: ::core::option::Option&lt;Metrics&gt;,
+    }
+    <span class="doccomment">/// Metrics across multiple confidence levels.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>MultiConfidenceMetrics {
+        <span class="doccomment">/// Metrics across confidence levels with fuzzy matching enabled.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>confidence_level_metrics: ::prost::alloc::vec::Vec&lt;ConfidenceLevelMetrics&gt;,
+        <span class="doccomment">/// Metrics across confidence levels with only exact matching.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>confidence_level_metrics_exact: ::prost::alloc::vec::Vec&lt;
+            ConfidenceLevelMetrics,
+        &gt;,
+        <span class="doccomment">/// The calculated area under the precision recall curve (AUPRC), computed by
+        /// integrating over all confidence thresholds.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>auprc: f32,
+        <span class="doccomment">/// The Estimated Calibration Error (ECE) of the confidence of the predicted
+        /// entities.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>estimated_calibration_error: f32,
+        <span class="doccomment">/// The AUPRC for metrics with fuzzy matching disabled, i.e., exact matching
+        /// only.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>auprc_exact: f32,
+        <span class="doccomment">/// The ECE for the predicted entities with fuzzy matching disabled, i.e.,
+        /// exact matching only.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="kw">pub </span>estimated_calibration_error_exact: f32,
+        <span class="doccomment">/// The metrics type for the label.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;multi_confidence_metrics::MetricsType&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="kw">pub </span>metrics_type: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `MultiConfidenceMetrics`.
+    </span><span class="kw">pub mod </span>multi_confidence_metrics {
+        <span class="doccomment">/// A type that determines how metrics should be interpreted.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>MetricsType {
+            <span class="doccomment">/// The metrics type is unspecified. By default, metrics without a
+            /// particular specification are for leaf entity types (i.e., top-level
+            /// entity types without child types, or child types which are not
+            /// parent types themselves).
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// Indicates whether metrics for this particular label type represent an
+            /// aggregate of metrics for other types instead of being based on actual
+            /// TP/FP/FN values for the label type. Metrics for parent (i.e., non-leaf)
+            /// entity types are an aggregate of metrics for their children.
+            </span>Aggregate = <span class="number">1</span>,
+        }
+        <span class="kw">impl </span>MetricsType {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    MetricsType::Unspecified =&gt; <span class="string">&quot;METRICS_TYPE_UNSPECIFIED&quot;</span>,
+                    MetricsType::Aggregate =&gt; <span class="string">&quot;AGGREGATE&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;METRICS_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;AGGREGATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aggregate),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+}
+<span class="doccomment">/// Encodes the detailed information of a barcode.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Barcode {
@@ -6825,196 +7294,45 @@
         </span>LatestProcessorVersion(::prost::alloc::string::String),
     }
 }
-<span class="doccomment">/// Payload message of raw document content (bytes).
+<span class="doccomment">/// A processor type is responsible for performing a certain document
+/// understanding task on a certain type of document.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RawDocument {
-    <span class="doccomment">/// Inline document content.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>content: ::prost::bytes::Bytes,
-    <span class="doccomment">/// An IANA MIME type (RFC6838) indicating the nature and format of the
-    /// [content][google.cloud.documentai.v1beta3.RawDocument.content].
+</span><span class="kw">pub struct </span>ProcessorType {
+    <span class="doccomment">/// The resource name of the processor type.
+    /// Format: `projects/{project}/processorTypes/{processor_type}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// The display name of the document, it supports all Unicode characters except
-    /// the following:
-    /// `*`, `?`, `\[`, `\]`, `%`, `{`, `}`,`&#39;`, `\&quot;`, `,`
-    /// `~`, `=` and `:` are reserved.
-    /// If not specified, a default ID is generated.
+    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+    <span class="doccomment">/// The processor category, used by UI to group processor types.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Specifies a document stored on Cloud Storage.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsDocument {
-    <span class="doccomment">/// The Cloud Storage object uri.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// An IANA MIME type (RFC6838) of the content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Specifies a set of documents on Cloud Storage.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsDocuments {
-    <span class="doccomment">/// The list of documents.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>documents: ::prost::alloc::vec::Vec&lt;GcsDocument&gt;,
-}
-<span class="doccomment">/// Specifies all documents on Cloud Storage with a common prefix.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsPrefix {
-    <span class="doccomment">/// The URI prefix.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>gcs_uri_prefix: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The common config to specify a set of documents used as input.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BatchDocumentsInputConfig {
-    <span class="doccomment">/// The source.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;batch_documents_input_config::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-    </span><span class="kw">pub </span>source: ::core::option::Option&lt;batch_documents_input_config::Source&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `BatchDocumentsInputConfig`.
-</span><span class="kw">pub mod </span>batch_documents_input_config {
-    <span class="doccomment">/// The source.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Source {
-        <span class="doccomment">/// The set of documents that match the specified Cloud Storage `gcs_prefix`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>GcsPrefix(<span class="kw">super</span>::GcsPrefix),
-        <span class="doccomment">/// The set of documents individually specified on Cloud Storage.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>GcsDocuments(<span class="kw">super</span>::GcsDocuments),
-    }
-}
-<span class="doccomment">/// Config that controls the output of documents. All documents will be written
-/// as a JSON file.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DocumentOutputConfig {
-    <span class="doccomment">/// The destination of the results.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;document_output_config::Destination&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;document_output_config::Destination&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `DocumentOutputConfig`.
-</span><span class="kw">pub mod </span>document_output_config {
-    <span class="doccomment">/// The configuration used when outputting documents.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>GcsOutputConfig {
-        <span class="doccomment">/// The Cloud Storage uri (a directory) of the output.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
-        <span class="doccomment">/// Specifies which fields to include in the output documents.
-        /// Only supports top level document and pages field so it must be in the
-        /// form of `{document_field_name}` or `pages.{page_field_name}`.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>field_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-        <span class="doccomment">/// Specifies the sharding config for the output document.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>sharding_config: ::core::option::Option&lt;gcs_output_config::ShardingConfig&gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `GcsOutputConfig`.
-    </span><span class="kw">pub mod </span>gcs_output_config {
-        <span class="doccomment">/// The sharding config for the output document.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>ShardingConfig {
-            <span class="doccomment">/// The number of pages per shard.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-            </span><span class="kw">pub </span>pages_per_shard: i32,
-            <span class="doccomment">/// The number of overlapping pages between consecutive shards.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-            </span><span class="kw">pub </span>pages_overlap: i32,
-        }
-    }
-    <span class="doccomment">/// The destination of the results.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Destination {
-        <span class="doccomment">/// Output config to write the results to Cloud Storage.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>GcsOutputConfig(GcsOutputConfig),
-    }
-}
-<span class="doccomment">/// Config for Document OCR.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OcrConfig {
-    <span class="doccomment">/// Hints for the OCR model.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>hints: ::core::option::Option&lt;ocr_config::Hints&gt;,
-    <span class="doccomment">/// Enables special handling for PDFs with existing text information. Results
-    /// in better text extraction quality in such PDF inputs.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>enable_native_pdf_parsing: bool,
-    <span class="doccomment">/// Enables intelligent document quality scores after OCR. Can help with
-    /// diagnosing why OCR responses are of poor quality for a given input.
-    /// Adds additional latency comparable to regular OCR to the process call.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>enable_image_quality_scores: bool,
-    <span class="doccomment">/// A list of advanced OCR options to further fine-tune OCR behavior. Current
-    /// valid values are:
-    ///
-    /// - `legacy_layout`: a heuristics layout detection algorithm, which serves as
-    /// an alternative to the current ML-based layout detection algorithm.
-    /// Customers can choose the best suitable layout algorithm based on their
-    /// situation.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>advanced_ocr_options: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Includes symbol level OCR information if set to true.
+    </span><span class="kw">pub </span>category: ::prost::alloc::string::String,
+    <span class="doccomment">/// The locations in which this processor is available.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>available_locations: ::prost::alloc::vec::Vec&lt;processor_type::LocationInfo&gt;,
+    <span class="doccomment">/// Whether the processor type allows creation. If true, users can create a
+    /// processor of this processor type. Otherwise, users need to request access.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>enable_symbol: bool,
-    <span class="doccomment">/// Turn on font identification model and return font style information.
-    /// Deprecated, use
-    /// [PremiumFeatures.compute_style_info][google.cloud.documentai.v1beta3.OcrConfig.PremiumFeatures.compute_style_info]
-    /// instead.
-    </span><span class="attr">#[deprecated]
-    #[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>compute_style_info: bool,
-    <span class="doccomment">/// Turn off character box detector in OCR engine. Character box detection is
-    /// enabled by default in OCR 2.0 (and later) processors.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>disable_character_boxes_detection: bool,
-    <span class="doccomment">/// Configurations for premium OCR features.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>premium_features: ::core::option::Option&lt;ocr_config::PremiumFeatures&gt;,
+    </span><span class="kw">pub </span>allow_creation: bool,
+    <span class="doccomment">/// Launch stage of the processor type
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::super::api::LaunchStage&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>launch_stage: i32,
+    <span class="doccomment">/// A set of Cloud Storage URIs of sample documents for this processor.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>sample_document_uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// Nested message and enum types in `OcrConfig`.
-</span><span class="kw">pub mod </span>ocr_config {
-    <span class="doccomment">/// Hints for OCR Engine
+<span class="doccomment">/// Nested message and enum types in `ProcessorType`.
+</span><span class="kw">pub mod </span>processor_type {
+    <span class="doccomment">/// The location information about where the processor is available.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Hints {
-        <span class="doccomment">/// List of BCP-47 language codes to use for OCR. In most cases, not
-        /// specifying it yields the best results since it enables automatic language
-        /// detection. For languages based on the Latin alphabet, setting hints is
-        /// not needed. In rare cases, when the language of the text in the
-        /// image is known, setting a hint will help get better results (although it
-        /// will be a significant hindrance if the hint is wrong).
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>language_hints: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    }
-    <span class="doccomment">/// Configurations for premium OCR features.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>PremiumFeatures {
-        <span class="doccomment">/// Turn on selection mark detector in OCR engine. Only available in OCR 2.0
-        /// (and later) processors.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>enable_selection_mark_detection: bool,
-        <span class="doccomment">/// Turn on font identification model and return font style information.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>compute_style_info: bool,
-        <span class="doccomment">/// Turn on the model that can extract LaTeX math formulas.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>enable_math_ocr: bool,
+    </span><span class="kw">pub struct </span>LocationInfo {
+        <span class="doccomment">/// The location ID. For supported locations, refer to [regional and
+        /// multi-regional support](/document-ai/docs/regions).
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>location_id: ::prost::alloc::string::String,
     }
 }
 <span class="doccomment">/// Metadata for document summarization.
@@ -7335,6 +7653,250 @@
         </span><span class="kw">pub </span>skip_naming_validation: bool,
     }
 }
+<span class="doccomment">/// A processor version is an implementation of a processor. Each processor
+/// can have multiple versions, pretrained by Google internally or uptrained
+/// by the customer. A processor can only have one default version at a time.
+/// Its document-processing behavior is defined by that version.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ProcessorVersion {
+    <span class="doccomment">/// The resource name of the processor version.
+    /// Format:
+    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The display name of the processor version.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The schema of the processor version. Describes the output.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>document_schema: ::core::option::Option&lt;DocumentSchema&gt;,
+    <span class="doccomment">/// The state of the processor version.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;processor_version::State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// The time the processor version was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The most recently invoked evaluation for the processor version.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>latest_evaluation: ::core::option::Option&lt;EvaluationReference&gt;,
+    <span class="doccomment">/// The KMS key name used for encryption.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The KMS key version with which data is encrypted.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>kms_key_version_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Denotes that this `ProcessorVersion` is managed by Google.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>google_managed: bool,
+    <span class="doccomment">/// If set, information about the eventual deprecation of this version.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>deprecation_info: ::core::option::Option&lt;processor_version::DeprecationInfo&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ProcessorVersion`.
+</span><span class="kw">pub mod </span>processor_version {
+    <span class="doccomment">/// Information about the upcoming deprecation of this processor version.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>DeprecationInfo {
+        <span class="doccomment">/// The time at which this processor version will be deprecated.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>deprecation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+        <span class="doccomment">/// If set, the processor version that will be used as a replacement.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>replacement_processor_version: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// The possible states of the processor version.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// The processor version is in an unspecified state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The processor version is deployed and can be used for processing.
+        </span>Deployed = <span class="number">1</span>,
+        <span class="doccomment">/// The processor version is being deployed.
+        </span>Deploying = <span class="number">2</span>,
+        <span class="doccomment">/// The processor version is not deployed and cannot be used for processing.
+        </span>Undeployed = <span class="number">3</span>,
+        <span class="doccomment">/// The processor version is being undeployed.
+        </span>Undeploying = <span class="number">4</span>,
+        <span class="doccomment">/// The processor version is being created.
+        </span>Creating = <span class="number">5</span>,
+        <span class="doccomment">/// The processor version is being deleted.
+        </span>Deleting = <span class="number">6</span>,
+        <span class="doccomment">/// The processor version failed and is in an indeterminate state.
+        </span>Failed = <span class="number">7</span>,
+        <span class="doccomment">/// The processor version is being imported.
+        </span>Importing = <span class="number">8</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Deployed =&gt; <span class="string">&quot;DEPLOYED&quot;</span>,
+                State::Deploying =&gt; <span class="string">&quot;DEPLOYING&quot;</span>,
+                State::Undeployed =&gt; <span class="string">&quot;UNDEPLOYED&quot;</span>,
+                State::Undeploying =&gt; <span class="string">&quot;UNDEPLOYING&quot;</span>,
+                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Importing =&gt; <span class="string">&quot;IMPORTING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;DEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deployed),
+                <span class="string">&quot;DEPLOYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deploying),
+                <span class="string">&quot;UNDEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undeployed),
+                <span class="string">&quot;UNDEPLOYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undeploying),
+                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;IMPORTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Importing),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Contains the alias and the aliased resource name of processor version.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ProcessorVersionAlias {
+    <span class="doccomment">/// The alias in the form of `processor_version` resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>alias: ::prost::alloc::string::String,
+    <span class="doccomment">/// The resource name of aliased processor version.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>processor_version: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The first-class citizen for Document AI. Each processor defines how to
+/// extract structural information from a document.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Processor {
+    <span class="doccomment">/// Output only. Immutable. The resource name of the processor.
+    /// Format: `projects/{project}/locations/{location}/processors/{processor}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
+    /// To get a list of processor types, see
+    /// [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+    <span class="doccomment">/// The display name of the processor.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The state of the processor.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;processor::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// The default processor version.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>default_processor_version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The processor version aliases.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>processor_version_aliases: ::prost::alloc::vec::Vec&lt;ProcessorVersionAlias&gt;,
+    <span class="doccomment">/// Output only. Immutable. The http endpoint that can be called to invoke
+    /// processing.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>process_endpoint: ::prost::alloc::string::String,
+    <span class="doccomment">/// The time the processor was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The [KMS key](&lt;https://cloud.google.com/security-key-management&gt;) used for
+    /// encryption and decryption in CMEK scenarios.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `Processor`.
+</span><span class="kw">pub mod </span>processor {
+    <span class="doccomment">/// The possible states of the processor.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// The processor is in an unspecified state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The processor is enabled, i.e., has an enabled version which can
+        /// currently serve processing requests and all the feature dependencies have
+        /// been successfully initialized.
+        </span>Enabled = <span class="number">1</span>,
+        <span class="doccomment">/// The processor is disabled.
+        </span>Disabled = <span class="number">2</span>,
+        <span class="doccomment">/// The processor is being enabled, will become `ENABLED` if successful.
+        </span>Enabling = <span class="number">3</span>,
+        <span class="doccomment">/// The processor is being disabled, will become `DISABLED` if successful.
+        </span>Disabling = <span class="number">4</span>,
+        <span class="doccomment">/// The processor is being created, will become either `ENABLED` (for
+        /// successful creation) or `FAILED` (for failed ones).
+        /// Once a processor is in this state, it can then be used for document
+        /// processing, but the feature dependencies of the processor might not be
+        /// fully created yet.
+        </span>Creating = <span class="number">5</span>,
+        <span class="doccomment">/// The processor failed during creation or initialization of feature
+        /// dependencies. The user should delete the processor and recreate one as
+        /// all the functionalities of the processor are disabled.
+        </span>Failed = <span class="number">6</span>,
+        <span class="doccomment">/// The processor is being deleted, will be removed if successful.
+        </span>Deleting = <span class="number">7</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
+                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                State::Enabling =&gt; <span class="string">&quot;ENABLING&quot;</span>,
+                State::Disabling =&gt; <span class="string">&quot;DISABLING&quot;</span>,
+                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">&quot;ENABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabling),
+                <span class="string">&quot;DISABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabling),
+                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
 <span class="doccomment">/// A singleton resource under a
 /// [Processor][google.cloud.documentai.v1beta3.Processor] which configures a
 /// collection of documents.
@@ -7547,84 +8109,6 @@
         /// \[google.cloud.documentai.master.ListDocumentsRequest.filter\].
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span>Filter(::prost::alloc::string::String),
-    }
-}
-<span class="doccomment">/// The common metadata for long running operations.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CommonOperationMetadata {
-    <span class="doccomment">/// The state of the operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;common_operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// A message providing more details about the current state of processing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>state_message: ::prost::alloc::string::String,
-    <span class="doccomment">/// A related resource to this operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// The creation time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The last update time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `CommonOperationMetadata`.
-</span><span class="kw">pub mod </span>common_operation_metadata {
-    <span class="doccomment">/// State of the longrunning operation.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Operation is still running.
-        </span>Running = <span class="number">1</span>,
-        <span class="doccomment">/// Operation is being cancelled.
-        </span>Cancelling = <span class="number">2</span>,
-        <span class="doccomment">/// Operation succeeded.
-        </span>Succeeded = <span class="number">3</span>,
-        <span class="doccomment">/// Operation failed.
-        </span>Failed = <span class="number">4</span>,
-        <span class="doccomment">/// Operation is cancelled.
-        </span>Cancelled = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
     }
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -8319,490 +8803,6 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-    }
-}
-<span class="doccomment">/// A processor type is responsible for performing a certain document
-/// understanding task on a certain type of document.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ProcessorType {
-    <span class="doccomment">/// The resource name of the processor type.
-    /// Format: `projects/{project}/processorTypes/{processor_type}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-    <span class="doccomment">/// The processor category, used by UI to group processor types.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>category: ::prost::alloc::string::String,
-    <span class="doccomment">/// The locations in which this processor is available.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>available_locations: ::prost::alloc::vec::Vec&lt;processor_type::LocationInfo&gt;,
-    <span class="doccomment">/// Whether the processor type allows creation. If true, users can create a
-    /// processor of this processor type. Otherwise, users need to request access.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>allow_creation: bool,
-    <span class="doccomment">/// Launch stage of the processor type
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::super::api::LaunchStage&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>launch_stage: i32,
-    <span class="doccomment">/// A set of Cloud Storage URIs of sample documents for this processor.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>sample_document_uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ProcessorType`.
-</span><span class="kw">pub mod </span>processor_type {
-    <span class="doccomment">/// The location information about where the processor is available.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>LocationInfo {
-        <span class="doccomment">/// The location ID. For supported locations, refer to [regional and
-        /// multi-regional support](/document-ai/docs/regions).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>location_id: ::prost::alloc::string::String,
-    }
-}
-<span class="doccomment">/// Gives a short summary of an evaluation, and links to the evaluation itself.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EvaluationReference {
-    <span class="doccomment">/// The resource name of the Long Running Operation for the evaluation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
-    <span class="doccomment">/// The resource name of the evaluation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>evaluation: ::prost::alloc::string::String,
-    <span class="doccomment">/// An aggregate of the statistics for the evaluation with fuzzy matching on.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>aggregate_metrics: ::core::option::Option&lt;evaluation::Metrics&gt;,
-    <span class="doccomment">/// An aggregate of the statistics for the evaluation with fuzzy matching off.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>aggregate_metrics_exact: ::core::option::Option&lt;evaluation::Metrics&gt;,
-}
-<span class="doccomment">/// An evaluation of a ProcessorVersion&#39;s performance.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Evaluation {
-    <span class="doccomment">/// The resource name of the evaluation.
-    /// Format:
-    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}/evaluations/{evaluation}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The time that the evaluation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Counters for the documents used in the evaluation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>document_counters: ::core::option::Option&lt;evaluation::Counters&gt;,
-    <span class="doccomment">/// Metrics for all the entities in aggregate.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>all_entities_metrics: ::core::option::Option&lt;evaluation::MultiConfidenceMetrics&gt;,
-    <span class="doccomment">/// Metrics across confidence levels, for different entities.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>entity_metrics: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        evaluation::MultiConfidenceMetrics,
-    &gt;,
-    <span class="doccomment">/// The KMS key name used for encryption.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The KMS key version with which data is encrypted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>kms_key_version_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `Evaluation`.
-</span><span class="kw">pub mod </span>evaluation {
-    <span class="doccomment">/// Evaluation counters for the documents that were used.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Counters {
-        <span class="doccomment">/// How many documents were sent for evaluation.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>input_documents_count: i32,
-        <span class="doccomment">/// How many documents were not included in the evaluation as they didn&#39;t
-        /// pass validation.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>invalid_documents_count: i32,
-        <span class="doccomment">/// How many documents were not included in the evaluation as Document AI
-        /// failed to process them.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>failed_documents_count: i32,
-        <span class="doccomment">/// How many documents were used in the evaluation.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>evaluated_documents_count: i32,
-    }
-    <span class="doccomment">/// Evaluation metrics, either in aggregate or about a specific entity.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Metrics {
-        <span class="doccomment">/// The calculated precision.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>precision: f32,
-        <span class="doccomment">/// The calculated recall.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>recall: f32,
-        <span class="doccomment">/// The calculated f1 score.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>f1_score: f32,
-        <span class="doccomment">/// The amount of occurrences in predicted documents.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>predicted_occurrences_count: i32,
-        <span class="doccomment">/// The amount of occurrences in ground truth documents.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>ground_truth_occurrences_count: i32,
-        <span class="doccomment">/// The amount of documents with a predicted occurrence.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;10&quot;</span>)]
-        </span><span class="kw">pub </span>predicted_document_count: i32,
-        <span class="doccomment">/// The amount of documents with a ground truth occurrence.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
-        </span><span class="kw">pub </span>ground_truth_document_count: i32,
-        <span class="doccomment">/// The amount of true positives.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
-        </span><span class="kw">pub </span>true_positives_count: i32,
-        <span class="doccomment">/// The amount of false positives.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
-        </span><span class="kw">pub </span>false_positives_count: i32,
-        <span class="doccomment">/// The amount of false negatives.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;8&quot;</span>)]
-        </span><span class="kw">pub </span>false_negatives_count: i32,
-        <span class="doccomment">/// The amount of documents that had an occurrence of this label.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
-        </span><span class="kw">pub </span>total_documents_count: i32,
-    }
-    <span class="doccomment">/// Evaluations metrics, at a specific confidence level.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ConfidenceLevelMetrics {
-        <span class="doccomment">/// The confidence level.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>confidence_level: f32,
-        <span class="doccomment">/// The metrics at the specific confidence level.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>metrics: ::core::option::Option&lt;Metrics&gt;,
-    }
-    <span class="doccomment">/// Metrics across multiple confidence levels.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>MultiConfidenceMetrics {
-        <span class="doccomment">/// Metrics across confidence levels with fuzzy matching enabled.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>confidence_level_metrics: ::prost::alloc::vec::Vec&lt;ConfidenceLevelMetrics&gt;,
-        <span class="doccomment">/// Metrics across confidence levels with only exact matching.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>confidence_level_metrics_exact: ::prost::alloc::vec::Vec&lt;
-            ConfidenceLevelMetrics,
-        &gt;,
-        <span class="doccomment">/// The calculated area under the precision recall curve (AUPRC), computed by
-        /// integrating over all confidence thresholds.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>auprc: f32,
-        <span class="doccomment">/// The Estimated Calibration Error (ECE) of the confidence of the predicted
-        /// entities.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>estimated_calibration_error: f32,
-        <span class="doccomment">/// The AUPRC for metrics with fuzzy matching disabled, i.e., exact matching
-        /// only.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>auprc_exact: f32,
-        <span class="doccomment">/// The ECE for the predicted entities with fuzzy matching disabled, i.e.,
-        /// exact matching only.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;6&quot;</span>)]
-        </span><span class="kw">pub </span>estimated_calibration_error_exact: f32,
-        <span class="doccomment">/// The metrics type for the label.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;multi_confidence_metrics::MetricsType&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-        </span><span class="kw">pub </span>metrics_type: i32,
-    }
-    <span class="doccomment">/// Nested message and enum types in `MultiConfidenceMetrics`.
-    </span><span class="kw">pub mod </span>multi_confidence_metrics {
-        <span class="doccomment">/// A type that determines how metrics should be interpreted.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>MetricsType {
-            <span class="doccomment">/// The metrics type is unspecified. By default, metrics without a
-            /// particular specification are for leaf entity types (i.e., top-level
-            /// entity types without child types, or child types which are not
-            /// parent types themselves).
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// Indicates whether metrics for this particular label type represent an
-            /// aggregate of metrics for other types instead of being based on actual
-            /// TP/FP/FN values for the label type. Metrics for parent (i.e., non-leaf)
-            /// entity types are an aggregate of metrics for their children.
-            </span>Aggregate = <span class="number">1</span>,
-        }
-        <span class="kw">impl </span>MetricsType {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    MetricsType::Unspecified =&gt; <span class="string">&quot;METRICS_TYPE_UNSPECIFIED&quot;</span>,
-                    MetricsType::Aggregate =&gt; <span class="string">&quot;AGGREGATE&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;METRICS_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;AGGREGATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aggregate),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-}
-<span class="doccomment">/// A processor version is an implementation of a processor. Each processor
-/// can have multiple versions, pretrained by Google internally or uptrained
-/// by the customer. A processor can only have one default version at a time.
-/// Its document-processing behavior is defined by that version.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ProcessorVersion {
-    <span class="doccomment">/// The resource name of the processor version.
-    /// Format:
-    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The display name of the processor version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The schema of the processor version. Describes the output.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>document_schema: ::core::option::Option&lt;DocumentSchema&gt;,
-    <span class="doccomment">/// The state of the processor version.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;processor_version::State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// The time the processor version was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The most recently invoked evaluation for the processor version.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>latest_evaluation: ::core::option::Option&lt;EvaluationReference&gt;,
-    <span class="doccomment">/// The KMS key name used for encryption.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The KMS key version with which data is encrypted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>kms_key_version_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Denotes that this `ProcessorVersion` is managed by Google.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>google_managed: bool,
-    <span class="doccomment">/// If set, information about the eventual deprecation of this version.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>deprecation_info: ::core::option::Option&lt;processor_version::DeprecationInfo&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ProcessorVersion`.
-</span><span class="kw">pub mod </span>processor_version {
-    <span class="doccomment">/// Information about the upcoming deprecation of this processor version.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>DeprecationInfo {
-        <span class="doccomment">/// The time at which this processor version will be deprecated.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>deprecation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-        <span class="doccomment">/// If set, the processor version that will be used as a replacement.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>replacement_processor_version: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// The possible states of the processor version.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// The processor version is in an unspecified state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The processor version is deployed and can be used for processing.
-        </span>Deployed = <span class="number">1</span>,
-        <span class="doccomment">/// The processor version is being deployed.
-        </span>Deploying = <span class="number">2</span>,
-        <span class="doccomment">/// The processor version is not deployed and cannot be used for processing.
-        </span>Undeployed = <span class="number">3</span>,
-        <span class="doccomment">/// The processor version is being undeployed.
-        </span>Undeploying = <span class="number">4</span>,
-        <span class="doccomment">/// The processor version is being created.
-        </span>Creating = <span class="number">5</span>,
-        <span class="doccomment">/// The processor version is being deleted.
-        </span>Deleting = <span class="number">6</span>,
-        <span class="doccomment">/// The processor version failed and is in an indeterminate state.
-        </span>Failed = <span class="number">7</span>,
-        <span class="doccomment">/// The processor version is being imported.
-        </span>Importing = <span class="number">8</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Deployed =&gt; <span class="string">&quot;DEPLOYED&quot;</span>,
-                State::Deploying =&gt; <span class="string">&quot;DEPLOYING&quot;</span>,
-                State::Undeployed =&gt; <span class="string">&quot;UNDEPLOYED&quot;</span>,
-                State::Undeploying =&gt; <span class="string">&quot;UNDEPLOYING&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Importing =&gt; <span class="string">&quot;IMPORTING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deployed),
-                <span class="string">&quot;DEPLOYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deploying),
-                <span class="string">&quot;UNDEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undeployed),
-                <span class="string">&quot;UNDEPLOYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undeploying),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;IMPORTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Importing),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Contains the alias and the aliased resource name of processor version.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ProcessorVersionAlias {
-    <span class="doccomment">/// The alias in the form of `processor_version` resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>alias: ::prost::alloc::string::String,
-    <span class="doccomment">/// The resource name of aliased processor version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>processor_version: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The first-class citizen for Document AI. Each processor defines how to
-/// extract structural information from a document.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Processor {
-    <span class="doccomment">/// Output only. Immutable. The resource name of the processor.
-    /// Format: `projects/{project}/locations/{location}/processors/{processor}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
-    /// To get a list of processor types, see
-    /// [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-    <span class="doccomment">/// The display name of the processor.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The state of the processor.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;processor::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// The default processor version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>default_processor_version: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The processor version aliases.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>processor_version_aliases: ::prost::alloc::vec::Vec&lt;ProcessorVersionAlias&gt;,
-    <span class="doccomment">/// Output only. Immutable. The http endpoint that can be called to invoke
-    /// processing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>process_endpoint: ::prost::alloc::string::String,
-    <span class="doccomment">/// The time the processor was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The [KMS key](&lt;https://cloud.google.com/security-key-management&gt;) used for
-    /// encryption and decryption in CMEK scenarios.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `Processor`.
-</span><span class="kw">pub mod </span>processor {
-    <span class="doccomment">/// The possible states of the processor.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// The processor is in an unspecified state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The processor is enabled, i.e., has an enabled version which can
-        /// currently serve processing requests and all the feature dependencies have
-        /// been successfully initialized.
-        </span>Enabled = <span class="number">1</span>,
-        <span class="doccomment">/// The processor is disabled.
-        </span>Disabled = <span class="number">2</span>,
-        <span class="doccomment">/// The processor is being enabled, will become `ENABLED` if successful.
-        </span>Enabling = <span class="number">3</span>,
-        <span class="doccomment">/// The processor is being disabled, will become `DISABLED` if successful.
-        </span>Disabling = <span class="number">4</span>,
-        <span class="doccomment">/// The processor is being created, will become either `ENABLED` (for
-        /// successful creation) or `FAILED` (for failed ones).
-        /// Once a processor is in this state, it can then be used for document
-        /// processing, but the feature dependencies of the processor might not be
-        /// fully created yet.
-        </span>Creating = <span class="number">5</span>,
-        <span class="doccomment">/// The processor failed during creation or initialization of feature
-        /// dependencies. The user should delete the processor and recreate one as
-        /// all the functionalities of the processor are disabled.
-        </span>Failed = <span class="number">6</span>,
-        <span class="doccomment">/// The processor is being deleted, will be removed if successful.
-        </span>Deleting = <span class="number">7</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
-                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                State::Enabling =&gt; <span class="string">&quot;ENABLING&quot;</span>,
-                State::Disabling =&gt; <span class="string">&quot;DISABLING&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;ENABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabling),
-                <span class="string">&quot;DISABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabling),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
     }
 }
 <span class="doccomment">/// Options for Process API
