@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Type"],"mod":["date_options","selection_options"],"struct":["AppliedCapabilities","DateOptions","DisplayHints","IntegerOptions","ListOptions","LongTextOptions","Properties","SchemaCapabilities","SelectionOptions","TextOptions","UserOptions"]};
+window.SIDEBAR_ITEMS = {"enum":["Type"],"mod":["date_options","selection_options"],"struct":["AppliedCapabilities","DateOptions","DisplayHints","IntegerOptions","ListOptions","Properties","SchemaCapabilities","SelectionOptions","TextOptions","UserOptions"]};

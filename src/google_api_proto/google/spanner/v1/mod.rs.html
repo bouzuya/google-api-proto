@@ -3073,6 +3073,7 @@
 <a href="#3073" id="3073">3073</a>
 <a href="#3074" id="3074">3074</a>
 <a href="#3075" id="3075">3075</a>
+<a href="#3076" id="3076">3076</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The response for [Commit][google.spanner.v1.Spanner.Commit].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5226,9 +5227,10 @@
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;TransactionSelector&gt;,
     <span class="doccomment">/// Required. The query request to generate partitions for. The request will
     /// fail if the query is not root partitionable. For a query to be root
-    /// partitionable, it needs to satisfy a few conditions. For example, the first
-    /// operator in the query execution plan must be a distributed union operator.
-    /// For more information about other conditions, see [Read data in
+    /// partitionable, it needs to satisfy a few conditions. For example, if the
+    /// query execution plan contains a distributed union operator, then it must be
+    /// the first operator in the plan. For more information about other
+    /// conditions, see [Read data in
     /// parallel](&lt;https://cloud.google.com/spanner/docs/reads#read_data_in_parallel&gt;).
     ///
     /// The query request must not contain DML commands, such as INSERT, UPDATE, or
