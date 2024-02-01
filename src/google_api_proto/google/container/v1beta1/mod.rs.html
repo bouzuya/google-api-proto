@@ -9100,6 +9100,17 @@
 <a href="#9100" id="9100">9100</a>
 <a href="#9101" id="9101">9101</a>
 <a href="#9102" id="9102">9102</a>
+<a href="#9103" id="9103">9103</a>
+<a href="#9104" id="9104">9104</a>
+<a href="#9105" id="9105">9105</a>
+<a href="#9106" id="9106">9106</a>
+<a href="#9107" id="9107">9107</a>
+<a href="#9108" id="9108">9108</a>
+<a href="#9109" id="9109">9109</a>
+<a href="#9110" id="9110">9110</a>
+<a href="#9111" id="9111">9111</a>
+<a href="#9112" id="9112">9112</a>
+<a href="#9113" id="9113">9113</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Parameters that can be configured on Linux nodes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -10350,6 +10361,9 @@
     <span class="doccomment">/// Configuration for the Cloud Storage Fuse CSI driver.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
     </span><span class="kw">pub </span>gcs_fuse_csi_driver_config: ::core::option::Option&lt;GcsFuseCsiDriverConfig&gt;,
+    <span class="doccomment">/// Optional. Configuration for the StatefulHA add-on.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>stateful_ha_config: ::core::option::Option&lt;StatefulHaConfig&gt;,
 }
 <span class="doccomment">/// Configuration options for the HTTP (L7) load balancing controller addon,
 /// which makes it easy to set up HTTP load balancers for services in a cluster.
@@ -10414,6 +10428,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GkeBackupAgentConfig {
     <span class="doccomment">/// Whether the Backup for GKE agent is enabled for this cluster.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>enabled: bool,
+}
+<span class="doccomment">/// Configuration for the Stateful HA add-on.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>StatefulHaConfig {
+    <span class="doccomment">/// Whether the Stateful HA add-on is enabled for this cluster.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>enabled: bool,
 }
@@ -16237,7 +16259,7 @@
     <span class="doccomment">/// Workload policy configuration for Autopilot.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>workload_policy_config: ::core::option::Option&lt;WorkloadPolicyConfig&gt;,
-    <span class="doccomment">/// ConversionStatus shows conversion status.
+    <span class="doccomment">/// Output only. ConversionStatus shows conversion status.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>conversion_status: ::core::option::Option&lt;AutopilotConversionStatus&gt;,
 }
