@@ -2920,12 +2920,21 @@
 <a href="#2920" id="2920">2920</a>
 <a href="#2921" id="2921">2921</a>
 <a href="#2922" id="2922">2922</a>
+<a href="#2923" id="2923">2923</a>
+<a href="#2924" id="2924">2924</a>
+<a href="#2925" id="2925">2925</a>
+<a href="#2926" id="2926">2926</a>
+<a href="#2927" id="2927">2927</a>
+<a href="#2928" id="2928">2928</a>
+<a href="#2929" id="2929">2929</a>
+<a href="#2930" id="2930">2930</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Orchestration cluster represents a GKE cluster with config controller and
 /// TNA specific components installed on it.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OrchestrationCluster {
-    <span class="doccomment">/// Name of the orchestration cluster.
+    <span class="doccomment">/// Name of the orchestration cluster. The name of orchestration cluster cannot
+    /// be more than 24 characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Management configuration of the underlying GKE cluster.
@@ -3149,7 +3158,7 @@
 /// b) modified as per a user&#39;s need
 /// c) proposed and approved.
 /// On approval, a revision of blueprint is created which can be used to
-/// create a deployment on Orchestration Cluster.
+/// create a deployment on Orchestration or Workload Cluster.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Blueprint {
@@ -3200,6 +3209,14 @@
     /// which this blueprint is created.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>source_provider: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. DeploymentLevel of a blueprint signifies where the blueprint
+    /// will be applied. e.g. \[HYDRATION, SINGLE_DEPLOYMENT, MULTI_DEPLOYMENT\]
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentLevel&quot;</span>, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>deployment_level: i32,
+    <span class="doccomment">/// Output only. Indicates if the deployment created from this blueprint can be
+    /// rolled back.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>rollback_support: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `Blueprint`.
 </span><span class="kw">pub mod </span>blueprint {
@@ -3228,9 +3245,9 @@
         </span>Proposed = <span class="number">2</span>,
         <span class="doccomment">/// When a proposed blueprint is approved, it moves to APPROVED state. A new
         /// revision is committed. The latest committed revision can be used to
-        /// create a deployment on Orchestration Cluster. Edits to an APPROVED
-        /// blueprint changes its state back to DRAFT. The last committed revision of
-        /// a blueprint represents its latest APPROVED state.
+        /// create a deployment on Orchestration or Workload Cluster. Edits to an
+        /// APPROVED blueprint changes its state back to DRAFT. The last committed
+        /// revision of a blueprint represents its latest APPROVED state.
         </span>Approved = <span class="number">3</span>,
     }
     <span class="kw">impl </span>ApprovalState {
@@ -3277,70 +3294,20 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// DeploymentLevel of a blueprint signifies where the blueprint will be
-    /// applied. e.g. \[HYDRATION, DEPLOYMENT\]
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;public_blueprint::DeploymentLevel&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    /// applied. e.g. \[HYDRATION, SINGLE_DEPLOYMENT, MULTI_DEPLOYMENT\]
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentLevel&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>deployment_level: i32,
     <span class="doccomment">/// Source provider is the author of a public blueprint. e.g. Google, vendors
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>source_provider: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `PublicBlueprint`.
-</span><span class="kw">pub mod </span>public_blueprint {
-    <span class="doccomment">/// DeploymentLevel of a blueprint signifies where the blueprint will be
-    /// applied.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>DeploymentLevel {
-        <span class="doccomment">/// Default unspecified deployment level.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Blueprints at HYDRATION level cannot be used to create a Deployment
-        /// (A user cannot manually initate deployment of these blueprints on
-        /// orchestration or workload cluster).
-        /// These blueprints stay in a user&#39;s private catalog and are configured and
-        /// deployed by TNA automation.
-        </span>Hydration = <span class="number">1</span>,
-        <span class="doccomment">/// Blueprints at DEPLOYMENT level can be
-        /// a) Modified in private catalog.
-        /// b) Used to create a deployment on orchestration cluster by the user, once
-        /// approved.
-        </span>Deployment = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>DeploymentLevel {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                DeploymentLevel::Unspecified =&gt; <span class="string">&quot;DEPLOYMENT_LEVEL_UNSPECIFIED&quot;</span>,
-                DeploymentLevel::Hydration =&gt; <span class="string">&quot;HYDRATION&quot;</span>,
-                DeploymentLevel::Deployment =&gt; <span class="string">&quot;DEPLOYMENT&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;DEPLOYMENT_LEVEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;HYDRATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hydration),
-                <span class="string">&quot;DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deployment),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
+    <span class="doccomment">/// Output only. Indicates if the deployment created from this blueprint can be
+    /// rolled back.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>rollback_support: bool,
 }
 <span class="doccomment">/// Deployment contains a collection of YAML files (This collection is also known
 /// as package) that can to applied on an orchestration cluster (GKE cluster with
-/// TNA addons).
+/// TNA addons) or a workload cluster.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Deployment {
@@ -3351,14 +3318,13 @@
     /// A new revision is committed whenever a change in deployment is applied.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>revision_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Immutable. The blueprint revision from which this deployment was
-    /// created.
+    <span class="doccomment">/// Required. The blueprint revision from which this deployment was created.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>source_blueprint_revision: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The timestamp that the revision was created.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>revision_create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. State of the deployment (DRAFT, APPLIED).
+    <span class="doccomment">/// Output only. State of the deployment (DRAFT, APPLIED, DELETING).
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;deployment::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Optional. Human readable name of a Deployment.
@@ -3391,6 +3357,20 @@
     /// which this deployment is created.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>source_provider: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Immutable. The WorkloadCluster on which to create the Deployment.
+    /// This field should only be passed when the deployment_level of the source
+    /// blueprint specifies deployments on workload clusters e.g.
+    /// WORKLOAD_CLUSTER_DEPLOYMENT.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>workload_cluster: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Attributes to where the deployment can inflict changes. The
+    /// value can only be \[SINGLE_DEPLOYMENT, MULTI_DEPLOYMENT\].
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentLevel&quot;</span>, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>deployment_level: i32,
+    <span class="doccomment">/// Output only. Indicates if the deployment can be rolled back, exported from
+    /// public blueprint.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>rollback_support: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `Deployment`.
 </span><span class="kw">pub mod </span>deployment {
@@ -3415,12 +3395,16 @@
         /// while its prevision revision will be its current applied version.
         </span>Draft = <span class="number">1</span>,
         <span class="doccomment">/// This state means that the contents (YAML files containing kubernetes
-        /// resources) of the deployment have been applied to an Orchestration
-        /// Cluster. A revision is created when a deployment is applied. This
-        /// revision will represent the latest view of what is applied on the cluster
-        /// until the deployment is modified and applied again, which will create a
-        /// new revision.
+        /// resources) of the deployment have been applied to an Orchestration or
+        /// Workload Cluster. A revision is created when a deployment is applied.
+        /// This revision will represent the latest view of what is applied on the
+        /// cluster until the deployment is modified and applied again, which will
+        /// create a new revision.
         </span>Applied = <span class="number">2</span>,
+        <span class="doccomment">/// A deployment in DELETING state has been marked for deletion. Its
+        /// deletion status can be queried using `ComputeDeploymentStatus` API. No
+        /// updates are allowed to a deployment in DELETING state.
+        </span>Deleting = <span class="number">3</span>,
     }
     <span class="kw">impl </span>State {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -3432,6 +3416,7 @@
                 State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
                 State::Draft =&gt; <span class="string">&quot;DRAFT&quot;</span>,
                 State::Applied =&gt; <span class="string">&quot;APPLIED&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -3440,6 +3425,7 @@
                 <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
                 <span class="string">&quot;DRAFT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Draft),
                 <span class="string">&quot;APPLIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applied),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3764,15 +3750,6 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Request object for `DeleteBlueprintRevision`.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteBlueprintRevisionRequest {
-    <span class="doccomment">/// Required. The name of the blueprint revision in the form
-    /// {blueprint_id}@{revision_id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
 <span class="doccomment">/// Request object for `ListBlueprints`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3871,10 +3848,10 @@
     <span class="doccomment">/// Required. Supported queries:
     /// 1. &quot;&quot;                       : Lists all revisions across all blueprints.
     /// 2. &quot;latest=true&quot;            : Lists latest revisions across all blueprints.
-    /// 3. &quot;name=&lt;name&gt;&quot;            : Lists all revisions of blueprint with name
-    /// &lt;name&gt;.
-    /// 4. &quot;name=&lt;name&gt; latest=true&quot;: Lists latest revision of blueprint with name
-    /// &lt;name&gt;
+    /// 3. &quot;name={name}&quot;            : Lists all revisions of blueprint with name
+    /// {name}.
+    /// 4. &quot;name={name} latest=true&quot;: Lists latest revision of blueprint with name
+    /// {name}
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of blueprints revisions to return per page.
@@ -3992,28 +3969,11 @@
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentView&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>view: i32,
 }
-<span class="doccomment">/// Request object for `DeleteDeployment`.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteDeploymentRequest {
-    <span class="doccomment">/// Required. The name of deployment to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
 <span class="doccomment">/// Request object for `RemoveDeployment`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RemoveDeploymentRequest {
     <span class="doccomment">/// Required. The name of deployment to initiate delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request object for `DeleteDeploymentRevision`.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteDeploymentRevisionRequest {
-    <span class="doccomment">/// Required. The name of the deployment revision in the form
-    /// {deployment_id}@{revision_id}.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
@@ -4091,10 +4051,10 @@
     /// 1. &quot;&quot;                       : Lists all revisions across all deployments.
     /// 2. &quot;latest=true&quot;            : Lists latest revisions across all
     /// deployments.
-    /// 3. &quot;name=&lt;name&gt;&quot;            : Lists all revisions of deployment with name
-    /// &lt;name&gt;.
-    /// 4. &quot;name=&lt;name&gt; latest=true&quot;: Lists latest revision of deployment with name
-    /// &lt;name&gt;
+    /// 3. &quot;name={name}&quot;            : Lists all revisions of deployment with name
+    /// {name}.
+    /// 4. &quot;name={name} latest=true&quot;: Lists latest revision of deployment with name
+    /// {name}
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of deployment revisions to return per page.
@@ -4144,7 +4104,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ComputeDeploymentStatusRequest {
-    <span class="doccomment">/// Required. The name of the deployment.
+    <span class="doccomment">/// Required. The name of the deployment without revisionID.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
@@ -4157,7 +4117,7 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Aggregated status of a deployment.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Status&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>status: i32,
+    </span><span class="kw">pub </span>aggregated_status: i32,
     <span class="doccomment">/// Output only. Resource level status details in deployments.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>resource_statuses: ::prost::alloc::vec::Vec&lt;ResourceStatus&gt;,
@@ -4299,7 +4259,8 @@
     /// network.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>subnet: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The /28 network that the masters will use.
+    <span class="doccomment">/// Optional. The /28 network that the masters will use. It should be free
+    /// within the network.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>master_ipv4_cidr_block: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The IP address range for the cluster pod IPs. Set to blank to
@@ -4455,6 +4416,77 @@
     <span class="doccomment">/// Output only. Status of the resource.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Status&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>status: i32,
+    <span class="doccomment">/// Output only. Detailed status of NFDeploy.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>nf_deploy_status: ::core::option::Option&lt;NfDeployStatus&gt;,
+}
+<span class="doccomment">/// Deployment status of NFDeploy.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>NfDeployStatus {
+    <span class="doccomment">/// Output only. Total number of NFs targeted by this deployment
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>targeted_nfs: i32,
+    <span class="doccomment">/// Output only. Total number of NFs targeted by this deployment with a Ready
+    /// Condition set.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>ready_nfs: i32,
+    <span class="doccomment">/// Output only. Per-Site Status.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>sites: ::prost::alloc::vec::Vec&lt;NfDeploySiteStatus&gt;,
+}
+<span class="doccomment">/// Per-Site Status.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>NfDeploySiteStatus {
+    <span class="doccomment">/// Output only. Site id.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>site: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. If true, the Site Deletion is in progress.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>pending_deletion: bool,
+    <span class="doccomment">/// Output only. Hydration status.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>hydration: ::core::option::Option&lt;HydrationStatus&gt;,
+    <span class="doccomment">/// Output only. Workload status.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>workload: ::core::option::Option&lt;WorkloadStatus&gt;,
+}
+<span class="doccomment">/// Hydration status.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>HydrationStatus {
+    <span class="doccomment">/// Output only. SiteVersion Hydration is targeting.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>site_version: ::core::option::Option&lt;SiteVersion&gt;,
+    <span class="doccomment">/// Output only. Status.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>status: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// SiteVersion Hydration is targeting.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SiteVersion {
+    <span class="doccomment">/// Output only. NF vendor.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>nf_vendor: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. NF vendor type.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>nf_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. NF version.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>nf_version: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Workload status.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WorkloadStatus {
+    <span class="doccomment">/// Output only. SiteVersion running in the workload cluster.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>site_version: ::core::option::Option&lt;SiteVersion&gt;,
+    <span class="doccomment">/// Output only. Status.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>status: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// BlueprintView defines the type of view of the blueprint.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
@@ -4529,9 +4561,9 @@
     <span class="doccomment">/// Unspecified resource type.
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// User specified NF Deploy CR.
-    </span>NfDeployCustomResource = <span class="number">1</span>,
+    </span>NfDeployResource = <span class="number">1</span>,
     <span class="doccomment">/// CRs that are part of a blueprint.
-    </span>BlueprintCustomResource = <span class="number">2</span>,
+    </span>DeploymentResource = <span class="number">2</span>,
 }
 <span class="kw">impl </span>ResourceType {
     <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -4541,16 +4573,16 @@
     </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             ResourceType::Unspecified =&gt; <span class="string">&quot;RESOURCE_TYPE_UNSPECIFIED&quot;</span>,
-            ResourceType::NfDeployCustomResource =&gt; <span class="string">&quot;NF_DEPLOY_CUSTOM_RESOURCE&quot;</span>,
-            ResourceType::BlueprintCustomResource =&gt; <span class="string">&quot;BLUEPRINT_CUSTOM_RESOURCE&quot;</span>,
+            ResourceType::NfDeployResource =&gt; <span class="string">&quot;NF_DEPLOY_RESOURCE&quot;</span>,
+            ResourceType::DeploymentResource =&gt; <span class="string">&quot;DEPLOYMENT_RESOURCE&quot;</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
             <span class="string">&quot;RESOURCE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;NF_DEPLOY_CUSTOM_RESOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NfDeployCustomResource),
-            <span class="string">&quot;BLUEPRINT_CUSTOM_RESOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlueprintCustomResource),
+            <span class="string">&quot;NF_DEPLOY_RESOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NfDeployResource),
+            <span class="string">&quot;DEPLOYMENT_RESOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeploymentResource),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4567,8 +4599,15 @@
     </span>Active = <span class="number">2</span>,
     <span class="doccomment">/// Failed or stalled.
     </span>Failed = <span class="number">3</span>,
-    <span class="doccomment">/// NFDeploy specific status.
+    <span class="doccomment">/// Delete in progress.
+    </span>Deleting = <span class="number">4</span>,
+    <span class="doccomment">/// Deleted deployment.
+    </span>Deleted = <span class="number">5</span>,
+    <span class="doccomment">/// NFDeploy specific status. Peering in progress.
     </span>Peering = <span class="number">10</span>,
+    <span class="doccomment">/// K8s objects such as NetworkAttachmentDefinition don&#39;t have a defined
+    /// status.
+    </span>NotApplicable = <span class="number">11</span>,
 }
 <span class="kw">impl </span>Status {
     <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -4581,7 +4620,10 @@
             Status::InProgress =&gt; <span class="string">&quot;STATUS_IN_PROGRESS&quot;</span>,
             Status::Active =&gt; <span class="string">&quot;STATUS_ACTIVE&quot;</span>,
             Status::Failed =&gt; <span class="string">&quot;STATUS_FAILED&quot;</span>,
+            Status::Deleting =&gt; <span class="string">&quot;STATUS_DELETING&quot;</span>,
+            Status::Deleted =&gt; <span class="string">&quot;STATUS_DELETED&quot;</span>,
             Status::Peering =&gt; <span class="string">&quot;STATUS_PEERING&quot;</span>,
+            Status::NotApplicable =&gt; <span class="string">&quot;STATUS_NOT_APPLICABLE&quot;</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -4591,7 +4633,65 @@
             <span class="string">&quot;STATUS_IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgress),
             <span class="string">&quot;STATUS_ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
             <span class="string">&quot;STATUS_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+            <span class="string">&quot;STATUS_DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+            <span class="string">&quot;STATUS_DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
             <span class="string">&quot;STATUS_PEERING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Peering),
+            <span class="string">&quot;STATUS_NOT_APPLICABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotApplicable),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// DeploymentLevel of a blueprint signifies where the blueprint will be
+/// applied.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>DeploymentLevel {
+    <span class="doccomment">/// Default unspecified deployment level.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Blueprints at HYDRATION level cannot be used to create a Deployment
+    /// (A user cannot manually initate deployment of these blueprints on
+    /// orchestration or workload cluster).
+    /// These blueprints stay in a user&#39;s private catalog and are configured and
+    /// deployed by TNA automation.
+    </span>Hydration = <span class="number">1</span>,
+    <span class="doccomment">/// Blueprints at SINGLE_DEPLOYMENT level can be
+    /// a) Modified in private catalog.
+    /// b) Used to create a deployment on orchestration cluster by the user, once
+    /// approved.
+    </span>SingleDeployment = <span class="number">2</span>,
+    <span class="doccomment">/// Blueprints at MULTI_DEPLOYMENT level can be
+    /// a) Modified in private catalog.
+    /// b) Used to create a deployment on orchestration cluster which will create
+    /// further hydrated deployments.
+    </span>MultiDeployment = <span class="number">3</span>,
+    <span class="doccomment">/// Blueprints at WORKLOAD_CLUSTER_DEPLOYMENT level can be
+    /// a) Modified in private catalog.
+    /// b) Used to create a deployment on workload cluster by the user, once
+    /// approved.
+    </span>WorkloadClusterDeployment = <span class="number">4</span>,
+}
+<span class="kw">impl </span>DeploymentLevel {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            DeploymentLevel::Unspecified =&gt; <span class="string">&quot;DEPLOYMENT_LEVEL_UNSPECIFIED&quot;</span>,
+            DeploymentLevel::Hydration =&gt; <span class="string">&quot;HYDRATION&quot;</span>,
+            DeploymentLevel::SingleDeployment =&gt; <span class="string">&quot;SINGLE_DEPLOYMENT&quot;</span>,
+            DeploymentLevel::MultiDeployment =&gt; <span class="string">&quot;MULTI_DEPLOYMENT&quot;</span>,
+            DeploymentLevel::WorkloadClusterDeployment =&gt; <span class="string">&quot;WORKLOAD_CLUSTER_DEPLOYMENT&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;DEPLOYMENT_LEVEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;HYDRATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hydration),
+            <span class="string">&quot;SINGLE_DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SingleDeployment),
+            <span class="string">&quot;MULTI_DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MultiDeployment),
+            <span class="string">&quot;WORKLOAD_CLUSTER_DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WorkloadClusterDeployment),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -5032,34 +5132,6 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Deletes the specified revision of the blueprint.
-        </span><span class="kw">pub async fn </span>delete_blueprint_revision(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteBlueprintRevisionRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Blueprint&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.telcoautomation.v1alpha1.TelcoAutomation/DeleteBlueprintRevision&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.telcoautomation.v1alpha1.TelcoAutomation&quot;</span>,
-                        <span class="string">&quot;DeleteBlueprintRevision&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
         <span class="doccomment">/// List all blueprints.
         </span><span class="kw">pub async fn </span>list_blueprints(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -5448,34 +5520,6 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Deletes a deployment and all its revisions.
-        </span><span class="kw">pub async fn </span>delete_deployment(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteDeploymentRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.telcoautomation.v1alpha1.TelcoAutomation/DeleteDeployment&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.telcoautomation.v1alpha1.TelcoAutomation&quot;</span>,
-                        <span class="string">&quot;DeleteDeployment&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
         <span class="doccomment">/// Removes the deployment by marking it as DELETING. Post which deployment and
         /// it&#39;s revisions gets deleted.
         </span><span class="kw">pub async fn </span>remove_deployment(
@@ -5501,34 +5545,6 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.telcoautomation.v1alpha1.TelcoAutomation&quot;</span>,
                         <span class="string">&quot;RemoveDeployment&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Deletes the specified revision of the deployment.
-        </span><span class="kw">pub async fn </span>delete_deployment_revision(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteDeploymentRevisionRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Deployment&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.telcoautomation.v1alpha1.TelcoAutomation/DeleteDeploymentRevision&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.telcoautomation.v1alpha1.TelcoAutomation&quot;</span>,
-                        <span class="string">&quot;DeleteDeploymentRevision&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

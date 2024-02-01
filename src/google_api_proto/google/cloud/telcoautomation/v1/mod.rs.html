@@ -2913,6 +2913,21 @@
 <a href="#2913" id="2913">2913</a>
 <a href="#2914" id="2914">2914</a>
 <a href="#2915" id="2915">2915</a>
+<a href="#2916" id="2916">2916</a>
+<a href="#2917" id="2917">2917</a>
+<a href="#2918" id="2918">2918</a>
+<a href="#2919" id="2919">2919</a>
+<a href="#2920" id="2920">2920</a>
+<a href="#2921" id="2921">2921</a>
+<a href="#2922" id="2922">2922</a>
+<a href="#2923" id="2923">2923</a>
+<a href="#2924" id="2924">2924</a>
+<a href="#2925" id="2925">2925</a>
+<a href="#2926" id="2926">2926</a>
+<a href="#2927" id="2927">2927</a>
+<a href="#2928" id="2928">2928</a>
+<a href="#2929" id="2929">2929</a>
+<a href="#2930" id="2930">2930</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Orchestration cluster represents a GKE cluster with config controller and
 /// TNA specific components installed on it.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3343,6 +3358,9 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>source_provider: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Immutable. The WorkloadCluster on which to create the Deployment.
+    /// This field should only be passed when the deployment_level of the source
+    /// blueprint specifies deployments on workload clusters e.g.
+    /// WORKLOAD_CLUSTER_DEPLOYMENT.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>workload_cluster: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Attributes to where the deployment can inflict changes. The
@@ -4587,6 +4605,9 @@
     </span>Deleted = <span class="number">5</span>,
     <span class="doccomment">/// NFDeploy specific status. Peering in progress.
     </span>Peering = <span class="number">10</span>,
+    <span class="doccomment">/// K8s objects such as NetworkAttachmentDefinition don&#39;t have a defined
+    /// status.
+    </span>NotApplicable = <span class="number">11</span>,
 }
 <span class="kw">impl </span>Status {
     <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -4602,6 +4623,7 @@
             Status::Deleting =&gt; <span class="string">&quot;STATUS_DELETING&quot;</span>,
             Status::Deleted =&gt; <span class="string">&quot;STATUS_DELETED&quot;</span>,
             Status::Peering =&gt; <span class="string">&quot;STATUS_PEERING&quot;</span>,
+            Status::NotApplicable =&gt; <span class="string">&quot;STATUS_NOT_APPLICABLE&quot;</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -4614,6 +4636,7 @@
             <span class="string">&quot;STATUS_DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
             <span class="string">&quot;STATUS_DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
             <span class="string">&quot;STATUS_PEERING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Peering),
+            <span class="string">&quot;STATUS_NOT_APPLICABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotApplicable),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4641,6 +4664,11 @@
     /// b) Used to create a deployment on orchestration cluster which will create
     /// further hydrated deployments.
     </span>MultiDeployment = <span class="number">3</span>,
+    <span class="doccomment">/// Blueprints at WORKLOAD_CLUSTER_DEPLOYMENT level can be
+    /// a) Modified in private catalog.
+    /// b) Used to create a deployment on workload cluster by the user, once
+    /// approved.
+    </span>WorkloadClusterDeployment = <span class="number">4</span>,
 }
 <span class="kw">impl </span>DeploymentLevel {
     <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -4653,6 +4681,7 @@
             DeploymentLevel::Hydration =&gt; <span class="string">&quot;HYDRATION&quot;</span>,
             DeploymentLevel::SingleDeployment =&gt; <span class="string">&quot;SINGLE_DEPLOYMENT&quot;</span>,
             DeploymentLevel::MultiDeployment =&gt; <span class="string">&quot;MULTI_DEPLOYMENT&quot;</span>,
+            DeploymentLevel::WorkloadClusterDeployment =&gt; <span class="string">&quot;WORKLOAD_CLUSTER_DEPLOYMENT&quot;</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -4662,6 +4691,7 @@
             <span class="string">&quot;HYDRATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hydration),
             <span class="string">&quot;SINGLE_DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SingleDeployment),
             <span class="string">&quot;MULTI_DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MultiDeployment),
+            <span class="string">&quot;WORKLOAD_CLUSTER_DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WorkloadClusterDeployment),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
