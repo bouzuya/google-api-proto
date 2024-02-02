@@ -16443,6 +16443,83 @@ pub struct DirectRawPredictResponse {
     pub output: ::prost::bytes::Bytes,
 }
 /// Request message for
+/// [PredictionService.StreamDirectPredict][google.cloud.aiplatform.v1beta1.PredictionService.StreamDirectPredict].
+///
+/// The first message must contain
+/// [endpoint][google.cloud.aiplatform.v1beta1.StreamDirectPredictRequest.endpoint]
+/// field and optionally [input][]. The subsequent messages must contain
+/// [input][].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamDirectPredictRequest {
+    /// Required. The name of the Endpoint requested to serve the prediction.
+    /// Format:
+    /// `projects/{project}/locations/{location}/endpoints/{endpoint}`
+    #[prost(string, tag = "1")]
+    pub endpoint: ::prost::alloc::string::String,
+    /// Optional. The prediction input.
+    #[prost(message, repeated, tag = "2")]
+    pub inputs: ::prost::alloc::vec::Vec<Tensor>,
+    /// Optional. The parameters that govern the prediction.
+    #[prost(message, optional, tag = "3")]
+    pub parameters: ::core::option::Option<Tensor>,
+}
+/// Response message for
+/// [PredictionService.StreamDirectPredict][google.cloud.aiplatform.v1beta1.PredictionService.StreamDirectPredict].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamDirectPredictResponse {
+    /// The prediction output.
+    #[prost(message, repeated, tag = "1")]
+    pub outputs: ::prost::alloc::vec::Vec<Tensor>,
+    /// The parameters that govern the prediction.
+    #[prost(message, optional, tag = "2")]
+    pub parameters: ::core::option::Option<Tensor>,
+}
+/// Request message for
+/// [PredictionService.StreamDirectRawPredict][google.cloud.aiplatform.v1beta1.PredictionService.StreamDirectRawPredict].
+///
+/// The first message must contain
+/// [endpoint][google.cloud.aiplatform.v1beta1.StreamDirectRawPredictRequest.endpoint]
+/// and
+/// [method_name][google.cloud.aiplatform.v1beta1.StreamDirectRawPredictRequest.method_name]
+/// fields and optionally
+/// [input][google.cloud.aiplatform.v1beta1.StreamDirectRawPredictRequest.input].
+/// The subsequent messages must contain
+/// [input][google.cloud.aiplatform.v1beta1.StreamDirectRawPredictRequest.input].
+/// [method_name][google.cloud.aiplatform.v1beta1.StreamDirectRawPredictRequest.method_name]
+/// in the subsequent messages have no effect.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamDirectRawPredictRequest {
+    /// Required. The name of the Endpoint requested to serve the prediction.
+    /// Format:
+    /// `projects/{project}/locations/{location}/endpoints/{endpoint}`
+    #[prost(string, tag = "1")]
+    pub endpoint: ::prost::alloc::string::String,
+    /// Optional. Fully qualified name of the API method being invoked to perform
+    /// predictions.
+    ///
+    /// Format:
+    /// `/namespace.Service/Method/`
+    /// Example:
+    /// `/tensorflow.serving.PredictionService/Predict`
+    #[prost(string, tag = "2")]
+    pub method_name: ::prost::alloc::string::String,
+    /// Optional. The prediction input.
+    #[prost(bytes = "bytes", tag = "3")]
+    pub input: ::prost::bytes::Bytes,
+}
+/// Response message for
+/// [PredictionService.StreamDirectRawPredict][google.cloud.aiplatform.v1beta1.PredictionService.StreamDirectRawPredict].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamDirectRawPredictResponse {
+    /// The prediction output.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub output: ::prost::bytes::Bytes,
+}
+/// Request message for
 /// [PredictionService.StreamingPredict][google.cloud.aiplatform.v1beta1.PredictionService.StreamingPredict].
 ///
 /// The first message must contain
@@ -16931,8 +17008,8 @@ pub mod prediction_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Perform an unary online prediction request for Vertex first-party products
-        /// and frameworks.
+        /// Perform an unary online prediction request to a gRPC model server for
+        /// Vertex first-party products and frameworks.
         pub async fn direct_predict(
             &mut self,
             request: impl tonic::IntoRequest<super::DirectPredictRequest>,
@@ -16963,7 +17040,8 @@ pub mod prediction_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Perform an online prediction request through gRPC.
+        /// Perform an unary online prediction request to a gRPC model server for
+        /// custom containers.
         pub async fn direct_raw_predict(
             &mut self,
             request: impl tonic::IntoRequest<super::DirectRawPredictRequest>,
@@ -16993,6 +17071,76 @@ pub mod prediction_service_client {
                     ),
                 );
             self.inner.unary(req, path, codec).await
+        }
+        /// Perform a streaming online prediction request to a gRPC model server for
+        /// Vertex first-party products and frameworks.
+        pub async fn stream_direct_predict(
+            &mut self,
+            request: impl tonic::IntoStreamingRequest<
+                Message = super::StreamDirectPredictRequest,
+            >,
+        ) -> std::result::Result<
+            tonic::Response<tonic::codec::Streaming<super::StreamDirectPredictResponse>>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.PredictionService/StreamDirectPredict",
+            );
+            let mut req = request.into_streaming_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.PredictionService",
+                        "StreamDirectPredict",
+                    ),
+                );
+            self.inner.streaming(req, path, codec).await
+        }
+        /// Perform a streaming online prediction request to a gRPC model server for
+        /// custom containers.
+        pub async fn stream_direct_raw_predict(
+            &mut self,
+            request: impl tonic::IntoStreamingRequest<
+                Message = super::StreamDirectRawPredictRequest,
+            >,
+        ) -> std::result::Result<
+            tonic::Response<
+                tonic::codec::Streaming<super::StreamDirectRawPredictResponse>,
+            >,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.PredictionService/StreamDirectRawPredict",
+            );
+            let mut req = request.into_streaming_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.PredictionService",
+                        "StreamDirectRawPredict",
+                    ),
+                );
+            self.inner.streaming(req, path, codec).await
         }
         /// Perform a streaming online prediction request for Vertex first-party
         /// products and frameworks.
@@ -17161,6 +17309,37 @@ pub mod prediction_service_client {
                     GrpcMethod::new(
                         "google.cloud.aiplatform.v1beta1.PredictionService",
                         "CountTokens",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Generate content with multimodal inputs.
+        pub async fn generate_content(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GenerateContentRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::GenerateContentResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.PredictionService/GenerateContent",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.PredictionService",
+                        "GenerateContent",
                     ),
                 );
             self.inner.unary(req, path, codec).await
