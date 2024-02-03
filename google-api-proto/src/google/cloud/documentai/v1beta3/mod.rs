@@ -2241,6 +2241,9 @@ pub struct ProcessorVersion {
     /// If set, information about the eventual deprecation of this version.
     #[prost(message, optional, tag = "13")]
     pub deprecation_info: ::core::option::Option<processor_version::DeprecationInfo>,
+    /// Output only. The model type of this processor version.
+    #[prost(enumeration = "processor_version::ModelType", tag = "15")]
+    pub model_type: i32,
 }
 /// Nested message and enum types in `ProcessorVersion`.
 pub mod processor_version {
@@ -2318,6 +2321,49 @@ pub mod processor_version {
                 "DELETING" => Some(Self::Deleting),
                 "FAILED" => Some(Self::Failed),
                 "IMPORTING" => Some(Self::Importing),
+                _ => None,
+            }
+        }
+    }
+    /// The possible model types of the processor version.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ModelType {
+        /// The processor version has unspecified model type.
+        Unspecified = 0,
+        /// The processor version has generative model type.
+        Generative = 1,
+        /// The processor version has custom model type.
+        Custom = 2,
+    }
+    impl ModelType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ModelType::Unspecified => "MODEL_TYPE_UNSPECIFIED",
+                ModelType::Generative => "MODEL_TYPE_GENERATIVE",
+                ModelType::Custom => "MODEL_TYPE_CUSTOM",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "MODEL_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "MODEL_TYPE_GENERATIVE" => Some(Self::Generative),
+                "MODEL_TYPE_CUSTOM" => Some(Self::Custom),
                 _ => None,
             }
         }
