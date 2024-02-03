@@ -5449,6 +5449,52 @@
 <a href="#5449" id="5449">5449</a>
 <a href="#5450" id="5450">5450</a>
 <a href="#5451" id="5451">5451</a>
+<a href="#5452" id="5452">5452</a>
+<a href="#5453" id="5453">5453</a>
+<a href="#5454" id="5454">5454</a>
+<a href="#5455" id="5455">5455</a>
+<a href="#5456" id="5456">5456</a>
+<a href="#5457" id="5457">5457</a>
+<a href="#5458" id="5458">5458</a>
+<a href="#5459" id="5459">5459</a>
+<a href="#5460" id="5460">5460</a>
+<a href="#5461" id="5461">5461</a>
+<a href="#5462" id="5462">5462</a>
+<a href="#5463" id="5463">5463</a>
+<a href="#5464" id="5464">5464</a>
+<a href="#5465" id="5465">5465</a>
+<a href="#5466" id="5466">5466</a>
+<a href="#5467" id="5467">5467</a>
+<a href="#5468" id="5468">5468</a>
+<a href="#5469" id="5469">5469</a>
+<a href="#5470" id="5470">5470</a>
+<a href="#5471" id="5471">5471</a>
+<a href="#5472" id="5472">5472</a>
+<a href="#5473" id="5473">5473</a>
+<a href="#5474" id="5474">5474</a>
+<a href="#5475" id="5475">5475</a>
+<a href="#5476" id="5476">5476</a>
+<a href="#5477" id="5477">5477</a>
+<a href="#5478" id="5478">5478</a>
+<a href="#5479" id="5479">5479</a>
+<a href="#5480" id="5480">5480</a>
+<a href="#5481" id="5481">5481</a>
+<a href="#5482" id="5482">5482</a>
+<a href="#5483" id="5483">5483</a>
+<a href="#5484" id="5484">5484</a>
+<a href="#5485" id="5485">5485</a>
+<a href="#5486" id="5486">5486</a>
+<a href="#5487" id="5487">5487</a>
+<a href="#5488" id="5488">5488</a>
+<a href="#5489" id="5489">5489</a>
+<a href="#5490" id="5490">5490</a>
+<a href="#5491" id="5491">5491</a>
+<a href="#5492" id="5492">5492</a>
+<a href="#5493" id="5493">5493</a>
+<a href="#5494" id="5494">5494</a>
+<a href="#5495" id="5495">5495</a>
+<a href="#5496" id="5496">5496</a>
+<a href="#5497" id="5497">5497</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Payload message of raw document content (bytes).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -7692,6 +7738,9 @@
     <span class="doccomment">/// If set, information about the eventual deprecation of this version.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>deprecation_info: ::core::option::Option&lt;processor_version::DeprecationInfo&gt;,
+    <span class="doccomment">/// Output only. The model type of this processor version.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;processor_version::ModelType&quot;</span>, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>model_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ProcessorVersion`.
 </span><span class="kw">pub mod </span>processor_version {
@@ -7769,6 +7818,49 @@
                 <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
                 <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="string">&quot;IMPORTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Importing),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The possible model types of the processor version.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ModelType {
+        <span class="doccomment">/// The processor version has unspecified model type.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The processor version has generative model type.
+        </span>Generative = <span class="number">1</span>,
+        <span class="doccomment">/// The processor version has custom model type.
+        </span>Custom = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>ModelType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ModelType::Unspecified =&gt; <span class="string">&quot;MODEL_TYPE_UNSPECIFIED&quot;</span>,
+                ModelType::Generative =&gt; <span class="string">&quot;MODEL_TYPE_GENERATIVE&quot;</span>,
+                ModelType::Custom =&gt; <span class="string">&quot;MODEL_TYPE_CUSTOM&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;MODEL_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;MODEL_TYPE_GENERATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Generative),
+                <span class="string">&quot;MODEL_TYPE_CUSTOM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Custom),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }

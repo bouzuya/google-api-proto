@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["State"],"struct":["DeprecationInfo"]};
+window.SIDEBAR_ITEMS = {"enum":["ModelType","State"],"struct":["DeprecationInfo"]};
