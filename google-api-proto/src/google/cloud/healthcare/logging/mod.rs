@@ -1,94 +1,3 @@
-/// A log entry for a FHIR import long-running operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportFhirLogEntry {
-    /// The source in Cloud Storage (for example,
-    /// `gs://{bucket_id}/{path/to/file}`) or BigQuery (for example,
-    /// `bq://{projectId}.{bqDatasetId}`).
-    #[prost(string, tag = "1")]
-    pub source: ::prost::alloc::string::String,
-    /// The ID in the source file of the FHIR resource being imported.
-    #[prost(string, tag = "2")]
-    pub resource_id: ::prost::alloc::string::String,
-    /// The error code and message.
-    #[prost(message, optional, tag = "3")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-}
-/// A log entry for a FHIR export long-running operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExportFhirLogEntry {
-    /// The destination in Cloud Storage (for example,
-    /// `gs://{bucket_id}/{path/to/file}`) or BigQuery (for example,
-    /// `bq://{projectId}.{bqDatasetId}`).
-    #[prost(string, tag = "1")]
-    pub destination: ::prost::alloc::string::String,
-    /// The resource being exported (e.g.
-    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
-    #[prost(string, tag = "3")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// The error code and message.
-    #[prost(message, optional, tag = "4")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-}
-/// A log entry for a FHIR configure search long-running operation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FhirConfigureSearchLogEntry {
-    /// The ID of the resource being reindexed.
-    #[prost(string, tag = "1")]
-    pub resource_id: ::prost::alloc::string::String,
-    /// The error code and message.
-    #[prost(message, optional, tag = "2")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-}
-/// A log entry for a FHIR store Pub/Sub notification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FhirNotificationLogEntry {
-    /// The resource being changed (for example,
-    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// The Pub/Sub topic that the notification is published on.
-    #[prost(string, tag = "2")]
-    pub pubsub_topic: ::prost::alloc::string::String,
-    /// The error code and message.
-    #[prost(message, optional, tag = "3")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-}
-/// A log entry for a FHIR streaming export notification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FhirStreamLogEntry {
-    /// The resource being changed (for example,
-    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// The destination in BigQuery (for example,
-    /// `bq://{projectId}.{bqDatasetId}.{bqTableId}`).
-    #[prost(string, tag = "2")]
-    pub destination: ::prost::alloc::string::String,
-    /// The error code and message.
-    #[prost(message, optional, tag = "3")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-}
-/// A log entry for a FHIR streaming deidentification notification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FhirDeidentifyStreamToStoreLogEntry {
-    /// The resource that changed (for example,
-    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// The destination FHIR store name. (for example,
-    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}`).
-    #[prost(string, tag = "2")]
-    pub destination: ::prost::alloc::string::String,
-    /// The error code and message.
-    #[prost(message, optional, tag = "3")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-}
 /// A log entry for a de-identification long-running operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -195,6 +104,97 @@ pub struct EvaluateAnnotationLogEntry {
     pub golden_annotation_name: ::prost::alloc::string::String,
     /// The error code and message.
     #[prost(message, optional, tag = "4")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// A log entry for a FHIR import long-running operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportFhirLogEntry {
+    /// The source in Cloud Storage (for example,
+    /// `gs://{bucket_id}/{path/to/file}`) or BigQuery (for example,
+    /// `bq://{projectId}.{bqDatasetId}`).
+    #[prost(string, tag = "1")]
+    pub source: ::prost::alloc::string::String,
+    /// The ID in the source file of the FHIR resource being imported.
+    #[prost(string, tag = "2")]
+    pub resource_id: ::prost::alloc::string::String,
+    /// The error code and message.
+    #[prost(message, optional, tag = "3")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// A log entry for a FHIR export long-running operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExportFhirLogEntry {
+    /// The destination in Cloud Storage (for example,
+    /// `gs://{bucket_id}/{path/to/file}`) or BigQuery (for example,
+    /// `bq://{projectId}.{bqDatasetId}`).
+    #[prost(string, tag = "1")]
+    pub destination: ::prost::alloc::string::String,
+    /// The resource being exported (e.g.
+    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
+    #[prost(string, tag = "3")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// The error code and message.
+    #[prost(message, optional, tag = "4")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// A log entry for a FHIR configure search long-running operation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FhirConfigureSearchLogEntry {
+    /// The ID of the resource being reindexed.
+    #[prost(string, tag = "1")]
+    pub resource_id: ::prost::alloc::string::String,
+    /// The error code and message.
+    #[prost(message, optional, tag = "2")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// A log entry for a FHIR store Pub/Sub notification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FhirNotificationLogEntry {
+    /// The resource being changed (for example,
+    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// The Pub/Sub topic that the notification is published on.
+    #[prost(string, tag = "2")]
+    pub pubsub_topic: ::prost::alloc::string::String,
+    /// The error code and message.
+    #[prost(message, optional, tag = "3")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// A log entry for a FHIR streaming export notification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FhirStreamLogEntry {
+    /// The resource being changed (for example,
+    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// The destination in BigQuery (for example,
+    /// `bq://{projectId}.{bqDatasetId}.{bqTableId}`).
+    #[prost(string, tag = "2")]
+    pub destination: ::prost::alloc::string::String,
+    /// The error code and message.
+    #[prost(message, optional, tag = "3")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// A log entry for a FHIR streaming deidentification notification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FhirDeidentifyStreamToStoreLogEntry {
+    /// The resource that changed (for example,
+    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// The destination FHIR store name. (for example,
+    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}`).
+    #[prost(string, tag = "2")]
+    pub destination: ::prost::alloc::string::String,
+    /// The error code and message.
+    #[prost(message, optional, tag = "3")]
     pub error: ::core::option::Option<super::super::super::rpc::Status>,
 }
 /// A log entry for a Consent store QueryAccessibleData long-running operation.

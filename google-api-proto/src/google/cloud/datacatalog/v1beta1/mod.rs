@@ -66,110 +66,38 @@ impl ManagingSystem {
         }
     }
 }
-/// Describes a BigQuery table.
+/// Represents a schema (e.g. BigQuery, GoogleSQL, Avro schema).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BigQueryTableSpec {
-    /// Output only. The table source type.
-    #[prost(enumeration = "TableSourceType", tag = "1")]
-    pub table_source_type: i32,
-    /// Output only.
-    #[prost(oneof = "big_query_table_spec::TypeSpec", tags = "2, 3")]
-    pub type_spec: ::core::option::Option<big_query_table_spec::TypeSpec>,
+pub struct Schema {
+    /// Required. Schema of columns. A maximum of 10,000 columns and sub-columns
+    /// can be specified.
+    #[prost(message, repeated, tag = "2")]
+    pub columns: ::prost::alloc::vec::Vec<ColumnSchema>,
 }
-/// Nested message and enum types in `BigQueryTableSpec`.
-pub mod big_query_table_spec {
-    /// Output only.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum TypeSpec {
-        /// Table view specification. This field should only be populated if
-        /// `table_source_type` is `BIGQUERY_VIEW`.
-        #[prost(message, tag = "2")]
-        ViewSpec(super::ViewSpec),
-        /// Spec of a BigQuery table. This field should only be populated if
-        /// `table_source_type` is `BIGQUERY_TABLE`.
-        #[prost(message, tag = "3")]
-        TableSpec(super::TableSpec),
-    }
-}
-/// Table view specification.
+/// Representation of a column within a schema. Columns could be nested inside
+/// other columns.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ViewSpec {
-    /// Output only. The query that defines the table view.
+pub struct ColumnSchema {
+    /// Required. Name of the column.
+    #[prost(string, tag = "6")]
+    pub column: ::prost::alloc::string::String,
+    /// Required. Type of the column.
     #[prost(string, tag = "1")]
-    pub view_query: ::prost::alloc::string::String,
-}
-/// Normal BigQuery table spec.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TableSpec {
-    /// Output only. If the table is a dated shard, i.e., with name pattern
-    /// `\[prefix\]YYYYMMDD`, `grouped_entry` is the Data Catalog resource name of
-    /// the date sharded grouped entry, for example,
-    /// `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
-    /// Otherwise, `grouped_entry` is empty.
-    #[prost(string, tag = "1")]
-    pub grouped_entry: ::prost::alloc::string::String,
-}
-/// Spec for a group of BigQuery tables with name pattern `\[prefix\]YYYYMMDD`.
-/// Context:
-/// <https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BigQueryDateShardedSpec {
-    /// Output only. The Data Catalog resource name of the dataset entry the
-    /// current table belongs to, for example,
-    /// `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
-    #[prost(string, tag = "1")]
-    pub dataset: ::prost::alloc::string::String,
-    /// Output only. The table name prefix of the shards. The name of any given
-    /// shard is
-    /// `\[table_prefix\]YYYYMMDD`, for example, for shard `MyTable20180101`, the
-    /// `table_prefix` is `MyTable`.
+    pub r#type: ::prost::alloc::string::String,
+    /// Optional. Description of the column. Default value is an empty string.
     #[prost(string, tag = "2")]
-    pub table_prefix: ::prost::alloc::string::String,
-    /// Output only. Total number of shards.
-    #[prost(int64, tag = "3")]
-    pub shard_count: i64,
-}
-/// Table source type.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum TableSourceType {
-    /// Default unknown type.
-    Unspecified = 0,
-    /// Table view.
-    BigqueryView = 2,
-    /// BigQuery native table.
-    BigqueryTable = 5,
-    /// BigQuery materialized view.
-    BigqueryMaterializedView = 7,
-}
-impl TableSourceType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            TableSourceType::Unspecified => "TABLE_SOURCE_TYPE_UNSPECIFIED",
-            TableSourceType::BigqueryView => "BIGQUERY_VIEW",
-            TableSourceType::BigqueryTable => "BIGQUERY_TABLE",
-            TableSourceType::BigqueryMaterializedView => "BIGQUERY_MATERIALIZED_VIEW",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "TABLE_SOURCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "BIGQUERY_VIEW" => Some(Self::BigqueryView),
-            "BIGQUERY_TABLE" => Some(Self::BigqueryTable),
-            "BIGQUERY_MATERIALIZED_VIEW" => Some(Self::BigqueryMaterializedView),
-            _ => None,
-        }
-    }
+    pub description: ::prost::alloc::string::String,
+    /// Optional. A column's mode indicates whether the values in this column are
+    /// required, nullable, etc. Only `NULLABLE`, `REQUIRED` and `REPEATED` are
+    /// supported. Default mode is `NULLABLE`.
+    #[prost(string, tag = "3")]
+    pub mode: ::prost::alloc::string::String,
+    /// Optional. Schema of sub-columns. A column can have zero or more
+    /// sub-columns.
+    #[prost(message, repeated, tag = "7")]
+    pub subcolumns: ::prost::alloc::vec::Vec<ColumnSchema>,
 }
 /// Tags are used to attach custom metadata to Data Catalog resources. Tags
 /// conform to the specifications within their tag template.
@@ -442,45 +370,110 @@ pub mod field_type {
         EnumType(EnumType),
     }
 }
-/// Detailed counts on the entry's usage.
-/// Caveats:
-/// - Only BigQuery tables have usage stats
-/// - The usage stats only include BigQuery query jobs
-/// - The usage stats might be underestimated, e.g. wildcard table references
-/// are not yet counted in usage computation
-/// <https://cloud.google.com/bigquery/docs/querying-wildcard-tables>
+/// Describes a BigQuery table.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UsageStats {
-    /// The number of times that the underlying entry was successfully used.
-    #[prost(float, tag = "1")]
-    pub total_completions: f32,
-    /// The number of times that the underlying entry was attempted to be used
-    /// but failed.
-    #[prost(float, tag = "2")]
-    pub total_failures: f32,
-    /// The number of times that the underlying entry was attempted to be used
-    /// but was cancelled by the user.
-    #[prost(float, tag = "3")]
-    pub total_cancellations: f32,
-    /// Total time spent (in milliseconds) during uses the resulted in completions.
-    #[prost(float, tag = "4")]
-    pub total_execution_time_for_completions_millis: f32,
+pub struct BigQueryTableSpec {
+    /// Output only. The table source type.
+    #[prost(enumeration = "TableSourceType", tag = "1")]
+    pub table_source_type: i32,
+    /// Output only.
+    #[prost(oneof = "big_query_table_spec::TypeSpec", tags = "2, 3")]
+    pub type_spec: ::core::option::Option<big_query_table_spec::TypeSpec>,
 }
-/// The set of all usage signals that we store in Data Catalog.
+/// Nested message and enum types in `BigQueryTableSpec`.
+pub mod big_query_table_spec {
+    /// Output only.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum TypeSpec {
+        /// Table view specification. This field should only be populated if
+        /// `table_source_type` is `BIGQUERY_VIEW`.
+        #[prost(message, tag = "2")]
+        ViewSpec(super::ViewSpec),
+        /// Spec of a BigQuery table. This field should only be populated if
+        /// `table_source_type` is `BIGQUERY_TABLE`.
+        #[prost(message, tag = "3")]
+        TableSpec(super::TableSpec),
+    }
+}
+/// Table view specification.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UsageSignal {
-    /// The timestamp of the end of the usage statistics duration.
-    #[prost(message, optional, tag = "1")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Usage statistics over each of the pre-defined time ranges, supported
-    /// strings for time ranges are {"24H", "7D", "30D"}.
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub usage_within_time_range: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        UsageStats,
-    >,
+pub struct ViewSpec {
+    /// Output only. The query that defines the table view.
+    #[prost(string, tag = "1")]
+    pub view_query: ::prost::alloc::string::String,
+}
+/// Normal BigQuery table spec.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TableSpec {
+    /// Output only. If the table is a dated shard, i.e., with name pattern
+    /// `\[prefix\]YYYYMMDD`, `grouped_entry` is the Data Catalog resource name of
+    /// the date sharded grouped entry, for example,
+    /// `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
+    /// Otherwise, `grouped_entry` is empty.
+    #[prost(string, tag = "1")]
+    pub grouped_entry: ::prost::alloc::string::String,
+}
+/// Spec for a group of BigQuery tables with name pattern `\[prefix\]YYYYMMDD`.
+/// Context:
+/// <https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BigQueryDateShardedSpec {
+    /// Output only. The Data Catalog resource name of the dataset entry the
+    /// current table belongs to, for example,
+    /// `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
+    #[prost(string, tag = "1")]
+    pub dataset: ::prost::alloc::string::String,
+    /// Output only. The table name prefix of the shards. The name of any given
+    /// shard is
+    /// `\[table_prefix\]YYYYMMDD`, for example, for shard `MyTable20180101`, the
+    /// `table_prefix` is `MyTable`.
+    #[prost(string, tag = "2")]
+    pub table_prefix: ::prost::alloc::string::String,
+    /// Output only. Total number of shards.
+    #[prost(int64, tag = "3")]
+    pub shard_count: i64,
+}
+/// Table source type.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum TableSourceType {
+    /// Default unknown type.
+    Unspecified = 0,
+    /// Table view.
+    BigqueryView = 2,
+    /// BigQuery native table.
+    BigqueryTable = 5,
+    /// BigQuery materialized view.
+    BigqueryMaterializedView = 7,
+}
+impl TableSourceType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            TableSourceType::Unspecified => "TABLE_SOURCE_TYPE_UNSPECIFIED",
+            TableSourceType::BigqueryView => "BIGQUERY_VIEW",
+            TableSourceType::BigqueryTable => "BIGQUERY_TABLE",
+            TableSourceType::BigqueryMaterializedView => "BIGQUERY_MATERIALIZED_VIEW",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "TABLE_SOURCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "BIGQUERY_VIEW" => Some(Self::BigqueryView),
+            "BIGQUERY_TABLE" => Some(Self::BigqueryTable),
+            "BIGQUERY_MATERIALIZED_VIEW" => Some(Self::BigqueryMaterializedView),
+            _ => None,
+        }
+    }
 }
 /// Timestamps about this resource according to a particular system.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -496,6 +489,59 @@ pub struct SystemTimestamps {
     /// Currently only apllicable to BigQuery resources.
     #[prost(message, optional, tag = "3")]
     pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Describes a Cloud Storage fileset entry.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsFilesetSpec {
+    /// Required. Patterns to identify a set of files in Google Cloud Storage.
+    /// See [Cloud Storage
+    /// documentation](<https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames>)
+    /// for more information. Note that bucket wildcards are currently not
+    /// supported.
+    ///
+    /// Examples of valid file_patterns:
+    ///
+    ///   * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
+    ///                               directory.
+    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
+    ///                                spanning all subdirectories.
+    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
+    ///                               `bucket_name`
+    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
+    ///                                `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
+    ///                                     vowel character followed by `.txt` in
+    ///                                     `bucket_name`
+    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
+    ///                                   or `m` followed by `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
+    ///                               `a/*/b` pattern, such as `a/c/b`, `a/d/b`
+    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+    ///
+    /// You can combine wildcards to provide more powerful matches, for example:
+    ///
+    ///   * `gs://bucket_name/\[a-m\]??.j*g`
+    #[prost(string, repeated, tag = "1")]
+    pub file_patterns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. Sample files contained in this fileset, not all files
+    /// contained in this fileset are represented here.
+    #[prost(message, repeated, tag = "2")]
+    pub sample_gcs_file_specs: ::prost::alloc::vec::Vec<GcsFileSpec>,
+}
+/// Specifications of a single file in Cloud Storage.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsFileSpec {
+    /// Required. The full file path. Example: `gs://bucket_name/a/b.txt`.
+    #[prost(string, tag = "1")]
+    pub file_path: ::prost::alloc::string::String,
+    /// Output only. Timestamps about the Cloud Storage file.
+    #[prost(message, optional, tag = "2")]
+    pub gcs_timestamps: ::core::option::Option<SystemTimestamps>,
+    /// Output only. The size of the file, in bytes.
+    #[prost(int64, tag = "4")]
+    pub size_bytes: i64,
 }
 /// A taxonomy is a collection of policy tags that classify data along a common
 /// axis. For instance a data *sensitivity* taxonomy could contain policy tags
@@ -1257,6 +1303,46 @@ pub mod policy_tag_manager_client {
         }
     }
 }
+/// Detailed counts on the entry's usage.
+/// Caveats:
+/// - Only BigQuery tables have usage stats
+/// - The usage stats only include BigQuery query jobs
+/// - The usage stats might be underestimated, e.g. wildcard table references
+/// are not yet counted in usage computation
+/// <https://cloud.google.com/bigquery/docs/querying-wildcard-tables>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UsageStats {
+    /// The number of times that the underlying entry was successfully used.
+    #[prost(float, tag = "1")]
+    pub total_completions: f32,
+    /// The number of times that the underlying entry was attempted to be used
+    /// but failed.
+    #[prost(float, tag = "2")]
+    pub total_failures: f32,
+    /// The number of times that the underlying entry was attempted to be used
+    /// but was cancelled by the user.
+    #[prost(float, tag = "3")]
+    pub total_cancellations: f32,
+    /// Total time spent (in milliseconds) during uses the resulted in completions.
+    #[prost(float, tag = "4")]
+    pub total_execution_time_for_completions_millis: f32,
+}
+/// The set of all usage signals that we store in Data Catalog.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UsageSignal {
+    /// The timestamp of the end of the usage statistics duration.
+    #[prost(message, optional, tag = "1")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Usage statistics over each of the pre-defined time ranges, supported
+    /// strings for time ranges are {"24H", "7D", "30D"}.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub usage_within_time_range: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        UsageStats,
+    >,
+}
 /// Message capturing a taxonomy and its policy tag hierarchy as a nested proto.
 /// Used for taxonomy import/export and mutation.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1525,92 +1611,6 @@ pub mod policy_tag_manager_serialization_client {
             self.inner.unary(req, path, codec).await
         }
     }
-}
-/// Describes a Cloud Storage fileset entry.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsFilesetSpec {
-    /// Required. Patterns to identify a set of files in Google Cloud Storage.
-    /// See [Cloud Storage
-    /// documentation](<https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames>)
-    /// for more information. Note that bucket wildcards are currently not
-    /// supported.
-    ///
-    /// Examples of valid file_patterns:
-    ///
-    ///   * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
-    ///                               directory.
-    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
-    ///                                spanning all subdirectories.
-    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
-    ///                               `bucket_name`
-    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
-    ///                                `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
-    ///                                     vowel character followed by `.txt` in
-    ///                                     `bucket_name`
-    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
-    ///                                   or `m` followed by `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
-    ///                               `a/*/b` pattern, such as `a/c/b`, `a/d/b`
-    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
-    ///
-    /// You can combine wildcards to provide more powerful matches, for example:
-    ///
-    ///   * `gs://bucket_name/\[a-m\]??.j*g`
-    #[prost(string, repeated, tag = "1")]
-    pub file_patterns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. Sample files contained in this fileset, not all files
-    /// contained in this fileset are represented here.
-    #[prost(message, repeated, tag = "2")]
-    pub sample_gcs_file_specs: ::prost::alloc::vec::Vec<GcsFileSpec>,
-}
-/// Specifications of a single file in Cloud Storage.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsFileSpec {
-    /// Required. The full file path. Example: `gs://bucket_name/a/b.txt`.
-    #[prost(string, tag = "1")]
-    pub file_path: ::prost::alloc::string::String,
-    /// Output only. Timestamps about the Cloud Storage file.
-    #[prost(message, optional, tag = "2")]
-    pub gcs_timestamps: ::core::option::Option<SystemTimestamps>,
-    /// Output only. The size of the file, in bytes.
-    #[prost(int64, tag = "4")]
-    pub size_bytes: i64,
-}
-/// Represents a schema (e.g. BigQuery, GoogleSQL, Avro schema).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Schema {
-    /// Required. Schema of columns. A maximum of 10,000 columns and sub-columns
-    /// can be specified.
-    #[prost(message, repeated, tag = "2")]
-    pub columns: ::prost::alloc::vec::Vec<ColumnSchema>,
-}
-/// Representation of a column within a schema. Columns could be nested inside
-/// other columns.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ColumnSchema {
-    /// Required. Name of the column.
-    #[prost(string, tag = "6")]
-    pub column: ::prost::alloc::string::String,
-    /// Required. Type of the column.
-    #[prost(string, tag = "1")]
-    pub r#type: ::prost::alloc::string::String,
-    /// Optional. Description of the column. Default value is an empty string.
-    #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
-    /// Optional. A column's mode indicates whether the values in this column are
-    /// required, nullable, etc. Only `NULLABLE`, `REQUIRED` and `REPEATED` are
-    /// supported. Default mode is `NULLABLE`.
-    #[prost(string, tag = "3")]
-    pub mode: ::prost::alloc::string::String,
-    /// Optional. Schema of sub-columns. A column can have zero or more
-    /// sub-columns.
-    #[prost(message, repeated, tag = "7")]
-    pub subcolumns: ::prost::alloc::vec::Vec<ColumnSchema>,
 }
 /// A result that appears in the response of a search request. Each result
 /// captures details of one entry that matches the search.

@@ -724,80 +724,136 @@ pub mod text_service_client {
         }
     }
 }
-/// Information about a Generative Language Model.
+/// Permission resource grants user, group or the rest of the world access to the
+/// PaLM API resource (e.g. a tuned model, file).
+///
+/// A role is a collection of permitted operations that allows users to perform
+/// specific actions on PaLM API resources. To make them available to users,
+/// groups, or service accounts, you assign roles. When you assign a role, you
+/// grant permissions that the role contains.
+///
+/// There are three concentric roles. Each role is a superset of the previous
+/// role's permitted operations:
+///   - reader can use the resource (e.g. tuned model) for inference
+///   - writer has reader's permissions and additionally can edit and share
+///   - owner has writer's permissions and additionally can delete
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Model {
-    /// Required. The resource name of the `Model`.
-    ///
-    /// Format: `models/{model}` with a `{model}` naming convention of:
-    ///
-    /// * "{base_model_id}-{version}"
-    ///
-    /// Examples:
-    ///
-    /// * `models/chat-bison-001`
+pub struct Permission {
+    /// Output only. The permission name. A unique name will be generated on
+    /// create. Example: tunedModels/{tuned_model}permssions/{permission} Output
+    /// only.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Required. The name of the base model, pass this to the generation request.
-    ///
-    /// Examples:
-    ///
-    /// * `chat-bison`
-    #[prost(string, tag = "2")]
-    pub base_model_id: ::prost::alloc::string::String,
-    /// Required. The version number of the model.
-    ///
-    /// This represents the major version
-    #[prost(string, tag = "3")]
-    pub version: ::prost::alloc::string::String,
-    /// The human-readable name of the model. E.g. "Chat Bison".
-    ///
-    /// The name can be up to 128 characters long and can consist of any UTF-8
-    /// characters.
-    #[prost(string, tag = "4")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A short description of the model.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Maximum number of input tokens allowed for this model.
-    #[prost(int32, tag = "6")]
-    pub input_token_limit: i32,
-    /// Maximum number of output tokens available for this model.
-    #[prost(int32, tag = "7")]
-    pub output_token_limit: i32,
-    /// The model's supported generation methods.
-    ///
-    /// The method names are defined as Pascal case
-    /// strings, such as `generateMessage` which correspond to API methods.
-    #[prost(string, repeated, tag = "8")]
-    pub supported_generation_methods: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// Controls the randomness of the output.
-    ///
-    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
-    /// produce responses that are more varied, while a value closer to `0.0` will
-    /// typically result in less surprising responses from the model.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(float, optional, tag = "9")]
-    pub temperature: ::core::option::Option<f32>,
-    /// For Nucleus sampling.
-    ///
-    /// Nucleus sampling considers the smallest set of tokens whose probability
-    /// sum is at least `top_p`.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(float, optional, tag = "10")]
-    pub top_p: ::core::option::Option<f32>,
-    /// For Top-k sampling.
-    ///
-    /// Top-k sampling considers the set of `top_k` most probable tokens.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(int32, optional, tag = "11")]
-    pub top_k: ::core::option::Option<i32>,
+    /// Required. Immutable. The type of the grantee.
+    #[prost(enumeration = "permission::GranteeType", optional, tag = "2")]
+    pub grantee_type: ::core::option::Option<i32>,
+    /// Optional. Immutable. The email address of the user of group which this
+    /// permission refers. Field is not set when permission's grantee type is
+    /// EVERYONE.
+    #[prost(string, optional, tag = "3")]
+    pub email_address: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. The role granted by this permission.
+    #[prost(enumeration = "permission::Role", optional, tag = "4")]
+    pub role: ::core::option::Option<i32>,
+}
+/// Nested message and enum types in `Permission`.
+pub mod permission {
+    /// Defines types of the grantee of this permission.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum GranteeType {
+        /// The default value. This value is unused.
+        Unspecified = 0,
+        /// Represents a user. When set, you must provide email_address for the user.
+        User = 1,
+        /// Represents a group. When set, you must provide email_address for the
+        /// group.
+        Group = 2,
+        /// Represents access to everyone. No extra information is required.
+        Everyone = 3,
+    }
+    impl GranteeType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                GranteeType::Unspecified => "GRANTEE_TYPE_UNSPECIFIED",
+                GranteeType::User => "USER",
+                GranteeType::Group => "GROUP",
+                GranteeType::Everyone => "EVERYONE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "GRANTEE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "USER" => Some(Self::User),
+                "GROUP" => Some(Self::Group),
+                "EVERYONE" => Some(Self::Everyone),
+                _ => None,
+            }
+        }
+    }
+    /// Defines the role granted by this permission.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Role {
+        /// The default value. This value is unused.
+        Unspecified = 0,
+        /// Owner can use, update, share and delete the resource.
+        Owner = 1,
+        /// Writer can use, update and share the resource.
+        Writer = 2,
+        /// Reader can use the resource.
+        Reader = 3,
+    }
+    impl Role {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Role::Unspecified => "ROLE_UNSPECIFIED",
+                Role::Owner => "OWNER",
+                Role::Writer => "WRITER",
+                Role::Reader => "READER",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ROLE_UNSPECIFIED" => Some(Self::Unspecified),
+                "OWNER" => Some(Self::Owner),
+                "WRITER" => Some(Self::Writer),
+                "READER" => Some(Self::Reader),
+                _ => None,
+            }
+        }
+    }
 }
 /// A fine-tuned model created using ModelService.CreateTunedModel.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1048,136 +1104,413 @@ pub struct TuningSnapshot {
     #[prost(message, optional, tag = "4")]
     pub compute_time: ::core::option::Option<::prost_types::Timestamp>,
 }
-/// Permission resource grants user, group or the rest of the world access to the
-/// PaLM API resource (e.g. a tuned model, file).
-///
-/// A role is a collection of permitted operations that allows users to perform
-/// specific actions on PaLM API resources. To make them available to users,
-/// groups, or service accounts, you assign roles. When you assign a role, you
-/// grant permissions that the role contains.
-///
-/// There are three concentric roles. Each role is a superset of the previous
-/// role's permitted operations:
-///   - reader can use the resource (e.g. tuned model) for inference
-///   - writer has reader's permissions and additionally can edit and share
-///   - owner has writer's permissions and additionally can delete
+/// Request to generate a message response from the model.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Permission {
-    /// Output only. The permission name. A unique name will be generated on
-    /// create. Example: tunedModels/{tuned_model}permssions/{permission} Output
-    /// only.
+pub struct GenerateMessageRequest {
+    /// Required. The name of the model to use.
+    ///
+    /// Format: `name=models/{model}`.
+    #[prost(string, tag = "1")]
+    pub model: ::prost::alloc::string::String,
+    /// Required. The structured textual input given to the model as a prompt.
+    ///
+    /// Given a
+    /// prompt, the model will return what it predicts is the next message in the
+    /// discussion.
+    #[prost(message, optional, tag = "2")]
+    pub prompt: ::core::option::Option<MessagePrompt>,
+    /// Optional. Controls the randomness of the output.
+    ///
+    /// Values can range over `\[0.0,1.0\]`,
+    /// inclusive. A value closer to `1.0` will produce responses that are more
+    /// varied, while a value closer to `0.0` will typically result in
+    /// less surprising responses from the model.
+    #[prost(float, optional, tag = "3")]
+    pub temperature: ::core::option::Option<f32>,
+    /// Optional. The number of generated response messages to return.
+    ///
+    /// This value must be between
+    /// `\[1, 8\]`, inclusive. If unset, this will default to `1`.
+    #[prost(int32, optional, tag = "4")]
+    pub candidate_count: ::core::option::Option<i32>,
+    /// Optional. The maximum cumulative probability of tokens to consider when
+    /// sampling.
+    ///
+    /// The model uses combined Top-k and nucleus sampling.
+    ///
+    /// Nucleus sampling considers the smallest set of tokens whose probability
+    /// sum is at least `top_p`.
+    #[prost(float, optional, tag = "5")]
+    pub top_p: ::core::option::Option<f32>,
+    /// Optional. The maximum number of tokens to consider when sampling.
+    ///
+    /// The model uses combined Top-k and nucleus sampling.
+    ///
+    /// Top-k sampling considers the set of `top_k` most probable tokens.
+    #[prost(int32, optional, tag = "6")]
+    pub top_k: ::core::option::Option<i32>,
+}
+/// The response from the model.
+///
+/// This includes candidate messages and
+/// conversation history in the form of chronologically-ordered messages.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GenerateMessageResponse {
+    /// Candidate response messages from the model.
+    #[prost(message, repeated, tag = "1")]
+    pub candidates: ::prost::alloc::vec::Vec<Message>,
+    /// The conversation history used by the model.
+    #[prost(message, repeated, tag = "2")]
+    pub messages: ::prost::alloc::vec::Vec<Message>,
+    /// A set of content filtering metadata for the prompt and response
+    /// text.
+    ///
+    /// This indicates which `SafetyCategory`(s) blocked a
+    /// candidate from this response, the lowest `HarmProbability`
+    /// that triggered a block, and the HarmThreshold setting for that category.
+    #[prost(message, repeated, tag = "3")]
+    pub filters: ::prost::alloc::vec::Vec<ContentFilter>,
+}
+/// The base unit of structured text.
+///
+/// A `Message` includes an `author` and the `content` of
+/// the `Message`.
+///
+/// The `author` is used to tag messages when they are fed to the
+/// model as text.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Message {
+    /// Optional. The author of this Message.
+    ///
+    /// This serves as a key for tagging
+    /// the content of this Message when it is fed to the model as text.
+    ///
+    /// The author can be any alphanumeric string.
+    #[prost(string, tag = "1")]
+    pub author: ::prost::alloc::string::String,
+    /// Required. The text content of the structured `Message`.
+    #[prost(string, tag = "2")]
+    pub content: ::prost::alloc::string::String,
+    /// Output only. Citation information for model-generated `content` in this
+    /// `Message`.
+    ///
+    /// If this `Message` was generated as output from the model, this field may be
+    /// populated with attribution information for any text included in the
+    /// `content`. This field is used only on output.
+    #[prost(message, optional, tag = "3")]
+    pub citation_metadata: ::core::option::Option<CitationMetadata>,
+}
+/// All of the structured input text passed to the model as a prompt.
+///
+/// A `MessagePrompt` contains a structured set of fields that provide context
+/// for the conversation, examples of user input/model output message pairs that
+/// prime the model to respond in different ways, and the conversation history
+/// or list of messages representing the alternating turns of the conversation
+/// between the user and the model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MessagePrompt {
+    /// Optional. Text that should be provided to the model first to ground the
+    /// response.
+    ///
+    /// If not empty, this `context` will be given to the model first before the
+    /// `examples` and `messages`. When using a `context` be sure to provide it
+    /// with every request to maintain continuity.
+    ///
+    /// This field can be a description of your prompt to the model to help provide
+    /// context and guide the responses. Examples: "Translate the phrase from
+    /// English to French." or "Given a statement, classify the sentiment as happy,
+    /// sad or neutral."
+    ///
+    /// Anything included in this field will take precedence over message history
+    /// if the total input size exceeds the model's `input_token_limit` and the
+    /// input request is truncated.
+    #[prost(string, tag = "1")]
+    pub context: ::prost::alloc::string::String,
+    /// Optional. Examples of what the model should generate.
+    ///
+    /// This includes both user input and the response that the model should
+    /// emulate.
+    ///
+    /// These `examples` are treated identically to conversation messages except
+    /// that they take precedence over the history in `messages`:
+    /// If the total input size exceeds the model's `input_token_limit` the input
+    /// will be truncated. Items will be dropped from `messages` before `examples`.
+    #[prost(message, repeated, tag = "2")]
+    pub examples: ::prost::alloc::vec::Vec<Example>,
+    /// Required. A snapshot of the recent conversation history sorted
+    /// chronologically.
+    ///
+    /// Turns alternate between two authors.
+    ///
+    /// If the total input size exceeds the model's `input_token_limit` the input
+    /// will be truncated: The oldest items will be dropped from `messages`.
+    #[prost(message, repeated, tag = "3")]
+    pub messages: ::prost::alloc::vec::Vec<Message>,
+}
+/// An input/output example used to instruct the Model.
+///
+/// It demonstrates how the model should respond or format its response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Example {
+    /// Required. An example of an input `Message` from the user.
+    #[prost(message, optional, tag = "1")]
+    pub input: ::core::option::Option<Message>,
+    /// Required. An example of what the model should output given the input.
+    #[prost(message, optional, tag = "2")]
+    pub output: ::core::option::Option<Message>,
+}
+/// Counts the number of tokens in the `prompt` sent to a model.
+///
+/// Models may tokenize text differently, so each model may return a different
+/// `token_count`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CountMessageTokensRequest {
+    /// Required. The model's resource name. This serves as an ID for the Model to
+    /// use.
+    ///
+    /// This name should match a model name returned by the `ListModels` method.
+    ///
+    /// Format: `models/{model}`
+    #[prost(string, tag = "1")]
+    pub model: ::prost::alloc::string::String,
+    /// Required. The prompt, whose token count is to be returned.
+    #[prost(message, optional, tag = "2")]
+    pub prompt: ::core::option::Option<MessagePrompt>,
+}
+/// A response from `CountMessageTokens`.
+///
+/// It returns the model's `token_count` for the `prompt`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CountMessageTokensResponse {
+    /// The number of tokens that the `model` tokenizes the `prompt` into.
+    ///
+    /// Always non-negative.
+    #[prost(int32, tag = "1")]
+    pub token_count: i32,
+}
+/// Generated client implementations.
+pub mod discuss_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// An API for using Generative Language Models (GLMs) in dialog applications.
+    ///
+    /// Also known as large language models (LLMs), this API provides models that
+    /// are trained for multi-turn dialog.
+    #[derive(Debug, Clone)]
+    pub struct DiscussServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> DiscussServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> DiscussServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            DiscussServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Generates a response from the model given an input `MessagePrompt`.
+        pub async fn generate_message(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GenerateMessageRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::GenerateMessageResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.DiscussService/GenerateMessage",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.DiscussService",
+                        "GenerateMessage",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Runs a model's tokenizer on a string and returns the token count.
+        pub async fn count_message_tokens(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CountMessageTokensRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::CountMessageTokensResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.DiscussService/CountMessageTokens",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.DiscussService",
+                        "CountMessageTokens",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Information about a Generative Language Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Model {
+    /// Required. The resource name of the `Model`.
+    ///
+    /// Format: `models/{model}` with a `{model}` naming convention of:
+    ///
+    /// * "{base_model_id}-{version}"
+    ///
+    /// Examples:
+    ///
+    /// * `models/chat-bison-001`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Required. Immutable. The type of the grantee.
-    #[prost(enumeration = "permission::GranteeType", optional, tag = "2")]
-    pub grantee_type: ::core::option::Option<i32>,
-    /// Optional. Immutable. The email address of the user of group which this
-    /// permission refers. Field is not set when permission's grantee type is
-    /// EVERYONE.
-    #[prost(string, optional, tag = "3")]
-    pub email_address: ::core::option::Option<::prost::alloc::string::String>,
-    /// Required. The role granted by this permission.
-    #[prost(enumeration = "permission::Role", optional, tag = "4")]
-    pub role: ::core::option::Option<i32>,
-}
-/// Nested message and enum types in `Permission`.
-pub mod permission {
-    /// Defines types of the grantee of this permission.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum GranteeType {
-        /// The default value. This value is unused.
-        Unspecified = 0,
-        /// Represents a user. When set, you must provide email_address for the user.
-        User = 1,
-        /// Represents a group. When set, you must provide email_address for the
-        /// group.
-        Group = 2,
-        /// Represents access to everyone. No extra information is required.
-        Everyone = 3,
-    }
-    impl GranteeType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                GranteeType::Unspecified => "GRANTEE_TYPE_UNSPECIFIED",
-                GranteeType::User => "USER",
-                GranteeType::Group => "GROUP",
-                GranteeType::Everyone => "EVERYONE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "GRANTEE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "USER" => Some(Self::User),
-                "GROUP" => Some(Self::Group),
-                "EVERYONE" => Some(Self::Everyone),
-                _ => None,
-            }
-        }
-    }
-    /// Defines the role granted by this permission.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Role {
-        /// The default value. This value is unused.
-        Unspecified = 0,
-        /// Owner can use, update, share and delete the resource.
-        Owner = 1,
-        /// Writer can use, update and share the resource.
-        Writer = 2,
-        /// Reader can use the resource.
-        Reader = 3,
-    }
-    impl Role {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Role::Unspecified => "ROLE_UNSPECIFIED",
-                Role::Owner => "OWNER",
-                Role::Writer => "WRITER",
-                Role::Reader => "READER",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ROLE_UNSPECIFIED" => Some(Self::Unspecified),
-                "OWNER" => Some(Self::Owner),
-                "WRITER" => Some(Self::Writer),
-                "READER" => Some(Self::Reader),
-                _ => None,
-            }
-        }
-    }
+    /// Required. The name of the base model, pass this to the generation request.
+    ///
+    /// Examples:
+    ///
+    /// * `chat-bison`
+    #[prost(string, tag = "2")]
+    pub base_model_id: ::prost::alloc::string::String,
+    /// Required. The version number of the model.
+    ///
+    /// This represents the major version
+    #[prost(string, tag = "3")]
+    pub version: ::prost::alloc::string::String,
+    /// The human-readable name of the model. E.g. "Chat Bison".
+    ///
+    /// The name can be up to 128 characters long and can consist of any UTF-8
+    /// characters.
+    #[prost(string, tag = "4")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A short description of the model.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Maximum number of input tokens allowed for this model.
+    #[prost(int32, tag = "6")]
+    pub input_token_limit: i32,
+    /// Maximum number of output tokens available for this model.
+    #[prost(int32, tag = "7")]
+    pub output_token_limit: i32,
+    /// The model's supported generation methods.
+    ///
+    /// The method names are defined as Pascal case
+    /// strings, such as `generateMessage` which correspond to API methods.
+    #[prost(string, repeated, tag = "8")]
+    pub supported_generation_methods: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// Controls the randomness of the output.
+    ///
+    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
+    /// produce responses that are more varied, while a value closer to `0.0` will
+    /// typically result in less surprising responses from the model.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(float, optional, tag = "9")]
+    pub temperature: ::core::option::Option<f32>,
+    /// For Nucleus sampling.
+    ///
+    /// Nucleus sampling considers the smallest set of tokens whose probability
+    /// sum is at least `top_p`.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(float, optional, tag = "10")]
+    pub top_p: ::core::option::Option<f32>,
+    /// For Top-k sampling.
+    ///
+    /// Top-k sampling considers the set of `top_k` most probable tokens.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(int32, optional, tag = "11")]
+    pub top_k: ::core::option::Option<i32>,
 }
 /// Request for getting information about a specific Model.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1608,339 +1941,6 @@ pub mod model_service_client {
                     GrpcMethod::new(
                         "google.ai.generativelanguage.v1beta3.ModelService",
                         "DeleteTunedModel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// Request to generate a message response from the model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GenerateMessageRequest {
-    /// Required. The name of the model to use.
-    ///
-    /// Format: `name=models/{model}`.
-    #[prost(string, tag = "1")]
-    pub model: ::prost::alloc::string::String,
-    /// Required. The structured textual input given to the model as a prompt.
-    ///
-    /// Given a
-    /// prompt, the model will return what it predicts is the next message in the
-    /// discussion.
-    #[prost(message, optional, tag = "2")]
-    pub prompt: ::core::option::Option<MessagePrompt>,
-    /// Optional. Controls the randomness of the output.
-    ///
-    /// Values can range over `\[0.0,1.0\]`,
-    /// inclusive. A value closer to `1.0` will produce responses that are more
-    /// varied, while a value closer to `0.0` will typically result in
-    /// less surprising responses from the model.
-    #[prost(float, optional, tag = "3")]
-    pub temperature: ::core::option::Option<f32>,
-    /// Optional. The number of generated response messages to return.
-    ///
-    /// This value must be between
-    /// `\[1, 8\]`, inclusive. If unset, this will default to `1`.
-    #[prost(int32, optional, tag = "4")]
-    pub candidate_count: ::core::option::Option<i32>,
-    /// Optional. The maximum cumulative probability of tokens to consider when
-    /// sampling.
-    ///
-    /// The model uses combined Top-k and nucleus sampling.
-    ///
-    /// Nucleus sampling considers the smallest set of tokens whose probability
-    /// sum is at least `top_p`.
-    #[prost(float, optional, tag = "5")]
-    pub top_p: ::core::option::Option<f32>,
-    /// Optional. The maximum number of tokens to consider when sampling.
-    ///
-    /// The model uses combined Top-k and nucleus sampling.
-    ///
-    /// Top-k sampling considers the set of `top_k` most probable tokens.
-    #[prost(int32, optional, tag = "6")]
-    pub top_k: ::core::option::Option<i32>,
-}
-/// The response from the model.
-///
-/// This includes candidate messages and
-/// conversation history in the form of chronologically-ordered messages.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GenerateMessageResponse {
-    /// Candidate response messages from the model.
-    #[prost(message, repeated, tag = "1")]
-    pub candidates: ::prost::alloc::vec::Vec<Message>,
-    /// The conversation history used by the model.
-    #[prost(message, repeated, tag = "2")]
-    pub messages: ::prost::alloc::vec::Vec<Message>,
-    /// A set of content filtering metadata for the prompt and response
-    /// text.
-    ///
-    /// This indicates which `SafetyCategory`(s) blocked a
-    /// candidate from this response, the lowest `HarmProbability`
-    /// that triggered a block, and the HarmThreshold setting for that category.
-    #[prost(message, repeated, tag = "3")]
-    pub filters: ::prost::alloc::vec::Vec<ContentFilter>,
-}
-/// The base unit of structured text.
-///
-/// A `Message` includes an `author` and the `content` of
-/// the `Message`.
-///
-/// The `author` is used to tag messages when they are fed to the
-/// model as text.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Message {
-    /// Optional. The author of this Message.
-    ///
-    /// This serves as a key for tagging
-    /// the content of this Message when it is fed to the model as text.
-    ///
-    /// The author can be any alphanumeric string.
-    #[prost(string, tag = "1")]
-    pub author: ::prost::alloc::string::String,
-    /// Required. The text content of the structured `Message`.
-    #[prost(string, tag = "2")]
-    pub content: ::prost::alloc::string::String,
-    /// Output only. Citation information for model-generated `content` in this
-    /// `Message`.
-    ///
-    /// If this `Message` was generated as output from the model, this field may be
-    /// populated with attribution information for any text included in the
-    /// `content`. This field is used only on output.
-    #[prost(message, optional, tag = "3")]
-    pub citation_metadata: ::core::option::Option<CitationMetadata>,
-}
-/// All of the structured input text passed to the model as a prompt.
-///
-/// A `MessagePrompt` contains a structured set of fields that provide context
-/// for the conversation, examples of user input/model output message pairs that
-/// prime the model to respond in different ways, and the conversation history
-/// or list of messages representing the alternating turns of the conversation
-/// between the user and the model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MessagePrompt {
-    /// Optional. Text that should be provided to the model first to ground the
-    /// response.
-    ///
-    /// If not empty, this `context` will be given to the model first before the
-    /// `examples` and `messages`. When using a `context` be sure to provide it
-    /// with every request to maintain continuity.
-    ///
-    /// This field can be a description of your prompt to the model to help provide
-    /// context and guide the responses. Examples: "Translate the phrase from
-    /// English to French." or "Given a statement, classify the sentiment as happy,
-    /// sad or neutral."
-    ///
-    /// Anything included in this field will take precedence over message history
-    /// if the total input size exceeds the model's `input_token_limit` and the
-    /// input request is truncated.
-    #[prost(string, tag = "1")]
-    pub context: ::prost::alloc::string::String,
-    /// Optional. Examples of what the model should generate.
-    ///
-    /// This includes both user input and the response that the model should
-    /// emulate.
-    ///
-    /// These `examples` are treated identically to conversation messages except
-    /// that they take precedence over the history in `messages`:
-    /// If the total input size exceeds the model's `input_token_limit` the input
-    /// will be truncated. Items will be dropped from `messages` before `examples`.
-    #[prost(message, repeated, tag = "2")]
-    pub examples: ::prost::alloc::vec::Vec<Example>,
-    /// Required. A snapshot of the recent conversation history sorted
-    /// chronologically.
-    ///
-    /// Turns alternate between two authors.
-    ///
-    /// If the total input size exceeds the model's `input_token_limit` the input
-    /// will be truncated: The oldest items will be dropped from `messages`.
-    #[prost(message, repeated, tag = "3")]
-    pub messages: ::prost::alloc::vec::Vec<Message>,
-}
-/// An input/output example used to instruct the Model.
-///
-/// It demonstrates how the model should respond or format its response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Example {
-    /// Required. An example of an input `Message` from the user.
-    #[prost(message, optional, tag = "1")]
-    pub input: ::core::option::Option<Message>,
-    /// Required. An example of what the model should output given the input.
-    #[prost(message, optional, tag = "2")]
-    pub output: ::core::option::Option<Message>,
-}
-/// Counts the number of tokens in the `prompt` sent to a model.
-///
-/// Models may tokenize text differently, so each model may return a different
-/// `token_count`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CountMessageTokensRequest {
-    /// Required. The model's resource name. This serves as an ID for the Model to
-    /// use.
-    ///
-    /// This name should match a model name returned by the `ListModels` method.
-    ///
-    /// Format: `models/{model}`
-    #[prost(string, tag = "1")]
-    pub model: ::prost::alloc::string::String,
-    /// Required. The prompt, whose token count is to be returned.
-    #[prost(message, optional, tag = "2")]
-    pub prompt: ::core::option::Option<MessagePrompt>,
-}
-/// A response from `CountMessageTokens`.
-///
-/// It returns the model's `token_count` for the `prompt`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CountMessageTokensResponse {
-    /// The number of tokens that the `model` tokenizes the `prompt` into.
-    ///
-    /// Always non-negative.
-    #[prost(int32, tag = "1")]
-    pub token_count: i32,
-}
-/// Generated client implementations.
-pub mod discuss_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// An API for using Generative Language Models (GLMs) in dialog applications.
-    ///
-    /// Also known as large language models (LLMs), this API provides models that
-    /// are trained for multi-turn dialog.
-    #[derive(Debug, Clone)]
-    pub struct DiscussServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> DiscussServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> DiscussServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            DiscussServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Generates a response from the model given an input `MessagePrompt`.
-        pub async fn generate_message(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GenerateMessageRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::GenerateMessageResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.DiscussService/GenerateMessage",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.DiscussService",
-                        "GenerateMessage",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Runs a model's tokenizer on a string and returns the token count.
-        pub async fn count_message_tokens(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CountMessageTokensRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::CountMessageTokensResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.DiscussService/CountMessageTokens",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.DiscussService",
-                        "CountMessageTokens",
                     ),
                 );
             self.inner.unary(req, path, codec).await
