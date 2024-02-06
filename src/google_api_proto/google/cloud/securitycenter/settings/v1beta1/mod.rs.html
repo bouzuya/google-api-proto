@@ -1247,7 +1247,19 @@
 <a href="#1247" id="1247">1247</a>
 <a href="#1248" id="1248">1248</a>
 <a href="#1249" id="1249">1249</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Billing settings
+</pre></div><pre class="rust"><code><span class="doccomment">/// Sink Settings for Security Command Center
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SinkSettings {
+    <span class="doccomment">/// The resource name of the project to send logs to. This project must be
+    /// part of the same organization where the Security Center API is
+    /// enabled. The format is `projects/{project}`. If it is empty, we do
+    /// not output logs. If a project ID is provided it will be normalized to a
+    /// project number.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>logging_sink_project: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Billing settings
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BillingSettings {
@@ -1521,17 +1533,34 @@
         }
     }
 }
-<span class="doccomment">/// Sink Settings for Security Command Center
+<span class="doccomment">/// Detector is a set of detectors or scanners act as individual checks done
+/// within a component e.g. bad IP, bad domains, IAM anomaly, cryptomining, open
+/// firewall, etc. Detector is independent of Organization, meaning each detector
+/// must be defined for a given Security Center component under a specified
+/// billing tier. Organizations can configure the list of detectors based on
+/// their subscribed billing tier.
+///
+/// Defines a detector, its billing tier and any applicable labels.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SinkSettings {
-    <span class="doccomment">/// The resource name of the project to send logs to. This project must be
-    /// part of the same organization where the Security Center API is
-    /// enabled. The format is `projects/{project}`. If it is empty, we do
-    /// not output logs. If a project ID is provided it will be normalized to a
-    /// project number.
+</span><span class="kw">pub struct </span>Detector {
+    <span class="doccomment">/// Output only. Detector Identifier
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>logging_sink_project: ::prost::alloc::string::String,
+    </span><span class="kw">pub </span>detector: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Component that supports detector type.  Multiple components may support the
+    /// same detector.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>component: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The billing tier may be different for a detector of the same name in
+    /// another component.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;BillingTier&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>billing_tier: i32,
+    <span class="doccomment">/// Output only. Google curated detector labels. These are alphanumeric tags that are not
+    /// necessarily human readable. Labels can be used to group detectors together
+    /// in the future. An example might be tagging all detectors “PCI” that help
+    /// with PCI compliance.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>detector_labels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Common configuration settings for all of Security Center.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1659,35 +1688,6 @@
             }
         }
     }
-}
-<span class="doccomment">/// Detector is a set of detectors or scanners act as individual checks done
-/// within a component e.g. bad IP, bad domains, IAM anomaly, cryptomining, open
-/// firewall, etc. Detector is independent of Organization, meaning each detector
-/// must be defined for a given Security Center component under a specified
-/// billing tier. Organizations can configure the list of detectors based on
-/// their subscribed billing tier.
-///
-/// Defines a detector, its billing tier and any applicable labels.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Detector {
-    <span class="doccomment">/// Output only. Detector Identifier
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>detector: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Component that supports detector type.  Multiple components may support the
-    /// same detector.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>component: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The billing tier may be different for a detector of the same name in
-    /// another component.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;BillingTier&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>billing_tier: i32,
-    <span class="doccomment">/// Output only. Google curated detector labels. These are alphanumeric tags that are not
-    /// necessarily human readable. Labels can be used to group detectors together
-    /// in the future. An example might be tagging all detectors “PCI” that help
-    /// with PCI compliance.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>detector_labels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for GetServiceAccount.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
