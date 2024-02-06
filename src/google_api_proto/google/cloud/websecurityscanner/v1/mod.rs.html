@@ -2014,7 +2014,24 @@
 <a href="#2014" id="2014">2014</a>
 <a href="#2015" id="2015">2015</a>
 <a href="#2016" id="2016">2016</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Defines a custom error message used by CreateScanConfig and UpdateScanConfig
+</pre></div><pre class="rust"><code><span class="doccomment">/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
+/// Security Scanner Service crawls the web applications, following all links
+/// within the scope of sites, to find the URLs to test against.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CrawledUrl {
+    <span class="doccomment">/// Output only. The http method of the request that was used to visit the URL, in
+    /// uppercase.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>http_method: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The URL that was crawled.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The body of the request that was used to visit the URL.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Defines a custom error message used by CreateScanConfig and UpdateScanConfig
 /// APIs when scan configuration validation fails. It is also reported as part of
 /// a ScanRunErrorTrace message if scan validation fails due to a scan
 /// configuration error.
@@ -2300,352 +2317,6 @@
             }
         }
     }
-}
-<span class="doccomment">/// Output only.
-/// Defines an error trace message for a ScanRun.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ScanRunErrorTrace {
-    <span class="doccomment">/// Output only. Indicates the error reason code.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run_error_trace::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>code: i32,
-    <span class="doccomment">/// Output only. If the scan encounters SCAN_CONFIG_ISSUE error, this field has the error
-    /// message encountered during scan configuration validation that is performed
-    /// before each scan run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>scan_config_error: ::core::option::Option&lt;ScanConfigError&gt;,
-    <span class="doccomment">/// Output only. If the scan encounters TOO_MANY_HTTP_ERRORS, this field indicates the most
-    /// common HTTP error code, if such is available. For example, if this code is
-    /// 404, the scan has encountered too many NOT_FOUND responses.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>most_common_http_error_code: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `ScanRunErrorTrace`.
-</span><span class="kw">pub mod </span>scan_run_error_trace {
-    <span class="doccomment">/// Output only.
-    /// Defines an error reason code.
-    /// Next id: 8
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Code {
-        <span class="doccomment">/// Default value is never used.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Indicates that the scan run failed due to an internal server error.
-        </span>InternalError = <span class="number">1</span>,
-        <span class="doccomment">/// Indicates a scan configuration error, usually due to outdated ScanConfig
-        /// settings, such as starting_urls or the DNS configuration.
-        </span>ScanConfigIssue = <span class="number">2</span>,
-        <span class="doccomment">/// Indicates an authentication error, usually due to outdated ScanConfig
-        /// authentication settings.
-        </span>AuthenticationConfigIssue = <span class="number">3</span>,
-        <span class="doccomment">/// Indicates a scan operation timeout, usually caused by a very large site.
-        </span>TimedOutWhileScanning = <span class="number">4</span>,
-        <span class="doccomment">/// Indicates that a scan encountered excessive redirects, either to
-        /// authentication or some other page outside of the scan scope.
-        </span>TooManyRedirects = <span class="number">5</span>,
-        <span class="doccomment">/// Indicates that a scan encountered numerous errors from the web site
-        /// pages. When available, most_common_http_error_code field indicates the
-        /// most common HTTP error code encountered during the scan.
-        </span>TooManyHttpErrors = <span class="number">6</span>,
-    }
-    <span class="kw">impl </span>Code {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
-                Code::InternalError =&gt; <span class="string">&quot;INTERNAL_ERROR&quot;</span>,
-                Code::ScanConfigIssue =&gt; <span class="string">&quot;SCAN_CONFIG_ISSUE&quot;</span>,
-                Code::AuthenticationConfigIssue =&gt; <span class="string">&quot;AUTHENTICATION_CONFIG_ISSUE&quot;</span>,
-                Code::TimedOutWhileScanning =&gt; <span class="string">&quot;TIMED_OUT_WHILE_SCANNING&quot;</span>,
-                Code::TooManyRedirects =&gt; <span class="string">&quot;TOO_MANY_REDIRECTS&quot;</span>,
-                Code::TooManyHttpErrors =&gt; <span class="string">&quot;TOO_MANY_HTTP_ERRORS&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INTERNAL_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalError),
-                <span class="string">&quot;SCAN_CONFIG_ISSUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanConfigIssue),
-                <span class="string">&quot;AUTHENTICATION_CONFIG_ISSUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthenticationConfigIssue),
-                <span class="string">&quot;TIMED_OUT_WHILE_SCANNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimedOutWhileScanning),
-                <span class="string">&quot;TOO_MANY_REDIRECTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyRedirects),
-                <span class="string">&quot;TOO_MANY_HTTP_ERRORS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyHttpErrors),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Output only.
-/// Defines a warning trace message for ScanRun. Warning traces provide customers
-/// with useful information that helps make the scanning process more effective.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ScanRunWarningTrace {
-    <span class="doccomment">/// Output only. Indicates the warning code.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run_warning_trace::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>code: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `ScanRunWarningTrace`.
-</span><span class="kw">pub mod </span>scan_run_warning_trace {
-    <span class="doccomment">/// Output only.
-    /// Defines a warning message code.
-    /// Next id: 6
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Code {
-        <span class="doccomment">/// Default value is never used.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Indicates that a scan discovered an unexpectedly low number of URLs. This
-        /// is sometimes caused by complex navigation features or by using a single
-        /// URL for numerous pages.
-        </span>InsufficientCrawlResults = <span class="number">1</span>,
-        <span class="doccomment">/// Indicates that a scan discovered too many URLs to test, or excessive
-        /// redundant URLs.
-        </span>TooManyCrawlResults = <span class="number">2</span>,
-        <span class="doccomment">/// Indicates that too many tests have been generated for the scan. Customer
-        /// should try reducing the number of starting URLs, increasing the QPS rate,
-        /// or narrowing down the scope of the scan using the excluded patterns.
-        </span>TooManyFuzzTasks = <span class="number">3</span>,
-        <span class="doccomment">/// Indicates that a scan is blocked by IAP.
-        </span>BlockedByIap = <span class="number">4</span>,
-        <span class="doccomment">/// Indicates that no seeds is found for a scan
-        </span>NoStartingUrlFoundForManagedScan = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>Code {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
-                Code::InsufficientCrawlResults =&gt; <span class="string">&quot;INSUFFICIENT_CRAWL_RESULTS&quot;</span>,
-                Code::TooManyCrawlResults =&gt; <span class="string">&quot;TOO_MANY_CRAWL_RESULTS&quot;</span>,
-                Code::TooManyFuzzTasks =&gt; <span class="string">&quot;TOO_MANY_FUZZ_TASKS&quot;</span>,
-                Code::BlockedByIap =&gt; <span class="string">&quot;BLOCKED_BY_IAP&quot;</span>,
-                Code::NoStartingUrlFoundForManagedScan =&gt; {
-                    <span class="string">&quot;NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN&quot;
-                </span>}
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INSUFFICIENT_CRAWL_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientCrawlResults),
-                <span class="string">&quot;TOO_MANY_CRAWL_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyCrawlResults),
-                <span class="string">&quot;TOO_MANY_FUZZ_TASKS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyFuzzTasks),
-                <span class="string">&quot;BLOCKED_BY_IAP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockedByIap),
-                <span class="string">&quot;NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoStartingUrlFoundForManagedScan)
-                }
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// A ScanRun is a output-only resource representing an actual run of the scan.
-/// Next id: 12
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ScanRun {
-    <span class="doccomment">/// Output only. The resource name of the ScanRun. The name follows the format of
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}&#39;.
-    /// The ScanRun IDs are generated by the system.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The execution state of the ScanRun.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ExecutionState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>execution_state: i32,
-    <span class="doccomment">/// Output only. The result state of the ScanRun. This field is only available after the
-    /// execution state reaches &quot;FINISHED&quot;.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ResultState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>result_state: i32,
-    <span class="doccomment">/// Output only. The time at which the ScanRun started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time at which the ScanRun reached termination state - that the ScanRun
-    /// is either finished or stopped by user.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The number of URLs crawled during this ScanRun. If the scan is in progress,
-    /// the value represents the number of URLs crawled up to now.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>urls_crawled_count: i64,
-    <span class="doccomment">/// Output only. The number of URLs tested during this ScanRun. If the scan is in progress,
-    /// the value represents the number of URLs tested up to now. The number of
-    /// URLs tested is usually larger than the number URLS crawled because
-    /// typically a crawled URL is tested with multiple test payloads.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>urls_tested_count: i64,
-    <span class="doccomment">/// Output only. Whether the scan run has found any vulnerabilities.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>has_vulnerabilities: bool,
-    <span class="doccomment">/// Output only. The percentage of total completion ranging from 0 to 100.
-    /// If the scan is in queue, the value is 0.
-    /// If the scan is running, the value ranges from 0 to 100.
-    /// If the scan is finished, the value is 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>progress_percent: i32,
-    <span class="doccomment">/// Output only. If result_state is an ERROR, this field provides the primary reason for
-    /// scan&#39;s termination and more details, if such are available.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>error_trace: ::core::option::Option&lt;ScanRunErrorTrace&gt;,
-    <span class="doccomment">/// Output only. A list of warnings, if such are encountered during this scan run.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>warning_traces: ::prost::alloc::vec::Vec&lt;ScanRunWarningTrace&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ScanRun`.
-</span><span class="kw">pub mod </span>scan_run {
-    <span class="doccomment">/// Types of ScanRun execution state.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>ExecutionState {
-        <span class="doccomment">/// Represents an invalid state caused by internal server error. This value
-        /// should never be returned.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The scan is waiting in the queue.
-        </span>Queued = <span class="number">1</span>,
-        <span class="doccomment">/// The scan is in progress.
-        </span>Scanning = <span class="number">2</span>,
-        <span class="doccomment">/// The scan is either finished or stopped by user.
-        </span>Finished = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>ExecutionState {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                ExecutionState::Unspecified =&gt; <span class="string">&quot;EXECUTION_STATE_UNSPECIFIED&quot;</span>,
-                ExecutionState::Queued =&gt; <span class="string">&quot;QUEUED&quot;</span>,
-                ExecutionState::Scanning =&gt; <span class="string">&quot;SCANNING&quot;</span>,
-                ExecutionState::Finished =&gt; <span class="string">&quot;FINISHED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;EXECUTION_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;QUEUED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Queued),
-                <span class="string">&quot;SCANNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scanning),
-                <span class="string">&quot;FINISHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finished),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Types of ScanRun result state.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>ResultState {
-        <span class="doccomment">/// Default value. This value is returned when the ScanRun is not yet
-        /// finished.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The scan finished without errors.
-        </span>Success = <span class="number">1</span>,
-        <span class="doccomment">/// The scan finished with errors.
-        </span>Error = <span class="number">2</span>,
-        <span class="doccomment">/// The scan was terminated by user.
-        </span>Killed = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>ResultState {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                ResultState::Unspecified =&gt; <span class="string">&quot;RESULT_STATE_UNSPECIFIED&quot;</span>,
-                ResultState::Success =&gt; <span class="string">&quot;SUCCESS&quot;</span>,
-                ResultState::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-                ResultState::Killed =&gt; <span class="string">&quot;KILLED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;RESULT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Success),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="string">&quot;KILLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Killed),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// A ScanRunLog is an output-only proto used for Stackdriver customer logging.
-/// It is used for logs covering the start and end of scan pipelines.
-/// Other than an added summary, this is a subset of the ScanRun.
-/// Representation in logs is either a proto Struct, or converted to JSON.
-/// Next id: 9
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ScanRunLog {
-    <span class="doccomment">/// Human friendly message about the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>summary: ::prost::alloc::string::String,
-    <span class="doccomment">/// The resource name of the ScanRun being logged.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The execution state of the ScanRun.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ExecutionState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>execution_state: i32,
-    <span class="doccomment">/// The result state of the ScanRun.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ResultState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>result_state: i32,
-    <span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>urls_crawled_count: i64,
-    <span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>urls_tested_count: i64,
-    <span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>has_findings: bool,
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>error_trace: ::core::option::Option&lt;ScanRunErrorTrace&gt;,
 }
 <span class="doccomment">/// A ScanConfig resource contains the configurations to launch a scan.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2942,22 +2613,17 @@
         }
     }
 }
-<span class="doccomment">/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
-/// Security Scanner Service crawls the web applications, following all links
-/// within the scope of sites, to find the URLs to test against.
+<span class="doccomment">/// A FindingTypeStats resource represents stats regarding a specific FindingType
+/// of Findings under a given ScanRun.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CrawledUrl {
-    <span class="doccomment">/// Output only. The http method of the request that was used to visit the URL, in
-    /// uppercase.
+</span><span class="kw">pub struct </span>FindingTypeStats {
+    <span class="doccomment">/// Output only. The finding type associated with the stats.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>http_method: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The URL that was crawled.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The body of the request that was used to visit the URL.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
+    </span><span class="kw">pub </span>finding_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The count of findings belonging to this finding type.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>finding_count: i32,
 }
 <span class="doccomment">/// ! Information about a vulnerability with an HTML.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3325,17 +2991,322 @@
         }
     }
 }
-<span class="doccomment">/// A FindingTypeStats resource represents stats regarding a specific FindingType
-/// of Findings under a given ScanRun.
+<span class="doccomment">/// Output only.
+/// Defines an error trace message for a ScanRun.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FindingTypeStats {
-    <span class="doccomment">/// Output only. The finding type associated with the stats.
+</span><span class="kw">pub struct </span>ScanRunErrorTrace {
+    <span class="doccomment">/// Output only. Indicates the error reason code.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run_error_trace::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>code: i32,
+    <span class="doccomment">/// Output only. If the scan encounters SCAN_CONFIG_ISSUE error, this field has the error
+    /// message encountered during scan configuration validation that is performed
+    /// before each scan run.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>scan_config_error: ::core::option::Option&lt;ScanConfigError&gt;,
+    <span class="doccomment">/// Output only. If the scan encounters TOO_MANY_HTTP_ERRORS, this field indicates the most
+    /// common HTTP error code, if such is available. For example, if this code is
+    /// 404, the scan has encountered too many NOT_FOUND responses.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>most_common_http_error_code: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `ScanRunErrorTrace`.
+</span><span class="kw">pub mod </span>scan_run_error_trace {
+    <span class="doccomment">/// Output only.
+    /// Defines an error reason code.
+    /// Next id: 8
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Code {
+        <span class="doccomment">/// Default value is never used.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Indicates that the scan run failed due to an internal server error.
+        </span>InternalError = <span class="number">1</span>,
+        <span class="doccomment">/// Indicates a scan configuration error, usually due to outdated ScanConfig
+        /// settings, such as starting_urls or the DNS configuration.
+        </span>ScanConfigIssue = <span class="number">2</span>,
+        <span class="doccomment">/// Indicates an authentication error, usually due to outdated ScanConfig
+        /// authentication settings.
+        </span>AuthenticationConfigIssue = <span class="number">3</span>,
+        <span class="doccomment">/// Indicates a scan operation timeout, usually caused by a very large site.
+        </span>TimedOutWhileScanning = <span class="number">4</span>,
+        <span class="doccomment">/// Indicates that a scan encountered excessive redirects, either to
+        /// authentication or some other page outside of the scan scope.
+        </span>TooManyRedirects = <span class="number">5</span>,
+        <span class="doccomment">/// Indicates that a scan encountered numerous errors from the web site
+        /// pages. When available, most_common_http_error_code field indicates the
+        /// most common HTTP error code encountered during the scan.
+        </span>TooManyHttpErrors = <span class="number">6</span>,
+    }
+    <span class="kw">impl </span>Code {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
+                Code::InternalError =&gt; <span class="string">&quot;INTERNAL_ERROR&quot;</span>,
+                Code::ScanConfigIssue =&gt; <span class="string">&quot;SCAN_CONFIG_ISSUE&quot;</span>,
+                Code::AuthenticationConfigIssue =&gt; <span class="string">&quot;AUTHENTICATION_CONFIG_ISSUE&quot;</span>,
+                Code::TimedOutWhileScanning =&gt; <span class="string">&quot;TIMED_OUT_WHILE_SCANNING&quot;</span>,
+                Code::TooManyRedirects =&gt; <span class="string">&quot;TOO_MANY_REDIRECTS&quot;</span>,
+                Code::TooManyHttpErrors =&gt; <span class="string">&quot;TOO_MANY_HTTP_ERRORS&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;INTERNAL_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalError),
+                <span class="string">&quot;SCAN_CONFIG_ISSUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanConfigIssue),
+                <span class="string">&quot;AUTHENTICATION_CONFIG_ISSUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthenticationConfigIssue),
+                <span class="string">&quot;TIMED_OUT_WHILE_SCANNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimedOutWhileScanning),
+                <span class="string">&quot;TOO_MANY_REDIRECTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyRedirects),
+                <span class="string">&quot;TOO_MANY_HTTP_ERRORS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyHttpErrors),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Output only.
+/// Defines a warning trace message for ScanRun. Warning traces provide customers
+/// with useful information that helps make the scanning process more effective.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ScanRunWarningTrace {
+    <span class="doccomment">/// Output only. Indicates the warning code.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run_warning_trace::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>code: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `ScanRunWarningTrace`.
+</span><span class="kw">pub mod </span>scan_run_warning_trace {
+    <span class="doccomment">/// Output only.
+    /// Defines a warning message code.
+    /// Next id: 6
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Code {
+        <span class="doccomment">/// Default value is never used.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Indicates that a scan discovered an unexpectedly low number of URLs. This
+        /// is sometimes caused by complex navigation features or by using a single
+        /// URL for numerous pages.
+        </span>InsufficientCrawlResults = <span class="number">1</span>,
+        <span class="doccomment">/// Indicates that a scan discovered too many URLs to test, or excessive
+        /// redundant URLs.
+        </span>TooManyCrawlResults = <span class="number">2</span>,
+        <span class="doccomment">/// Indicates that too many tests have been generated for the scan. Customer
+        /// should try reducing the number of starting URLs, increasing the QPS rate,
+        /// or narrowing down the scope of the scan using the excluded patterns.
+        </span>TooManyFuzzTasks = <span class="number">3</span>,
+        <span class="doccomment">/// Indicates that a scan is blocked by IAP.
+        </span>BlockedByIap = <span class="number">4</span>,
+        <span class="doccomment">/// Indicates that no seeds is found for a scan
+        </span>NoStartingUrlFoundForManagedScan = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>Code {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
+                Code::InsufficientCrawlResults =&gt; <span class="string">&quot;INSUFFICIENT_CRAWL_RESULTS&quot;</span>,
+                Code::TooManyCrawlResults =&gt; <span class="string">&quot;TOO_MANY_CRAWL_RESULTS&quot;</span>,
+                Code::TooManyFuzzTasks =&gt; <span class="string">&quot;TOO_MANY_FUZZ_TASKS&quot;</span>,
+                Code::BlockedByIap =&gt; <span class="string">&quot;BLOCKED_BY_IAP&quot;</span>,
+                Code::NoStartingUrlFoundForManagedScan =&gt; {
+                    <span class="string">&quot;NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN&quot;
+                </span>}
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;INSUFFICIENT_CRAWL_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientCrawlResults),
+                <span class="string">&quot;TOO_MANY_CRAWL_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyCrawlResults),
+                <span class="string">&quot;TOO_MANY_FUZZ_TASKS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyFuzzTasks),
+                <span class="string">&quot;BLOCKED_BY_IAP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockedByIap),
+                <span class="string">&quot;NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoStartingUrlFoundForManagedScan)
+                }
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// A ScanRun is a output-only resource representing an actual run of the scan.
+/// Next id: 12
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ScanRun {
+    <span class="doccomment">/// Output only. The resource name of the ScanRun. The name follows the format of
+    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}&#39;.
+    /// The ScanRun IDs are generated by the system.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>finding_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The count of findings belonging to this finding type.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>finding_count: i32,
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The execution state of the ScanRun.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ExecutionState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>execution_state: i32,
+    <span class="doccomment">/// Output only. The result state of the ScanRun. This field is only available after the
+    /// execution state reaches &quot;FINISHED&quot;.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ResultState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>result_state: i32,
+    <span class="doccomment">/// Output only. The time at which the ScanRun started.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time at which the ScanRun reached termination state - that the ScanRun
+    /// is either finished or stopped by user.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The number of URLs crawled during this ScanRun. If the scan is in progress,
+    /// the value represents the number of URLs crawled up to now.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>urls_crawled_count: i64,
+    <span class="doccomment">/// Output only. The number of URLs tested during this ScanRun. If the scan is in progress,
+    /// the value represents the number of URLs tested up to now. The number of
+    /// URLs tested is usually larger than the number URLS crawled because
+    /// typically a crawled URL is tested with multiple test payloads.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>urls_tested_count: i64,
+    <span class="doccomment">/// Output only. Whether the scan run has found any vulnerabilities.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>has_vulnerabilities: bool,
+    <span class="doccomment">/// Output only. The percentage of total completion ranging from 0 to 100.
+    /// If the scan is in queue, the value is 0.
+    /// If the scan is running, the value ranges from 0 to 100.
+    /// If the scan is finished, the value is 100.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>progress_percent: i32,
+    <span class="doccomment">/// Output only. If result_state is an ERROR, this field provides the primary reason for
+    /// scan&#39;s termination and more details, if such are available.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>error_trace: ::core::option::Option&lt;ScanRunErrorTrace&gt;,
+    <span class="doccomment">/// Output only. A list of warnings, if such are encountered during this scan run.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>warning_traces: ::prost::alloc::vec::Vec&lt;ScanRunWarningTrace&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ScanRun`.
+</span><span class="kw">pub mod </span>scan_run {
+    <span class="doccomment">/// Types of ScanRun execution state.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ExecutionState {
+        <span class="doccomment">/// Represents an invalid state caused by internal server error. This value
+        /// should never be returned.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The scan is waiting in the queue.
+        </span>Queued = <span class="number">1</span>,
+        <span class="doccomment">/// The scan is in progress.
+        </span>Scanning = <span class="number">2</span>,
+        <span class="doccomment">/// The scan is either finished or stopped by user.
+        </span>Finished = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>ExecutionState {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ExecutionState::Unspecified =&gt; <span class="string">&quot;EXECUTION_STATE_UNSPECIFIED&quot;</span>,
+                ExecutionState::Queued =&gt; <span class="string">&quot;QUEUED&quot;</span>,
+                ExecutionState::Scanning =&gt; <span class="string">&quot;SCANNING&quot;</span>,
+                ExecutionState::Finished =&gt; <span class="string">&quot;FINISHED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;EXECUTION_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;QUEUED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Queued),
+                <span class="string">&quot;SCANNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scanning),
+                <span class="string">&quot;FINISHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finished),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Types of ScanRun result state.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ResultState {
+        <span class="doccomment">/// Default value. This value is returned when the ScanRun is not yet
+        /// finished.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The scan finished without errors.
+        </span>Success = <span class="number">1</span>,
+        <span class="doccomment">/// The scan finished with errors.
+        </span>Error = <span class="number">2</span>,
+        <span class="doccomment">/// The scan was terminated by user.
+        </span>Killed = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>ResultState {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ResultState::Unspecified =&gt; <span class="string">&quot;RESULT_STATE_UNSPECIFIED&quot;</span>,
+                ResultState::Success =&gt; <span class="string">&quot;SUCCESS&quot;</span>,
+                ResultState::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                ResultState::Killed =&gt; <span class="string">&quot;KILLED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;RESULT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;SUCCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Success),
+                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">&quot;KILLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Killed),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
 }
 <span class="doccomment">/// Request for the `CreateScanConfig` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4029,5 +4000,34 @@
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }
+}
+<span class="doccomment">/// A ScanRunLog is an output-only proto used for Stackdriver customer logging.
+/// It is used for logs covering the start and end of scan pipelines.
+/// Other than an added summary, this is a subset of the ScanRun.
+/// Representation in logs is either a proto Struct, or converted to JSON.
+/// Next id: 9
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ScanRunLog {
+    <span class="doccomment">/// Human friendly message about the event.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>summary: ::prost::alloc::string::String,
+    <span class="doccomment">/// The resource name of the ScanRun being logged.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The execution state of the ScanRun.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ExecutionState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>execution_state: i32,
+    <span class="doccomment">/// The result state of the ScanRun.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ResultState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>result_state: i32,
+    <span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>urls_crawled_count: i64,
+    <span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>urls_tested_count: i64,
+    <span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>has_findings: bool,
+    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>error_trace: ::core::option::Option&lt;ScanRunErrorTrace&gt;,
 }
 </code></pre></div></section></main></body></html>
