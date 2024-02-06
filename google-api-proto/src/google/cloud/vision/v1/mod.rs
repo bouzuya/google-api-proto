@@ -50,426 +50,6 @@ pub struct Position {
     #[prost(float, tag = "3")]
     pub z: f32,
 }
-/// TextAnnotation contains a structured representation of OCR extracted text.
-/// The hierarchy of an OCR extracted text structure is like this:
-///      TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol
-/// Each structural component, starting from Page, may further have their own
-/// properties. Properties describe detected languages, breaks etc.. Please refer
-/// to the [TextAnnotation.TextProperty][google.cloud.vision.v1.TextAnnotation.TextProperty] message definition below for more
-/// detail.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextAnnotation {
-    /// List of pages detected by OCR.
-    #[prost(message, repeated, tag = "1")]
-    pub pages: ::prost::alloc::vec::Vec<Page>,
-    /// UTF-8 text detected on the pages.
-    #[prost(string, tag = "2")]
-    pub text: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `TextAnnotation`.
-pub mod text_annotation {
-    /// Detected language for a structural component.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DetectedLanguage {
-        /// The BCP-47 language code, such as "en-US" or "sr-Latn". For more
-        /// information, see
-        /// <http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.>
-        #[prost(string, tag = "1")]
-        pub language_code: ::prost::alloc::string::String,
-        /// Confidence of detected language. Range \[0, 1\].
-        #[prost(float, tag = "2")]
-        pub confidence: f32,
-    }
-    /// Detected start or end of a structural component.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DetectedBreak {
-        /// Detected break type.
-        #[prost(enumeration = "detected_break::BreakType", tag = "1")]
-        pub r#type: i32,
-        /// True if break prepends the element.
-        #[prost(bool, tag = "2")]
-        pub is_prefix: bool,
-    }
-    /// Nested message and enum types in `DetectedBreak`.
-    pub mod detected_break {
-        /// Enum to denote the type of break found. New line, space etc.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum BreakType {
-            /// Unknown break label type.
-            Unknown = 0,
-            /// Regular space.
-            Space = 1,
-            /// Sure space (very wide).
-            SureSpace = 2,
-            /// Line-wrapping break.
-            EolSureSpace = 3,
-            /// End-line hyphen that is not present in text; does not co-occur with
-            /// `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
-            Hyphen = 4,
-            /// Line break that ends a paragraph.
-            LineBreak = 5,
-        }
-        impl BreakType {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    BreakType::Unknown => "UNKNOWN",
-                    BreakType::Space => "SPACE",
-                    BreakType::SureSpace => "SURE_SPACE",
-                    BreakType::EolSureSpace => "EOL_SURE_SPACE",
-                    BreakType::Hyphen => "HYPHEN",
-                    BreakType::LineBreak => "LINE_BREAK",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "UNKNOWN" => Some(Self::Unknown),
-                    "SPACE" => Some(Self::Space),
-                    "SURE_SPACE" => Some(Self::SureSpace),
-                    "EOL_SURE_SPACE" => Some(Self::EolSureSpace),
-                    "HYPHEN" => Some(Self::Hyphen),
-                    "LINE_BREAK" => Some(Self::LineBreak),
-                    _ => None,
-                }
-            }
-        }
-    }
-    /// Additional information detected on the structural component.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TextProperty {
-        /// A list of detected languages together with confidence.
-        #[prost(message, repeated, tag = "1")]
-        pub detected_languages: ::prost::alloc::vec::Vec<DetectedLanguage>,
-        /// Detected start or end of a text segment.
-        #[prost(message, optional, tag = "2")]
-        pub detected_break: ::core::option::Option<DetectedBreak>,
-    }
-}
-/// Detected page from OCR.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Page {
-    /// Additional information detected on the page.
-    #[prost(message, optional, tag = "1")]
-    pub property: ::core::option::Option<text_annotation::TextProperty>,
-    /// Page width. For PDFs the unit is points. For images (including
-    /// TIFFs) the unit is pixels.
-    #[prost(int32, tag = "2")]
-    pub width: i32,
-    /// Page height. For PDFs the unit is points. For images (including
-    /// TIFFs) the unit is pixels.
-    #[prost(int32, tag = "3")]
-    pub height: i32,
-    /// List of blocks of text, images etc on this page.
-    #[prost(message, repeated, tag = "4")]
-    pub blocks: ::prost::alloc::vec::Vec<Block>,
-    /// Confidence of the OCR results on the page. Range \[0, 1\].
-    #[prost(float, tag = "5")]
-    pub confidence: f32,
-}
-/// Logical element on the page.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Block {
-    /// Additional information detected for the block.
-    #[prost(message, optional, tag = "1")]
-    pub property: ::core::option::Option<text_annotation::TextProperty>,
-    /// The bounding box for the block.
-    /// The vertices are in the order of top-left, top-right, bottom-right,
-    /// bottom-left. When a rotation of the bounding box is detected the rotation
-    /// is represented as around the top-left corner as defined when the text is
-    /// read in the 'natural' orientation.
-    /// For example:
-    ///
-    /// * when the text is horizontal it might look like:
-    ///
-    ///          0----1
-    ///          |    |
-    ///          3----2
-    ///
-    /// * when it's rotated 180 degrees around the top-left corner it becomes:
-    ///
-    ///          2----3
-    ///          |    |
-    ///          1----0
-    ///
-    ///    and the vertex order will still be (0, 1, 2, 3).
-    #[prost(message, optional, tag = "2")]
-    pub bounding_box: ::core::option::Option<BoundingPoly>,
-    /// List of paragraphs in this block (if this blocks is of type text).
-    #[prost(message, repeated, tag = "3")]
-    pub paragraphs: ::prost::alloc::vec::Vec<Paragraph>,
-    /// Detected block type (text, image etc) for this block.
-    #[prost(enumeration = "block::BlockType", tag = "4")]
-    pub block_type: i32,
-    /// Confidence of the OCR results on the block. Range \[0, 1\].
-    #[prost(float, tag = "5")]
-    pub confidence: f32,
-}
-/// Nested message and enum types in `Block`.
-pub mod block {
-    /// Type of a block (text, image etc) as identified by OCR.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum BlockType {
-        /// Unknown block type.
-        Unknown = 0,
-        /// Regular text block.
-        Text = 1,
-        /// Table block.
-        Table = 2,
-        /// Image block.
-        Picture = 3,
-        /// Horizontal/vertical line box.
-        Ruler = 4,
-        /// Barcode block.
-        Barcode = 5,
-    }
-    impl BlockType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                BlockType::Unknown => "UNKNOWN",
-                BlockType::Text => "TEXT",
-                BlockType::Table => "TABLE",
-                BlockType::Picture => "PICTURE",
-                BlockType::Ruler => "RULER",
-                BlockType::Barcode => "BARCODE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNKNOWN" => Some(Self::Unknown),
-                "TEXT" => Some(Self::Text),
-                "TABLE" => Some(Self::Table),
-                "PICTURE" => Some(Self::Picture),
-                "RULER" => Some(Self::Ruler),
-                "BARCODE" => Some(Self::Barcode),
-                _ => None,
-            }
-        }
-    }
-}
-/// Structural unit of text representing a number of words in certain order.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Paragraph {
-    /// Additional information detected for the paragraph.
-    #[prost(message, optional, tag = "1")]
-    pub property: ::core::option::Option<text_annotation::TextProperty>,
-    /// The bounding box for the paragraph.
-    /// The vertices are in the order of top-left, top-right, bottom-right,
-    /// bottom-left. When a rotation of the bounding box is detected the rotation
-    /// is represented as around the top-left corner as defined when the text is
-    /// read in the 'natural' orientation.
-    /// For example:
-    ///    * when the text is horizontal it might look like:
-    ///       0----1
-    ///       |    |
-    ///       3----2
-    ///    * when it's rotated 180 degrees around the top-left corner it becomes:
-    ///       2----3
-    ///       |    |
-    ///       1----0
-    ///    and the vertex order will still be (0, 1, 2, 3).
-    #[prost(message, optional, tag = "2")]
-    pub bounding_box: ::core::option::Option<BoundingPoly>,
-    /// List of all words in this paragraph.
-    #[prost(message, repeated, tag = "3")]
-    pub words: ::prost::alloc::vec::Vec<Word>,
-    /// Confidence of the OCR results for the paragraph. Range \[0, 1\].
-    #[prost(float, tag = "4")]
-    pub confidence: f32,
-}
-/// A word representation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Word {
-    /// Additional information detected for the word.
-    #[prost(message, optional, tag = "1")]
-    pub property: ::core::option::Option<text_annotation::TextProperty>,
-    /// The bounding box for the word.
-    /// The vertices are in the order of top-left, top-right, bottom-right,
-    /// bottom-left. When a rotation of the bounding box is detected the rotation
-    /// is represented as around the top-left corner as defined when the text is
-    /// read in the 'natural' orientation.
-    /// For example:
-    ///    * when the text is horizontal it might look like:
-    ///       0----1
-    ///       |    |
-    ///       3----2
-    ///    * when it's rotated 180 degrees around the top-left corner it becomes:
-    ///       2----3
-    ///       |    |
-    ///       1----0
-    ///    and the vertex order will still be (0, 1, 2, 3).
-    #[prost(message, optional, tag = "2")]
-    pub bounding_box: ::core::option::Option<BoundingPoly>,
-    /// List of symbols in the word.
-    /// The order of the symbols follows the natural reading order.
-    #[prost(message, repeated, tag = "3")]
-    pub symbols: ::prost::alloc::vec::Vec<Symbol>,
-    /// Confidence of the OCR results for the word. Range \[0, 1\].
-    #[prost(float, tag = "4")]
-    pub confidence: f32,
-}
-/// A single symbol representation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Symbol {
-    /// Additional information detected for the symbol.
-    #[prost(message, optional, tag = "1")]
-    pub property: ::core::option::Option<text_annotation::TextProperty>,
-    /// The bounding box for the symbol.
-    /// The vertices are in the order of top-left, top-right, bottom-right,
-    /// bottom-left. When a rotation of the bounding box is detected the rotation
-    /// is represented as around the top-left corner as defined when the text is
-    /// read in the 'natural' orientation.
-    /// For example:
-    ///    * when the text is horizontal it might look like:
-    ///       0----1
-    ///       |    |
-    ///       3----2
-    ///    * when it's rotated 180 degrees around the top-left corner it becomes:
-    ///       2----3
-    ///       |    |
-    ///       1----0
-    ///    and the vertex order will still be (0, 1, 2, 3).
-    #[prost(message, optional, tag = "2")]
-    pub bounding_box: ::core::option::Option<BoundingPoly>,
-    /// The actual UTF-8 representation of the symbol.
-    #[prost(string, tag = "3")]
-    pub text: ::prost::alloc::string::String,
-    /// Confidence of the OCR results for the symbol. Range \[0, 1\].
-    #[prost(float, tag = "4")]
-    pub confidence: f32,
-}
-/// Relevant information for the image from the Internet.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WebDetection {
-    /// Deduced entities from similar images on the Internet.
-    #[prost(message, repeated, tag = "1")]
-    pub web_entities: ::prost::alloc::vec::Vec<web_detection::WebEntity>,
-    /// Fully matching images from the Internet.
-    /// Can include resized copies of the query image.
-    #[prost(message, repeated, tag = "2")]
-    pub full_matching_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
-    /// Partial matching images from the Internet.
-    /// Those images are similar enough to share some key-point features. For
-    /// example an original image will likely have partial matching for its crops.
-    #[prost(message, repeated, tag = "3")]
-    pub partial_matching_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
-    /// Web pages containing the matching images from the Internet.
-    #[prost(message, repeated, tag = "4")]
-    pub pages_with_matching_images: ::prost::alloc::vec::Vec<web_detection::WebPage>,
-    /// The visually similar image results.
-    #[prost(message, repeated, tag = "6")]
-    pub visually_similar_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
-    /// The service's best guess as to the topic of the request image.
-    /// Inferred from similar images on the open web.
-    #[prost(message, repeated, tag = "8")]
-    pub best_guess_labels: ::prost::alloc::vec::Vec<web_detection::WebLabel>,
-}
-/// Nested message and enum types in `WebDetection`.
-pub mod web_detection {
-    /// Entity deduced from similar images on the Internet.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WebEntity {
-        /// Opaque entity ID.
-        #[prost(string, tag = "1")]
-        pub entity_id: ::prost::alloc::string::String,
-        /// Overall relevancy score for the entity.
-        /// Not normalized and not comparable across different image queries.
-        #[prost(float, tag = "2")]
-        pub score: f32,
-        /// Canonical description of the entity, in English.
-        #[prost(string, tag = "3")]
-        pub description: ::prost::alloc::string::String,
-    }
-    /// Metadata for online images.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WebImage {
-        /// The result image URL.
-        #[prost(string, tag = "1")]
-        pub url: ::prost::alloc::string::String,
-        /// (Deprecated) Overall relevancy score for the image.
-        #[prost(float, tag = "2")]
-        pub score: f32,
-    }
-    /// Metadata for web pages.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WebPage {
-        /// The result web page URL.
-        #[prost(string, tag = "1")]
-        pub url: ::prost::alloc::string::String,
-        /// (Deprecated) Overall relevancy score for the web page.
-        #[prost(float, tag = "2")]
-        pub score: f32,
-        /// Title for the web page, may contain HTML markups.
-        #[prost(string, tag = "3")]
-        pub page_title: ::prost::alloc::string::String,
-        /// Fully matching images on the page.
-        /// Can include resized copies of the query image.
-        #[prost(message, repeated, tag = "4")]
-        pub full_matching_images: ::prost::alloc::vec::Vec<WebImage>,
-        /// Partial matching images on the page.
-        /// Those images are similar enough to share some key-point features. For
-        /// example an original image will likely have partial matching for its
-        /// crops.
-        #[prost(message, repeated, tag = "5")]
-        pub partial_matching_images: ::prost::alloc::vec::Vec<WebImage>,
-    }
-    /// Label to provide extra metadata for the web detection.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WebLabel {
-        /// Label for extra metadata.
-        #[prost(string, tag = "1")]
-        pub label: ::prost::alloc::string::String,
-        /// The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
-        /// For more information, see
-        /// <http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.>
-        #[prost(string, tag = "2")]
-        pub language_code: ::prost::alloc::string::String,
-    }
-}
 /// A Product contains ReferenceImages.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -490,10 +70,11 @@ pub struct Product {
     /// characters long.
     #[prost(string, tag = "3")]
     pub description: ::prost::alloc::string::String,
-    /// Immutable. The category for the product identified by the reference image. This should
-    /// be one of "homegoods-v2", "apparel-v2", "toys-v2", "packagedgoods-v1" or
-    /// "general-v1". The legacy categories "homegoods", "apparel", and "toys" are
-    /// still supported, but these should not be used for new products.
+    /// Immutable. The category for the product identified by the reference image.
+    /// This should be one of "homegoods-v2", "apparel-v2", "toys-v2",
+    /// "packagedgoods-v1" or "general-v1". The legacy categories "homegoods",
+    /// "apparel", and "toys" are still supported, but these should not be used for
+    /// new products.
     #[prost(string, tag = "4")]
     pub product_category: ::prost::alloc::string::String,
     /// Key-value pairs that can be attached to a product. At query time,
@@ -579,8 +160,8 @@ pub struct ReferenceImage {
     /// The URI must start with `gs://`.
     #[prost(string, tag = "2")]
     pub uri: ::prost::alloc::string::String,
-    /// Optional. Bounding polygons around the areas of interest in the reference image.
-    /// If this field is empty, the system will try to detect regions of
+    /// Optional. Bounding polygons around the areas of interest in the reference
+    /// image. If this field is empty, the system will try to detect regions of
     /// interest. At most 10 bounding polygons will be used.
     ///
     /// The provided shape is converted into a non-rotated rectangle. Once
@@ -764,7 +345,8 @@ pub struct DeleteProductSetRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateReferenceImageRequest {
-    /// Required. Resource name of the product in which to create the reference image.
+    /// Required. Resource name of the product in which to create the reference
+    /// image.
     ///
     /// Format is
     /// `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
@@ -864,7 +446,8 @@ pub struct RemoveProductFromProductSetRequest {
     /// `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Required. The resource name for the Product to be removed from this ProductSet.
+    /// Required. The resource name for the Product to be removed from this
+    /// ProductSet.
     ///
     /// Format is:
     /// `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`
@@ -930,15 +513,17 @@ pub struct ImportProductSetsGcsSource {
     /// `product-display-name` column refers to
     /// [display_name][google.cloud.vision.v1.Product.display_name], the
     /// `product-category` column refers to
-    /// [product_category][google.cloud.vision.v1.Product.product_category], and the
-    /// `labels` column refers to [product_labels][google.cloud.vision.v1.Product.product_labels].
+    /// [product_category][google.cloud.vision.v1.Product.product_category], and
+    /// the `labels` column refers to
+    /// [product_labels][google.cloud.vision.v1.Product.product_labels].
     ///
     /// The `image-id` column is optional but must be unique if provided. If it is
     /// empty, the system will automatically assign a unique id to the image.
     ///
     /// The `product-display-name` column is optional. If it is empty, the system
-    /// sets the [display_name][google.cloud.vision.v1.Product.display_name] field for the product to a
-    /// space (" "). You can update the `display_name` later by using the API.
+    /// sets the [display_name][google.cloud.vision.v1.Product.display_name] field
+    /// for the product to a space (" "). You can update the `display_name` later
+    /// by using the API.
     ///
     /// If a `Product` with the specified `product-id` already exists, then the
     /// system ignores the `product-display-name`, `product-category`, and `labels`
@@ -1005,8 +590,10 @@ pub struct ImportProductSetsRequest {
 /// Response message for the `ImportProductSets` method.
 ///
 /// This message is returned by the
-/// [google.longrunning.Operations.GetOperation][google.longrunning.Operations.GetOperation] method in the returned
-/// [google.longrunning.Operation.response][google.longrunning.Operation.response] field.
+/// [google.longrunning.Operations.GetOperation][google.longrunning.Operations.GetOperation]
+/// method in the returned
+/// [google.longrunning.Operation.response][google.longrunning.Operation.response]
+/// field.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ImportProductSetsResponse {
@@ -1036,7 +623,8 @@ pub struct BatchOperationMetadata {
     #[prost(message, optional, tag = "2")]
     pub submit_time: ::core::option::Option<::prost_types::Timestamp>,
     /// The time when the batch request is finished and
-    /// [google.longrunning.Operation.done][google.longrunning.Operation.done] is set to true.
+    /// [google.longrunning.Operation.done][google.longrunning.Operation.done] is
+    /// set to true.
     #[prost(message, optional, tag = "3")]
     pub end_time: ::core::option::Option<::prost_types::Timestamp>,
 }
@@ -1147,16 +735,18 @@ pub mod product_search_client {
     /// Manages Products and ProductSets of reference images for use in product
     /// search. It uses the following resource model:
     ///
-    /// - The API has a collection of [ProductSet][google.cloud.vision.v1.ProductSet] resources, named
-    /// `projects/*/locations/*/productSets/*`, which acts as a way to put different
-    /// products into groups to limit identification.
+    /// - The API has a collection of [ProductSet][google.cloud.vision.v1.ProductSet]
+    /// resources, named `projects/*/locations/*/productSets/*`, which acts as a way
+    /// to put different products into groups to limit identification.
     ///
     /// In parallel,
     ///
-    /// - The API has a collection of [Product][google.cloud.vision.v1.Product] resources, named
+    /// - The API has a collection of [Product][google.cloud.vision.v1.Product]
+    /// resources, named
     ///   `projects/*/locations/*/products/*`
     ///
-    /// - Each [Product][google.cloud.vision.v1.Product] has a collection of [ReferenceImage][google.cloud.vision.v1.ReferenceImage] resources, named
+    /// - Each [Product][google.cloud.vision.v1.Product] has a collection of
+    /// [ReferenceImage][google.cloud.vision.v1.ReferenceImage] resources, named
     ///   `projects/*/locations/*/products/*/referenceImages/*`
     #[derive(Debug, Clone)]
     pub struct ProductSearchClient<T> {
@@ -1819,8 +1409,8 @@ pub mod product_search_client {
         /// Asynchronous API that imports a list of reference images to specified
         /// product sets based on a list of image information.
         ///
-        /// The [google.longrunning.Operation][google.longrunning.Operation] API can be used to keep track of the
-        /// progress and results of the request.
+        /// The [google.longrunning.Operation][google.longrunning.Operation] API can be
+        /// used to keep track of the progress and results of the request.
         /// `Operation.metadata` contains `BatchOperationMetadata`. (progress)
         /// `Operation.response` contains `ImportProductSetsResponse`. (results)
         ///
@@ -1878,8 +1468,8 @@ pub mod product_search_client {
         /// ProductSet, you must wait until the PurgeProducts operation has finished
         /// for that ProductSet.
         ///
-        /// The [google.longrunning.Operation][google.longrunning.Operation] API can be used to keep track of the
-        /// progress and results of the request.
+        /// The [google.longrunning.Operation][google.longrunning.Operation] API can be
+        /// used to keep track of the progress and results of the request.
         /// `Operation.metadata` contains `BatchOperationMetadata`. (progress)
         pub async fn purge_products(
             &mut self,
@@ -1921,7 +1511,8 @@ pub struct ProductSearchParams {
     /// If it is not specified, system discretion will be applied.
     #[prost(message, optional, tag = "9")]
     pub bounding_poly: ::core::option::Option<BoundingPoly>,
-    /// The resource name of a [ProductSet][google.cloud.vision.v1.ProductSet] to be searched for similar images.
+    /// The resource name of a [ProductSet][google.cloud.vision.v1.ProductSet] to
+    /// be searched for similar images.
     ///
     /// Format is:
     /// `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
@@ -2019,6 +1610,427 @@ pub mod product_search_results {
         /// List of generic predictions for the object in the bounding box.
         #[prost(message, repeated, tag = "3")]
         pub object_annotations: ::prost::alloc::vec::Vec<ObjectAnnotation>,
+    }
+}
+/// TextAnnotation contains a structured representation of OCR extracted text.
+/// The hierarchy of an OCR extracted text structure is like this:
+///      TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol
+/// Each structural component, starting from Page, may further have their own
+/// properties. Properties describe detected languages, breaks etc.. Please refer
+/// to the
+/// [TextAnnotation.TextProperty][google.cloud.vision.v1.TextAnnotation.TextProperty]
+/// message definition below for more detail.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextAnnotation {
+    /// List of pages detected by OCR.
+    #[prost(message, repeated, tag = "1")]
+    pub pages: ::prost::alloc::vec::Vec<Page>,
+    /// UTF-8 text detected on the pages.
+    #[prost(string, tag = "2")]
+    pub text: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `TextAnnotation`.
+pub mod text_annotation {
+    /// Detected language for a structural component.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DetectedLanguage {
+        /// The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+        /// information, see
+        /// <http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.>
+        #[prost(string, tag = "1")]
+        pub language_code: ::prost::alloc::string::String,
+        /// Confidence of detected language. Range \[0, 1\].
+        #[prost(float, tag = "2")]
+        pub confidence: f32,
+    }
+    /// Detected start or end of a structural component.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DetectedBreak {
+        /// Detected break type.
+        #[prost(enumeration = "detected_break::BreakType", tag = "1")]
+        pub r#type: i32,
+        /// True if break prepends the element.
+        #[prost(bool, tag = "2")]
+        pub is_prefix: bool,
+    }
+    /// Nested message and enum types in `DetectedBreak`.
+    pub mod detected_break {
+        /// Enum to denote the type of break found. New line, space etc.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum BreakType {
+            /// Unknown break label type.
+            Unknown = 0,
+            /// Regular space.
+            Space = 1,
+            /// Sure space (very wide).
+            SureSpace = 2,
+            /// Line-wrapping break.
+            EolSureSpace = 3,
+            /// End-line hyphen that is not present in text; does not co-occur with
+            /// `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
+            Hyphen = 4,
+            /// Line break that ends a paragraph.
+            LineBreak = 5,
+        }
+        impl BreakType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    BreakType::Unknown => "UNKNOWN",
+                    BreakType::Space => "SPACE",
+                    BreakType::SureSpace => "SURE_SPACE",
+                    BreakType::EolSureSpace => "EOL_SURE_SPACE",
+                    BreakType::Hyphen => "HYPHEN",
+                    BreakType::LineBreak => "LINE_BREAK",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "UNKNOWN" => Some(Self::Unknown),
+                    "SPACE" => Some(Self::Space),
+                    "SURE_SPACE" => Some(Self::SureSpace),
+                    "EOL_SURE_SPACE" => Some(Self::EolSureSpace),
+                    "HYPHEN" => Some(Self::Hyphen),
+                    "LINE_BREAK" => Some(Self::LineBreak),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// Additional information detected on the structural component.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TextProperty {
+        /// A list of detected languages together with confidence.
+        #[prost(message, repeated, tag = "1")]
+        pub detected_languages: ::prost::alloc::vec::Vec<DetectedLanguage>,
+        /// Detected start or end of a text segment.
+        #[prost(message, optional, tag = "2")]
+        pub detected_break: ::core::option::Option<DetectedBreak>,
+    }
+}
+/// Detected page from OCR.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Page {
+    /// Additional information detected on the page.
+    #[prost(message, optional, tag = "1")]
+    pub property: ::core::option::Option<text_annotation::TextProperty>,
+    /// Page width. For PDFs the unit is points. For images (including
+    /// TIFFs) the unit is pixels.
+    #[prost(int32, tag = "2")]
+    pub width: i32,
+    /// Page height. For PDFs the unit is points. For images (including
+    /// TIFFs) the unit is pixels.
+    #[prost(int32, tag = "3")]
+    pub height: i32,
+    /// List of blocks of text, images etc on this page.
+    #[prost(message, repeated, tag = "4")]
+    pub blocks: ::prost::alloc::vec::Vec<Block>,
+    /// Confidence of the OCR results on the page. Range \[0, 1\].
+    #[prost(float, tag = "5")]
+    pub confidence: f32,
+}
+/// Logical element on the page.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Block {
+    /// Additional information detected for the block.
+    #[prost(message, optional, tag = "1")]
+    pub property: ::core::option::Option<text_annotation::TextProperty>,
+    /// The bounding box for the block.
+    /// The vertices are in the order of top-left, top-right, bottom-right,
+    /// bottom-left. When a rotation of the bounding box is detected the rotation
+    /// is represented as around the top-left corner as defined when the text is
+    /// read in the 'natural' orientation.
+    /// For example:
+    ///
+    /// * when the text is horizontal it might look like:
+    ///
+    ///          0----1
+    ///          |    |
+    ///          3----2
+    ///
+    /// * when it's rotated 180 degrees around the top-left corner it becomes:
+    ///
+    ///          2----3
+    ///          |    |
+    ///          1----0
+    ///
+    ///    and the vertex order will still be (0, 1, 2, 3).
+    #[prost(message, optional, tag = "2")]
+    pub bounding_box: ::core::option::Option<BoundingPoly>,
+    /// List of paragraphs in this block (if this blocks is of type text).
+    #[prost(message, repeated, tag = "3")]
+    pub paragraphs: ::prost::alloc::vec::Vec<Paragraph>,
+    /// Detected block type (text, image etc) for this block.
+    #[prost(enumeration = "block::BlockType", tag = "4")]
+    pub block_type: i32,
+    /// Confidence of the OCR results on the block. Range \[0, 1\].
+    #[prost(float, tag = "5")]
+    pub confidence: f32,
+}
+/// Nested message and enum types in `Block`.
+pub mod block {
+    /// Type of a block (text, image etc) as identified by OCR.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum BlockType {
+        /// Unknown block type.
+        Unknown = 0,
+        /// Regular text block.
+        Text = 1,
+        /// Table block.
+        Table = 2,
+        /// Image block.
+        Picture = 3,
+        /// Horizontal/vertical line box.
+        Ruler = 4,
+        /// Barcode block.
+        Barcode = 5,
+    }
+    impl BlockType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                BlockType::Unknown => "UNKNOWN",
+                BlockType::Text => "TEXT",
+                BlockType::Table => "TABLE",
+                BlockType::Picture => "PICTURE",
+                BlockType::Ruler => "RULER",
+                BlockType::Barcode => "BARCODE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNKNOWN" => Some(Self::Unknown),
+                "TEXT" => Some(Self::Text),
+                "TABLE" => Some(Self::Table),
+                "PICTURE" => Some(Self::Picture),
+                "RULER" => Some(Self::Ruler),
+                "BARCODE" => Some(Self::Barcode),
+                _ => None,
+            }
+        }
+    }
+}
+/// Structural unit of text representing a number of words in certain order.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Paragraph {
+    /// Additional information detected for the paragraph.
+    #[prost(message, optional, tag = "1")]
+    pub property: ::core::option::Option<text_annotation::TextProperty>,
+    /// The bounding box for the paragraph.
+    /// The vertices are in the order of top-left, top-right, bottom-right,
+    /// bottom-left. When a rotation of the bounding box is detected the rotation
+    /// is represented as around the top-left corner as defined when the text is
+    /// read in the 'natural' orientation.
+    /// For example:
+    ///    * when the text is horizontal it might look like:
+    ///       0----1
+    ///       |    |
+    ///       3----2
+    ///    * when it's rotated 180 degrees around the top-left corner it becomes:
+    ///       2----3
+    ///       |    |
+    ///       1----0
+    ///    and the vertex order will still be (0, 1, 2, 3).
+    #[prost(message, optional, tag = "2")]
+    pub bounding_box: ::core::option::Option<BoundingPoly>,
+    /// List of all words in this paragraph.
+    #[prost(message, repeated, tag = "3")]
+    pub words: ::prost::alloc::vec::Vec<Word>,
+    /// Confidence of the OCR results for the paragraph. Range \[0, 1\].
+    #[prost(float, tag = "4")]
+    pub confidence: f32,
+}
+/// A word representation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Word {
+    /// Additional information detected for the word.
+    #[prost(message, optional, tag = "1")]
+    pub property: ::core::option::Option<text_annotation::TextProperty>,
+    /// The bounding box for the word.
+    /// The vertices are in the order of top-left, top-right, bottom-right,
+    /// bottom-left. When a rotation of the bounding box is detected the rotation
+    /// is represented as around the top-left corner as defined when the text is
+    /// read in the 'natural' orientation.
+    /// For example:
+    ///    * when the text is horizontal it might look like:
+    ///       0----1
+    ///       |    |
+    ///       3----2
+    ///    * when it's rotated 180 degrees around the top-left corner it becomes:
+    ///       2----3
+    ///       |    |
+    ///       1----0
+    ///    and the vertex order will still be (0, 1, 2, 3).
+    #[prost(message, optional, tag = "2")]
+    pub bounding_box: ::core::option::Option<BoundingPoly>,
+    /// List of symbols in the word.
+    /// The order of the symbols follows the natural reading order.
+    #[prost(message, repeated, tag = "3")]
+    pub symbols: ::prost::alloc::vec::Vec<Symbol>,
+    /// Confidence of the OCR results for the word. Range \[0, 1\].
+    #[prost(float, tag = "4")]
+    pub confidence: f32,
+}
+/// A single symbol representation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Symbol {
+    /// Additional information detected for the symbol.
+    #[prost(message, optional, tag = "1")]
+    pub property: ::core::option::Option<text_annotation::TextProperty>,
+    /// The bounding box for the symbol.
+    /// The vertices are in the order of top-left, top-right, bottom-right,
+    /// bottom-left. When a rotation of the bounding box is detected the rotation
+    /// is represented as around the top-left corner as defined when the text is
+    /// read in the 'natural' orientation.
+    /// For example:
+    ///    * when the text is horizontal it might look like:
+    ///       0----1
+    ///       |    |
+    ///       3----2
+    ///    * when it's rotated 180 degrees around the top-left corner it becomes:
+    ///       2----3
+    ///       |    |
+    ///       1----0
+    ///    and the vertex order will still be (0, 1, 2, 3).
+    #[prost(message, optional, tag = "2")]
+    pub bounding_box: ::core::option::Option<BoundingPoly>,
+    /// The actual UTF-8 representation of the symbol.
+    #[prost(string, tag = "3")]
+    pub text: ::prost::alloc::string::String,
+    /// Confidence of the OCR results for the symbol. Range \[0, 1\].
+    #[prost(float, tag = "4")]
+    pub confidence: f32,
+}
+/// Relevant information for the image from the Internet.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WebDetection {
+    /// Deduced entities from similar images on the Internet.
+    #[prost(message, repeated, tag = "1")]
+    pub web_entities: ::prost::alloc::vec::Vec<web_detection::WebEntity>,
+    /// Fully matching images from the Internet.
+    /// Can include resized copies of the query image.
+    #[prost(message, repeated, tag = "2")]
+    pub full_matching_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
+    /// Partial matching images from the Internet.
+    /// Those images are similar enough to share some key-point features. For
+    /// example an original image will likely have partial matching for its crops.
+    #[prost(message, repeated, tag = "3")]
+    pub partial_matching_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
+    /// Web pages containing the matching images from the Internet.
+    #[prost(message, repeated, tag = "4")]
+    pub pages_with_matching_images: ::prost::alloc::vec::Vec<web_detection::WebPage>,
+    /// The visually similar image results.
+    #[prost(message, repeated, tag = "6")]
+    pub visually_similar_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
+    /// The service's best guess as to the topic of the request image.
+    /// Inferred from similar images on the open web.
+    #[prost(message, repeated, tag = "8")]
+    pub best_guess_labels: ::prost::alloc::vec::Vec<web_detection::WebLabel>,
+}
+/// Nested message and enum types in `WebDetection`.
+pub mod web_detection {
+    /// Entity deduced from similar images on the Internet.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WebEntity {
+        /// Opaque entity ID.
+        #[prost(string, tag = "1")]
+        pub entity_id: ::prost::alloc::string::String,
+        /// Overall relevancy score for the entity.
+        /// Not normalized and not comparable across different image queries.
+        #[prost(float, tag = "2")]
+        pub score: f32,
+        /// Canonical description of the entity, in English.
+        #[prost(string, tag = "3")]
+        pub description: ::prost::alloc::string::String,
+    }
+    /// Metadata for online images.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WebImage {
+        /// The result image URL.
+        #[prost(string, tag = "1")]
+        pub url: ::prost::alloc::string::String,
+        /// (Deprecated) Overall relevancy score for the image.
+        #[prost(float, tag = "2")]
+        pub score: f32,
+    }
+    /// Metadata for web pages.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WebPage {
+        /// The result web page URL.
+        #[prost(string, tag = "1")]
+        pub url: ::prost::alloc::string::String,
+        /// (Deprecated) Overall relevancy score for the web page.
+        #[prost(float, tag = "2")]
+        pub score: f32,
+        /// Title for the web page, may contain HTML markups.
+        #[prost(string, tag = "3")]
+        pub page_title: ::prost::alloc::string::String,
+        /// Fully matching images on the page.
+        /// Can include resized copies of the query image.
+        #[prost(message, repeated, tag = "4")]
+        pub full_matching_images: ::prost::alloc::vec::Vec<WebImage>,
+        /// Partial matching images on the page.
+        /// Those images are similar enough to share some key-point features. For
+        /// example an original image will likely have partial matching for its
+        /// crops.
+        #[prost(message, repeated, tag = "5")]
+        pub partial_matching_images: ::prost::alloc::vec::Vec<WebImage>,
+    }
+    /// Label to provide extra metadata for the web detection.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WebLabel {
+        /// Label for extra metadata.
+        #[prost(string, tag = "1")]
+        pub label: ::prost::alloc::string::String,
+        /// The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
+        /// For more information, see
+        /// <http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.>
+        #[prost(string, tag = "2")]
+        pub language_code: ::prost::alloc::string::String,
     }
 }
 /// The type of Google Cloud Vision API detection to perform, and the maximum
@@ -2562,7 +2574,9 @@ pub struct SafeSearchAnnotation {
     /// Likelihood that this is a medical image.
     #[prost(enumeration = "Likelihood", tag = "3")]
     pub medical: i32,
-    /// Likelihood that this image contains violent content.
+    /// Likelihood that this image contains violent content. Violent content may
+    /// include death, serious harm, or injury to individuals or groups of
+    /// individuals.
     #[prost(enumeration = "Likelihood", tag = "4")]
     pub violence: i32,
     /// Likelihood that the request image contains racy content. Racy content may
@@ -2656,7 +2670,8 @@ pub struct CropHintsParams {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct WebDetectionParams {
-    /// Whether to include results derived from the geo information in the image.
+    /// This field has no effect on results.
+    #[deprecated]
     #[prost(bool, tag = "2")]
     pub include_geo_results: bool,
 }
@@ -2670,7 +2685,13 @@ pub struct TextDetectionParams {
     /// score for TEXT_DETECTION as well.
     #[prost(bool, tag = "9")]
     pub enable_text_detection_confidence_score: bool,
-    /// A list of advanced OCR options to fine-tune OCR behavior.
+    /// A list of advanced OCR options to further fine-tune OCR behavior.
+    /// Current valid values are:
+    ///
+    /// - `legacy_layout`: a heuristics layout detection algorithm, which serves as
+    /// an alternative to the current ML-based layout detection algorithm.
+    /// Customers can choose the best suitable layout algorithm based on their
+    /// situation.
     #[prost(string, repeated, tag = "11")]
     pub advanced_ocr_options: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
@@ -2809,6 +2830,17 @@ pub struct BatchAnnotateImagesRequest {
     /// Example: `projects/project-A/locations/eu`.
     #[prost(string, tag = "4")]
     pub parent: ::prost::alloc::string::String,
+    /// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    #[prost(btree_map = "string, string", tag = "5")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
 }
 /// Response to a batch image annotation request.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2872,8 +2904,8 @@ pub struct AnnotateFileResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BatchAnnotateFilesRequest {
-    /// Required. The list of file annotation requests. Right now we support only one
-    /// AnnotateFileRequest in BatchAnnotateFilesRequest.
+    /// Required. The list of file annotation requests. Right now we support only
+    /// one AnnotateFileRequest in BatchAnnotateFilesRequest.
     #[prost(message, repeated, tag = "1")]
     pub requests: ::prost::alloc::vec::Vec<AnnotateFileRequest>,
     /// Optional. Target project and location to make a call.
@@ -2890,6 +2922,17 @@ pub struct BatchAnnotateFilesRequest {
     /// Example: `projects/project-A/locations/eu`.
     #[prost(string, tag = "3")]
     pub parent: ::prost::alloc::string::String,
+    /// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    #[prost(btree_map = "string, string", tag = "5")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
 }
 /// A list of file annotation responses.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2949,6 +2992,17 @@ pub struct AsyncBatchAnnotateImagesRequest {
     /// Example: `projects/project-A/locations/eu`.
     #[prost(string, tag = "4")]
     pub parent: ::prost::alloc::string::String,
+    /// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    #[prost(btree_map = "string, string", tag = "5")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
 }
 /// Response to an async batch image annotation request.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2980,6 +3034,17 @@ pub struct AsyncBatchAnnotateFilesRequest {
     /// Example: `projects/project-A/locations/eu`.
     #[prost(string, tag = "4")]
     pub parent: ::prost::alloc::string::String,
+    /// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    #[prost(btree_map = "string, string", tag = "5")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
 }
 /// Response to an async batch file annotation request.
 #[allow(clippy::derive_partial_eq_without_eq)]
