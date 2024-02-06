@@ -4808,7 +4808,6 @@
 <a href="#4808" id="4808">4808</a>
 <a href="#4809" id="4809">4809</a>
 <a href="#4810" id="4810">4810</a>
-<a href="#4811" id="4811">4811</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An asset in Google Cloud and its temporal metadata, including the time window
 /// when it was observed and its status during that window.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6707,8 +6706,8 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A list of asset types that this request searches for. If empty,
-    /// it will search all the [searchable asset
-    /// types](&lt;https://cloud.google.com/asset-inventory/docs/supported-asset-types&gt;).
+    /// it will search all the asset types [supported by search
+    /// APIs](&lt;https://cloud.google.com/asset-inventory/docs/supported-asset-types&gt;).
     ///
     /// Regular expressions are also supported. For example:
     ///
@@ -6878,9 +6877,9 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A list of asset types that the IAM policies are attached to. If
-    /// empty, it will search the IAM policies that are attached to all the
-    /// [searchable asset
-    /// types](&lt;https://cloud.google.com/asset-inventory/docs/supported-asset-types&gt;).
+    /// empty, it will search the IAM policies that are attached to all the asset
+    /// types [supported by search
+    /// APIs](&lt;https://cloud.google.com/asset-inventory/docs/supported-asset-types&gt;)
     ///
     /// Regular expressions are also supported. For example:
     ///
@@ -7958,8 +7957,8 @@
     </span><span class="kw">pub </span>scope: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The names refer to the \[full_resource_names\]
     /// (&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;)
-    /// of [searchable asset
-    /// types](&lt;https://cloud.google.com/asset-inventory/docs/supported-asset-types&gt;).
+    /// of the asset types [supported by search
+    /// APIs](&lt;https://cloud.google.com/asset-inventory/docs/supported-asset-types&gt;).
     /// A maximum of 20 resources&#39; effective policies can be retrieved in a batch.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
@@ -9582,9 +9581,8 @@
         /// * compute.requireOsLogin
         /// * compute.disableNestedVirtualization
         ///
-        /// This RPC only returns either resources of types supported by [searchable
-        /// asset
-        /// types](https://cloud.google.com/asset-inventory/docs/supported-asset-types),
+        /// This RPC only returns either resources of types [supported by search
+        /// APIs](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
         /// or IAM policies.
         </span><span class="kw">pub async fn </span>analyze_org_policy_governed_assets(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,

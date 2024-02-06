@@ -2563,20 +2563,7 @@
 <a href="#2563" id="2563">2563</a>
 <a href="#2564" id="2564">2564</a>
 <a href="#2565" id="2565">2565</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Message that contains the resource name and display name of a folder
-/// resource.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Folder {
-    <span class="doccomment">/// Full resource name of this folder. See:
-    /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_folder: ::prost::alloc::string::String,
-    <span class="doccomment">/// The user defined display name for this folder.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>resource_folder_display_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// User specified security marks that are attached to the parent Security
+</pre></div><pre class="rust"><code><span class="doccomment">/// User specified security marks that are attached to the parent Security
 /// Command Center resource. Security marks are scoped within a Security Command
 /// Center organization -- they can be modified and viewed by all users who have
 /// proper permissions on the organization.
@@ -2614,116 +2601,18 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>canonical_name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Security Command Center representation of a Google Cloud
+<span class="doccomment">/// Message that contains the resource name and display name of a folder
 /// resource.
-///
-/// The Asset is a Security Command Center resource that captures information
-/// about a single Google Cloud resource. All modifications to an Asset are only
-/// within the context of Security Command Center and don&#39;t affect the referenced
-/// Google Cloud resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Asset {
-    <span class="doccomment">/// The relative resource name of this asset. See:
-    /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
-    /// Example:
-    /// &quot;organizations/{organization_id}/assets/{asset_id}&quot;.
+</span><span class="kw">pub struct </span>Folder {
+    <span class="doccomment">/// Full resource name of this folder. See:
+    /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Security Command Center managed properties. These properties are managed by
-    /// Security Command Center and cannot be modified by the user.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>security_center_properties: ::core::option::Option&lt;
-        asset::SecurityCenterProperties,
-    &gt;,
-    <span class="doccomment">/// Resource managed properties. These properties are managed and defined by
-    /// the Google Cloud resource and cannot be modified by the user.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>resource_properties: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost_types::Value,
-    &gt;,
-    <span class="doccomment">/// User specified security marks. These marks are entirely managed by the user
-    /// and come from the SecurityMarks resource that belongs to the asset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>security_marks: ::core::option::Option&lt;SecurityMarks&gt;,
-    <span class="doccomment">/// The time at which the asset was created in Security Command Center.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The time at which the asset was last updated or added in Cloud SCC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Cloud IAM Policy information associated with the Google Cloud resource
-    /// described by the Security Command Center asset. This information is managed
-    /// and defined by the Google Cloud resource and cannot be modified by the
-    /// user.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>iam_policy: ::core::option::Option&lt;asset::IamPolicy&gt;,
-    <span class="doccomment">/// The canonical name of the resource. It&#39;s either
-    /// &quot;organizations/{organization_id}/assets/{asset_id}&quot;,
-    /// &quot;folders/{folder_id}/assets/{asset_id}&quot; or
-    /// &quot;projects/{project_number}/assets/{asset_id}&quot;, depending on the closest CRM
-    /// ancestor of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>canonical_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `Asset`.
-</span><span class="kw">pub mod </span>asset {
-    <span class="doccomment">/// Security Command Center managed properties. These properties are managed by
-    /// Security Command Center and cannot be modified by the user.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SecurityCenterProperties {
-        <span class="doccomment">/// The full resource name of the Google Cloud resource this asset
-        /// represents. This field is immutable after create time. See:
-        /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-        <span class="doccomment">/// The type of the Google Cloud resource. Examples include: APPLICATION,
-        /// PROJECT, and ORGANIZATION. This is a case insensitive field defined by
-        /// Security Command Center and/or the producer of the resource and is
-        /// immutable after create time.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
-        <span class="doccomment">/// The full resource name of the immediate parent of the resource. See:
-        /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>resource_parent: ::prost::alloc::string::String,
-        <span class="doccomment">/// The full resource name of the project the resource belongs to. See:
-        /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>resource_project: ::prost::alloc::string::String,
-        <span class="doccomment">/// Owners of the Google Cloud resource.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>resource_owners: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// The user defined display name for this resource.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-        </span><span class="kw">pub </span>resource_display_name: ::prost::alloc::string::String,
-        <span class="doccomment">/// The user defined display name for the parent of this resource.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-        </span><span class="kw">pub </span>resource_parent_display_name: ::prost::alloc::string::String,
-        <span class="doccomment">/// The user defined display name for the project of this resource.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-        </span><span class="kw">pub </span>resource_project_display_name: ::prost::alloc::string::String,
-        <span class="doccomment">/// Contains a Folder message for each folder in the assets ancestry.
-        /// The first folder is the deepest nested folder, and the last folder is the
-        /// folder directly under the Organization.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
-        </span><span class="kw">pub </span>folders: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Folder&gt;,
-    }
-    <span class="doccomment">/// Cloud IAM Policy information associated with the Google Cloud resource
-    /// described by the Security Command Center asset. This information is managed
-    /// and defined by the Google Cloud resource and cannot be modified by the
-    /// user.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>IamPolicy {
-        <span class="doccomment">/// The JSON representation of the Policy associated with the asset.
-        /// See &lt;https://cloud.google.com/iam/docs/reference/rest/v1/Policy&gt; for
-        /// format details.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>policy_blob: ::prost::alloc::string::String,
-    }
+    </span><span class="kw">pub </span>resource_folder: ::prost::alloc::string::String,
+    <span class="doccomment">/// The user defined display name for this folder.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>resource_folder_display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Information related to the Google Cloud resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3017,6 +2906,117 @@
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
+    }
+}
+<span class="doccomment">/// Security Command Center representation of a Google Cloud
+/// resource.
+///
+/// The Asset is a Security Command Center resource that captures information
+/// about a single Google Cloud resource. All modifications to an Asset are only
+/// within the context of Security Command Center and don&#39;t affect the referenced
+/// Google Cloud resource.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Asset {
+    <span class="doccomment">/// The relative resource name of this asset. See:
+    /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
+    /// Example:
+    /// &quot;organizations/{organization_id}/assets/{asset_id}&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Security Command Center managed properties. These properties are managed by
+    /// Security Command Center and cannot be modified by the user.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>security_center_properties: ::core::option::Option&lt;
+        asset::SecurityCenterProperties,
+    &gt;,
+    <span class="doccomment">/// Resource managed properties. These properties are managed and defined by
+    /// the Google Cloud resource and cannot be modified by the user.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>resource_properties: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost_types::Value,
+    &gt;,
+    <span class="doccomment">/// User specified security marks. These marks are entirely managed by the user
+    /// and come from the SecurityMarks resource that belongs to the asset.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>security_marks: ::core::option::Option&lt;SecurityMarks&gt;,
+    <span class="doccomment">/// The time at which the asset was created in Security Command Center.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The time at which the asset was last updated or added in Cloud SCC.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Cloud IAM Policy information associated with the Google Cloud resource
+    /// described by the Security Command Center asset. This information is managed
+    /// and defined by the Google Cloud resource and cannot be modified by the
+    /// user.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>iam_policy: ::core::option::Option&lt;asset::IamPolicy&gt;,
+    <span class="doccomment">/// The canonical name of the resource. It&#39;s either
+    /// &quot;organizations/{organization_id}/assets/{asset_id}&quot;,
+    /// &quot;folders/{folder_id}/assets/{asset_id}&quot; or
+    /// &quot;projects/{project_number}/assets/{asset_id}&quot;, depending on the closest CRM
+    /// ancestor of the resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>canonical_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `Asset`.
+</span><span class="kw">pub mod </span>asset {
+    <span class="doccomment">/// Security Command Center managed properties. These properties are managed by
+    /// Security Command Center and cannot be modified by the user.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SecurityCenterProperties {
+        <span class="doccomment">/// The full resource name of the Google Cloud resource this asset
+        /// represents. This field is immutable after create time. See:
+        /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+        <span class="doccomment">/// The type of the Google Cloud resource. Examples include: APPLICATION,
+        /// PROJECT, and ORGANIZATION. This is a case insensitive field defined by
+        /// Security Command Center and/or the producer of the resource and is
+        /// immutable after create time.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
+        <span class="doccomment">/// The full resource name of the immediate parent of the resource. See:
+        /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>resource_parent: ::prost::alloc::string::String,
+        <span class="doccomment">/// The full resource name of the project the resource belongs to. See:
+        /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>resource_project: ::prost::alloc::string::String,
+        <span class="doccomment">/// Owners of the Google Cloud resource.
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>resource_owners: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+        <span class="doccomment">/// The user defined display name for this resource.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="kw">pub </span>resource_display_name: ::prost::alloc::string::String,
+        <span class="doccomment">/// The user defined display name for the parent of this resource.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="kw">pub </span>resource_parent_display_name: ::prost::alloc::string::String,
+        <span class="doccomment">/// The user defined display name for the project of this resource.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="kw">pub </span>resource_project_display_name: ::prost::alloc::string::String,
+        <span class="doccomment">/// Contains a Folder message for each folder in the assets ancestry.
+        /// The first folder is the deepest nested folder, and the last folder is the
+        /// folder directly under the Organization.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="kw">pub </span>folders: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Folder&gt;,
+    }
+    <span class="doccomment">/// Cloud IAM Policy information associated with the Google Cloud resource
+    /// described by the Security Command Center asset. This information is managed
+    /// and defined by the Google Cloud resource and cannot be modified by the
+    /// user.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>IamPolicy {
+        <span class="doccomment">/// The JSON representation of the Policy associated with the asset.
+        /// See &lt;https://cloud.google.com/iam/docs/reference/rest/v1/Policy&gt; for
+        /// format details.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>policy_blob: ::prost::alloc::string::String,
     }
 }
 <span class="doccomment">/// Security Command Center notification configs.
