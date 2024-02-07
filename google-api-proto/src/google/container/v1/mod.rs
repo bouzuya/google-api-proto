@@ -1032,6 +1032,9 @@ pub struct AddonsConfig {
     /// Configuration for the Cloud Storage Fuse CSI driver.
     #[prost(message, optional, tag = "17")]
     pub gcs_fuse_csi_driver_config: ::core::option::Option<GcsFuseCsiDriverConfig>,
+    /// Optional. Configuration for the StatefulHA add-on.
+    #[prost(message, optional, tag = "18")]
+    pub stateful_ha_config: ::core::option::Option<StatefulHaConfig>,
 }
 /// Configuration options for the HTTP (L7) load balancing controller addon,
 /// which makes it easy to set up HTTP load balancers for services in a cluster.
@@ -1234,6 +1237,14 @@ pub struct GcsFuseCsiDriverConfig {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GkeBackupAgentConfig {
     /// Whether the Backup for GKE agent is enabled for this cluster.
+    #[prost(bool, tag = "1")]
+    pub enabled: bool,
+}
+/// Configuration for the Stateful HA add-on.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StatefulHaConfig {
+    /// Whether the Stateful HA add-on is enabled for this cluster.
     #[prost(bool, tag = "1")]
     pub enabled: bool,
 }

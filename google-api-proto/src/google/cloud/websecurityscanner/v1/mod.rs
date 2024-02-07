@@ -1,3 +1,20 @@
+/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
+/// Security Scanner Service crawls the web applications, following all links
+/// within the scope of sites, to find the URLs to test against.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CrawledUrl {
+    /// Output only. The http method of the request that was used to visit the URL, in
+    /// uppercase.
+    #[prost(string, tag = "1")]
+    pub http_method: ::prost::alloc::string::String,
+    /// Output only. The URL that was crawled.
+    #[prost(string, tag = "2")]
+    pub url: ::prost::alloc::string::String,
+    /// Output only. The body of the request that was used to visit the URL.
+    #[prost(string, tag = "3")]
+    pub body: ::prost::alloc::string::String,
+}
 /// Defines a custom error message used by CreateScanConfig and UpdateScanConfig
 /// APIs when scan configuration validation fails. It is also reported as part of
 /// a ScanRunErrorTrace message if scan validation fails due to a scan
@@ -284,352 +301,6 @@ pub mod scan_config_error {
             }
         }
     }
-}
-/// Output only.
-/// Defines an error trace message for a ScanRun.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ScanRunErrorTrace {
-    /// Output only. Indicates the error reason code.
-    #[prost(enumeration = "scan_run_error_trace::Code", tag = "1")]
-    pub code: i32,
-    /// Output only. If the scan encounters SCAN_CONFIG_ISSUE error, this field has the error
-    /// message encountered during scan configuration validation that is performed
-    /// before each scan run.
-    #[prost(message, optional, tag = "2")]
-    pub scan_config_error: ::core::option::Option<ScanConfigError>,
-    /// Output only. If the scan encounters TOO_MANY_HTTP_ERRORS, this field indicates the most
-    /// common HTTP error code, if such is available. For example, if this code is
-    /// 404, the scan has encountered too many NOT_FOUND responses.
-    #[prost(int32, tag = "3")]
-    pub most_common_http_error_code: i32,
-}
-/// Nested message and enum types in `ScanRunErrorTrace`.
-pub mod scan_run_error_trace {
-    /// Output only.
-    /// Defines an error reason code.
-    /// Next id: 8
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Code {
-        /// Default value is never used.
-        Unspecified = 0,
-        /// Indicates that the scan run failed due to an internal server error.
-        InternalError = 1,
-        /// Indicates a scan configuration error, usually due to outdated ScanConfig
-        /// settings, such as starting_urls or the DNS configuration.
-        ScanConfigIssue = 2,
-        /// Indicates an authentication error, usually due to outdated ScanConfig
-        /// authentication settings.
-        AuthenticationConfigIssue = 3,
-        /// Indicates a scan operation timeout, usually caused by a very large site.
-        TimedOutWhileScanning = 4,
-        /// Indicates that a scan encountered excessive redirects, either to
-        /// authentication or some other page outside of the scan scope.
-        TooManyRedirects = 5,
-        /// Indicates that a scan encountered numerous errors from the web site
-        /// pages. When available, most_common_http_error_code field indicates the
-        /// most common HTTP error code encountered during the scan.
-        TooManyHttpErrors = 6,
-    }
-    impl Code {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Code::Unspecified => "CODE_UNSPECIFIED",
-                Code::InternalError => "INTERNAL_ERROR",
-                Code::ScanConfigIssue => "SCAN_CONFIG_ISSUE",
-                Code::AuthenticationConfigIssue => "AUTHENTICATION_CONFIG_ISSUE",
-                Code::TimedOutWhileScanning => "TIMED_OUT_WHILE_SCANNING",
-                Code::TooManyRedirects => "TOO_MANY_REDIRECTS",
-                Code::TooManyHttpErrors => "TOO_MANY_HTTP_ERRORS",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "INTERNAL_ERROR" => Some(Self::InternalError),
-                "SCAN_CONFIG_ISSUE" => Some(Self::ScanConfigIssue),
-                "AUTHENTICATION_CONFIG_ISSUE" => Some(Self::AuthenticationConfigIssue),
-                "TIMED_OUT_WHILE_SCANNING" => Some(Self::TimedOutWhileScanning),
-                "TOO_MANY_REDIRECTS" => Some(Self::TooManyRedirects),
-                "TOO_MANY_HTTP_ERRORS" => Some(Self::TooManyHttpErrors),
-                _ => None,
-            }
-        }
-    }
-}
-/// Output only.
-/// Defines a warning trace message for ScanRun. Warning traces provide customers
-/// with useful information that helps make the scanning process more effective.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ScanRunWarningTrace {
-    /// Output only. Indicates the warning code.
-    #[prost(enumeration = "scan_run_warning_trace::Code", tag = "1")]
-    pub code: i32,
-}
-/// Nested message and enum types in `ScanRunWarningTrace`.
-pub mod scan_run_warning_trace {
-    /// Output only.
-    /// Defines a warning message code.
-    /// Next id: 6
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Code {
-        /// Default value is never used.
-        Unspecified = 0,
-        /// Indicates that a scan discovered an unexpectedly low number of URLs. This
-        /// is sometimes caused by complex navigation features or by using a single
-        /// URL for numerous pages.
-        InsufficientCrawlResults = 1,
-        /// Indicates that a scan discovered too many URLs to test, or excessive
-        /// redundant URLs.
-        TooManyCrawlResults = 2,
-        /// Indicates that too many tests have been generated for the scan. Customer
-        /// should try reducing the number of starting URLs, increasing the QPS rate,
-        /// or narrowing down the scope of the scan using the excluded patterns.
-        TooManyFuzzTasks = 3,
-        /// Indicates that a scan is blocked by IAP.
-        BlockedByIap = 4,
-        /// Indicates that no seeds is found for a scan
-        NoStartingUrlFoundForManagedScan = 5,
-    }
-    impl Code {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Code::Unspecified => "CODE_UNSPECIFIED",
-                Code::InsufficientCrawlResults => "INSUFFICIENT_CRAWL_RESULTS",
-                Code::TooManyCrawlResults => "TOO_MANY_CRAWL_RESULTS",
-                Code::TooManyFuzzTasks => "TOO_MANY_FUZZ_TASKS",
-                Code::BlockedByIap => "BLOCKED_BY_IAP",
-                Code::NoStartingUrlFoundForManagedScan => {
-                    "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "INSUFFICIENT_CRAWL_RESULTS" => Some(Self::InsufficientCrawlResults),
-                "TOO_MANY_CRAWL_RESULTS" => Some(Self::TooManyCrawlResults),
-                "TOO_MANY_FUZZ_TASKS" => Some(Self::TooManyFuzzTasks),
-                "BLOCKED_BY_IAP" => Some(Self::BlockedByIap),
-                "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN" => {
-                    Some(Self::NoStartingUrlFoundForManagedScan)
-                }
-                _ => None,
-            }
-        }
-    }
-}
-/// A ScanRun is a output-only resource representing an actual run of the scan.
-/// Next id: 12
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ScanRun {
-    /// Output only. The resource name of the ScanRun. The name follows the format of
-    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
-    /// The ScanRun IDs are generated by the system.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The execution state of the ScanRun.
-    #[prost(enumeration = "scan_run::ExecutionState", tag = "2")]
-    pub execution_state: i32,
-    /// Output only. The result state of the ScanRun. This field is only available after the
-    /// execution state reaches "FINISHED".
-    #[prost(enumeration = "scan_run::ResultState", tag = "3")]
-    pub result_state: i32,
-    /// Output only. The time at which the ScanRun started.
-    #[prost(message, optional, tag = "4")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time at which the ScanRun reached termination state - that the ScanRun
-    /// is either finished or stopped by user.
-    #[prost(message, optional, tag = "5")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The number of URLs crawled during this ScanRun. If the scan is in progress,
-    /// the value represents the number of URLs crawled up to now.
-    #[prost(int64, tag = "6")]
-    pub urls_crawled_count: i64,
-    /// Output only. The number of URLs tested during this ScanRun. If the scan is in progress,
-    /// the value represents the number of URLs tested up to now. The number of
-    /// URLs tested is usually larger than the number URLS crawled because
-    /// typically a crawled URL is tested with multiple test payloads.
-    #[prost(int64, tag = "7")]
-    pub urls_tested_count: i64,
-    /// Output only. Whether the scan run has found any vulnerabilities.
-    #[prost(bool, tag = "8")]
-    pub has_vulnerabilities: bool,
-    /// Output only. The percentage of total completion ranging from 0 to 100.
-    /// If the scan is in queue, the value is 0.
-    /// If the scan is running, the value ranges from 0 to 100.
-    /// If the scan is finished, the value is 100.
-    #[prost(int32, tag = "9")]
-    pub progress_percent: i32,
-    /// Output only. If result_state is an ERROR, this field provides the primary reason for
-    /// scan's termination and more details, if such are available.
-    #[prost(message, optional, tag = "10")]
-    pub error_trace: ::core::option::Option<ScanRunErrorTrace>,
-    /// Output only. A list of warnings, if such are encountered during this scan run.
-    #[prost(message, repeated, tag = "11")]
-    pub warning_traces: ::prost::alloc::vec::Vec<ScanRunWarningTrace>,
-}
-/// Nested message and enum types in `ScanRun`.
-pub mod scan_run {
-    /// Types of ScanRun execution state.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ExecutionState {
-        /// Represents an invalid state caused by internal server error. This value
-        /// should never be returned.
-        Unspecified = 0,
-        /// The scan is waiting in the queue.
-        Queued = 1,
-        /// The scan is in progress.
-        Scanning = 2,
-        /// The scan is either finished or stopped by user.
-        Finished = 3,
-    }
-    impl ExecutionState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ExecutionState::Unspecified => "EXECUTION_STATE_UNSPECIFIED",
-                ExecutionState::Queued => "QUEUED",
-                ExecutionState::Scanning => "SCANNING",
-                ExecutionState::Finished => "FINISHED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "EXECUTION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "QUEUED" => Some(Self::Queued),
-                "SCANNING" => Some(Self::Scanning),
-                "FINISHED" => Some(Self::Finished),
-                _ => None,
-            }
-        }
-    }
-    /// Types of ScanRun result state.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ResultState {
-        /// Default value. This value is returned when the ScanRun is not yet
-        /// finished.
-        Unspecified = 0,
-        /// The scan finished without errors.
-        Success = 1,
-        /// The scan finished with errors.
-        Error = 2,
-        /// The scan was terminated by user.
-        Killed = 3,
-    }
-    impl ResultState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ResultState::Unspecified => "RESULT_STATE_UNSPECIFIED",
-                ResultState::Success => "SUCCESS",
-                ResultState::Error => "ERROR",
-                ResultState::Killed => "KILLED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "RESULT_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "SUCCESS" => Some(Self::Success),
-                "ERROR" => Some(Self::Error),
-                "KILLED" => Some(Self::Killed),
-                _ => None,
-            }
-        }
-    }
-}
-/// A ScanRunLog is an output-only proto used for Stackdriver customer logging.
-/// It is used for logs covering the start and end of scan pipelines.
-/// Other than an added summary, this is a subset of the ScanRun.
-/// Representation in logs is either a proto Struct, or converted to JSON.
-/// Next id: 9
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ScanRunLog {
-    /// Human friendly message about the event.
-    #[prost(string, tag = "1")]
-    pub summary: ::prost::alloc::string::String,
-    /// The resource name of the ScanRun being logged.
-    #[prost(string, tag = "2")]
-    pub name: ::prost::alloc::string::String,
-    /// The execution state of the ScanRun.
-    #[prost(enumeration = "scan_run::ExecutionState", tag = "3")]
-    pub execution_state: i32,
-    /// The result state of the ScanRun.
-    #[prost(enumeration = "scan_run::ResultState", tag = "4")]
-    pub result_state: i32,
-    #[prost(int64, tag = "5")]
-    pub urls_crawled_count: i64,
-    #[prost(int64, tag = "6")]
-    pub urls_tested_count: i64,
-    #[prost(bool, tag = "7")]
-    pub has_findings: bool,
-    #[prost(message, optional, tag = "8")]
-    pub error_trace: ::core::option::Option<ScanRunErrorTrace>,
 }
 /// A ScanConfig resource contains the configurations to launch a scan.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -926,22 +597,17 @@ pub mod scan_config {
         }
     }
 }
-/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
-/// Security Scanner Service crawls the web applications, following all links
-/// within the scope of sites, to find the URLs to test against.
+/// A FindingTypeStats resource represents stats regarding a specific FindingType
+/// of Findings under a given ScanRun.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CrawledUrl {
-    /// Output only. The http method of the request that was used to visit the URL, in
-    /// uppercase.
+pub struct FindingTypeStats {
+    /// Output only. The finding type associated with the stats.
     #[prost(string, tag = "1")]
-    pub http_method: ::prost::alloc::string::String,
-    /// Output only. The URL that was crawled.
-    #[prost(string, tag = "2")]
-    pub url: ::prost::alloc::string::String,
-    /// Output only. The body of the request that was used to visit the URL.
-    #[prost(string, tag = "3")]
-    pub body: ::prost::alloc::string::String,
+    pub finding_type: ::prost::alloc::string::String,
+    /// Output only. The count of findings belonging to this finding type.
+    #[prost(int32, tag = "2")]
+    pub finding_count: i32,
 }
 /// ! Information about a vulnerability with an HTML.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1309,17 +975,322 @@ pub mod finding {
         }
     }
 }
-/// A FindingTypeStats resource represents stats regarding a specific FindingType
-/// of Findings under a given ScanRun.
+/// Output only.
+/// Defines an error trace message for a ScanRun.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FindingTypeStats {
-    /// Output only. The finding type associated with the stats.
+pub struct ScanRunErrorTrace {
+    /// Output only. Indicates the error reason code.
+    #[prost(enumeration = "scan_run_error_trace::Code", tag = "1")]
+    pub code: i32,
+    /// Output only. If the scan encounters SCAN_CONFIG_ISSUE error, this field has the error
+    /// message encountered during scan configuration validation that is performed
+    /// before each scan run.
+    #[prost(message, optional, tag = "2")]
+    pub scan_config_error: ::core::option::Option<ScanConfigError>,
+    /// Output only. If the scan encounters TOO_MANY_HTTP_ERRORS, this field indicates the most
+    /// common HTTP error code, if such is available. For example, if this code is
+    /// 404, the scan has encountered too many NOT_FOUND responses.
+    #[prost(int32, tag = "3")]
+    pub most_common_http_error_code: i32,
+}
+/// Nested message and enum types in `ScanRunErrorTrace`.
+pub mod scan_run_error_trace {
+    /// Output only.
+    /// Defines an error reason code.
+    /// Next id: 8
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Code {
+        /// Default value is never used.
+        Unspecified = 0,
+        /// Indicates that the scan run failed due to an internal server error.
+        InternalError = 1,
+        /// Indicates a scan configuration error, usually due to outdated ScanConfig
+        /// settings, such as starting_urls or the DNS configuration.
+        ScanConfigIssue = 2,
+        /// Indicates an authentication error, usually due to outdated ScanConfig
+        /// authentication settings.
+        AuthenticationConfigIssue = 3,
+        /// Indicates a scan operation timeout, usually caused by a very large site.
+        TimedOutWhileScanning = 4,
+        /// Indicates that a scan encountered excessive redirects, either to
+        /// authentication or some other page outside of the scan scope.
+        TooManyRedirects = 5,
+        /// Indicates that a scan encountered numerous errors from the web site
+        /// pages. When available, most_common_http_error_code field indicates the
+        /// most common HTTP error code encountered during the scan.
+        TooManyHttpErrors = 6,
+    }
+    impl Code {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Code::Unspecified => "CODE_UNSPECIFIED",
+                Code::InternalError => "INTERNAL_ERROR",
+                Code::ScanConfigIssue => "SCAN_CONFIG_ISSUE",
+                Code::AuthenticationConfigIssue => "AUTHENTICATION_CONFIG_ISSUE",
+                Code::TimedOutWhileScanning => "TIMED_OUT_WHILE_SCANNING",
+                Code::TooManyRedirects => "TOO_MANY_REDIRECTS",
+                Code::TooManyHttpErrors => "TOO_MANY_HTTP_ERRORS",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "INTERNAL_ERROR" => Some(Self::InternalError),
+                "SCAN_CONFIG_ISSUE" => Some(Self::ScanConfigIssue),
+                "AUTHENTICATION_CONFIG_ISSUE" => Some(Self::AuthenticationConfigIssue),
+                "TIMED_OUT_WHILE_SCANNING" => Some(Self::TimedOutWhileScanning),
+                "TOO_MANY_REDIRECTS" => Some(Self::TooManyRedirects),
+                "TOO_MANY_HTTP_ERRORS" => Some(Self::TooManyHttpErrors),
+                _ => None,
+            }
+        }
+    }
+}
+/// Output only.
+/// Defines a warning trace message for ScanRun. Warning traces provide customers
+/// with useful information that helps make the scanning process more effective.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ScanRunWarningTrace {
+    /// Output only. Indicates the warning code.
+    #[prost(enumeration = "scan_run_warning_trace::Code", tag = "1")]
+    pub code: i32,
+}
+/// Nested message and enum types in `ScanRunWarningTrace`.
+pub mod scan_run_warning_trace {
+    /// Output only.
+    /// Defines a warning message code.
+    /// Next id: 6
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Code {
+        /// Default value is never used.
+        Unspecified = 0,
+        /// Indicates that a scan discovered an unexpectedly low number of URLs. This
+        /// is sometimes caused by complex navigation features or by using a single
+        /// URL for numerous pages.
+        InsufficientCrawlResults = 1,
+        /// Indicates that a scan discovered too many URLs to test, or excessive
+        /// redundant URLs.
+        TooManyCrawlResults = 2,
+        /// Indicates that too many tests have been generated for the scan. Customer
+        /// should try reducing the number of starting URLs, increasing the QPS rate,
+        /// or narrowing down the scope of the scan using the excluded patterns.
+        TooManyFuzzTasks = 3,
+        /// Indicates that a scan is blocked by IAP.
+        BlockedByIap = 4,
+        /// Indicates that no seeds is found for a scan
+        NoStartingUrlFoundForManagedScan = 5,
+    }
+    impl Code {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Code::Unspecified => "CODE_UNSPECIFIED",
+                Code::InsufficientCrawlResults => "INSUFFICIENT_CRAWL_RESULTS",
+                Code::TooManyCrawlResults => "TOO_MANY_CRAWL_RESULTS",
+                Code::TooManyFuzzTasks => "TOO_MANY_FUZZ_TASKS",
+                Code::BlockedByIap => "BLOCKED_BY_IAP",
+                Code::NoStartingUrlFoundForManagedScan => {
+                    "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "INSUFFICIENT_CRAWL_RESULTS" => Some(Self::InsufficientCrawlResults),
+                "TOO_MANY_CRAWL_RESULTS" => Some(Self::TooManyCrawlResults),
+                "TOO_MANY_FUZZ_TASKS" => Some(Self::TooManyFuzzTasks),
+                "BLOCKED_BY_IAP" => Some(Self::BlockedByIap),
+                "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN" => {
+                    Some(Self::NoStartingUrlFoundForManagedScan)
+                }
+                _ => None,
+            }
+        }
+    }
+}
+/// A ScanRun is a output-only resource representing an actual run of the scan.
+/// Next id: 12
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ScanRun {
+    /// Output only. The resource name of the ScanRun. The name follows the format of
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
+    /// The ScanRun IDs are generated by the system.
     #[prost(string, tag = "1")]
-    pub finding_type: ::prost::alloc::string::String,
-    /// Output only. The count of findings belonging to this finding type.
-    #[prost(int32, tag = "2")]
-    pub finding_count: i32,
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The execution state of the ScanRun.
+    #[prost(enumeration = "scan_run::ExecutionState", tag = "2")]
+    pub execution_state: i32,
+    /// Output only. The result state of the ScanRun. This field is only available after the
+    /// execution state reaches "FINISHED".
+    #[prost(enumeration = "scan_run::ResultState", tag = "3")]
+    pub result_state: i32,
+    /// Output only. The time at which the ScanRun started.
+    #[prost(message, optional, tag = "4")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time at which the ScanRun reached termination state - that the ScanRun
+    /// is either finished or stopped by user.
+    #[prost(message, optional, tag = "5")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The number of URLs crawled during this ScanRun. If the scan is in progress,
+    /// the value represents the number of URLs crawled up to now.
+    #[prost(int64, tag = "6")]
+    pub urls_crawled_count: i64,
+    /// Output only. The number of URLs tested during this ScanRun. If the scan is in progress,
+    /// the value represents the number of URLs tested up to now. The number of
+    /// URLs tested is usually larger than the number URLS crawled because
+    /// typically a crawled URL is tested with multiple test payloads.
+    #[prost(int64, tag = "7")]
+    pub urls_tested_count: i64,
+    /// Output only. Whether the scan run has found any vulnerabilities.
+    #[prost(bool, tag = "8")]
+    pub has_vulnerabilities: bool,
+    /// Output only. The percentage of total completion ranging from 0 to 100.
+    /// If the scan is in queue, the value is 0.
+    /// If the scan is running, the value ranges from 0 to 100.
+    /// If the scan is finished, the value is 100.
+    #[prost(int32, tag = "9")]
+    pub progress_percent: i32,
+    /// Output only. If result_state is an ERROR, this field provides the primary reason for
+    /// scan's termination and more details, if such are available.
+    #[prost(message, optional, tag = "10")]
+    pub error_trace: ::core::option::Option<ScanRunErrorTrace>,
+    /// Output only. A list of warnings, if such are encountered during this scan run.
+    #[prost(message, repeated, tag = "11")]
+    pub warning_traces: ::prost::alloc::vec::Vec<ScanRunWarningTrace>,
+}
+/// Nested message and enum types in `ScanRun`.
+pub mod scan_run {
+    /// Types of ScanRun execution state.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ExecutionState {
+        /// Represents an invalid state caused by internal server error. This value
+        /// should never be returned.
+        Unspecified = 0,
+        /// The scan is waiting in the queue.
+        Queued = 1,
+        /// The scan is in progress.
+        Scanning = 2,
+        /// The scan is either finished or stopped by user.
+        Finished = 3,
+    }
+    impl ExecutionState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ExecutionState::Unspecified => "EXECUTION_STATE_UNSPECIFIED",
+                ExecutionState::Queued => "QUEUED",
+                ExecutionState::Scanning => "SCANNING",
+                ExecutionState::Finished => "FINISHED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "EXECUTION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "QUEUED" => Some(Self::Queued),
+                "SCANNING" => Some(Self::Scanning),
+                "FINISHED" => Some(Self::Finished),
+                _ => None,
+            }
+        }
+    }
+    /// Types of ScanRun result state.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ResultState {
+        /// Default value. This value is returned when the ScanRun is not yet
+        /// finished.
+        Unspecified = 0,
+        /// The scan finished without errors.
+        Success = 1,
+        /// The scan finished with errors.
+        Error = 2,
+        /// The scan was terminated by user.
+        Killed = 3,
+    }
+    impl ResultState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ResultState::Unspecified => "RESULT_STATE_UNSPECIFIED",
+                ResultState::Success => "SUCCESS",
+                ResultState::Error => "ERROR",
+                ResultState::Killed => "KILLED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RESULT_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "SUCCESS" => Some(Self::Success),
+                "ERROR" => Some(Self::Error),
+                "KILLED" => Some(Self::Killed),
+                _ => None,
+            }
+        }
+    }
 }
 /// Request for the `CreateScanConfig` method.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2013,4 +1984,33 @@ pub mod web_security_scanner_client {
             self.inner.unary(req, path, codec).await
         }
     }
+}
+/// A ScanRunLog is an output-only proto used for Stackdriver customer logging.
+/// It is used for logs covering the start and end of scan pipelines.
+/// Other than an added summary, this is a subset of the ScanRun.
+/// Representation in logs is either a proto Struct, or converted to JSON.
+/// Next id: 9
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ScanRunLog {
+    /// Human friendly message about the event.
+    #[prost(string, tag = "1")]
+    pub summary: ::prost::alloc::string::String,
+    /// The resource name of the ScanRun being logged.
+    #[prost(string, tag = "2")]
+    pub name: ::prost::alloc::string::String,
+    /// The execution state of the ScanRun.
+    #[prost(enumeration = "scan_run::ExecutionState", tag = "3")]
+    pub execution_state: i32,
+    /// The result state of the ScanRun.
+    #[prost(enumeration = "scan_run::ResultState", tag = "4")]
+    pub result_state: i32,
+    #[prost(int64, tag = "5")]
+    pub urls_crawled_count: i64,
+    #[prost(int64, tag = "6")]
+    pub urls_tested_count: i64,
+    #[prost(bool, tag = "7")]
+    pub has_findings: bool,
+    #[prost(message, optional, tag = "8")]
+    pub error_trace: ::core::option::Option<ScanRunErrorTrace>,
 }

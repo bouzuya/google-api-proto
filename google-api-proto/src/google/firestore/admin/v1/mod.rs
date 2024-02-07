@@ -1,314 +1,3 @@
-/// Cloud Firestore indexes enable simple and complex queries against
-/// documents in a database.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Index {
-    /// Output only. A server defined name for this index.
-    /// The form of this name for composite indexes will be:
-    /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{composite_index_id}`
-    /// For single field indexes, this field will be empty.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Indexes with a collection query scope specified allow queries
-    /// against a collection that is the child of a specific document, specified at
-    /// query time, and that has the same collection id.
-    ///
-    /// Indexes with a collection group query scope specified allow queries against
-    /// all collections descended from a specific document, specified at query
-    /// time, and that have the same collection id as this index.
-    #[prost(enumeration = "index::QueryScope", tag = "2")]
-    pub query_scope: i32,
-    /// The API scope supported by this index.
-    #[prost(enumeration = "index::ApiScope", tag = "5")]
-    pub api_scope: i32,
-    /// The fields supported by this index.
-    ///
-    /// For composite indexes, this requires a minimum of 2 and a maximum of 100
-    /// fields. The last field entry is always for the field path `__name__`. If,
-    /// on creation, `__name__` was not specified as the last field, it will be
-    /// added automatically with the same direction as that of the last field
-    /// defined. If the final field in a composite index is not directional, the
-    /// `__name__` will be ordered ASCENDING (unless explicitly specified).
-    ///
-    /// For single field indexes, this will always be exactly one entry with a
-    /// field path equal to the field path of the associated field.
-    #[prost(message, repeated, tag = "3")]
-    pub fields: ::prost::alloc::vec::Vec<index::IndexField>,
-    /// Output only. The serving state of the index.
-    #[prost(enumeration = "index::State", tag = "4")]
-    pub state: i32,
-}
-/// Nested message and enum types in `Index`.
-pub mod index {
-    /// A field in an index.
-    /// The field_path describes which field is indexed, the value_mode describes
-    /// how the field value is indexed.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IndexField {
-        /// Can be __name__.
-        /// For single field indexes, this must match the name of the field or may
-        /// be omitted.
-        #[prost(string, tag = "1")]
-        pub field_path: ::prost::alloc::string::String,
-        /// How the field value is indexed.
-        #[prost(oneof = "index_field::ValueMode", tags = "2, 3")]
-        pub value_mode: ::core::option::Option<index_field::ValueMode>,
-    }
-    /// Nested message and enum types in `IndexField`.
-    pub mod index_field {
-        /// The supported orderings.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum Order {
-            /// The ordering is unspecified. Not a valid option.
-            Unspecified = 0,
-            /// The field is ordered by ascending field value.
-            Ascending = 1,
-            /// The field is ordered by descending field value.
-            Descending = 2,
-        }
-        impl Order {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    Order::Unspecified => "ORDER_UNSPECIFIED",
-                    Order::Ascending => "ASCENDING",
-                    Order::Descending => "DESCENDING",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "ORDER_UNSPECIFIED" => Some(Self::Unspecified),
-                    "ASCENDING" => Some(Self::Ascending),
-                    "DESCENDING" => Some(Self::Descending),
-                    _ => None,
-                }
-            }
-        }
-        /// The supported array value configurations.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum ArrayConfig {
-            /// The index does not support additional array queries.
-            Unspecified = 0,
-            /// The index supports array containment queries.
-            Contains = 1,
-        }
-        impl ArrayConfig {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    ArrayConfig::Unspecified => "ARRAY_CONFIG_UNSPECIFIED",
-                    ArrayConfig::Contains => "CONTAINS",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "ARRAY_CONFIG_UNSPECIFIED" => Some(Self::Unspecified),
-                    "CONTAINS" => Some(Self::Contains),
-                    _ => None,
-                }
-            }
-        }
-        /// How the field value is indexed.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum ValueMode {
-            /// Indicates that this field supports ordering by the specified order or
-            /// comparing using =, !=, <, <=, >, >=.
-            #[prost(enumeration = "Order", tag = "2")]
-            Order(i32),
-            /// Indicates that this field supports operations on `array_value`s.
-            #[prost(enumeration = "ArrayConfig", tag = "3")]
-            ArrayConfig(i32),
-        }
-    }
-    /// Query Scope defines the scope at which a query is run. This is specified on
-    /// a StructuredQuery's `from` field.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum QueryScope {
-        /// The query scope is unspecified. Not a valid option.
-        Unspecified = 0,
-        /// Indexes with a collection query scope specified allow queries
-        /// against a collection that is the child of a specific document, specified
-        /// at query time, and that has the collection id specified by the index.
-        Collection = 1,
-        /// Indexes with a collection group query scope specified allow queries
-        /// against all collections that has the collection id specified by the
-        /// index.
-        CollectionGroup = 2,
-        /// Include all the collections's ancestor in the index. Only available for
-        /// Datastore Mode databases.
-        CollectionRecursive = 3,
-    }
-    impl QueryScope {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                QueryScope::Unspecified => "QUERY_SCOPE_UNSPECIFIED",
-                QueryScope::Collection => "COLLECTION",
-                QueryScope::CollectionGroup => "COLLECTION_GROUP",
-                QueryScope::CollectionRecursive => "COLLECTION_RECURSIVE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "QUERY_SCOPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "COLLECTION" => Some(Self::Collection),
-                "COLLECTION_GROUP" => Some(Self::CollectionGroup),
-                "COLLECTION_RECURSIVE" => Some(Self::CollectionRecursive),
-                _ => None,
-            }
-        }
-    }
-    /// API Scope defines the APIs (Firestore Native, or Firestore in
-    /// Datastore Mode) that are supported for queries.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ApiScope {
-        /// The index can only be used by the Firestore Native query API.
-        /// This is the default.
-        AnyApi = 0,
-        /// The index can only be used by the Firestore in Datastore Mode query API.
-        DatastoreModeApi = 1,
-    }
-    impl ApiScope {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ApiScope::AnyApi => "ANY_API",
-                ApiScope::DatastoreModeApi => "DATASTORE_MODE_API",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ANY_API" => Some(Self::AnyApi),
-                "DATASTORE_MODE_API" => Some(Self::DatastoreModeApi),
-                _ => None,
-            }
-        }
-    }
-    /// The state of an index. During index creation, an index will be in the
-    /// `CREATING` state. If the index is created successfully, it will transition
-    /// to the `READY` state. If the index creation encounters a problem, the index
-    /// will transition to the `NEEDS_REPAIR` state.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The state is unspecified.
-        Unspecified = 0,
-        /// The index is being created.
-        /// There is an active long-running operation for the index.
-        /// The index is updated when writing a document.
-        /// Some index data may exist.
-        Creating = 1,
-        /// The index is ready to be used.
-        /// The index is updated when writing a document.
-        /// The index is fully populated from all stored documents it applies to.
-        Ready = 2,
-        /// The index was being created, but something went wrong.
-        /// There is no active long-running operation for the index,
-        /// and the most recently finished long-running operation failed.
-        /// The index is not updated when writing a document.
-        /// Some index data may exist.
-        /// Use the google.longrunning.Operations API to determine why the operation
-        /// that last attempted to create this index failed, then re-create the
-        /// index.
-        NeedsRepair = 3,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Ready => "READY",
-                State::NeedsRepair => "NEEDS_REPAIR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "READY" => Some(Self::Ready),
-                "NEEDS_REPAIR" => Some(Self::NeedsRepair),
-                _ => None,
-            }
-        }
-    }
-}
 /// A Cloud Firestore Database.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -653,6 +342,317 @@ pub mod database {
                 "DELETE_PROTECTION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
                 "DELETE_PROTECTION_DISABLED" => Some(Self::DeleteProtectionDisabled),
                 "DELETE_PROTECTION_ENABLED" => Some(Self::DeleteProtectionEnabled),
+                _ => None,
+            }
+        }
+    }
+}
+/// Cloud Firestore indexes enable simple and complex queries against
+/// documents in a database.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Index {
+    /// Output only. A server defined name for this index.
+    /// The form of this name for composite indexes will be:
+    /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{composite_index_id}`
+    /// For single field indexes, this field will be empty.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Indexes with a collection query scope specified allow queries
+    /// against a collection that is the child of a specific document, specified at
+    /// query time, and that has the same collection id.
+    ///
+    /// Indexes with a collection group query scope specified allow queries against
+    /// all collections descended from a specific document, specified at query
+    /// time, and that have the same collection id as this index.
+    #[prost(enumeration = "index::QueryScope", tag = "2")]
+    pub query_scope: i32,
+    /// The API scope supported by this index.
+    #[prost(enumeration = "index::ApiScope", tag = "5")]
+    pub api_scope: i32,
+    /// The fields supported by this index.
+    ///
+    /// For composite indexes, this requires a minimum of 2 and a maximum of 100
+    /// fields. The last field entry is always for the field path `__name__`. If,
+    /// on creation, `__name__` was not specified as the last field, it will be
+    /// added automatically with the same direction as that of the last field
+    /// defined. If the final field in a composite index is not directional, the
+    /// `__name__` will be ordered ASCENDING (unless explicitly specified).
+    ///
+    /// For single field indexes, this will always be exactly one entry with a
+    /// field path equal to the field path of the associated field.
+    #[prost(message, repeated, tag = "3")]
+    pub fields: ::prost::alloc::vec::Vec<index::IndexField>,
+    /// Output only. The serving state of the index.
+    #[prost(enumeration = "index::State", tag = "4")]
+    pub state: i32,
+}
+/// Nested message and enum types in `Index`.
+pub mod index {
+    /// A field in an index.
+    /// The field_path describes which field is indexed, the value_mode describes
+    /// how the field value is indexed.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IndexField {
+        /// Can be __name__.
+        /// For single field indexes, this must match the name of the field or may
+        /// be omitted.
+        #[prost(string, tag = "1")]
+        pub field_path: ::prost::alloc::string::String,
+        /// How the field value is indexed.
+        #[prost(oneof = "index_field::ValueMode", tags = "2, 3")]
+        pub value_mode: ::core::option::Option<index_field::ValueMode>,
+    }
+    /// Nested message and enum types in `IndexField`.
+    pub mod index_field {
+        /// The supported orderings.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum Order {
+            /// The ordering is unspecified. Not a valid option.
+            Unspecified = 0,
+            /// The field is ordered by ascending field value.
+            Ascending = 1,
+            /// The field is ordered by descending field value.
+            Descending = 2,
+        }
+        impl Order {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    Order::Unspecified => "ORDER_UNSPECIFIED",
+                    Order::Ascending => "ASCENDING",
+                    Order::Descending => "DESCENDING",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "ORDER_UNSPECIFIED" => Some(Self::Unspecified),
+                    "ASCENDING" => Some(Self::Ascending),
+                    "DESCENDING" => Some(Self::Descending),
+                    _ => None,
+                }
+            }
+        }
+        /// The supported array value configurations.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum ArrayConfig {
+            /// The index does not support additional array queries.
+            Unspecified = 0,
+            /// The index supports array containment queries.
+            Contains = 1,
+        }
+        impl ArrayConfig {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    ArrayConfig::Unspecified => "ARRAY_CONFIG_UNSPECIFIED",
+                    ArrayConfig::Contains => "CONTAINS",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "ARRAY_CONFIG_UNSPECIFIED" => Some(Self::Unspecified),
+                    "CONTAINS" => Some(Self::Contains),
+                    _ => None,
+                }
+            }
+        }
+        /// How the field value is indexed.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum ValueMode {
+            /// Indicates that this field supports ordering by the specified order or
+            /// comparing using =, !=, <, <=, >, >=.
+            #[prost(enumeration = "Order", tag = "2")]
+            Order(i32),
+            /// Indicates that this field supports operations on `array_value`s.
+            #[prost(enumeration = "ArrayConfig", tag = "3")]
+            ArrayConfig(i32),
+        }
+    }
+    /// Query Scope defines the scope at which a query is run. This is specified on
+    /// a StructuredQuery's `from` field.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum QueryScope {
+        /// The query scope is unspecified. Not a valid option.
+        Unspecified = 0,
+        /// Indexes with a collection query scope specified allow queries
+        /// against a collection that is the child of a specific document, specified
+        /// at query time, and that has the collection id specified by the index.
+        Collection = 1,
+        /// Indexes with a collection group query scope specified allow queries
+        /// against all collections that has the collection id specified by the
+        /// index.
+        CollectionGroup = 2,
+        /// Include all the collections's ancestor in the index. Only available for
+        /// Datastore Mode databases.
+        CollectionRecursive = 3,
+    }
+    impl QueryScope {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                QueryScope::Unspecified => "QUERY_SCOPE_UNSPECIFIED",
+                QueryScope::Collection => "COLLECTION",
+                QueryScope::CollectionGroup => "COLLECTION_GROUP",
+                QueryScope::CollectionRecursive => "COLLECTION_RECURSIVE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "QUERY_SCOPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "COLLECTION" => Some(Self::Collection),
+                "COLLECTION_GROUP" => Some(Self::CollectionGroup),
+                "COLLECTION_RECURSIVE" => Some(Self::CollectionRecursive),
+                _ => None,
+            }
+        }
+    }
+    /// API Scope defines the APIs (Firestore Native, or Firestore in
+    /// Datastore Mode) that are supported for queries.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ApiScope {
+        /// The index can only be used by the Firestore Native query API.
+        /// This is the default.
+        AnyApi = 0,
+        /// The index can only be used by the Firestore in Datastore Mode query API.
+        DatastoreModeApi = 1,
+    }
+    impl ApiScope {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ApiScope::AnyApi => "ANY_API",
+                ApiScope::DatastoreModeApi => "DATASTORE_MODE_API",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ANY_API" => Some(Self::AnyApi),
+                "DATASTORE_MODE_API" => Some(Self::DatastoreModeApi),
+                _ => None,
+            }
+        }
+    }
+    /// The state of an index. During index creation, an index will be in the
+    /// `CREATING` state. If the index is created successfully, it will transition
+    /// to the `READY` state. If the index creation encounters a problem, the index
+    /// will transition to the `NEEDS_REPAIR` state.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The state is unspecified.
+        Unspecified = 0,
+        /// The index is being created.
+        /// There is an active long-running operation for the index.
+        /// The index is updated when writing a document.
+        /// Some index data may exist.
+        Creating = 1,
+        /// The index is ready to be used.
+        /// The index is updated when writing a document.
+        /// The index is fully populated from all stored documents it applies to.
+        Ready = 2,
+        /// The index was being created, but something went wrong.
+        /// There is no active long-running operation for the index,
+        /// and the most recently finished long-running operation failed.
+        /// The index is not updated when writing a document.
+        /// Some index data may exist.
+        /// Use the google.longrunning.Operations API to determine why the operation
+        /// that last attempted to create this index failed, then re-create the
+        /// index.
+        NeedsRepair = 3,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Ready => "READY",
+                State::NeedsRepair => "NEEDS_REPAIR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "READY" => Some(Self::Ready),
+                "NEEDS_REPAIR" => Some(Self::NeedsRepair),
                 _ => None,
             }
         }
@@ -1131,6 +1131,11 @@ pub mod field {
         }
     }
 }
+/// The metadata message for
+/// [google.cloud.location.Location.metadata][google.cloud.location.Location.metadata].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LocationMetadata {}
 /// A request to list the Firestore Databases in all locations for a project.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1996,8 +2001,3 @@ pub mod firestore_admin_client {
         }
     }
 }
-/// The metadata message for
-/// [google.cloud.location.Location.metadata][google.cloud.location.Location.metadata].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LocationMetadata {}
