@@ -1046,6 +1046,24 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
+<span class="doccomment">/// The metadata for the address. `metadata` is not guaranteed to be fully
+/// populated for every address sent to the Address Validation API.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AddressMetadata {
+    <span class="doccomment">/// Indicates that this is the address of a business.
+    /// If unset, indicates that the value is unknown.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>business: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Indicates that the address of a PO box.
+    /// If unset, indicates that the value is unknown.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>po_box: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Indicates that this is the address of a residence.
+    /// If unset, indicates that the value is unknown.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>residential: ::core::option::Option&lt;bool&gt;,
+}
 <span class="doccomment">/// Contains information about the place the input was geocoded to.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1100,24 +1118,6 @@
     /// name of a reference entity.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>compound_code: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The metadata for the address. `metadata` is not guaranteed to be fully
-/// populated for every address sent to the Address Validation API.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AddressMetadata {
-    <span class="doccomment">/// Indicates that this is the address of a business.
-    /// If unset, indicates that the value is unknown.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>business: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Indicates that the address of a PO box.
-    /// If unset, indicates that the value is unknown.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>po_box: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Indicates that this is the address of a residence.
-    /// If unset, indicates that the value is unknown.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>residential: ::core::option::Option&lt;bool&gt;,
 }
 <span class="doccomment">/// USPS representation of a US address.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
