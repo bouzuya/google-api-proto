@@ -163,24 +163,6 @@ pub struct ComponentName {
     #[prost(string, tag = "2")]
     pub language_code: ::prost::alloc::string::String,
 }
-/// The metadata for the address. `metadata` is not guaranteed to be fully
-/// populated for every address sent to the Address Validation API.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AddressMetadata {
-    /// Indicates that this is the address of a business.
-    /// If unset, indicates that the value is unknown.
-    #[prost(bool, optional, tag = "2")]
-    pub business: ::core::option::Option<bool>,
-    /// Indicates that the address of a PO box.
-    /// If unset, indicates that the value is unknown.
-    #[prost(bool, optional, tag = "3")]
-    pub po_box: ::core::option::Option<bool>,
-    /// Indicates that this is the address of a residence.
-    /// If unset, indicates that the value is unknown.
-    #[prost(bool, optional, tag = "6")]
-    pub residential: ::core::option::Option<bool>,
-}
 /// Contains information about the place the input was geocoded to.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -235,6 +217,24 @@ pub struct PlusCode {
     /// name of a reference entity.
     #[prost(string, tag = "2")]
     pub compound_code: ::prost::alloc::string::String,
+}
+/// The metadata for the address. `metadata` is not guaranteed to be fully
+/// populated for every address sent to the Address Validation API.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AddressMetadata {
+    /// Indicates that this is the address of a business.
+    /// If unset, indicates that the value is unknown.
+    #[prost(bool, optional, tag = "2")]
+    pub business: ::core::option::Option<bool>,
+    /// Indicates that the address of a PO box.
+    /// If unset, indicates that the value is unknown.
+    #[prost(bool, optional, tag = "3")]
+    pub po_box: ::core::option::Option<bool>,
+    /// Indicates that this is the address of a residence.
+    /// If unset, indicates that the value is unknown.
+    #[prost(bool, optional, tag = "6")]
+    pub residential: ::core::option::Option<bool>,
 }
 /// USPS representation of a US address.
 #[allow(clippy::derive_partial_eq_without_eq)]

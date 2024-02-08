@@ -1,40 +1,3 @@
-/// The history state for messages and spaces. Specifies how long messages and
-/// conversation threads are kept after creation.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum HistoryState {
-    /// Default value. Do not use.
-    Unspecified = 0,
-    /// History off. [Messages and threads are kept for 24
-    /// hours](<https://support.google.com/chat/answer/7664687>).
-    HistoryOff = 1,
-    /// History on. The organization's [Vault retention
-    /// rules](<https://support.google.com/vault/answer/7657597>) specify for
-    /// how long messages and threads are kept.
-    HistoryOn = 2,
-}
-impl HistoryState {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            HistoryState::Unspecified => "HISTORY_STATE_UNSPECIFIED",
-            HistoryState::HistoryOff => "HISTORY_OFF",
-            HistoryState::HistoryOn => "HISTORY_ON",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "HISTORY_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-            "HISTORY_OFF" => Some(Self::HistoryOff),
-            "HISTORY_ON" => Some(Self::HistoryOn),
-            _ => None,
-        }
-    }
-}
 /// An attachment in Google Chat.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1568,6 +1531,43 @@ pub struct SlashCommand {
     /// The ID of the slash command invoked.
     #[prost(int64, tag = "1")]
     pub command_id: i64,
+}
+/// The history state for messages and spaces. Specifies how long messages and
+/// conversation threads are kept after creation.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum HistoryState {
+    /// Default value. Do not use.
+    Unspecified = 0,
+    /// History off. [Messages and threads are kept for 24
+    /// hours](<https://support.google.com/chat/answer/7664687>).
+    HistoryOff = 1,
+    /// History on. The organization's [Vault retention
+    /// rules](<https://support.google.com/vault/answer/7657597>) specify for
+    /// how long messages and threads are kept.
+    HistoryOn = 2,
+}
+impl HistoryState {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            HistoryState::Unspecified => "HISTORY_STATE_UNSPECIFIED",
+            HistoryState::HistoryOff => "HISTORY_OFF",
+            HistoryState::HistoryOn => "HISTORY_ON",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "HISTORY_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+            "HISTORY_OFF" => Some(Self::HistoryOff),
+            "HISTORY_ON" => Some(Self::HistoryOn),
+            _ => None,
+        }
+    }
 }
 /// A space in Google Chat. Spaces are conversations between two or more users
 /// or 1:1 messages between a user and a Chat app.
